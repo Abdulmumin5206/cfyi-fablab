@@ -46,11 +46,33 @@ const slides: HeroSlide[] = [
 ];
 
 const HeroSection = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [direction, setDirection] = useState("right");
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [currentX, setCurrentX] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  // Helper function to get visual position of slides
+  const getSlidePosition = (index: number) => {
+    // Get normalized index for the original slide array
+    const normalizedIndex = ((index % slides.length) + slides.length) % slides.length;
+    
+    // Get visual positions based on active index
+    if (normalizedIndex === activeIndex) return "center";
+    
+    // For infinite loop effect, we need to calculate whether a slide is 
+    // visually before or after the active slide
+    const slidesBefore = direction === "right" ? 
+      (activeIndex + slides.length - normalizedIndex) % slides.length :
+      (normalizedIndex + slides.length - activeIndex) % slides.length;
+      
+    const slidesAfter = direction === "right" ? 
+      (normalizedIndex + slides.length - activeIndex) % slides.length :
+      (activeIndex + slides.length - normalizedIndex) % slides.length;
+    
+    return slidesBefore <= slidesAfter ? "before" : "after";
+  };
 
   const handleStart = (clientX: number) => {
     setIsDragging(true);
@@ -70,10 +92,12 @@ const HeroSection = () => {
     if (Math.abs(diff) > 50) { // Minimum drag distance to trigger slide change
       if (diff > 0) {
         // Dragged left, go to next slide
-        setCurrentSlide((prev) => (prev + 1) % slides.length);
+        setDirection("right");
+        setActiveIndex((prev) => (prev + 1) % slides.length);
       } else {
         // Dragged right, go to previous slide
-        setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+        setDirection("left");
+        setActiveIndex((prev) => (prev - 1 + slides.length) % slides.length);
       }
     }
     
@@ -103,16 +127,30 @@ const HeroSection = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       if (!isDragging) {
-        setCurrentSlide((prev) => (prev + 1) % slides.length);
+        setDirection("right");
+        setActiveIndex((prev) => (prev + 1) % slides.length);
       }
     }, 8000);
 
     return () => clearInterval(interval);
   }, [isDragging]);
 
+  // Create a clone of slides with appropriate indices for rendering
+  const renderSlides = () => {
+    const currentIndex = activeIndex;
+    const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
+    const nextIndex = (currentIndex + 1) % slides.length;
+    
+    return [
+      { ...slides[prevIndex], position: "before" },
+      { ...slides[currentIndex], position: "center" },
+      { ...slides[nextIndex], position: "after" }
+    ];
+  };
+
   return (
     <section 
-      className="relative h-screen w-full overflow-hidden"
+      className="relative h-screen w-full overflow-hidden bg-black"
       ref={containerRef}
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
@@ -122,36 +160,24 @@ const HeroSection = () => {
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
-      <div className="absolute inset-0">
-        {slides.map((slide, index) => (
-          <div
-            key={slide.id}
-            className={`absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out ${
-              slide.background
-            } ${
-              index === currentSlide
-                ? "translate-x-0 opacity-100"
-                : index < currentSlide
-                ? "-translate-x-full opacity-0"
-                : "translate-x-full opacity-0"
-            }`}
-          />
-        ))}
-      </div>
-
-      <div className="relative h-full flex items-center">
-        <div className="container mx-auto px-4 md:px-8">
-          {slides.map((slide, index) => (
-            <div
-              key={slide.id}
-              className={`transition-all duration-1000 ease-in-out ${
-                index === currentSlide
-                  ? "opacity-100 translate-x-0"
-                  : index < currentSlide
-                  ? "opacity-0 -translate-x-full pointer-events-none absolute"
-                  : "opacity-0 translate-x-full pointer-events-none absolute"
-              }`}
-            >
+      {/* Slides */}
+      {renderSlides().map((slide) => (
+        <div
+          key={slide.id}
+          className={`absolute inset-0 transition-transform duration-1000 ease-in-out ${
+            slide.position === "center"
+              ? "translate-x-0 z-20"
+              : slide.position === "before"
+              ? "-translate-x-full z-10"
+              : "translate-x-full z-10"
+          }`}
+        >
+          {/* Background image */}
+          <div className={`absolute inset-0 bg-cover bg-center ${slide.background}`} />
+          
+          {/* Content overlay */}
+          <div className="absolute inset-0 flex items-center">
+            <div className="container mx-auto px-4 md:px-8">
               <h1 className="text-4xl md:text-6xl text-white font-bold mb-4 max-w-3xl">
                 {slide.title}
               </h1>
@@ -166,18 +192,21 @@ const HeroSection = () => {
                 <ArrowRight size={16} />
               </a>
             </div>
-          ))}
+          </div>
         </div>
-      </div>
+      ))}
 
       {/* Slide indicators */}
-      <div className="absolute bottom-8 left-0 right-0 flex justify-center space-x-2">
+      <div className="absolute bottom-8 left-0 right-0 flex justify-center space-x-2 z-30">
         {slides.map((_, index) => (
           <button
             key={index}
-            onClick={() => setCurrentSlide(index)}
+            onClick={() => {
+              setDirection(index > activeIndex ? "right" : "left");
+              setActiveIndex(index);
+            }}
             className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === currentSlide ? "bg-white" : "bg-white/50"
+              index === activeIndex ? "bg-white" : "bg-white/50"
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />

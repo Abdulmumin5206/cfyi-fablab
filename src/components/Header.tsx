@@ -11,72 +11,89 @@ import {
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.scrollY;
+      
+      // Show header when scrolling up, hide when scrolling down
+      setIsVisible(prevScrollPos > currentScrollPos || currentScrollPos < 10);
+      // Set scrolled state when not at top
+      setIsScrolled(currentScrollPos > 10);
+      
+      setPrevScrollPos(currentScrollPos);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [prevScrollPos]);
 
   return (
-    <header className="w-full absolute top-0 left-0 z-50">
-      <div className="container mx-auto flex justify-between items-center py-4 px-4 md:px-8">
-        <Link to="/" className="mr-8">
-          <div className="text-2xl font-bold text-white">
-            Think<span className="text-sm">:</span>
-            <span className="text-sm font-normal">Group</span>
-          </div>
-        </Link>
+    <header className={`w-full fixed top-0 left-0 z-50 transition-all duration-300 ease-in-out ${
+      isVisible ? 'translate-y-0 opacity-100' : '-translate-y-[100%] opacity-0'
+    }`}>
+      {/* White background container for logo side */}
+      <div className={`absolute top-0 left-0 h-full bg-white transition-opacity duration-500 ease-in-out ${
+        isScrolled ? 'opacity-100 w-[45%]' : 'opacity-0 w-[45%]'
+      } py-16`}></div>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center">
-          <div className="flex items-center bg-white px-8 py-2 absolute top-0 right-0 h-full z-50">
-            <div className="flex items-center space-x-8">
-              <NavigationMenu className="relative">
-                <NavigationMenuList>
-                  <NavigationMenuItem>
-                    <NavigationMenuTrigger className="text-base font-normal text-black bg-white hover:bg-gray-50 group">
-                      All Products
-                    </NavigationMenuTrigger>
-                    <div className="absolute left-0 top-[100%] w-full bg-white px-8 py-8 hidden group-hover:block z-40" style={{ width: 'calc(100vw - ((100vw - 1280px) / 2))' }}>
-                      <div className="flex justify-between items-center">
-                        <div className="text-2xl text-black">Fibres & Fillings</div>
-                        <div className="text-2xl text-black">Non-Wovens</div>
-                        <div className="text-2xl text-black">Textile Engineering</div>
-                      </div>
+      <div className="relative w-full">
+        <div className="container mx-auto flex justify-between items-center py-4 px-0">
+          {/* Logo */}
+          <div className="h-20 w-auto z-50 -ml-16 md:-ml-24 mt-2">
+            <img
+              src="/fablab/logo.png"
+              alt="FabLab Logo"
+              className="h-full w-auto object-contain"
+            />
+          </div>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:block">
+            <div className="absolute top-0 right-0 h-full bg-white py-16">
+              <div className="flex items-center h-full px-24">
+                <div className="flex items-center space-x-12">
+                  <Link to="/" className="text-black hover:text-brand-red text-base">All Products</Link>
+                  <div className="flex items-center space-x-12">
+                    <Link to="/" className="text-black hover:text-brand-red text-base">Markets</Link>
+                    <Link to="/" className="text-black hover:text-brand-red text-base">Brands</Link>
+                    <Link to="/" className="text-black hover:text-brand-red text-base">Sustainability</Link>
+                    <Link to="/" className="text-black hover:text-brand-red text-base">Projects</Link>
+                    <Link to="/" className="text-black hover:text-brand-red text-base">Our Story</Link>
+                    <Link to="/" className="bg-[#E6DB00] text-black px-8 py-5 text-base">
+                      Product Finder
+                    </Link>
+                    <div className="border-l border-gray-200 pl-9">
+                      <button
+                        className="flex items-center justify-center"
+                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                      >
+                        <span className="flex items-center space-x-2 border border-black px-3 py-4">
+                          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                          <span className="text-base">Menu</span>
+                        </span>
+                      </button>
                     </div>
-                  </NavigationMenuItem>
-                </NavigationMenuList>
-              </NavigationMenu>
-              <div className="flex items-center space-x-8">
-                <Link to="/" className="text-black hover:text-brand-red">Markets</Link>
-                <Link to="/" className="text-black hover:text-brand-red">Brands</Link>
-                <Link to="/" className="text-black hover:text-brand-red">Sustainability</Link>
-                <Link to="/" className="text-black hover:text-brand-red">Projects</Link>
-                <Link to="/" className="text-black hover:text-brand-red">Our Story</Link>
-                <Link to="/" className="bg-[#E6DB00] text-black px-6 py-2">
-                  Product Finder
-                </Link>
-                <div className="border-l border-gray-200 pl-8">
-                  <button
-                    className="flex items-center justify-center"
-                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                  >
-                    <span className="flex items-center space-x-1 border border-black px-2 py-1">
-                      {isMobileMenuOpen ? <X size={16} /> : <Menu size={16} />}
-                      <span className="text-sm">Menu</span>
-                    </span>
-                  </button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </nav>
+          </nav>
 
-        {/* Mobile menu button - only show on mobile */}
-        <button
-          className="md:hidden flex items-center justify-center p-2"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          <span className="flex items-center space-x-1 border border-black px-2 py-1">
-            {isMobileMenuOpen ? <X size={16} /> : <Menu size={16} />}
-            <span className="text-sm">Menu</span>
-          </span>
-        </button>
+          {/* Mobile menu button - only show on mobile */}
+          <button
+            className="md:hidden flex items-center justify-center p-2"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            <span className="flex items-center space-x-1 border border-black px-2 py-1">
+              {isMobileMenuOpen ? <X size={16} /> : <Menu size={16} />}
+              <span className="text-sm">Menu</span>
+            </span>
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}

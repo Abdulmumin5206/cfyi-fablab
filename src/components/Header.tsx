@@ -67,7 +67,28 @@ const Header = () => {
             <div className="absolute top-0 right-0 h-full bg-white py-16">
               <div className="flex items-center h-full px-24">
                 <div className="flex items-center space-x-12">
-                  <Link to="/" className="text-black hover:text-brand-red text-base">All Products</Link>
+                  <div className="relative group">
+                    <Link to="/" className="text-black hover:text-brand-red text-base flex items-center">
+                      All Products
+                      <ChevronDown className="ml-1 h-4 w-4" />
+                    </Link>
+                    <div className="absolute opacity-0 invisible group-hover:opacity-100 group-hover:visible flex top-[75px] -left-24 right-[-1200px] bg-gray-100 shadow-lg z-50 transition-all duration-300 ease-in-out transform origin-top scale-95 group-hover:scale-100 hover:opacity-100 hover:visible delay-100">
+                      <div className="w-full h-full absolute inset-0 -m-4">
+                        {/* Invisible padding area to increase hover space */}
+                      </div>
+                      <div className="container mx-auto grid grid-cols-3 gap-8">
+                        <Link to="/" className="flex items-center justify-center text-2xl font-normal hover:bg-white transition-colors duration-300 h-[88px]">
+                          Fibres & Fillings
+                        </Link>
+                        <Link to="/" className="flex items-center justify-center text-2xl font-normal hover:bg-white transition-colors duration-300 h-[88px]">
+                          Non-Wovens
+                        </Link>
+                        <Link to="/" className="flex items-center justify-center text-2xl font-normal hover:bg-white transition-colors duration-300 h-[88px]">
+                          Textile Engineering
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
                   <div className="flex items-center space-x-12">
                     <Link to="/" className="text-black hover:text-brand-red text-base">Markets</Link>
                     <Link to="/" className="text-black hover:text-brand-red text-base">Brands</Link>

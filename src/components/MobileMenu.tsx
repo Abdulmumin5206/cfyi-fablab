@@ -37,7 +37,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-8 text-white">
+        <div className="grid grid-cols-2 gap-8 p-8 text-white">
           <div className="space-y-6">
             <Link to="/" className="block text-3xl hover:text-[#E6DB00]">All Products</Link>
             <Link to="/" className="block text-3xl hover:text-[#E6DB00]">Markets</Link>

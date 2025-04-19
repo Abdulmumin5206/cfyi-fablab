@@ -1,3 +1,4 @@
+
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
@@ -6,6 +7,7 @@ import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
+  NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
@@ -84,9 +86,9 @@ const Header = () => {
             Product Finder
           </Link>
 
-          {/* Menu button - now visible on both mobile and desktop */}
+          {/* Mobile menu button */}
           <button
-            className="flex items-center justify-center p-2"
+            className="md:hidden flex items-center justify-center p-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             <span className="flex items-center space-x-1 border border-black px-2 py-1">
@@ -97,7 +99,7 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Menu - now works for both mobile and desktop */}
+      {/* Mobile Menu */}
       <MobileMenu isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)} />
     </header>
   );

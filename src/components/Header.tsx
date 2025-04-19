@@ -31,8 +31,19 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [prevScrollPos]);
 
+  const handleMenuToggle = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+    // Prevent body scroll when menu is open
+    document.body.style.overflow = !isMobileMenuOpen ? 'hidden' : '';
+  };
+
+  const handleMenuClose = () => {
+    setIsMobileMenuOpen(false);
+    document.body.style.overflow = '';
+  };
+
   return (
-    <header className={`w-full fixed top-0 left-0 z-50 transition-all duration-300 ease-in-out ${
+    <header className={`w-full fixed top-0 left-0 z-40 transition-all duration-300 ease-in-out ${
       isVisible ? 'translate-y-0 opacity-100' : '-translate-y-[100%] opacity-0'
     }`}>
       {/* White background container for logo side */}
@@ -68,8 +79,8 @@ const Header = () => {
                     </Link>
                     <div className="border-l border-gray-200 pl-9">
                       <button
-                        className="flex items-center justify-center"
-                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                        className="flex items-center justify-center hover:opacity-75 transition-opacity"
+                        onClick={handleMenuToggle}
                       >
                         <span className="flex items-center space-x-2 border border-black px-3 py-4">
                           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -86,7 +97,7 @@ const Header = () => {
           {/* Mobile menu button - only show on mobile */}
           <button
             className="md:hidden flex items-center justify-center p-2"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            onClick={handleMenuToggle}
           >
             <span className="flex items-center space-x-1 border border-black px-2 py-1">
               {isMobileMenuOpen ? <X size={16} /> : <Menu size={16} />}
@@ -97,7 +108,7 @@ const Header = () => {
       </div>
 
       {/* Mobile Menu */}
-      <MobileMenu isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)} />
+      <MobileMenu isOpen={isMobileMenuOpen} onClose={handleMenuClose} />
     </header>
   );
 };

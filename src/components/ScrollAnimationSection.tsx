@@ -1,78 +1,179 @@
-
 import { useEffect, useRef, useState } from "react";
+import { ArrowRight, ArrowLeft } from "lucide-react";
+
+interface MarketCategory {
+  id: string;
+  title: string;
+  image: string;
+}
+
+const marketCategories: MarketCategory[] = [
+  {
+    id: "toys",
+    title: "Toys",
+    image: "/fablab/1.jpg",
+  },
+  {
+    id: "outdoor-living",
+    title: "Outdoor\nLiving",
+    image: "/fablab/3.jpg",
+  },
+  {
+    id: "filtration",
+    title: "Filtration",
+    image: "/fablab/11.jpg",
+  },
+  {
+    id: "transport",
+    title: "Transport",
+    image: "/fablab/13.jpg",
+  },
+  {
+    id: "automotive",
+    title: "Automotive",
+    image: "/fablab/14.jpg",
+  }
+];
 
 const ScrollAnimationSection = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const mobileScrollRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!sectionRef.current) return;
-      
-      const { top, height } = sectionRef.current.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-      
-      // Calculate how far into the section we've scrolled (0 to 1)
-      let progress = 0;
-      
-      if (top < windowHeight && top > -height) {
-        // Section is visible
-        progress = Math.min(Math.max((windowHeight - top) / (windowHeight + height), 0), 1);
-      } else if (top <= -height) {
-        // Section is completely scrolled past
-        progress = 1;
-      }
-      
-      setScrollProgress(progress);
-    };
+  const nextSlide = () => {
+    if (mobileScrollRef.current) {
+      mobileScrollRef.current.scrollBy({ left: mobileScrollRef.current.offsetWidth * 0.85, behavior: 'smooth' });
+    }
+    setCurrentIndex((prevIndex) => 
+      prevIndex === marketCategories.length - 1 ? 0 : prevIndex + 1
+    );
+  };
 
-    window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Initial check
-    
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  const prevSlide = () => {
+    if (mobileScrollRef.current) {
+      mobileScrollRef.current.scrollBy({ left: -mobileScrollRef.current.offsetWidth * 0.85, behavior: 'smooth' });
+    }
+    setCurrentIndex((prevIndex) => 
+      prevIndex === 0 ? marketCategories.length - 1 : prevIndex - 1
+    );
+  };
+
+  const visibleCategories = [
+    marketCategories[currentIndex],
+    marketCategories[(currentIndex + 1) % marketCategories.length],
+    marketCategories[(currentIndex + 2) % marketCategories.length],
+    marketCategories[(currentIndex + 3) % marketCategories.length],
+    marketCategories[(currentIndex + 4) % marketCategories.length]
+  ];
 
   return (
-    <section ref={sectionRef} className="py-24 bg-white overflow-hidden">
-      <div className="container mx-auto px-4 md:px-8">
-        <div className="relative">
-          <h2 className="text-4xl md:text-5xl font-bold mb-16 relative">
-            Fibres, Fillings & Non-Wovens
-            <span
-              className="absolute -bottom-2 left-0 h-1 bg-black transition-all duration-700 ease-out"
-              style={{ width: `${scrollProgress * 100}%` }}
-            ></span>
-          </h2>
+    <section ref={sectionRef} className="py-24 bg-black text-white overflow-hidden">
+      <div className="container mx-auto px-6 md:px-12 lg:px-16">
+        <h2 className="text-4xl md:text-6xl font-bold mb-16">
+          Innovating Markets
+        </h2>
+
+        {/* Mobile Layout */}
+        <div className="lg:hidden relative">
+          <div 
+            ref={mobileScrollRef}
+            className="flex overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+            style={{ scrollSnapType: 'x mandatory' }}
+          >
+            {marketCategories.map((category, index) => (
+              <div
+                key={`${category.id}-${index}-mobile`}
+                className="flex-none w-[85%] mr-6"
+                style={{ scrollSnapAlign: 'start' }}
+              >
+                <div className="relative h-[400px]">
+                  <img
+                    src={category.image}
+                    alt={category.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <h3 className="text-4xl font-bold mb-6 whitespace-pre-line">{category.title}</h3>
+                    <button className="border border-white text-white px-6 py-2">
+                      More Details
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Mobile Navigation Buttons */}
+          <button
+            onClick={prevSlide}
+            className="absolute left-2 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full z-10"
+            aria-label="Previous slide"
+          >
+            <ArrowLeft size={16} className="text-black" />
+          </button>
+          
+          <button
+            onClick={nextSlide}
+            className="absolute right-2 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full z-10"
+            aria-label="Next slide"
+          >
+            <ArrowRight size={16} className="text-black" />
+          </button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          {[1, 2, 3].map((item) => (
-            <div
-              key={item}
-              className="relative overflow-hidden"
-              style={{
-                transform: `translateY(${Math.max(0, 1 - scrollProgress * 1.5) * 100}px)`,
-                opacity: scrollProgress * 1.5 > 0.5 ? 1 : scrollProgress * 1.5 * 2,
-                transition: "transform 0.5s ease-out, opacity 0.8s ease-out",
-              }}
-            >
-              <div className="h-64 bg-gray-200 mb-4 overflow-hidden">
-                <div
-                  className="w-full h-full bg-black"
-                  style={{
-                    clipPath: `inset(0 ${100 - scrollProgress * 120}% 0 0)`,
-                    transition: "clip-path 1s ease-out",
-                  }}
-                ></div>
+        {/* Desktop Layout */}
+        <div className="hidden lg:block relative">
+          <div className="grid grid-cols-4 gap-6 mr-24">
+            {visibleCategories.slice(0, 4).map((category, index) => (
+              <div
+                key={`${category.id}-${index}`}
+                className="relative group"
+              >
+                <div className="relative h-[400px] overflow-hidden">
+                  <img
+                    src={category.image}
+                    alt={category.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <h3 className="text-4xl font-bold mb-6 whitespace-pre-line">{category.title}</h3>
+                    <button className="border border-white text-white px-6 py-2">
+                      More Details
+                    </button>
+                  </div>
+                </div>
               </div>
-              <h3 className="text-2xl font-bold mb-2">Product Category {item}</h3>
-              <p className="text-gray-700">
-                Innovative solutions that transform industries and create sustainable futures.
-              </p>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          {/* Peek of next image - Desktop only */}
+          <div className="block absolute top-0 -right-6 w-24 h-[400px] opacity-60">
+            <img
+              src={visibleCategories[4].image}
+              alt={visibleCategories[4].title}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+          </div>
+
+          {/* Navigation Buttons - Desktop */}
+          <button
+            onClick={prevSlide}
+            className="absolute left-4 top-1/2 -translate-y-1/2 bg-white p-4 rounded-full z-10"
+            aria-label="Previous slide"
+          >
+            <ArrowLeft size={24} className="text-black" />
+          </button>
+          
+          <button
+            onClick={nextSlide}
+            className="absolute -right-2 top-1/2 -translate-y-1/2 bg-white p-4 rounded-full z-10"
+            aria-label="Next slide"
+          >
+            <ArrowRight size={24} className="text-black" />
+          </button>
         </div>
       </div>
     </section>

@@ -13,10 +13,10 @@ const Index = () => {
       <Header />
       <main>
         <HeroSection />
+        <AboutSection />
         <ProductSlider />
         <ScrollAnimationSection />
         <ProductCategories />
-        <AboutSection />
         <QuoteSection />
       </main>
       <Footer />

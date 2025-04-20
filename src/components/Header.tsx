@@ -47,7 +47,7 @@ const Header = () => {
       isVisible ? 'translate-y-0 opacity-100' : '-translate-y-[100%] opacity-0'
     }`}>
       {/* White background container for logo side */}
-      <div className={`absolute top-0 left-0 h-[105px] bg-white transition-opacity duration-500 ease-in-out ${
+      <div className={`absolute top-0 left-0 h-[105px] bg-white transition-opacity duration-500 ease-in-out hidden md:block ${
         isScrolled ? 'opacity-100 w-[35%]' : 'opacity-0 w-[35%]'
       }`}></div>
 
@@ -63,7 +63,7 @@ const Header = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="absolute top-0 right-0 h-[105px] bg-white w-[65%]">
+          <div className="absolute top-0 right-0 h-[105px] bg-white w-[65%] hidden md:block">
             <div className="flex items-center justify-end h-full px-8 md:px-12">
               <div className="flex items-center space-x-6 md:space-x-8">
                 <div className="relative group">
@@ -88,7 +88,7 @@ const Header = () => {
                     </div>
                   </div>
                 </div>
-                <div className="flex items-center space-x-6 md:space-x-8">
+                <div className="hidden md:flex items-center space-x-6 md:space-x-8">
                   <Link to="/" className="text-black hover:text-brand-red text-base whitespace-nowrap">Markets</Link>
                   <Link to="/" className="text-black hover:text-brand-red text-base whitespace-nowrap">Brands</Link>
                   <Link to="/" className="text-black hover:text-brand-red text-base whitespace-nowrap">Sustainability</Link>
@@ -113,15 +113,17 @@ const Header = () => {
           </div>
 
           {/* Mobile menu button - only show on mobile */}
-          <button
-            className="md:hidden flex items-center justify-center p-2"
-            onClick={handleMenuToggle}
-          >
-            <span className="flex items-center space-x-1 border border-black px-2 py-1">
-              {isMobileMenuOpen ? <X size={16} /> : <Menu size={16} />}
-              <span className="text-sm">Menu</span>
-            </span>
-          </button>
+          <div className="md:hidden absolute right-0 top-0 h-[105px] flex items-center justify-end pr-4">
+            <button
+              className="flex items-center justify-center"
+              onClick={handleMenuToggle}
+            >
+              <span className="flex items-center space-x-2 border border-black px-2 py-3">
+                {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                <span className="text-base whitespace-nowrap">Menu</span>
+              </span>
+            </button>
+          </div>
         </div>
       </div>
 

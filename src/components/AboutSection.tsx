@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from "react";
 
 interface AboutCard {
@@ -47,6 +46,7 @@ const cards: AboutCard[] = [
 
 const AboutSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -80,7 +80,38 @@ const AboutSection = () => {
           A Heritage of Adaption and Innovation
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Mobile Layout */}
+        <div className="lg:hidden">
+          <div 
+            ref={scrollRef}
+            className="flex overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+            style={{ scrollSnapType: 'x mandatory' }}
+          >
+            {cards.map((card, index) => (
+              <div
+                key={card.id}
+                className="flex-none w-[85%] mr-6 snap-start"
+              >
+                <div className="bg-white p-8">
+                  <div className="flex flex-col h-full">
+                    <div className={`w-8 h-8 ${card.accentColor} mb-6`}></div>
+                    <h3 className="text-2xl font-bold mb-4">{card.title}</h3>
+                    <p className="mb-6 flex-grow">{card.content}</p>
+                    <a
+                      href={card.buttonLink}
+                      className="inline-flex items-center space-x-1 border border-black py-2 px-4 hover:bg-black hover:text-white transition-colors"
+                    >
+                      <span className="ml-1">{card.buttonText}</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop Layout */}
+        <div className="hidden lg:grid grid-cols-4 gap-6">
           {cards.map((card, index) => (
             <div
               key={card.id}

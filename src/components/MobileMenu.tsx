@@ -41,7 +41,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
       >
         <div className="min-h-screen w-full flex">
           {/* Featured Project Section with fade-up effect */}
-          <div className="hidden md:block w-[45%] relative overflow-hidden">
+          <div className="hidden lg:block w-[40%] relative overflow-hidden">
             <div 
               className={`absolute inset-0 transition-all duration-1000 delay-300 ${
                 isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
@@ -53,16 +53,16 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-black/60" />
-              <div className="absolute bottom-0 left-0 right-0 p-12">
+              <div className="absolute bottom-0 left-0 right-0 p-8">
                 <h2 
-                  className={`text-[3.5rem] font-light mb-3 text-white transition-all duration-1000 delay-500 ${
+                  className={`text-4xl font-light mb-2 text-white transition-all duration-1000 delay-500 ${
                     isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                   }`}
                 >
                   Featured Project
                 </h2>
                 <p 
-                  className={`text-2xl text-white/90 transition-all duration-1000 delay-700 ${
+                  className={`text-xl text-white/90 transition-all duration-1000 delay-700 ${
                     isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                   }`}
                 >
@@ -76,38 +76,38 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
           <div className="flex-1 flex flex-col">
             {/* Header with fade-down effect */}
             <div 
-              className={`flex justify-between items-center p-6 border-b border-white/10 transition-all duration-700 delay-100 ${
+              className={`flex justify-between items-center p-4 md:p-6 border-b border-white/10 transition-all duration-700 delay-100 ${
                 isOpen ? "translate-y-0 opacity-100" : "-translate-y-8 opacity-0"
               }`}
             >
               <Link to="/" className="text-white" onClick={onClose}>
-                <div className="text-2xl font-bold">
+                <div className="text-xl md:text-2xl font-bold">
                   Think<span className="text-sm">:</span>
                   <span className="text-sm font-normal">Group</span>
                 </div>
               </Link>
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-3">
                 <Link 
                   to="/" 
-                  className="bg-[#E6DB00] text-black px-6 py-2 hover:bg-[#f7ec00] transition-colors"
+                  className="bg-[#E6DB00] text-black px-4 py-2 hover:bg-[#f7ec00] transition-colors text-sm font-medium flex items-center"
                   onClick={onClose}
                 >
                   Product Finder
                 </Link>
                 <button
                   onClick={onClose}
-                  className="text-white border border-white/20 px-4 py-2 flex items-center gap-2 hover:bg-white/5 transition-colors"
+                  className="text-white border border-white/20 px-4 py-2 flex items-center gap-2 hover:bg-white/5 transition-colors text-sm font-medium"
                 >
-                  <X size={18} />
-                  <span className="text-sm font-medium">Close</span>
+                  <X size={16} />
+                  <span>Close</span>
                 </button>
               </div>
             </div>
 
             {/* Navigation with staggered fade-in effect */}
-            <div className="flex-1 overflow-y-auto p-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8 max-w-3xl">
-                <div className="space-y-8">
+            <div className="flex-1 overflow-y-auto p-4 md:p-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 md:gap-x-16 gap-y-6 md:gap-y-8 max-w-3xl">
+                <div className="space-y-4 md:space-y-6">
                   {[
                     "All Products",
                     "Markets",
@@ -119,7 +119,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       key={item}
                       to="/"
                       onClick={onClose}
-                      className={`block text-[2.5rem] text-white hover:text-[#E6DB00] transition-all duration-700 ${
+                      className={`block text-2xl md:text-3xl text-white hover:text-[#E6DB00] transition-all duration-700 ${
                         isOpen 
                           ? "translate-y-0 opacity-100" 
                           : "translate-y-8 opacity-0"
@@ -130,7 +130,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                     </Link>
                   ))}
                 </div>
-                <div className="space-y-8">
+                <div className="space-y-4 md:space-y-6">
                   {[
                     "About Us",
                     "Our Story",
@@ -142,7 +142,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       key={item}
                       to="/"
                       onClick={onClose}
-                      className={`block text-[2.5rem] text-white hover:text-[#E6DB00] transition-all duration-700 ${
+                      className={`block text-2xl md:text-3xl text-white hover:text-[#E6DB00] transition-all duration-700 ${
                         isOpen 
                           ? "translate-y-0 opacity-100" 
                           : "translate-y-8 opacity-0"
@@ -158,15 +158,15 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
 
             {/* Footer with fade-up effect */}
             <div 
-              className={`p-8 border-t border-white/10 transition-all duration-700 delay-[1200ms] ${
+              className={`p-4 md:p-6 border-t border-white/10 transition-all duration-700 delay-[1200ms] ${
                 isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
               }`}
             >
-              <div className="text-white/60 text-sm space-y-1 max-w-3xl">
+              <div className="text-white/60 text-xs md:text-sm space-y-1 max-w-3xl">
                 <p>Millersdale Cl, Euroway Industrial Estate</p>
                 <p>Bradford</p>
                 <p>BD4 6RX, UK</p>
-                <p className="mt-4">T: +44 (0) 1274 689400</p>
+                <p className="mt-2 md:mt-4">T: +44 (0) 1274 689400</p>
                 <p>info@thinkgroupuk.co.uk</p>
               </div>
             </div>

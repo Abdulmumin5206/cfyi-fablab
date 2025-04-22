@@ -76,30 +76,30 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
           <div className="flex-1 flex flex-col">
             {/* Header with fade-down effect */}
             <div 
-              className={`flex justify-between items-center p-4 md:p-6 border-b border-white/10 transition-all duration-700 delay-100 ${
+              className={`flex justify-end items-center h-20 md:h-[105px] px-4 md:px-8 border-b border-white/10 transition-all duration-700 delay-100 ${
                 isOpen ? "translate-y-0 opacity-100" : "-translate-y-8 opacity-0"
               }`}
             >
-              <Link to="/" className="text-white" onClick={onClose}>
-                <div className="text-xl md:text-2xl font-bold">
-                  Think<span className="text-sm">:</span>
-                  <span className="text-sm font-normal">Group</span>
-                </div>
-              </Link>
-              <div className="flex items-center gap-3">
-                <Link 
-                  to="/" 
-                  className="bg-[#E6DB00] text-black px-4 py-2 hover:bg-[#f7ec00] transition-colors text-sm font-medium flex items-center"
-                  onClick={onClose}
-                >
-                  Product Finder
+              <div className="absolute left-8 md:left-12 h-full flex items-center">
+                <Link to="/" className="text-white" onClick={onClose}>
+                  <div className="text-xl md:text-2xl font-bold">
+                    Think<span className="text-sm">:</span>
+                    <span className="text-sm font-normal">Group</span>
+                  </div>
                 </Link>
+              </div>
+              
+              {/* Close button */}
+              <div className="flex items-center mr-4 lg:mr-8">
                 <button
                   onClick={onClose}
-                  className="text-white border border-white/20 px-4 py-2 flex items-center gap-2 hover:bg-white/5 transition-colors text-sm font-medium"
+                  className="flex items-center justify-center hover:opacity-75 transition-opacity"
+                  aria-label="Close menu"
                 >
-                  <X size={16} />
-                  <span>Close</span>
+                  <span className="flex items-center space-x-2 border border-white px-3 py-2 text-white">
+                    <X size={20} />
+                    <span className="text-sm lg:text-base">Menu</span>
+                  </span>
                 </button>
               </div>
             </div>
@@ -109,10 +109,9 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 md:gap-x-16 gap-y-6 md:gap-y-8 max-w-3xl">
                 <div className="space-y-4 md:space-y-6">
                   {[
-                    "All Products",
-                    "Markets",
-                    "Brands",
-                    "Sustainability",
+                    "Services",
+                    "Engineering",
+                    "About Fablab",
                     "Projects"
                   ].map((item, index) => (
                     <Link

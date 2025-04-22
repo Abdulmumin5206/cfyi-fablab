@@ -1,29 +1,20 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import MobileMenu from "./MobileMenu";
-import {
-  NavigationMenu,
-  NavigationMenuList,
-  NavigationMenuItem,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu"
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isHoveringProducts, setIsHoveringProducts] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollPos = window.scrollY;
-      
-      // Show header when scrolling up, hide when scrolling down
       setIsVisible(prevScrollPos > currentScrollPos || currentScrollPos < 10);
-      // Set scrolled state when not at top
       setIsScrolled(currentScrollPos > 10);
-      
       setPrevScrollPos(currentScrollPos);
     };
 
@@ -33,7 +24,6 @@ const Header = () => {
 
   const handleMenuToggle = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
-    // Prevent body scroll when menu is open
     document.body.style.overflow = !isMobileMenuOpen ? 'hidden' : '';
   };
 
@@ -43,84 +33,118 @@ const Header = () => {
   };
 
   return (
-    <header className={`w-full fixed top-0 left-0 z-40 transition-all duration-300 ease-in-out ${
-      isVisible ? 'translate-y-0 opacity-100' : '-translate-y-[100%] opacity-0'
+    <header className={`fixed top-0 right-0 w-full z-50 transition-all duration-300 ${
+      isVisible ? 'translate-y-0' : '-translate-y-full'
     }`}>
-      {/* White background container for logo side */}
-      <div className={`absolute top-0 left-0 h-[105px] bg-white transition-opacity duration-500 ease-in-out hidden md:block ${
-        isScrolled ? 'opacity-100 w-[35%]' : 'opacity-0 w-[35%]'
-      }`}></div>
-
-      <div className="relative w-full">
-        <div className="container mx-auto flex justify-between items-center py-4 px-0">
+      <div className="relative">
+        <div className="flex justify-end items-center h-20 md:h-[105px]">
           {/* Logo */}
-          <div className="fixed left-0 top-0 h-16 md:h-20 w-auto z-50 pl-4 md:pl-6 lg:pl-8 mt-4 md:mt-6">
-            <img
-              src="/fablab/logo.png"
-              alt="FabLab Logo"
-              className="h-full w-auto object-contain max-h-[60px] md:max-h-[80px]"
-            />
+          <div className="absolute left-8 md:left-12 h-full flex items-center">
+            <Link to="/" className="block h-full py-2">
+              <img
+                src="/fablab/logo.png"
+                alt="FabLab Logo"
+                className="h-full w-auto max-h-20 md:max-h-24 lg:max-h-28 object-contain"
+              />
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="absolute top-0 right-0 h-[105px] bg-white w-[65%] hidden md:block">
-            <div className="flex items-center justify-end h-full px-8 md:px-12">
-              <div className="flex items-center space-x-6 md:space-x-8">
-                <div className="relative group">
-                  <Link to="/" className="text-black hover:text-brand-red text-base flex items-center whitespace-nowrap">
-                    All Products
-                    <ChevronDown className="ml-1 h-4 w-4" />
-                  </Link>
-                  <div className="absolute opacity-0 invisible group-hover:opacity-100 group-hover:visible flex top-[75px] -left-24 right-[-1200px] bg-gray-100 shadow-lg z-50 transition-all duration-300 ease-in-out transform origin-top scale-95 group-hover:scale-100 hover:opacity-100 hover:visible delay-100">
-                    <div className="w-full h-full absolute inset-0 -m-4">
-                      {/* Invisible padding area to increase hover space */}
-                    </div>
-                    <div className="container mx-auto grid grid-cols-3 gap-8">
-                      <Link to="/" className="flex items-center justify-center text-2xl font-normal hover:bg-white transition-colors duration-300 h-[88px]">
-                        Fibres & Fillings
-                      </Link>
-                      <Link to="/" className="flex items-center justify-center text-2xl font-normal hover:bg-white transition-colors duration-300 h-[88px]">
-                        Non-Wovens
-                      </Link>
-                      <Link to="/" className="flex items-center justify-center text-2xl font-normal hover:bg-white transition-colors duration-300 h-[88px]">
-                        Textile Engineering
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-                <div className="hidden md:flex items-center space-x-6 md:space-x-8">
-                  <Link to="/" className="text-black hover:text-brand-red text-base whitespace-nowrap">Markets</Link>
-                  <Link to="/" className="text-black hover:text-brand-red text-base whitespace-nowrap">Brands</Link>
-                  <Link to="/" className="text-black hover:text-brand-red text-base whitespace-nowrap">Sustainability</Link>
-                  <Link to="/" className="text-black hover:text-brand-red text-base whitespace-nowrap">Projects</Link>
-                  <Link to="/" className="bg-[#E6DB00] text-black px-4 py-3 text-base whitespace-nowrap">
-                    Product Finder
-                  </Link>
-                  <div className="border-l border-gray-200 pl-4">
-                    <button
-                      className="flex items-center justify-center hover:opacity-75 transition-opacity"
-                      onClick={handleMenuToggle}
+          <div className="bg-white px-10 lg:px-16 shadow-md h-full">
+            <div className="hidden md:flex items-center space-x-10 lg:space-x-16 h-full">
+              {/* Products Dropdown */}
+              <div 
+                className="relative group"
+                onMouseEnter={() => setIsHoveringProducts(true)}
+                onMouseLeave={() => setIsHoveringProducts(false)}
+              >
+                <button className="flex items-center text-black hover:text-brand-red transition-colors text-sm lg:text-base px-3">
+                  Services
+                  <ChevronDown className="ml-1 h-4 w-4" />
+                </button>
+                
+                {/* Dropdown menu */}
+                <div 
+                  className={`absolute top-full right-0 w-[300px] bg-white shadow-lg transition-all duration-300 ${
+                    isHoveringProducts ? 'opacity-100 visible' : 'opacity-0 invisible'
+                  }`}
+                  style={{
+                    transform: isHoveringProducts ? 'translateY(0)' : 'translateY(-10px)',
+                  }}
+                >
+                  <div className="py-2">
+                    <Link 
+                      to="/molds" 
+                      className="block px-6 py-2 text-black hover:bg-gray-100 transition-colors duration-300"
                     >
-                      <span className="flex items-center space-x-2 border border-black px-2 py-3">
-                        {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                        <span className="text-base whitespace-nowrap">Menu</span>
-                      </span>
-                    </button>
+                      Molds
+                    </Link>
+                    <Link 
+                      to="/3d-printing" 
+                      className="block px-6 py-2 text-black hover:bg-gray-100 transition-colors duration-300"
+                    >
+                      3D Printing
+                    </Link>
+                    <Link 
+                      to="/cad-cam" 
+                      className="block px-6 py-2 text-black hover:bg-gray-100 transition-colors duration-300"
+                    >
+                      CAD/CAM
+                    </Link>
                   </div>
                 </div>
               </div>
+
+              {/* Regular Links */}
+              <Link 
+                to="/engineering" 
+                className="text-black hover:text-brand-red transition-colors text-sm lg:text-base px-3"
+              >
+                Engineering
+              </Link>
+              <Link 
+                to="/about-fablab" 
+                className="text-black hover:text-brand-red transition-colors text-sm lg:text-base px-3"
+              >
+                About Fablab
+              </Link>
+              <Link 
+                to="/projects" 
+                className="text-black hover:text-brand-red transition-colors text-sm lg:text-base px-3"
+              >
+                Projects
+              </Link>
+
+              {/* CTA Button */}
+              <Link 
+                to="/book-session" 
+                className="bg-[#E6DB00] text-black px-8 py-2 lg:px-10 lg:py-3 text-sm lg:text-base hover:opacity-90 transition-opacity"
+              >
+                Book a session
+              </Link>
+
+              {/* Menu Button */}
+              <button
+                className="flex items-center justify-center hover:opacity-75 transition-opacity ml-6"
+                onClick={handleMenuToggle}
+              >
+                <span className="flex items-center space-x-2 border border-black px-5 py-2">
+                  {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+                  <span className="text-sm lg:text-base">Menu</span>
+                </span>
+              </button>
             </div>
           </div>
 
-          {/* Mobile menu button - only show on mobile */}
-          <div className="md:hidden absolute right-0 top-0 h-[105px] flex items-center justify-end pr-4">
+          {/* Mobile Menu Button */}
+          <div className="md:hidden px-4">
             <button
               className="flex items-center justify-center"
               onClick={handleMenuToggle}
             >
-              <span className="flex items-center space-x-2 border border-black px-2 py-3">
-                {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                <span className="text-base whitespace-nowrap">Menu</span>
+              <span className="flex items-center space-x-2 border border-black px-3 py-2">
+                {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+                <span className="text-sm">Menu</span>
               </span>
             </button>
           </div>

@@ -37,9 +37,12 @@ const Header = () => {
       isVisible ? 'translate-y-0' : '-translate-y-full'
     }`}>
       <div className="relative">
-        <div className="flex justify-end items-center h-20 md:h-[105px]">
-          {/* Logo */}
-          <div className="absolute left-8 md:left-12 h-full flex items-center">
+        <div className={`flex justify-end items-center h-20 md:h-[105px] transition-colors duration-300 ${
+          isScrolled ? 'bg-white shadow-md' : 'bg-transparent'
+        }`}>
+          <div className={`absolute left-0 top-0 h-full flex items-center pl-8 md:pl-12 transition-colors duration-300 ${
+            isScrolled ? 'bg-white' : 'bg-transparent'
+          }`}>
             <Link to="/" className="block h-full py-2">
               <img
                 src="/fablab/logo.png"
@@ -49,10 +52,10 @@ const Header = () => {
             </Link>
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="bg-white px-10 lg:px-16 shadow-md h-full">
+          <div className={`transition-colors duration-300 ${
+            isScrolled ? 'bg-white' : 'bg-transparent'
+          } md:bg-white px-10 lg:px-16 h-full`}>
             <div className="hidden md:flex items-center space-x-10 lg:space-x-16 h-full">
-              {/* Products Dropdown */}
               <div 
                 className="relative group"
                 onMouseEnter={() => setIsHoveringProducts(true)}
@@ -63,7 +66,6 @@ const Header = () => {
                   <ChevronDown className="ml-1 h-4 w-4" />
                 </button>
                 
-                {/* Dropdown menu */}
                 <div 
                   className={`absolute top-full right-0 w-[300px] bg-white shadow-lg transition-all duration-300 ${
                     isHoveringProducts ? 'opacity-100 visible' : 'opacity-0 invisible'
@@ -95,7 +97,6 @@ const Header = () => {
                 </div>
               </div>
 
-              {/* Regular Links */}
               <Link 
                 to="/engineering" 
                 className="text-black hover:text-brand-red transition-colors text-sm lg:text-base px-3"
@@ -115,7 +116,6 @@ const Header = () => {
                 Projects
               </Link>
 
-              {/* CTA Button */}
               <Link 
                 to="/book-session" 
                 className="bg-[#E6DB00] text-black px-8 py-2 lg:px-10 lg:py-3 text-sm lg:text-base hover:opacity-90 transition-opacity"
@@ -123,12 +123,11 @@ const Header = () => {
                 Book a session
               </Link>
 
-              {/* Menu Button */}
               <button
                 className="flex items-center justify-center hover:opacity-75 transition-opacity ml-6"
                 onClick={handleMenuToggle}
               >
-                <span className="flex items-center space-x-2 border border-black px-5 py-2">
+                <span className="flex items-center space-x-2 border border-black px-5 py-2 bg-white">
                   {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
                   <span className="text-sm lg:text-base">Menu</span>
                 </span>
@@ -136,13 +135,12 @@ const Header = () => {
             </div>
           </div>
 
-          {/* Mobile Menu Button */}
           <div className="md:hidden px-4">
             <button
               className="flex items-center justify-center"
               onClick={handleMenuToggle}
             >
-              <span className="flex items-center space-x-2 border border-black px-3 py-2">
+              <span className="flex items-center space-x-2 border border-black px-3 py-2 bg-white">
                 {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
                 <span className="text-sm">Menu</span>
               </span>
@@ -151,7 +149,6 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <MobileMenu isOpen={isMobileMenuOpen} onClose={handleMenuClose} />
     </header>
   );

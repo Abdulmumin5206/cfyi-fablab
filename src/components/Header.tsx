@@ -163,23 +163,23 @@ const Header = () => {
         onMouseEnter={openServicesMenu}
         onMouseLeave={closeServicesMenu}
       >
-        <div className="bg-white shadow-md w-full">
+        <div className="bg-gray-100 shadow-md w-full">
           <div className="flex h-16 sm:h-18 md:h-20 items-center">
             <Link
               to="/molds"
-              className="flex-1 text-center text-black hover:text-brand-red transition-colors text-xs sm:text-sm lg:text-base"
+              className="flex-1 h-full flex items-center justify-center text-black hover:text-white bg-gray-100 hover:bg-[#0e9a48] transition-all duration-200 text-xs sm:text-sm lg:text-base"
             >
               Mould
             </Link>
             <Link
               to="/3d-printing"
-              className="flex-1 text-center text-black hover:text-brand-red transition-colors text-xs sm:text-sm lg:text-base"
+              className="flex-1 h-full flex items-center justify-center text-black hover:text-white bg-gray-100 hover:bg-[#cb2026] transition-all duration-200 text-xs sm:text-sm lg:text-base"
             >
               3D Printing
             </Link>
             <Link
               to="/prototyping"
-              className="flex-1 text-center text-black hover:text-brand-red transition-colors text-xs sm:text-sm lg:text-base"
+              className="flex-1 h-full flex items-center justify-center text-black hover:text-white bg-gray-100 hover:bg-[#35469d] transition-all duration-200 text-xs sm:text-sm lg:text-base"
             >
               Prototyping
             </Link>

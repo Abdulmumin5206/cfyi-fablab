@@ -175,9 +175,12 @@ const HeroSection = () => {
           {/* Background image */}
           <div className={`absolute inset-0 bg-cover bg-center ${slide.background}`} />
           
+          {/* Gradient overlay - added for better text visibility while maintaining image quality */}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/50 z-10"></div>
+          
           {/* Content overlay */}
-          <div className="absolute inset-0 flex items-center">
-            <div className="container mx-auto px-4 md:px-8 max-w-7xl">
+          <div className="absolute inset-0 flex items-center z-20">
+            <div className="container mx-auto px-4 md:px-8 max-w-7xl mt-16 sm:mt-20 md:mt-24">
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-bold mb-2 sm:mb-4 max-w-xs sm:max-w-sm md:max-w-2xl lg:max-w-3xl">
                 {slide.title}
               </h1>

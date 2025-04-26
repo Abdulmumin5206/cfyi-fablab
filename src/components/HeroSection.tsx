@@ -150,7 +150,7 @@ const HeroSection = () => {
 
   return (
     <section 
-      className="relative h-screen w-full overflow-hidden bg-black"
+      className="relative h-[85vh] sm:h-[90vh] md:h-screen w-full overflow-hidden bg-black"
       ref={containerRef}
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
@@ -177,16 +177,16 @@ const HeroSection = () => {
           
           {/* Content overlay */}
           <div className="absolute inset-0 flex items-center">
-            <div className="container mx-auto px-4 md:px-8">
-              <h1 className="text-4xl md:text-6xl text-white font-bold mb-4 max-w-3xl">
+            <div className="container mx-auto px-4 md:px-8 max-w-7xl">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-bold mb-2 sm:mb-4 max-w-xs sm:max-w-sm md:max-w-2xl lg:max-w-3xl">
                 {slide.title}
               </h1>
-              <p className="text-xl md:text-2xl text-white mb-8 max-w-2xl">
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white mb-4 sm:mb-6 md:mb-8 max-w-xs sm:max-w-sm md:max-w-xl lg:max-w-2xl">
                 {slide.subtitle}
               </p>
               <a
                 href={slide.buttonLink}
-                className="inline-flex items-center space-x-2 bg-white text-black px-6 py-3 font-medium"
+                className="inline-flex items-center space-x-1 sm:space-x-2 bg-white text-black px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 text-sm sm:text-base font-medium"
               >
                 <span>{slide.buttonText}</span>
                 <ArrowRight size={16} />
@@ -197,7 +197,7 @@ const HeroSection = () => {
       ))}
 
       {/* Slide indicators */}
-      <div className="absolute bottom-8 left-0 right-0 flex justify-center space-x-2 z-30">
+      <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-0 right-0 flex justify-center space-x-1 sm:space-x-2 z-30">
         {slides.map((_, index) => (
           <button
             key={index}
@@ -205,7 +205,7 @@ const HeroSection = () => {
               setDirection(index > activeIndex ? "right" : "left");
               setActiveIndex(index);
             }}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+            className={`w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
               index === activeIndex ? "bg-white" : "bg-white/50"
             }`}
             aria-label={`Go to slide ${index + 1}`}

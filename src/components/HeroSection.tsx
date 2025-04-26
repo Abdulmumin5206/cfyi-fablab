@@ -150,7 +150,7 @@ const HeroSection = () => {
 
   return (
     <section 
-      className="relative h-[85vh] sm:h-[90vh] md:h-screen w-full overflow-hidden bg-black"
+      className="relative h-screen w-full overflow-hidden bg-black"
       ref={containerRef}
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}

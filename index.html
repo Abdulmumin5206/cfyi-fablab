@@ -15,9 +15,244 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@lovable_dev" />
     <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+
+    <style>
+      #splash-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: white;
+        display: flex;
+        justify-content: center; /* Center the content horizontally */
+        align-items: center;    /* Center the content vertically */
+        z-index: 9999; /* Ensure it's on top */
+        transition: opacity 1s ease-out; /* Reverted fade-out time */
+        padding: 20px; /* Add some padding */
+        box-sizing: border-box; /* Include padding in width/height */
+        opacity: 1; /* Start fully visible */
+        overflow: visible;
+      }
+
+      #splash-screen .logo-container {
+        margin-right: 40px;
+      }
+
+      #splash-screen .logo-container img {
+        max-width: 250px;
+        height: auto;
+        display: block;
+      }
+
+      /* Container for the sliding text */
+      #splash-screen #lab-list-container {
+        position: relative; /* Needed for absolute positioning of children */
+        height: 7.5em; /* Visual height reference - approx 5 lines */
+        text-align: left;
+        width: clamp(240px, 70vw, 350px);
+        display: flex;
+        align-items: center;
+        justify-content: flex-start; /* Align items to the left */
+      }
+
+      /* Individual lab item styling */
+      #splash-screen .lab-item {
+        margin: 0; padding: 0;
+        font-size: 2em; /* Base size Increased Again */
+        font-weight: bold; /* Make text bold */
+        line-height: 2; /* Control spacing, affects perceived height */
+        color: #333;
+        position: absolute;
+        top: 50%; /* Center vertically relative to parent */
+        left: 0; width: 100%;
+        opacity: 0; /* Start transparent */
+        transform: translateY(-50%); /* Adjust for centering */
+        transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out; /* Animate both */
+        white-space: nowrap; /* Prevent wrapping */
+        will-change: transform, opacity; /* Perf hint */
+      }
+
+      /* Animation for root element fade-in */
+      @keyframes fadeInRoot {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+      }
+
+      #root {
+        opacity: 0; /* Start hidden */
+      }
+
+      .root-visible {
+        animation: fadeInRoot 0.5s ease-out forwards; /* Fast fade-in */
+      }
+
+      /* Responsive adjustments for smaller screens */
+      @media (max-width: 768px) {
+        #splash-screen .logo-container {
+          margin-right: 20px; /* Reduce space */
+        }
+
+        #splash-screen .logo-container img {
+          max-width: 150px; /* Reduce logo size */
+        }
+
+        #splash-screen #lab-list-container {
+          /* Adjust clamp range for smaller screens */
+          width: clamp(200px, 75vw, 280px); 
+        }
+
+        #splash-screen .lab-item {
+          font-size: 0.9em; /* Made even smaller */
+          /* Inherit line-height: 2, scales with font-size */
+        }
+      }
+    </style>
   </head>
 
   <body>
+    <!-- Splash Screen Start -->
+    <div id="splash-screen">
+      <!-- Logo Container -->
+      <div class="logo-container">
+        <img src="/fablab/cfyi.svg" alt="CFYI Logo" />
+      </div>
+
+      <!-- Text List Container -->
+      <div id="lab-list-container">
+        <p class="lab-item">Air Technologies</p>
+        <p class="lab-item">FabLearn: Digital Fabrication</p>
+        <p class="lab-item">Holography</p>
+        <p class="lab-item">Energy Efficiency</p>
+        <p class="lab-item">Neurotechnology</p>
+        <p class="lab-item">Electronics, Programming</p>
+        <p class="lab-item">Artificial Intelligence</p>
+        <p class="lab-item">Mixed Reality & Photogrammetry</p>
+        <p class="lab-item">Neurocognitive Research</p>
+        <p class="lab-item">Applied AR & VR Technologies</p>
+        <p class="lab-item">3D Modelling, Metaverses & NFTs</p>
+        <p class="lab-item">Robotics</p>
+        <p class="lab-item" style="display: inline-flex; align-items: center;">FabLab: Digital Fabrication <img src="/fablab/logo.png" alt="FabLab Logo" style="height: 2.5em; margin-left: 8px;"></p>
+      </div>
+    </div>
+    <script>
+      let slideInterval = null;
+      let itemHeight = 0; // To store measured item height
+      const labItems = document.querySelectorAll('#splash-screen .lab-item');
+
+      // Function to update positions and opacities
+      function updatePositions(activeIndex, animate = true) {
+        if (labItems.length === 0) return;
+        if (itemHeight === 0 && labItems[0]) { // Measure height once
+             // Use line height and font size for calculation as offsetHeight might be 0 initially
+            const style = window.getComputedStyle(labItems[0]);
+            itemHeight = parseFloat(style.lineHeight);
+            if (isNaN(itemHeight)) itemHeight = parseFloat(style.fontSize) * 1.5; // Fallback
+        }
+        if (itemHeight === 0) return; // Can't proceed without height
+
+        const itemCount = labItems.length;
+        const halfCount = itemCount / 2;
+
+        labItems.forEach((item, index) => {
+          let offset = index - activeIndex;
+
+          // Adjust offset for visual wrapping
+          if (offset > halfCount) {
+            offset -= itemCount;
+          } else if (offset < -halfCount) {
+            offset += itemCount;
+          }
+
+          const targetY = offset * itemHeight;
+          let targetOpacity = 0;
+          const distance = Math.abs(offset);
+
+          if (distance === 0) {
+            targetOpacity = 1;
+          } else if (distance === 1) {
+            targetOpacity = 0.6;
+          } else if (distance === 2) {
+            targetOpacity = 0.3;
+          }
+
+          // Apply styles
+          if (!animate) {
+            item.style.transition = 'none'; // Disable transition for initial setup
+          }
+
+          // Center the item vertically using translateY(-50%) + offset
+          item.style.transform = `translateY(calc(-50% + ${targetY}px))`;
+          item.style.opacity = targetOpacity.toString();
+
+          // Re-enable transitions after a tiny delay if animating
+          if (!animate) {
+            // Force reflow before re-enabling
+            item.offsetHeight;
+            item.style.transition = `transform 0.5s ease-in-out, opacity 0.5s ease-in-out`;
+          }
+        });
+      }
+
+      // Function to handle fading out the splash screen
+      function fadeOutSplashScreen() {
+        const splash = document.getElementById('splash-screen');
+        if (splash) {
+          splash.style.display = 'none'; // Hide instantly
+
+          // Trigger fade-in for the main content
+          const rootElement = document.getElementById('root');
+          if (rootElement) {
+            rootElement.classList.add('root-visible');
+          }
+
+          if (slideInterval) { // Clear interval just in case
+            clearInterval(slideInterval);
+            slideInterval = null;
+          }
+          // Note: Element is hidden, not removed from DOM immediately.
+          // If removal is still desired after hiding, it could be added back.
+        }
+      }
+
+      // Function to start the vertical slide animation
+      function startVerticalSlide() {
+        const itemCount = labItems.length;
+        if (itemCount <= 1) {
+          // If only one/zero items, fade out almost immediately
+          setTimeout(fadeOutSplashScreen, 50); 
+          return;
+        }
+
+        const lastItemIndex = itemCount - 1;
+        let currentIndex = 0;
+
+        updatePositions(currentIndex, false); // Initial setup (no animation)
+
+        const slideDuration = 500; // ms - Synced with CSS transition for smoothness (Changed from 250)
+
+        slideInterval = setInterval(() => {
+          currentIndex = (currentIndex + 1) % itemCount;
+          updatePositions(currentIndex, true); // Update with animation
+
+          // Check if the last item is now active
+          if (currentIndex === lastItemIndex) {
+            if (slideInterval) {
+                 clearInterval(slideInterval); // Stop the animation
+                 slideInterval = null;
+            }
+            // Start hiding after a longer delay when the last item is reached
+            setTimeout(fadeOutSplashScreen, 1500); // Increased delay to 1.5s
+          }
+        }, slideDuration);
+      }
+
+      // Start the animation slightly after page load
+      setTimeout(startVerticalSlide, 100);
+
+    </script>
+    <!-- Splash Screen End -->
+
     <div id="root"></div>
     <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>

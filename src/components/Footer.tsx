@@ -29,9 +29,38 @@ const Footer = () => {
               <h3 className="text-2xl font-bold mb-6">Navigate</h3>
               <ul className="space-y-3">
                 <li>
-                  <Link to="/" className="hover:text-brand-yellow">
-                    Services
-                  </Link>
+                  <div className="flex flex-col space-y-2">
+                    <span className="hover:text-brand-yellow">
+                      Services
+                    </span>
+                    <ul className="pl-3 space-y-2 border-l border-gray-800">
+                      <li>
+                        <Link to="/3d-printing" className="text-sm text-gray-400 hover:text-brand-yellow">
+                          3D Printing
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/" className="text-sm text-gray-400 hover:text-brand-yellow">
+                          CNC Machining
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/" className="text-sm text-gray-400 hover:text-brand-yellow">
+                          Laser Cutting
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/" className="text-sm text-gray-400 hover:text-brand-yellow">
+                          Finishing Services
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/" className="text-sm text-gray-400 hover:text-brand-yellow">
+                          Design Consultation
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
                 </li>
                 <li>
                   <Link to="/" className="hover:text-brand-yellow">
@@ -59,7 +88,7 @@ const Footer = () => {
               <h3 className="text-2xl font-bold mb-6">About Us</h3>
               <ul className="space-y-3">
                 <li>
-                  <Link to="/" className="hover:text-brand-yellow">
+                  <Link to="/blog" className="hover:text-brand-yellow">
                     Blog
                   </Link>
                 </li>

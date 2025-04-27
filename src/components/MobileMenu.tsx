@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { X } from "lucide-react";
+import { X, ChevronDown, ChevronUp } from "lucide-react";
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -8,6 +8,8 @@ interface MobileMenuProps {
 }
 
 const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
+  const [expandedMenu, setExpandedMenu] = useState<string | null>(null);
+
   // Lock body scroll when menu is open
   useEffect(() => {
     if (isOpen) {
@@ -19,6 +21,26 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
       document.body.style.overflow = '';
     };
   }, [isOpen]);
+
+  // Reset expanded menu when closing mobile menu
+  useEffect(() => {
+    if (!isOpen) {
+      setExpandedMenu(null);
+    }
+  }, [isOpen]);
+
+  const toggleMenu = (menu: string) => {
+    setExpandedMenu(expandedMenu === menu ? null : menu);
+  };
+
+  // Services submenu items
+  const servicesSubMenu = [
+    { name: "3D Printing", path: "/3d-printing" },
+    { name: "CNC Machining", path: "/" },
+    { name: "Laser Cutting", path: "/" },
+    { name: "Finishing Services", path: "/" },
+    { name: "Design Consultation", path: "/" }
+  ];
 
   return (
     <div 
@@ -108,8 +130,45 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
             <div className="flex-1 overflow-y-auto p-4 md:p-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 md:gap-x-16 gap-y-6 md:gap-y-8 max-w-3xl">
                 <div className="space-y-4 md:space-y-6">
+                  {/* Services with dropdown */}
+                  <div
+                    className={`transition-all duration-700 ${
+                      isOpen 
+                        ? "translate-y-0 opacity-100" 
+                        : "translate-y-8 opacity-0"
+                    }`}
+                    style={{ transitionDelay: "300ms" }}
+                  >
+                    <button
+                      onClick={() => toggleMenu('services')}
+                      className="flex items-center justify-between w-full text-2xl md:text-3xl text-white hover:text-[#E6DB00] transition-all duration-300"
+                    >
+                      <span>Services</span>
+                      {expandedMenu === 'services' ? 
+                        <ChevronUp size={24} /> : 
+                        <ChevronDown size={24} />
+                      }
+                    </button>
+                    
+                    {/* Services submenu */}
+                    {expandedMenu === 'services' && (
+                      <div className="pl-4 mt-3 space-y-3 border-l border-white/20">
+                        {servicesSubMenu.map((item, idx) => (
+                          <Link 
+                            key={idx}
+                            to={item.path}
+                            onClick={onClose}
+                            className="block text-lg md:text-xl text-white/80 hover:text-[#E6DB00] transition-all duration-300"
+                          >
+                            {item.name}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                  
+                  {/* Other first column menu items */}
                   {[
-                    "Services",
                     "Engineering",
                     "About Fablab",
                     "Projects"
@@ -123,7 +182,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                           ? "translate-y-0 opacity-100" 
                           : "translate-y-8 opacity-0"
                       }`}
-                      style={{ transitionDelay: `${300 + index * 100}ms` }}
+                      style={{ transitionDelay: `${400 + index * 100}ms` }}
                     >
                       {item}
                     </Link>
@@ -139,7 +198,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                   ].map((item, index) => (
                     <Link
                       key={item}
-                      to="/"
+                      to={item === "Blog" ? "/blog" : "/"}
                       onClick={onClose}
                       className={`block text-2xl md:text-3xl text-white hover:text-[#E6DB00] transition-all duration-700 ${
                         isOpen 

@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import ThreeDPrintingPage from "./pages/3DPrinting";
+import MouldPage from "./pages/Mould";
 import BlogIndex from "./pages/blog/Index";
 import BlogPost from "./pages/blog/BlogPost";
 import SplashScreen from "./components/SplashScreen";
@@ -31,6 +32,7 @@ const App = () => {
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/3d-printing" element={<ThreeDPrintingPage />} />
+              <Route path="/mould" element={<MouldPage />} />
               <Route path="/blog" element={<BlogIndex />} />
               <Route path="/blog/:slug" element={<BlogPost />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

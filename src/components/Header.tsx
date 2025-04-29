@@ -168,7 +168,7 @@ const Header = () => {
         <div className="bg-gray-100 shadow-md w-full">
           <div className="flex h-16 sm:h-18 md:h-20 items-center">
             <Link
-              to="/molds"
+              to="/mould"
               className="flex-1 h-full flex items-center justify-center text-black hover:text-white bg-gray-100 hover:bg-[#0e9a48] transition-all duration-200 text-xs sm:text-sm lg:text-base"
             >
               Mould

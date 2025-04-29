@@ -35,6 +35,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
 
   // Services submenu items
   const servicesSubMenu = [
+    { name: "Mould & Casting", path: "/mould" },
     { name: "3D Printing", path: "/3d-printing" },
     { name: "CNC Machining", path: "/" },
     { name: "Laser Cutting", path: "/" },

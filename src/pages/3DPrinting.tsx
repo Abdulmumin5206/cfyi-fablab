@@ -467,15 +467,23 @@ const ThreeDPrintingPage = () => {
             {/* Right side video/image */}
             <div className="w-full lg:w-1/2 lg:pl-8">
               <div className="relative rounded-md overflow-hidden border-2 border-orange-500 shadow-xl">
-                <img
-                  src="/3dprinters/prusament-petg-filament.webp"
-                  alt="PETG Filament"
+                <video
                   className="w-full aspect-[16/9] object-cover"
-                />
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                >
+                  <source 
+                    src="/video/The best 3D prints from our office, vol. 1.mp4" 
+                    type="video/mp4" 
+                  />
+                  Your browser does not support the video tag.
+                </video>
                 <div className="absolute bottom-0 left-0 right-0 bg-orange-600 text-white p-3">
                   <div className="flex justify-between items-center">
                     <div>
-                      <span className="font-bold">PETG</span> Durable, strong, and ideal for mechanical parts
+                      <span className="font-bold">FDM SHOWCASE</span> The best 3D prints from our office
                     </div>
                     <button className="flex items-center gap-1 font-medium">
                       LEARN MORE
@@ -483,6 +491,10 @@ const ThreeDPrintingPage = () => {
                     </button>
                   </div>
                 </div>
+                <button className="absolute top-4 right-4 bg-orange-600 rounded-full p-1 w-8 h-8 flex items-center justify-center">
+                  <span className="sr-only">Pause</span>
+                  ⏸
+                </button>
               </div>
             </div>
           </div>

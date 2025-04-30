@@ -70,13 +70,13 @@ const MouldPage = () => {
           <div className="relative z-10 h-full flex items-center">
             <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 text-white">
               <div className="max-w-2xl">
-                <div className="text-orange-400 font-medium mb-2">PROFESSIONAL MOULDING SOLUTIONS</div>
+                <div className="text-gray-300 font-medium mb-2">PROFESSIONAL MOULDING SOLUTIONS</div>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Custom Mould & Casting Services</h1>
                 
                 <div className="space-y-4 text-gray-100">
                   <div className="flex items-start gap-3">
                     <div className="flex-shrink-0 mt-1">
-                      <div className="w-5 h-5 rounded-full bg-orange-500 flex items-center justify-center">
+                      <div className="w-5 h-5 rounded-full bg-gray-700 flex items-center justify-center">
                         <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                         </svg>
@@ -87,7 +87,7 @@ const MouldPage = () => {
                   
                   <div className="flex items-start gap-3">
                     <div className="flex-shrink-0 mt-1">
-                      <div className="w-5 h-5 rounded-full bg-orange-500 flex items-center justify-center">
+                      <div className="w-5 h-5 rounded-full bg-gray-700 flex items-center justify-center">
                         <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                         </svg>
@@ -98,7 +98,7 @@ const MouldPage = () => {
                   
                   <div className="flex items-start gap-3">
                     <div className="flex-shrink-0 mt-1">
-                      <div className="w-5 h-5 rounded-full bg-orange-500 flex items-center justify-center">
+                      <div className="w-5 h-5 rounded-full bg-gray-700 flex items-center justify-center">
                         <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                         </svg>
@@ -109,10 +109,10 @@ const MouldPage = () => {
                 </div>
                 
                 <div className="mt-8 flex flex-col sm:flex-row gap-4">
-                  <a href="#" className="inline-block bg-orange-600 text-white font-medium px-6 py-3 rounded-md hover:bg-orange-700 transition-colors text-center">
+                  <a href="#" className="inline-block bg-gray-800 text-white font-medium px-6 py-3 rounded-md hover:bg-black transition-colors text-center">
                     Get a Quote
                   </a>
-                  <a href="#" className="inline-block bg-white text-orange-600 font-medium px-6 py-3 rounded-md border border-orange-600 hover:bg-orange-50 transition-colors text-center">
+                  <a href="#" className="inline-block bg-white text-gray-800 font-medium px-6 py-3 rounded-md border border-gray-800 hover:bg-gray-100 transition-colors text-center">
                     Learn About Materials
                   </a>
                 </div>
@@ -169,30 +169,19 @@ const MouldPage = () => {
                 </button>
               </div>
               
-              <button className="bg-[#f05a28] hover:bg-[#e04a18] text-white px-6 py-3 rounded-md font-medium">
+              <button className="bg-gray-800 hover:bg-black text-white px-6 py-3 rounded-md font-medium">
                 REQUEST A CONSULTATION
               </button>
             </div>
             
             {/* Right side image */}
-            <div className="w-full lg:w-1/2 lg:pl-8">
-              <div className="relative rounded-md overflow-hidden border-2 border-[#f05a28] shadow-xl">
+            <div className="w-full lg:w-3/4 lg:pl-8">
+              <div className="relative w-full">
                 <img 
-                  src="/fablab/1.jpg" 
-                  alt="Silicone Mould Making Process" 
-                  className="w-full aspect-[16/9] object-cover"
+                  src="/mould/imhero.webp" 
+                  alt="Premium Moulding Materials" 
+                  className="w-full aspect-[4/3] object-cover h-auto max-h-[650px]"
                 />
-                <div className="absolute bottom-0 left-0 right-0 bg-[#f05a28] text-white p-3">
-                  <div className="flex justify-between items-center">
-                    <div>
-                      <span className="font-bold">SILICONE MOULDING</span> High-detail reproduction
-                    </div>
-                    <button className="flex items-center gap-1 font-medium">
-                      LEARN MORE
-                      <span>›</span>
-                    </button>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -208,7 +197,7 @@ const MouldPage = () => {
               <div className="bg-white rounded-lg overflow-hidden shadow-md flex flex-col md:flex-row">
                 <div className="md:w-2/5 h-48 md:h-auto overflow-hidden">
                   <img 
-                    src="/fablab/3.jpg" 
+                    src="/mould/Screenshot_7.jpg" 
                     alt="Product Design Prototype" 
                     className="w-full h-full object-cover"
                   />
@@ -229,7 +218,7 @@ const MouldPage = () => {
               <div className="bg-white rounded-lg overflow-hidden shadow-md flex flex-col md:flex-row">
                 <div className="md:w-2/5 h-48 md:h-auto overflow-hidden">
                   <img 
-                    src="/fablab/11.jpg" 
+                    src="/mould/optimized_for_web_jpeg-07202023_rigid_10k_sample_card_2_189d-sh-standard-square.webp" 
                     alt="Architectural Model" 
                     className="w-full h-full object-cover"
                   />
@@ -237,48 +226,6 @@ const MouldPage = () => {
                 <div className="md:w-3/5 p-6">
                   <div className="text-blue-600 text-sm font-semibold mb-2">ARCHITECTURE</div>
                   <h3 className="text-xl font-bold mb-4">Architectural Elements Casting for Model Making and Restoration</h3>
-                  <a href="#" className="text-blue-600 flex items-center gap-2 font-medium hover:text-blue-800 transition-colors">
-                    Learn More
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-              
-              {/* Case Study 3 */}
-              <div className="bg-white rounded-lg overflow-hidden shadow-md flex flex-col md:flex-row">
-                <div className="md:w-2/5 h-48 md:h-auto overflow-hidden">
-                  <img 
-                    src="/fablab/13.jpg" 
-                    alt="Special Effects Prop" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="md:w-3/5 p-6">
-                  <div className="text-blue-600 text-sm font-semibold mb-2">FILM & ENTERTAINMENT</div>
-                  <h3 className="text-xl font-bold mb-4">Creating Special Effects Props with Advanced Casting Techniques</h3>
-                  <a href="#" className="text-blue-600 flex items-center gap-2 font-medium hover:text-blue-800 transition-colors">
-                    Learn More
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-              
-              {/* Case Study 4 */}
-              <div className="bg-white rounded-lg overflow-hidden shadow-md flex flex-col md:flex-row">
-                <div className="md:w-2/5 h-48 md:h-auto overflow-hidden">
-                  <img 
-                    src="/fablab/1.jpg" 
-                    alt="Art Sculpture Casting" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="md:w-3/5 p-6">
-                  <div className="text-blue-600 text-sm font-semibold mb-2">ART & SCULPTURE</div>
-                  <h3 className="text-xl font-bold mb-4">Fine Art Reproduction Through Modern Moulding Techniques</h3>
                   <a href="#" className="text-blue-600 flex items-center gap-2 font-medium hover:text-blue-800 transition-colors">
                     Learn More
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -308,13 +255,13 @@ const MouldPage = () => {
               
               {/* Right side content */}
               <div className="w-full md:w-1/2">
-                <div className="text-orange-500 font-medium mb-2">OUR PROFESSIONAL PROCESS</div>
+                <div className="text-gray-500 font-medium mb-2">OUR PROFESSIONAL PROCESS</div>
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white">Expert Mould Making & Casting</h1>
                 
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
                     <div className="flex-shrink-0 mt-1">
-                      <div className="w-5 h-5 rounded-full bg-orange-500 flex items-center justify-center">
+                      <div className="w-5 h-5 rounded-full bg-gray-600 flex items-center justify-center">
                         <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                         </svg>
@@ -325,7 +272,7 @@ const MouldPage = () => {
                   
                   <div className="flex items-start gap-3">
                     <div className="flex-shrink-0 mt-1">
-                      <div className="w-5 h-5 rounded-full bg-orange-500 flex items-center justify-center">
+                      <div className="w-5 h-5 rounded-full bg-gray-600 flex items-center justify-center">
                         <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                         </svg>
@@ -336,7 +283,7 @@ const MouldPage = () => {
                   
                   <div className="flex items-start gap-3">
                     <div className="flex-shrink-0 mt-1">
-                      <div className="w-5 h-5 rounded-full bg-orange-500 flex items-center justify-center">
+                      <div className="w-5 h-5 rounded-full bg-gray-600 flex items-center justify-center">
                         <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                         </svg>
@@ -347,10 +294,10 @@ const MouldPage = () => {
                 </div>
                 
                 <div className="mt-8 flex flex-col sm:flex-row gap-4">
-                  <a href="#" className="inline-block bg-orange-600 text-white font-medium px-6 py-3 rounded-md hover:bg-orange-700 transition-colors text-center">
+                  <a href="#" className="inline-block bg-gray-700 text-white font-medium px-6 py-3 rounded-md hover:bg-gray-800 transition-colors text-center">
                     Get a Quote
                   </a>
-                  <a href="#" className="inline-block bg-transparent text-orange-500 font-medium px-6 py-3 rounded-md border border-orange-500 hover:bg-orange-900 transition-colors text-center">
+                  <a href="#" className="inline-block bg-transparent text-gray-300 font-medium px-6 py-3 rounded-md border border-gray-300 hover:bg-gray-800 transition-colors text-center">
                     See Our Portfolio
                   </a>
                 </div>
@@ -411,6 +358,198 @@ const MouldPage = () => {
                 <button className="border border-gray-800 py-2 px-4 hover:bg-gray-800 hover:text-white transition-colors w-fit text-sm">
                   More Details
                 </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Spare Parts Section */}
+        <section className="py-16 md:py-24 bg-gray-100 text-gray-900">
+          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col lg:flex-row items-center">
+              {/* Left side content */}
+              <div className="w-full lg:w-1/2 mb-12 lg:mb-0 pr-0 lg:pr-10">
+                <h2 className="text-3xl md:text-4xl font-bold mb-6">Replacement & Custom Spare Parts</h2>
+                <p className="text-gray-700 mb-6 text-lg">
+                  We specialize in creating high-quality spare parts using moulding and casting techniques when original replacements are unavailable or prohibitively expensive.
+                </p>
+                
+                <div className="space-y-4 mb-8">
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 mt-1">
+                      <div className="w-5 h-5 rounded-full bg-gray-700 flex items-center justify-center">
+                        <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                      </div>
+                    </div>
+                    <p className="text-gray-700">Replicate discontinued parts for machinery and equipment</p>
+                  </div>
+                  
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 mt-1">
+                      <div className="w-5 h-5 rounded-full bg-gray-700 flex items-center justify-center">
+                        <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                      </div>
+                    </div>
+                    <p className="text-gray-700">Create custom parts tailored to your specific requirements</p>
+                  </div>
+                  
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 mt-1">
+                      <div className="w-5 h-5 rounded-full bg-gray-700 flex items-center justify-center">
+                        <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                      </div>
+                    </div>
+                    <p className="text-gray-700">Wide range of materials for different applications</p>
+                  </div>
+                </div>
+                
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <a href="#" className="inline-block bg-gray-800 text-white font-medium px-6 py-3 rounded-md hover:bg-black transition-colors text-center">
+                    Request a Part
+                  </a>
+                  <a href="#" className="inline-block bg-white text-gray-800 font-medium px-6 py-3 rounded-md border border-gray-800 hover:bg-gray-100 transition-colors text-center">
+                    View Sample Parts
+                  </a>
+                </div>
+              </div>
+              
+              {/* Right side video */}
+              <div className="w-full lg:w-3/4 lg:pl-8">
+                <div className="relative w-full">
+                  <video
+                    className="w-full aspect-[4/3] object-cover h-auto max-h-[650px]"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    controls
+                  >
+                    <source 
+                      src="/video/clearcast_loop_240903_720p_1mbps_h264.mp4" 
+                      type="video/mp4" 
+                    />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div className="mt-4 text-sm text-gray-500">
+                  Video: Custom spare parts production process using silicone moulding
+                </div>
+              </div>
+            </div>
+            
+            <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="bg-white p-6 rounded shadow-sm">
+                <div className="text-3xl font-bold mb-2 text-gray-800">01</div>
+                <h3 className="text-xl font-bold mb-2">Assessment</h3>
+                <p className="text-gray-600">We analyze your original part or blueprint to understand specifications and requirements.</p>
+              </div>
+              
+              <div className="bg-white p-6 rounded shadow-sm">
+                <div className="text-3xl font-bold mb-2 text-gray-800">02</div>
+                <h3 className="text-xl font-bold mb-2">Design & Prototyping</h3>
+                <p className="text-gray-600">We create a master pattern using precision 3D printing or machining technologies.</p>
+              </div>
+              
+              <div className="bg-white p-6 rounded shadow-sm">
+                <div className="text-3xl font-bold mb-2 text-gray-800">03</div>
+                <h3 className="text-xl font-bold mb-2">Mould Creation</h3>
+                <p className="text-gray-600">We develop a high-detail silicone mould capable of producing multiple copies.</p>
+              </div>
+              
+              <div className="bg-white p-6 rounded shadow-sm">
+                <div className="text-3xl font-bold mb-2 text-gray-800">04</div>
+                <h3 className="text-xl font-bold mb-2">Production</h3>
+                <p className="text-gray-600">We cast your parts using materials optimized for your specific application needs.</p>
+              </div>
+            </div>
+            
+            <div className="mt-24 flex flex-col lg:flex-row items-center">
+              {/* Left side image */}
+              <div className="w-full lg:w-3/4 lg:pr-8">
+                <div className="relative w-full">
+                  <img 
+                    src="/mould/optimized_for_web_jpeg-07202023_rigid_10k_sample_card_2_189d-sh-standard-square.webp" 
+                    alt="Custom Spare Parts Examples" 
+                    className="w-full aspect-[4/3] object-cover h-auto max-h-[650px]"
+                  />
+                </div>
+              </div>
+              
+              {/* Right side content */}
+              <div className="w-full lg:w-1/2 mt-12 lg:mt-0 pl-0 lg:pl-10">
+                <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                  Custom parts <span className="text-gray-600">when standard replacements are unavailable</span>
+                </h1>
+                
+                <div className="space-y-4 mb-8">
+                  <p className="text-gray-700">
+                    Our advanced moulding and casting capabilities allow us to reproduce discontinued or hard-to-find parts with precision and accuracy.
+                  </p>
+                  <p className="text-gray-700">
+                    We can work from original parts, technical drawings, or even create new designs based on your specifications. 
+                  </p>
+                </div>
+                
+                <button className="bg-gray-800 hover:bg-black text-white px-6 py-3 rounded-md font-medium">
+                  EXPLORE CASE STUDIES
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Spare Parts Applications Section */}
+        <section className="py-12 md:py-20 bg-gray-50">
+          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8">Spare Parts Applications</h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+              {/* Application 1 */}
+              <div className="bg-white rounded-lg overflow-hidden shadow-md flex flex-col md:flex-row">
+                <div className="md:w-2/5 h-48 md:h-auto overflow-hidden">
+                  <img 
+                    src="/mould/Screenshot_7.jpg" 
+                    alt="Industrial Machine Parts" 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="md:w-3/5 p-6">
+                  <div className="text-blue-600 text-sm font-semibold mb-2">INDUSTRIAL EQUIPMENT</div>
+                  <h3 className="text-xl font-bold mb-4">Replacement Parts for Industrial Machinery and Equipment</h3>
+                  <a href="#" className="text-blue-600 flex items-center gap-2 font-medium hover:text-blue-800 transition-colors">
+                    Learn More
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              
+              {/* Application 2 */}
+              <div className="bg-white rounded-lg overflow-hidden shadow-md flex flex-col md:flex-row">
+                <div className="md:w-2/5 h-48 md:h-auto overflow-hidden">
+                  <img 
+                    src="/mould/optimized_for_web_jpeg-07202023_rigid_10k_sample_card_2_189d-sh-standard-square.webp" 
+                    alt="Consumer Product Parts" 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="md:w-3/5 p-6">
+                  <div className="text-blue-600 text-sm font-semibold mb-2">CONSUMER PRODUCTS</div>
+                  <h3 className="text-xl font-bold mb-4">Custom Parts for Consumer Products and Home Appliances</h3>
+                  <a href="#" className="text-blue-600 flex items-center gap-2 font-medium hover:text-blue-800 transition-colors">
+                    Learn More
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </a>
+                </div>
               </div>
             </div>
           </div>

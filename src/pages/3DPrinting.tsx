@@ -50,22 +50,11 @@ const ThreeDPrintingPage = () => {
         {/* New Hero Section with image on left and text on right */}
         <section className="bg-white py-16 md:py-24 pt-36 md:pt-48">
           <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-              {/* Left side image */}
-              <div className="w-full md:w-1/2 md:pr-4 lg:pr-8">
-                <div className="rounded-lg overflow-hidden shadow-lg">
-                  <img 
-                    src="/fablab/optimized_for_web_jpeg-03072024_dsl_core_set_311.webp" 
-                    alt="3D Printing Equipment Core Set" 
-                    className="w-full h-auto object-cover aspect-[16/9]"
-                  />
-                </div>
-              </div>
-              
-              {/* Right side content */}
-              <div className="w-full md:w-1/2">
+            <div className="flex flex-col lg:flex-row items-center">
+              {/* Left side content */}
+              <div className="w-full lg:w-1/2 mb-12 lg:mb-0 pr-0 lg:pr-10">
                 <div className="text-blue-600 font-medium mb-2">STEREOLITHOGRAPHY (SLA) TECHNOLOGY</div>
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gray-900">High-Precision SLA 3D Printing Services</h1>
+                <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight text-gray-900">High-Precision <span className="text-gray-600">SLA 3D Printing Services</span></h1>
                 
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
@@ -109,6 +98,17 @@ const ThreeDPrintingPage = () => {
                   <a href="#" className="inline-block bg-white text-blue-600 font-medium px-6 py-3 rounded-md border border-blue-600 hover:bg-blue-50 transition-colors text-center">
                     Request Sample Parts
                   </a>
+                </div>
+              </div>
+              
+              {/* Right side image */}
+              <div className="w-full lg:w-3/4 lg:pl-8">
+                <div className="relative w-full">
+                  <img 
+                    src="/fablab/optimized_for_web_jpeg-03072024_dsl_core_set_311.webp" 
+                    alt="3D Printing Equipment Core Set" 
+                    className="w-full aspect-[4/3] object-cover h-auto max-h-[650px]"
+                  />
                 </div>
               </div>
             </div>
@@ -163,15 +163,16 @@ const ThreeDPrintingPage = () => {
             </div>
             
             {/* Right side video */}
-            <div className="w-full lg:w-1/2 lg:pl-8">
-              <div className="relative rounded-md overflow-hidden border-2 border-[#f05a28] shadow-xl">
+            <div className="w-full lg:w-3/4 lg:pl-8">
+              <div className="relative w-full">
                 <video
                   ref={videoRef}
-                  className="w-full aspect-[16/9] object-cover"
+                  className="w-full aspect-[4/3] object-cover h-auto max-h-[650px]"
                   autoPlay
                   muted
                   loop
                   playsInline
+                  controls
                   onError={handleVideoError}
                   onLoadedData={handleVideoLoad}
                 >
@@ -181,21 +182,9 @@ const ThreeDPrintingPage = () => {
                   />
                   Your browser does not support the video tag.
                 </video>
-                <div className="absolute bottom-0 left-0 right-0 bg-[#f05a28] text-white p-3">
-                  <div className="flex justify-between items-center">
-                    <div>
-                      <span className="font-bold">RIGID</span> Ultra stiff, high strength, glass-filled
-                    </div>
-                    <button className="flex items-center gap-1 font-medium">
-                      LEARN MORE
-                      <span>›</span>
-                    </button>
-                  </div>
-                </div>
-                <button className="absolute top-4 right-4 bg-[#f05a28] rounded-full p-1 w-8 h-8 flex items-center justify-center">
-                  <span className="sr-only">Pause</span>
-                  ⏸
-                </button>
+              </div>
+              <div className="mt-4 text-sm text-gray-500">
+                Video: 3D printing process and material applications
               </div>
             </div>
           </div>
@@ -357,22 +346,11 @@ const ThreeDPrintingPage = () => {
         {/* Innovating Markets Section - Our 3D Printing Equipment */}
         <section className="py-10 md:py-16 bg-gray-900 text-white">
           <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-              {/* Left side image */}
-              <div className="w-full md:w-1/2 md:pr-4 lg:pr-8">
-                <div className="rounded-lg overflow-hidden shadow-lg">
-                  <img 
-                    src="/3dprinters/prusa-i3-mk3s-3d-printer-tashkent.webp" 
-                    alt="FDM 3D Printing Equipment Core Set" 
-                    className="w-full h-auto object-cover aspect-[16/9]"
-                  />
-                </div>
-              </div>
-              
-              {/* Right side content */}
-              <div className="w-full md:w-1/2">
+            <div className="flex flex-col lg:flex-row items-center">
+              {/* Left side content */}
+              <div className="w-full lg:w-1/2 mb-12 lg:mb-0 pr-0 lg:pr-10">
                 <div className="text-orange-500 font-medium mb-2">FUSED DEPOSITION MODELING (FDM) TECHNOLOGY</div>
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white">Versatile FDM 3D Printing Services</h1>
+                <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight text-white">Versatile <span className="text-gray-400">FDM 3D Printing Services</span></h1>
                 
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
@@ -416,6 +394,17 @@ const ThreeDPrintingPage = () => {
                   <a href="#" className="inline-block bg-transparent text-orange-500 font-medium px-6 py-3 rounded-md border border-orange-500 hover:bg-orange-900 transition-colors text-center">
                     Request Sample Parts
                   </a>
+                </div>
+              </div>
+              
+              {/* Right side image */}
+              <div className="w-full lg:w-3/4 lg:pl-8">
+                <div className="relative w-full">
+                  <img 
+                    src="/3dprinters/prusa-i3-mk3s-3d-printer-tashkent.webp" 
+                    alt="FDM 3D Printing Equipment Core Set" 
+                    className="w-full aspect-[4/3] object-cover h-auto max-h-[650px]"
+                  />
                 </div>
               </div>
             </div>
@@ -490,7 +479,7 @@ const ThreeDPrintingPage = () => {
             {/* Main featured news */}
             <div className="rounded-lg overflow-hidden mb-6 md:mb-10">
               <div className="grid grid-cols-1 lg:grid-cols-2">
-                <div className="relative aspect-video lg:aspect-auto">
+                <div className="relative aspect-[4/3] lg:aspect-auto">
                   <img 
                     src="/3dprinters/formlabs-form3-sla-3d-printer-tashkent.webp" 
                     alt="Form Cure 2nd Generation" 
@@ -517,7 +506,7 @@ const ThreeDPrintingPage = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
               {/* Secondary news items */}
               <div className="bg-black rounded-lg overflow-hidden border border-gray-800">
-                <div className="aspect-[3/2] overflow-hidden">
+                <div className="aspect-[4/3] overflow-hidden">
                   <img 
                     src="/3dprinters/spare-s4-file.webp" 
                     alt="Tough 1500 Resin" 
@@ -535,7 +524,7 @@ const ThreeDPrintingPage = () => {
               </div>
               
               <div className="bg-black rounded-lg overflow-hidden border border-gray-800">
-                <div className="aspect-[3/2] overflow-hidden">
+                <div className="aspect-[4/3] overflow-hidden">
                   <img 
                     src="/3dprinters/spare-s3-file.webp" 
                     alt="Form 4 Delivers" 
@@ -553,7 +542,7 @@ const ThreeDPrintingPage = () => {
               </div>
               
               <div className="bg-black rounded-lg overflow-hidden border border-gray-800 sm:col-span-2 md:col-span-1">
-                <div className="aspect-[3/2] overflow-hidden">
+                <div className="aspect-[4/3] overflow-hidden">
                   <img 
                     src="/3dprinters/raise3d-pro3-industrial-3d-printer-tashkent.webp" 
                     alt="Special Pricing for Educational Institutions" 

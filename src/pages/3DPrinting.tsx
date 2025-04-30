@@ -51,8 +51,19 @@ const ThreeDPrintingPage = () => {
         <section className="bg-white py-16 md:py-24 pt-36 md:pt-48">
           <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col lg:flex-row items-center">
-              {/* Left side content */}
-              <div className="w-full lg:w-1/2 mb-12 lg:mb-0 pr-0 lg:pr-10">
+              {/* Left side image */}
+              <div className="w-full lg:w-3/4 mb-12 lg:mb-0 pr-0 lg:pr-8">
+                <div className="relative w-full">
+                  <img 
+                    src="/fablab/optimized_for_web_jpeg-03072024_dsl_core_set_311.webp" 
+                    alt="3D Printing Equipment Core Set" 
+                    className="w-full aspect-[4/3] object-cover h-auto max-h-[650px]"
+                  />
+                </div>
+              </div>
+              
+              {/* Right side content */}
+              <div className="w-full lg:w-1/2 pl-0 lg:pl-10">
                 <div className="text-blue-600 font-medium mb-2">STEREOLITHOGRAPHY (SLA) TECHNOLOGY</div>
                 <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight text-gray-900">High-Precision <span className="text-gray-600">SLA 3D Printing Services</span></h1>
                 
@@ -98,17 +109,6 @@ const ThreeDPrintingPage = () => {
                   <a href="#" className="inline-block bg-white text-blue-600 font-medium px-6 py-3 rounded-md border border-blue-600 hover:bg-blue-50 transition-colors text-center">
                     Request Sample Parts
                   </a>
-                </div>
-              </div>
-              
-              {/* Right side image */}
-              <div className="w-full lg:w-3/4 lg:pl-8">
-                <div className="relative w-full">
-                  <img 
-                    src="/fablab/optimized_for_web_jpeg-03072024_dsl_core_set_311.webp" 
-                    alt="3D Printing Equipment Core Set" 
-                    className="w-full aspect-[4/3] object-cover h-auto max-h-[650px]"
-                  />
                 </div>
               </div>
             </div>

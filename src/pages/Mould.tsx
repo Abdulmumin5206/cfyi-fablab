@@ -241,128 +241,85 @@ const MouldPage = () => {
         {/* Our Moulding Process Section */}
         <section className="py-16 md:py-24 bg-gray-900 text-white">
           <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-              {/* Left side image */}
-              <div className="w-full md:w-1/2 md:pr-4 lg:pr-8">
-                <div className="rounded-lg overflow-hidden shadow-lg">
-                  <img 
-                    src="/fablab/form3plus-hero_main-v2.webp" 
-                    alt="Moulding Process" 
-                    className="w-full h-auto object-cover aspect-[16/9]"
-                  />
-                </div>
-              </div>
+            <div className="flex flex-col items-center">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-10 text-white text-center">Our Equipment for Moulding & Spare Parts</h1>
               
-              {/* Right side content */}
-              <div className="w-full md:w-1/2">
-                <div className="text-gray-500 font-medium mb-2">OUR PROFESSIONAL PROCESS</div>
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white">Expert Mould Making & Casting</h1>
-                
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <div className="flex-shrink-0 mt-1">
-                      <div className="w-5 h-5 rounded-full bg-gray-600 flex items-center justify-center">
-                        <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
+              {/* Equipment slider */}
+              <div className="w-full">
+                <div className="relative">
+                  <div className="overflow-hidden" ref={marketsRef}>
+                    <div className="flex space-x-6 py-4 px-2 transition-all duration-300" style={{ width: 'max-content' }}>
+                      {/* Equipment 1 */}
+                      <div className="w-[300px] flex-shrink-0">
+                        <div className="bg-white rounded-lg overflow-hidden p-4 border border-gray-200">
+                          <div className="h-64 mb-4 flex items-center justify-center">
+                            <img src="/mould/Equipments/formlabs-form3-01_2_1.jpg" alt="Form 3 SLA Printer" className="h-full object-contain" />
+                          </div>
+                          <h3 className="text-xl font-bold text-gray-900 text-center">Form 3 SLA Printer</h3>
+                        </div>
+                      </div>
+                      
+                      {/* Equipment 2 */}
+                      <div className="w-[300px] flex-shrink-0">
+                        <div className="bg-white rounded-lg overflow-hidden p-4 border border-gray-200">
+                          <div className="h-64 mb-4 flex items-center justify-center">
+                            <img src="/mould/Equipments/Phrozen.png" alt="Phrozen Sonic Mega 8K" className="h-full object-contain" />
+                          </div>
+                          <h3 className="text-xl font-bold text-gray-900 text-center">Phrozen Sonic Mega 8K</h3>
+                        </div>
+                      </div>
+                      
+                      {/* Equipment 3 */}
+                      <div className="w-[300px] flex-shrink-0">
+                        <div className="bg-white rounded-lg overflow-hidden p-4 border border-gray-200">
+                          <div className="h-64 mb-4 flex items-center justify-center">
+                            <img src="/mould/Equipments/Raise.png" alt="Raise3D Pro3" className="h-full object-contain" />
+                          </div>
+                          <h3 className="text-xl font-bold text-gray-900 text-center">Raise3D Pro3</h3>
+                        </div>
+                      </div>
+                      
+                      {/* Equipment 4 */}
+                      <div className="w-[300px] flex-shrink-0">
+                        <div className="bg-white rounded-lg overflow-hidden p-4 border border-gray-200">
+                          <div className="h-64 mb-4 flex items-center justify-center">
+                            <img src="/mould/Equipments/Phrozen mini.png" alt="Phrozen Mini 8K" className="h-full object-contain" />
+                          </div>
+                          <h3 className="text-xl font-bold text-gray-900 text-center">Phrozen Mini 8K</h3>
+                        </div>
+                      </div>
+                      
+                      {/* Equipment 5 */}
+                      <div className="w-[300px] flex-shrink-0">
+                        <div className="bg-white rounded-lg overflow-hidden p-4 border border-gray-200">
+                          <div className="h-64 mb-4 flex items-center justify-center">
+                            <img src="/mould/Equipments/Prusa.avif" alt="Prusa i3 MK3S+" className="h-full object-contain" />
+                          </div>
+                          <h3 className="text-xl font-bold text-gray-900 text-center">Prusa i3 MK3S+</h3>
+                        </div>
                       </div>
                     </div>
-                    <p className="text-gray-300">Master pattern creation from your design or 3D print</p>
                   </div>
                   
-                  <div className="flex items-start gap-3">
-                    <div className="flex-shrink-0 mt-1">
-                      <div className="w-5 h-5 rounded-full bg-gray-600 flex items-center justify-center">
-                        <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                      </div>
-                    </div>
-                    <p className="text-gray-300">Precision silicone mould making with optimal parting lines</p>
-                  </div>
-                  
-                  <div className="flex items-start gap-3">
-                    <div className="flex-shrink-0 mt-1">
-                      <div className="w-5 h-5 rounded-full bg-gray-600 flex items-center justify-center">
-                        <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                      </div>
-                    </div>
-                    <p className="text-gray-300">Professional casting with material selection guidance</p>
-                  </div>
-                </div>
-                
-                <div className="mt-8 flex flex-col sm:flex-row gap-4">
-                  <a href="#" className="inline-block bg-gray-700 text-white font-medium px-6 py-3 rounded-md hover:bg-gray-800 transition-colors text-center">
-                    Get a Quote
-                  </a>
-                  <a href="#" className="inline-block bg-transparent text-gray-300 font-medium px-6 py-3 rounded-md border border-gray-300 hover:bg-gray-800 transition-colors text-center">
-                    See Our Portfolio
-                  </a>
+                  {/* Navigation Arrows */}
+                  <button 
+                    onClick={scrollMarketLeft}
+                    className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 bg-gray-700 hover:bg-gray-600 w-10 h-10 rounded-full flex items-center justify-center z-10 shadow-md"
+                  >
+                    <ArrowLeft className="w-5 h-5 text-white" />
+                  </button>
+                  <button 
+                    onClick={scrollMarketRight}
+                    className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 bg-gray-700 hover:bg-gray-600 w-10 h-10 rounded-full flex items-center justify-center z-10 shadow-md"
+                  >
+                    <ArrowRight className="w-5 h-5 text-white" />
+                  </button>
                 </div>
               </div>
             </div>
           </div>
         </section>
         
-        {/* Our Equipment Section */}
-        <section className="py-16 md:py-24 bg-white text-gray-900">
-          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl md:text-4xl font-bold mb-10 md:mb-16">Our Moulding & Casting Equipment</h2>
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
-              {/* Equipment 1 */}
-              <div className="flex flex-col">
-                <div className="w-full h-64 bg-white mb-4 flex items-center justify-center p-4 rounded border border-gray-200">
-                  <img src="/fablab/3.jpg" alt="Vacuum Chamber" className="w-full h-full object-contain" />
-                </div>
-                <h3 className="text-2xl font-bold">Vacuum Chamber</h3>
-                <p className="text-gray-600 mb-4">Bubble-Free Silicone</p>
-                <button className="border border-gray-800 py-2 px-4 hover:bg-gray-800 hover:text-white transition-colors w-fit text-sm">
-                  More Details
-                </button>
-              </div>
-              
-              {/* Equipment 2 */}
-              <div className="flex flex-col">
-                <div className="w-full h-64 bg-white mb-4 flex items-center justify-center p-4 rounded border border-gray-200">
-                  <img src="/fablab/1.jpg" alt="Pressure Pot" className="w-full h-full object-contain" />
-                </div>
-                <h3 className="text-2xl font-bold">Pressure Pot</h3>
-                <p className="text-gray-600 mb-4">Bubble Elimination</p>
-                <button className="border border-gray-800 py-2 px-4 hover:bg-gray-800 hover:text-white transition-colors w-fit text-sm">
-                  More Details
-                </button>
-              </div>
-              
-              {/* Equipment 3 */}
-              <div className="flex flex-col">
-                <div className="w-full h-64 bg-white mb-4 flex items-center justify-center p-4 rounded border border-gray-200">
-                  <img src="/fablab/11.jpg" alt="Rotocasting Machine" className="w-full h-full object-contain" />
-                </div>
-                <h3 className="text-2xl font-bold">Rotocasting Machine</h3>
-                <p className="text-gray-600 mb-4">Hollow Parts Production</p>
-                <button className="border border-gray-800 py-2 px-4 hover:bg-gray-800 hover:text-white transition-colors w-fit text-sm">
-                  More Details
-                </button>
-              </div>
-              
-              {/* Equipment 4 */}
-              <div className="flex flex-col">
-                <div className="w-full h-64 bg-white mb-4 flex items-center justify-center p-4 rounded border border-gray-200">
-                  <img src="/fablab/13.jpg" alt="Resin Dispensing System" className="w-full h-full object-contain" />
-                </div>
-                <h3 className="text-2xl font-bold">Resin Dispensing</h3>
-                <p className="text-gray-600 mb-4">Precision Mixing</p>
-                <button className="border border-gray-800 py-2 px-4 hover:bg-gray-800 hover:text-white transition-colors w-fit text-sm">
-                  More Details
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* Spare Parts Section */}
         <section className="py-16 md:py-24 bg-gray-100 text-gray-900">
           <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">

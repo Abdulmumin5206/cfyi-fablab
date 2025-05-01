@@ -11,6 +11,8 @@ const Header = () => {
   const [servicesMenuOpen, setServicesMenuOpen]     = useState(false);
   const location = useLocation();
   const is3DPrintingPage = location.pathname === "/3d-printing";
+  const is3DPrintingBlogPost = location.pathname === "/blog/3d-printing-innovations";
+  const shouldUseBlackTheme = is3DPrintingPage || is3DPrintingBlogPost;
 
   // ref + state for measuring the main nav width
   const navRef = useRef<HTMLDivElement>(null);
@@ -81,14 +83,14 @@ const Header = () => {
             <div
               ref={navRef}
               className={`transition-colors duration-300 ${
-                is3DPrintingPage ? "bg-black" : isScrolled ? "bg-white" : "bg-transparent md:bg-white"
+                shouldUseBlackTheme ? "bg-black" : isScrolled ? "bg-white" : "bg-transparent md:bg-white"
               } px-4 sm:px-6 md:px-8 lg:px-12 h-full`}
             >
               <div className="hidden md:flex items-center space-x-4 lg:space-x-8 xl:space-x-12 h-full">
                 {/* Services link with dropdown */}
                 <div className="relative group h-full">
                   <button
-                    className={`flex items-center h-full ${is3DPrintingPage ? "text-white group-hover:text-[#f05a28]" : "text-black group-hover:text-brand-red"} transition-colors text-xs sm:text-sm lg:text-base px-2 sm:px-3`}
+                    className={`flex items-center h-full ${shouldUseBlackTheme ? "text-white group-hover:text-[#f05a28]" : "text-black group-hover:text-brand-red"} transition-colors text-xs sm:text-sm lg:text-base px-2 sm:px-3`}
                     onClick={() => setServicesMenuOpen(!servicesMenuOpen)}
                     onMouseEnter={openServicesMenu}
                   >
@@ -100,19 +102,19 @@ const Header = () => {
                 {/* Other top-level links */}
                 <Link
                   to="/engineering"
-                  className={`${is3DPrintingPage ? "text-white hover:text-[#f05a28]" : "text-black hover:text-brand-red"} transition-colors text-xs sm:text-sm lg:text-base px-2 sm:px-3`}
+                  className={`${shouldUseBlackTheme ? "text-white hover:text-[#f05a28]" : "text-black hover:text-brand-red"} transition-colors text-xs sm:text-sm lg:text-base px-2 sm:px-3`}
                 >
                   Engineering
                 </Link>
                 <Link
                   to="/about-fablab"
-                  className={`${is3DPrintingPage ? "text-white hover:text-[#f05a28]" : "text-black hover:text-brand-red"} transition-colors text-xs sm:text-sm lg:text-base px-2 sm:px-3`}
+                  className={`${shouldUseBlackTheme ? "text-white hover:text-[#f05a28]" : "text-black hover:text-brand-red"} transition-colors text-xs sm:text-sm lg:text-base px-2 sm:px-3`}
                 >
                   About Fablab
                 </Link>
                 <Link
                   to="/projects"
-                  className={`${is3DPrintingPage ? "text-white hover:text-[#f05a28]" : "text-black hover:text-brand-red"} transition-colors text-xs sm:text-sm lg:text-base px-2 sm:px-3`}
+                  className={`${shouldUseBlackTheme ? "text-white hover:text-[#f05a28]" : "text-black hover:text-brand-red"} transition-colors text-xs sm:text-sm lg:text-base px-2 sm:px-3`}
                 >
                   Projects
                 </Link>
@@ -128,7 +130,7 @@ const Header = () => {
                   className="flex items-center justify-center hover:opacity-75 transition-opacity ml-2 sm:ml-4 md:ml-6"
                   onClick={toggleMenu}
                 >
-                  <span className={`flex items-center space-x-1 sm:space-x-2 border ${is3DPrintingPage ? "border-white" : "border-black"} px-3 sm:px-4 py-1.5 sm:py-2 ${is3DPrintingPage ? "bg-black text-white" : "bg-white text-black"}`}>
+                  <span className={`flex items-center space-x-1 sm:space-x-2 border ${shouldUseBlackTheme ? "border-white" : "border-black"} px-3 sm:px-4 py-1.5 sm:py-2 ${shouldUseBlackTheme ? "bg-black text-white" : "bg-white text-black"}`}>
                     {isMobileMenuOpen ? <X size={16} /> : <Menu size={16} />}
                     <span className="text-xs sm:text-sm lg:text-base">
                       Menu
@@ -144,7 +146,7 @@ const Header = () => {
                 className="flex items-center justify-center"
                 onClick={toggleMenu}
               >
-                <span className={`flex items-center space-x-1 border ${is3DPrintingPage ? "border-white bg-black text-white" : "border-black bg-white text-black"} px-2 py-1.5`}>
+                <span className={`flex items-center space-x-1 border ${shouldUseBlackTheme ? "border-white bg-black text-white" : "border-black bg-white text-black"} px-2 py-1.5`}>
                   {isMobileMenuOpen ? <X size={16} /> : <Menu size={16} />}
                   <span className="text-xs">Menu</span>
                 </span>

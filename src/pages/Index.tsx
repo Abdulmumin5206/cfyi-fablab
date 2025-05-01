@@ -5,6 +5,7 @@ import AboutSection from "@/components/AboutSection";
 import QuoteSection from "@/components/QuoteSection";
 import ScrollAnimationSection from "@/components/ScrollAnimationSection";
 import ScrollAnimationSection2 from "@/components/ScrollAnimationSection2";
+import ServiceCategories from "@/components/ServiceCategories";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -13,6 +14,7 @@ const Index = () => {
       <Header />
       <main>
         <HeroSection />
+        <ServiceCategories />
         <AboutSection />
         <ProductSlider />
         <ScrollAnimationSection />

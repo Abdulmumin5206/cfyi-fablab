@@ -36,6 +36,42 @@ export default function FdmFilaments() {
         "/3dprinters/FDM/FOrange1.avif",
         "/3dprinters/FDM/FOrange2.avif"
       ]
+    },
+    {
+      id: 4,
+      name: "Prusament PLA Galaxy Silver",
+      mainImage: "/3dprinters/FDM/Prusament PLA Galaxy Silver.avif",
+      sampleImages: [
+        "/3dprinters/FDM/Prusament PLA Galaxy Silver1.avif",
+        "/3dprinters/FDM/Prusament PLA Galaxy Silver2.avif"
+      ]
+    },
+    {
+      id: 5,
+      name: "Prusament PLA Blend Ms. Pink",
+      mainImage: "/3dprinters/FDM/Prusament PLA Blend Ms. Pink.avif",
+      sampleImages: [
+        "/3dprinters/FDM/Prusament PLA Blend Ms. Pink1.avif",
+        "/3dprinters/FDM/Prusament PLA Blend Ms. Pink2.avif"
+      ]
+    },
+    {
+      id: 6,
+      name: "Prusament PLA Pearl Mouse",
+      mainImage: "/3dprinters/FDM/Prusament PLA Pearl Mouse.avif",
+      sampleImages: [
+        "/3dprinters/FDM/Prusament PLA Pearl Mouse1.jpg",
+        "/3dprinters/FDM/Prusament PLA Pearl Mouse2.jpg"
+      ]
+    },
+    {
+      id: 7,
+      name: "Prusament PLA Vanilla White",
+      mainImage: "/3dprinters/FDM/Prusament PLA Vanilla White.avif",
+      sampleImages: [
+        "/3dprinters/FDM/Prusament PLA Vanilla White1.avif",
+        "/3dprinters/FDM/Prusament PLA Vanilla White.avif"
+      ]
     }
   ];
 
@@ -82,37 +118,37 @@ export default function FdmFilaments() {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-gray-900 text-white">
+    <section className="py-16 md:py-24 bg-gray-50 text-gray-900">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl md:text-4xl font-bold mb-10 md:mb-16 text-center">FDM Filaments</h2>
         
         <div className="flex flex-col lg:flex-row gap-10">
-          {/* Material selection area - Left side */}
-          <div className="w-full lg:w-1/3 self-start">
-            <div className="bg-gray-800 rounded-xl shadow-md overflow-hidden h-full border border-gray-700">
-              <div className="p-6 border-b border-gray-700">
+          {/* Material selection grid - Left side */}
+          <div className="w-full lg:w-2/5">
+            <div className="bg-white rounded-xl shadow-md overflow-hidden h-full">
+              <div className="p-6 border-b border-gray-200">
                 <h3 className="text-2xl font-bold">Select a Filament</h3>
               </div>
               <div className="p-5">
-                <div className="grid grid-cols-1 gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   {materials.map((material) => (
                     <div 
                       key={material.id}
-                      className={`material-card cursor-pointer bg-gray-800 border rounded-lg p-4 transition-all ${
+                      className={`material-card cursor-pointer bg-white border rounded-lg p-3 transition-all ${
                         selectedMaterial.id === material.id 
-                          ? 'border-orange-500 shadow-md' 
-                          : 'border-gray-600 hover:border-orange-500 hover:shadow-md'
+                          ? 'border-blue-500 shadow-md' 
+                          : 'border-gray-200 hover:border-blue-500 hover:shadow-md'
                       }`}
                       onClick={() => handleMaterialSelect(material)}
                     >
-                      <div className="w-full h-40 flex items-center justify-center mb-4">
+                      <div className="w-full h-32 flex items-center justify-center mb-3">
                         <img 
                           src={material.mainImage} 
                           alt={material.name} 
                           className="max-h-full max-w-full object-contain"
                         />
                       </div>
-                      <h4 className="font-semibold text-center">{material.name}</h4>
+                      <h4 className="font-semibold text-center text-sm">{material.name}</h4>
                     </div>
                   ))}
                 </div>
@@ -120,44 +156,47 @@ export default function FdmFilaments() {
             </div>
           </div>
           
-          {/* Image gallery - Right side */}
-          <div className="w-full lg:w-2/3 self-start">
-            <div className="bg-gray-800 rounded-xl shadow-md overflow-hidden h-full border border-gray-700">
-              <div className="h-[600px] relative">
+          {/* Selected material details - Right side */}
+          <div className="w-full lg:w-3/5">
+            <div className="bg-white rounded-xl shadow-md overflow-hidden h-full flex items-center">
+              <div className="h-[600px] relative w-full">
                 {/* Main image display */}
                 <div 
-                  className="h-full flex items-center justify-center bg-gray-700 p-3 cursor-pointer"
+                  className="h-full flex items-center justify-center bg-white p-3 cursor-pointer"
                   onClick={toggleFullscreen}
                 >
                   <img 
                     src={mainDisplayImage} 
                     alt={`${selectedMaterial.name} Example`} 
-                    className="w-full h-full object-contain"
+                    className="max-h-[500px] max-w-full object-contain mx-auto"
                   />
                 </div>
                 
-                {/* Image selector overlay */}
-                <div className="absolute bottom-4 left-0 right-0 flex justify-center">
-                  <div className="flex space-x-3 bg-black bg-opacity-50 backdrop-blur-sm px-4 py-2 rounded-md">
-                    {selectedMaterial.sampleImages.map((image, index) => (
-                      <div 
-                        key={index} 
-                        className={`w-14 h-14 rounded-md overflow-hidden cursor-pointer transition-transform ${
-                          mainDisplayImage === image 
-                            ? 'border-2 border-white ring-2 ring-orange-500 scale-110' 
-                            : 'border border-gray-400 opacity-80 hover:opacity-100'
-                        }`}
-                        onClick={() => handleThumbnailClick(image)}
-                      >
-                        <img 
-                          src={image} 
-                          alt={`Sample ${index + 1}`} 
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                    ))}
-                  </div>
-                </div>
+                {/* Left arrow navigation */}
+                <button 
+                  className="absolute left-4 top-1/2 -translate-y-1/2 text-black w-10 h-10 flex items-center justify-center transition-all"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    navigateImages('prev', e);
+                  }}
+                >
+                  <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 18L9 12L15 6" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </button>
+                
+                {/* Right arrow navigation */}
+                <button 
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-black w-10 h-10 flex items-center justify-center transition-all"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    navigateImages('next', e);
+                  }}
+                >
+                  <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 6L15 12L9 18" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </button>
               </div>
             </div>
           </div>
@@ -167,7 +206,7 @@ export default function FdmFilaments() {
       {/* Fullscreen image view */}
       {isFullscreen && (
         <div 
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90 backdrop-blur-sm"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75 backdrop-blur-sm"
           onClick={toggleFullscreen}
         >
           <div className="relative max-w-5xl max-h-screen p-4 w-full flex items-center justify-center">

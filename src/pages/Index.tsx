@@ -1,12 +1,12 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
-import ProductSlider from "@/components/ProductSlider";
 import AboutSection from "@/components/AboutSection";
-import QuoteSection from "@/components/QuoteSection";
 import ScrollAnimationSection from "@/components/ScrollAnimationSection";
 import ScrollAnimationSection2 from "@/components/ScrollAnimationSection2";
 import ServiceCategories from "@/components/ServiceCategories";
 import SimpleVideoSection from "@/components/SimpleVideoSection";
+import RecentProjects from "@/components/RecentProjects";
+import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -18,10 +18,10 @@ const Index = () => {
         <ServiceCategories />
         <SimpleVideoSection />
         <AboutSection />
-        <ProductSlider />
+        <RecentProjects />
         <ScrollAnimationSection />
         <ScrollAnimationSection2 />
-        <QuoteSection />
+        <ContactSection />
       </main>
       <Footer />
     </div>

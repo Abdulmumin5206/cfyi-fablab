@@ -6,20 +6,45 @@ const Footer = () => {
       <div className="container mx-auto px-4 md:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
-            <div className="text-2xl font-bold mb-4">
-              Think<span className="text-sm">:</span>
-              <span className="text-sm font-normal">Group</span>
+            <div className="flex flex-col md:flex-row items-center gap-6 mb-6">
+              <div className="w-40 h-24 flex items-center justify-center">
+                <img 
+                  src="/fablab/cfyi.svg" 
+                  alt="CFYI Logo" 
+                  className="w-full h-full object-contain"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = "https://placehold.co/200x100/gray/white?text=CFYI";
+                  }}
+                />
+              </div>
+              <div className="w-40 h-24 flex items-center justify-center">
+                <img 
+                  src="/fablab/logo.png" 
+                  alt="FabLab Logo" 
+                  className="w-[85%] h-[85%] object-contain"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = "https://placehold.co/200x100/gray/white?text=FabLab";
+                  }}
+                />
+              </div>
             </div>
+            
+            <p className="text-gray-400 text-sm mb-6">
+              FabLab Uzbekistan, in collaboration with Center for Youth Initiatives, is committed to advancing technical education and digital manufacturing. We provide modern equipment and expert support to inspire future innovators.
+            </p>
+            
             <address className="not-italic mb-6">
-              <p>Millersdale Ct, Euroway Industrial Estate</p>
-              <p>Bradford</p>
-              <p>BD4 6RX, UK</p>
+              <p>17 Olmachi St., Mirzo-Ulugbek,</p>
+              <p>Tashkent, Uzbekistan</p>
             </address>
             <div className="space-y-1">
-              <p>T: +44 (0) 1274 689400</p>
+              <p>Phone: +998 (77) 088 39 77 (ru/uz)</p>
+              <p>Phone: +998 (77) 088 49 77 (ru/en)</p>
               <p>
-                <a href="mailto:info@thinkgroupuk.co.uk" className="hover:text-brand-yellow">
-                  info@thinkgroupuk.co.uk
+                <a href="mailto:info@cfyi.uz" className="hover:text-brand-yellow">
+                  info@cfyi.uz
                 </a>
               </p>
             </div>
@@ -108,7 +133,7 @@ const Footer = () => {
         </div>
         <div className="mt-12 pt-6 border-t border-gray-800 text-sm text-gray-400">
           <div className="flex flex-col md:flex-row justify-between">
-            <p>© {new Date().getFullYear()} Think Group. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} FabLab Uzbekistan. All rights reserved.</p>
             <div className="flex space-x-4 mt-4 md:mt-0">
               <Link to="/" className="hover:text-white">
                 Privacy Policy

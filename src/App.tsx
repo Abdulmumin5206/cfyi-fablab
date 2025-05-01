@@ -12,6 +12,7 @@ import EngineeringPage from "./pages/Engineering";
 import BlogIndex from "./pages/blog/Index";
 import BlogPost from "./pages/blog/BlogPost";
 import SplashScreen from "./components/SplashScreen";
+import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -30,6 +31,7 @@ const App = () => {
         {showSplash && <SplashScreen onFinished={handleSplashFinished} />}
         <div className={showSplash ? "opacity-0" : "opacity-100 transition-opacity duration-500"}>
           <BrowserRouter>
+            <ScrollToTop />
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/3d-printing" element={<ThreeDPrintingPage />} />

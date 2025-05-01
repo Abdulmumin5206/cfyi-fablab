@@ -2,88 +2,19 @@ import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useState, useEffect } from "react";
+import { ArrowRight } from "lucide-react";
 
-// Dummy blog post data
+// Blog post data - updated to only include the 3D Printed Prototype
 const blogPosts = [
   {
     id: 1,
-    title: "Latest Innovations in 3D Printing Technology",
-    excerpt: "Discover the cutting-edge developments in 3D printing that are transforming manufacturing processes.",
+    title: "3D Printed Prototype Development",
+    excerpt: "Created a fully functional prototype using advanced 3D printing techniques for an Uzbek tech startup.",
     date: "May 15, 2023",
-    author: "John Smith",
-    image: "/images/blog/3d-printing.jpg",
-    category: "Technology",
+    author: "FabLab Team",
+    image: "/blog_images/blog1.png",
+    category: "3D Printing",
     slug: "3d-printing-innovations"
-  },
-  {
-    id: 2,
-    title: "How Sustainable Manufacturing is Changing the Industry",
-    excerpt: "Explore how sustainable practices are reshaping manufacturing standards worldwide.",
-    date: "April 28, 2023",
-    author: "Emma Johnson",
-    image: "/images/blog/sustainable-manufacturing.jpg",
-    category: "Sustainability",
-    slug: "sustainable-manufacturing"
-  },
-  {
-    id: 3,
-    title: "The Impact of AI on Modern Manufacturing",
-    excerpt: "An in-depth look at how artificial intelligence is revolutionizing the manufacturing landscape.",
-    date: "March 10, 2023",
-    author: "David Chen",
-    image: "/images/blog/ai-manufacturing.jpg",
-    category: "Technology",
-    slug: "ai-manufacturing-impact"
-  },
-  {
-    id: 4,
-    title: "FabLab Workshop Highlights: Youth Innovation Program",
-    excerpt: "A recap of our recent youth workshop where participants learned about digital fabrication and prototyping.",
-    date: "February 20, 2023",
-    author: "Sarah Kim",
-    image: "/images/blog/workshop.jpg",
-    category: "Events",
-    slug: "youth-workshop-recap"
-  },
-  {
-    id: 5,
-    title: "Circular Economy in Manufacturing: Case Studies",
-    excerpt: "Examining how manufacturers are implementing circular economy principles to reduce waste and increase efficiency.",
-    date: "January 15, 2023",
-    author: "Michael Brown",
-    image: "/images/blog/circular-economy.jpg",
-    category: "Sustainability",
-    slug: "circular-economy-cases"
-  },
-  {
-    id: 6,
-    title: "Interview: Leading Women in Manufacturing",
-    excerpt: "Hear from women leaders who are making significant contributions to manufacturing innovation and education.",
-    date: "December 12, 2022",
-    author: "Rebecca Lee",
-    image: "/images/blog/women-manufacturing.jpg",
-    category: "Community",
-    slug: "women-in-manufacturing"
-  },
-  {
-    id: 7,
-    title: "Digital Fabrication in Education: New Curriculum",
-    excerpt: "How schools are incorporating digital fabrication into their curriculum to prepare students for future careers.",
-    date: "November 5, 2022",
-    author: "Alex Rivera",
-    image: "/images/blog/education-fabrication.jpg",
-    category: "Education",
-    slug: "digital-fabrication-education"
-  },
-  {
-    id: 8,
-    title: "FabLab Uzbekistan: Our First Year in Review",
-    excerpt: "Celebrating our accomplishments and lessons learned during our first year of operation.",
-    date: "October 22, 2022",
-    author: "Alisher Karimov",
-    image: "/images/blog/fablab-anniversary.jpg",
-    category: "Events",
-    slug: "fablab-first-year"
   }
 ];
 
@@ -254,10 +185,10 @@ const BlogIndex = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-white">
       <Header />
-      <main className="flex-grow">
-        <div className="bg-white py-16 md:py-24 border-b border-gray-100">
+      <main className="flex-grow bg-white">
+        <div className="bg-white py-16 md:py-24 mt-20 md:mt-24 lg:mt-28 border-b border-gray-100">
           <div className="container mx-auto px-4">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">Our Blog</h1>
             <p className="text-xl text-gray-600 max-w-3xl">
@@ -267,7 +198,7 @@ const BlogIndex = () => {
           </div>
         </div>
 
-        <div className="container mx-auto px-4 py-12 md:py-16 bg-gray-50">
+        <div className="container mx-auto px-4 py-12 md:py-16 bg-white">
           {/* Search and Filter Bar */}
           <div className="mb-10 space-y-6">
             {/* Search Bar */}
@@ -323,39 +254,34 @@ const BlogIndex = () => {
           {/* Blog Posts Grid */}
           {filteredPosts.length > 0 ? (
             <>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-[1600px] mx-auto">
                 {currentPosts.map((post) => (
-                  <article key={post.id} className="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
-                    <div className="h-56 bg-gray-200 relative">
+                  <article key={post.id} className="bg-white overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300">
+                    <div className="relative aspect-square mb-6 overflow-hidden">
                       <div 
                         className="absolute inset-0 bg-cover bg-center"
                         style={{ backgroundImage: `url(${post.image})` }}
                       />
-                    </div>
-                    <div className="p-6">
-                      <div className="flex items-center gap-2 mb-3">
-                        <span className="text-sm bg-brand-yellow px-3 py-1 rounded-full text-gray-800 font-medium">{post.category}</span>
-                        <span className="text-gray-400">•</span>
-                        <span className="text-sm text-gray-500">{post.date}</span>
+                      <div className="absolute bottom-0 left-0 bg-brand-red py-2 px-4 z-20">
+                        <p className="text-white font-medium">
+                          {post.category}
+                        </p>
                       </div>
-                      <h2 className="text-xl font-bold mb-3 text-gray-900">
+                    </div>
+                    <div className="p-4">
+                      <h2 className="text-xl font-bold mb-4 text-gray-900">
                         <Link to={`/blog/${post.slug}`} className="hover:text-brand-red transition-colors">
                           {post.title}
                         </Link>
                       </h2>
-                      <p className="text-gray-600 mb-4">{post.excerpt}</p>
-                      <div className="flex items-center justify-between">
-                        <span className="text-sm text-gray-500">By {post.author}</span>
-                        <Link 
-                          to={`/blog/${post.slug}`}
-                          className="text-brand-red hover:text-brand-darkred font-medium flex items-center gap-1 transition-colors"
-                        >
-                          Read more
-                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                          </svg>
-                        </Link>
-                      </div>
+                      <p className="text-sm mb-5 text-gray-700 leading-relaxed">{post.excerpt}</p>
+                      <Link 
+                        to={`/blog/${post.slug}`}
+                        className="inline-flex items-center bg-brand-red text-white py-1.5 px-3 hover:opacity-90 transition-opacity text-sm"
+                      >
+                        Read more
+                        <ArrowRight className="ml-1.5 w-4 h-4" />
+                      </Link>
                     </div>
                   </article>
                 ))}
@@ -393,7 +319,7 @@ const BlogIndex = () => {
           )}
 
           {/* Newsletter Subscription Section */}
-          <div className="mt-16 py-12 px-4 sm:px-8 bg-white rounded-lg shadow-md">
+          <div className="mt-16 py-12 px-4 sm:px-8 bg-white">
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-3xl font-bold text-gray-900 mb-4">Subscribe to Our Newsletter</h2>
               <p className="text-lg text-gray-600 mb-8">

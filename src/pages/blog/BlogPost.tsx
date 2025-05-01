@@ -181,12 +181,15 @@ const BlogPost = () => {
       <Header />
       <main className="flex-grow pt-20 md:pt-24">
         <article>
-          {/* Black header bar for 3D printing post */}
+          {/* White header bar for 3D printing post */}
           {is3DPrintingPost && (
-            <div className="w-full bg-black py-2">
+            <div className="w-full bg-white py-4">
               <div className="container mx-auto px-4">
-                <Link to="/blog" className="text-white hover:text-gray-300 flex items-center transition-colors text-sm">
-                  ← All Posts
+                <Link to="/blog" className="inline-flex items-center text-black hover:text-gray-600 transition-colors text-sm font-medium">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 mr-2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+                  </svg>
+                  All Posts
                 </Link>
               </div>
             </div>

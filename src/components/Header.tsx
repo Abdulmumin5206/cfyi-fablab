@@ -12,7 +12,8 @@ const Header = () => {
   const location = useLocation();
   const is3DPrintingPage = location.pathname === "/3d-printing";
   const is3DPrintingBlogPost = location.pathname === "/blog/3d-printing-innovations";
-  const shouldUseBlackTheme = is3DPrintingPage || is3DPrintingBlogPost;
+  const isBlogPage = location.pathname === "/blog" || location.pathname.startsWith("/blog/");
+  const shouldUseBlackTheme = is3DPrintingPage || is3DPrintingBlogPost || isBlogPage;
 
   // ref + state for measuring the main nav width
   const navRef = useRef<HTMLDivElement>(null);

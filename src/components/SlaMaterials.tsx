@@ -36,6 +36,42 @@ export default function SlaMaterials() {
         "/3dprinters/SLA/FTransparent1.avif",
         "/3dprinters/SLA/Ftransparent2.avif"
       ]
+    },
+    {
+      id: 4,
+      name: "Prusament Resin BioBased60 Natural Yellow",
+      mainImage: "/3dprinters/SLA/Prusament Resin BioBased60 Natural Yellow.avif",
+      sampleImages: [
+        "/3dprinters/SLA/FOrange1.avif",
+        "/3dprinters/SLA/FTransparentmodel1.avif"
+      ]
+    },
+    {
+      id: 5,
+      name: "Prusament Resin BioBased60 Herbal Green",
+      mainImage: "/3dprinters/SLA/Prusament Resin BioBased60 Herbal Green.avif",
+      sampleImages: [
+        "/3dprinters/SLA/FTransparentmodel1.avif",
+        "/3dprinters/SLA/FTransparentmodel2.avif"
+      ]
+    },
+    {
+      id: 6,
+      name: "Prusament Resin BioBased60 Magma Red",
+      mainImage: "/3dprinters/SLA/Prusament Resin BioBased60 Magma Red.avif",
+      sampleImages: [
+        "/3dprinters/SLA/FClassic Red1.avif",
+        "/3dprinters/SLA/FClassic Red2.avif"
+      ]
+    },
+    {
+      id: 7,
+      name: "SLA Resin Anthracite",
+      mainImage: "/3dprinters/SLA/FAnthracite1.avif",
+      sampleImages: [
+        "/3dprinters/SLA/FAnthracite1.avif",
+        "/3dprinters/SLA/FBlack1.avif"
+      ]
     }
   ];
 
@@ -87,32 +123,32 @@ export default function SlaMaterials() {
         <h2 className="text-3xl md:text-4xl font-bold mb-10 md:mb-16 text-center">SLA Materials</h2>
         
         <div className="flex flex-col lg:flex-row gap-10">
-          {/* Material selection area - Left side */}
-          <div className="w-full lg:w-1/3 self-start">
+          {/* Material selection grid - Left side */}
+          <div className="w-full lg:w-2/5">
             <div className="bg-white rounded-xl shadow-md overflow-hidden h-full">
               <div className="p-6 border-b border-gray-200">
                 <h3 className="text-2xl font-bold">Select a Resin</h3>
               </div>
               <div className="p-5">
-                <div className="grid grid-cols-1 gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   {materials.map((material) => (
                     <div 
                       key={material.id}
-                      className={`material-card cursor-pointer bg-white border rounded-lg p-4 transition-all ${
+                      className={`material-card cursor-pointer bg-white border rounded-lg p-3 transition-all ${
                         selectedMaterial.id === material.id 
                           ? 'border-blue-500 shadow-md' 
                           : 'border-gray-200 hover:border-blue-500 hover:shadow-md'
                       }`}
                       onClick={() => handleMaterialSelect(material)}
                     >
-                      <div className="w-full h-40 flex items-center justify-center mb-4">
+                      <div className="w-full h-32 flex items-center justify-center mb-3">
                         <img 
                           src={material.mainImage} 
                           alt={material.name} 
                           className="max-h-full max-w-full object-contain"
                         />
                       </div>
-                      <h4 className="font-semibold text-center">{material.name}</h4>
+                      <h4 className="font-semibold text-center text-sm">{material.name}</h4>
                     </div>
                   ))}
                 </div>
@@ -120,44 +156,47 @@ export default function SlaMaterials() {
             </div>
           </div>
           
-          {/* Image gallery - Right side */}
-          <div className="w-full lg:w-2/3 self-start">
-            <div className="bg-white rounded-xl shadow-md overflow-hidden h-full">
-              <div className="h-[600px] relative">
+          {/* Selected material details - Right side */}
+          <div className="w-full lg:w-3/5">
+            <div className="bg-white rounded-xl shadow-md overflow-hidden h-full flex items-center">
+              <div className="h-[600px] relative w-full">
                 {/* Main image display */}
                 <div 
-                  className="h-full flex items-center justify-center bg-gray-100 p-3 cursor-pointer"
+                  className="h-full flex items-center justify-center bg-white p-3 cursor-pointer"
                   onClick={toggleFullscreen}
                 >
                   <img 
                     src={mainDisplayImage} 
                     alt={`${selectedMaterial.name} Example`} 
-                    className="w-full h-full object-contain"
+                    className="max-h-[500px] max-w-full object-contain mx-auto"
                   />
                 </div>
                 
-                {/* Image selector overlay */}
-                <div className="absolute bottom-4 left-0 right-0 flex justify-center">
-                  <div className="flex space-x-3 bg-black bg-opacity-30 backdrop-blur-sm px-4 py-2 rounded-md">
-                    {selectedMaterial.sampleImages.map((image, index) => (
-                      <div 
-                        key={index} 
-                        className={`w-14 h-14 rounded-md overflow-hidden cursor-pointer transition-transform ${
-                          mainDisplayImage === image 
-                            ? 'border-2 border-white ring-2 ring-blue-500 scale-110' 
-                            : 'border border-gray-400 opacity-80 hover:opacity-100'
-                        }`}
-                        onClick={() => handleThumbnailClick(image)}
-                      >
-                        <img 
-                          src={image} 
-                          alt={`Sample ${index + 1}`} 
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                    ))}
-                  </div>
-                </div>
+                {/* Left arrow navigation */}
+                <button 
+                  className="absolute left-4 top-1/2 -translate-y-1/2 text-black w-10 h-10 flex items-center justify-center transition-all"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    navigateImages('prev', e);
+                  }}
+                >
+                  <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 18L9 12L15 6" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </button>
+                
+                {/* Right arrow navigation */}
+                <button 
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-black w-10 h-10 flex items-center justify-center transition-all"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    navigateImages('next', e);
+                  }}
+                >
+                  <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 6L15 12L9 18" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </button>
               </div>
             </div>
           </div>

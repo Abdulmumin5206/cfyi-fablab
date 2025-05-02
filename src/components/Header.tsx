@@ -74,7 +74,7 @@ const Header = () => {
       >
         <div className="relative">
           <div
-            className={`flex justify-end items-center h-16 sm:h-18 md:h-20 transition-colors duration-300 ${
+            className={`flex justify-end items-center h-18 sm:h-20 md:h-24 transition-colors duration-300 ${
               isScrolled ? "bg-white shadow-md" : "bg-transparent"
             }`}
           >
@@ -84,11 +84,11 @@ const Header = () => {
                 isScrolled ? "bg-white" : "bg-transparent"
               }`}
             >
-              <Link to="/" className="block h-full py-2">
+              <Link to="/" className="block h-full py-3">
                 <img
                   src="/fablab/logo.png"
                   alt="FabLab Logo"
-                  className="h-full w-auto max-h-12 sm:max-h-14 md:max-h-16 lg:max-h-20 object-contain"
+                  className="h-full w-auto max-h-14 sm:max-h-16 md:max-h-18 lg:max-h-22 object-contain"
                 />
               </Link>
             </div>
@@ -98,9 +98,9 @@ const Header = () => {
               ref={navRef}
               className={`transition-colors duration-300 ${
                 shouldUseBlackTheme ? "bg-black" : isScrolled ? "bg-white" : "bg-transparent md:bg-white"
-              } px-4 sm:px-6 md:px-8 lg:px-12 h-full`}
+              } px-8 sm:px-12 md:px-16 lg:px-20 h-full`}
             >
-              <div className="hidden md:flex items-center space-x-4 lg:space-x-8 xl:space-x-12 h-full">
+              <div className="hidden md:flex items-center space-x-8 lg:space-x-12 xl:space-x-20 h-full">
                 {/* Services link with dropdown */}
                 <div className="relative group h-full">
                   <button
@@ -134,13 +134,13 @@ const Header = () => {
                 </Link>
 
                 {/* Language Switcher */}
-                <div className="flex items-center ml-2">
+                <div className="flex items-center ml-6">
                   <LanguageSwitcher />
                 </div>
 
                 {/* Hamburger / close */}
                 <button
-                  className="flex items-center justify-center hover:opacity-75 transition-opacity ml-2 sm:ml-4 md:ml-6"
+                  className="flex items-center justify-center hover:opacity-75 transition-opacity ml-6 sm:ml-8 md:ml-10"
                   onClick={toggleMenu}
                 >
                   <span className={`flex items-center space-x-1 sm:space-x-2 border ${shouldUseBlackTheme ? "border-white" : "border-black"} px-3 sm:px-4 py-1.5 sm:py-2 ${shouldUseBlackTheme ? "bg-black text-white" : "bg-white text-black"}`}>
@@ -154,7 +154,7 @@ const Header = () => {
             </div>
 
             {/* Mobile toggle */}
-            <div className="md:hidden px-4 flex items-center space-x-2">
+            <div className="md:hidden px-10 flex items-center space-x-5">
               {/* Mobile Language Switcher */}
               <LanguageSwitcher />
               
@@ -176,7 +176,7 @@ const Header = () => {
 
       {/* Secondary bar: exactly navWidth, three equal sections */}
       <div
-        className={`fixed top-16 sm:top-18 md:top-20 right-0 z-40 transition-all duration-200 ${
+        className={`fixed top-18 sm:top-20 md:top-24 right-0 z-40 transition-all duration-200 ${
           servicesMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
         style={{ width: navWidth }}
@@ -184,7 +184,7 @@ const Header = () => {
         onMouseLeave={closeServicesMenu}
       >
         <div className="bg-gray-100 shadow-md w-full">
-          <div className="flex h-16 sm:h-18 md:h-20 items-center">
+          <div className="flex h-18 sm:h-20 md:h-24 items-center">
             <Link
               to="/mould"
               className="flex-1 h-full flex items-center justify-center text-black hover:text-white bg-gray-100 hover:bg-[#0e9a48] transition-all duration-200 text-xs sm:text-sm lg:text-base"

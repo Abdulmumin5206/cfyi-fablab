@@ -1,8 +1,6 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
-import ScrollAnimationSection from "@/components/ScrollAnimationSection";
-import ScrollAnimationSection2 from "@/components/ScrollAnimationSection2";
 import ServiceCategories from "@/components/ServiceCategories";
 import SimpleVideoSection from "@/components/SimpleVideoSection";
 import RecentProjects from "@/components/RecentProjects";
@@ -19,8 +17,6 @@ const Index = () => {
         <SimpleVideoSection />
         <AboutSection />
         <RecentProjects />
-        <ScrollAnimationSection />
-        <ScrollAnimationSection2 />
         <ContactSection />
       </main>
       <Footer />

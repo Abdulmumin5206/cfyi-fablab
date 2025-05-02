@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { X, ChevronDown, ChevronUp } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -8,6 +9,7 @@ interface MobileMenuProps {
 }
 
 const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
+  const { t } = useTranslation();
   const [expandedMenu, setExpandedMenu] = useState<string | null>(null);
 
   // Lock body scroll when menu is open
@@ -35,8 +37,8 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
 
   // Services submenu items
   const servicesSubMenu = [
-    { name: "Mould & Casting", path: "/mould" },
-    { name: "3D Printing", path: "/3d-printing" },
+    { name: t('header.mould'), path: "/mould" },
+    { name: t('header.3dPrinting'), path: "/3d-printing" },
     { name: "CNC Machining", path: "/" },
     { name: "Laser Cutting", path: "/" },
     { name: "Finishing Services", path: "/" },
@@ -121,7 +123,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                 >
                   <span className="flex items-center space-x-2 border border-white px-3 py-2 text-white">
                     <X size={20} />
-                    <span className="text-sm lg:text-base">Menu</span>
+                    <span className="text-sm lg:text-base">{t('header.menu')}</span>
                   </span>
                 </button>
               </div>
@@ -144,7 +146,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       onClick={() => toggleMenu('services')}
                       className="flex items-center justify-between w-full text-2xl md:text-3xl text-white hover:text-[#E6DB00] transition-all duration-300"
                     >
-                      <span>Services</span>
+                      <span>{t('header.services')}</span>
                       {expandedMenu === 'services' ? 
                         <ChevronUp size={24} /> : 
                         <ChevronDown size={24} />
@@ -170,13 +172,12 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                   
                   {/* Other first column menu items */}
                   {[
-                    "Engineering",
-                    "About Fablab",
-                    "Projects"
+                    { key: 'header.aboutFablab', path: '/about-fablab' },
+                    { key: 'header.projects', path: '/projects' }
                   ].map((item, index) => (
                     <Link
-                      key={item}
-                      to="/"
+                      key={item.key}
+                      to={item.path}
                       onClick={onClose}
                       className={`block text-2xl md:text-3xl text-white hover:text-[#E6DB00] transition-all duration-700 ${
                         isOpen 
@@ -185,7 +186,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       }`}
                       style={{ transitionDelay: `${400 + index * 100}ms` }}
                     >
-                      {item}
+                      {t(item.key)}
                     </Link>
                   ))}
                 </div>

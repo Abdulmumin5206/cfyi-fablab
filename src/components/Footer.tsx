@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+  const { t } = useTranslation();
+  
   return (
     <footer className="bg-black text-white">
       <div className="container mx-auto px-4 md:px-8 py-12">
@@ -51,17 +54,17 @@ const Footer = () => {
           </div>
           <div className="grid grid-cols-2 gap-8">
             <div>
-              <h3 className="text-2xl font-bold mb-6">Navigate</h3>
+              <h3 className="text-2xl font-bold mb-6">{t('footer.services')}</h3>
               <ul className="space-y-3">
                 <li>
                   <div className="flex flex-col space-y-2">
                     <span className="hover:text-brand-yellow">
-                      Services
+                      {t('header.services')}
                     </span>
                     <ul className="pl-3 space-y-2 border-l border-gray-800">
                       <li>
                         <Link to="/3d-printing" className="text-sm text-gray-400 hover:text-brand-yellow">
-                          3D Printing
+                          {t('header.3dPrinting')}
                         </Link>
                       </li>
                       <li>
@@ -89,17 +92,12 @@ const Footer = () => {
                 </li>
                 <li>
                   <Link to="/" className="hover:text-brand-yellow">
-                    Engineering
+                    {t('header.aboutFablab')}
                   </Link>
                 </li>
                 <li>
                   <Link to="/" className="hover:text-brand-yellow">
-                    About Fablab
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/" className="hover:text-brand-yellow">
-                    Projects
+                    {t('header.projects')}
                   </Link>
                 </li>
                 <li>
@@ -110,7 +108,7 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <h3 className="text-2xl font-bold mb-6">About Us</h3>
+              <h3 className="text-2xl font-bold mb-6">{t('footer.about')}</h3>
               <ul className="space-y-3">
                 <li>
                   <Link to="/blog" className="hover:text-brand-yellow">
@@ -124,7 +122,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <Link to="/" className="hover:text-brand-yellow">
-                    Contact Us
+                    {t('footer.contact')}
                   </Link>
                 </li>
               </ul>
@@ -133,13 +131,13 @@ const Footer = () => {
         </div>
         <div className="mt-12 pt-6 border-t border-gray-800 text-sm text-gray-400">
           <div className="flex flex-col md:flex-row justify-between">
-            <p>© {new Date().getFullYear()} FabLab Uzbekistan. All rights reserved.</p>
+            <p>{t('footer.copyright')}</p>
             <div className="flex space-x-4 mt-4 md:mt-0">
               <Link to="/" className="hover:text-white">
-                Privacy Policy
+                {t('footer.privacy')}
               </Link>
               <Link to="/" className="hover:text-white">
-                Terms of Service
+                {t('footer.terms')}
               </Link>
               <Link to="/" className="hover:text-white">
                 Cookie Policy

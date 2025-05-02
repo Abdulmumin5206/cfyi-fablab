@@ -1,0 +1,76 @@
+{
+  "header": {
+    "services": "Services",
+    "engineering": "Engineering",
+    "aboutFablab": "About Fablab",
+    "projects": "Projects",
+    "bookSession": "Book a session",
+    "menu": "Menu",
+    "mould": "Mould",
+    "3dPrinting": "3D Printing",
+    "prototyping": "Prototyping"
+  },
+  "hero": {
+    "slide1": {
+      "title": "Welcome to FabLab",
+      "subtitle": "Your creative space for innovation and making",
+      "buttonText": "Explore Our Space"
+    },
+    "slide2": {
+      "title": "State-of-the-Art Equipment",
+      "subtitle": "Access to cutting-edge tools and technology",
+      "buttonText": "View Equipment"
+    },
+    "slide3": {
+      "title": "Creative Community",
+      "subtitle": "Join a community of makers and innovators",
+      "buttonText": "Join Us"
+    },
+    "slide4": {
+      "title": "Workshop Space",
+      "subtitle": "Perfect environment for bringing ideas to life",
+      "buttonText": "Book a Session"
+    }
+  },
+  "serviceCategories": {
+    "title": "Our Services",
+    "subtitle": "Explore our range of fabrication services",
+    "3dPrinting": {
+      "title": "3D Printing",
+      "description": "Additive manufacturing for rapid prototyping and production"
+    },
+    "mould": {
+      "title": "Mould",
+      "description": "Custom mold design and fabrication for various materials"
+    },
+    "prototyping": {
+      "title": "Prototyping",
+      "description": "Turn your ideas into physical prototypes quickly"
+    }
+  },
+  "about": {
+    "title": "About FabLab",
+    "subtitle": "Where innovation meets fabrication",
+    "description": "FabLab is a state-of-the-art fabrication laboratory that provides access to industrial-grade tools and equipment. Our mission is to democratize access to modern means of invention and empower individuals to create almost anything.",
+    "learnMore": "Learn More"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Get in touch with our team",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send Message",
+    "address": "Address",
+    "phone": "Phone",
+    "emailContact": "Email"
+  },
+  "footer": {
+    "services": "Services",
+    "about": "About",
+    "contact": "Contact",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "copyright": "© 2023 FabLab. All rights reserved."
+  }
+} 

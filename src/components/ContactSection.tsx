@@ -4,8 +4,10 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 const ContactSection = () => {
+  const { t } = useTranslation();
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
@@ -57,29 +59,29 @@ const ContactSection = () => {
             <div className="space-y-10">
               <div>
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8">
-                  Let's talk.
+                  {t('contact.title')}
                 </h2>
                 <div className="h-1 w-16 bg-brand-red mb-8"></div>
                 <p className="text-gray-600 text-lg mb-12">
-                  Want to discuss a project or just say hello? Drop us a message and we'll get back to you.
+                  {t('contact.subtitle')}
                 </p>
               </div>
               
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-brand-red text-sm uppercase tracking-wider mb-2">Visit us</h3>
+                  <h3 className="text-brand-red text-sm uppercase tracking-wider mb-2">{t('contact.address')}</h3>
                   <p className="text-gray-800">17 Olmachi St., Mirzo-Ulugbek,</p>
                   <p className="text-gray-800">Tashkent, Uzbekistan</p>
                 </div>
                 
                 <div>
-                  <h3 className="text-brand-red text-sm uppercase tracking-wider mb-2">Call us</h3>
+                  <h3 className="text-brand-red text-sm uppercase tracking-wider mb-2">{t('contact.phone')}</h3>
                   <p className="text-gray-800">+998 (77) 088 39 77 (ru/uz)</p>
                   <p className="text-gray-800">+998 (77) 088 49 77 (ru/en)</p>
                 </div>
                 
                 <div>
-                  <h3 className="text-brand-red text-sm uppercase tracking-wider mb-2">Email us</h3>
+                  <h3 className="text-brand-red text-sm uppercase tracking-wider mb-2">{t('contact.emailContact')}</h3>
                   <a href="mailto:info@cfyi.uz" className="text-gray-800 hover:text-brand-red transition-colors">
                     info@cfyi.uz
                   </a>
@@ -133,21 +135,21 @@ const ContactSection = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label htmlFor="name" className="text-sm text-gray-600">
-                      Name
+                      {t('contact.name')}
                     </label>
                     <Input
                       id="name"
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      placeholder="Your name"
+                      placeholder={t('contact.name')}
                       required
                       className="border-gray-300 bg-white text-gray-900 focus:border-brand-red placeholder:text-gray-400"
                     />
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="email" className="text-sm text-gray-600">
-                      Email
+                      {t('contact.email')}
                     </label>
                     <Input
                       id="email"
@@ -155,7 +157,7 @@ const ContactSection = () => {
                       type="email"
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder="Your email"
+                      placeholder={t('contact.email')}
                       required
                       className="border-gray-300 bg-white text-gray-900 focus:border-brand-red placeholder:text-gray-400"
                     />
@@ -163,27 +165,27 @@ const ContactSection = () => {
                 </div>
                 <div className="space-y-2">
                   <label htmlFor="phone" className="text-sm text-gray-600">
-                    Phone (Optional)
+                    {t('contact.phone')} (Optional)
                   </label>
                   <Input
                     id="phone"
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="Your phone number"
+                    placeholder={t('contact.phone')}
                     className="border-gray-300 bg-white text-gray-900 focus:border-brand-red placeholder:text-gray-400"
                   />
                 </div>
                 <div className="space-y-2">
                   <label htmlFor="message" className="text-sm text-gray-600">
-                    Message
+                    {t('contact.message')}
                   </label>
                   <Textarea
                     id="message"
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="Tell us about your project"
+                    placeholder={t('contact.message')}
                     rows={5}
                     required
                     className="border-gray-300 bg-white text-gray-900 focus:border-brand-red placeholder:text-gray-400 min-h-[150px]"
@@ -194,7 +196,7 @@ const ContactSection = () => {
                   className="w-full bg-brand-red hover:bg-red-700 text-white font-semibold py-3 text-md transition-colors"
                   disabled={isSubmitting}
                 >
-                  {isSubmitting ? "Sending..." : "Send Message"}
+                  {isSubmitting ? "Sending..." : t('contact.send')}
                 </Button>
               </form>
             </motion.div>

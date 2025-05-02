@@ -1,57 +1,59 @@
 import { useState, useEffect, useRef } from "react";
 import { ArrowRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 interface HeroSlide {
   id: number;
   background: string;
-  title: string;
-  subtitle: string;
-  buttonText: string;
+  titleKey: string;
+  subtitleKey: string;
+  buttonTextKey: string;
   buttonLink: string;
 }
 
-const slides: HeroSlide[] = [
-  {
-    id: 1,
-    background: "bg-[url('/fablab/1.jpg')]",
-    title: "Welcome to FabLab",
-    subtitle: "Your creative space for innovation and making",
-    buttonText: "Explore Our Space",
-    buttonLink: "/",
-  },
-  {
-    id: 2,
-    background: "bg-[url('/fablab/3.jpg')]",
-    title: "State-of-the-Art Equipment",
-    subtitle: "Access to cutting-edge tools and technology",
-    buttonText: "View Equipment",
-    buttonLink: "/",
-  },
-  {
-    id: 3,
-    background: "bg-[url('/fablab/11.jpg')]",
-    title: "Creative Community",
-    subtitle: "Join a community of makers and innovators",
-    buttonText: "Join Us",
-    buttonLink: "/",
-  },
-  {
-    id: 4,
-    background: "bg-[url('/fablab/13.jpg')]",
-    title: "Workshop Space",
-    subtitle: "Perfect environment for bringing ideas to life",
-    buttonText: "Book a Session",
-    buttonLink: "/",
-  },
-];
-
 const HeroSection = () => {
+  const { t } = useTranslation();
   const [activeIndex, setActiveIndex] = useState(0);
   const [direction, setDirection] = useState("right");
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [currentX, setCurrentX] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  const slides: HeroSlide[] = [
+    {
+      id: 1,
+      background: "bg-[url('/fablab/1.jpg')]",
+      titleKey: "hero.slide1.title",
+      subtitleKey: "hero.slide1.subtitle",
+      buttonTextKey: "hero.slide1.buttonText",
+      buttonLink: "/",
+    },
+    {
+      id: 2,
+      background: "bg-[url('/fablab/3.jpg')]",
+      titleKey: "hero.slide2.title",
+      subtitleKey: "hero.slide2.subtitle",
+      buttonTextKey: "hero.slide2.buttonText",
+      buttonLink: "/",
+    },
+    {
+      id: 3,
+      background: "bg-[url('/fablab/11.jpg')]",
+      titleKey: "hero.slide3.title",
+      subtitleKey: "hero.slide3.subtitle",
+      buttonTextKey: "hero.slide3.buttonText",
+      buttonLink: "/",
+    },
+    {
+      id: 4,
+      background: "bg-[url('/fablab/13.jpg')]",
+      titleKey: "hero.slide4.title",
+      subtitleKey: "hero.slide4.subtitle",
+      buttonTextKey: "hero.slide4.buttonText",
+      buttonLink: "/",
+    },
+  ];
 
   // Helper function to get visual position of slides
   const getSlidePosition = (index: number) => {
@@ -182,16 +184,16 @@ const HeroSection = () => {
           <div className="absolute inset-0 flex items-center z-20">
             <div className="container mx-auto px-4 md:px-8 max-w-7xl mt-16 sm:mt-20 md:mt-24">
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-bold mb-2 sm:mb-4 max-w-xs sm:max-w-sm md:max-w-2xl lg:max-w-3xl">
-                {slide.title}
+                {t(slide.titleKey)}
               </h1>
               <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white mb-4 sm:mb-6 md:mb-8 max-w-xs sm:max-w-sm md:max-w-xl lg:max-w-2xl">
-                {slide.subtitle}
+                {t(slide.subtitleKey)}
               </p>
               <a
                 href={slide.buttonLink}
                 className="inline-flex items-center space-x-1 sm:space-x-2 bg-white text-black px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 text-sm sm:text-base font-medium"
               >
-                <span>{slide.buttonText}</span>
+                <span>{t(slide.buttonTextKey)}</span>
                 <ArrowRight size={16} />
               </a>
             </div>

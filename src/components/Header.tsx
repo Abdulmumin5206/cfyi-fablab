@@ -2,8 +2,11 @@ import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import MobileMenu from "./MobileMenu";
+import LanguageSwitcher from "./LanguageSwitcher";
+import { useTranslation } from "react-i18next";
 
 const Header = () => {
+  const { t, i18n } = useTranslation();
   const [isMobileMenuOpen, setIsMobileMenuOpen]     = useState(false);
   const [isVisible, setIsVisible]                   = useState(true);
   const [prevScrollPos, setPrevScrollPos]           = useState(0);
@@ -18,14 +21,24 @@ const Header = () => {
   // ref + state for measuring the main nav width
   const navRef = useRef<HTMLDivElement>(null);
   const [navWidth, setNavWidth] = useState(0);
+  
+  // Update nav width when language changes too
   useEffect(() => {
     const updateNavWidth = () => {
       if (navRef.current) setNavWidth(navRef.current.offsetWidth);
     };
+    
     updateNavWidth();
     window.addEventListener("resize", updateNavWidth);
-    return () => window.removeEventListener("resize", updateNavWidth);
-  }, []);
+    
+    // Force recalculation after a brief delay when language changes
+    const timeoutId = setTimeout(updateNavWidth, 100);
+    
+    return () => {
+      window.removeEventListener("resize", updateNavWidth);
+      clearTimeout(timeoutId);
+    };
+  }, [i18n.language]); // Added i18n.language as a dependency
 
   // scroll hide/show logic
   useEffect(() => {
@@ -95,36 +108,35 @@ const Header = () => {
                     onClick={() => setServicesMenuOpen(!servicesMenuOpen)}
                     onMouseEnter={openServicesMenu}
                   >
-                    Services
+                    {t('header.services')}
                     <ChevronDown className={`ml-1 h-3 w-3 sm:h-4 sm:w-4 transition-transform duration-200 ${servicesMenuOpen ? 'rotate-180' : ''}`} />
                   </button>
                 </div>
 
                 {/* Other top-level links */}
                 <Link
-                  to="/engineering"
-                  className={`${shouldUseBlackTheme ? "text-white hover:text-[#f05a28]" : "text-black hover:text-brand-red"} transition-colors text-xs sm:text-sm lg:text-base px-2 sm:px-3`}
-                >
-                  Engineering
-                </Link>
-                <Link
                   to="/about-fablab"
                   className={`${shouldUseBlackTheme ? "text-white hover:text-[#f05a28]" : "text-black hover:text-brand-red"} transition-colors text-xs sm:text-sm lg:text-base px-2 sm:px-3`}
                 >
-                  About Fablab
+                  {t('header.aboutFablab')}
                 </Link>
                 <Link
                   to="/projects"
                   className={`${shouldUseBlackTheme ? "text-white hover:text-[#f05a28]" : "text-black hover:text-brand-red"} transition-colors text-xs sm:text-sm lg:text-base px-2 sm:px-3`}
                 >
-                  Projects
+                  {t('header.projects')}
                 </Link>
                 <Link
                   to="/book-session"
                   className="bg-[#E6DB00] text-black px-4 sm:px-6 lg:px-8 py-1.5 sm:py-2 text-xs sm:text-sm lg:text-base hover:opacity-90 transition-opacity"
                 >
-                  Book a session
+                  {t('header.bookSession')}
                 </Link>
+
+                {/* Language Switcher */}
+                <div className="flex items-center ml-2">
+                  <LanguageSwitcher />
+                </div>
 
                 {/* Hamburger / close */}
                 <button
@@ -134,7 +146,7 @@ const Header = () => {
                   <span className={`flex items-center space-x-1 sm:space-x-2 border ${shouldUseBlackTheme ? "border-white" : "border-black"} px-3 sm:px-4 py-1.5 sm:py-2 ${shouldUseBlackTheme ? "bg-black text-white" : "bg-white text-black"}`}>
                     {isMobileMenuOpen ? <X size={16} /> : <Menu size={16} />}
                     <span className="text-xs sm:text-sm lg:text-base">
-                      Menu
+                      {t('header.menu')}
                     </span>
                   </span>
                 </button>
@@ -142,14 +154,17 @@ const Header = () => {
             </div>
 
             {/* Mobile toggle */}
-            <div className="md:hidden px-4">
+            <div className="md:hidden px-4 flex items-center space-x-2">
+              {/* Mobile Language Switcher */}
+              <LanguageSwitcher />
+              
               <button
                 className="flex items-center justify-center"
                 onClick={toggleMenu}
               >
                 <span className={`flex items-center space-x-1 border ${shouldUseBlackTheme ? "border-white bg-black text-white" : "border-black bg-white text-black"} px-2 py-1.5`}>
                   {isMobileMenuOpen ? <X size={16} /> : <Menu size={16} />}
-                  <span className="text-xs">Menu</span>
+                  <span className="text-xs">{t('header.menu')}</span>
                 </span>
               </button>
             </div>
@@ -174,19 +189,19 @@ const Header = () => {
               to="/mould"
               className="flex-1 h-full flex items-center justify-center text-black hover:text-white bg-gray-100 hover:bg-[#0e9a48] transition-all duration-200 text-xs sm:text-sm lg:text-base"
             >
-              Mould
+              {t('header.mould')}
             </Link>
             <Link
               to="/3d-printing"
               className="flex-1 h-full flex items-center justify-center text-black hover:text-white bg-gray-100 hover:bg-[#cb2026] transition-all duration-200 text-xs sm:text-sm lg:text-base"
             >
-              3D Printing
+              {t('header.3dPrinting')}
             </Link>
             <Link
               to="/prototyping"
               className="flex-1 h-full flex items-center justify-center text-black hover:text-white bg-gray-100 hover:bg-[#35469d] transition-all duration-200 text-xs sm:text-sm lg:text-base"
             >
-              Prototyping
+              {t('header.prototyping')}
             </Link>
           </div>
         </div>

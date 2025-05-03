@@ -283,58 +283,70 @@ const ThreeDPrintingPage = () => {
           </div>
         </section>
 
-        {/* SLA 3D Printing Equipment Section - Moved after case studies */}
-        <section className="py-16 md:py-24 bg-white text-gray-900">
+        {/* SLA 3D Printing Equipment Section - Modern Card Layout */}
+        <section className="py-16 md:py-24 bg-gray-50">
           <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl md:text-4xl font-bold mb-10 md:mb-16">Our SLA 3D Printing Equipment</h2>
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
-              {/* Printer 1 */}
-              <div className="flex flex-col">
-                <div className="w-full h-64 bg-white mb-4 flex items-center justify-center p-4 rounded border border-gray-200">
-                  <img src="/3dprinters/formlabs-form3-sla-3d-printer-tashkent.webp" alt="Formlabs Form 3" className="w-full h-full object-contain" />
+            <h2 className="text-3xl md:text-4xl font-bold mb-10 md:mb-16 text-center">Our SLA 3D Printing Equipment</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {/* Form 4 Card */}
+              <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
+                <div className="w-full h-32 md:h-36 bg-gray-100 relative">
+                  <img src="/3dprinters/1.formlabs-form3-01_2_1.png" alt="Form 4 background" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
                 </div>
-                <h3 className="text-2xl font-bold">Formlabs Form 3</h3>
-                <p className="text-gray-600 mb-4">SLA Resin Printer</p>
-                <button className="border border-gray-800 py-2 px-4 hover:bg-gray-800 hover:text-white transition-colors w-fit text-sm">
-                  More Details
-                </button>
+                <div className="-mt-16 z-10 flex justify-center w-full">
+                  <img src="/3dprinters/formlabs-form3-01_2_1.png" alt="Form 4" className="w-48 h-56 object-contain" />
+                </div>
+                <div className="flex flex-col items-center justify-center px-8 pt-6 pb-8 w-full text-center">
+                  <div className="text-[11px] font-semibold text-blue-700 mb-1 tracking-widest uppercase text-center mt-2">MAXIMUM VERSATILITY</div>
+                  <h3 className="text-2xl font-bold mb-3 text-center">FormLabs Form 3</h3>
+                  <p className="text-gray-700 mb-4 text-center text-base">Produce high-quality, functional prototypes and end-use parts with an extensive materials library.</p>
+                  <hr className="w-12 border-t border-gray-200 my-3" />
+                </div>
               </div>
-              
-              {/* Printer 2 */}
-              <div className="flex flex-col">
-                <div className="w-full h-64 bg-white mb-4 flex items-center justify-center p-4 rounded border border-gray-200">
-                  <img src="/3dprinters/formlabs-form3-sla-3d-printer-tashkent.webp" alt="Formlabs Form 3+" className="w-full h-full object-contain" />
+              {/* Form 4L Card */}
+              <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
+                <div className="w-full h-32 md:h-36 bg-gray-100 relative">
+                  <img src="/3dprinters/1.Phrozen.jpg" alt="Form 4L background" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
                 </div>
-                <h3 className="text-2xl font-bold">Formlabs Form 3+</h3>
-                <p className="text-gray-600 mb-4">SLA Resin Printer</p>
-                <button className="border border-gray-800 py-2 px-4 hover:bg-gray-800 hover:text-white transition-colors w-fit text-sm">
-                  More Details
-                </button>
+                <div className="-mt-16 z-10 flex justify-center w-full">
+                  <img src="/3dprinters/Phrozen.png" alt="Form 4L" className="w-48 h-56 object-contain" />
+                </div>
+                <div className="flex flex-col items-center justify-center px-8 pt-6 pb-8 w-full text-center">
+                  <div className="text-[11px] font-semibold text-blue-700 mb-1 tracking-widest uppercase text-center mt-2">THINK BIG</div>
+                  <h3 className="text-2xl font-bold mb-3 text-center">PHROZEN Sonic MEGA 8K MSLA</h3>
+                  <p className="text-gray-700 mb-4 text-center text-base">Take control of large-scale part production, increase your throughput, and bring your biggest ideas to life.</p>
+                  <hr className="w-12 border-t border-gray-200 my-3" />
+                </div>
               </div>
-              
-              {/* Printer 3 */}
-              <div className="flex flex-col">
-                <div className="w-full h-64 bg-white mb-4 flex items-center justify-center p-4 rounded border border-gray-200">
-                  <img src="/3dprinters/phrozen-sonic-mega-8k-resin-3d-printer-uzbekistan.webp" alt="Phrozen Sonic Mega 8K" className="w-full h-full object-contain" />
+              {/* Fuse 1+ 30W Card */}
+              <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
+                <div className="w-full h-32 md:h-36 bg-gray-100 relative">
+                  <img src="/3dprinters/1.Phrozen mini.avif" alt="Fuse 1+ 30W background" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
                 </div>
-                <h3 className="text-2xl font-bold">Phrozen Sonic Mega 8K</h3>
-                <p className="text-gray-600 mb-4">MSLA Resin Printer</p>
-                <button className="border border-gray-800 py-2 px-4 hover:bg-gray-800 hover:text-white transition-colors w-fit text-sm">
-                  More Details
-                </button>
+                <div className="-mt-16 z-10 flex justify-center w-full">
+                  <img src="/3dprinters/Phrozen mini.png" alt="Fuse 1+ 30W" className="w-48 h-56 object-contain" />
+                </div>
+                <div className="flex flex-col items-center justify-center px-8 pt-6 pb-8 w-full text-center">
+                  <div className="text-[11px] font-semibold text-blue-700 mb-1 tracking-widest uppercase text-center mt-2">HIGHEST PERFORMANCE</div>
+                  <h3 className="text-2xl font-bold mb-3 text-center">PHROZEN Sonic Mini 8K MSLA</h3>
+                  <p className="text-gray-700 mb-4 text-center text-base">Bring production-ready nylon 3D printing onto your benchtop with an affordable, compact selective laser sintering (SLS) platform.</p>
+                  <hr className="w-12 border-t border-gray-200 my-3" />
+                </div>
               </div>
-              
-              {/* Printer 4 */}
-              <div className="flex flex-col">
-                <div className="w-full h-64 bg-white mb-4 flex items-center justify-center p-4 rounded border border-gray-200">
-                  <img src="/3dprinters/formlabs-form3-sla-3d-printer-tashkent.webp" alt="Formlabs Form 3L" className="w-full h-full object-contain" />
+              {/* Prusa i3 MK3S+ Card */}
+              <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
+                <div className="w-full h-32 md:h-36 bg-gray-100 relative">
+                  <img src="/3dprinters/1.prusa.jpg" alt="Prusa i3 MK3S+ background" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
                 </div>
-                <h3 className="text-2xl font-bold">Formlabs Form 3L</h3>
-                <p className="text-gray-600 mb-4">Large Format SLA</p>
-                <button className="border border-gray-800 py-2 px-4 hover:bg-gray-800 hover:text-white transition-colors w-fit text-sm">
-                  More Details
-                </button>
+                <div className="-mt-16 z-10 flex justify-center w-full">
+                  <img src="/3dprinters/Prusa.png" alt="Prusa i3 MK3S+" className="w-48 h-56 object-contain" />
+                </div>
+                <div className="flex flex-col items-center justify-center px-8 pt-6 pb-8 w-full text-center">
+                  <div className="text-[11px] font-semibold text-blue-700 mb-1 tracking-widest uppercase text-center mt-2">RELIABLE PERFORMANCE</div>
+                  <h3 className="text-2xl font-bold mb-3 text-center">Original Prusa SL1S Complete</h3>
+                  <p className="text-gray-700 mb-4 text-center text-base">Trusted FDM 3D printer for robust, versatile prototyping and production.</p>
+                  <hr className="w-12 border-t border-gray-200 my-3" />
+                </div>
               </div>
             </div>
           </div>
@@ -401,7 +413,7 @@ const ThreeDPrintingPage = () => {
               <div className="w-full lg:w-3/4 lg:pl-8">
                 <div className="relative w-full">
                   <img 
-                    src="/3dprinters/prusa-i3-mk3s-3d-printer-tashkent.webp" 
+                    src="/3dprinters/FDM.jpeg" 
                     alt="FDM 3D Printing Equipment Core Set" 
                     className="w-full aspect-[4/3] object-cover h-auto max-h-[650px]"
                   />
@@ -415,175 +427,76 @@ const ThreeDPrintingPage = () => {
         <FdmFilaments />
         
         {/* FDM 3D Printing Equipment Section */}
-        <section className="py-16 md:py-24 bg-gray-900 text-white">
+        <section className="py-16 md:py-24 bg-gray-50">
           <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl md:text-4xl font-bold mb-10 md:mb-16">Our FDM 3D Printing Equipment</h2>
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
-              {/* Printer 1 */}
-              <div className="flex flex-col">
-                <div className="w-full h-64 bg-gray-800 mb-4 flex items-center justify-center p-4 rounded">
-                  <img src="/3dprinters/prusa-i3-mk3s-3d-printer-tashkent.webp" alt="Prusa i3 MK3S+" className="w-full h-full object-contain" />
+            <h2 className="text-3xl md:text-4xl font-bold mb-10 md:mb-16 text-center">Our FDM 3D Printing Equipment</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {/* Prusa i3 MK3S+ */}
+              <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
+                <div className="w-full h-32 md:h-36 bg-gray-100 relative">
+                  <img src="/3dprinters/1.prusa-i3-mk3s-3d-printer-tashkent.avif" alt="Prusa i3 MK3S+ background" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
                 </div>
-                <h3 className="text-2xl font-bold">Prusa i3 MK3S+</h3>
-                <p className="text-gray-400 mb-4">FDM Printer</p>
-                <button className="border border-white py-2 px-4 hover:bg-white hover:text-gray-900 transition-colors w-fit text-sm">
-                  More Details
-                </button>
+                <div className="-mt-16 z-10 flex justify-center w-full">
+                  <img src="/3dprinters/prusa-i3-mk3s-3d-printer-tashkent.png" alt="Prusa i3 MK3S+" className="w-48 h-56 object-contain" />
+                </div>
+                <div className="flex flex-col items-center justify-center px-8 pt-6 pb-8 w-full text-center">
+                  <div className="text-[11px] font-semibold text-blue-700 mb-1 tracking-widest uppercase text-center mt-2">RELIABLE WORKHORSE</div>
+                  <h3 className="text-2xl font-bold mb-3 text-center">Prusa i3 MK3S+</h3>
+                  <p className="text-gray-700 mb-4 text-center text-base">Versatile and robust FDM 3D printer for high-quality prototyping and production.</p>
+                  <hr className="w-12 border-t border-gray-200 my-3" />
+                </div>
               </div>
-              
-              {/* Printer 2 */}
-              <div className="flex flex-col">
-                <div className="w-full h-64 bg-gray-800 mb-4 flex items-center justify-center p-4 rounded">
-                  <img src="/3dprinters/prusa-i3-mk3s-mmu2s-multicolor-3d-printer-tashkent.webp" alt="Prusa i3 MK3S+ MMU2S" className="w-full h-full object-contain" />
+              {/* Prusa i3 MK3S+ MMU2S */}
+              <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
+                <div className="w-full h-32 md:h-36 bg-gray-100 relative">
+                  <img src="/3dprinters/1.prusa-i3-mk3s-mmu2s-multicolor-3d-printer-tashkent.avif" alt="Prusa i3 MK3S+ MMU2S background" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
                 </div>
-                <h3 className="text-2xl font-bold">Prusa i3 MK3S+ MMU2S</h3>
-                <p className="text-gray-400 mb-4">Multi-Material FDM</p>
-                <button className="border border-white py-2 px-4 hover:bg-white hover:text-gray-900 transition-colors w-fit text-sm">
-                  More Details
-                </button>
+                <div className="-mt-16 z-10 flex justify-center w-full">
+                  <img src="/3dprinters/prusa-i3-mk3s-mmu2s-multicolor-3d-printer-tashkent.png" alt="Prusa i3 MK3S+ MMU2S" className="w-48 h-56 object-contain" />
+                </div>
+                <div className="flex flex-col items-center justify-center px-8 pt-6 pb-8 w-full text-center">
+                  <div className="text-[11px] font-semibold text-blue-700 mb-1 tracking-widest uppercase text-center mt-2">MULTI-MATERIAL</div>
+                  <h3 className="text-2xl font-bold mb-3 text-center">Prusa i3 MK3S+ MMU2S</h3>
+                  <p className="text-gray-700 mb-4 text-center text-base">Advanced multi-material FDM printing for complex, colorful parts.</p>
+                  <hr className="w-12 border-t border-gray-200 my-3" />
+                </div>
               </div>
-              
-              {/* Printer 3 */}
-              <div className="flex flex-col">
-                <div className="w-full h-64 bg-gray-800 mb-4 flex items-center justify-center p-4 rounded">
-                  <img src="/3dprinters/skrinter-3d-printer-uzbekistan.webp" alt="Skrinter" className="w-full h-full object-contain" />
+              {/* Skrinter */}
+              <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
+                <div className="w-full h-32 md:h-36 bg-gray-100 relative">
+                  <img src="/3dprinters/1.skrinter-3d-printer-uzbekistan.webp" alt="Skrinter background" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
                 </div>
-                <h3 className="text-2xl font-bold">Skrinter</h3>
-                <p className="text-gray-400 mb-4">Desktop FDM</p>
-                <button className="border border-white py-2 px-4 hover:bg-white hover:text-gray-900 transition-colors w-fit text-sm">
-                  More Details
-                </button>
+                <div className="-mt-16 z-10 flex justify-center w-full">
+                  <img src="/3dprinters/skrinter-3d-printer-uzbekistan.png" alt="Skrinter" className="w-48 h-56 object-contain" />
+                </div>
+                <div className="flex flex-col items-center justify-center px-8 pt-6 pb-8 w-full text-center">
+                  <div className="text-[11px] font-semibold text-blue-700 mb-1 tracking-widest uppercase text-center mt-2">DESKTOP FDM</div>
+                  <h3 className="text-2xl font-bold mb-3 text-center">Skrinter</h3>
+                  <p className="text-gray-700 mb-4 text-center text-base">Compact desktop FDM printer for everyday prototyping needs.</p>
+                  <hr className="w-12 border-t border-gray-200 my-3" />
+                </div>
               </div>
-              
-              {/* Printer 4 */}
-              <div className="flex flex-col">
-                <div className="w-full h-64 bg-gray-800 mb-4 flex items-center justify-center p-4 rounded">
-                  <img src="/3dprinters/raise3d-pro3-industrial-3d-printer-tashkent.webp" alt="Raise3D Pro3" className="w-full h-full object-contain" />
+              {/* Raise3D Pro3 */}
+              <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
+                <div className="w-full h-32 md:h-36 bg-gray-100 relative">
+                  <img src="/3dprinters/1.raise3d-pro3-industrial-3d-printer-tashkent.png" alt="Raise3D Pro3 background" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
                 </div>
-                <h3 className="text-2xl font-bold">Raise3D Pro3</h3>
-                <p className="text-gray-400 mb-4">Industrial FDM</p>
-                <button className="border border-white py-2 px-4 hover:bg-white hover:text-gray-900 transition-colors w-fit text-sm">
-                  More Details
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Latest News Section */}
-        <section className="py-10 md:py-16 bg-black text-white">
-          <div className="max-w-[1400px] mx-auto px-4 md:px-8">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 md:mb-10 ml-0 md:ml-4">Latest News</h2>
-            
-            {/* Main featured news */}
-            <div className="rounded-lg overflow-hidden mb-6 md:mb-10">
-              <div className="grid grid-cols-1 lg:grid-cols-2">
-                <div className="relative aspect-[4/3] lg:aspect-auto">
-                  <img 
-                    src="/3dprinters/formlabs-form3-sla-3d-printer-tashkent.webp" 
-                    alt="Form Cure 2nd Generation" 
-                    className="w-full h-full object-cover"
-                  />
+                <div className="-mt-16 z-10 flex justify-center w-full">
+                  <img src="/3dprinters/raise3d-pro3-industrial-3d-printer-tashkent.png" alt="Raise3D Pro3" className="w-48 h-56 object-contain" />
                 </div>
-                <div className="bg-black p-4 md:p-8 flex flex-col justify-center">
-                  <div className="text-xs font-semibold text-[#f05a28] uppercase tracking-wide mb-1 md:mb-2">
-                    BLAZING FAST POST-CURING
-                  </div>
-                  <h3 className="text-xl md:text-2xl lg:text-3xl font-bold mb-2 md:mb-4 text-white">
-                    Form Cure (2nd Generation): Post-Cure Parts 2×-8.6× Faster
-                  </h3>
-                  <p className="text-sm md:text-base text-gray-300 mb-4 md:mb-6">
-                    Introducing Form Cure (2nd Generation), offering blazing fast curing and nearly instant heat up time. Save 2×-8.6× in cure time over Form Cure (1st Generation) in a bigger cure that can fit any part printed on Form 4.
-                  </p>
-                  <button className="bg-white text-black py-2 px-4 md:px-6 rounded text-xs md:text-sm font-semibold hover:bg-gray-200 transition-colors w-fit uppercase">
-                    Learn More
-                  </button>
+                <div className="flex flex-col items-center justify-center px-8 pt-6 pb-8 w-full text-center">
+                  <div className="text-[11px] font-semibold text-blue-700 mb-1 tracking-widest uppercase text-center mt-2">INDUSTRIAL FDM</div>
+                  <h3 className="text-2xl font-bold mb-3 text-center">Raise3D Pro3</h3>
+                  <p className="text-gray-700 mb-4 text-center text-base">Industrial-grade FDM 3D printer for large, durable parts.</p>
+                  <hr className="w-12 border-t border-gray-200 my-3" />
                 </div>
               </div>
             </div>
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
-              {/* Secondary news items */}
-              <div className="bg-black rounded-lg overflow-hidden border border-gray-800">
-                <div className="aspect-[4/3] overflow-hidden">
-                  <img 
-                    src="/3dprinters/spare-s4-file.webp" 
-                    alt="Tough 1500 Resin" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="p-3 md:p-4">
-                  <div className="text-xs font-semibold text-[#f05a28] uppercase tracking-wide mb-1">
-                    NOW EVEN TOUGHER
-                  </div>
-                  <h3 className="text-base md:text-lg font-bold mb-0 md:mb-2 text-white line-clamp-2">
-                    Tough 1500 Resin V2 Rivals Polypropylene
-                  </h3>
-                </div>
-              </div>
-              
-              <div className="bg-black rounded-lg overflow-hidden border border-gray-800">
-                <div className="aspect-[4/3] overflow-hidden">
-                  <img 
-                    src="/3dprinters/spare-s3-file.webp" 
-                    alt="Form 4 Delivers" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="p-3 md:p-4">
-                  <div className="text-xs font-semibold text-[#f05a28] uppercase tracking-wide mb-1">
-                    FLAWLESS PRINTS, EVERY TIME
-                  </div>
-                  <h3 className="text-base md:text-lg font-bold mb-0 md:mb-2 text-white line-clamp-2">
-                    Form 4 Delivers 99% Print Success Rate
-                  </h3>
-                </div>
-              </div>
-              
-              <div className="bg-black rounded-lg overflow-hidden border border-gray-800 sm:col-span-2 md:col-span-1">
-                <div className="aspect-[4/3] overflow-hidden">
-                  <img 
-                    src="/3dprinters/raise3d-pro3-industrial-3d-printer-tashkent.webp" 
-                    alt="Special Pricing for Educational Institutions" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="p-3 md:p-4">
-                  <div className="text-xs font-semibold text-[#f05a28] uppercase tracking-wide mb-1">
-                    EMPOWERING THE NEXT GENERATION
-                  </div>
-                  <h3 className="text-base md:text-lg font-bold mb-0 md:mb-2 text-white line-clamp-2">
-                    Special Pricing for Educational Institutions
-                  </h3>
-                </div>
-              </div>
-            </div>
-            
-            <div className="flex justify-center mt-6 md:mt-8">
-              <a 
-                href="#" 
-                className="bg-[#f05a28] text-white py-2 px-4 md:px-6 rounded flex items-center gap-1 md:gap-2 hover:bg-[#e04a18] transition-colors uppercase text-xs md:text-sm font-semibold"
-              >
-                Read All News
-                <span className="text-lg md:text-xl">›</span>
-              </a>
-            </div>
-          </div>
-        </section>
-
-        {/* Placeholder for additional content */}
-        <section className="py-10 md:py-16 lg:py-24 px-4 sm:px-6 md:px-8 lg:px-12 bg-white">
-          <div className="max-w-[1400px] mx-auto">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-6 md:mb-8 text-center">
-              Our 3D Printing Capabilities
-            </h2>
-            {/* Content will be added later */}
           </div>
         </section>
       </main>
 
-      <Footer />
+      <Footer bgClass="bg-white" textClass="text-gray-800" />
     </div>
   );
 };

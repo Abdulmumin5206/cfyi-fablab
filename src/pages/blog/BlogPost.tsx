@@ -57,76 +57,102 @@ const BlogPost = () => {
   // Sample blog posts data for demonstration
   const blogPosts: Record<string, BlogPostData> = {
     "3d-printing-innovations": {
-      title: "How Companies Take Ideas From Concept to Reality in Under 24 Hours with 3D Printing",
+      title: "SLA Resin Printing: Revolutionizing Small-Batch Production for Spare Parts",
       date: "May 15, 2023",
       author: "John Smith",
       readTime: "7 minutes read",
-      category: "Interviews",
+      category: "Manufacturing",
       content: `
-        <p>3D printing technology continues to revolutionize product development workflows across multiple industries. In this article, we explore how companies are leveraging additive manufacturing to dramatically reduce their time-to-market and enable rapid prototyping that was previously impossible.</p>
+        <p>In today's manufacturing landscape, there's often a challenging gap between one-off prototyping and full-scale mass production. At our FABLAB, we recently tackled this exact problem for a client who needed a specialized component in quantities that made traditional injection molding impractical. This blog post explores how we leveraged SLA printing technology to deliver a cost-effective small-batch production solution with remarkable efficiency.</p>
       `,
       sections: [
         {
-          id: "behind-the-scenes",
-          title: "Behind the Scenes at the State of the Art R&D Facility",
+          id: "challenge",
+          title: "The Challenge: When Injection Molding Isn't the Answer",
           content: `
-            <p>The journey from concept to finished product used to take weeks or even months. Today, with advanced 3D printing capabilities, companies can transform ideas into physical prototypes within hours. We went behind the scenes at several cutting-edge R&D facilities to see how they're implementing these workflows.</p>
-            <p>Equipped with industrial-grade 3D printers capable of producing parts with micron-level precision, these facilities have revolutionized their design process. Engineers can now iterate through multiple design versions in a single day, testing form, fit, and function in real-time.</p>
-            <p>The ability to rapidly prototype has fundamentally changed how these teams approach problem-solving. Instead of lengthy design discussions, they can quickly print multiple solutions and test them empirically, leading to better products and more innovative designs.</p>
+            <p>Our client approached us with a small but critical component that needed to be produced in moderate quantities. Traditional injection molding would have required:</p>
+            <ul>
+              <li>Expensive metal mold fabrication</li>
+              <li>Lengthy lead times for tooling</li>
+              <li>A minimum order quantity that exceeded their actual needs</li>
+            </ul>
+            <p>These factors made injection molding economically unfeasible for their project. This is where our advanced SLA printing capabilities offered the perfect middle-ground solution.</p>
+            <img src="/blog_images/2.png" alt="SLA Printing Setup" class="w-full h-auto rounded-lg my-6" />
           `
         },
         {
-          id: "rethinking-workflows",
-          title: "Rethinking Traditional Workflows with 3D Printing",
+          id: "design-process",
+          title: "From Measurement to Model: Precision Design Process",
           content: `
-            <p>Traditional manufacturing processes often require expensive tooling and setup procedures that make small production runs or one-off prototypes prohibitively expensive. 3D printing eliminates these constraints, enabling a more fluid and iterative approach to product development.</p>
-            <p>Companies are now able to test market reception with small batch productions before committing to full-scale manufacturing. This reduces financial risk and allows for more experimental approaches to product design.</p>
-            <p>The flexibility of 3D printing also means that customization no longer comes with a significant cost premium. Products can be tailored to specific requirements without the traditional manufacturing penalties associated with customization.</p>
+            <h3 class="text-xl font-semibold mt-6 mb-4">Detailed Measurement and CAD Design</h3>
+            <p>The first step in our process involved precise measurement of the required component. Using digital calipers, we captured all critical dimensions with sub-millimeter accuracy. These measurements were then translated into a detailed CAD model, creating an exact digital replica of the needed part.</p>
+            
+            <h3 class="text-xl font-semibold mt-6 mb-4">Material Development and Testing</h3>
+            <p>The client's specifications required a unique balance of material properties:</p>
+            <ul>
+              <li>Sufficient structural strength</li>
+              <li>Flexibility in specific areas</li>
+              <li>Consistent black coloration</li>
+            </ul>
+            <p>After extensive testing, we developed a custom resin mixture by combining our flexible and rigid resins at carefully calibrated ratios, then adding black pigment to achieve the desired aesthetic finish. This allowed us to precisely tune the material properties to meet both functional and visual requirements.</p>
+            <img src="/blog_images/3.png" alt="Material Testing Process" class="w-full h-auto rounded-lg my-6" />
           `
         },
         {
-          id: "design-to-print",
-          title: "From Design to Print in a Matter of Minutes",
+          id: "optimization",
+          title: "Optimizing for Production Efficiency",
           content: `
-            <p>Modern 3D printing workflows have eliminated many of the barriers between digital design and physical production. With advanced slicing software and cloud-connected printers, the time from CAD model to printed part continues to shrink.</p>
-            <p>Engineers at leading companies now use intuitive design software that directly interfaces with their 3D printers, allowing them to move from concept to production with just a few clicks. Some systems even incorporate AI-assisted design optimization to improve printability and performance.</p>
-            <p>The result is a dramatically compressed development cycle where designers can have physical prototypes in their hands within hours of the initial concept, allowing them to test, refine, and iterate at unprecedented speeds.</p>
+            <h3 class="text-xl font-semibold mt-6 mb-4">Strategic Support Placement</h3>
+            <p>One of the key innovations in our approach was the optimization of support structures. Rather than using the default support settings that would have placed supports across the entire bottom surface, we strategically positioned supports only where structurally necessary.</p>
+            <p>This optimization delivered remarkable improvements in production efficiency:</p>
+            <ul>
+              <li>30% reduction in printing time</li>
+              <li>40% reduction in resin consumption</li>
+              <li>Significantly reduced post-processing labor</li>
+            </ul>
+            
+            <h3 class="text-xl font-semibold mt-6 mb-4">Print Settings Refinement</h3>
+            <p>We further refined our print settings to balance resolution with production speed, finding the optimal layer height and exposure times that maintained part quality while maximizing throughput.</p>
+            <img src="/blog_images/4.png" alt="Production Optimization" class="w-full h-auto rounded-lg my-6" />
           `
         },
         {
-          id: "custom-projects",
-          title: "Rapid Response Project With Custom Product Development",
+          id: "production",
+          title: "The Production Process",
           content: `
-            <p>When disaster struck in Australia with the bushfires, one company was able to design, develop, and produce a custom relief product in just 72 hours. Using 3D printing, they created specialized soap molds in the shape of koalas, with proceeds going to wildlife recovery efforts.</p>
-            <p>This rapid response would have been impossible with traditional manufacturing methods. The ability to quickly design, iterate, and produce functional molds demonstrates how 3D printing enables companies to be more agile and responsive to market needs or humanitarian opportunities.</p>
-            <p>The project not only raised significant funds for bushfire relief but also showcased how additive manufacturing can compress product development timelines from months to days.</p>
+            <p>Our streamlined production workflow consisted of:</p>
+            <ul>
+              <li>Printing: Multiple components arranged efficiently on the build platform</li>
+              <li>Washing: Thorough cleaning in isopropyl alcohol to remove uncured resin</li>
+              <li>Support Removal: Careful detachment of supports to maintain surface quality</li>
+              <li>Curing: UV post-curing to achieve final material properties</li>
+              <li>Quality Control: Dimensional verification and functional testing</li>
+            </ul>
+            <img src="/blog_images/5.png" alt="Production Process" class="w-full h-auto rounded-lg my-6" />
           `
         },
         {
-          id: "thinking-outside",
-          title: "Thinking Outside of the Box",
+          id: "results",
+          title: "Results: Manufacturing Agility",
           content: `
-            <p>The design freedom offered by 3D printing is pushing companies to rethink product development fundamentals. Structures and geometries that would be impossible to manufacture with traditional methods are now not only possible but practical.</p>
-            <p>This capability is driving innovation in fields from medical devices to aerospace. Companies are creating lighter, stronger, and more efficient products by leveraging the unique capabilities of additive manufacturing.</p>
-            <p>By removing the constraints of traditional manufacturing processes, designers are free to focus on optimal functionality rather than manufacturing limitations, leading to breakthroughs in product performance and user experience.</p>
+            <p>This approach allowed us to deliver the following advantages over traditional manufacturing methods:</p>
+            <ul>
+              <li>No Tooling Costs: Elimination of expensive mold fabrication</li>
+              <li>Rapid Turnaround: Production began immediately after design approval</li>
+              <li>Supply Chain Flexibility: Ability to produce exact quantities as needed</li>
+              <li>Design Iteration: Easy implementation of design improvements between batches</li>
+              <li>Cost-Effective Small Batches: Economical production at quantities that would be prohibitive with injection molding</li>
+            </ul>
+            <img src="/blog_images/blog1.png" alt="Final Results" class="w-full h-auto rounded-lg my-6" />
           `
         },
         {
-          id: "saving-costs",
-          title: "Saving Costs and Increasing Productivity",
+          id: "conclusion",
+          title: "Conclusion: Bridging the Manufacturing Gap",
           content: `
-            <p>The economic impact of integrating 3D printing into product development workflows extends beyond just faster time-to-market. Companies report significant cost savings in prototyping, with reductions of 70-90% compared to traditional methods.</p>
-            <p>These savings come from eliminating tooling costs, reducing material waste, decreasing labor requirements, and shortening the overall development cycle. The ability to quickly test and validate designs also reduces costly design errors that might otherwise only be discovered during mass production.</p>
-            <p>Additionally, the productivity gains from faster iteration cycles mean that development teams can explore more design options and refinements within the same timeframe, leading to better end products.</p>
-          `
-        },
-        {
-          id: "roi-in-house",
-          title: "The ROI of In-House 3D Printing",
-          content: `
-            <p>Companies that have invested in in-house 3D printing capabilities report compelling returns on investment, often recouping their equipment costs within 6-18 months. The combination of reduced prototyping costs, faster development cycles, and improved products creates a clear business case for these investments.</p>
-            <p>Beyond the direct financial benefits, companies also report improvements in team collaboration, increased innovation, and greater customer satisfaction due to the ability to respond quickly to feedback and requirements.</p>
-            <p>As 3D printing technology continues to advance and become more affordable, the business case for incorporating these capabilities becomes even stronger, particularly for companies where rapid innovation and customization are competitive advantages.</p>
+            <p>At our FABLAB, we're continuously pushing the boundaries of what's possible with advanced fabrication technologies. This project demonstrates how SLA printing can bridge the gap between prototyping and mass production, offering a viable manufacturing path for components that would otherwise be caught in the "too few for injection molding, too many for one-off printing" dilemma.</p>
+            <p>Whether you need replacement parts, small production runs, or specialized components with unique material properties, our optimized SLA printing capabilities offer a solution that combines quality, speed, and cost-effectiveness.</p>
+            <p>Have a project that might benefit from this approach? Contact our FABLAB team to discuss how we can help turn your manufacturing challenges into success stories.</p>
           `
         }
       ],

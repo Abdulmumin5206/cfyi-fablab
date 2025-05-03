@@ -74,13 +74,13 @@ const Header = () => {
       >
         <div className="relative">
           <div
-            className={`flex justify-end items-center h-18 sm:h-20 md:h-24 transition-colors duration-300 ${
+            className={`flex justify-between items-center h-16 sm:h-18 md:h-20 transition-colors duration-300 ${
               isScrolled ? "bg-white shadow-md" : "bg-transparent"
             }`}
           >
             {/* Logo */}
             <div
-              className={`absolute left-0 top-0 h-full flex items-center pl-4 sm:pl-6 md:pl-8 lg:pl-12 transition-colors duration-300 ${
+              className={`h-full flex items-center pl-4 sm:pl-6 md:pl-8 lg:pl-12 transition-colors duration-300 ${
                 isScrolled ? "bg-white" : "bg-transparent"
               }`}
             >
@@ -88,7 +88,7 @@ const Header = () => {
                 <img
                   src="/fablab/logo.png"
                   alt="FabLab Logo"
-                  className="h-full w-auto max-h-14 sm:max-h-16 md:max-h-18 lg:max-h-22 object-contain"
+                  className="h-full w-auto max-h-10 sm:max-h-12 md:max-h-14 lg:max-h-16 object-contain"
                 />
               </Link>
             </div>
@@ -98,7 +98,7 @@ const Header = () => {
               ref={navRef}
               className={`transition-colors duration-300 ${
                 shouldUseBlackTheme ? "bg-black" : isScrolled ? "bg-white" : "bg-transparent md:bg-white"
-              } px-8 sm:px-12 md:px-16 lg:px-20 h-full`}
+              } px-4 sm:px-8 md:px-12 lg:px-16 h-full`}
             >
               <div className="hidden md:flex items-center space-x-8 lg:space-x-12 xl:space-x-20 h-full">
                 {/* Services link with dropdown */}
@@ -154,7 +154,7 @@ const Header = () => {
             </div>
 
             {/* Mobile toggle */}
-            <div className="md:hidden px-10 flex items-center space-x-5">
+            <div className="md:hidden flex items-center space-x-4 pr-4 sm:pr-6">
               {/* Mobile Language Switcher */}
               <LanguageSwitcher />
               
@@ -176,7 +176,7 @@ const Header = () => {
 
       {/* Secondary bar: exactly navWidth, three equal sections */}
       <div
-        className={`fixed top-18 sm:top-20 md:top-24 right-0 z-40 transition-all duration-200 ${
+        className={`fixed top-16 sm:top-18 md:top-20 right-0 z-40 transition-all duration-200 ${
           servicesMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
         style={{ width: navWidth }}
@@ -184,7 +184,7 @@ const Header = () => {
         onMouseLeave={closeServicesMenu}
       >
         <div className="bg-gray-100 shadow-md w-full">
-          <div className="flex h-18 sm:h-20 md:h-24 items-center">
+          <div className="flex h-16 sm:h-18 md:h-20 items-center">
             <Link
               to="/mould"
               className="flex-1 h-full flex items-center justify-center text-black hover:text-white bg-gray-100 hover:bg-[#0e9a48] transition-all duration-200 text-xs sm:text-sm lg:text-base"

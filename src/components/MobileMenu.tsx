@@ -35,14 +35,11 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
     setExpandedMenu(expandedMenu === menu ? null : menu);
   };
 
-  // Services submenu items
-  const servicesSubMenu = [
-    { name: t('header.mould'), path: "/mould" },
-    { name: t('header.3dPrinting'), path: "/3d-printing" },
-    { name: "CNC Machining", path: "/" },
-    { name: "Laser Cutting", path: "/" },
-    { name: "Finishing Services", path: "/" },
-    { name: "Design Consultation", path: "/" }
+  // Main services categories matching desktop dropdown
+  const mainServices = [
+    { name: t('header.mould'), path: "/mould", color: "hover:text-[#0e9a48]" },
+    { name: t('header.3dPrinting'), path: "/3d-printing", color: "hover:text-[#cb2026]" },
+    { name: t('header.prototyping'), path: "/prototyping", color: "hover:text-[#35469d]" },
   ];
 
   return (
@@ -99,38 +96,56 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
 
           {/* Menu Content */}
           <div className="flex-1 flex flex-col">
-            {/* Header with fade-down effect */}
+            {/* Header with fade-down effect - FIXED SECTION */}
             <div 
-              className={`flex justify-end items-center h-20 md:h-[105px] px-4 md:px-8 border-b border-white/10 transition-all duration-700 delay-100 ${
+              className={`flex items-center justify-between h-16 sm:h-18 md:h-20 px-4 sm:px-6 md:px-8 border-b border-white/10 transition-all duration-700 delay-100 ${
                 isOpen ? "translate-y-0 opacity-100" : "-translate-y-8 opacity-0"
               }`}
             >
-              <div className="absolute left-8 md:left-12 h-full flex items-center">
+              {/* Logo */}
+              <div className="flex items-center h-full">
                 <Link to="/" className="text-white" onClick={onClose}>
-                  <div className="text-xl md:text-2xl font-bold">
-                    Think<span className="text-sm">:</span>
-                    <span className="text-sm font-normal">Group</span>
-                  </div>
+                  <img
+                    src="/fablab/logo.png"
+                    alt="FabLab Logo"
+                    className="h-8 sm:h-10 w-auto object-contain"
+                  />
                 </Link>
               </div>
               
               {/* Close button */}
-              <div className="flex items-center mr-4 lg:mr-8">
-                <button
-                  onClick={onClose}
-                  className="flex items-center justify-center hover:opacity-75 transition-opacity"
-                  aria-label="Close menu"
-                >
-                  <span className="flex items-center space-x-2 border border-white px-3 py-2 text-white">
-                    <X size={20} />
-                    <span className="text-sm lg:text-base">{t('header.menu')}</span>
-                  </span>
-                </button>
-              </div>
+              <button
+                onClick={onClose}
+                className="flex items-center justify-center hover:opacity-75 transition-opacity"
+                aria-label="Close menu"
+              >
+                <span className="flex items-center space-x-1 sm:space-x-2 border border-white px-2 sm:px-3 py-1.5 sm:py-2 text-white">
+                  <X size={18} />
+                  <span className="text-xs sm:text-sm">{t('header.menu')}</span>
+                </span>
+              </button>
             </div>
 
             {/* Navigation with staggered fade-in effect */}
             <div className="flex-1 overflow-y-auto p-4 md:p-6">
+              {/* Book Session Button */}
+              <div 
+                className={`mb-6 transition-all duration-700 ${
+                  isOpen 
+                    ? "translate-y-0 opacity-100" 
+                    : "translate-y-8 opacity-0"
+                }`}
+                style={{ transitionDelay: "200ms" }}
+              >
+                <Link
+                  to="/book-session"
+                  onClick={onClose}
+                  className="block w-full py-3 text-center text-black bg-[#E6DB00] hover:opacity-90 transition-opacity text-lg font-medium"
+                >
+                  {t('header.bookSession')}
+                </Link>
+              </div>
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 md:gap-x-16 gap-y-6 md:gap-y-8 max-w-3xl">
                 <div className="space-y-4 md:space-y-6">
                   {/* Services with dropdown */}
@@ -153,19 +168,41 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       }
                     </button>
                     
-                    {/* Services submenu */}
+                    {/* Services submenu matching desktop dropdown */}
                     {expandedMenu === 'services' && (
-                      <div className="pl-4 mt-3 space-y-3 border-l border-white/20">
-                        {servicesSubMenu.map((item, idx) => (
-                          <Link 
-                            key={idx}
-                            to={item.path}
-                            onClick={onClose}
-                            className="block text-lg md:text-xl text-white/80 hover:text-[#E6DB00] transition-all duration-300"
-                          >
-                            {item.name}
-                          </Link>
-                        ))}
+                      <div className="mt-4 space-y-4">
+                        {/* Main three services with colored hover states matching desktop */}
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pb-4 border-b border-white/10">
+                          {mainServices.map((service, idx) => (
+                            <Link 
+                              key={idx}
+                              to={service.path}
+                              onClick={onClose}
+                              className={`block py-3 sm:py-4 px-4 text-xl text-center text-white bg-black/30 ${service.color} transition-colors duration-300`}
+                            >
+                              {service.name}
+                            </Link>
+                          ))}
+                        </div>
+                        
+                        {/* Additional service links */}
+                        <div className="pl-4 space-y-3 border-l border-white/20">
+                          {[
+                            "CNC Machining",
+                            "Laser Cutting",
+                            "Finishing Services",
+                            "Design Consultation"
+                          ].map((item, idx) => (
+                            <Link 
+                              key={idx}
+                              to="/"
+                              onClick={onClose}
+                              className="block text-lg md:text-xl text-white/80 hover:text-[#E6DB00] transition-all duration-300"
+                            >
+                              {item}
+                            </Link>
+                          ))}
+                        </div>
                       </div>
                     )}
                   </div>

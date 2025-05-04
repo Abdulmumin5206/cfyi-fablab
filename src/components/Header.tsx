@@ -98,7 +98,7 @@ const Header = () => {
               ref={navRef}
               className={`transition-colors duration-300 ${
                 shouldUseBlackTheme ? "bg-black" : isScrolled ? "bg-white" : "bg-transparent md:bg-white"
-              } px-2 sm:px-4 md:px-6 lg:px-10 h-full`}
+              } px-6 sm:px-10 md:px-16 lg:px-20 h-full`}
             >
               <div className="hidden md:flex items-center space-x-3 lg:space-x-6 xl:space-x-10 h-full">
                 {/* Services link with dropdown */}

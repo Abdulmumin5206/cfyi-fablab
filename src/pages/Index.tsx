@@ -6,6 +6,7 @@ import SimpleVideoSection from "@/components/SimpleVideoSection";
 import RecentProjects from "@/components/RecentProjects";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import ScrollImageSlider from "@/components/ScrollImageSlider";
 
 const Index = () => {
   return (
@@ -16,6 +17,7 @@ const Index = () => {
         <ServiceCategories />
         <SimpleVideoSection />
         <AboutSection />
+        <ScrollImageSlider />
         <RecentProjects />
         <ContactSection />
       </main>

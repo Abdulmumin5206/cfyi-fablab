@@ -12,6 +12,8 @@ const Header = () => {
   const [prevScrollPos, setPrevScrollPos]           = useState(0);
   const [isScrolled, setIsScrolled]                 = useState(false);
   const [servicesMenuOpen, setServicesMenuOpen]     = useState(false);
+  const servicesButtonRef = useRef<HTMLButtonElement>(null);
+  const servicesMenuRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
   const is3DPrintingPage = location.pathname === "/3d-printing";
   const is3DPrintingBlogPost = location.pathname === "/blog/3d-printing-innovations";
@@ -52,6 +54,27 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [prevScrollPos]);
 
+  // Handle services menu hover behavior
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        servicesMenuOpen &&
+        servicesButtonRef.current && 
+        servicesMenuRef.current && 
+        !servicesButtonRef.current.contains(event.target as Node) && 
+        !servicesMenuRef.current.contains(event.target as Node)
+      ) {
+        setServicesMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [servicesMenuOpen]);
+
   const toggleMenu = () => {
     setIsMobileMenuOpen((o) => !o);
     document.body.style.overflow = isMobileMenuOpen ? "" : "hidden";
@@ -63,6 +86,23 @@ const Header = () => {
 
   const openServicesMenu = () => setServicesMenuOpen(true);
   const closeServicesMenu = () => setServicesMenuOpen(false);
+
+  // This timeout helps with more natural hover behavior
+  let hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  
+  const handleServicesMouseEnter = () => {
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current);
+      hoverTimeoutRef.current = null;
+    }
+    openServicesMenu();
+  };
+
+  const handleServicesMouseLeave = () => {
+    hoverTimeoutRef.current = setTimeout(() => {
+      closeServicesMenu();
+    }, 150); // Small delay to make the interaction feel natural
+  };
 
   return (
     <>
@@ -102,11 +142,15 @@ const Header = () => {
             >
               <div className="hidden md:flex items-center space-x-3 lg:space-x-6 xl:space-x-10 h-full">
                 {/* Services link with dropdown */}
-                <div className="relative group h-full">
+                <div 
+                  className="relative group h-full"
+                  onMouseEnter={handleServicesMouseEnter}
+                  onMouseLeave={handleServicesMouseLeave}
+                >
                   <button
+                    ref={servicesButtonRef}
                     className={`flex items-center h-full ${shouldUseBlackTheme ? "text-white group-hover:text-[#f05a28]" : "text-black group-hover:text-brand-red"} transition-colors text-xs sm:text-sm lg:text-base px-1 sm:px-2`}
                     onClick={() => setServicesMenuOpen(!servicesMenuOpen)}
-                    onMouseEnter={openServicesMenu}
                   >
                     {t('header.services')}
                     <ChevronDown className={`ml-1 h-3 w-3 sm:h-4 sm:w-4 transition-transform duration-200 ${servicesMenuOpen ? 'rotate-180' : ''}`} />
@@ -176,30 +220,34 @@ const Header = () => {
 
       {/* Secondary bar: exactly navWidth, three equal sections */}
       <div
-        className={`fixed top-16 sm:top-18 md:top-20 right-0 z-40 transition-all duration-200 ${
-          servicesMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
+        ref={servicesMenuRef}
+        className={`fixed top-16 sm:top-18 md:top-20 right-0 z-40 overflow-hidden transition-all duration-500 ease-in-out ${
+          servicesMenuOpen ? "max-h-[300px] opacity-100 visible" : "max-h-0 opacity-0 invisible"
         }`}
         style={{ width: navWidth }}
-        onMouseEnter={openServicesMenu}
-        onMouseLeave={closeServicesMenu}
+        onMouseEnter={handleServicesMouseEnter}
+        onMouseLeave={handleServicesMouseLeave}
       >
-        <div className="bg-gray-100 shadow-md w-full">
+        <div className="bg-gray-100 shadow-md w-full transform transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] origin-top" 
+             style={{ 
+               transform: servicesMenuOpen ? 'translateY(0)' : 'translateY(-100%)'
+             }}>
           <div className="flex h-16 sm:h-18 md:h-20 items-center">
             <Link
               to="/mould"
-              className="flex-1 h-full flex items-center justify-center text-black hover:text-white bg-gray-100 hover:bg-[#0e9a48] transition-all duration-200 text-xs sm:text-sm lg:text-base"
+              className="flex-1 h-full flex items-center justify-center text-black hover:text-white bg-gray-100 hover:bg-[#0e9a48] transition-all duration-300 text-xs sm:text-sm lg:text-base transform transition-transform hover:translate-y-1 ease-out"
             >
               {t('header.mould')}
             </Link>
             <Link
               to="/3d-printing"
-              className="flex-1 h-full flex items-center justify-center text-black hover:text-white bg-gray-100 hover:bg-[#cb2026] transition-all duration-200 text-xs sm:text-sm lg:text-base"
+              className="flex-1 h-full flex items-center justify-center text-black hover:text-white bg-gray-100 hover:bg-[#cb2026] transition-all duration-300 text-xs sm:text-sm lg:text-base transform transition-transform hover:translate-y-1 ease-out delay-[100ms]"
             >
               {t('header.3dPrinting')}
             </Link>
             <Link
               to="/prototyping"
-              className="flex-1 h-full flex items-center justify-center text-black hover:text-white bg-gray-100 hover:bg-[#35469d] transition-all duration-200 text-xs sm:text-sm lg:text-base"
+              className="flex-1 h-full flex items-center justify-center text-black hover:text-white bg-gray-100 hover:bg-[#35469d] transition-all duration-300 text-xs sm:text-sm lg:text-base transform transition-transform hover:translate-y-1 ease-out delay-[200ms]"
             >
               {t('header.prototyping')}
             </Link>

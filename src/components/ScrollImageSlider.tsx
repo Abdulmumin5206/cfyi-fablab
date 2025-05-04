@@ -13,6 +13,22 @@ const ScrollImageSlider = () => {
     "/fablab/3.jpg",
     "/fablab/11.jpg"
   ];
+  
+  // Quote content for each image
+  const quotes = [
+    {
+      title: "Innovation Lab",
+      text: "Our state-of-the-art facility equipped with the latest technology for digital fabrication and prototyping."
+    },
+    {
+      title: "Creative Workspace",
+      text: "Where ideas transform into reality through collaboration, experimentation, and cutting-edge tools."
+    },
+    {
+      title: "Future Development",
+      text: "Building tomorrow's solutions with advanced manufacturing techniques and innovative approaches."
+    }
+  ];
 
   // Use Framer Motion's scroll utilities
   const { scrollYProgress } = useScroll({
@@ -36,7 +52,7 @@ const ScrollImageSlider = () => {
   }, [scrollYProgress]);
 
   return (
-    <section className="relative bg-black">
+    <section className="relative bg-white">
       <div 
         ref={containerRef}
         className="relative"
@@ -46,7 +62,7 @@ const ScrollImageSlider = () => {
       >
         <div
           ref={sectionRef}
-          className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center bg-black"
+          className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center bg-white"
         >
           {/* Image container - full viewport size with all images visible */}
           <div className="absolute inset-0 w-full h-full">
@@ -107,51 +123,70 @@ const ScrollImageSlider = () => {
             })}
           </div>
           
-          {/* Progress indicator - hidden after last image is fully visible */}
-          <motion.div 
-            className="absolute bottom-8 left-0 right-0 z-10"
-            style={{
-              opacity: useTransform(scrollYProgress, [0, 0.8, 1], [1, 1, 0])
-            }}
-          >
-            <div className="container mx-auto px-4">
-              <div className="flex justify-between items-center">
-                <div className="w-full max-w-md mx-auto">
-                  <div className="h-1 bg-gray-600 rounded-full overflow-hidden">
-                    <motion.div 
-                      className="h-full bg-white rounded-full"
-                      style={{ 
-                        width: useTransform(
-                          scrollYProgress, 
-                          [0, 0.8], 
-                          ["0%", "100%"]
-                        )
-                      }}
-                    />
-                  </div>
-                  <div className="flex justify-between mt-2">
-                    {images.map((_, index) => (
-                      <motion.div
-                        key={index}
-                        className="h-2 w-2 rounded-full bg-white"
-                        style={{
-                          opacity: useTransform(
-                            imageIndexProgress,
-                            [index - 0.3, index, index + 0.3],
-                            [0.3, 1, 0.3]
-                          )
-                        }}
-                      />
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
+          {/* Quote containers - one for each image */}
+          <div className="absolute inset-0 pointer-events-none">
+            {quotes.map((quote, index) => {
+              // Calculate vertical movement based on scroll progress
+              const yTransform = useTransform(
+                imageIndexProgress,
+                [index - 0.9, index - 0.3, index, index + 0.3],
+                ['100vh', '20vh', '0vh', '-20vh']
+              );
+              
+              // Calculate opacity based on scroll progress
+              let opacityTransform;
+              if (index === 0) {
+                opacityTransform = useTransform(
+                  imageIndexProgress,
+                  [0, 0.3, 0.7],
+                  [1, 1, 0]
+                );
+              } else if (index === quotes.length - 1) {
+                opacityTransform = useTransform(
+                  imageIndexProgress,
+                  [index - 0.7, index - 0.3, index],
+                  [0, 1, 1]
+                );
+              } else {
+                opacityTransform = useTransform(
+                  imageIndexProgress,
+                  [index - 0.7, index - 0.3, index, index + 0.3, index + 0.7],
+                  [0, 1, 1, 1, 0]
+                );
+              }
+              
+              return (
+                <motion.div
+                  key={`quote-${index}`}
+                  className="absolute left-0 right-0 px-8 flex justify-end items-center pr-16 md:pr-24"
+                  style={{
+                    y: yTransform,
+                    opacity: opacityTransform,
+                    zIndex: (index + 1) * 10, // Higher z-index than images
+                    height: '100vh' // Full height for positioning
+                  }}
+                >
+                  <motion.div 
+                    className="bg-white p-8 flex flex-col justify-center text-gray-800 border border-gray-200 shadow-lg w-[300px] h-[300px] sm:w-[350px] sm:h-[350px]"
+                    style={{
+                      opacity: useTransform(
+                        imageIndexProgress,
+                        [index - 0.5, index - 0.2, index, index + 0.2, index + 0.5],
+                        [0.7, 0.9, 1, 0.9, 0.7]
+                      )
+                    }}
+                  >
+                    <h3 className="text-2xl sm:text-3xl font-bold mb-4">{quote.title}</h3>
+                    <p className="text-lg sm:text-xl">{quote.text}</p>
+                  </motion.div>
+                </motion.div>
+              );
+            })}
+          </div>
           
           {/* Scroll hint - only visible at the beginning */}
           <motion.div 
-            className="absolute bottom-12 left-1/2 transform -translate-x-1/2 text-white"
+            className="absolute bottom-12 left-1/2 transform -translate-x-1/2 text-gray-800"
             style={{
               opacity: useTransform(
                 scrollYProgress, 

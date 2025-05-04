@@ -98,13 +98,13 @@ const Header = () => {
               ref={navRef}
               className={`transition-colors duration-300 ${
                 shouldUseBlackTheme ? "bg-black" : isScrolled ? "bg-white" : "bg-transparent md:bg-white"
-              } px-4 sm:px-8 md:px-12 lg:px-16 h-full`}
+              } px-2 sm:px-4 md:px-6 lg:px-10 h-full`}
             >
-              <div className="hidden md:flex items-center space-x-8 lg:space-x-12 xl:space-x-20 h-full">
+              <div className="hidden md:flex items-center space-x-3 lg:space-x-6 xl:space-x-10 h-full">
                 {/* Services link with dropdown */}
                 <div className="relative group h-full">
                   <button
-                    className={`flex items-center h-full ${shouldUseBlackTheme ? "text-white group-hover:text-[#f05a28]" : "text-black group-hover:text-brand-red"} transition-colors text-xs sm:text-sm lg:text-base px-2 sm:px-3`}
+                    className={`flex items-center h-full ${shouldUseBlackTheme ? "text-white group-hover:text-[#f05a28]" : "text-black group-hover:text-brand-red"} transition-colors text-xs sm:text-sm lg:text-base px-1 sm:px-2`}
                     onClick={() => setServicesMenuOpen(!servicesMenuOpen)}
                     onMouseEnter={openServicesMenu}
                   >
@@ -116,34 +116,34 @@ const Header = () => {
                 {/* Other top-level links */}
                 <Link
                   to="/about-fablab"
-                  className={`${shouldUseBlackTheme ? "text-white hover:text-[#f05a28]" : "text-black hover:text-brand-red"} transition-colors text-xs sm:text-sm lg:text-base px-2 sm:px-3`}
+                  className={`${shouldUseBlackTheme ? "text-white hover:text-[#f05a28]" : "text-black hover:text-brand-red"} transition-colors text-xs sm:text-sm lg:text-base px-1 sm:px-2`}
                 >
                   {t('header.aboutFablab')}
                 </Link>
                 <Link
                   to="/projects"
-                  className={`${shouldUseBlackTheme ? "text-white hover:text-[#f05a28]" : "text-black hover:text-brand-red"} transition-colors text-xs sm:text-sm lg:text-base px-2 sm:px-3`}
+                  className={`${shouldUseBlackTheme ? "text-white hover:text-[#f05a28]" : "text-black hover:text-brand-red"} transition-colors text-xs sm:text-sm lg:text-base px-1 sm:px-2`}
                 >
                   {t('header.projects')}
                 </Link>
                 <Link
                   to="/book-session"
-                  className="bg-[#E6DB00] text-black px-4 sm:px-6 lg:px-8 py-1.5 sm:py-2 text-xs sm:text-sm lg:text-base hover:opacity-90 transition-opacity"
+                  className="bg-[#E6DB00] text-black px-3 sm:px-4 lg:px-6 py-1.5 sm:py-2 text-xs sm:text-sm lg:text-base hover:opacity-90 transition-opacity"
                 >
                   {t('header.bookSession')}
                 </Link>
 
                 {/* Language Switcher */}
-                <div className="flex items-center ml-6">
+                <div className="flex items-center ml-3 md:ml-4">
                   <LanguageSwitcher />
                 </div>
 
                 {/* Hamburger / close */}
                 <button
-                  className="flex items-center justify-center hover:opacity-75 transition-opacity ml-6 sm:ml-8 md:ml-10"
+                  className="flex items-center justify-center hover:opacity-75 transition-opacity ml-3 sm:ml-4 md:ml-5"
                   onClick={toggleMenu}
                 >
-                  <span className={`flex items-center space-x-1 sm:space-x-2 border ${shouldUseBlackTheme ? "border-white" : "border-black"} px-3 sm:px-4 py-1.5 sm:py-2 ${shouldUseBlackTheme ? "bg-black text-white" : "bg-white text-black"}`}>
+                  <span className={`flex items-center space-x-1 border ${shouldUseBlackTheme ? "border-white" : "border-black"} px-2 sm:px-3 py-1.5 sm:py-2 ${shouldUseBlackTheme ? "bg-black text-white" : "bg-white text-black"}`}>
                     {isMobileMenuOpen ? <X size={16} /> : <Menu size={16} />}
                     <span className="text-xs sm:text-sm lg:text-base">
                       {t('header.menu')}

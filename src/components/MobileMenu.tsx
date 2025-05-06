@@ -63,7 +63,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
       >
         <div className="min-h-screen w-full flex">
           {/* Featured Project Section with fade-up effect */}
-          <div className="hidden lg:block w-[40%] relative overflow-hidden">
+          <div className="hidden md:block w-[40%] xl:w-[35%] relative overflow-hidden">
             <div 
               className={`absolute inset-0 transition-all duration-1000 delay-300 ${
                 isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
@@ -75,16 +75,16 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-black/60" />
-              <div className="absolute bottom-0 left-0 right-0 p-8">
+              <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 lg:p-8">
                 <h2 
-                  className={`text-4xl font-light mb-2 text-white transition-all duration-1000 delay-500 ${
+                  className={`text-2xl md:text-3xl lg:text-4xl font-light mb-2 text-white transition-all duration-1000 delay-500 ${
                     isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                   }`}
                 >
                   Featured Project
                 </h2>
                 <p 
-                  className={`text-xl text-white/90 transition-all duration-1000 delay-700 ${
+                  className={`text-base md:text-lg lg:text-xl text-white/90 transition-all duration-1000 delay-700 ${
                     isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                   }`}
                 >
@@ -98,56 +98,39 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
           <div className="flex-1 flex flex-col">
             {/* Header with fade-down effect - FIXED SECTION */}
             <div 
-              className={`flex items-center justify-between h-16 sm:h-18 md:h-20 px-4 sm:px-6 md:px-8 border-b border-white/10 transition-all duration-700 delay-100 ${
+              className={`flex items-center justify-end h-16 sm:h-20 md:h-24 lg:h-28 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 border-b border-white/10 transition-all duration-700 delay-100 ${
                 isOpen ? "translate-y-0 opacity-100" : "-translate-y-8 opacity-0"
               }`}
             >
-              {/* Logo */}
-              <div className="flex items-center h-full">
-                <Link to="/" className="text-white" onClick={onClose}>
-                  <img
-                    src="/fablab/logo.png"
-                    alt="FabLab Logo"
-                    className="h-8 sm:h-10 w-auto object-contain"
-                  />
-                </Link>
-              </div>
-              
-              {/* Close button */}
-              <button
-                onClick={onClose}
-                className="flex items-center justify-center hover:opacity-75 transition-opacity"
-                aria-label="Close menu"
-              >
-                <span className="flex items-center space-x-1 sm:space-x-2 border border-white px-2 sm:px-3 py-1.5 sm:py-2 text-white">
-                  <X size={18} />
-                  <span className="text-xs sm:text-sm">{t('header.menu')}</span>
-                </span>
-              </button>
-            </div>
-
-            {/* Navigation with staggered fade-in effect */}
-            <div className="flex-1 overflow-y-auto p-4 md:p-6">
-              {/* Book Session Button */}
-              <div 
-                className={`mb-6 transition-all duration-700 ${
-                  isOpen 
-                    ? "translate-y-0 opacity-100" 
-                    : "translate-y-8 opacity-0"
-                }`}
-                style={{ transitionDelay: "200ms" }}
-              >
+              {/* Header right section with Book Session and Close button */}
+              <div className="flex items-center space-x-2 sm:space-x-4">
+                {/* Book Session Button */}
                 <Link
                   to="/book-session"
                   onClick={onClose}
-                  className="block w-full py-3 text-center text-black bg-[#E6DB00] hover:opacity-90 transition-opacity text-lg font-medium"
+                  className="text-black bg-[#E6DB00] hover:opacity-90 transition-opacity text-sm lg:text-base xl:text-lg px-3 sm:px-4 py-1.5 sm:py-2 md:py-2.5 font-medium"
                 >
                   {t('header.bookSession')}
                 </Link>
+              
+                {/* Close button */}
+                <button
+                  onClick={onClose}
+                  className="flex items-center justify-center hover:opacity-75 transition-opacity"
+                  aria-label="Close menu"
+                >
+                  <span className="flex items-center space-x-1 sm:space-x-2 border border-white px-2 sm:px-3 py-1.5 sm:py-2 text-white">
+                    <X size={18} className="lg:w-5 lg:h-5 xl:w-6 xl:h-6" />
+                    <span className="text-sm lg:text-base xl:text-lg">{t('header.menu')}</span>
+                  </span>
+                </button>
               </div>
+            </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 md:gap-x-16 gap-y-6 md:gap-y-8 max-w-3xl">
-                <div className="space-y-4 md:space-y-6">
+            {/* Navigation with staggered fade-in effect */}
+            <div className="flex-1 overflow-y-auto p-4 md:p-6 lg:p-8 xl:p-10">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 md:gap-x-12 lg:gap-x-16 gap-y-6 md:gap-y-8 max-w-5xl">
+                <div className="space-y-4 md:space-y-6 lg:space-y-8">
                   {/* Services with dropdown */}
                   <div
                     className={`transition-all duration-700 ${
@@ -159,26 +142,26 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                   >
                     <button
                       onClick={() => toggleMenu('services')}
-                      className="flex items-center justify-between w-full text-2xl md:text-3xl text-white hover:text-[#E6DB00] transition-all duration-300"
+                      className="flex items-center justify-between w-full text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white hover:text-[#E6DB00] transition-all duration-300"
                     >
                       <span>{t('header.services')}</span>
                       {expandedMenu === 'services' ? 
-                        <ChevronUp size={24} /> : 
-                        <ChevronDown size={24} />
+                        <ChevronUp className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8" /> : 
+                        <ChevronDown className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8" />
                       }
                     </button>
                     
                     {/* Services submenu matching desktop dropdown */}
                     {expandedMenu === 'services' && (
-                      <div className="mt-4 space-y-4">
+                      <div className="mt-4 md:mt-6 space-y-4 md:space-y-6">
                         {/* Main three services with colored hover states matching desktop */}
-                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pb-4 border-b border-white/10">
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4 pb-4 md:pb-6 border-b border-white/10">
                           {mainServices.map((service, idx) => (
                             <Link 
                               key={idx}
                               to={service.path}
                               onClick={onClose}
-                              className={`block py-3 sm:py-4 px-4 text-xl text-center text-white bg-black/30 ${service.color} transition-colors duration-300`}
+                              className={`block py-3 sm:py-4 md:py-5 px-4 text-base sm:text-lg md:text-xl lg:text-2xl text-center text-white bg-black/30 ${service.color} transition-colors duration-300`}
                             >
                               {service.name}
                             </Link>
@@ -186,7 +169,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                         </div>
                         
                         {/* Additional service links */}
-                        <div className="pl-4 space-y-3 border-l border-white/20">
+                        <div className="pl-4 md:pl-6 space-y-3 md:space-y-4 border-l border-white/20">
                           {[
                             "CNC Machining",
                             "Laser Cutting",
@@ -197,7 +180,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                               key={idx}
                               to="/"
                               onClick={onClose}
-                              className="block text-lg md:text-xl text-white/80 hover:text-[#E6DB00] transition-all duration-300"
+                              className="block text-base sm:text-lg md:text-xl lg:text-2xl text-white/80 hover:text-[#E6DB00] transition-all duration-300"
                             >
                               {item}
                             </Link>
@@ -216,7 +199,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       key={item.key}
                       to={item.path}
                       onClick={onClose}
-                      className={`block text-2xl md:text-3xl text-white hover:text-[#E6DB00] transition-all duration-700 ${
+                      className={`block text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white hover:text-[#E6DB00] transition-all duration-700 ${
                         isOpen 
                           ? "translate-y-0 opacity-100" 
                           : "translate-y-8 opacity-0"
@@ -227,7 +210,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                     </Link>
                   ))}
                 </div>
-                <div className="space-y-4 md:space-y-6">
+                <div className="space-y-4 md:space-y-6 lg:space-y-8">
                   {[
                     "About Us",
                     "Our Story",
@@ -239,7 +222,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       key={item}
                       to={item === "Blog" ? "/blog" : "/"}
                       onClick={onClose}
-                      className={`block text-2xl md:text-3xl text-white hover:text-[#E6DB00] transition-all duration-700 ${
+                      className={`block text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white hover:text-[#E6DB00] transition-all duration-700 ${
                         isOpen 
                           ? "translate-y-0 opacity-100" 
                           : "translate-y-8 opacity-0"
@@ -255,11 +238,11 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
 
             {/* Footer with fade-up effect */}
             <div 
-              className={`p-4 md:p-6 border-t border-white/10 transition-all duration-700 delay-[1200ms] ${
+              className={`p-4 md:p-6 lg:p-8 border-t border-white/10 transition-all duration-700 delay-[1200ms] ${
                 isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
               }`}
             >
-              <div className="text-white/60 text-xs md:text-sm space-y-1 max-w-3xl">
+              <div className="text-white/60 text-xs md:text-sm lg:text-base space-y-1 md:space-y-2 max-w-3xl">
                 <p>Millersdale Cl, Euroway Industrial Estate</p>
                 <p>Bradford</p>
                 <p>BD4 6RX, UK</p>

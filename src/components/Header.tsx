@@ -142,9 +142,9 @@ const Header = () => {
               ref={navRef}
               className={`transition-colors duration-300 ${
                 shouldUseBlackTheme ? "bg-black" : isScrolled ? "bg-white" : "bg-transparent md:bg-white"
-              } px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 h-full`}
+              } px-3 sm:px-4 md:px-8 lg:px-12 xl:px-20 h-full`}
             >
-              <div className="hidden md:flex items-center space-x-3 lg:space-x-6 xl:space-x-10 h-full">
+              <div className="hidden md:flex items-center space-x-2 lg:space-x-4 xl:space-x-8 h-full">
                 {/* Services link with dropdown */}
                 <div 
                   className="relative group h-full"
@@ -176,19 +176,19 @@ const Header = () => {
                 </Link>
                 <Link
                   to="/book-session"
-                  className="bg-[#E6DB00] text-black px-3 sm:px-4 lg:px-6 py-1.5 sm:py-2 text-sm lg:text-base xl:text-lg hover:opacity-90 transition-opacity"
+                  className="bg-[#E6DB00] text-black px-2 sm:px-3 lg:px-4 xl:px-6 py-1.5 sm:py-2 text-sm lg:text-base xl:text-lg hover:opacity-90 transition-opacity"
                 >
                   {t('header.bookSession')}
                 </Link>
 
                 {/* Language Switcher */}
-                <div className="flex items-center ml-3 md:ml-4 lg:ml-6">
+                <div className="flex items-center ml-2 md:ml-3 lg:ml-4 xl:ml-6">
                   <LanguageSwitcher />
                 </div>
 
                 {/* Hamburger / close */}
                 <button
-                  className="flex items-center justify-center hover:opacity-75 transition-opacity ml-3 sm:ml-4 md:ml-5 lg:ml-6"
+                  className="flex items-center justify-center hover:opacity-75 transition-opacity ml-2 sm:ml-3 md:ml-4 lg:ml-5 xl:ml-6"
                   onClick={toggleMenu}
                 >
                   <span className={`flex items-center space-x-1 border ${shouldUseBlackTheme ? "border-white" : "border-black"} px-2 sm:px-3 py-1.5 sm:py-2 ${shouldUseBlackTheme ? "bg-black text-white" : "bg-white text-black"}`}>
@@ -228,7 +228,9 @@ const Header = () => {
         className={`fixed top-16 sm:top-20 md:top-24 lg:top-28 right-0 z-40 overflow-hidden transition-all duration-500 ease-in-out ${
           servicesMenuOpen ? "max-h-[350px] opacity-100 visible" : "max-h-0 opacity-0 invisible"
         }`}
-        style={{ width: navWidth }}
+        style={{ 
+          width: navWidth > 0 ? navWidth : 'auto',
+        }}
         onMouseEnter={handleServicesMouseEnter}
         onMouseLeave={handleServicesMouseLeave}
       >
@@ -236,22 +238,22 @@ const Header = () => {
              style={{ 
                transform: servicesMenuOpen ? 'translateY(0)' : 'translateY(-100%)'
              }}>
-          <div className="flex h-16 sm:h-20 md:h-24 lg:h-28 items-center">
+          <div className="grid grid-cols-3 min-h-[4rem] sm:min-h-[5rem] md:min-h-[6rem] lg:min-h-[7rem] items-stretch">
             <Link
               to="/mould"
-              className="flex-1 h-full flex items-center justify-center text-black hover:text-white bg-gray-100 hover:bg-[#0e9a48] transition-all duration-300 text-sm lg:text-base xl:text-lg transform transition-transform hover:translate-y-1 ease-out"
+              className="col-span-1 flex items-center justify-center text-black hover:text-white bg-gray-100 hover:bg-[#0e9a48] transition-all duration-300 text-sm lg:text-base xl:text-lg transform transition-transform hover:translate-y-1 ease-out p-4"
             >
               {t('header.mould')}
             </Link>
             <Link
               to="/3d-printing"
-              className="flex-1 h-full flex items-center justify-center text-black hover:text-white bg-gray-100 hover:bg-[#cb2026] transition-all duration-300 text-sm lg:text-base xl:text-lg transform transition-transform hover:translate-y-1 ease-out delay-[100ms]"
+              className="col-span-1 flex items-center justify-center text-black hover:text-white bg-gray-100 hover:bg-[#cb2026] transition-all duration-300 text-sm lg:text-base xl:text-lg transform transition-transform hover:translate-y-1 ease-out delay-[100ms] p-4"
             >
               {t('header.3dPrinting')}
             </Link>
             <Link
               to="/prototyping"
-              className="flex-1 h-full flex items-center justify-center text-black hover:text-white bg-gray-100 hover:bg-[#35469d] transition-all duration-300 text-sm lg:text-base xl:text-lg transform transition-transform hover:translate-y-1 ease-out delay-[200ms]"
+              className="col-span-1 flex items-center justify-center text-black hover:text-white bg-gray-100 hover:bg-[#35469d] transition-all duration-300 text-sm lg:text-base xl:text-lg transform transition-transform hover:translate-y-1 ease-out delay-[200ms] p-4"
             >
               {t('header.prototyping')}
             </Link>

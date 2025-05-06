@@ -77,7 +77,7 @@ const BlogPost = () => {
               <li>A minimum order quantity that exceeded their actual needs</li>
             </ul>
             <p>These factors made injection molding economically unfeasible for their project. This is where our advanced SLA printing capabilities offered the perfect middle-ground solution.</p>
-            <img src="/blog_images/2.png" alt="SLA Printing Setup" class="w-full h-auto rounded-lg my-6" />
+            <img src="/blog_images/2.webp" alt="SLA Printing Setup" class="w-full h-auto rounded-lg my-6" />
           `
         },
         {
@@ -95,7 +95,7 @@ const BlogPost = () => {
               <li>Consistent black coloration</li>
             </ul>
             <p>After extensive testing, we developed a custom resin mixture by combining our flexible and rigid resins at carefully calibrated ratios, then adding black pigment to achieve the desired aesthetic finish. This allowed us to precisely tune the material properties to meet both functional and visual requirements.</p>
-            <img src="/blog_images/3.png" alt="Material Testing Process" class="w-full h-auto rounded-lg my-6" />
+            <img src="/blog_images/3.webp" alt="Material Testing Process" class="w-full h-auto rounded-lg my-6" />
           `
         },
         {
@@ -113,7 +113,7 @@ const BlogPost = () => {
             
             <h3 class="text-xl font-semibold mt-6 mb-4">Print Settings Refinement</h3>
             <p>We further refined our print settings to balance resolution with production speed, finding the optimal layer height and exposure times that maintained part quality while maximizing throughput.</p>
-            <img src="/blog_images/4.png" alt="Production Optimization" class="w-full h-auto rounded-lg my-6" />
+            <img src="/blog_images/4.webp" alt="Production Optimization" class="w-full h-auto rounded-lg my-6" />
           `
         },
         {
@@ -128,7 +128,7 @@ const BlogPost = () => {
               <li>Curing: UV post-curing to achieve final material properties</li>
               <li>Quality Control: Dimensional verification and functional testing</li>
             </ul>
-            <img src="/blog_images/5.png" alt="Production Process" class="w-full h-auto rounded-lg my-6" />
+            <img src="/blog_images/5.webp" alt="Production Process" class="w-full h-auto rounded-lg my-6" />
           `
         },
         {
@@ -143,7 +143,7 @@ const BlogPost = () => {
               <li>Design Iteration: Easy implementation of design improvements between batches</li>
               <li>Cost-Effective Small Batches: Economical production at quantities that would be prohibitive with injection molding</li>
             </ul>
-            <img src="/blog_images/blog1.png" alt="Final Results" class="w-full h-auto rounded-lg my-6" />
+            <img src="/blog_images/blog1.webp" alt="Final Results" class="w-full h-auto rounded-lg my-6" />
           `
         },
         {
@@ -156,7 +156,7 @@ const BlogPost = () => {
           `
         }
       ],
-      image: "/blog_images/1.png"
+      image: "/blog_images/1.webp"
     },
     "sustainable-manufacturing": {
       title: "How Sustainable Manufacturing is Changing the Industry",

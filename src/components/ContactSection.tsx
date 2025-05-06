@@ -240,13 +240,14 @@ const ContactSection = () => {
             className="mt-16 h-64 md:h-96 rounded-lg overflow-hidden shadow-md"
           >
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2995.682344325456!2d69.27766537638983!3d41.33307897131821!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8b534175ed31%3A0x52a8f9d9414a2ad8!2s17%20Olmachi%20Ko'chasi%2C%20Tashkent%2C%20Uzbekistan!5e0!3m2!1sen!2suk!4v1719448231018!5m2!1sen!2suk"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2996.6504900120997!2d69.312132!3d41.3205264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38aef5005adfee5b%3A0x40d4ef6aaf3894d6!2sCenter%20For%20Youth%20Initiatives!5e0!3m2!1sen!2suk!4v1719448231018!5m2!1sen!2suk"
               width="100%"
               height="100%"
               style={{ border: 0 }}
               allowFullScreen={false}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
+              title="Center for Youth Initiatives Location"
             ></iframe>
           </motion.div>
         </div>

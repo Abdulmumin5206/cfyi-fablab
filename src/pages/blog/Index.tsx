@@ -12,7 +12,7 @@ const blogPosts = [
     excerpt: "Created a fully functional prototype using advanced 3D printing techniques for an Uzbek tech startup.",
     date: "May 15, 2023",
     author: "FabLab Team",
-    image: "/blog_images/blog1.png",
+    image: "/blog_images/blog1.webp",
     category: "3D Printing",
     slug: "3d-printing-innovations"
   }

@@ -428,7 +428,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       }}
                     />
                     <img 
-                      src="/fablab/logo.png" 
+                      src="/fablab/logowhite.png" 
                       alt="FabLab Logo" 
                       className="h-10 w-auto"
                       onError={(e) => {

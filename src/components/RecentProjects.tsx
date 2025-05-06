@@ -8,25 +8,9 @@ const recentProjects = [
     id: 1,
     title: "3D Printed Prototype Development",
     excerpt: "Created a fully functional prototype using advanced 3D printing techniques for an Uzbek tech startup.",
-    image: "/blog_images/blog1.png", 
+    image: "/blog_images/blog1.webp", 
     category: "3D Printing",
     slug: "3d-printing-innovations" // Should match existing blog slugs
-  },
-  {
-    id: 2,
-    title: "STEM Education Workshop Series",
-    excerpt: "Conducted a series of workshops introducing digital fabrication to university students in Tashkent.",
-    image: "/fablab/projects/stem-workshop.jpg",
-    category: "Education",
-    slug: "stem-education-workshop" // Should match existing blog slugs
-  },
-  {
-    id: 3,
-    title: "Medical Equipment Components",
-    excerpt: "Manufactured critical components for local medical equipment using CNC machining technology.",
-    image: "/fablab/projects/medical-components.jpg",
-    category: "Manufacturing",
-    slug: "medical-equipment-components" // Should match existing blog slugs
   }
 ];
 

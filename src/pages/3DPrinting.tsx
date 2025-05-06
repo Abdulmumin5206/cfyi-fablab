@@ -291,10 +291,10 @@ const ThreeDPrintingPage = () => {
               {/* Form 4 Card */}
               <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
                 <div className="w-full h-32 md:h-36 bg-gray-100 relative">
-                  <img src="/3dprinters/1.formlabs-form3-01_2_1.png" alt="Form 4 background" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
+                  <img src="/3dprinters/1.formlabs-form3-01_2_1.webp" alt="Form 4 background" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
                 </div>
                 <div className="-mt-16 z-10 flex justify-center w-full">
-                  <img src="/3dprinters/formlabs-form3-01_2_1.png" alt="Form 4" className="w-48 h-56 object-contain" />
+                  <img src="/3dprinters/formlabs-form3-01_2_1.webp" alt="Form 4" className="w-48 h-56 object-contain" />
                 </div>
                 <div className="flex flex-col items-center justify-center px-8 pt-6 pb-8 w-full text-center">
                   <div className="text-[11px] font-semibold text-blue-700 mb-1 tracking-widest uppercase text-center mt-2">MAXIMUM VERSATILITY</div>
@@ -306,10 +306,10 @@ const ThreeDPrintingPage = () => {
               {/* Form 4L Card */}
               <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
                 <div className="w-full h-32 md:h-36 bg-gray-100 relative">
-                  <img src="/3dprinters/1.Phrozen.jpg" alt="Form 4L background" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
+                  <img src="/3dprinters/1.Phrozen.webp" alt="Form 4L background" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
                 </div>
                 <div className="-mt-16 z-10 flex justify-center w-full">
-                  <img src="/3dprinters/Phrozen.png" alt="Form 4L" className="w-48 h-56 object-contain" />
+                  <img src="/3dprinters/Phrozen.webp" alt="Form 4L" className="w-48 h-56 object-contain" />
                 </div>
                 <div className="flex flex-col items-center justify-center px-8 pt-6 pb-8 w-full text-center">
                   <div className="text-[11px] font-semibold text-blue-700 mb-1 tracking-widest uppercase text-center mt-2">THINK BIG</div>
@@ -321,10 +321,10 @@ const ThreeDPrintingPage = () => {
               {/* Fuse 1+ 30W Card */}
               <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
                 <div className="w-full h-32 md:h-36 bg-gray-100 relative">
-                  <img src="/3dprinters/1.Phrozen mini.avif" alt="Fuse 1+ 30W background" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
+                  <img src="/3dprinters/1.Phrozen mini.webp" alt="Fuse 1+ 30W background" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
                 </div>
                 <div className="-mt-16 z-10 flex justify-center w-full">
-                  <img src="/3dprinters/Phrozen mini.png" alt="Fuse 1+ 30W" className="w-48 h-56 object-contain" />
+                  <img src="/3dprinters/Phrozen mini.webp" alt="Fuse 1+ 30W" className="w-48 h-56 object-contain" />
                 </div>
                 <div className="flex flex-col items-center justify-center px-8 pt-6 pb-8 w-full text-center">
                   <div className="text-[11px] font-semibold text-blue-700 mb-1 tracking-widest uppercase text-center mt-2">HIGHEST PERFORMANCE</div>
@@ -336,10 +336,10 @@ const ThreeDPrintingPage = () => {
               {/* Prusa i3 MK3S+ Card */}
               <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
                 <div className="w-full h-32 md:h-36 bg-gray-100 relative">
-                  <img src="/3dprinters/1.prusa.jpg" alt="Prusa i3 MK3S+ background" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
+                  <img src="/3dprinters/1.prusa.webp" alt="Prusa i3 MK3S+ background" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
                 </div>
                 <div className="-mt-16 z-10 flex justify-center w-full">
-                  <img src="/3dprinters/Prusa.png" alt="Prusa i3 MK3S+" className="w-48 h-56 object-contain" />
+                  <img src="/3dprinters/Prusa.webp" alt="Prusa i3 MK3S+" className="w-48 h-56 object-contain" />
                 </div>
                 <div className="flex flex-col items-center justify-center px-8 pt-6 pb-8 w-full text-center">
                   <div className="text-[11px] font-semibold text-blue-700 mb-1 tracking-widest uppercase text-center mt-2">RELIABLE PERFORMANCE</div>
@@ -413,7 +413,7 @@ const ThreeDPrintingPage = () => {
               <div className="w-full lg:w-3/4 lg:pl-8">
                 <div className="relative w-full">
                   <img 
-                    src="/3dprinters/FDM.jpeg" 
+                    src="/3dprinters/FDM.webp" 
                     alt="FDM 3D Printing Equipment Core Set" 
                     className="w-full aspect-[4/3] object-cover h-auto max-h-[650px]"
                   />
@@ -434,10 +434,10 @@ const ThreeDPrintingPage = () => {
               {/* Prusa i3 MK3S+ */}
               <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
                 <div className="w-full h-32 md:h-36 bg-gray-100 relative">
-                  <img src="/3dprinters/1.prusa-i3-mk3s-3d-printer-tashkent.avif" alt="Prusa i3 MK3S+ background" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
+                  <img src="/3dprinters/1.prusa-i3-mk3s-3d-printer-tashkent.webp" alt="Prusa i3 MK3S+ background" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
                 </div>
                 <div className="-mt-16 z-10 flex justify-center w-full">
-                  <img src="/3dprinters/prusa-i3-mk3s-3d-printer-tashkent.png" alt="Prusa i3 MK3S+" className="w-48 h-56 object-contain" />
+                  <img src="/3dprinters/prusa-i3-mk3s-3d-printer-tashkent.webp" alt="Prusa i3 MK3S+" className="w-48 h-56 object-contain" />
                 </div>
                 <div className="flex flex-col items-center justify-center px-8 pt-6 pb-8 w-full text-center">
                   <div className="text-[11px] font-semibold text-blue-700 mb-1 tracking-widest uppercase text-center mt-2">RELIABLE WORKHORSE</div>
@@ -449,10 +449,10 @@ const ThreeDPrintingPage = () => {
               {/* Prusa i3 MK3S+ MMU2S */}
               <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
                 <div className="w-full h-32 md:h-36 bg-gray-100 relative">
-                  <img src="/3dprinters/1.prusa-i3-mk3s-mmu2s-multicolor-3d-printer-tashkent.avif" alt="Prusa i3 MK3S+ MMU2S background" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
+                  <img src="/3dprinters/1.prusa-i3-mk3s-mmu2s-multicolor-3d-printer-tashkent.webp" alt="Prusa i3 MK3S+ MMU2S background" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
                 </div>
                 <div className="-mt-16 z-10 flex justify-center w-full">
-                  <img src="/3dprinters/prusa-i3-mk3s-mmu2s-multicolor-3d-printer-tashkent.png" alt="Prusa i3 MK3S+ MMU2S" className="w-48 h-56 object-contain" />
+                  <img src="/3dprinters/prusa-i3-mk3s-mmu2s-multicolor-3d-printer-tashkent.webp" alt="Prusa i3 MK3S+ MMU2S" className="w-48 h-56 object-contain" />
                 </div>
                 <div className="flex flex-col items-center justify-center px-8 pt-6 pb-8 w-full text-center">
                   <div className="text-[11px] font-semibold text-blue-700 mb-1 tracking-widest uppercase text-center mt-2">MULTI-MATERIAL</div>
@@ -467,7 +467,7 @@ const ThreeDPrintingPage = () => {
                   <img src="/3dprinters/1.skrinter-3d-printer-uzbekistan.webp" alt="Skrinter background" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
                 </div>
                 <div className="-mt-16 z-10 flex justify-center w-full">
-                  <img src="/3dprinters/skrinter-3d-printer-uzbekistan.png" alt="Skrinter" className="w-48 h-56 object-contain" />
+                  <img src="/3dprinters/skrinter-3d-printer-uzbekistan.webp" alt="Skrinter" className="w-48 h-56 object-contain" />
                 </div>
                 <div className="flex flex-col items-center justify-center px-8 pt-6 pb-8 w-full text-center">
                   <div className="text-[11px] font-semibold text-blue-700 mb-1 tracking-widest uppercase text-center mt-2">DESKTOP FDM</div>
@@ -479,10 +479,10 @@ const ThreeDPrintingPage = () => {
               {/* Raise3D Pro3 */}
               <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
                 <div className="w-full h-32 md:h-36 bg-gray-100 relative">
-                  <img src="/3dprinters/1.raise3d-pro3-industrial-3d-printer-tashkent.png" alt="Raise3D Pro3 background" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
+                  <img src="/3dprinters/1.raise3d-pro3-industrial-3d-printer-tashkent.webp" alt="Raise3D Pro3 background" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
                 </div>
                 <div className="-mt-16 z-10 flex justify-center w-full">
-                  <img src="/3dprinters/raise3d-pro3-industrial-3d-printer-tashkent.png" alt="Raise3D Pro3" className="w-48 h-56 object-contain" />
+                  <img src="/3dprinters/raise3d-pro3-industrial-3d-printer-tashkent.webp" alt="Raise3D Pro3" className="w-48 h-56 object-contain" />
                 </div>
                 <div className="flex flex-col items-center justify-center px-8 pt-6 pb-8 w-full text-center">
                   <div className="text-[11px] font-semibold text-blue-700 mb-1 tracking-widest uppercase text-center mt-2">INDUSTRIAL FDM</div>

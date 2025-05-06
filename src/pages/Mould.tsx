@@ -253,7 +253,7 @@ const MouldPage = () => {
                       <div className="w-[300px] flex-shrink-0">
                         <div className="bg-white rounded-lg overflow-hidden p-4 border border-gray-200">
                           <div className="h-64 mb-4 flex items-center justify-center">
-                            <img src="/mould/Equipments/formlabs-form3-01_2_1.jpg" alt="Form 3 SLA Printer" className="h-full object-contain" />
+                            <img src="/mould/Equipments/formlabs-form3-01_2_1.webp" alt="Form 3 SLA Printer" className="h-full object-contain" />
                           </div>
                           <h3 className="text-xl font-bold text-gray-900 text-center">Form 3 SLA Printer</h3>
                         </div>
@@ -263,7 +263,7 @@ const MouldPage = () => {
                       <div className="w-[300px] flex-shrink-0">
                         <div className="bg-white rounded-lg overflow-hidden p-4 border border-gray-200">
                           <div className="h-64 mb-4 flex items-center justify-center">
-                            <img src="/mould/Equipments/Phrozen.png" alt="Phrozen Sonic Mega 8K" className="h-full object-contain" />
+                            <img src="/mould/Equipments/Phrozen.webp" alt="Phrozen Sonic Mega 8K" className="h-full object-contain" />
                           </div>
                           <h3 className="text-xl font-bold text-gray-900 text-center">Phrozen Sonic Mega 8K</h3>
                         </div>
@@ -273,7 +273,7 @@ const MouldPage = () => {
                       <div className="w-[300px] flex-shrink-0">
                         <div className="bg-white rounded-lg overflow-hidden p-4 border border-gray-200">
                           <div className="h-64 mb-4 flex items-center justify-center">
-                            <img src="/mould/Equipments/Raise.png" alt="Raise3D Pro3" className="h-full object-contain" />
+                            <img src="/mould/Equipments/Raise.webp" alt="Raise3D Pro3" className="h-full object-contain" />
                           </div>
                           <h3 className="text-xl font-bold text-gray-900 text-center">Raise3D Pro3</h3>
                         </div>
@@ -283,7 +283,7 @@ const MouldPage = () => {
                       <div className="w-[300px] flex-shrink-0">
                         <div className="bg-white rounded-lg overflow-hidden p-4 border border-gray-200">
                           <div className="h-64 mb-4 flex items-center justify-center">
-                            <img src="/mould/Equipments/Phrozen mini.png" alt="Phrozen Mini 8K" className="h-full object-contain" />
+                            <img src="/mould/Equipments/Phrozen mini.webp" alt="Phrozen Mini 8K" className="h-full object-contain" />
                           </div>
                           <h3 className="text-xl font-bold text-gray-900 text-center">Phrozen Mini 8K</h3>
                         </div>
@@ -293,7 +293,7 @@ const MouldPage = () => {
                       <div className="w-[300px] flex-shrink-0">
                         <div className="bg-white rounded-lg overflow-hidden p-4 border border-gray-200">
                           <div className="h-64 mb-4 flex items-center justify-center">
-                            <img src="/mould/Equipments/Prusa.avif" alt="Prusa i3 MK3S+" className="h-full object-contain" />
+                            <img src="/mould/Equipments/Prusa.webp" alt="Prusa i3 MK3S+" className="h-full object-contain" />
                           </div>
                           <h3 className="text-xl font-bold text-gray-900 text-center">Prusa i3 MK3S+</h3>
                         </div>

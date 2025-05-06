@@ -466,7 +466,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       href="https://facebook.com" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300"
+                      className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300 text-white"
                     >
                       <Facebook size={20} />
                     </a>
@@ -474,7 +474,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       href="https://instagram.com" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300"
+                      className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300 text-white"
                     >
                       <Instagram size={20} />
                     </a>
@@ -482,7 +482,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       href="https://linkedin.com" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300"
+                      className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300 text-white"
                     >
                       <Linkedin size={20} />
                     </a>
@@ -490,7 +490,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       href="https://twitter.com" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300"
+                      className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300 text-white"
                     >
                       <Twitter size={20} />
                     </a>

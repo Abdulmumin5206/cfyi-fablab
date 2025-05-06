@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -10,12 +10,32 @@ const ContactSection = () => {
   const { t } = useTranslation();
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  
+  // Get inquiry parameter from URL if exists
+  const urlInquiry = typeof window !== 'undefined' ? 
+    new URLSearchParams(window.location.search).get('inquiry') || '' : '';
+  
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
-    message: ""
+    message: "",
+    inquiry: urlInquiry
   });
+
+  // Effect to update form if URL changes
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const newInquiry = new URLSearchParams(window.location.search).get('inquiry') || '';
+      setFormData(prev => ({
+        ...prev,
+        inquiry: newInquiry,
+        // If there's a new inquiry from URL and message is empty, add a starter message
+        message: newInquiry && !prev.message ? 
+          `I'm interested in learning more about ${newInquiry}` : prev.message
+      }));
+    }
+  }, [typeof window !== 'undefined' ? window.location.search : '']);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -38,14 +58,15 @@ const ContactSection = () => {
         name: "",
         email: "",
         phone: "",
-        message: ""
+        message: "",
+        inquiry: ""
       });
       setIsSubmitting(false);
     }, 1500);
   };
 
   return (
-    <section className="py-20 bg-white text-gray-800">
+    <section id="contact-section" className="py-20 bg-white text-gray-800">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <motion.div
@@ -191,6 +212,15 @@ const ContactSection = () => {
                     className="border-gray-300 bg-white text-gray-900 focus:border-brand-red placeholder:text-gray-400 min-h-[150px]"
                   />
                 </div>
+                
+                {/* Hidden inquiry field to capture industry inquiries */}
+                <input 
+                  type="hidden" 
+                  id="inquiry" 
+                  name="inquiry" 
+                  value={formData.inquiry}
+                />
+                
                 <Button
                   type="submit"
                   className="w-full bg-brand-red hover:bg-red-700 text-white font-semibold py-3 text-md transition-colors"

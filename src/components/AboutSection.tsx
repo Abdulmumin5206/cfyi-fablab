@@ -20,6 +20,34 @@ const AboutSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [activeIndustry, setActiveIndustry] = useState<string | null>(null);
 
+  // Function to handle contact button click
+  const handleContactClick = (industryTitle: string) => {
+    // Close popup
+    closePopup();
+    
+    // Find the contact section element
+    const contactSection = document.getElementById('contact-section');
+    
+    // If found, scroll to it
+    if (contactSection) {
+      // Add industry to URL query parameters
+      const searchParams = new URLSearchParams(window.location.search);
+      searchParams.set('inquiry', `${industryTitle} Projects`);
+      
+      // Update URL without reloading page
+      const newUrl = `${window.location.pathname}?${searchParams.toString()}${window.location.hash}`;
+      window.history.pushState({ path: newUrl }, '', newUrl);
+
+      // Scroll to contact section after a short delay to ensure URL is updated
+      setTimeout(() => {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    } else {
+      // If contact section not found on current page, navigate to contact page with query parameter
+      window.location.href = '/#contact-section?inquiry=' + encodeURIComponent(`${industryTitle} Projects`);
+    }
+  };
+
   const industries: IndustryCategory[] = [
     {
       id: "engineering",
@@ -316,7 +344,10 @@ const AboutSection = () => {
               )}
 
               <div className="mt-10 flex justify-center">
-                <button className="px-8 py-3 bg-brand-yellow text-black font-medium text-lg rounded-md hover:bg-opacity-90 transition-colors">
+                <button 
+                  onClick={() => handleContactClick(activeIndustryData.title)}
+                  className="px-8 py-3 bg-brand-yellow text-black font-medium text-lg rounded-md hover:bg-opacity-90 transition-colors"
+                >
                   Contact Us About {activeIndustryData.title} Projects
                 </button>
               </div>

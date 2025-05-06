@@ -167,7 +167,7 @@ const ScrollImageSlider = () => {
                   }}
                 >
                   <motion.div 
-                    className="bg-white p-8 flex flex-col justify-center text-gray-800 border border-gray-200 shadow-lg w-[300px] h-[300px] sm:w-[350px] sm:h-[350px]"
+                    className="bg-white p-8 flex flex-col justify-center text-gray-800 border border-gray-200 shadow-lg w-[350px] h-[400px] sm:w-[400px] sm:h-[450px] md:w-[450px] md:h-[500px] lg:w-[500px] lg:h-[550px]"
                     style={{
                       opacity: useTransform(
                         imageIndexProgress,

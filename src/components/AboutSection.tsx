@@ -198,7 +198,7 @@ const AboutSection = () => {
     <div
       key={industry.id}
       onClick={() => openPopup(industry.id)}
-      className={`bg-white text-gray-800 p-6 rounded-sm shadow-sm cursor-pointer transition-all duration-300 transform hover:scale-105 hover:shadow-md ${
+      className={`bg-white text-gray-800 p-6 rounded-sm shadow-sm cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:shadow-lg group ${
         isVisible
           ? "opacity-100 translate-y-0"
           : "opacity-0 translate-y-10"
@@ -212,18 +212,18 @@ const AboutSection = () => {
       }}
     >
       <div className="h-full flex flex-col items-center justify-center">
-        <div className="w-36 h-36 md:w-28 md:h-28 mb-5 flex items-center justify-center">
+        <div className="w-36 h-36 md:w-28 md:h-28 mb-5 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
           <img 
             src={getIconUrl(industry.iconPath)} 
             alt={`${industry.title} icon`} 
-            className="w-full h-full object-contain"
+            className="w-full h-full object-contain transition-all duration-300"
             onError={(e) => {
               const target = e.target as HTMLImageElement;
               target.src = `https://placehold.co/200x200/333/white?text=${industry.title}`;
             }}
           />
         </div>
-        <h3 className="text-center text-xl font-medium">{industry.title}</h3>
+        <h3 className="text-center text-xl font-medium transition-all duration-300 group-hover:text-brand-yellow">{industry.title}</h3>
       </div>
     </div>
   );

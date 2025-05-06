@@ -47,20 +47,6 @@ const Footer = ({ bgClass = "bg-black", textClass = "text-white" }: FooterProps)
             <p className={`${secondaryTextColor} text-sm mb-6`}>
               FabLab Uzbekistan, in collaboration with Center for Youth Initiatives, is committed to advancing technical education and digital manufacturing. We provide modern equipment and expert support to inspire future innovators.
             </p>
-            
-            <address className="not-italic mb-6">
-              <p>17 Olmachi St., Mirzo-Ulugbek,</p>
-              <p>Tashkent, Uzbekistan</p>
-            </address>
-            <div className="space-y-1">
-              <p>Phone: +998 (77) 088 39 77 (ru/uz)</p>
-              <p>Phone: +998 (77) 088 49 77 (ru/en)</p>
-              <p>
-                <a href="mailto:info@cfyi.uz" className={linkHoverColor}>
-                  info@cfyi.uz
-                </a>
-              </p>
-            </div>
           </div>
           <div className="grid grid-cols-2 gap-8">
             <div>

@@ -1,13 +1,25 @@
 import { useEffect, useRef, useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, Info } from "lucide-react";
 import styles from "@/styles/Slider.module.css";
 
 const MouldPage = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const marketsRef = useRef<HTMLDivElement>(null);
+  const equipmentContainerRef = useRef<HTMLDivElement>(null);
+  const [isPaused, setIsPaused] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const equipmentItems = 5; // Total number of equipment items
+  const [hoveredItem, setHoveredItem] = useState<number | null>(null);
+  const animationRef = useRef<number | null>(null);
+  const scrollPositionRef = useRef(0);
+  
+  // Image comparison slider references and state
+  const sliderRef = useRef<HTMLDivElement>(null);
+  const sliderKnobRef = useRef<HTMLDivElement>(null);
+  const [sliderPosition, setSliderPosition] = useState(50); // Start in the middle
+  const [isDragging, setIsDragging] = useState(false);
 
   useEffect(() => {
     // Scroll to top when component mounts
@@ -18,6 +30,122 @@ const MouldPage = () => {
     
     console.log("Mould page mounted");
   }, []);
+
+  // Optimized continuous animation effect for equipment carousel
+  useEffect(() => {
+    if (!equipmentContainerRef.current) return;
+    
+    const container = equipmentContainerRef.current;
+    const firstItem = container.querySelector('.equipment-item') as HTMLElement;
+    
+    if (!firstItem) return;
+    
+    // Get the full width of an item including gap
+    const itemWidth = firstItem.offsetWidth + 24; // 24px = gap (space-x-6)
+    
+    const animate = () => {
+      if (!equipmentContainerRef.current || isPaused) {
+        animationRef.current && cancelAnimationFrame(animationRef.current);
+        return;
+      }
+      
+      const container = equipmentContainerRef.current;
+      
+      // Increment position at a steady rate
+      scrollPositionRef.current += 0.8; // Smoother, slightly slower speed
+      
+      // When first item is completely scrolled out of view
+      if (scrollPositionRef.current >= itemWidth) {
+        // Move first item to the end
+        const firstItemElement = container.querySelector('.equipment-item') as HTMLElement;
+        if (firstItemElement) {
+          const clone = firstItemElement.cloneNode(true) as HTMLElement;
+          container.appendChild(clone);
+          container.removeChild(firstItemElement);
+          
+          // Reset scroll position to create seamless loop
+          scrollPositionRef.current = 0;
+        }
+      }
+      
+      // Apply transformation without any conditional logic that might cause jumps
+      container.style.transform = `translateX(-${scrollPositionRef.current}px)`;
+      
+      // Continue the animation
+      animationRef.current = requestAnimationFrame(animate);
+    };
+    
+    // Start the animation
+    animationRef.current = requestAnimationFrame(animate);
+    
+    // Cleanup animation on component unmount
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, [isPaused]);
+
+  // Initialize image comparison slider
+  useEffect(() => {
+    const handleMouseDown = (e: MouseEvent) => {
+      setIsDragging(true);
+    };
+    
+    const handleMouseUp = () => {
+      setIsDragging(false);
+    };
+    
+    const handleMouseMove = (e: MouseEvent) => {
+      if (isDragging && sliderRef.current) {
+        const sliderRect = sliderRef.current.getBoundingClientRect();
+        const newPosition = ((e.clientX - sliderRect.left) / sliderRect.width) * 100;
+        const clampedPosition = Math.max(0, Math.min(100, newPosition));
+        setSliderPosition(clampedPosition);
+      }
+    };
+    
+    const handleTouchStart = () => {
+      setIsDragging(true);
+    };
+    
+    const handleTouchEnd = () => {
+      setIsDragging(false);
+    };
+    
+    const handleTouchMove = (e: TouchEvent) => {
+      if (isDragging && sliderRef.current) {
+        const sliderRect = sliderRef.current.getBoundingClientRect();
+        const newPosition = ((e.touches[0].clientX - sliderRect.left) / sliderRect.width) * 100;
+        const clampedPosition = Math.max(0, Math.min(100, newPosition));
+        setSliderPosition(clampedPosition);
+      }
+    };
+    
+    // Add event listeners
+    if (sliderKnobRef.current) {
+      sliderKnobRef.current.addEventListener('mousedown', handleMouseDown);
+      sliderKnobRef.current.addEventListener('touchstart', handleTouchStart);
+    }
+    
+    document.addEventListener('mouseup', handleMouseUp);
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('touchend', handleTouchEnd);
+    document.addEventListener('touchmove', handleTouchMove, { passive: true });
+    
+    return () => {
+      // Remove event listeners on cleanup
+      if (sliderKnobRef.current) {
+        sliderKnobRef.current.removeEventListener('mousedown', handleMouseDown);
+        sliderKnobRef.current.removeEventListener('touchstart', handleTouchStart);
+      }
+      
+      document.removeEventListener('mouseup', handleMouseUp);
+      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('touchend', handleTouchEnd);
+      document.removeEventListener('touchmove', handleTouchMove);
+    };
+  }, [isDragging]);
 
   const handleVideoError = (e: React.SyntheticEvent<HTMLVideoElement, Event>) => {
     console.error("Video failed to load", e);
@@ -82,7 +210,7 @@ const MouldPage = () => {
                         </svg>
                       </div>
                     </div>
-                    <p>Silicone mould making for complex geometries</p>
+                    <p>Cost-effective alternative to metallic molds for lower production runs</p>
                   </div>
                   
                   <div className="flex items-start gap-3">
@@ -93,7 +221,7 @@ const MouldPage = () => {
                         </svg>
                       </div>
                     </div>
-                    <p>Polyurethane, epoxy, and specialty resin casting</p>
+                    <p>High-precision SLA printing for master patterns and direct part production</p>
                   </div>
                   
                   <div className="flex items-start gap-3">
@@ -104,7 +232,7 @@ const MouldPage = () => {
                         </svg>
                       </div>
                     </div>
-                    <p>Perfect for prototypes, small-batch production, and art projects</p>
+                    <p>Specialized in spare parts production and small batch manufacturing</p>
                   </div>
                 </div>
                 
@@ -187,6 +315,42 @@ const MouldPage = () => {
           </div>
         </section>
         
+        {/* Why Go Digital Section */}
+        <section className="py-16 md:py-24 bg-gray-50">
+          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl md:text-4xl font-bold mb-12 md:mb-16 text-center">Why Go Digital?</h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+              {/* Benefit 1 */}
+              <div className="flex flex-col items-center text-center">
+                <div className="mb-6 w-32 h-32 flex items-center justify-center">
+                  <img src="/mould/lower_costs.webp" alt="Lower Costs" className="w-full h-full object-contain" />
+                </div>
+                <h3 className="text-xl font-bold mb-3">Lower Costs</h3>
+                <p className="text-gray-600">Avoid the high up-front investment of tooling and reduce labor costs.</p>
+              </div>
+              
+              {/* Benefit 2 */}
+              <div className="flex flex-col items-center text-center">
+                <div className="mb-6 w-32 h-32 flex items-center justify-center">
+                  <img src="/mould/faster_time.webp" alt="Faster Turnaround Time" className="w-full h-full object-contain" />
+                </div>
+                <h3 className="text-xl font-bold mb-3">Faster Turnaround Time</h3>
+                <p className="text-gray-600">Produce high-quality patterns within 24 hours.</p>
+              </div>
+              
+              {/* Benefit 3 */}
+              <div className="flex flex-col items-center text-center">
+                <div className="mb-6 w-32 h-32 flex items-center justify-center">
+                  <img src="/mould/clean_workflow.webp" alt="Design Freedom" className="w-full h-full object-contain" />
+                </div>
+                <h3 className="text-xl font-bold mb-3">Design Freedom</h3>
+                <p className="text-gray-600">Create intricate shapes that would be difficult to achieve with traditional molding.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        
         {/* Case Studies Section */}
         <section className="py-12 md:py-20 bg-gray-50">
           <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -238,19 +402,233 @@ const MouldPage = () => {
           </div>
         </section>
 
-        {/* Our Moulding Process Section */}
+        {/* Our Equipment for Moulding & Spare Parts Section */}
         <section className="py-16 md:py-24 bg-gray-900 text-white">
           <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col items-center">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-10 text-white text-center">Our Equipment for Moulding & Spare Parts</h1>
               
-              {/* Equipment slider */}
-              <div className="w-full">
+              {/* Equipment slider - continuous motion version */}
+              <div className="w-full max-w-5xl mx-auto overflow-hidden">
                 <div className="relative">
-                  <div className="overflow-hidden" ref={marketsRef}>
-                    <div className="flex space-x-6 py-4 px-2 transition-all duration-300" style={{ width: 'max-content' }}>
+                  <div className="overflow-hidden mb-6">
+                    <div 
+                      ref={equipmentContainerRef}
+                      className="flex space-x-6 py-4 px-2 transition-none" 
+                      style={{ width: 'max-content' }}
+                    >
                       {/* Equipment 1 */}
-                      <div className="w-[300px] flex-shrink-0">
+                      <div 
+                        className="w-[300px] flex-shrink-0 relative transform transition-all duration-300 equipment-item"
+                        onMouseEnter={() => {
+                          setIsPaused(true);
+                          setHoveredItem(0);
+                        }}
+                        onMouseLeave={() => {
+                          setIsPaused(false);
+                          setHoveredItem(null);
+                        }}
+                        style={{
+                          transform: hoveredItem === 0 ? 'scale(1.05)' : 'scale(1)',
+                          zIndex: hoveredItem === 0 ? 10 : 1
+                        }}
+                      >
+                        <div className="bg-white rounded-lg overflow-hidden p-4 border border-gray-200 h-full shadow-lg transition-shadow duration-300" 
+                          style={{
+                            boxShadow: hoveredItem === 0 ? '0 10px 25px rgba(0, 0, 0, 0.2)' : ''
+                          }}
+                        >
+                          <div className="h-64 mb-4 flex items-center justify-center overflow-hidden">
+                            <img src="/mould/Equipments/formlabs-form3-01_2_1.webp" alt="Form 3 SLA Printer" 
+                              className="h-full object-contain transition-transform duration-700" 
+                              style={{
+                                transform: hoveredItem === 0 ? 'scale(1.1) rotate(2deg)' : 'scale(1) rotate(0)'
+                              }}
+                            />
+                          </div>
+                          <h3 className="text-xl font-bold text-gray-900 text-center mb-2">Form 3 SLA Printer</h3>
+                          <div 
+                            className="overflow-hidden transition-all duration-500"
+                            style={{
+                              maxHeight: hoveredItem === 0 ? '100px' : '0',
+                              opacity: hoveredItem === 0 ? 1 : 0
+                            }}
+                          >
+                            <p className="text-gray-600 text-sm text-center">High-resolution SLA printing with exceptional detail for precise master patterns.</p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      {/* Equipment 2 */}
+                      <div 
+                        className="w-[300px] flex-shrink-0 relative transform transition-all duration-300 equipment-item"
+                        onMouseEnter={() => {
+                          setIsPaused(true);
+                          setHoveredItem(1);
+                        }}
+                        onMouseLeave={() => {
+                          setIsPaused(false);
+                          setHoveredItem(null);
+                        }}
+                        style={{
+                          transform: hoveredItem === 1 ? 'scale(1.05)' : 'scale(1)',
+                          zIndex: hoveredItem === 1 ? 10 : 1
+                        }}
+                      >
+                        <div className="bg-white rounded-lg overflow-hidden p-4 border border-gray-200 h-full shadow-lg transition-shadow duration-300"
+                          style={{
+                            boxShadow: hoveredItem === 1 ? '0 10px 25px rgba(0, 0, 0, 0.2)' : ''
+                          }}
+                        >
+                          <div className="h-64 mb-4 flex items-center justify-center overflow-hidden">
+                            <img src="/mould/Equipments/Phrozen.webp" alt="Phrozen Sonic Mega 8K" 
+                              className="h-full object-contain transition-transform duration-700"
+                              style={{
+                                transform: hoveredItem === 1 ? 'scale(1.1) rotate(2deg)' : 'scale(1) rotate(0)'
+                              }}
+                            />
+                          </div>
+                          <h3 className="text-xl font-bold text-gray-900 text-center mb-2">Phrozen Sonic Mega 8K</h3>
+                          <div 
+                            className="overflow-hidden transition-all duration-500"
+                            style={{
+                              maxHeight: hoveredItem === 1 ? '100px' : '0',
+                              opacity: hoveredItem === 1 ? 1 : 0
+                            }}
+                          >
+                            <p className="text-gray-600 text-sm text-center">Large format 8K resolution for producing multiple parts with incredible detail.</p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      {/* Equipment 3 */}
+                      <div 
+                        className="w-[300px] flex-shrink-0 relative transform transition-all duration-300 equipment-item"
+                        onMouseEnter={() => {
+                          setIsPaused(true);
+                          setHoveredItem(2);
+                        }}
+                        onMouseLeave={() => {
+                          setIsPaused(false);
+                          setHoveredItem(null);
+                        }}
+                        style={{
+                          transform: hoveredItem === 2 ? 'scale(1.05)' : 'scale(1)',
+                          zIndex: hoveredItem === 2 ? 10 : 1
+                        }}
+                      >
+                        <div className="bg-white rounded-lg overflow-hidden p-4 border border-gray-200 h-full shadow-lg transition-shadow duration-300"
+                          style={{
+                            boxShadow: hoveredItem === 2 ? '0 10px 25px rgba(0, 0, 0, 0.2)' : ''
+                          }}
+                        >
+                          <div className="h-64 mb-4 flex items-center justify-center overflow-hidden">
+                            <img src="/mould/Equipments/Raise.webp" alt="Raise3D Pro3" 
+                              className="h-full object-contain transition-transform duration-700"
+                              style={{
+                                transform: hoveredItem === 2 ? 'scale(1.1) rotate(2deg)' : 'scale(1) rotate(0)'
+                              }}
+                            />
+                          </div>
+                          <h3 className="text-xl font-bold text-gray-900 text-center mb-2">Raise3D Pro3</h3>
+                          <div 
+                            className="overflow-hidden transition-all duration-500"
+                            style={{
+                              maxHeight: hoveredItem === 2 ? '100px' : '0',
+                              opacity: hoveredItem === 2 ? 1 : 0
+                            }}
+                          >
+                            <p className="text-gray-600 text-sm text-center">Professional FDM printer for robust functional parts and specialized materials.</p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      {/* Equipment 4 */}
+                      <div 
+                        className="w-[300px] flex-shrink-0 relative transform transition-all duration-300 equipment-item"
+                        onMouseEnter={() => {
+                          setIsPaused(true);
+                          setHoveredItem(3);
+                        }}
+                        onMouseLeave={() => {
+                          setIsPaused(false);
+                          setHoveredItem(null);
+                        }}
+                        style={{
+                          transform: hoveredItem === 3 ? 'scale(1.05)' : 'scale(1)',
+                          zIndex: hoveredItem === 3 ? 10 : 1
+                        }}
+                      >
+                        <div className="bg-white rounded-lg overflow-hidden p-4 border border-gray-200 h-full shadow-lg transition-shadow duration-300"
+                          style={{
+                            boxShadow: hoveredItem === 3 ? '0 10px 25px rgba(0, 0, 0, 0.2)' : ''
+                          }}
+                        >
+                          <div className="h-64 mb-4 flex items-center justify-center overflow-hidden">
+                            <img src="/mould/Equipments/Phrozen mini.webp" alt="Phrozen Mini 8K" 
+                              className="h-full object-contain transition-transform duration-700"
+                              style={{
+                                transform: hoveredItem === 3 ? 'scale(1.1) rotate(2deg)' : 'scale(1) rotate(0)'
+                              }}
+                            />
+                          </div>
+                          <h3 className="text-xl font-bold text-gray-900 text-center mb-2">Phrozen Mini 8K</h3>
+                          <div 
+                            className="overflow-hidden transition-all duration-500"
+                            style={{
+                              maxHeight: hoveredItem === 3 ? '100px' : '0',
+                              opacity: hoveredItem === 3 ? 1 : 0
+                            }}
+                          >
+                            <p className="text-gray-600 text-sm text-center">Compact desktop 8K resin printer delivering exceptional detail for small parts.</p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      {/* Equipment 5 */}
+                      <div 
+                        className="w-[300px] flex-shrink-0 relative transform transition-all duration-300 equipment-item"
+                        onMouseEnter={() => {
+                          setIsPaused(true);
+                          setHoveredItem(4);
+                        }}
+                        onMouseLeave={() => {
+                          setIsPaused(false);
+                          setHoveredItem(null);
+                        }}
+                        style={{
+                          transform: hoveredItem === 4 ? 'scale(1.05)' : 'scale(1)',
+                          zIndex: hoveredItem === 4 ? 10 : 1
+                        }}
+                      >
+                        <div className="bg-white rounded-lg overflow-hidden p-4 border border-gray-200 h-full shadow-lg transition-shadow duration-300"
+                          style={{
+                            boxShadow: hoveredItem === 4 ? '0 10px 25px rgba(0, 0, 0, 0.2)' : ''
+                          }}
+                        >
+                          <div className="h-64 mb-4 flex items-center justify-center overflow-hidden">
+                            <img src="/mould/Equipments/Prusa.webp" alt="Prusa i3 MK3S+" 
+                              className="h-full object-contain transition-transform duration-700"
+                              style={{
+                                transform: hoveredItem === 4 ? 'scale(1.1) rotate(2deg)' : 'scale(1) rotate(0)'
+                              }}
+                            />
+                          </div>
+                          <h3 className="text-xl font-bold text-gray-900 text-center mb-2">Prusa i3 MK3S+</h3>
+                          <div 
+                            className="overflow-hidden transition-all duration-500"
+                            style={{
+                              maxHeight: hoveredItem === 4 ? '100px' : '0',
+                              opacity: hoveredItem === 4 ? 1 : 0
+                            }}
+                          >
+                            <p className="text-gray-600 text-sm text-center">Reliable workhorse for rapid prototyping and functional parts with wide material compatibility.</p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      {/* Duplicate equipment items for smooth looping - at least 2 full sets */}
+                      <div className="w-[300px] flex-shrink-0 relative transition-all duration-300 equipment-item">
                         <div className="bg-white rounded-lg overflow-hidden p-4 border border-gray-200">
                           <div className="h-64 mb-4 flex items-center justify-center">
                             <img src="/mould/Equipments/formlabs-form3-01_2_1.webp" alt="Form 3 SLA Printer" className="h-full object-contain" />
@@ -259,8 +637,7 @@ const MouldPage = () => {
                         </div>
                       </div>
                       
-                      {/* Equipment 2 */}
-                      <div className="w-[300px] flex-shrink-0">
+                      <div className="w-[300px] flex-shrink-0 relative transition-all duration-300 equipment-item">
                         <div className="bg-white rounded-lg overflow-hidden p-4 border border-gray-200">
                           <div className="h-64 mb-4 flex items-center justify-center">
                             <img src="/mould/Equipments/Phrozen.webp" alt="Phrozen Sonic Mega 8K" className="h-full object-contain" />
@@ -269,8 +646,7 @@ const MouldPage = () => {
                         </div>
                       </div>
                       
-                      {/* Equipment 3 */}
-                      <div className="w-[300px] flex-shrink-0">
+                      <div className="w-[300px] flex-shrink-0 relative transition-all duration-300 equipment-item">
                         <div className="bg-white rounded-lg overflow-hidden p-4 border border-gray-200">
                           <div className="h-64 mb-4 flex items-center justify-center">
                             <img src="/mould/Equipments/Raise.webp" alt="Raise3D Pro3" className="h-full object-contain" />
@@ -278,42 +654,8 @@ const MouldPage = () => {
                           <h3 className="text-xl font-bold text-gray-900 text-center">Raise3D Pro3</h3>
                         </div>
                       </div>
-                      
-                      {/* Equipment 4 */}
-                      <div className="w-[300px] flex-shrink-0">
-                        <div className="bg-white rounded-lg overflow-hidden p-4 border border-gray-200">
-                          <div className="h-64 mb-4 flex items-center justify-center">
-                            <img src="/mould/Equipments/Phrozen mini.webp" alt="Phrozen Mini 8K" className="h-full object-contain" />
-                          </div>
-                          <h3 className="text-xl font-bold text-gray-900 text-center">Phrozen Mini 8K</h3>
-                        </div>
-                      </div>
-                      
-                      {/* Equipment 5 */}
-                      <div className="w-[300px] flex-shrink-0">
-                        <div className="bg-white rounded-lg overflow-hidden p-4 border border-gray-200">
-                          <div className="h-64 mb-4 flex items-center justify-center">
-                            <img src="/mould/Equipments/Prusa.webp" alt="Prusa i3 MK3S+" className="h-full object-contain" />
-                          </div>
-                          <h3 className="text-xl font-bold text-gray-900 text-center">Prusa i3 MK3S+</h3>
-                        </div>
-                      </div>
                     </div>
                   </div>
-                  
-                  {/* Navigation Arrows */}
-                  <button 
-                    onClick={scrollMarketLeft}
-                    className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 bg-gray-700 hover:bg-gray-600 w-10 h-10 rounded-full flex items-center justify-center z-10 shadow-md"
-                  >
-                    <ArrowLeft className="w-5 h-5 text-white" />
-                  </button>
-                  <button 
-                    onClick={scrollMarketRight}
-                    className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 bg-gray-700 hover:bg-gray-600 w-10 h-10 rounded-full flex items-center justify-center z-10 shadow-md"
-                  >
-                    <ArrowRight className="w-5 h-5 text-white" />
-                  </button>
                 </div>
               </div>
             </div>
@@ -328,7 +670,7 @@ const MouldPage = () => {
               <div className="w-full lg:w-1/2 mb-12 lg:mb-0 pr-0 lg:pr-10">
                 <h2 className="text-3xl md:text-4xl font-bold mb-6">Replacement & Custom Spare Parts</h2>
                 <p className="text-gray-700 mb-6 text-lg">
-                  We specialize in creating high-quality spare parts using moulding and casting techniques when original replacements are unavailable or prohibitively expensive.
+                  We specialize in creating high-quality spare parts using SLA 3D printing and casting techniques when original replacements are unavailable or prohibitively expensive.
                 </p>
                 
                 <div className="space-y-4 mb-8">
@@ -340,7 +682,7 @@ const MouldPage = () => {
                         </svg>
                       </div>
                     </div>
-                    <p className="text-gray-700">Replicate discontinued parts for machinery and equipment</p>
+                    <p className="text-gray-700">Replicate discontinued parts faster and more affordably than traditional methods</p>
                   </div>
                   
                   <div className="flex items-start gap-3">
@@ -351,7 +693,7 @@ const MouldPage = () => {
                         </svg>
                       </div>
                     </div>
-                    <p className="text-gray-700">Create custom parts tailored to your specific requirements</p>
+                    <p className="text-gray-700">Create custom parts tailored to your specific requirements with high precision</p>
                   </div>
                   
                   <div className="flex items-start gap-3">
@@ -362,7 +704,7 @@ const MouldPage = () => {
                         </svg>
                       </div>
                     </div>
-                    <p className="text-gray-700">Wide range of materials for different applications</p>
+                    <p className="text-gray-700">Rapid prototyping and small production runs without expensive tooling costs</p>
                   </div>
                 </div>
                 
@@ -376,65 +718,117 @@ const MouldPage = () => {
                 </div>
               </div>
               
-              {/* Right side video */}
+              {/* Right side video - replaced with image */}
               <div className="w-full lg:w-3/4 lg:pl-8">
                 <div className="relative w-full">
-                  <video
-                    className="w-full aspect-[4/3] object-cover h-auto max-h-[650px]"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    controls
-                  >
-                    <source 
-                      src="/video/clearcast_loop_240903_720p_1mbps_h264.mp4" 
-                      type="video/mp4" 
-                    />
-                    Your browser does not support the video tag.
-                  </video>
+                  <img
+                    src="/mould/spare1.webp"
+                    alt="Custom Spare Parts Production"
+                    className="w-full aspect-[4/3] object-cover h-auto max-h-[650px] rounded-md shadow-lg"
+                  />
                 </div>
                 <div className="mt-4 text-sm text-gray-500">
-                  Video: Custom spare parts production process using silicone moulding
+                  Custom spare parts production using SLA printing and silicone moulding techniques
                 </div>
               </div>
             </div>
             
-            <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="bg-white p-6 rounded shadow-sm">
-                <div className="text-3xl font-bold mb-2 text-gray-800">01</div>
-                <h3 className="text-xl font-bold mb-2">Assessment</h3>
-                <p className="text-gray-600">We analyze your original part or blueprint to understand specifications and requirements.</p>
+            <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="bg-white p-8 rounded-lg shadow-md">
+                <h3 className="text-xl font-bold mb-3 text-gray-800">Lower Costs</h3>
+                <p className="text-gray-600">Avoid the high up-front investment of tooling and reduce labor costs.</p>
               </div>
               
-              <div className="bg-white p-6 rounded shadow-sm">
-                <div className="text-3xl font-bold mb-2 text-gray-800">02</div>
-                <h3 className="text-xl font-bold mb-2">Design & Prototyping</h3>
-                <p className="text-gray-600">We create a master pattern using precision 3D printing or machining technologies.</p>
+              <div className="bg-white p-8 rounded-lg shadow-md">
+                <h3 className="text-xl font-bold mb-3 text-gray-800">Faster Turnaround Time</h3>
+                <p className="text-gray-600">Produce high-quality patterns within 24 hours.</p>
               </div>
               
-              <div className="bg-white p-6 rounded shadow-sm">
-                <div className="text-3xl font-bold mb-2 text-gray-800">03</div>
-                <h3 className="text-xl font-bold mb-2">Mould Creation</h3>
-                <p className="text-gray-600">We develop a high-detail silicone mould capable of producing multiple copies.</p>
+              <div className="bg-white p-8 rounded-lg shadow-md">
+                <h3 className="text-xl font-bold mb-3 text-gray-800">Flexible Manufacturing</h3>
+                <p className="text-gray-600">Introduce on-demand production to increase flexibility and reduce dependence on large physical inventories.</p>
               </div>
               
-              <div className="bg-white p-6 rounded shadow-sm">
-                <div className="text-3xl font-bold mb-2 text-gray-800">04</div>
-                <h3 className="text-xl font-bold mb-2">Production</h3>
-                <p className="text-gray-600">We cast your parts using materials optimized for your specific application needs.</p>
+              <div className="bg-white p-8 rounded-lg shadow-md">
+                <h3 className="text-xl font-bold mb-3 text-gray-800">Design Freedom</h3>
+                <p className="text-gray-600">Create intricate, organic shapes, condense assemblies, and introduce customization.</p>
+              </div>
+              
+              <div className="bg-white p-8 rounded-lg shadow-md">
+                <h3 className="text-xl font-bold mb-3 text-gray-800">Precision and Repeatability</h3>
+                <p className="text-gray-600">Produce accurate tools and ensure process repeatability compared to manual methods.</p>
+              </div>
+              
+              <div className="bg-white p-8 rounded-lg shadow-md">
+                <h3 className="text-xl font-bold mb-3 text-gray-800">Lightweight and Ergonomic</h3>
+                <p className="text-gray-600">Increase operator comfort and machine lifetime with lightweight and ergonomic plastic tools.</p>
               </div>
             </div>
             
             <div className="mt-24 flex flex-col lg:flex-row items-center">
-              {/* Left side image */}
+              {/* Left side image comparison slider */}
               <div className="w-full lg:w-3/4 lg:pr-8">
                 <div className="relative w-full">
-                  <img 
-                    src="/mould/optimized_for_web_jpeg-07202023_rigid_10k_sample_card_2_189d-sh-standard-square.webp" 
-                    alt="Custom Spare Parts Examples" 
-                    className="w-full aspect-[4/3] object-cover h-auto max-h-[650px]"
-                  />
+                  {/* Image comparison slider */}
+                  <div 
+                    ref={sliderRef}
+                    className="relative overflow-hidden rounded-md shadow-lg cursor-pointer aspect-[4/3] max-h-[650px] select-none"
+                    style={{ backgroundColor: 'white', WebkitUserSelect: 'none', MozUserSelect: 'none', msUserSelect: 'none', userSelect: 'none' }}
+                  >
+                    {/* Before image (right image) - positioned absolutely, full width */}
+                    <div className="absolute inset-0 select-none pointer-events-none">
+                      <img 
+                        src="/mould/spareright.webp" 
+                        alt="Custom Spare Parts Example 2" 
+                        className="w-full h-full object-cover select-none"
+                        draggable="false"
+                      />
+                    </div>
+                    
+                    {/* After image (left image) - clipped based on slider position */}
+                    <div 
+                      className="absolute inset-0 overflow-hidden z-10 select-none pointer-events-none" 
+                      style={{ width: `${sliderPosition}%` }}
+                    >
+                      <img 
+                        src="/mould/spareleft.webp" 
+                        alt="Custom Spare Parts Example 1" 
+                        className="w-full h-full object-cover select-none"
+                        style={{ 
+                          width: `${100 / (sliderPosition / 100)}%`,
+                          maxWidth: 'none' /* Prevent image constraint issues */
+                        }}
+                        draggable="false"
+                      />
+                    </div>
+                    
+                    {/* Slider control - increased z-index */}
+                    <div 
+                      className="absolute inset-y-0 z-20 pointer-events-none select-none"
+                      style={{ left: `${sliderPosition}%`, transform: 'translateX(-50%)' }}
+                    >
+                      {/* Vertical line */}
+                      <div className="absolute inset-y-0 w-0.5 bg-white shadow-lg select-none"></div>
+                      
+                      {/* Draggable knob */}
+                      <div 
+                        ref={sliderKnobRef}
+                        className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-xl cursor-ew-resize pointer-events-auto border border-gray-200 hover:shadow-2xl transition-shadow select-none"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-800 select-none" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h8M8 12h8m-8 5h8" />
+                        </svg>
+                      </div>
+                    </div>
+                    
+                    {/* Additional div to prevent any overlay effect */}
+                    <div className="absolute inset-0 pointer-events-none select-none" style={{ background: 'none', mixBlendMode: 'normal' }}></div>
+                  </div>
+                  
+                  {/* Caption */}
+                  <div className="mt-4 text-sm text-gray-500 text-center">
+                    Drag the slider to compare before and after custom spare parts production
+                  </div>
                 </div>
               </div>
               
@@ -446,10 +840,10 @@ const MouldPage = () => {
                 
                 <div className="space-y-4 mb-8">
                   <p className="text-gray-700">
-                    Our advanced moulding and casting capabilities allow us to reproduce discontinued or hard-to-find parts with precision and accuracy.
+                    Our advanced SLA printing and moulding capabilities allow us to reproduce discontinued or hard-to-find parts with precision and accuracy at a fraction of traditional manufacturing costs.
                   </p>
                   <p className="text-gray-700">
-                    We can work from original parts, technical drawings, or even create new designs based on your specifications. 
+                    We can work from original parts, technical drawings, or even create new designs based on your specifications - all without the need for expensive metallic molds. 
                   </p>
                 </div>
                 
@@ -524,18 +918,18 @@ const MouldPage = () => {
               </div>
               
               <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-bold mb-3">Which casting materials do you offer?</h3>
-                <p className="text-gray-700">We work with polyurethane resins, epoxy resins, casting urethanes, polyester resins, and specialty materials including flexible, rigid, transparent, and filled formulations.</p>
+                <h3 className="text-xl font-bold mb-3">How does SLA printing compare to traditional metallic molds?</h3>
+                <p className="text-gray-700">SLA printing offers faster turnaround times and lower costs for small to medium production runs. While traditional metallic molds are better for mass production, our SLA technology provides exceptional detail and precision without the high upfront tooling costs.</p>
               </div>
               
               <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-bold mb-3">How long does the moulding process take?</h3>
-                <p className="text-gray-700">The timeline depends on project complexity. Simple moulds can be completed in 2-3 days, while complex projects may take 1-2 weeks. We'll provide a specific timeline during consultation.</p>
+                <h3 className="text-xl font-bold mb-3">How long does the production process take?</h3>
+                <p className="text-gray-700">The timeline depends on project complexity. Simple parts can be completed in 1-2 days, while complex projects may take 1 week. SLA printing significantly reduces lead times compared to traditional methods.</p>
               </div>
               
               <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-bold mb-3">Can you create food-safe moulds?</h3>
-                <p className="text-gray-700">Yes, we offer food-grade silicone options for culinary applications, chocolate making, and food presentation. We'll help you select the appropriate food-safe material for your project.</p>
+                <h3 className="text-xl font-bold mb-3">What are the limitations of SLA printing for parts?</h3>
+                <p className="text-gray-700">While SLA printing offers exceptional detail and quality, it has limitations in terms of material properties and production volume. We'll help you determine if SLA is right for your project or if alternative methods would be more suitable.</p>
               </div>
             </div>
             

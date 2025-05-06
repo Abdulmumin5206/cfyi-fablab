@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from "react";
 
 const QuoteSection = () => {
@@ -35,7 +34,7 @@ const QuoteSection = () => {
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-6xl font-bold mb-8">
             <span className="relative">
-              " If a job's worth doing,
+              " Innovation in molding
               <span
                 className={`absolute left-0 right-0 bottom-0 bg-black transition-all duration-1000 ${
                   isVisible ? "h-[4px] w-full opacity-100" : "h-0 w-0 opacity-0"
@@ -45,7 +44,7 @@ const QuoteSection = () => {
             </span>
             <br />
             <span className="text-gray-300">
-              it's worth doing well "
+              unlocks manufacturing possibilities "
               <span
                 className={`block h-[4px] bg-black transition-all duration-1000 mt-2 ${
                   isVisible ? "w-48 opacity-100" : "w-0 opacity-0"
@@ -60,9 +59,9 @@ const QuoteSection = () => {
             }`}
             style={{ transitionDelay: "900ms" }}
           >
-            <p className="text-xl font-semibold">: JOHN TAYLOR</p>
+            <p className="text-xl font-semibold">: MODERN GLIDE DESIGN</p>
             <p className="text-gray-600">
-              2nd Generation family member & Co-Founder of James Robinson Fibres
+              Reimagining production with advanced SLA printing technology
             </p>
           </div>
         </div>

@@ -16,6 +16,7 @@ interface IndustryCategory {
 const AboutSection = () => {
   const { t } = useTranslation();
   const sectionRef = useRef<HTMLDivElement>(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [activeIndustry, setActiveIndustry] = useState<string | null>(null);
 
@@ -165,6 +166,37 @@ const AboutSection = () => {
     ? industries.find(industry => industry.id === activeIndustry) 
     : null;
 
+  const renderIndustryCard = (industry: IndustryCategory, index: number) => (
+    <div
+      key={industry.id}
+      onClick={() => openPopup(industry.id)}
+      className={`bg-white text-gray-800 p-6 rounded-sm shadow-sm cursor-pointer transition-all duration-300 transform hover:scale-105 hover:shadow-md ${
+        isVisible
+          ? "opacity-100 translate-y-0"
+          : "opacity-0 translate-y-10"
+      }`}
+      style={{ 
+        transitionDelay: `${index * 75}ms`,
+        aspectRatio: '1/1'
+      }}
+    >
+      <div className="h-full flex flex-col items-center justify-center">
+        <div className="w-36 h-36 md:w-28 md:h-28 mb-5 flex items-center justify-center">
+          <img 
+            src={getIconUrl(industry.iconPath)} 
+            alt={`${industry.title} icon`} 
+            className="w-full h-full object-contain"
+            onError={(e) => {
+              const target = e.target as HTMLImageElement;
+              target.src = `https://placehold.co/200x200/333/white?text=${industry.title}`;
+            }}
+          />
+        </div>
+        <h3 className="text-center text-xl font-medium">{industry.title}</h3>
+      </div>
+    </div>
+  );
+
   return (
     <section ref={sectionRef} className="py-16 md:py-20 bg-brand-gray overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
@@ -177,38 +209,33 @@ const AboutSection = () => {
           </p>
         </div>
 
-        {/* Fixed grid layout */}
-        <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-4">
-          {industries.map((industry) => (
-            <div
-              key={industry.id}
-              onClick={() => openPopup(industry.id)}
-              className={`bg-white text-gray-800 p-6 rounded-sm shadow-sm cursor-pointer transition-all duration-300 transform hover:scale-105 hover:shadow-md ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
-              }`}
-              style={{ 
-                transitionDelay: `${industries.indexOf(industry) * 75}ms`,
-                aspectRatio: '1/1'
-              }}
-            >
-              <div className="h-full flex flex-col items-center justify-center">
-                <div className="w-28 h-28 mb-5 flex items-center justify-center">
-                  <img 
-                    src={getIconUrl(industry.iconPath)} 
-                    alt={`${industry.title} icon`} 
-                    className="w-full h-full object-contain"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.src = `https://placehold.co/200x200/333/white?text=${industry.title}`;
-                    }}
-                  />
+        {/* Mobile scrollable layout */}
+        <div className="md:hidden">
+          <div 
+            ref={scrollContainerRef}
+            className="flex overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide" 
+            style={{ 
+              scrollbarWidth: 'none', 
+              msOverflowStyle: 'none' 
+            }}
+          >
+            {industries.map((industry, index) => (
+              <div 
+                key={industry.id} 
+                className="flex-none w-[70%] snap-start mr-4"
+                style={{ minWidth: '200px' }}
+              >
+                <div className="pb-2">
+                  {renderIndustryCard(industry, index)}
                 </div>
-                <h3 className="text-center text-xl font-medium">{industry.title}</h3>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+        </div>
+
+        {/* Tablet/Desktop grid layout */}
+        <div className="hidden md:grid grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-4">
+          {industries.map((industry, index) => renderIndustryCard(industry, index))}
         </div>
       </div>
 

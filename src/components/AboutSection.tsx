@@ -212,11 +212,11 @@ const AboutSection = () => {
           </p>
         </div>
 
-        {/* Mobile scrollable layout */}
-        <div className="md:hidden">
+        {/* Mobile scrollable layout with visual indicators */}
+        <div className="md:hidden relative">
           <div 
             ref={scrollContainerRef}
-            className="flex overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide" 
+            className="flex overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide pl-4" 
             style={{ 
               scrollbarWidth: 'none', 
               msOverflowStyle: 'none' 
@@ -225,8 +225,8 @@ const AboutSection = () => {
             {industries.map((industry, index) => (
               <div 
                 key={industry.id} 
-                className="flex-none w-[90%] snap-start mr-4"
-                style={{ minWidth: '260px' }}
+                className="flex-none w-[75%] snap-start mr-4"
+                style={{ minWidth: '240px' }}
               >
                 <div className="pb-2 flex justify-center">
                   {renderIndustryCard(industry, index)}
@@ -234,6 +234,9 @@ const AboutSection = () => {
               </div>
             ))}
           </div>
+          
+          {/* Visual indicator for scrolling */}
+          <div className="absolute right-0 top-0 bottom-8 w-20 bg-gradient-to-l from-brand-gray to-transparent pointer-events-none"></div>
         </div>
 
         {/* Tablet/Desktop grid layout */}

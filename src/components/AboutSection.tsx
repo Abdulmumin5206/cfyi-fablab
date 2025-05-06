@@ -177,7 +177,10 @@ const AboutSection = () => {
       }`}
       style={{ 
         transitionDelay: `${index * 75}ms`,
-        aspectRatio: '1/1'
+        aspectRatio: '1/1',
+        width: '100%', 
+        minWidth: '200px',
+        maxWidth: '260px'
       }}
     >
       <div className="h-full flex flex-col items-center justify-center">
@@ -199,7 +202,7 @@ const AboutSection = () => {
 
   return (
     <section ref={sectionRef} className="py-16 md:py-20 bg-brand-gray overflow-hidden">
-      <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-[1600px] relative z-10">
         <div className="mb-10 md:mb-12 text-center">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
             {t('about.title')}
@@ -222,10 +225,10 @@ const AboutSection = () => {
             {industries.map((industry, index) => (
               <div 
                 key={industry.id} 
-                className="flex-none w-[70%] snap-start mr-4"
-                style={{ minWidth: '200px' }}
+                className="flex-none w-[90%] snap-start mr-4"
+                style={{ minWidth: '260px' }}
               >
-                <div className="pb-2">
+                <div className="pb-2 flex justify-center">
                   {renderIndustryCard(industry, index)}
                 </div>
               </div>
@@ -234,8 +237,12 @@ const AboutSection = () => {
         </div>
 
         {/* Tablet/Desktop grid layout */}
-        <div className="hidden md:grid grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-4">
-          {industries.map((industry, index) => renderIndustryCard(industry, index))}
+        <div className="hidden md:grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-6 max-w-[1600px] mx-auto">
+          {industries.map((industry, index) => (
+            <div key={industry.id} className="flex justify-center">
+              {renderIndustryCard(industry, index)}
+            </div>
+          ))}
         </div>
       </div>
 

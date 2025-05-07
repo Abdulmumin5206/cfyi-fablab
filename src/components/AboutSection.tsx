@@ -284,12 +284,12 @@ const AboutSection = () => {
           onClick={closePopup}
         >
           <div 
-            className="bg-white max-w-2xl w-full max-h-[90vh] overflow-y-auto rounded-md"
+            className="bg-white w-full max-w-5xl rounded-md flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="sticky top-0 bg-white z-10 flex justify-between items-center border-b p-4 sm:p-6">
+            <div className="bg-white z-10 flex justify-between items-center border-b p-4">
               <div className="flex items-center">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 mr-3 sm:mr-4">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 mr-3">
                   <img 
                     src={getIconUrl(activeIndustryData.iconPath)} 
                     alt={`${activeIndustryData.title} icon`} 
@@ -300,7 +300,7 @@ const AboutSection = () => {
                     }}
                   />
                 </div>
-                <h3 className="text-xl sm:text-3xl font-bold">{activeIndustryData.title}</h3>
+                <h3 className="text-xl sm:text-2xl font-bold">{activeIndustryData.title}</h3>
               </div>
               <button 
                 onClick={closePopup}
@@ -312,44 +312,51 @@ const AboutSection = () => {
               </button>
             </div>
 
-            <div className="p-4 sm:p-8">
-              <p className="text-base sm:text-xl mb-8">{activeIndustryData.description}</p>
-              
-              <div className="mb-8">
-                <h4 className="text-xl font-semibold mb-4">Capabilities</h4>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {activeIndustryData.capabilities.map((capability, index) => (
-                    <li key={index} className="flex items-start">
-                      <svg className="h-6 w-6 mr-3 text-brand-yellow flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span className="text-lg">{capability}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {activeIndustryData.caseStudies.length > 0 && (
+            <div className="flex flex-col md:flex-row p-4 gap-6 flex-grow">
+              <div className="md:w-1/2 space-y-6">
+                <p className="text-base">{activeIndustryData.description}</p>
+                
                 <div>
-                  <h4 className="text-xl font-semibold mb-4">Case Studies</h4>
-                  <div className="space-y-4">
-                    {activeIndustryData.caseStudies.map((caseStudy, index) => (
-                      <div key={index} className="border p-5 rounded-md">
-                        <h5 className="font-medium text-lg mb-2">{caseStudy.title}</h5>
-                        <p className="text-gray-700">{caseStudy.description}</p>
-                      </div>
+                  <h4 className="text-lg font-semibold mb-2">Capabilities</h4>
+                  <ul className="grid grid-cols-1 gap-2">
+                    {activeIndustryData.capabilities.map((capability, index) => (
+                      <li key={index} className="flex items-start">
+                        <svg className="h-5 w-5 mr-2 text-brand-yellow flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span>{capability}</span>
+                      </li>
                     ))}
-                  </div>
+                  </ul>
                 </div>
-              )}
 
-              <div className="mt-10 flex justify-center">
-                <button 
-                  onClick={() => handleContactClick(activeIndustryData.title)}
-                  className="px-8 py-3 bg-brand-yellow text-black font-medium text-lg rounded-md hover:bg-opacity-90 transition-colors"
-                >
-                  Contact Us About {activeIndustryData.title} Projects
-                </button>
+                {activeIndustryData.caseStudies.length > 0 && (
+                  <div>
+                    <h4 className="text-lg font-semibold mb-2">Case Studies</h4>
+                    <div className="space-y-3">
+                      {activeIndustryData.caseStudies.map((caseStudy, index) => (
+                        <div key={index} className="border p-3 rounded-md">
+                          <h5 className="font-medium mb-1">{caseStudy.title}</h5>
+                          <p className="text-gray-700 text-sm">{caseStudy.description}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+              
+              {/* Industry showcase image */}
+              <div className="md:w-1/2 rounded-md overflow-hidden h-auto">
+                <img 
+                  src={`/main/popups/${activeIndustryData.id}.${activeIndustryData.id === 'manufacturing' ? 'png' : (activeIndustryData.id === 'education' || activeIndustryData.id === 'medical' || activeIndustryData.id === 'engineering' ? 'webp' : 'jpg')}`}
+                  alt={`${activeIndustryData.title} showcase`}
+                  className="w-full h-full object-cover"
+                  style={{ aspectRatio: '16/9' }}
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = `https://placehold.co/800x450/333/white?text=${activeIndustryData.title}`;
+                  }}
+                />
               </div>
             </div>
           </div>

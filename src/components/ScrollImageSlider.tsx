@@ -107,29 +107,29 @@ const ScrollImageSlider = () => {
                 // First image starts visible and fades out gradually
                 opacityTransform = useTransform(
                   imageIndexProgress,
-                  [0, 0.4, 0.9],
-                  [1, 0.9, 0]
+                  [0, 0.5, 1],
+                  [1, 0.85, 0]
                 );
               } else if (isLastImage) {
                 // Last image fades in and stays visible longer
                 opacityTransform = useTransform(
                   imageIndexProgress,
-                  [index - 0.9, index - 0.4, index],
-                  [0, 0.9, 1]
+                  [index - 1, index - 0.5, index],
+                  [0, 0.85, 1]
                 );
               } else {
                 // Middle images fade in and out with larger overlap
                 opacityTransform = useTransform(
                   imageIndexProgress,
-                  [index - 0.9, index - 0.4, index, index + 0.4, index + 0.9],
-                  [0, 0.9, 1, 0.9, 0]
+                  [index - 1, index - 0.5, index, index + 0.5, index + 1],
+                  [0, 0.85, 1, 0.85, 0]
                 );
               }
               
               return (
                 <motion.div
                   key={index}
-                  className="absolute inset-0 w-full h-full"
+                  className="absolute inset-0 w-full h-full will-change-[opacity,transform] transition-[opacity,transform] duration-500 ease-in-out"
                   style={{
                     opacity: opacityTransform,
                     zIndex: index + 1 // Ensure proper stacking
@@ -138,7 +138,7 @@ const ScrollImageSlider = () => {
                   <img 
                     src={src} 
                     alt={`Showcase image ${index + 1}`}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover will-change-transform"
                     style={{
                       width: "100%",
                       height: "100%",
@@ -147,7 +147,8 @@ const ScrollImageSlider = () => {
                       margin: 0,
                       padding: 0,
                       display: "block",
-                      minHeight: "100%"
+                      minHeight: "100%",
+                      transform: "translateZ(0)" // Force GPU acceleration
                     }}
                   />
                   {/* Add a solid color backdrop to ensure no content shows through */}
@@ -167,53 +168,58 @@ const ScrollImageSlider = () => {
           <div className="absolute inset-0 pointer-events-none">
             {quotes.map((quote, index) => {
               // Calculate vertical movement based on scroll progress
-              const yTransform = useTransform(
+              const yOffsetInput = [index - 1.1, index - 0.4, index, index + 0.4, index + 1.1];
+              const yOffsetOutput = [100, 20, 0, -20, -100];
+              
+              const yOffset = useTransform(
                 imageIndexProgress,
-                [index - 0.9, index - 0.3, index, index + 0.3],
-                ['100vh', '20vh', '0vh', '-20vh']
+                yOffsetInput,
+                yOffsetOutput
               );
               
-              // Calculate opacity based on scroll progress
+              // Calculate opacity based on scroll progress with wider transitions
               let opacityTransform;
               if (index === 0) {
                 opacityTransform = useTransform(
                   imageIndexProgress,
-                  [0, 0.3, 0.7],
+                  [0, 0.3, 0.8],
                   [1, 1, 0]
                 );
               } else if (index === quotes.length - 1) {
                 opacityTransform = useTransform(
                   imageIndexProgress,
-                  [index - 0.7, index - 0.3, index],
+                  [index - 0.8, index - 0.3, index],
                   [0, 1, 1]
                 );
               } else {
                 opacityTransform = useTransform(
                   imageIndexProgress,
-                  [index - 0.7, index - 0.3, index, index + 0.3, index + 0.7],
+                  [index - 0.8, index - 0.3, index, index + 0.3, index + 0.8],
                   [0, 1, 1, 1, 0]
                 );
               }
               
+              // Implement CSS variable based transform instead of direct y value
+              const cssYValue = useTransform(
+                yOffset,
+                (value) => `translateY(${value}vh)`
+              );
+              
               return (
                 <motion.div
                   key={`quote-${index}`}
-                  className="absolute left-0 right-0 px-8 flex justify-end items-center pr-16 md:pr-24"
+                  className="absolute left-0 right-0 px-8 flex justify-end items-center pr-16 md:pr-24 will-change-[opacity,transform]"
                   style={{
-                    y: yTransform,
                     opacity: opacityTransform,
+                    height: viewportHeight, // Use dynamic height
                     zIndex: (index + 1) * 10, // Higher z-index than images
-                    height: viewportHeight // Use dynamic height
+                    transition: "opacity 0.5s ease-out" // Smooth CSS transitions as backup
                   }}
                 >
                   <motion.div 
-                    className="bg-white p-8 flex flex-col justify-center text-gray-800 border border-gray-200 shadow-lg w-[350px] h-[400px] sm:w-[400px] sm:h-[450px] md:w-[450px] md:h-[500px] lg:w-[500px] lg:h-[550px]"
+                    className="bg-white p-8 flex flex-col justify-center text-gray-800 border border-gray-200 shadow-lg will-change-transform transition-transform duration-700 ease-out w-[350px] h-[400px] sm:w-[400px] sm:h-[450px] md:w-[450px] md:h-[500px] lg:w-[500px] lg:h-[550px]"
                     style={{
-                      opacity: useTransform(
-                        imageIndexProgress,
-                        [index - 0.5, index - 0.2, index, index + 0.2, index + 0.5],
-                        [0.7, 0.9, 1, 0.9, 0.7]
-                      )
+                      transform: cssYValue
                     }}
                   >
                     <h3 className="text-2xl sm:text-3xl font-bold mb-4">{quote.title}</h3>
@@ -235,7 +241,11 @@ const ScrollImageSlider = () => {
               )
             }}
             animate={{ y: [0, 10, 0] }}
-            transition={{ repeat: Infinity, duration: 2 }}
+            transition={{ 
+              repeat: Infinity, 
+              duration: 2,
+              ease: "easeInOut"
+            }}
           >
             <ChevronDown size={24} />
           </motion.div>

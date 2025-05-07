@@ -36,8 +36,8 @@ const ScrollImageSlider = () => {
     offset: ["start start", "end end"]
   });
 
-  // Transform scroll progress to image index - adjusted to ensure last image stays visible
-  const imageIndexProgress = useTransform(scrollYProgress, [0, 0.8], [0, images.length - 1]);
+  // Transform scroll progress to image index - adjusted to ensure last image stays visible longer
+  const imageIndexProgress = useTransform(scrollYProgress, [0, 0.9], [0, images.length - 1]);
   
   useEffect(() => {
     const unsubscribe = scrollYProgress.on("change", (latest) => {
@@ -63,6 +63,9 @@ const ScrollImageSlider = () => {
         <div
           ref={sectionRef}
           className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center bg-white"
+          style={{
+            zIndex: 10 // Ensure this section appears above other content
+          }}
         >
           {/* Image container - full viewport size with all images visible */}
           <div className="absolute inset-0 w-full h-full">
@@ -83,7 +86,7 @@ const ScrollImageSlider = () => {
                   [1, 0.9, 0]
                 );
               } else if (isLastImage) {
-                // Last image fades in and stays visible
+                // Last image fades in and stays visible longer
                 opacityTransform = useTransform(
                   imageIndexProgress,
                   [index - 0.9, index - 0.4, index],
@@ -112,11 +115,17 @@ const ScrollImageSlider = () => {
                     alt={`Showcase image ${index + 1}`}
                     className="w-full h-full object-cover"
                     style={{
-                      width: "100vw",
-                      height: "100vh",
-                      maxWidth: "100%",
-                      maxHeight: "100%"
+                      width: "100%",
+                      height: "100%"
                     }}
+                  />
+                  {/* Add a solid color backdrop to ensure no content shows through */}
+                  <div 
+                    className="absolute inset-0 bg-white" 
+                    style={{ 
+                      zIndex: -1,
+                      opacity: 1
+                    }} 
                   />
                 </motion.div>
               );
@@ -201,6 +210,12 @@ const ScrollImageSlider = () => {
           </motion.div>
         </div>
       </div>
+      
+      {/* Add a spacer div that ensures proper transition to next section */}
+      <div 
+        className="h-[50vh] bg-white -mt-[50vh] relative"
+        style={{ zIndex: 5 }}
+      />
     </section>
   );
 };

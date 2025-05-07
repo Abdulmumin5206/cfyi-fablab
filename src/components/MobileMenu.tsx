@@ -14,6 +14,9 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
   const [activeSlide, setActiveSlide] = useState(0);
   const totalSlides = 4; // Blog + 3 services
   const slideInterval = useRef<NodeJS.Timeout | null>(null);
+  // Track window width for responsive design
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const isLaptopScreen = windowWidth < 1440;
 
   // Lock body scroll when menu is open
   useEffect(() => {
@@ -48,6 +51,18 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
       }
     };
   }, [isOpen, totalSlides]);
+
+  // Handle window resize
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const toggleMenu = (menu: string) => {
     setExpandedMenu(expandedMenu === menu ? null : menu);
@@ -106,7 +121,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
       >
         <div className="min-h-screen w-full flex flex-col md:flex-row">
           {/* Mobile-only slider (visible on small screens) */}
-          <div className="md:hidden w-full h-48 relative overflow-hidden">
+          <div className="md:hidden w-full h-40 relative overflow-hidden">
             <div className={`absolute inset-0 transition-all duration-1000 ${
               isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
             }`}>
@@ -128,15 +143,15 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                   }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/80" />
-                <div className="absolute bottom-0 left-0 right-0 p-4">
+                <div className="absolute bottom-0 left-0 right-0 p-3">
                   <div className={`text-[#E6DB00] uppercase text-xs font-medium mb-1 transition-all duration-700 delay-300 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>Latest Post</div>
-                  <h2 className={`text-lg font-light mb-1 text-white transition-all duration-700 delay-400 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
+                  <h2 className={`text-base font-light mb-1 text-white transition-all duration-700 delay-400 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
                     3D Printing Innovations
                   </h2>
                   <Link 
                     to="/blog/3d-printing-innovations" 
                     onClick={onClose}
-                    className={`inline-flex items-center text-sm text-white hover:text-[#E6DB00] transition-all duration-700 delay-600 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+                    className={`inline-flex items-center text-xs text-white hover:text-[#E6DB00] transition-all duration-700 delay-600 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
                   >
                     Read Article <ArrowRight className="ml-1 h-3 w-3" />
                   </Link>
@@ -163,15 +178,15 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                     }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/80" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <div className="absolute bottom-0 left-0 right-0 p-3">
                     <div className={`text-[#E6DB00] uppercase text-xs font-medium mb-1 transition-all duration-700 delay-300 ${activeSlide === index + 1 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>Our Services</div>
-                    <h2 className={`text-lg font-light mb-1 text-white transition-all duration-700 delay-400 ${activeSlide === index + 1 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
+                    <h2 className={`text-base font-light mb-1 text-white transition-all duration-700 delay-400 ${activeSlide === index + 1 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
                       {service.title}
                     </h2>
                     <Link 
                       to={service.path} 
                       onClick={onClose}
-                      className={`inline-flex items-center text-sm text-white hover:text-[#E6DB00] transition-all duration-700 delay-600 ${activeSlide === index + 1 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+                      className={`inline-flex items-center text-xs text-white hover:text-[#E6DB00] transition-all duration-700 delay-600 ${activeSlide === index + 1 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
                     >
                       Explore {service.title} <ArrowRight className="ml-1 h-3 w-3" />
                     </Link>
@@ -180,13 +195,13 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
               ))}
               
               {/* Slide Indicators */}
-              <div className="absolute bottom-2 left-0 right-0 flex justify-center space-x-2">
+              <div className="absolute bottom-2 left-0 right-0 flex justify-center space-x-1.5">
                 {[...Array(totalSlides)].map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setActiveSlide(index)}
-                    className={`h-1.5 rounded-full transition-all duration-300 ${
-                      activeSlide === index ? "bg-[#E6DB00] w-6" : "bg-white/50 w-1.5 hover:bg-white/80"
+                    className={`h-1 rounded-full transition-all duration-300 ${
+                      activeSlide === index ? "bg-[#E6DB00] w-5" : "bg-white/50 w-1 hover:bg-white/80"
                     }`}
                     aria-label={`Slide ${index + 1}`}
                   />
@@ -220,20 +235,20 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                   }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/80" />
-                <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 lg:p-8">
-                  <div className={`text-[#E6DB00] uppercase text-sm font-medium mb-2 transition-all duration-700 delay-300 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>Latest Post</div>
-                  <h2 className={`text-2xl md:text-3xl font-light mb-2 text-white transition-all duration-700 delay-400 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
+                <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5 lg:p-6">
+                  <div className={`text-[#E6DB00] uppercase text-xs md:text-sm font-medium mb-1 md:mb-2 transition-all duration-700 delay-300 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>Latest Post</div>
+                  <h2 className={`text-lg md:text-xl lg:text-2xl font-light mb-1 md:mb-2 text-white transition-all duration-700 delay-400 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
                     3D Printing Innovations
                   </h2>
-                  <p className={`text-base md:text-lg text-white/80 mb-4 transition-all duration-700 delay-500 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
+                  <p className={`text-sm md:text-base text-white/80 mb-2 md:mb-3 transition-all duration-700 delay-500 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'} ${isLaptopScreen ? 'hidden md:block' : ''}`}>
                     Discover the latest advancements in 3D printing technology
                   </p>
                   <Link 
                     to="/blog/3d-printing-innovations" 
                     onClick={onClose}
-                    className={`inline-flex items-center text-white hover:text-[#E6DB00] transition-all duration-700 delay-600 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+                    className={`inline-flex items-center text-sm md:text-base text-white hover:text-[#E6DB00] transition-all duration-700 delay-600 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
                   >
-                    Read Article <ArrowRight className="ml-2 h-4 w-4" />
+                    Read Article <ArrowRight className="ml-1 md:ml-2 h-3 w-3 md:h-4 md:w-4" />
                   </Link>
                 </div>
               </div>
@@ -258,33 +273,33 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                     }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/80" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 lg:p-8">
-                    <div className={`text-[#E6DB00] uppercase text-sm font-medium mb-2 transition-all duration-700 delay-300 ${activeSlide === index + 1 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>Our Services</div>
-                    <h2 className={`text-2xl md:text-3xl font-light mb-2 text-white transition-all duration-700 delay-400 ${activeSlide === index + 1 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
+                  <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5 lg:p-6">
+                    <div className={`text-[#E6DB00] uppercase text-xs md:text-sm font-medium mb-1 md:mb-2 transition-all duration-700 delay-300 ${activeSlide === index + 1 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>Our Services</div>
+                    <h2 className={`text-lg md:text-xl lg:text-2xl font-light mb-1 md:mb-2 text-white transition-all duration-700 delay-400 ${activeSlide === index + 1 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
                       {service.title}
                     </h2>
-                    <p className={`text-base md:text-lg text-white/80 mb-4 transition-all duration-700 delay-500 ${activeSlide === index + 1 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
+                    <p className={`text-sm md:text-base text-white/80 mb-2 md:mb-3 transition-all duration-700 delay-500 ${activeSlide === index + 1 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'} ${isLaptopScreen ? 'hidden md:block' : ''}`}>
                       {service.description}
                     </p>
                     <Link 
                       to={service.path} 
                       onClick={onClose}
-                      className={`inline-flex items-center text-white hover:text-[#E6DB00] transition-all duration-700 delay-600 ${activeSlide === index + 1 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+                      className={`inline-flex items-center text-sm md:text-base text-white hover:text-[#E6DB00] transition-all duration-700 delay-600 ${activeSlide === index + 1 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
                     >
-                      Explore {service.title} <ArrowRight className="ml-2 h-4 w-4" />
+                      Explore {service.title} <ArrowRight className="ml-1 md:ml-2 h-3 w-3 md:h-4 md:w-4" />
                     </Link>
                   </div>
                 </div>
               ))}
               
               {/* Slide Indicators */}
-              <div className="absolute bottom-24 left-0 right-0 flex justify-center space-x-3">
+              <div className="absolute bottom-16 md:bottom-20 left-0 right-0 flex justify-center space-x-2">
                 {[...Array(totalSlides)].map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setActiveSlide(index)}
-                    className={`h-2 rounded-full transition-all duration-300 ${
-                      activeSlide === index ? "bg-[#E6DB00] w-8" : "bg-white/50 w-2 hover:bg-white/80"
+                    className={`h-1.5 rounded-full transition-all duration-300 ${
+                      activeSlide === index ? "bg-[#E6DB00] w-6" : "bg-white/50 w-1.5 hover:bg-white/80"
                     }`}
                     aria-label={`Slide ${index + 1}`}
                   />
@@ -294,39 +309,39 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
           </div>
 
           {/* Menu Content */}
-          <div className="flex-1 flex flex-col">
+          <div className="flex-1 flex flex-col overflow-y-auto">
             {/* Header with fade-down effect - FIXED SECTION */}
             <div 
-              className={`flex items-center justify-end h-16 sm:h-20 md:h-24 lg:h-28 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 transition-all duration-700 delay-100 ${
+              className={`flex items-center justify-end h-14 sm:h-16 md:h-16 lg:h-20 px-3 sm:px-4 md:px-6 lg:px-8 transition-all duration-700 delay-100 ${
                 isOpen ? "translate-y-0 opacity-100" : "-translate-y-8 opacity-0"
               }`}
             >
               {/* Header right section with Close button */}
-              <div className="flex items-center space-x-2 sm:space-x-4">              
+              <div className="flex items-center space-x-2">              
                 {/* Close button */}
                 <button
                   onClick={onClose}
                   className="flex items-center justify-center hover:opacity-75 transition-opacity"
                   aria-label="Close menu"
                 >
-                  <span className="flex items-center space-x-1 sm:space-x-2 border border-white px-2 sm:px-3 py-1.5 sm:py-2 text-white">
-                    <X size={18} className="lg:w-5 lg:h-5 xl:w-6 xl:h-6" />
-                    <span className="text-sm lg:text-base xl:text-lg">{t('header.menu')}</span>
+                  <span className="flex items-center space-x-1 sm:space-x-2 border border-white px-2 py-1.5 text-white">
+                    <X size={16} className="lg:w-4 lg:h-4" />
+                    <span className="text-xs sm:text-sm">{t('header.menu')}</span>
                   </span>
                 </button>
               </div>
             </div>
 
             {/* Navigation with staggered fade-in effect */}
-            <div className="flex-1 overflow-y-auto p-4 sm:p-6 md:p-8 lg:p-10 flex items-center">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 md:gap-x-12 lg:gap-x-16 gap-y-6 md:gap-y-8 max-w-3xl mx-auto w-full">
+            <div className="flex-1 overflow-y-auto p-3 sm:p-4 md:p-5 lg:p-6 flex items-center">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 md:gap-x-6 lg:gap-x-8 gap-y-3 md:gap-y-4 max-w-3xl mx-auto w-full">
                 {/* Left column */}
-                <div className="space-y-4 md:space-y-6 lg:space-y-8 flex flex-col justify-center">
+                <div className="space-y-2 md:space-y-3 lg:space-y-4 flex flex-col justify-center">
                   {/* Direct navigation links */}
                   <Link 
                     to="/3d-printing"
                     onClick={onClose}
-                    className={`block text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white hover:text-[#cb2026] transition-none ${
+                    className={`block text-lg sm:text-xl md:text-xl lg:text-2xl text-white hover:text-[#cb2026] transition-colors duration-300 ${
                       isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                     }`}
                     style={{ transitionDelay: "300ms" }}
@@ -336,7 +351,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                   <Link 
                     to="/mould"
                     onClick={onClose}
-                    className={`block text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white hover:text-[#0e9a48] transition-none ${
+                    className={`block text-lg sm:text-xl md:text-xl lg:text-2xl text-white hover:text-[#0e9a48] transition-colors duration-300 ${
                       isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                     }`}
                     style={{ transitionDelay: "400ms" }}
@@ -346,7 +361,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                   <Link 
                     to="/prototyping"
                     onClick={onClose}
-                    className={`block text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white hover:text-[#35469d] transition-none ${
+                    className={`block text-lg sm:text-xl md:text-xl lg:text-2xl text-white hover:text-[#35469d] transition-colors duration-300 ${
                       isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                     }`}
                     style={{ transitionDelay: "500ms" }}
@@ -356,7 +371,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                   <Link 
                     to="/projects"
                     onClick={onClose}
-                    className={`block text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white hover:text-[#E6DB00] transition-none ${
+                    className={`block text-lg sm:text-xl md:text-xl lg:text-2xl text-white hover:text-[#E6DB00] transition-colors duration-300 ${
                       isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                     }`}
                     style={{ transitionDelay: "600ms" }}
@@ -366,11 +381,11 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                 </div>
                 
                 {/* Right column */}
-                <div className="space-y-4 md:space-y-6 lg:space-y-8 flex flex-col justify-center">
+                <div className="space-y-2 md:space-y-3 lg:space-y-4 flex flex-col justify-center">
                   <Link
                     to="/about-fablab"
                     onClick={onClose}
-                    className={`block text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white hover:text-[#E6DB00] transition-none ${
+                    className={`block text-lg sm:text-xl md:text-xl lg:text-2xl text-white hover:text-[#E6DB00] transition-colors duration-300 ${
                       isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                     }`}
                     style={{ transitionDelay: "300ms" }}
@@ -380,7 +395,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                   <Link
                     to="/blog"
                     onClick={onClose}
-                    className={`block text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white hover:text-[#E6DB00] transition-none ${
+                    className={`block text-lg sm:text-xl md:text-xl lg:text-2xl text-white hover:text-[#E6DB00] transition-colors duration-300 ${
                       isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                     }`}
                     style={{ transitionDelay: "400ms" }}
@@ -390,7 +405,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                   <Link
                     to="/contact"
                     onClick={onClose}
-                    className={`block text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white hover:text-[#E6DB00] transition-none ${
+                    className={`block text-lg sm:text-xl md:text-xl lg:text-2xl text-white hover:text-[#E6DB00] transition-colors duration-300 ${
                       isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                     }`}
                     style={{ transitionDelay: "500ms" }}
@@ -400,7 +415,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                   <Link
                     to="/book-session"
                     onClick={onClose}
-                    className={`block text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white hover:text-[#E6DB00] transition-none ${
+                    className={`block text-lg sm:text-xl md:text-xl lg:text-2xl text-white hover:text-[#E6DB00] transition-colors duration-300 ${
                       isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                     }`}
                     style={{ transitionDelay: "600ms" }}
@@ -412,17 +427,17 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
             </div>
             
             {/* Footer with location and social media */}
-            <div className={`mt-auto p-4 sm:p-6 md:p-8 border-t border-white/10 transition-all duration-700 delay-[800ms] ${
+            <div className={`mt-auto p-3 sm:p-4 md:p-5 border-t border-white/10 transition-all duration-700 delay-[800ms] ${
               isOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto">
                 {/* Location and contact info */}
                 <div>
-                  <div className="flex items-center justify-start space-x-3 mb-4 w-full">
+                  <div className="flex items-center justify-start space-x-3 mb-3 w-full">
                     <img 
                       src="/fablab/cfyi.svg" 
                       alt="CFYI Logo" 
-                      className="h-10 w-auto"
+                      className="h-8 w-auto"
                       onError={(e) => {
                         e.currentTarget.style.display = 'none';
                       }}
@@ -430,27 +445,27 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                     <img 
                       src="/fablab/logowhite.png" 
                       alt="FabLab Logo" 
-                      className="h-10 w-auto"
+                      className="h-8 w-auto"
                       onError={(e) => {
                         e.currentTarget.style.display = 'none';
                       }}
                     />
                   </div>
-                  <address className="not-italic text-white/70 text-sm md:text-base space-y-1 mb-4">
+                  <address className="not-italic text-white/70 text-xs md:text-sm space-y-0.5 mb-3">
                     <p>17 Olmachi St., Mirzo-Ulugbek,</p>
                     <p>Tashkent, Uzbekistan</p>
                   </address>
-                  <div className="text-white/70 text-sm md:text-base space-y-1">
+                  <div className="text-white/70 text-xs md:text-sm space-y-0.5">
                     <div className="flex items-center">
-                      <Phone className="w-4 h-4 mr-2 text-[#E6DB00]" />
+                      <Phone className="w-3 h-3 mr-1 text-[#E6DB00]" />
                       <p>+998 (77) 088 39 77 (ru/uz)</p>
                     </div>
                     <div className="flex items-center">
-                      <Phone className="w-4 h-4 mr-2 text-[#E6DB00]" />
+                      <Phone className="w-3 h-3 mr-1 text-[#E6DB00]" />
                       <p>+998 (77) 088 49 77 (ru/en)</p>
                     </div>
                     <div className="flex items-center">
-                      <Mail className="w-4 h-4 mr-2 text-[#E6DB00]" />
+                      <Mail className="w-3 h-3 mr-1 text-[#E6DB00]" />
                       <a href="mailto:info@cfyi.uz" className="hover:text-[#E6DB00] transition-colors">
                         info@cfyi.uz
                       </a>
@@ -460,43 +475,43 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                 
                 {/* Social Media */}
                 <div className="flex flex-col md:items-start">
-                  <h3 className="text-lg font-medium text-white mb-4">Connect With Us</h3>
-                  <div className="flex justify-start items-center space-x-4 w-full">
+                  <h3 className="text-sm md:text-base font-medium text-white mb-2 md:mb-3">Connect With Us</h3>
+                  <div className="flex justify-start items-center space-x-3 w-full">
                     <a 
                       href="https://facebook.com" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300 text-white"
+                      className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300 text-white"
                     >
-                      <Facebook size={20} />
+                      <Facebook size={16} />
                     </a>
                     <a 
                       href="https://instagram.com" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300 text-white"
+                      className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300 text-white"
                     >
-                      <Instagram size={20} />
+                      <Instagram size={16} />
                     </a>
                     <a 
                       href="https://linkedin.com" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300 text-white"
+                      className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300 text-white"
                     >
-                      <Linkedin size={20} />
+                      <Linkedin size={16} />
                     </a>
                     <a 
                       href="https://twitter.com" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300 text-white"
+                      className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300 text-white"
                     >
-                      <Twitter size={20} />
+                      <Twitter size={16} />
                     </a>
                   </div>
-                  <div className="mt-6">
-                    <p className="text-white/50 text-sm">{t('footer.copyright') || "© 2023 FabLab. All rights reserved."}</p>
+                  <div className="mt-3 md:mt-4">
+                    <p className="text-white/50 text-xs">{t('footer.copyright') || "© 2023 FabLab. All rights reserved."}</p>
                   </div>
                 </div>
               </div>

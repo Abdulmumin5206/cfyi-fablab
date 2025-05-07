@@ -1,4 +1,3 @@
-
 import { useState, useRef } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
@@ -17,7 +16,7 @@ const products: Product[] = [
     category: "Non-Wovens",
     title: "SpringBond®",
     description: "The PU foam replacement technology for underlay",
-    image: "/lovable-uploads/3a54883a-8ef0-44a2-bbda-323c7b14b2e3.png",
+    image: "/images/product1.jpg",
     link: "/",
   },
   {
@@ -25,7 +24,7 @@ const products: Product[] = [
     category: "Non-Wovens",
     title: "SpringBond UltraFlex®",
     description: "Bespoke high performance foam replacement solutions for the world's leading brands.",
-    image: "/lovable-uploads/3a54883a-8ef0-44a2-bbda-323c7b14b2e3.png",
+    image: "/images/product2.jpg",
     link: "/",
   },
   {
@@ -33,7 +32,7 @@ const products: Product[] = [
     category: "Fibres & Fillings",
     title: "Hollow Conjugate Fibres",
     description: "A spring-like structure that adds extra loft, providing superior comfort and resilience.",
-    image: "/lovable-uploads/3d68e696-90ce-467c-b677-e40541154882.png",
+    image: "/images/product3.jpg",
     link: "/",
   },
   {
@@ -41,7 +40,7 @@ const products: Product[] = [
     category: "Fibres & Fillings",
     title: "Carded Fibres",
     description: "A soft, uniformly processed fibre ideal for hand-filling.",
-    image: "/lovable-uploads/3d68e696-90ce-467c-b677-e40541154882.png",
+    image: "/images/product4.jpg",
     link: "/",
   },
 ];

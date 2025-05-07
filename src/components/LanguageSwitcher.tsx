@@ -2,7 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Globe } from 'lucide-react';
 
-const LanguageSwitcher: React.FC = () => {
+interface LanguageSwitcherProps {
+  useBlackTheme?: boolean;
+}
+
+const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ useBlackTheme = false }) => {
   const { i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   
@@ -49,15 +53,15 @@ const LanguageSwitcher: React.FC = () => {
           e.stopPropagation();
           setIsOpen(!isOpen);
         }}
-        className="flex items-center h-8 px-2 overflow-hidden rounded-full border border-gray-300 hover:border-gray-400 transition-all duration-200 bg-white/20 backdrop-blur-sm"
+        className={`flex items-center border ${useBlackTheme ? "border-white bg-black text-white" : "border-black bg-white text-black"} hover:opacity-75 transition-opacity px-2 sm:px-3 py-1.5 sm:py-2 h-[38px] sm:h-[42px] md:h-[38px] lg:h-[42px] xl:h-[46px]`}
         aria-label="Change language"
       >
-        <Globe className="mr-1 h-4 w-4 text-gray-600" />
-        <span className="text-xs font-medium uppercase">{currentLanguage.code}</span>
+        <Globe className={`mr-1 h-4 w-4 ${useBlackTheme ? "text-white" : "text-gray-600"}`} />
+        <span className="text-xs sm:text-sm font-medium uppercase">{currentLanguage.code}</span>
       </button>
       
       {isOpen && (
-        <div className="absolute right-0 mt-2 bg-white shadow-lg rounded-lg overflow-hidden z-50 w-32 border border-gray-100">
+        <div className="absolute right-0 mt-2 bg-white shadow-lg overflow-hidden z-50 w-32 border border-gray-100">
           {languages.map(language => (
             <button
               key={language.code}

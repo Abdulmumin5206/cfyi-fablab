@@ -231,14 +231,14 @@ const Header = () => {
                 <Link
                   to="/book-session"
                   style={{...textStyle, ...buttonStyle}}
-                  className={`bg-[#E6DB00] text-black px-2 sm:px-3 ${isLaptopScreen ? 'md:px-3 md:py-1.5' : 'lg:px-4 xl:px-6'} py-1.5 sm:py-2 text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} hover:opacity-90 transition-opacity`}
+                  className={`bg-[#E6DB00] text-black border border-[#E6DB00] px-2 sm:px-3 ${isLaptopScreen ? 'md:px-3 md:py-1.5' : 'lg:px-4 xl:px-6'} py-1.5 sm:py-2 h-[38px] sm:h-[42px] ${isLaptopScreen ? 'md:h-[38px]' : 'lg:h-[42px] xl:h-[46px]'} text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} hover:opacity-90 transition-opacity`}
                 >
                   {t('header.bookSession')}
                 </Link>
 
                 {/* Language Switcher */}
                 <div className={`flex items-center ml-2 ${isLaptopScreen ? 'md:ml-1' : 'md:ml-3 lg:ml-4 xl:ml-6'}`}>
-                  <LanguageSwitcher />
+                  <LanguageSwitcher useBlackTheme={shouldUseBlackTheme} />
                 </div>
 
                 {/* Hamburger / close */}
@@ -248,7 +248,7 @@ const Header = () => {
                 >
                   <span 
                     style={buttonStyle}
-                    className={`flex items-center space-x-1 border ${shouldUseBlackTheme ? "border-white" : "border-black"} px-2 sm:px-3 py-1.5 sm:py-2 ${shouldUseBlackTheme ? "bg-black text-white" : "bg-white text-black"}`}
+                    className={`flex items-center space-x-1 border ${shouldUseBlackTheme ? "border-white" : "border-black"} px-2 sm:px-3 py-1.5 sm:py-2 h-[38px] sm:h-[42px] ${isLaptopScreen ? 'md:h-[38px]' : 'lg:h-[42px] xl:h-[46px]'} ${shouldUseBlackTheme ? "bg-black text-white" : "bg-white text-black"}`}
                   >
                     {isMobileMenuOpen ? 
                       <X size={isLaptopScreen ? 16 : 18} className={`${isLaptopScreen ? 'md:w-4 md:h-4' : 'lg:w-5 lg:h-5 xl:w-6 xl:h-6'}`} /> : 
@@ -265,13 +265,13 @@ const Header = () => {
             {/* Mobile toggle */}
             <div className="md:hidden flex items-center space-x-4 pr-4 sm:pr-6">
               {/* Mobile Language Switcher */}
-              <LanguageSwitcher />
+              <LanguageSwitcher useBlackTheme={shouldUseBlackTheme} />
               
               <button
                 className="flex items-center justify-center"
                 onClick={toggleMenu}
               >
-                <span className={`flex items-center space-x-1 border ${shouldUseBlackTheme ? "border-white bg-black text-white" : "border-black bg-white text-black"} px-2 py-1.5`}>
+                <span className={`flex items-center space-x-1 border ${shouldUseBlackTheme ? "border-white bg-black text-white" : "border-black bg-white text-black"} px-2 py-1.5 h-[38px] sm:h-[42px]`}>
                   {isMobileMenuOpen ? <X size={16} /> : <Menu size={16} />}
                   <span className="text-xs sm:text-sm">{t('header.menu')}</span>
                 </span>
@@ -304,21 +304,21 @@ const Header = () => {
             <Link
               to="/mould"
               style={textStyle}
-              className={`col-span-1 flex items-center justify-center text-black hover:text-white bg-gray-100 hover:bg-[#0e9a48] transition-all duration-300 text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} transform transition-transform hover:translate-y-1 ease-out p-4`}
+              className={`col-span-1 flex items-center justify-center text-black hover:text-white bg-gray-100 hover:bg-[#0e9a48] transition-all duration-300 text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} transform transition-transform hover:scale-105 hover:shadow-lg ease-out p-4 w-full h-full`}
             >
               {t('header.mould')}
             </Link>
             <Link
               to="/3d-printing"
               style={textStyle}
-              className={`col-span-1 flex items-center justify-center text-black hover:text-white bg-gray-100 hover:bg-[#cb2026] transition-all duration-300 text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} transform transition-transform hover:translate-y-1 ease-out delay-[100ms] p-4`}
+              className={`col-span-1 flex items-center justify-center text-black hover:text-white bg-gray-100 hover:bg-[#cb2026] transition-all duration-300 text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} transform transition-transform hover:scale-105 hover:shadow-lg ease-out delay-[100ms] p-4 w-full h-full`}
             >
               {t('header.3dPrinting')}
             </Link>
             <Link
               to="/prototyping"
               style={textStyle}
-              className={`col-span-1 flex items-center justify-center text-black hover:text-white bg-gray-100 hover:bg-[#35469d] transition-all duration-300 text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} transform transition-transform hover:translate-y-1 ease-out delay-[200ms] p-4`}
+              className={`col-span-1 flex items-center justify-center text-black hover:text-white bg-gray-100 hover:bg-[#35469d] transition-all duration-300 text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} transform transition-transform hover:scale-105 hover:shadow-lg ease-out delay-[200ms] p-4 w-full h-full`}
             >
               {t('header.prototyping')}
             </Link>

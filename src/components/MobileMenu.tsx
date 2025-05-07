@@ -415,7 +415,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                   <Link
                     to="/book-session"
                     onClick={onClose}
-                    className={`block text-lg sm:text-xl md:text-xl lg:text-2xl text-white hover:text-[#E6DB00] transition-colors duration-300 ${
+                    className={`inline-block text-lg sm:text-xl md:text-xl lg:text-2xl bg-[#E6DB00] text-black border border-[#E6DB00] px-3 py-1.5 hover:opacity-90 transition-all duration-300 ${
                       isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                     }`}
                     style={{ transitionDelay: "600ms" }}

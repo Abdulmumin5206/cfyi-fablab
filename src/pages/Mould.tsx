@@ -824,11 +824,6 @@ const MouldPage = () => {
                     {/* Additional div to prevent any overlay effect */}
                     <div className="absolute inset-0 pointer-events-none select-none" style={{ background: 'none', mixBlendMode: 'normal' }}></div>
                   </div>
-                  
-                  {/* Caption */}
-                  <div className="mt-4 text-sm text-gray-500 text-center">
-                    Drag the slider to compare before and after custom spare parts production
-                  </div>
                 </div>
               </div>
               

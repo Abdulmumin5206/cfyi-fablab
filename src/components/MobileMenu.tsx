@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { X, ChevronDown, ChevronUp, ArrowRight, Facebook, Instagram, Linkedin, Twitter, Mail, Phone } from "lucide-react";
+import { X, ChevronDown, ChevronUp, ArrowRight, Facebook, Instagram, Linkedin, Twitter, Mail, Phone, Youtube, MessageCircle } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 interface MobileMenuProps {
@@ -17,6 +17,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
   // Track window width for responsive design
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const isLaptopScreen = windowWidth < 1440;
+  const isLargeScreen = windowWidth >= 1920; // For 27" monitors and above
 
   // Lock body scroll when menu is open
   useEffect(() => {
@@ -73,8 +74,8 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
     {
       title: "3D Printing",
       description: "Additive manufacturing for rapid prototyping and production",
-      path: "/3d-printing",
-      image: "/3dprinters/formlabs-form3-01_2_1.png",
+      path: "/menu",
+      image: "/menu/3Dprinting.webp",
       color: "bg-[#cb2026]"
     },
     {
@@ -87,8 +88,8 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
     {
       title: "Engineering",
       description: "Turn your ideas into physical prototypes quickly",
-      path: "/engineering",
-      image: "/mould/Equipments/Raise.png", 
+      path: "/menu",
+      image: "/menu/form3plus-hero_main-v2.webp",
       color: "bg-[#35469d]"
     }
   ];
@@ -211,7 +212,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
           </div>
 
           {/* Desktop slider (hidden on small screens) */}
-          <div className="hidden md:block w-[40%] xl:w-[35%] relative overflow-hidden z-20">
+          <div className={`hidden md:block ${isLargeScreen ? 'w-[30%]' : 'w-[40%]'} relative overflow-hidden z-20`}>
             <div 
               className={`absolute inset-0 transition-all duration-1000 delay-300 ${
                 isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
@@ -224,7 +225,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                 }`}
               >
                 <img 
-                  src="/blog_images/blog1.png" 
+                  src="/menu/blog1.png" 
                   alt="Blog" 
                   className="w-full h-full object-cover transition-transform duration-10000 ease-out scale-110 origin-center"
                   style={{ transform: activeSlide === 0 ? 'scale(1)' : 'scale(1.1)' }}
@@ -235,20 +236,22 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                   }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/80" />
-                <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5 lg:p-6">
-                  <div className={`text-[#E6DB00] uppercase text-xs md:text-sm font-medium mb-1 md:mb-2 transition-all duration-700 delay-300 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>Latest Post</div>
-                  <h2 className={`text-lg md:text-xl lg:text-2xl font-light mb-1 md:mb-2 text-white transition-all duration-700 delay-400 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
+                <div className={`absolute bottom-0 left-0 right-0 ${isLargeScreen ? 'p-8' : 'p-6'}`}>
+                  <div className={`text-[#E6DB00] uppercase ${isLargeScreen ? 'text-base' : 'text-sm'} font-medium mb-2 transition-all duration-700 delay-300 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
+                    Latest Post
+                  </div>
+                  <h2 className={`${isLargeScreen ? 'text-3xl' : 'text-2xl'} font-light mb-2 text-white transition-all duration-700 delay-400 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
                     3D Printing Innovations
                   </h2>
-                  <p className={`text-sm md:text-base text-white/80 mb-2 md:mb-3 transition-all duration-700 delay-500 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'} ${isLaptopScreen ? 'hidden md:block' : ''}`}>
+                  <p className={`${isLargeScreen ? 'text-lg' : 'text-base'} text-white/80 mb-3 transition-all duration-700 delay-500 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'} ${isLaptopScreen ? 'hidden md:block' : ''}`}>
                     Discover the latest advancements in 3D printing technology
                   </p>
                   <Link 
                     to="/blog/3d-printing-innovations" 
                     onClick={onClose}
-                    className={`inline-flex items-center text-sm md:text-base text-white hover:text-[#E6DB00] transition-all duration-700 delay-600 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+                    className={`inline-flex items-center ${isLargeScreen ? 'text-lg' : 'text-base'} text-white hover:text-[#E6DB00] transition-all duration-700 delay-600 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
                   >
-                    Read Article <ArrowRight className="ml-1 md:ml-2 h-3 w-3 md:h-4 md:w-4" />
+                    Read Article <ArrowRight className={`ml-2 ${isLargeScreen ? 'h-5 w-5' : 'h-4 w-4'}`} />
                   </Link>
                 </div>
               </div>
@@ -273,33 +276,35 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                     }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/80" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5 lg:p-6">
-                    <div className={`text-[#E6DB00] uppercase text-xs md:text-sm font-medium mb-1 md:mb-2 transition-all duration-700 delay-300 ${activeSlide === index + 1 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>Our Services</div>
-                    <h2 className={`text-lg md:text-xl lg:text-2xl font-light mb-1 md:mb-2 text-white transition-all duration-700 delay-400 ${activeSlide === index + 1 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
+                  <div className={`absolute bottom-0 left-0 right-0 ${isLargeScreen ? 'p-8' : 'p-6'}`}>
+                    <div className={`text-[#E6DB00] uppercase ${isLargeScreen ? 'text-base' : 'text-sm'} font-medium mb-2 transition-all duration-700 delay-300 ${activeSlide === index + 1 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
+                      Our Services
+                    </div>
+                    <h2 className={`${isLargeScreen ? 'text-3xl' : 'text-2xl'} font-light mb-2 text-white transition-all duration-700 delay-400 ${activeSlide === index + 1 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
                       {service.title}
                     </h2>
-                    <p className={`text-sm md:text-base text-white/80 mb-2 md:mb-3 transition-all duration-700 delay-500 ${activeSlide === index + 1 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'} ${isLaptopScreen ? 'hidden md:block' : ''}`}>
+                    <p className={`${isLargeScreen ? 'text-lg' : 'text-base'} text-white/80 mb-3 transition-all duration-700 delay-500 ${activeSlide === index + 1 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'} ${isLaptopScreen ? 'hidden md:block' : ''}`}>
                       {service.description}
                     </p>
                     <Link 
                       to={service.path} 
                       onClick={onClose}
-                      className={`inline-flex items-center text-sm md:text-base text-white hover:text-[#E6DB00] transition-all duration-700 delay-600 ${activeSlide === index + 1 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+                      className={`inline-flex items-center ${isLargeScreen ? 'text-lg' : 'text-base'} text-white hover:text-[#E6DB00] transition-all duration-700 delay-600 ${activeSlide === index + 1 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
                     >
-                      Explore {service.title} <ArrowRight className="ml-1 md:ml-2 h-3 w-3 md:h-4 md:w-4" />
+                      Explore {service.title} <ArrowRight className={`ml-2 ${isLargeScreen ? 'h-5 w-5' : 'h-4 w-4'}`} />
                     </Link>
                   </div>
                 </div>
               ))}
               
               {/* Slide Indicators */}
-              <div className="absolute bottom-16 md:bottom-20 left-0 right-0 flex justify-center space-x-2">
+              <div className={`absolute ${isLargeScreen ? 'bottom-24' : 'bottom-16'} left-0 right-0 flex justify-center space-x-2`}>
                 {[...Array(totalSlides)].map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setActiveSlide(index)}
-                    className={`h-1.5 rounded-full transition-all duration-300 ${
-                      activeSlide === index ? "bg-[#E6DB00] w-6" : "bg-white/50 w-1.5 hover:bg-white/80"
+                    className={`${isLargeScreen ? 'h-2 w-8' : 'h-1.5 w-6'} rounded-full transition-all duration-300 ${
+                      activeSlide === index ? "bg-[#E6DB00]" : "bg-white/50 hover:bg-white/80"
                     }`}
                     aria-label={`Slide ${index + 1}`}
                   />
@@ -311,114 +316,107 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
           {/* Menu Content */}
           <div className="flex-1 flex flex-col overflow-y-auto">
             {/* Header with fade-down effect - FIXED SECTION */}
-            <div 
-              className={`flex items-center justify-end h-14 sm:h-16 md:h-16 lg:h-20 px-3 sm:px-4 md:px-6 lg:px-8 transition-all duration-700 delay-100 ${
-                isOpen ? "translate-y-0 opacity-100" : "-translate-y-8 opacity-0"
-              }`}
-            >
-              {/* Header right section with Close button */}
-              <div className="flex items-center space-x-2">              
-                {/* Close button */}
+            <div className={`flex justify-between items-center h-16 sm:h-20 ${isLaptopScreen ? 'md:h-[75px]' : 'md:h-24 lg:h-28'}`}>
+              <div className={`h-full flex items-center pl-4 sm:pl-6 ${isLaptopScreen ? 'md:pl-8' : 'md:pl-10 lg:pl-16 xl:pl-20'}`}>
+                {/* Left side empty for alignment */}
+              </div>
+
+              {/* Right side nav with close button */}
+              <div className={`h-full flex items-center px-3 sm:px-4 ${isLaptopScreen ? 'md:px-6' : 'md:px-8 lg:px-12 xl:px-20'}`}>
                 <button
                   onClick={onClose}
-                  className="flex items-center justify-center hover:opacity-75 transition-opacity"
+                  className={`flex items-center justify-center hover:opacity-75 transition-opacity`}
                   aria-label="Close menu"
                 >
-                  <span className="flex items-center space-x-1 sm:space-x-2 border border-white px-2 py-1.5 text-white">
-                    <X size={16} className="lg:w-4 lg:h-4" />
-                    <span className="text-xs sm:text-sm">{t('header.menu')}</span>
+                  <span className={`flex items-center space-x-1 border border-white px-2 sm:px-3 py-1.5 sm:py-2 h-[38px] sm:h-[42px] ${isLaptopScreen ? 'md:h-[38px]' : 'lg:h-[42px] xl:h-[46px]'} bg-black text-white`}>
+                    <X size={isLaptopScreen ? 16 : 18} className={`${isLaptopScreen ? 'md:w-4 md:h-4' : 'lg:w-5 lg:h-5 xl:w-6 xl:h-6'}`} />
+                    <span className={`text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'}`}>{t('header.menu')}</span>
                   </span>
                 </button>
               </div>
             </div>
 
             {/* Navigation with staggered fade-in effect */}
-            <div className="flex-1 overflow-y-auto p-3 sm:p-4 md:p-5 lg:p-6 flex items-center">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 md:gap-x-6 lg:gap-x-8 gap-y-3 md:gap-y-4 max-w-3xl mx-auto w-full">
+            <div className={`flex-1 overflow-y-auto flex items-center ${isLargeScreen ? 'p-8' : 'p-6'}`}>
+              <div className={`grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 max-w-4xl mx-auto w-full ${
+                isLargeScreen ? 'gap-y-8' : 'gap-y-6'
+              }`}>
                 {/* Left column */}
-                <div className="space-y-2 md:space-y-3 lg:space-y-4 flex flex-col justify-center">
+                <div className="space-y-4 flex flex-col justify-center">
                   {/* Direct navigation links */}
                   <Link 
                     to="/3d-printing"
                     onClick={onClose}
-                    className={`block text-lg sm:text-xl md:text-xl lg:text-2xl text-white hover:text-[#cb2026] transition-colors duration-300 ${
+                    className={`block ${isLargeScreen ? 'text-3xl' : 'text-2xl'} text-white hover:text-[#cb2026] transition-colors duration-300 ${
                       isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                     }`}
-                    style={{ transitionDelay: "300ms" }}
                   >
                     3D Printing
                   </Link>
                   <Link 
                     to="/mould"
                     onClick={onClose}
-                    className={`block text-lg sm:text-xl md:text-xl lg:text-2xl text-white hover:text-[#0e9a48] transition-colors duration-300 ${
+                    className={`block ${isLargeScreen ? 'text-3xl' : 'text-2xl'} text-white hover:text-[#0e9a48] transition-colors duration-300 ${
                       isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                     }`}
-                    style={{ transitionDelay: "400ms" }}
                   >
                     Mould & Spare Parts
                   </Link>
                   <Link 
                     to="/prototyping"
                     onClick={onClose}
-                    className={`block text-lg sm:text-xl md:text-xl lg:text-2xl text-white hover:text-[#35469d] transition-colors duration-300 ${
+                    className={`block ${isLargeScreen ? 'text-3xl' : 'text-2xl'} text-white hover:text-[#35469d] transition-colors duration-300 ${
                       isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                     }`}
-                    style={{ transitionDelay: "500ms" }}
                   >
                     Prototyping
                   </Link>
                   <Link 
                     to="/projects"
                     onClick={onClose}
-                    className={`block text-lg sm:text-xl md:text-xl lg:text-2xl text-white hover:text-[#E6DB00] transition-colors duration-300 ${
+                    className={`block ${isLargeScreen ? 'text-3xl' : 'text-2xl'} text-white hover:text-[#E6DB00] transition-colors duration-300 ${
                       isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                     }`}
-                    style={{ transitionDelay: "600ms" }}
                   >
                     Projects
                   </Link>
                 </div>
                 
                 {/* Right column */}
-                <div className="space-y-2 md:space-y-3 lg:space-y-4 flex flex-col justify-center">
+                <div className="space-y-4 flex flex-col justify-center">
                   <Link
                     to="/about-fablab"
                     onClick={onClose}
-                    className={`block text-lg sm:text-xl md:text-xl lg:text-2xl text-white hover:text-[#E6DB00] transition-colors duration-300 ${
+                    className={`block ${isLargeScreen ? 'text-3xl' : 'text-2xl'} text-white hover:text-[#E6DB00] transition-colors duration-300 ${
                       isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                     }`}
-                    style={{ transitionDelay: "300ms" }}
                   >
                     About Fablab
                   </Link>
                   <Link
                     to="/blog"
                     onClick={onClose}
-                    className={`block text-lg sm:text-xl md:text-xl lg:text-2xl text-white hover:text-[#E6DB00] transition-colors duration-300 ${
+                    className={`block ${isLargeScreen ? 'text-3xl' : 'text-2xl'} text-white hover:text-[#E6DB00] transition-colors duration-300 ${
                       isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                     }`}
-                    style={{ transitionDelay: "400ms" }}
                   >
                     Blog
                   </Link>
                   <Link
                     to="/contact"
                     onClick={onClose}
-                    className={`block text-lg sm:text-xl md:text-xl lg:text-2xl text-white hover:text-[#E6DB00] transition-colors duration-300 ${
+                    className={`block ${isLargeScreen ? 'text-3xl' : 'text-2xl'} text-white hover:text-[#E6DB00] transition-colors duration-300 ${
                       isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                     }`}
-                    style={{ transitionDelay: "500ms" }}
                   >
                     Contact us
                   </Link>
                   <Link
                     to="/book-session"
                     onClick={onClose}
-                    className={`inline-block text-lg sm:text-xl md:text-xl lg:text-2xl bg-[#E6DB00] text-black border border-[#E6DB00] px-3 py-1.5 hover:opacity-90 transition-all duration-300 ${
+                    className={`inline-block ${isLargeScreen ? 'text-3xl' : 'text-2xl'} text-white hover:text-[#E6DB00] transition-colors duration-300 ${
                       isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                     }`}
-                    style={{ transitionDelay: "600ms" }}
                   >
                     Book Session
                   </Link>
@@ -427,17 +425,17 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
             </div>
             
             {/* Footer with location and social media */}
-            <div className={`mt-auto p-3 sm:p-4 md:p-5 border-t border-white/10 transition-all duration-700 delay-[800ms] ${
+            <div className={`mt-auto ${isLargeScreen ? 'p-8' : 'p-6'} border-t border-white/10 transition-all duration-700 delay-[800ms] ${
               isOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                 {/* Location and contact info */}
                 <div>
-                  <div className="flex items-center justify-start space-x-3 mb-3 w-full">
+                  <div className="flex items-center justify-start space-x-4 mb-4 w-full">
                     <img 
                       src="/fablab/cfyi.svg" 
                       alt="CFYI Logo" 
-                      className="h-8 w-auto"
+                      className={isLargeScreen ? 'h-12' : 'h-10'}
                       onError={(e) => {
                         e.currentTarget.style.display = 'none';
                       }}
@@ -445,27 +443,27 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                     <img 
                       src="/fablab/logowhite.png" 
                       alt="FabLab Logo" 
-                      className="h-8 w-auto"
+                      className={isLargeScreen ? 'h-12' : 'h-10'}
                       onError={(e) => {
                         e.currentTarget.style.display = 'none';
                       }}
                     />
                   </div>
-                  <address className="not-italic text-white/70 text-xs md:text-sm space-y-0.5 mb-3">
+                  <address className={`not-italic text-white/70 ${isLargeScreen ? 'text-base' : 'text-sm'} space-y-1 mb-4`}>
                     <p>17 Olmachi St., Mirzo-Ulugbek,</p>
                     <p>Tashkent, Uzbekistan</p>
                   </address>
-                  <div className="text-white/70 text-xs md:text-sm space-y-0.5">
+                  <div className={`text-white/70 ${isLargeScreen ? 'text-base' : 'text-sm'} space-y-1`}>
                     <div className="flex items-center">
-                      <Phone className="w-3 h-3 mr-1 text-[#E6DB00]" />
+                      <Phone className={`${isLargeScreen ? 'w-5 h-5' : 'w-4 h-4'} mr-2 text-[#E6DB00]`} />
                       <p>+998 (77) 088 39 77 (ru/uz)</p>
                     </div>
                     <div className="flex items-center">
-                      <Phone className="w-3 h-3 mr-1 text-[#E6DB00]" />
+                      <Phone className={`${isLargeScreen ? 'w-5 h-5' : 'w-4 h-4'} mr-2 text-[#E6DB00]`} />
                       <p>+998 (77) 088 49 77 (ru/en)</p>
                     </div>
                     <div className="flex items-center">
-                      <Mail className="w-3 h-3 mr-1 text-[#E6DB00]" />
+                      <Mail className={`${isLargeScreen ? 'w-5 h-5' : 'w-4 h-4'} mr-2 text-[#E6DB00]`} />
                       <a href="mailto:info@cfyi.uz" className="hover:text-[#E6DB00] transition-colors">
                         info@cfyi.uz
                       </a>
@@ -475,43 +473,62 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                 
                 {/* Social Media */}
                 <div className="flex flex-col md:items-start">
-                  <h3 className="text-sm md:text-base font-medium text-white mb-2 md:mb-3">Connect With Us</h3>
-                  <div className="flex justify-start items-center space-x-3 w-full">
+                  <h3 className={`${isLargeScreen ? 'text-xl' : 'text-lg'} font-medium text-white mb-4`}>
+                    Connect With Us
+                  </h3>
+                  <div className="flex justify-start items-center space-x-4 w-full">
                     <a 
-                      href="https://facebook.com" 
+                      href="https://www.facebook.com/centerforyouthinitiatives" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300 text-white"
+                      className={`${isLargeScreen ? 'w-12 h-12' : 'w-10 h-10'} rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300 text-white`}
                     >
-                      <Facebook size={16} />
+                      <Facebook size={isLargeScreen ? 24 : 20} />
                     </a>
                     <a 
-                      href="https://instagram.com" 
+                      href="https://www.instagram.com/fablab.cfyi" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300 text-white"
+                      className={`${isLargeScreen ? 'w-12 h-12' : 'w-10 h-10'} rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300 text-white`}
                     >
-                      <Instagram size={16} />
+                      <Instagram size={isLargeScreen ? 24 : 20} />
                     </a>
                     <a 
-                      href="https://linkedin.com" 
+                      href="https://www.linkedin.com/company/center-for-youth-initiatives" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300 text-white"
+                      className={`${isLargeScreen ? 'w-12 h-12' : 'w-10 h-10'} rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300 text-white`}
                     >
-                      <Linkedin size={16} />
+                      <Linkedin size={isLargeScreen ? 24 : 20} />
                     </a>
                     <a 
-                      href="https://twitter.com" 
+                      href="https://www.youtube.com/@CenterforYouthInitiatives" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300 text-white"
+                      className={`${isLargeScreen ? 'w-12 h-12' : 'w-10 h-10'} rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300 text-white`}
                     >
-                      <Twitter size={16} />
+                      <Youtube size={isLargeScreen ? 24 : 20} />
+                    </a>
+                    <a 
+                      href="https://t.me/+998770884977" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className={`${isLargeScreen ? 'w-12 h-12' : 'w-10 h-10'} rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300 text-white`}
+                    >
+                      <svg 
+                        className={isLargeScreen ? 'w-6 h-6' : 'w-5 h-5'} 
+                        xmlns="http://www.w3.org/2000/svg" 
+                        fill="currentColor" 
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.96 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                      </svg>
                     </a>
                   </div>
-                  <div className="mt-3 md:mt-4">
-                    <p className="text-white/50 text-xs">{t('footer.copyright') || "© 2023 FabLab. All rights reserved."}</p>
+                  <div className="mt-6">
+                    <p className={`text-white/50 ${isLargeScreen ? 'text-sm' : 'text-xs'}`}>
+                      © 2025 Center for Youth Initiatives FabLab. All rights reserved.
+                    </p>
                   </div>
                 </div>
               </div>

@@ -9,7 +9,7 @@ export default function FdmMaterials() {
         {/* Left side content */}
         <div className="w-full lg:w-1/2 mb-12 lg:mb-0 pr-0 lg:pr-10">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-            Build with <span className="text-orange-500">premium quality filaments</span> for any application
+            Build with <span className="text-blue-500">premium quality filaments</span> for any application
           </h1>
           
           <div className="flex flex-wrap gap-2 mb-8">
@@ -45,14 +45,14 @@ export default function FdmMaterials() {
             </button>
           </div>
           
-          <button className="bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-md font-medium">
+          <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md font-medium">
             REQUEST A SAMPLE PART
           </button>
         </div>
         
         {/* Right side video/image */}
         <div className="w-full lg:w-1/2 lg:pl-8">
-          <div className="relative rounded-md overflow-hidden border-2 border-orange-500 shadow-xl">
+          <div className="relative rounded-md overflow-hidden border-2 border-blue-500 shadow-xl">
             <video
               ref={videoRef}
               className="w-full aspect-[16/9] object-cover"
@@ -67,7 +67,7 @@ export default function FdmMaterials() {
               />
               Your browser does not support the video tag.
             </video>
-            <div className="absolute bottom-0 left-0 right-0 bg-orange-600 text-white p-3">
+            <div className="absolute bottom-0 left-0 right-0 bg-blue-600 text-white p-3">
               <div className="flex justify-between items-center">
                 <div>
                   <span className="font-bold">FDM SHOWCASE</span> The best 3D prints from our office
@@ -78,7 +78,7 @@ export default function FdmMaterials() {
                 </button>
               </div>
             </div>
-            <button className="absolute top-4 right-4 bg-orange-600 rounded-full p-1 w-8 h-8 flex items-center justify-center">
+            <button className="absolute top-4 right-4 bg-blue-600 rounded-full p-1 w-8 h-8 flex items-center justify-center">
               <span className="sr-only">Pause</span>
               ⏸
             </button>

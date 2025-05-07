@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { ArrowLeft, ArrowRight, Info } from "lucide-react";
+import { ArrowLeft, ArrowRight, Info, ChevronDown, ChevronUp } from "lucide-react";
 import styles from "@/styles/Slider.module.css";
 import "@/styles/Carousel.css"; // Import the carousel CSS
 
@@ -20,6 +20,7 @@ const MouldPage = () => {
   const sliderKnobRef = useRef<HTMLDivElement>(null);
   const [sliderPosition, setSliderPosition] = useState(50); // Start in the middle
   const [isDragging, setIsDragging] = useState(false);
+  const [expandedFaq, setExpandedFaq] = useState<number | null>(0); // First FAQ item expanded by default
 
   useEffect(() => {
     // Scroll to top when component mounts
@@ -196,9 +197,9 @@ const MouldPage = () => {
                 
                 <div className="mt-8 flex flex-col sm:flex-row gap-4">
                   <a href="#" className="inline-block bg-gray-800 text-white font-medium px-6 py-3 rounded-md hover:bg-black transition-colors text-center">
-                    Get a Quote
+                    Request a Consultation
                   </a>
-                  <a href="#" className="inline-block bg-white text-gray-800 font-medium px-6 py-3 rounded-md border border-gray-800 hover:bg-gray-100 transition-colors text-center">
+                  <a href="/3d-printing#materials" className="inline-block bg-white text-gray-800 font-medium px-6 py-3 rounded-md border border-gray-800 hover:bg-gray-100 transition-colors text-center">
                     Learn About Materials
                   </a>
                 </div>
@@ -207,7 +208,7 @@ const MouldPage = () => {
           </div>
           
           <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
-            <a href="#materials" className="flex flex-col items-center text-white">
+            <a href="#premium-quality" className="flex flex-col items-center text-white">
               <span className="mb-2">Scroll Down</span>
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
@@ -1035,36 +1036,121 @@ const MouldPage = () => {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-10 md:py-16 bg-gray-50">
+        <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
           <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center">Frequently Asked Questions</h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-bold mb-3">What materials can be used for mould making?</h3>
-                <p className="text-gray-700">We offer various silicone rubbers with different durometers and properties to suit your specific project needs, including tin-cure, platinum-cure, and specialty formulations.</p>
-              </div>
-              
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-bold mb-3">How does SLA printing compare to traditional metallic molds?</h3>
-                <p className="text-gray-700">SLA printing offers faster turnaround times and lower costs for small to medium production runs. While traditional metallic molds are better for mass production, our SLA technology provides exceptional detail and precision without the high upfront tooling costs.</p>
-              </div>
-              
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-bold mb-3">How long does the production process take?</h3>
-                <p className="text-gray-700">The timeline depends on project complexity. Simple parts can be completed in 1-2 days, while complex projects may take 1 week. SLA printing significantly reduces lead times compared to traditional methods.</p>
-              </div>
-              
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-bold mb-3">What are the limitations of SLA printing for parts?</h3>
-                <p className="text-gray-700">While SLA printing offers exceptional detail and quality, it has limitations in terms of material properties and production volume. We'll help you determine if SLA is right for your project or if alternative methods would be more suitable.</p>
-              </div>
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Frequently Asked Questions</h2>
+              <div className="w-24 h-1 bg-gray-800 mx-auto"></div>
             </div>
             
-            <div className="text-center mt-8">
-              <a href="#" className="inline-block bg-blue-600 text-white font-medium px-6 py-3 rounded-md hover:bg-blue-700 transition-colors">
-                Ask Us a Question
-              </a>
+            <div className="max-w-3xl mx-auto">
+              {/* FAQ Item 1 */}
+              <div className={`mb-4 bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300 ${expandedFaq === 0 ? 'shadow-md' : 'hover:shadow-md'}`}>
+                <button 
+                  className="w-full py-6 px-6 flex justify-between items-center focus:outline-none group transition-all duration-200" 
+                  onClick={() => setExpandedFaq(expandedFaq === 0 ? null : 0)}
+                >
+                  <h3 className={`text-xl font-bold text-left ${expandedFaq === 0 ? 'text-gray-900' : 'text-gray-700 group-hover:text-gray-900'} transition-colors duration-200`}>
+                    Can you create spare parts for discontinued products?
+                  </h3>
+                  <span className="bg-gray-100 rounded-full p-2 group-hover:bg-gray-200 transition-all duration-200">
+                    {expandedFaq === 0 ? 
+                      <ChevronUp className="h-5 w-5 text-gray-700" /> : 
+                      <ChevronDown className="h-5 w-5 text-gray-500" />
+                    }
+                  </span>
+                </button>
+                <div 
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                    expandedFaq === 0 ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                  }`}
+                >
+                  <div className="p-6 pt-0 text-gray-600 leading-relaxed border-t border-gray-100">
+                    Yes, we specialize in producing spare parts for products that are no longer manufactured or where original replacements are prohibitively expensive. Using our advanced SLA printing and casting techniques, we can recreate parts with high precision from samples, technical drawings, or even create new designs based on your specifications.
+                  </div>
+                </div>
+              </div>
+              
+              {/* FAQ Item 2 */}
+              <div className={`mb-4 bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300 ${expandedFaq === 1 ? 'shadow-md' : 'hover:shadow-md'}`}>
+                <button 
+                  className="w-full py-6 px-6 flex justify-between items-center focus:outline-none group transition-all duration-200" 
+                  onClick={() => setExpandedFaq(expandedFaq === 1 ? null : 1)}
+                >
+                  <h3 className={`text-xl font-bold text-left ${expandedFaq === 1 ? 'text-gray-900' : 'text-gray-700 group-hover:text-gray-900'} transition-colors duration-200`}>
+                    How does SLA printing compare to traditional metallic molds?
+                  </h3>
+                  <span className="bg-gray-100 rounded-full p-2 group-hover:bg-gray-200 transition-all duration-200">
+                    {expandedFaq === 1 ? 
+                      <ChevronUp className="h-5 w-5 text-gray-700" /> : 
+                      <ChevronDown className="h-5 w-5 text-gray-500" />
+                    }
+                  </span>
+                </button>
+                <div 
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                    expandedFaq === 1 ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                  }`}
+                >
+                  <div className="p-6 pt-0 text-gray-600 leading-relaxed border-t border-gray-100">
+                    SLA printing offers faster turnaround times and lower costs for small to medium production runs. While traditional metallic molds are better for mass production, our SLA technology provides exceptional detail and precision without the high upfront tooling costs.
+                  </div>
+                </div>
+              </div>
+              
+              {/* FAQ Item 3 */}
+              <div className={`mb-4 bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300 ${expandedFaq === 2 ? 'shadow-md' : 'hover:shadow-md'}`}>
+                <button 
+                  className="w-full py-6 px-6 flex justify-between items-center focus:outline-none group transition-all duration-200" 
+                  onClick={() => setExpandedFaq(expandedFaq === 2 ? null : 2)}
+                >
+                  <h3 className={`text-xl font-bold text-left ${expandedFaq === 2 ? 'text-gray-900' : 'text-gray-700 group-hover:text-gray-900'} transition-colors duration-200`}>
+                    How long does the production process take?
+                  </h3>
+                  <span className="bg-gray-100 rounded-full p-2 group-hover:bg-gray-200 transition-all duration-200">
+                    {expandedFaq === 2 ? 
+                      <ChevronUp className="h-5 w-5 text-gray-700" /> : 
+                      <ChevronDown className="h-5 w-5 text-gray-500" />
+                    }
+                  </span>
+                </button>
+                <div 
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                    expandedFaq === 2 ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                  }`}
+                >
+                  <div className="p-6 pt-0 text-gray-600 leading-relaxed border-t border-gray-100">
+                    The timeline depends on project complexity. Simple parts can be completed in 1-2 days, while complex projects may take 1 week. SLA printing significantly reduces lead times compared to traditional methods, allowing for rapid iterations and faster time-to-market.
+                  </div>
+                </div>
+              </div>
+              
+              {/* FAQ Item 4 */}
+              <div className={`mb-4 bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300 ${expandedFaq === 3 ? 'shadow-md' : 'hover:shadow-md'}`}>
+                <button 
+                  className="w-full py-6 px-6 flex justify-between items-center focus:outline-none group transition-all duration-200" 
+                  onClick={() => setExpandedFaq(expandedFaq === 3 ? null : 3)}
+                >
+                  <h3 className={`text-xl font-bold text-left ${expandedFaq === 3 ? 'text-gray-900' : 'text-gray-700 group-hover:text-gray-900'} transition-colors duration-200`}>
+                    What are the limitations of SLA printing for parts?
+                  </h3>
+                  <span className="bg-gray-100 rounded-full p-2 group-hover:bg-gray-200 transition-all duration-200">
+                    {expandedFaq === 3 ? 
+                      <ChevronUp className="h-5 w-5 text-gray-700" /> : 
+                      <ChevronDown className="h-5 w-5 text-gray-500" />
+                    }
+                  </span>
+                </button>
+                <div 
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                    expandedFaq === 3 ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                  }`}
+                >
+                  <div className="p-6 pt-0 text-gray-600 leading-relaxed border-t border-gray-100">
+                    While SLA printing offers exceptional detail and quality, it has limitations in terms of material properties and production volume. We'll help you determine if SLA is right for your project or if alternative methods would be more suitable based on your specific requirements and goals.
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>

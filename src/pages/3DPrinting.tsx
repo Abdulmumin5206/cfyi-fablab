@@ -52,12 +52,12 @@ const ThreeDPrintingPage = () => {
           <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col lg:flex-row items-center">
               {/* Left side image */}
-              <div className="w-full lg:w-3/4 mb-12 lg:mb-0 pr-0 lg:pr-8">
+              <div className="w-full lg:w-2/3 mb-12 lg:mb-0 pr-0 lg:pr-8">
                 <div className="relative w-full">
                   <img 
                     src="/fablab/optimized_for_web_jpeg-03072024_dsl_core_set_311.webp" 
                     alt="3D Printing Equipment Core Set" 
-                    className="w-full aspect-[4/3] object-cover h-auto max-h-[650px]"
+                    className="w-full aspect-auto object-cover h-auto max-h-[800px]"
                   />
                 </div>
               </div>
@@ -157,7 +157,7 @@ const ThreeDPrintingPage = () => {
                 </button>
               </div>
               
-              <button className="bg-[#f05a28] hover:bg-[#e04a18] text-white px-6 py-3 rounded-md font-medium">
+              <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md font-medium">
                 REQUEST A SAMPLE PART
               </button>
             </div>
@@ -165,124 +165,16 @@ const ThreeDPrintingPage = () => {
             {/* Right side video */}
             <div className="w-full lg:w-3/4 lg:pl-8">
               <div className="relative w-full">
-                <video
-                  ref={videoRef}
-                  className="w-full aspect-[4/3] object-cover h-auto max-h-[650px]"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  controls
-                  onError={handleVideoError}
-                  onLoadedData={handleVideoLoad}
-                >
-                  <source 
-                    src="/video/clearcast_loop_240903_720p_1mbps_h264.mp4" 
-                    type="video/mp4" 
-                  />
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-              <div className="mt-4 text-sm text-gray-500">
-                Video: 3D printing process and material applications
+                <img 
+                  src="/3dprinters/Hero2.webp" 
+                  alt="Industry-leading materials" 
+                  className="w-full object-contain h-auto max-h-[800px]"
+                />
               </div>
             </div>
           </div>
         </section>
         
-        {/* Case Studies Section - Moved up */}
-        <section className="py-12 md:py-20 bg-gray-50">
-          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8">See Also</h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-              {/* Case Study 1 */}
-              <div className="bg-white rounded-lg overflow-hidden shadow-md flex flex-col md:flex-row">
-                <div className="md:w-2/5 h-48 md:h-auto overflow-hidden">
-                  <img 
-                    src="/fablab/3.jpg" 
-                    alt="Black Diamond parts" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="md:w-3/5 p-6">
-                  <div className="text-blue-600 text-sm font-semibold mb-2">CASE STUDY: LOOKS-LIKE PROTOTYPES</div>
-                  <h3 className="text-xl font-bold mb-4">How Black Diamond Reduced Costs by 84% With Rapid Prototyping on the Form 3L</h3>
-                  <a href="#" className="text-blue-600 flex items-center gap-2 font-medium hover:text-blue-800 transition-colors">
-                    Read the Story
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-              
-              {/* Case Study 2 */}
-              <div className="bg-white rounded-lg overflow-hidden shadow-md flex flex-col md:flex-row">
-                <div className="md:w-2/5 h-48 md:h-auto overflow-hidden">
-                  <img 
-                    src="/fablab/1.jpg" 
-                    alt="Ford Explorer" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="md:w-3/5 p-6">
-                  <div className="text-blue-600 text-sm font-semibold mb-2">CASE STUDY: WORKS-LIKE PROTOTYPES</div>
-                  <h3 className="text-xl font-bold mb-4">How Ford Developed the New Explorer Using Formlabs SLA and SLS 3D Printers</h3>
-                  <a href="#" className="text-blue-600 flex items-center gap-2 font-medium hover:text-blue-800 transition-colors">
-                    Read the Story
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-              
-              {/* Case Study 3 */}
-              <div className="bg-white rounded-lg overflow-hidden shadow-md flex flex-col md:flex-row">
-                <div className="md:w-2/5 h-48 md:h-auto overflow-hidden">
-                  <img 
-                    src="/fablab/11.jpg" 
-                    alt="SLA Prototyping" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="md:w-3/5 p-6">
-                  <div className="text-blue-600 text-sm font-semibold mb-2">CASE STUDY: LOOKS-LIKE PROTOTYPES</div>
-                  <h3 className="text-xl font-bold mb-4">Rapid SLA Prototyping With The New Draft Resin</h3>
-                  <a href="#" className="text-blue-600 flex items-center gap-2 font-medium hover:text-blue-800 transition-colors">
-                    Read the Story
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-              
-              {/* Case Study 4 */}
-              <div className="bg-white rounded-lg overflow-hidden shadow-md flex flex-col md:flex-row">
-                <div className="md:w-2/5 h-48 md:h-auto overflow-hidden">
-                  <img 
-                    src="/fablab/13.jpg" 
-                    alt="Mechanical Watches" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="md:w-3/5 p-6">
-                  <div className="text-blue-600 text-sm font-semibold mb-2">CASE STUDY: LOOKS-LIKE PROTOTYPES</div>
-                  <h3 className="text-xl font-bold mb-4">Producing High-Precision Prototypes for Mechanical Watches Using 3D Printing</h3>
-                  <a href="#" className="text-blue-600 flex items-center gap-2 font-medium hover:text-blue-800 transition-colors">
-                    Read the Story
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* SLA 3D Printing Equipment Section - Modern Card Layout */}
         <section className="py-16 md:py-24 bg-gray-50">
           <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -361,13 +253,13 @@ const ThreeDPrintingPage = () => {
             <div className="flex flex-col lg:flex-row items-center">
               {/* Left side content */}
               <div className="w-full lg:w-1/2 mb-12 lg:mb-0 pr-0 lg:pr-10">
-                <div className="text-orange-500 font-medium mb-2">FUSED DEPOSITION MODELING (FDM) TECHNOLOGY</div>
+                <div className="text-blue-500 font-medium mb-2">FUSED DEPOSITION MODELING (FDM) TECHNOLOGY</div>
                 <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight text-white">Versatile <span className="text-gray-400">FDM 3D Printing Services</span></h1>
                 
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
                     <div className="flex-shrink-0 mt-1">
-                      <div className="w-5 h-5 rounded-full bg-orange-500 flex items-center justify-center">
+                      <div className="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center">
                         <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                         </svg>
@@ -378,7 +270,7 @@ const ThreeDPrintingPage = () => {
                   
                   <div className="flex items-start gap-3">
                     <div className="flex-shrink-0 mt-1">
-                      <div className="w-5 h-5 rounded-full bg-orange-500 flex items-center justify-center">
+                      <div className="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center">
                         <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                         </svg>
@@ -389,7 +281,7 @@ const ThreeDPrintingPage = () => {
                   
                   <div className="flex items-start gap-3">
                     <div className="flex-shrink-0 mt-1">
-                      <div className="w-5 h-5 rounded-full bg-orange-500 flex items-center justify-center">
+                      <div className="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center">
                         <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                         </svg>
@@ -400,10 +292,10 @@ const ThreeDPrintingPage = () => {
                 </div>
                 
                 <div className="mt-8 flex flex-col sm:flex-row gap-4">
-                  <a href="#" className="inline-block bg-orange-600 text-white font-medium px-6 py-3 rounded-md hover:bg-orange-700 transition-colors text-center">
+                  <a href="#" className="inline-block bg-blue-600 text-white font-medium px-6 py-3 rounded-md hover:bg-blue-700 transition-colors text-center">
                     Get a Quote
                   </a>
-                  <a href="#" className="inline-block bg-transparent text-orange-500 font-medium px-6 py-3 rounded-md border border-orange-500 hover:bg-orange-900 transition-colors text-center">
+                  <a href="#" className="inline-block bg-transparent text-blue-500 font-medium px-6 py-3 rounded-md border border-blue-500 hover:bg-blue-900 transition-colors text-center">
                     Request Sample Parts
                   </a>
                 </div>
@@ -422,9 +314,6 @@ const ThreeDPrintingPage = () => {
             </div>
           </div>
         </section>
-        
-        {/* FDM Materials Section */}
-        <FdmFilaments />
         
         {/* FDM 3D Printing Equipment Section */}
         <section className="py-16 md:py-24 bg-gray-50">
@@ -494,6 +383,9 @@ const ThreeDPrintingPage = () => {
             </div>
           </div>
         </section>
+        
+        {/* FDM Materials Section */}
+        <FdmFilaments />
       </main>
 
       <Footer bgClass="bg-white" textClass="text-gray-800" />

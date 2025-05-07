@@ -1,0 +1,33 @@
+@keyframes carousel-slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-324px * 5)); /* 300px item width + 24px gap, times 5 items */
+  }
+}
+
+.carousel-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  animation: carousel-slide 30s linear infinite;
+}
+
+.carousel-track:hover {
+  animation-play-state: paused;
+}
+
+.equipment-item {
+  width: 300px;
+  flex-shrink: 0;
+  margin-right: 24px;
+}
+
+/* Double the carousel items for seamless looping */
+.carousel-track .equipment-item:nth-child(n+6) {
+  margin-right: 24px;
+} 

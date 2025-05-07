@@ -33,9 +33,9 @@ const ScrollImageSlider = () => {
   
   // Image paths - using images from the public folder
   const images = [
-    "/fablab/1.jpg",
-    "/fablab/3.jpg",
-    "/fablab/11.jpg"
+    "/main/scrolling1.jpeg",
+    "/main/scrolling2.webp",
+    "/main/scrolling3.webp"
   ];
   
   // Quote content for each image

@@ -24,6 +24,7 @@ const Header = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   // More aggressive laptop detection (covers most laptop screens)
   const isLaptopScreen = windowWidth < 1440;
+  const isMobileScreen = windowWidth < 768; // md breakpoint
 
   // ref + state for measuring the main nav width
   const navRef = useRef<HTMLDivElement>(null);
@@ -188,11 +189,11 @@ const Header = () => {
               </Link>
             </div>
 
-            {/* Main right-side nav (measured) */}
+            {/* Main right-side nav (measured) - Only apply black bg on non-mobile */}
             <div
               ref={navRef}
               className={`transition-colors duration-300 ${
-                shouldUseBlackTheme ? "bg-black" : isScrolled ? "bg-white" : "bg-transparent md:bg-white"
+                shouldUseBlackTheme && !isMobileScreen ? "bg-black" : isScrolled ? "bg-white" : "bg-transparent md:bg-white"
               } px-3 sm:px-4 ${isLaptopScreen ? 'md:px-6' : 'md:px-8 lg:px-12 xl:px-20'} h-full`}
             >
               <div className="hidden md:flex items-center space-x-2 lg:space-x-4 xl:space-x-8 h-full">
@@ -262,16 +263,16 @@ const Header = () => {
               </div>
             </div>
 
-            {/* Mobile toggle */}
+            {/* Mobile toggle with proper background handling */}
             <div className="md:hidden flex items-center space-x-4 pr-4 sm:pr-6">
               {/* Mobile Language Switcher */}
-              <LanguageSwitcher useBlackTheme={shouldUseBlackTheme} />
+              <LanguageSwitcher useBlackTheme={false} />
               
               <button
                 className="flex items-center justify-center"
                 onClick={toggleMenu}
               >
-                <span className={`flex items-center space-x-1 border ${shouldUseBlackTheme ? "border-white bg-black text-white" : "border-black bg-white text-black"} px-2 py-1.5 h-[38px] sm:h-[42px]`}>
+                <span className="flex items-center space-x-1 border border-black bg-white text-black px-2 py-1.5 h-[38px] sm:h-[42px]">
                   {isMobileMenuOpen ? <X size={16} /> : <Menu size={16} />}
                   <span className="text-xs sm:text-sm">{t('header.menu')}</span>
                 </span>

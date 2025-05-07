@@ -6,6 +6,30 @@ const ScrollImageSlider = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
   const [hasCompletedScroll, setHasCompletedScroll] = useState(false);
+  const [viewportHeight, setViewportHeight] = useState("100vh");
+  
+  // Update viewport height to handle mobile browsers with variable UI elements
+  useEffect(() => {
+    const updateViewportHeight = () => {
+      // This ensures we get the true viewport height even on mobile browsers
+      const vh = window.innerHeight;
+      setViewportHeight(`${vh}px`);
+    };
+    
+    // Set initial height
+    updateViewportHeight();
+    
+    // Update on resize
+    window.addEventListener('resize', updateViewportHeight);
+    
+    // Also update on orientation change which is common on mobile
+    window.addEventListener('orientationchange', updateViewportHeight);
+    
+    return () => {
+      window.removeEventListener('resize', updateViewportHeight);
+      window.removeEventListener('orientationchange', updateViewportHeight);
+    };
+  }, []);
   
   // Image paths - using images from the public folder
   const images = [
@@ -62,8 +86,9 @@ const ScrollImageSlider = () => {
       >
         <div
           ref={sectionRef}
-          className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center bg-white"
+          className="sticky top-0 w-full overflow-hidden flex items-center justify-center bg-white"
           style={{
+            height: viewportHeight, // Use dynamic viewport height
             zIndex: 10 // Ensure this section appears above other content
           }}
         >
@@ -116,7 +141,13 @@ const ScrollImageSlider = () => {
                     className="w-full h-full object-cover"
                     style={{
                       width: "100%",
-                      height: "100%"
+                      height: "100%",
+                      objectFit: "cover",
+                      objectPosition: "center",
+                      margin: 0,
+                      padding: 0,
+                      display: "block",
+                      minHeight: "100%"
                     }}
                   />
                   {/* Add a solid color backdrop to ensure no content shows through */}
@@ -172,7 +203,7 @@ const ScrollImageSlider = () => {
                     y: yTransform,
                     opacity: opacityTransform,
                     zIndex: (index + 1) * 10, // Higher z-index than images
-                    height: '100vh' // Full height for positioning
+                    height: viewportHeight // Use dynamic height
                   }}
                 >
                   <motion.div 

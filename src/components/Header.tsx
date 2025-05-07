@@ -19,28 +19,38 @@ const Header = () => {
   const is3DPrintingBlogPost = location.pathname === "/blog/3d-printing-innovations";
   const isBlogPage = location.pathname === "/blog" || location.pathname.startsWith("/blog/");
   const shouldUseBlackTheme = is3DPrintingPage || is3DPrintingBlogPost || isBlogPage;
+  
+  // Track window width for responsive design
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  // More aggressive laptop detection (covers most laptop screens)
+  const isLaptopScreen = windowWidth < 1440;
 
   // ref + state for measuring the main nav width
   const navRef = useRef<HTMLDivElement>(null);
   const [navWidth, setNavWidth] = useState(0);
   
-  // Update nav width when language changes too
+  // Update nav width when language changes or window resizes
   useEffect(() => {
     const updateNavWidth = () => {
       if (navRef.current) setNavWidth(navRef.current.offsetWidth);
+    };
+    
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+      updateNavWidth();
     };
     
     // Initial update
     updateNavWidth();
     
     // Update on resize
-    window.addEventListener("resize", updateNavWidth);
+    window.addEventListener("resize", handleResize);
     
     // Force recalculation after a brief delay when language changes
     const timeoutId = setTimeout(updateNavWidth, 100);
     
     return () => {
-      window.removeEventListener("resize", updateNavWidth);
+      window.removeEventListener("resize", handleResize);
       clearTimeout(timeoutId);
     };
   }, [i18n.language]); // Added i18n.language as a dependency
@@ -108,6 +118,45 @@ const Header = () => {
     }, 150); // Small delay to make the interaction feel natural
   };
 
+  // Dynamic styling for laptop screens
+  const headerStyle = isLaptopScreen ? {
+    height: '75px'
+  } : {};
+
+  const logoStyle = isLaptopScreen ? {
+    maxHeight: '50px'
+  } : {};
+
+  const textStyle = isLaptopScreen ? {
+    fontSize: '0.9375rem' // 15px
+  } : {};
+
+  const buttonStyle = isLaptopScreen ? {
+    padding: '0.375rem 0.75rem' // slightly larger padding
+  } : {};
+  
+  // Position dropdown based on header height
+  const getDropdownPosition = () => {
+    if (isLaptopScreen) {
+      return '75px';
+    } else {
+      // Standard breakpoints
+      if (windowWidth < 640) {
+        return '4rem'; // sm
+      } else if (windowWidth < 768) {
+        return '5rem'; // md
+      } else if (windowWidth < 1024) {
+        return '6rem'; // lg
+      } else {
+        return '7rem'; // xl
+      }
+    }
+  };
+  
+  const servicesMenuStyle = {
+    top: getDropdownPosition()
+  };
+
   return (
     <>
       {/* Main header */}
@@ -118,21 +167,23 @@ const Header = () => {
       >
         <div className="relative">
           <div
-            className={`flex justify-between items-center h-16 sm:h-20 md:h-24 lg:h-28 transition-colors duration-300 ${
+            style={headerStyle}
+            className={`flex justify-between items-center h-16 sm:h-20 ${isLaptopScreen ? 'md:h-[75px]' : 'md:h-24 lg:h-28'} transition-colors duration-300 ${
               isScrolled ? "bg-white shadow-md" : "bg-transparent"
             }`}
           >
             {/* Logo */}
             <div
-              className={`h-full flex items-center pl-4 sm:pl-6 md:pl-10 lg:pl-16 xl:pl-20 transition-colors duration-300 ${
+              className={`h-full flex items-center pl-4 sm:pl-6 ${isLaptopScreen ? 'md:pl-8' : 'md:pl-10 lg:pl-16 xl:pl-20'} transition-colors duration-300 ${
                 isScrolled ? "bg-white" : "bg-transparent"
               }`}
             >
               <Link to="/" className="block h-full py-3">
                 <img
+                  style={logoStyle}
                   src="/fablab/logo.png"
                   alt="FabLab Logo"
-                  className="h-full w-auto max-h-10 sm:max-h-12 md:max-h-16 lg:max-h-20 object-contain"
+                  className={`h-full w-auto max-h-8 sm:max-h-10 ${isLaptopScreen ? 'md:max-h-10' : 'md:max-h-16 lg:max-h-20'} object-contain`}
                 />
               </Link>
             </div>
@@ -142,7 +193,7 @@ const Header = () => {
               ref={navRef}
               className={`transition-colors duration-300 ${
                 shouldUseBlackTheme ? "bg-black" : isScrolled ? "bg-white" : "bg-transparent md:bg-white"
-              } px-3 sm:px-4 md:px-8 lg:px-12 xl:px-20 h-full`}
+              } px-3 sm:px-4 ${isLaptopScreen ? 'md:px-6' : 'md:px-8 lg:px-12 xl:px-20'} h-full`}
             >
               <div className="hidden md:flex items-center space-x-2 lg:space-x-4 xl:space-x-8 h-full">
                 {/* Services link with dropdown */}
@@ -153,47 +204,57 @@ const Header = () => {
                 >
                   <button
                     ref={servicesButtonRef}
-                    className={`flex items-center h-full ${shouldUseBlackTheme ? "text-white group-hover:text-[#f05a28]" : "text-black group-hover:text-brand-red"} transition-colors text-sm lg:text-base xl:text-lg px-1 sm:px-2`}
+                    style={textStyle}
+                    className={`flex items-center h-full ${shouldUseBlackTheme ? "text-white group-hover:text-[#f05a28]" : "text-black group-hover:text-brand-red"} transition-colors text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} px-1 sm:px-2`}
                     onClick={() => setServicesMenuOpen(!servicesMenuOpen)}
                   >
                     {t('header.services')}
-                    <ChevronDown className={`ml-1 h-4 w-4 lg:h-5 lg:w-5 transition-transform duration-200 ${servicesMenuOpen ? 'rotate-180' : ''}`} />
+                    <ChevronDown className={`ml-1 h-4 w-4 ${isLaptopScreen ? 'md:h-4 md:w-4' : 'lg:h-5 lg:w-5'} transition-transform duration-200 ${servicesMenuOpen ? 'rotate-180' : ''}`} />
                   </button>
                 </div>
 
                 {/* Other top-level links */}
                 <Link
                   to="/about-fablab"
-                  className={`${shouldUseBlackTheme ? "text-white hover:text-[#f05a28]" : "text-black hover:text-brand-red"} transition-colors text-sm lg:text-base xl:text-lg px-1 sm:px-2`}
+                  style={textStyle}
+                  className={`${shouldUseBlackTheme ? "text-white hover:text-[#f05a28]" : "text-black hover:text-brand-red"} transition-colors text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} px-1 sm:px-2`}
                 >
                   {t('header.aboutFablab')}
                 </Link>
                 <Link
                   to="/projects"
-                  className={`${shouldUseBlackTheme ? "text-white hover:text-[#f05a28]" : "text-black hover:text-brand-red"} transition-colors text-sm lg:text-base xl:text-lg px-1 sm:px-2`}
+                  style={textStyle}
+                  className={`${shouldUseBlackTheme ? "text-white hover:text-[#f05a28]" : "text-black hover:text-brand-red"} transition-colors text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} px-1 sm:px-2`}
                 >
                   {t('header.projects')}
                 </Link>
                 <Link
                   to="/book-session"
-                  className="bg-[#E6DB00] text-black px-2 sm:px-3 lg:px-4 xl:px-6 py-1.5 sm:py-2 text-sm lg:text-base xl:text-lg hover:opacity-90 transition-opacity"
+                  style={{...textStyle, ...buttonStyle}}
+                  className={`bg-[#E6DB00] text-black px-2 sm:px-3 ${isLaptopScreen ? 'md:px-3 md:py-1.5' : 'lg:px-4 xl:px-6'} py-1.5 sm:py-2 text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} hover:opacity-90 transition-opacity`}
                 >
                   {t('header.bookSession')}
                 </Link>
 
                 {/* Language Switcher */}
-                <div className="flex items-center ml-2 md:ml-3 lg:ml-4 xl:ml-6">
+                <div className={`flex items-center ml-2 ${isLaptopScreen ? 'md:ml-1' : 'md:ml-3 lg:ml-4 xl:ml-6'}`}>
                   <LanguageSwitcher />
                 </div>
 
                 {/* Hamburger / close */}
                 <button
-                  className="flex items-center justify-center hover:opacity-75 transition-opacity ml-2 sm:ml-3 md:ml-4 lg:ml-5 xl:ml-6"
+                  className={`flex items-center justify-center hover:opacity-75 transition-opacity ml-2 sm:ml-3 ${isLaptopScreen ? 'md:ml-2' : 'md:ml-4 lg:ml-5 xl:ml-6'}`}
                   onClick={toggleMenu}
                 >
-                  <span className={`flex items-center space-x-1 border ${shouldUseBlackTheme ? "border-white" : "border-black"} px-2 sm:px-3 py-1.5 sm:py-2 ${shouldUseBlackTheme ? "bg-black text-white" : "bg-white text-black"}`}>
-                    {isMobileMenuOpen ? <X size={18} className="lg:w-5 lg:h-5 xl:w-6 xl:h-6" /> : <Menu size={18} className="lg:w-5 lg:h-5 xl:w-6 xl:h-6" />}
-                    <span className="text-sm lg:text-base xl:text-lg">
+                  <span 
+                    style={buttonStyle}
+                    className={`flex items-center space-x-1 border ${shouldUseBlackTheme ? "border-white" : "border-black"} px-2 sm:px-3 py-1.5 sm:py-2 ${shouldUseBlackTheme ? "bg-black text-white" : "bg-white text-black"}`}
+                  >
+                    {isMobileMenuOpen ? 
+                      <X size={isLaptopScreen ? 16 : 18} className={`${isLaptopScreen ? 'md:w-4 md:h-4' : 'lg:w-5 lg:h-5 xl:w-6 xl:h-6'}`} /> : 
+                      <Menu size={isLaptopScreen ? 16 : 18} className={`${isLaptopScreen ? 'md:w-4 md:h-4' : 'lg:w-5 lg:h-5 xl:w-6 xl:h-6'}`} />
+                    }
+                    <span style={textStyle} className={`text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'}`}>
                       {t('header.menu')}
                     </span>
                   </span>
@@ -225,11 +286,12 @@ const Header = () => {
       {/* Secondary bar: exactly navWidth, three equal sections */}
       <div
         ref={servicesMenuRef}
-        className={`fixed top-16 sm:top-20 md:top-24 lg:top-28 right-0 z-40 overflow-hidden transition-all duration-500 ease-in-out ${
+        className={`fixed right-0 z-40 overflow-hidden transition-all duration-500 ease-in-out ${
           servicesMenuOpen ? "max-h-[350px] opacity-100 visible" : "max-h-0 opacity-0 invisible"
         }`}
         style={{ 
           width: navWidth > 0 ? navWidth : 'auto',
+          top: getDropdownPosition()
         }}
         onMouseEnter={handleServicesMouseEnter}
         onMouseLeave={handleServicesMouseLeave}
@@ -238,22 +300,25 @@ const Header = () => {
              style={{ 
                transform: servicesMenuOpen ? 'translateY(0)' : 'translateY(-100%)'
              }}>
-          <div className="grid grid-cols-3 min-h-[4rem] sm:min-h-[5rem] md:min-h-[6rem] lg:min-h-[7rem] items-stretch">
+          <div className={`grid grid-cols-3 min-h-[4rem] sm:min-h-[5rem] ${isLaptopScreen ? 'md:min-h-[4.5rem]' : 'md:min-h-[6rem] lg:min-h-[7rem]'} items-stretch`}>
             <Link
               to="/mould"
-              className="col-span-1 flex items-center justify-center text-black hover:text-white bg-gray-100 hover:bg-[#0e9a48] transition-all duration-300 text-sm lg:text-base xl:text-lg transform transition-transform hover:translate-y-1 ease-out p-4"
+              style={textStyle}
+              className={`col-span-1 flex items-center justify-center text-black hover:text-white bg-gray-100 hover:bg-[#0e9a48] transition-all duration-300 text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} transform transition-transform hover:translate-y-1 ease-out p-4`}
             >
               {t('header.mould')}
             </Link>
             <Link
               to="/3d-printing"
-              className="col-span-1 flex items-center justify-center text-black hover:text-white bg-gray-100 hover:bg-[#cb2026] transition-all duration-300 text-sm lg:text-base xl:text-lg transform transition-transform hover:translate-y-1 ease-out delay-[100ms] p-4"
+              style={textStyle}
+              className={`col-span-1 flex items-center justify-center text-black hover:text-white bg-gray-100 hover:bg-[#cb2026] transition-all duration-300 text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} transform transition-transform hover:translate-y-1 ease-out delay-[100ms] p-4`}
             >
               {t('header.3dPrinting')}
             </Link>
             <Link
               to="/prototyping"
-              className="col-span-1 flex items-center justify-center text-black hover:text-white bg-gray-100 hover:bg-[#35469d] transition-all duration-300 text-sm lg:text-base xl:text-lg transform transition-transform hover:translate-y-1 ease-out delay-[200ms] p-4"
+              style={textStyle}
+              className={`col-span-1 flex items-center justify-center text-black hover:text-white bg-gray-100 hover:bg-[#35469d] transition-all duration-300 text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} transform transition-transform hover:translate-y-1 ease-out delay-[200ms] p-4`}
             >
               {t('header.prototyping')}
             </Link>

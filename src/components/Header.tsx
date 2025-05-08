@@ -223,7 +223,7 @@ const Header = () => {
                   {t('header.aboutFablab')}
                 </Link>
                 <Link
-                  to="/projects"
+                  to="/blog"
                   style={textStyle}
                   className={`${shouldUseBlackTheme ? "text-white hover:text-blue-500" : "text-black hover:text-blue-600"} transition-colors text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} px-1 sm:px-2`}
                 >

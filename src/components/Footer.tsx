@@ -14,6 +14,14 @@ const Footer = ({ bgClass = "bg-black", textClass = "text-white" }: FooterProps)
   const linkHoverColor = bgClass.includes("white") ? "hover:text-blue-600" : "hover:text-brand-yellow";
   const secondaryTextColor = bgClass.includes("white") ? "text-gray-600" : "text-gray-400";
   
+  // Function to scroll to contact section
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact-section');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+  
   return (
     <footer className={`${bgClass} ${textClass}`}>
       <div className="container mx-auto px-4 md:px-8 py-12">
@@ -78,7 +86,7 @@ const Footer = ({ bgClass = "bg-black", textClass = "text-white" }: FooterProps)
               <h3 className="text-2xl font-bold mb-6">{t('footer.about')}</h3>
               <ul className="space-y-3">
                 <li>
-                  <Link to="/projects" className={linkHoverColor}>
+                  <Link to="/blog" className={linkHoverColor}>
                     {t('header.projects')}
                   </Link>
                 </li>
@@ -88,9 +96,12 @@ const Footer = ({ bgClass = "bg-black", textClass = "text-white" }: FooterProps)
                   </Link>
                 </li>
                 <li>
-                  <Link to="/" className={linkHoverColor}>
+                  <button 
+                    onClick={scrollToContact}
+                    className={`${linkHoverColor} cursor-pointer`}
+                  >
                     {t('footer.contact')}
-                  </Link>
+                  </button>
                 </li>
               </ul>
             </div>

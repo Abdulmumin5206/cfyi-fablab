@@ -19,6 +19,18 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
   const isLaptopScreen = windowWidth < 1440;
   const isLargeScreen = windowWidth >= 1920; // For 27" monitors and above
 
+  // Function to scroll to contact section and close menu
+  const scrollToContact = () => {
+    onClose(); // Close the mobile menu first
+    setTimeout(() => {
+      // Wait for menu to close before scrolling
+      const contactSection = document.getElementById('contact-section');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 300);
+  };
+
   // Lock body scroll when menu is open
   useEffect(() => {
     if (isOpen) {
@@ -272,16 +284,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       Mould & Spare Parts
                     </Link>
                     <Link 
-                      to="/prototyping"
-                      onClick={onClose}
-                      className={`block ${isLargeScreen ? 'text-3xl' : 'text-2xl'} text-white hover:text-[#35469d] transition-colors duration-300 ${
-                        isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-                      }`}
-                    >
-                      Prototyping
-                    </Link>
-                    <Link 
-                      to="/projects"
+                      to="/blog"
                       onClick={onClose}
                       className={`block ${isLargeScreen ? 'text-3xl' : 'text-2xl'} text-white hover:text-[#E6DB00] transition-colors duration-300 ${
                         isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
@@ -307,15 +310,14 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                     >
                       Blog
                     </Link>
-                    <Link
-                      to="/contact"
-                      onClick={onClose}
-                      className={`block ${isLargeScreen ? 'text-3xl' : 'text-2xl'} text-white hover:text-[#E6DB00] transition-colors duration-300 ${
+                    <button
+                      onClick={scrollToContact}
+                      className={`block ${isLargeScreen ? 'text-3xl' : 'text-2xl'} text-white hover:text-[#E6DB00] transition-colors duration-300 text-left ${
                         isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                       }`}
                     >
                       Contact us
-                    </Link>
+                    </button>
                     <Link
                       to="/book-session"
                       onClick={onClose}

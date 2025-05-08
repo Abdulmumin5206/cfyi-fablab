@@ -74,7 +74,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
     {
       title: "3D Printing",
       description: "Additive manufacturing for rapid prototyping and production",
-      path: "/menu",
+      path: "/3d-printing",
       image: "/menu/3Dprinting.webp",
       color: "bg-[#cb2026]"
     },
@@ -88,7 +88,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
     {
       title: "Engineering",
       description: "Turn your ideas into physical prototypes quickly",
-      path: "/menu",
+      path: "/engineering",
       image: "/menu/form3plus-hero_main-v2.webp",
       color: "bg-[#35469d]"
     }

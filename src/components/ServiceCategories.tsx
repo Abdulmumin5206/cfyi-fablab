@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { ArrowRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 interface ServiceCategory {
   id: string;
@@ -63,8 +64,8 @@ const ServiceCategories = () => {
         "/fablab/11.jpg",
       ],
       logoText: "Think: Engineering",
-      buttonTextKey: "header.engineering",
-      buttonLink: "/engineering",
+      buttonTextKey: "header.prototyping",
+      buttonLink: "/prototyping",
       color: "bg-[#35469d]",
     },
   ];
@@ -165,13 +166,13 @@ const ServiceCategories = () => {
               <p className="text-sm mb-5 text-gray-700 leading-relaxed">{t(category.descriptionKey)}</p>
 
               {/* Button */}
-              <a
-                href={category.buttonLink}
+              <Link
+                to={category.buttonLink}
                 className={`inline-flex items-center ${category.color} text-white py-1.5 px-3 hover:opacity-90 transition-opacity text-sm`}
               >
                 <span>{t(`Explore ${t(category.buttonTextKey)}`)}</span>
                 <ArrowRight size={14} className="ml-1.5" />
-              </a>
+              </Link>
             </div>
           ))}
         </div>

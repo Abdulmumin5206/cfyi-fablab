@@ -179,7 +179,16 @@ const Header = () => {
                 isScrolled ? "bg-white" : "bg-transparent"
               }`}
             >
-              <Link to="/" className="block h-full py-3">
+              <Link 
+                to="/" 
+                className="block h-full py-3"
+                onClick={(e) => {
+                  if (location.pathname === '/') {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }
+                }}
+              >
                 <img
                   style={logoStyle}
                   src="/fablab/logo.png"
@@ -215,13 +224,15 @@ const Header = () => {
                 </div>
 
                 {/* Other top-level links */}
-                <Link
-                  to="/about-fablab"
+                <a
+                  href="https://cfyi.uz/fablab"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   style={textStyle}
                   className={`${shouldUseBlackTheme ? "text-white hover:text-blue-500" : "text-black hover:text-blue-600"} transition-colors text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} px-1 sm:px-2`}
                 >
                   {t('header.aboutFablab')}
-                </Link>
+                </a>
                 <Link
                   to="/blog"
                   style={textStyle}

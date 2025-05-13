@@ -21,7 +21,7 @@ const ServiceCategories = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState<{ [key: string]: number }>({
     "3d-printing": 0,
     "mould": 0,
-    "engineering": 0,
+    "custom-fabrication": 0,
   });
 
   const categories: ServiceCategory[] = [
@@ -49,23 +49,24 @@ const ServiceCategories = () => {
         "/main/molding1.jpg",
         "/main/molding2.jpg",
       ],
-      logoText: "Think: Mould",
+      logoText: "Think: Moulding and Spare Parts",
       buttonTextKey: "serviceCategories.mould.title",
       buttonLink: "/mould",
       color: "bg-[#0e9a48]",
     },
     {
-      id: "engineering",
-      titleKey: "header.engineering",
-      descriptionKey: "serviceCategories.prototyping.description",
+      id: "custom-fabrication",
+      titleKey: "serviceCategories.customFabrication.title",
+      descriptionKey: "serviceCategories.customFabrication.description",
       images: [
+        "/main/prototyping1.webp",
         "/fablab/13.jpg",
         "/fablab/1.jpg",
-        "/fablab/11.jpg",
+        "/fablab/11.jpg"
       ],
-      logoText: "Think: Engineering",
-      buttonTextKey: "header.prototyping",
-      buttonLink: "/prototyping",
+      logoText: "Think: Custom Fabrication",
+      buttonTextKey: "serviceCategories.customFabrication.title",
+      buttonLink: "/custom-fabrication",
       color: "bg-[#35469d]",
     },
   ];

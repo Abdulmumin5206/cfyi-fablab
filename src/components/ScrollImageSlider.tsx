@@ -42,15 +42,18 @@ const ScrollImageSlider = () => {
   const quotes = [
     {
       title: "Innovation Lab",
-      text: "Our state-of-the-art facility equipped with the latest technology for digital fabrication and prototyping."
+      achievement: "500+ Projects Completed",
+      text: "Our state-of-the-art facility is equipped with the latest technology for digital fabrication and prototyping. Empowering creators to launch their ideas."
     },
     {
       title: "Creative Workspace",
-      text: "Where ideas transform into reality through collaboration, experimentation, and cutting-edge tools."
+      achievement: "1000+ Active Makers",
+      text: "A thriving community of innovators. Where ideas transform into reality through collaboration, experimentation, and cutting-edge tools."
     },
     {
       title: "Future Development",
-      text: "Building tomorrow's solutions with advanced manufacturing techniques and innovative approaches."
+      achievement: "99.9% Precision Rate",
+      text: "Industry-leading accuracy in every project. Building tomorrow's solutions with advanced manufacturing techniques and innovative approaches."
     }
   ];
 
@@ -94,6 +97,13 @@ const ScrollImageSlider = () => {
         >
           {/* Image container - full viewport size with all images visible */}
           <div className="absolute inset-0 w-full h-full">
+            {/* Fixed Mission Quote */}
+            <div className="absolute left-0 top-0 bottom-0 w-1/2 hidden md:flex items-center justify-center z-50 px-8 md:px-12 lg:px-16">
+              <p className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-relaxed">
+                Empowering innovation through accessible fabrication technology. We provide the tools, space, and expertise to turn ideas into reality.
+              </p>
+            </div>
+
             {/* Then overlay the transitioning images with improved transitions */}
             {images.map((src, index) => {
               // Special handling for transitions
@@ -150,6 +160,14 @@ const ScrollImageSlider = () => {
                       minHeight: "100%",
                       transform: "translateZ(0)" // Force GPU acceleration
                     }}
+                  />
+                  {/* Dark overlay */}
+                  <div 
+                    className="absolute inset-0 bg-black" 
+                    style={{ 
+                      zIndex: 1,
+                      opacity: 0.4 // Adjust this value to make it darker or lighter
+                    }} 
                   />
                   {/* Add a solid color backdrop to ensure no content shows through */}
                   <div 
@@ -217,13 +235,16 @@ const ScrollImageSlider = () => {
                   }}
                 >
                   <motion.div 
-                    className="bg-white p-8 flex flex-col justify-center text-gray-800 border border-gray-200 shadow-lg will-change-transform transition-transform duration-700 ease-out w-[350px] h-[400px] sm:w-[400px] sm:h-[450px] md:w-[450px] md:h-[500px] lg:w-[500px] lg:h-[550px]"
+                    className="bg-white p-8 flex flex-col justify-center text-gray-800 border border-gray-200 shadow-lg will-change-transform transition-transform duration-700 ease-out w-[350px] h-[400px] sm:w-[400px] sm:h-[450px] md:w-[450px] md:h-[500px] lg:w-[500px] lg:h-[550px] text-left"
                     style={{
                       transform: cssYValue
                     }}
                   >
-                    <h3 className="text-2xl sm:text-3xl font-bold mb-4">{quote.title}</h3>
-                    <p className="text-lg sm:text-xl">{quote.text}</p>
+                    <h3 className="text-2xl sm:text-3xl font-bold mb-4 text-left">{quote.title}</h3>
+                    <div className="mb-4">
+                      <span className="block text-4xl sm:text-5xl font-extrabold leading-tight text-gray-900">{quote.achievement}</span>
+                    </div>
+                    <p className="text-lg sm:text-xl text-gray-600 text-left">{quote.text}</p>
                   </motion.div>
                 </motion.div>
               );

@@ -66,8 +66,8 @@ const AboutSection = () => {
       id: "manufacturing",
       title: "Manufacturing",
       iconPath: "/main/manufacturingsvg.webp",
-      description: "Manufacturing solutions for production needs, from jigs and fixtures to end-use components.",
-      capabilities: ["Production tooling", "Assembly fixtures", "Custom components", "Short-run production"],
+      description: "Manufacturing solutions for production needs, including moulding and spare parts, from jigs and fixtures to end-use components.",
+      capabilities: ["Production tooling", "Assembly fixtures", "Custom components", "Short-run production", "Moulding and spare parts"],
       caseStudies: [
         {
           title: "Custom Manufacturing Fixtures",

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface IndustryCategory {
   id: string;
@@ -19,6 +20,8 @@ const AboutSection = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [activeIndustry, setActiveIndustry] = useState<string | null>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
 
   // Function to handle contact button click
   const handleContactClick = (industryTitle: string) => {
@@ -141,19 +144,6 @@ const AboutSection = () => {
       ]
     },
     {
-      id: "dental",
-      title: "Dental",
-      iconPath: "/main/dentalsvg.webp",
-      description: "Advanced dental solutions for practitioners and laboratories, from surgical guides to custom prosthetics.",
-      capabilities: ["Surgical guides", "Dental models", "Custom prosthetics", "Implant components"],
-      caseStudies: [
-        {
-          title: "Custom Dental Implants",
-          description: "Precision-engineered implants tailored to patient anatomy for improved comfort and results."
-        }
-      ]
-    },
-    {
       id: "jewelry",
       title: "Jewelry",
       iconPath: "/main/jewelrysvg.webp",
@@ -211,6 +201,31 @@ const AboutSection = () => {
     };
   }, []);
 
+  // Check scrollability for arrows
+  useEffect(() => {
+    const checkScroll = () => {
+      if (scrollContainerRef.current) {
+        const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
+        setCanScrollLeft(scrollLeft > 0);
+        setCanScrollRight(scrollLeft + clientWidth < scrollWidth - 1);
+      }
+    };
+    const container = scrollContainerRef.current;
+    if (container) {
+      container.addEventListener('scroll', checkScroll);
+      checkScroll();
+    }
+    return () => {
+      if (container) container.removeEventListener('scroll', checkScroll);
+    };
+  }, []);
+
+  const scrollByAmount = (amount: number) => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({ left: amount, behavior: 'smooth' });
+    }
+  };
+
   // Create placeholder URLs for icons that might not exist yet
   const getIconUrl = (icon: string) => {
     return icon || "https://placehold.co/200x200/333/white?text=Industry";
@@ -229,20 +244,22 @@ const AboutSection = () => {
         const img = new Image();
         img.src = `/main/popups/${industry.id}.${industry.id === 'manufacturing' ? 'png' : (industry.id === 'education' || industry.id === 'medical' || industry.id === 'engineering' ? 'webp' : 'jpg')}`;
       }}
-      className={`bg-white text-gray-800 p-4 rounded-none shadow-sm cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:shadow-lg group ${
+      className={`bg-white text-gray-800 flex flex-col items-center justify-center border border-gray-200 shadow-md rounded-lg cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group ${
         isVisible
           ? "opacity-100 translate-y-0"
           : "opacity-0 translate-y-10"
       }`}
       style={{ 
         aspectRatio: '1/1',
-        width: '100%', 
-        minWidth: '160px',
-        maxWidth: '200px'
+        width: '100%',
+        minWidth: '120px',
+        maxWidth: '150px',
+        transition: 'min-width 0.3s, max-width 0.3s',
+        margin: '0 auto',
       }}
     >
-      <div className="h-full flex flex-col items-center justify-center">
-        <div className="w-24 h-24 md:w-20 md:h-20 mb-3 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+      <div className="flex flex-col items-center justify-center h-full w-full">
+        <div className="w-16 h-16 md:w-20 md:h-20 mb-2 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
           <img 
             src={getIconUrl(industry.iconPath)} 
             alt={`${industry.title} icon`} 
@@ -253,7 +270,7 @@ const AboutSection = () => {
             }}
           />
         </div>
-        <h3 className="text-center text-base font-medium transition-all duration-300 group-hover:text-brand-yellow">{industry.title}</h3>
+        <h3 className="text-center text-base font-semibold transition-all duration-300 group-hover:text-brand-yellow mt-1">{industry.title}</h3>
       </div>
     </div>
   );
@@ -270,11 +287,22 @@ const AboutSection = () => {
           </p>
         </div>
 
-        {/* Mobile scrollable layout with visual indicators */}
+        {/* Mobile scrollable layout with visual indicators and arrows */}
         <div className="md:hidden relative">
+          {/* Left Arrow */}
+          {canScrollLeft && (
+            <button
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-white rounded-full shadow p-1.5"
+              style={{ marginLeft: 2 }}
+              onClick={() => scrollByAmount(-140)}
+              aria-label="Scroll left"
+            >
+              <ChevronLeft size={22} className="text-gray-700" />
+            </button>
+          )}
           <div 
             ref={scrollContainerRef}
-            className="flex overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide pl-4" 
+            className="flex overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide pl-4 gap-3 items-stretch" 
             style={{ 
               scrollbarWidth: 'none', 
               msOverflowStyle: 'none' 
@@ -283,30 +311,32 @@ const AboutSection = () => {
             {industries.map((industry, index) => (
               <div 
                 key={industry.id} 
-                className="flex-none w-[85%] snap-start mr-2"
-                style={{ minWidth: '280px' }}
+                className="flex-none snap-start"
+                style={{ minWidth: '140px', maxWidth: '170px', marginRight: index === industries.length - 1 ? 0 : '12px' }}
               >
-                <div className="pb-2 flex justify-center">
+                <div className="pb-2 flex justify-center h-full">
                   <div
                     onClick={() => openPopup(industry.id)}
                     onMouseEnter={() => {
                       const img = new Image();
                       img.src = `/main/popups/${industry.id}.${industry.id === 'manufacturing' ? 'png' : (industry.id === 'education' || industry.id === 'medical' || industry.id === 'engineering' ? 'webp' : 'jpg')}`;
                     }}
-                    className={`bg-white text-gray-800 p-6 rounded-none shadow-sm cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:shadow-lg group ${
+                    className={`flex flex-col items-center justify-center bg-white text-gray-800 border border-gray-200 shadow-md rounded-lg cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group ${
                       isVisible
                         ? "opacity-100 translate-y-0"
                         : "opacity-0 translate-y-10"
                     }`}
                     style={{ 
                       aspectRatio: '1/1',
-                      width: '100%', 
-                      minWidth: '280px',
-                      maxWidth: '320px'
+                      width: '100%',
+                      minWidth: '120px',
+                      maxWidth: '150px',
+                      transition: 'min-width 0.3s, max-width 0.3s',
+                      margin: '0 auto',
                     }}
                   >
-                    <div className="h-full flex flex-col items-center justify-center">
-                      <div className="w-32 h-32 mb-4 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                    <div className="flex flex-col items-center justify-center h-full w-full">
+                      <div className="w-16 h-16 mb-2 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
                         <img 
                           src={getIconUrl(industry.iconPath)} 
                           alt={`${industry.title} icon`} 
@@ -317,22 +347,30 @@ const AboutSection = () => {
                           }}
                         />
                       </div>
-                      <h3 className="text-center text-lg font-medium transition-all duration-300 group-hover:text-brand-yellow">{industry.title}</h3>
+                      <h3 className="text-center text-base font-semibold transition-all duration-300 group-hover:text-brand-yellow mt-1">{industry.title}</h3>
                     </div>
                   </div>
                 </div>
               </div>
             ))}
           </div>
-          
-          {/* Visual indicator for scrolling */}
-          <div className="absolute right-0 top-0 bottom-8 w-20 bg-gradient-to-l from-brand-gray to-transparent pointer-events-none"></div>
+          {/* Right Arrow */}
+          {canScrollRight && (
+            <button
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-white rounded-full shadow p-1.5"
+              style={{ marginRight: 2 }}
+              onClick={() => scrollByAmount(140)}
+              aria-label="Scroll right"
+            >
+              <ChevronRight size={22} className="text-gray-700" />
+            </button>
+          )}
         </div>
 
         {/* Tablet/Desktop grid layout */}
-        <div className="hidden md:grid grid-cols-9 gap-2 max-w-[1600px] mx-auto">
+        <div className="hidden md:grid grid-cols-8 gap-4 max-w-[1200px] mx-auto items-center justify-center">
           {industries.map((industry, index) => (
-            <div key={industry.id} className="flex justify-center">
+            <div key={industry.id} className="flex justify-center items-center">
               {renderIndustryCard(industry, index)}
             </div>
           ))}
@@ -346,7 +384,8 @@ const AboutSection = () => {
           onClick={closePopup}
         >
           <div 
-            className="bg-white w-full max-w-5xl rounded-md flex flex-col"
+            className="bg-white w-full max-w-3xl rounded-md flex flex-col shadow-xl overflow-hidden"
+            style={{ maxHeight: '90vh' }}
             onClick={(e) => e.stopPropagation()}
           >
             <div className="bg-white z-10 flex justify-between items-center border-b p-4">
@@ -374,10 +413,9 @@ const AboutSection = () => {
               </button>
             </div>
 
-            <div className="flex flex-col md:flex-row p-4 gap-6 flex-grow">
+            <div className="flex flex-col md:flex-row gap-6 flex-grow overflow-y-auto p-4" style={{ maxHeight: '80vh' }}>
               <div className="md:w-1/2 space-y-6">
                 <p className="text-base">{activeIndustryData.description}</p>
-                
                 <div>
                   <h4 className="text-lg font-semibold mb-2">Capabilities</h4>
                   <ul className="grid grid-cols-1 gap-2">
@@ -391,7 +429,6 @@ const AboutSection = () => {
                     ))}
                   </ul>
                 </div>
-
                 {activeIndustryData.caseStudies.length > 0 && (
                   <div>
                     <h4 className="text-lg font-semibold mb-2">Case Studies</h4>
@@ -406,13 +443,12 @@ const AboutSection = () => {
                   </div>
                 )}
               </div>
-              
               {/* Industry showcase image */}
-              <div className="md:w-1/2 rounded-md overflow-hidden h-auto">
+              <div className="md:w-1/2 rounded-md overflow-hidden h-auto flex items-center justify-center">
                 <img 
                   src={`/main/popups/${activeIndustryData.id}.${activeIndustryData.id === 'manufacturing' ? 'png' : (activeIndustryData.id === 'education' || activeIndustryData.id === 'medical' || activeIndustryData.id === 'engineering' ? 'webp' : 'jpg')}`}
                   alt={`${activeIndustryData.title} showcase`}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain max-h-48"
                   style={{ aspectRatio: '16/9' }}
                   loading="eager"
                   decoding="async"

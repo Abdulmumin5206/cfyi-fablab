@@ -121,36 +121,31 @@ const Header = () => {
 
   // Dynamic styling for laptop screens
   const headerStyle = isLaptopScreen ? {
-    height: '75px'
+    height: windowWidth < 768 ? '60px' : windowWidth < 1024 ? '70px' : '75px'
   } : {};
 
   const logoStyle = isLaptopScreen ? {
-    maxHeight: '50px'
+    maxHeight: windowWidth < 768 ? '40px' : windowWidth < 1024 ? '45px' : '50px'
   } : {};
 
   const textStyle = isLaptopScreen ? {
-    fontSize: '0.9375rem' // 15px
+    fontSize: windowWidth < 768 ? '0.875rem' : windowWidth < 1024 ? '0.9375rem' : '1rem'
   } : {};
 
   const buttonStyle = isLaptopScreen ? {
-    padding: '0.375rem 0.75rem' // slightly larger padding
+    padding: windowWidth < 768 ? '0.25rem 0.5rem' : windowWidth < 1024 ? '0.375rem 0.75rem' : '0.5rem 1rem'
   } : {};
   
   // Position dropdown based on header height
   const getDropdownPosition = () => {
-    if (isLaptopScreen) {
-      return '75px';
+    if (windowWidth < 768) {
+      return '60px'; // mobile
+    } else if (windowWidth < 1024) {
+      return '70px'; // tablet
+    } else if (windowWidth < 1440) {
+      return '75px'; // laptop
     } else {
-      // Standard breakpoints
-      if (windowWidth < 640) {
-        return '4rem'; // sm
-      } else if (windowWidth < 768) {
-        return '5rem'; // md
-      } else if (windowWidth < 1024) {
-        return '6rem'; // lg
-      } else {
-        return '7rem'; // xl
-      }
+      return '80px'; // desktop
     }
   };
   

@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
@@ -18,6 +18,7 @@ const ServiceCategories = () => {
   const { t } = useTranslation();
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
   const [currentImageIndex, setCurrentImageIndex] = useState<{ [key: string]: number }>({
     "3d-printing": 0,
     "mould": 0,
@@ -73,7 +74,6 @@ const ServiceCategories = () => {
 
   // Auto-scroll effect for image sliders
   useEffect(() => {
-    // Only start auto-scroll when section is visible
     if (!isVisible) return;
     
     const intervalIds = categories.map(category => {
@@ -82,7 +82,7 @@ const ServiceCategories = () => {
           ...prev,
           [category.id]: (prev[category.id] + 1) % category.images.length
         }));
-      }, 3000 + Math.random() * 1000); // Slightly different interval for each slider to make them look less synchronized
+      }, 4000 + Math.random() * 1000); // Increased interval for better UX
     });
     
     return () => {
@@ -100,6 +100,7 @@ const ServiceCategories = () => {
       },
       {
         threshold: 0.1,
+        rootMargin: "0px 0px -100px 0px"
       }
     );
 
@@ -114,65 +115,144 @@ const ServiceCategories = () => {
     };
   }, []);
 
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % categories.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + categories.length) % categories.length);
+  };
+
   return (
-    <section ref={sectionRef} id="service-categories" className="py-16 bg-white relative">
-      {/* Subtle background pattern */}
-      <div className="absolute inset-0 opacity-5 bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none"></div>
+    <section 
+      ref={sectionRef} 
+      id="service-categories" 
+      className="py-12 sm:py-16 md:py-20 lg:py-24 bg-white relative"
+      aria-label="Our Services"
+    >
+      {/* Subtle background pattern with improved opacity */}
+      <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none"></div>
       
-      <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-[1600px] relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1600px] relative z-10">
+        <div className="text-center mb-12 sm:mb-16 md:mb-20">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
             {t('serviceCategories.title')}
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base md:text-lg">
             {t('serviceCategories.subtitle')}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 max-w-[1600px] mx-auto">
+        {/* Mobile Carousel */}
+        <div className="block sm:hidden relative">
+          <div className="relative w-full">
+            {categories.map((category, index) => (
+              <div
+                key={category.id}
+                className={`w-full transition-all duration-500 ease-in-out ${
+                  index === currentSlide ? 'block' : 'hidden'
+                }`}
+              >
+                <div className="relative aspect-[4/3] mb-6 overflow-hidden rounded-lg shadow-lg">
+                  {category.images.map((image, imgIndex) => (
+                    <div
+                      key={imgIndex}
+                      className={`absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out ${
+                        currentImageIndex[category.id] === imgIndex 
+                          ? 'opacity-100 scale-100' 
+                          : 'opacity-0 scale-105'
+                      }`}
+                      style={{ backgroundImage: `url(${image})` }}
+                      role="img"
+                      aria-label={`${t(category.titleKey)} - Image ${imgIndex + 1}`}
+                    />
+                  ))}
+                  
+                  <div className={`absolute bottom-0 left-0 right-0 ${category.color} py-4 px-6`}>
+                    <p className="text-white font-medium text-lg">
+                      {t(category.titleKey)}
+                    </p>
+                  </div>
+                </div>
+                
+                <p className="text-base text-gray-700 leading-relaxed mb-6 px-4">
+                  {t(category.descriptionKey)}
+                </p>
+
+                <Link 
+                  to={category.buttonLink}
+                  className={`inline-flex items-center ${category.color} text-white py-3 px-6 rounded-sm hover:opacity-90 transition-all duration-300 text-base mx-4`}
+                  aria-label={`Learn more about ${t(category.titleKey)}`}
+                >
+                  <span>{t(`Explore ${t(category.buttonTextKey)}`)}</span>
+                  <ArrowRight size={20} className="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+                </Link>
+              </div>
+            ))}
+          </div>
+
+          <button
+            onClick={prevSlide}
+            className="absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-white/90 p-2 rounded-full shadow-lg hover:bg-white transition-all duration-300"
+            aria-label="Previous service"
+          >
+            <ChevronLeft size={24} className="text-gray-800" />
+          </button>
+          
+          <button
+            onClick={nextSlide}
+            className="absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-white/90 p-2 rounded-full shadow-lg hover:bg-white transition-all duration-300"
+            aria-label="Next service"
+          >
+            <ChevronRight size={24} className="text-gray-800" />
+          </button>
+        </div>
+
+        {/* Desktop Grid */}
+        <div className="hidden sm:flex flex-row justify-center gap-8 sm:gap-10 lg:gap-12 max-w-[1600px] mx-auto">
           {categories.map((category, index) => (
             <div
               key={category.id}
-              className={`transition-all duration-700 transform ${
+              className={`group transition-all duration-700 transform w-[300px] sm:w-[400px] lg:w-[500px] xl:w-[600px] ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-10"
               }`}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
-              {/* Auto-scrolling Image Slider */}
-              <div className="relative aspect-square mb-10 overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300">
-                {/* Images with auto-transition */}
+              <div className="relative aspect-[16/9] sm:aspect-[16/10] lg:aspect-[16/11] xl:aspect-[16/12] mb-6 sm:mb-8 lg:mb-10 xl:mb-12 overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
                 {category.images.map((image, imgIndex) => (
                   <div
                     key={imgIndex}
-                    className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${
+                    className={`absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out ${
                       currentImageIndex[category.id] === imgIndex 
-                        ? 'opacity-100 z-10' 
-                        : 'opacity-0 z-0'
+                        ? 'opacity-100 scale-100 z-10' 
+                        : 'opacity-0 scale-105 z-0'
                     }`}
                     style={{ backgroundImage: `url(${image})` }}
+                    role="img"
+                    aria-label={`${t(category.titleKey)} - Image ${imgIndex + 1}`}
                   />
                 ))}
                 
-                {/* Category Label */}
-                <div className={`absolute bottom-0 left-0 ${category.color} py-2 px-4 z-20`}>
-                  <p className="text-white font-medium">
+                <div className={`absolute bottom-0 left-0 right-0 ${category.color} py-1.5 sm:py-2 lg:py-2.5 xl:py-3 px-2 sm:px-3 lg:px-4 xl:px-5 z-20 transform transition-transform duration-300 group-hover:translate-y-0 translate-y-full`}>
+                  <p className="text-white font-medium text-xs sm:text-sm lg:text-base xl:text-lg">
                     {t(category.titleKey)}
                   </p>
                 </div>
               </div>
               
-              {/* Description */}
-              <p className="text-sm mb-5 text-gray-700 leading-relaxed">{t(category.descriptionKey)}</p>
+              <p className="text-[10px] sm:text-xs lg:text-sm xl:text-base text-gray-700 leading-relaxed mb-3 sm:mb-4 lg:mb-5 xl:mb-6">
+                {t(category.descriptionKey)}
+              </p>
 
-              {/* Button */}
-              <Link
+              <Link 
                 to={category.buttonLink}
-                className={`inline-flex items-center ${category.color} text-white py-1.5 px-3 hover:opacity-90 transition-opacity text-sm`}
+                className={`inline-flex items-center ${category.color} text-white py-1.5 sm:py-2 lg:py-2.5 xl:py-3 px-2 sm:px-3 lg:px-4 xl:px-5 rounded-sm hover:opacity-90 transition-all duration-300 text-[10px] sm:text-xs lg:text-sm xl:text-base group-hover:translate-x-1`}
+                aria-label={`Learn more about ${t(category.titleKey)}`}
               >
                 <span>{t(`Explore ${t(category.buttonTextKey)}`)}</span>
-                <ArrowRight size={14} className="ml-1.5" />
+                <ArrowRight size={12} className="ml-1 sm:ml-1.5 lg:ml-2 xl:ml-2.5 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             </div>
           ))}

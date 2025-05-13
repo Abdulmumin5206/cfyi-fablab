@@ -63,28 +63,41 @@ const AboutSection = () => {
       ]
     },
     {
-      id: "manufacturing",
-      title: "Manufacturing",
-      iconPath: "/main/manufacturingsvg.webp",
-      description: "Manufacturing solutions for production needs, including moulding and spare parts, from jigs and fixtures to end-use components.",
-      capabilities: ["Production tooling", "Assembly fixtures", "Custom components", "Short-run production", "Moulding and spare parts"],
+      id: "textile",
+      title: "Textile",
+      iconPath: "/main/textilesvg.png",
+      description: "Innovative textile manufacturing solutions and fabric processing equipment for modern production needs.",
+      capabilities: ["Fabric inspection", "Textile machinery", "Processing equipment", "Quality control"],
       caseStudies: [
         {
-          title: "Custom Manufacturing Fixtures",
-          description: "Specialized fixtures that improve production efficiency and quality control."
+          title: "Advanced Fabric Processing",
+          description: "State-of-the-art textile manufacturing solutions for enhanced production efficiency."
         }
       ]
     },
     {
-      id: "education",
-      title: "Education",
-      iconPath: "/main/educationsvg.webp",
-      description: "Educational tools and models for enhanced learning experiences and hands-on training.",
-      capabilities: ["Anatomical models", "Teaching aids", "Interactive tools", "Educational kits"],
+      id: "medical",
+      title: "Medical",
+      iconPath: "/main/medicalsvg.webp",
+      description: "Medical applications from surgical planning models to custom devices and equipment components.",
+      capabilities: ["Patient-specific models", "Surgical planning tools", "Medical device prototypes", "Anatomical replicas"],
       caseStudies: [
         {
-          title: "Educational Anatomy Models",
-          description: "Detailed anatomical models that improve medical education and training."
+          title: "Surgical Planning Models",
+          description: "Custom anatomical models that help surgeons plan and practice complex procedures before surgery."
+        }
+      ]
+    },
+    {
+      id: "furniture",
+      title: "Furniture",
+      iconPath: "/main/furnituresvg.png",
+      description: "Custom furniture design and manufacturing solutions for both residential and commercial applications.",
+      capabilities: ["Custom designs", "Prototype development", "Production tooling", "Assembly solutions"],
+      caseStudies: [
+        {
+          title: "Modern Furniture Collection",
+          description: "Innovative furniture designs brought to life through advanced manufacturing techniques."
         }
       ]
     },
@@ -102,6 +115,32 @@ const AboutSection = () => {
       ]
     },
     {
+      id: "education",
+      title: "Education",
+      iconPath: "/main/educationsvg.webp",
+      description: "Educational tools and models for enhanced learning experiences and hands-on training.",
+      capabilities: ["Anatomical models", "Teaching aids", "Interactive tools", "Educational kits"],
+      caseStudies: [
+        {
+          title: "Educational Anatomy Models",
+          description: "Detailed anatomical models that improve medical education and training."
+        }
+      ]
+    },
+    {
+      id: "manufacturing",
+      title: "Manufacturing",
+      iconPath: "/main/manufacturingsvg.webp",
+      description: "Manufacturing solutions for production needs, including moulding and spare parts, from jigs and fixtures to end-use components.",
+      capabilities: ["Production tooling", "Assembly fixtures", "Custom components", "Short-run production", "Moulding and spare parts"],
+      caseStudies: [
+        {
+          title: "Custom Manufacturing Fixtures",
+          description: "Specialized fixtures that improve production efficiency and quality control."
+        }
+      ]
+    },
+    {
       id: "dental",
       title: "Dental",
       iconPath: "/main/dentalsvg.webp",
@@ -111,19 +150,6 @@ const AboutSection = () => {
         {
           title: "Custom Dental Implants",
           description: "Precision-engineered implants tailored to patient anatomy for improved comfort and results."
-        }
-      ]
-    },
-    {
-      id: "medical",
-      title: "Medical",
-      iconPath: "/main/medicalsvg.webp",
-      description: "Medical applications from surgical planning models to custom devices and equipment components.",
-      capabilities: ["Patient-specific models", "Surgical planning tools", "Medical device prototypes", "Anatomical replicas"],
-      caseStudies: [
-        {
-          title: "Surgical Planning Models",
-          description: "Custom anatomical models that help surgeons plan and practice complex procedures before surgery."
         }
       ]
     },
@@ -198,21 +224,25 @@ const AboutSection = () => {
     <div
       key={industry.id}
       onClick={() => openPopup(industry.id)}
-      className={`bg-white text-gray-800 p-6 rounded-sm shadow-sm cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:shadow-lg group ${
+      onMouseEnter={() => {
+        // Preload the popup image
+        const img = new Image();
+        img.src = `/main/popups/${industry.id}.${industry.id === 'manufacturing' ? 'png' : (industry.id === 'education' || industry.id === 'medical' || industry.id === 'engineering' ? 'webp' : 'jpg')}`;
+      }}
+      className={`bg-white text-gray-800 p-4 rounded-none shadow-sm cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:shadow-lg group ${
         isVisible
           ? "opacity-100 translate-y-0"
           : "opacity-0 translate-y-10"
       }`}
       style={{ 
-        transitionDelay: `${index * 75}ms`,
         aspectRatio: '1/1',
         width: '100%', 
-        minWidth: '200px',
-        maxWidth: '260px'
+        minWidth: '160px',
+        maxWidth: '200px'
       }}
     >
       <div className="h-full flex flex-col items-center justify-center">
-        <div className="w-36 h-36 md:w-28 md:h-28 mb-5 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+        <div className="w-24 h-24 md:w-20 md:h-20 mb-3 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
           <img 
             src={getIconUrl(industry.iconPath)} 
             alt={`${industry.title} icon`} 
@@ -223,7 +253,7 @@ const AboutSection = () => {
             }}
           />
         </div>
-        <h3 className="text-center text-xl font-medium transition-all duration-300 group-hover:text-brand-yellow">{industry.title}</h3>
+        <h3 className="text-center text-base font-medium transition-all duration-300 group-hover:text-brand-yellow">{industry.title}</h3>
       </div>
     </div>
   );
@@ -253,11 +283,43 @@ const AboutSection = () => {
             {industries.map((industry, index) => (
               <div 
                 key={industry.id} 
-                className="flex-none w-[75%] snap-start mr-4"
-                style={{ minWidth: '240px' }}
+                className="flex-none w-[85%] snap-start mr-2"
+                style={{ minWidth: '280px' }}
               >
                 <div className="pb-2 flex justify-center">
-                  {renderIndustryCard(industry, index)}
+                  <div
+                    onClick={() => openPopup(industry.id)}
+                    onMouseEnter={() => {
+                      const img = new Image();
+                      img.src = `/main/popups/${industry.id}.${industry.id === 'manufacturing' ? 'png' : (industry.id === 'education' || industry.id === 'medical' || industry.id === 'engineering' ? 'webp' : 'jpg')}`;
+                    }}
+                    className={`bg-white text-gray-800 p-6 rounded-none shadow-sm cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:shadow-lg group ${
+                      isVisible
+                        ? "opacity-100 translate-y-0"
+                        : "opacity-0 translate-y-10"
+                    }`}
+                    style={{ 
+                      aspectRatio: '1/1',
+                      width: '100%', 
+                      minWidth: '280px',
+                      maxWidth: '320px'
+                    }}
+                  >
+                    <div className="h-full flex flex-col items-center justify-center">
+                      <div className="w-32 h-32 mb-4 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                        <img 
+                          src={getIconUrl(industry.iconPath)} 
+                          alt={`${industry.title} icon`} 
+                          className="w-full h-full object-contain transition-all duration-300"
+                          onError={(e) => {
+                            const target = e.target as HTMLImageElement;
+                            target.src = `https://placehold.co/200x200/333/white?text=${industry.title}`;
+                          }}
+                        />
+                      </div>
+                      <h3 className="text-center text-lg font-medium transition-all duration-300 group-hover:text-brand-yellow">{industry.title}</h3>
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
@@ -268,7 +330,7 @@ const AboutSection = () => {
         </div>
 
         {/* Tablet/Desktop grid layout */}
-        <div className="hidden md:grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-6 max-w-[1600px] mx-auto">
+        <div className="hidden md:grid grid-cols-9 gap-2 max-w-[1600px] mx-auto">
           {industries.map((industry, index) => (
             <div key={industry.id} className="flex justify-center">
               {renderIndustryCard(industry, index)}
@@ -352,6 +414,8 @@ const AboutSection = () => {
                   alt={`${activeIndustryData.title} showcase`}
                   className="w-full h-full object-cover"
                   style={{ aspectRatio: '16/9' }}
+                  loading="eager"
+                  decoding="async"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
                     target.src = `https://placehold.co/800x450/333/white?text=${activeIndustryData.title}`;

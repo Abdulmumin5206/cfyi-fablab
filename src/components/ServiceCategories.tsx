@@ -114,7 +114,7 @@ const ServiceCategories = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-16 bg-white relative">
+    <section ref={sectionRef} id="service-categories" className="py-16 bg-white relative">
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-5 bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none"></div>
       

@@ -20,6 +20,17 @@ const HeroSection = () => {
   const [currentX, setCurrentX] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
 
+  const handleScrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      targetElement.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
   const slides: HeroSlide[] = [
     {
       id: 1,
@@ -27,7 +38,7 @@ const HeroSection = () => {
       titleKey: "hero.slide1.title",
       subtitleKey: "hero.slide1.subtitle",
       buttonTextKey: "hero.slide1.buttonText",
-      buttonLink: "/",
+      buttonLink: "#service-categories",
     },
     {
       id: 2,
@@ -35,7 +46,7 @@ const HeroSection = () => {
       titleKey: "hero.slide2.title",
       subtitleKey: "hero.slide2.subtitle",
       buttonTextKey: "hero.slide2.buttonText",
-      buttonLink: "/",
+      buttonLink: "#about-section",
     },
     {
       id: 3,
@@ -43,7 +54,7 @@ const HeroSection = () => {
       titleKey: "hero.slide3.title",
       subtitleKey: "hero.slide3.subtitle",
       buttonTextKey: "hero.slide3.buttonText",
-      buttonLink: "/",
+      buttonLink: "#contact-section",
     },
     {
       id: 4,
@@ -51,7 +62,7 @@ const HeroSection = () => {
       titleKey: "hero.slide4.title",
       subtitleKey: "hero.slide4.subtitle",
       buttonTextKey: "hero.slide4.buttonText",
-      buttonLink: "/",
+      buttonLink: "https://t.me/+998770884977",
     },
   ];
 
@@ -191,7 +202,9 @@ const HeroSection = () => {
               </p>
               <a
                 href={slide.buttonLink}
-                className="inline-flex items-center space-x-1 sm:space-x-2 bg-white text-black px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 text-sm sm:text-base font-medium"
+                onClick={(e) => slide.buttonLink.startsWith('#') ? handleScrollToSection(e, slide.buttonLink.substring(1)) : undefined}
+                className="inline-flex items-center space-x-1 sm:space-x-2 bg-white text-black px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 text-sm sm:text-base font-medium hover:bg-gray-100 transition-colors duration-300"
+                {...(slide.buttonLink.startsWith('http') ? { target: "_blank", rel: "noopener noreferrer" } : {})}
               >
                 <span>{t(slide.buttonTextKey)}</span>
                 <ArrowRight size={16} />

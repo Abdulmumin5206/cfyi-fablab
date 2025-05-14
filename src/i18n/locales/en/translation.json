@@ -302,5 +302,111 @@
         }
       }
     }
+  },
+  "mould": {
+    "hero": {
+      "subtitle": "PROFESSIONAL MOULDING SOLUTIONS",
+      "title": "Custom Mould and Casting Services",
+      "features": {
+        "costEffective": "Cost-effective alternative to metal molds for small series",
+        "highPrecision": "High-precision SLA printing for master patterns and direct part production",
+        "specialized": "Specialized in spare parts production and small series manufacturing"
+      },
+      "buttons": {
+        "consultation": "Request a Consultation",
+        "materials": "Learn About Materials"
+      },
+      "scrollDown": "Scroll Down"
+    },
+    "premiumQuality": {
+      "title": "Premium Quality",
+      "subtitle": "for every mould and casting project",
+      "materials": {
+        "rigid": "Rigid",
+        "flexible": "Flexible",
+        "transparent": "Transparent",
+        "foodSafe": "Food Safe",
+        "highTemp": "High Temperature",
+        "multiColor": "Multi-Color"
+      }
+    },
+    "whyDigital": {
+      "title": "Why Choose Digital Technology?",
+      "benefits": {
+        "lowerCosts": {
+          "title": "Lower Costs",
+          "description": "Avoid high upfront tooling investments and reduce labor costs."
+        },
+        "fasterTime": {
+          "title": "Faster Time",
+          "description": "Produce high-quality models within 24 hours."
+        },
+        "designFreedom": {
+          "title": "Design Freedom",
+          "description": "Create complex shapes that are difficult to achieve with traditional casting."
+        }
+      }
+    },
+    "spareParts": {
+      "title": "Spare Parts and Custom Components",
+      "subtitle": "when standard replacements aren't available",
+      "description": "Our advanced SLA printing and casting capabilities allow us to reproduce discontinued or hard-to-find parts with precision and accuracy at a fraction of the cost of traditional manufacturing methods.",
+      "features": {
+        "replicate": "Replicate discontinued parts faster and cheaper than traditional methods",
+        "custom": "Create custom parts that match your specific requirements with high precision",
+        "rapid": "Rapid prototyping and small series without expensive tooling costs"
+      }
+    },
+    "equipment": {
+      "title": "Our Equipment for Moulding & Spare Parts",
+      "items": {
+        "form3": {
+          "title": "Form 3 SLA Printer",
+          "description": "High-precision SLA printing with exceptional detail for accurate master patterns"
+        },
+        "phrozenMega": {
+          "title": "Phrozen Sonic Mega 8K",
+          "description": "Large format 8K resolution for producing multiple parts with incredible detail"
+        },
+        "raise3d": {
+          "title": "Raise3D Pro3",
+          "description": "Professional FDM printer for strong functional parts and specialized materials"
+        },
+        "phrozenMini": {
+          "title": "Phrozen Mini 8K",
+          "description": "Compact desktop 8K resin printer delivering exceptional detail for small parts"
+        },
+        "prusa": {
+          "title": "Prusa i3 MK3S+",
+          "description": "Reliable workhorse for rapid prototyping and functional parts with wide material compatibility"
+        }
+      }
+    },
+    "materials": {
+      "title": "Materials",
+      "subtitle": "3D Printing Materials",
+      "viewAll": "View All Materials"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "questions": {
+        "spareParts": {
+          "question": "Can you create spare parts for discontinued products?",
+          "answer": "Yes, we specialize in producing spare parts for products that are no longer manufactured or where original replacements are prohibitively expensive. Using our advanced SLA printing and casting techniques, we can recreate parts with high precision from samples, technical drawings, or even create new designs based on your specifications."
+        },
+        "slaComparison": {
+          "question": "How does SLA printing compare to traditional metallic molds?",
+          "answer": "SLA printing offers faster turnaround times and lower costs for small to medium production runs. While traditional metallic molds are better for mass production, our SLA technology provides exceptional detail and precision without the high upfront tooling costs."
+        },
+        "productionTime": {
+          "question": "How long does the production process take?",
+          "answer": "The timeline depends on project complexity. Simple parts can be completed in 1-2 days, while complex projects may take 1 week. SLA printing significantly reduces lead times compared to traditional methods, allowing for rapid iterations and faster time-to-market."
+        },
+        "limitations": {
+          "question": "What are the limitations of SLA printing for parts?",
+          "answer": "While SLA printing offers exceptional detail and quality, it has limitations in terms of material properties and production volume. We'll help you determine if SLA is right for your project or if alternative methods would be more suitable based on your specific requirements and goals."
+        }
+      }
+    }
   }
 } 

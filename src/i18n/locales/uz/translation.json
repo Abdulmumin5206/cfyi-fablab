@@ -402,6 +402,10 @@
           "answer": "SLA-chop etish ajoyib detallar va sifatni taklif qilsa-da, u material xususiyatlari va ishlab chiqarish hajmi bo'yicha cheklovlarga ega. Biz sizning o'ziga xos talablaringiz va maqsadlaringizga asoslanib, SLA sizning loyihangiz uchun mos kelishi yoki alternativ usullar yaxshiroq bo'lishini aniqlashda yordam beramiz."
         }
       }
+    },
+    "materials": {
+      "title": "Materiallar",
+      "viewAll": "Barcha materiallarni ko'rish"
     }
   }
 } 

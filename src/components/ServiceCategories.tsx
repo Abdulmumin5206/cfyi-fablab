@@ -143,69 +143,54 @@ const ServiceCategories = () => {
           </p>
         </div>
 
-        {/* Mobile Carousel */}
-        <div className="block sm:hidden relative">
-          <div className="relative w-full">
-            {categories.map((category, index) => (
-              <div
-                key={category.id}
-                className={`w-full transition-all duration-500 ease-in-out ${
-                  index === currentSlide ? 'block' : 'hidden'
-                }`}
-              >
-                <div className="relative aspect-[4/3] mb-6 overflow-hidden rounded-lg shadow-lg">
-                  {category.images.map((image, imgIndex) => (
-                    <div
-                      key={imgIndex}
-                      className={`absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out ${
-                        currentImageIndex[category.id] === imgIndex 
-                          ? 'opacity-100 scale-100' 
-                          : 'opacity-0 scale-105'
-                      }`}
-                      style={{ backgroundImage: `url(${image})` }}
-                      role="img"
-                      aria-label={`${t(category.titleKey)} - Image ${imgIndex + 1}`}
-                    />
-                  ))}
-                  
-                  <div className={`absolute bottom-0 left-0 right-0 ${category.color} py-4 px-6`}>
-                    <p className="text-white font-medium text-lg">
-                      {t(category.titleKey)}
-                    </p>
-                  </div>
-                </div>
+        {/* Mobile Layout */}
+        <div className="block sm:hidden space-y-8">
+          {categories.map((category, index) => (
+            <div
+              key={category.id}
+              className={`w-full transition-all duration-500 ease-in-out ${
+                isVisible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-10"
+              }`}
+              style={{ transitionDelay: `${index * 150}ms` }}
+            >
+              <div className="relative aspect-[4/3] mb-6 overflow-hidden rounded-lg shadow-lg">
+                {category.images.map((image, imgIndex) => (
+                  <div
+                    key={imgIndex}
+                    className={`absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out ${
+                      currentImageIndex[category.id] === imgIndex 
+                        ? 'opacity-100 scale-100' 
+                        : 'opacity-0 scale-105'
+                    }`}
+                    style={{ backgroundImage: `url(${image})` }}
+                    role="img"
+                    aria-label={`${t(category.titleKey)} - Image ${imgIndex + 1}`}
+                  />
+                ))}
                 
-                <p className="text-base text-gray-700 leading-relaxed mb-6 px-4">
-                  {t(category.descriptionKey)}
-                </p>
-
-                <Link 
-                  to={category.buttonLink}
-                  className={`inline-flex items-center ${category.color} text-white py-3 px-6 rounded-sm hover:opacity-90 transition-all duration-300 text-base mx-4`}
-                  aria-label={`Learn more about ${t(category.titleKey)}`}
-                >
-                  <span>{t(`Explore ${t(category.buttonTextKey)}`)}</span>
-                  <ArrowRight size={20} className="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
-                </Link>
+                <div className={`absolute bottom-0 left-0 right-0 ${category.color} py-2 sm:py-3 md:py-4 px-4 sm:px-5 md:px-6`}>
+                  <p className="text-white font-medium text-sm sm:text-base md:text-lg lg:text-xl">
+                    {t(category.titleKey)}
+                  </p>
+                </div>
               </div>
-            ))}
-          </div>
+              
+              <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed mb-4 sm:mb-5 md:mb-6 px-2 sm:px-3 md:px-4">
+                {t(category.descriptionKey)}
+              </p>
 
-          <button
-            onClick={prevSlide}
-            className="absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-white/90 p-2 rounded-full shadow-lg hover:bg-white transition-all duration-300"
-            aria-label="Previous service"
-          >
-            <ChevronLeft size={24} className="text-gray-800" />
-          </button>
-          
-          <button
-            onClick={nextSlide}
-            className="absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-white/90 p-2 rounded-full shadow-lg hover:bg-white transition-all duration-300"
-            aria-label="Next service"
-          >
-            <ChevronRight size={24} className="text-gray-800" />
-          </button>
+              <Link 
+                to={category.buttonLink}
+                className={`inline-flex items-center ${category.color} text-white py-2 sm:py-2.5 md:py-3 px-4 sm:px-5 md:px-6 rounded-sm hover:opacity-90 transition-all duration-300 text-sm sm:text-base md:text-lg mx-2 sm:mx-3 md:mx-4`}
+                aria-label={`Learn more about ${t(category.titleKey)}`}
+              >
+                <span>{t(`Explore ${t(category.buttonTextKey)}`)}</span>
+                <ArrowRight size={16} className="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+              </Link>
+            </div>
+          ))}
         </div>
 
         {/* Desktop Grid */}
@@ -236,23 +221,23 @@ const ServiceCategories = () => {
                 ))}
                 
                 <div className={`absolute bottom-0 left-0 right-0 ${category.color} py-1.5 sm:py-2 lg:py-2.5 xl:py-3 px-2 sm:px-3 lg:px-4 xl:px-5 z-20 transform transition-transform duration-300 group-hover:translate-y-0 translate-y-full`}>
-                  <p className="text-white font-medium text-xs sm:text-sm lg:text-base xl:text-lg">
+                  <p className="text-white font-medium text-sm sm:text-base lg:text-lg xl:text-xl">
                     {t(category.titleKey)}
                   </p>
                 </div>
               </div>
               
-              <p className="text-[10px] sm:text-xs lg:text-sm xl:text-base text-gray-700 leading-relaxed mb-3 sm:mb-4 lg:mb-5 xl:mb-6">
+              <p className="text-sm sm:text-base lg:text-lg xl:text-lg text-gray-700 leading-relaxed mb-3 sm:mb-4 lg:mb-5 xl:mb-6">
                 {t(category.descriptionKey)}
               </p>
 
               <Link 
                 to={category.buttonLink}
-                className={`inline-flex items-center ${category.color} text-white py-1.5 sm:py-2 lg:py-2.5 xl:py-3 px-2 sm:px-3 lg:px-4 xl:px-5 rounded-sm hover:opacity-90 transition-all duration-300 text-[10px] sm:text-xs lg:text-sm xl:text-base group-hover:translate-x-1`}
+                className={`inline-flex items-center ${category.color} text-white py-1.5 sm:py-2 lg:py-2.5 xl:py-3 px-3 sm:px-4 lg:px-5 xl:px-6 rounded-sm hover:opacity-90 transition-all duration-300 text-sm sm:text-base lg:text-lg xl:text-lg group-hover:translate-x-1`}
                 aria-label={`Learn more about ${t(category.titleKey)}`}
               >
                 <span>{t(`Explore ${t(category.buttonTextKey)}`)}</span>
-                <ArrowRight size={12} className="ml-1 sm:ml-1.5 lg:ml-2 xl:ml-2.5 transition-transform duration-300 group-hover:translate-x-1" />
+                <ArrowRight size={16} className="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             </div>
           ))}

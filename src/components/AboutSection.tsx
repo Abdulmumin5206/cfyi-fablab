@@ -235,31 +235,54 @@ const AboutSection = () => {
     ? industries.find(industry => industry.id === activeIndustry) 
     : null;
 
+  // Update the checkIfItemsFitInOneLine function to be more precise
+  const checkIfItemsFitInOneLine = () => {
+    if (scrollContainerRef.current) {
+      const container = scrollContainerRef.current;
+      const containerWidth = container.clientWidth;
+      // Calculate if 8 items of 160px each (including gap) can fit
+      const totalWidthNeeded = (160 + 16) * 8; // 160px card + 16px gap
+      return totalWidthNeeded <= containerWidth;
+    }
+    return false;
+  };
+
+  // Add state for layout mode
+  const [isSingleLine, setIsSingleLine] = useState(true);
+
+  // Update useEffect to check layout mode
+  useEffect(() => {
+    const checkLayout = () => {
+      setIsSingleLine(checkIfItemsFitInOneLine());
+    };
+
+    checkLayout();
+    window.addEventListener('resize', checkLayout);
+    return () => window.removeEventListener('resize', checkLayout);
+  }, []);
+
   const renderIndustryCard = (industry: IndustryCategory, index: number) => (
     <div
       key={industry.id}
       onClick={() => openPopup(industry.id)}
       onMouseEnter={() => {
-        // Preload the popup image
         const img = new Image();
         img.src = `/main/popups/${industry.id}.${industry.id === 'manufacturing' ? 'png' : (industry.id === 'education' || industry.id === 'medical' || industry.id === 'engineering' ? 'webp' : 'jpg')}`;
       }}
-      className={`bg-white text-gray-800 flex flex-col items-center justify-center border border-gray-200 shadow-md rounded-lg cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group ${
-        isVisible
-          ? "opacity-100 translate-y-0"
-          : "opacity-0 translate-y-10"
+      className={`industry-card bg-white text-gray-800 flex flex-col items-center justify-center border border-gray-200 shadow-md rounded-lg cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       }`}
       style={{ 
         aspectRatio: '1/1',
-        width: '100%',
-        minWidth: '120px',
-        maxWidth: '150px',
-        transition: 'min-width 0.3s, max-width 0.3s',
+        width: isSingleLine ? '160px' : '100%',
+        minWidth: isSingleLine ? '160px' : '120px',
+        maxWidth: isSingleLine ? '160px' : '180px',
+        transition: 'all 0.3s ease',
         margin: '0 auto',
       }}
     >
-      <div className="flex flex-col items-center justify-center h-full w-full">
-        <div className="w-16 h-16 md:w-20 md:h-20 mb-2 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+      <div className="flex flex-col items-center justify-center h-full w-full p-2">
+        <div className={`${isSingleLine ? 'w-24 h-24' : 'w-28 h-28'} mb-2 flex items-center justify-center transition-transform duration-300 group-hover:scale-110`}>
           <img 
             src={getIconUrl(industry.iconPath)} 
             alt={`${industry.title} icon`} 
@@ -270,7 +293,7 @@ const AboutSection = () => {
             }}
           />
         </div>
-        <h3 className="text-center text-base font-semibold transition-all duration-300 group-hover:text-brand-yellow mt-1">{industry.title}</h3>
+        <h3 className={`text-center ${isSingleLine ? 'text-base' : 'text-lg'} font-semibold transition-all duration-300 group-hover:text-brand-yellow mt-1 px-1`}>{industry.title}</h3>
       </div>
     </div>
   );
@@ -289,20 +312,9 @@ const AboutSection = () => {
 
         {/* Mobile scrollable layout with visual indicators and arrows */}
         <div className="md:hidden relative">
-          {/* Left Arrow */}
-          {canScrollLeft && (
-            <button
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-white rounded-full shadow p-1.5"
-              style={{ marginLeft: 2 }}
-              onClick={() => scrollByAmount(-140)}
-              aria-label="Scroll left"
-            >
-              <ChevronLeft size={22} className="text-gray-700" />
-            </button>
-          )}
           <div 
             ref={scrollContainerRef}
-            className="flex overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide pl-4 gap-3 items-stretch" 
+            className="flex overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide pl-4 gap-2 items-stretch" 
             style={{ 
               scrollbarWidth: 'none', 
               msOverflowStyle: 'none' 
@@ -312,7 +324,7 @@ const AboutSection = () => {
               <div 
                 key={industry.id} 
                 className="flex-none snap-start"
-                style={{ minWidth: '140px', maxWidth: '170px', marginRight: index === industries.length - 1 ? 0 : '12px' }}
+                style={{ minWidth: '170px', maxWidth: '190px', marginRight: index === industries.length - 1 ? 0 : '8px' }}
               >
                 <div className="pb-2 flex justify-center h-full">
                   <div
@@ -329,51 +341,79 @@ const AboutSection = () => {
                     style={{ 
                       aspectRatio: '1/1',
                       width: '100%',
-                      minWidth: '120px',
-                      maxWidth: '150px',
+                      minWidth: '150px',
+                      maxWidth: '170px',
                       transition: 'min-width 0.3s, max-width 0.3s',
                       margin: '0 auto',
                     }}
                   >
-                    <div className="flex flex-col items-center justify-center h-full w-full">
-                      <div className="w-16 h-16 mb-2 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-                        <img 
-                          src={getIconUrl(industry.iconPath)} 
-                          alt={`${industry.title} icon`} 
-                          className="w-full h-full object-contain transition-all duration-300"
-                          onError={(e) => {
-                            const target = e.target as HTMLImageElement;
-                            target.src = `https://placehold.co/200x200/333/white?text=${industry.title}`;
-                          }}
-                        />
-                      </div>
-                      <h3 className="text-center text-base font-semibold transition-all duration-300 group-hover:text-brand-yellow mt-1">{industry.title}</h3>
+                    <div className="w-28 h-28 mb-3 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                      <img 
+                        src={getIconUrl(industry.iconPath)} 
+                        alt={`${industry.title} icon`} 
+                        className="w-full h-full object-contain transition-all duration-300"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.src = `https://placehold.co/200x200/333/white?text=${industry.title}`;
+                        }}
+                      />
                     </div>
+                    <h3 className="text-center text-sm font-semibold transition-all duration-300 group-hover:text-brand-yellow mt-1 px-2">{industry.title}</h3>
                   </div>
                 </div>
               </div>
             ))}
           </div>
-          {/* Right Arrow */}
-          {canScrollRight && (
+        </div>
+
+        {/* Tablet/Desktop layout */}
+        <div className="relative hidden md:block">
+          {/* Left Arrow - only show in single line mode */}
+          {isSingleLine && canScrollLeft && (
             <button
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-white rounded-full shadow p-1.5"
-              style={{ marginRight: 2 }}
-              onClick={() => scrollByAmount(140)}
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-white rounded-full shadow p-1.5 transition-all duration-300 hover:scale-110"
+              style={{ marginLeft: -10 }}
+              onClick={() => scrollByAmount(-160)}
+              aria-label="Scroll left"
+            >
+              <ChevronLeft size={22} className="text-gray-700" />
+            </button>
+          )}
+          
+          <div 
+            ref={scrollContainerRef}
+            className={`${isSingleLine ? 'flex overflow-x-auto' : 'grid grid-cols-4'} gap-4 max-w-[1600px] mx-auto items-center justify-center`}
+            style={{ 
+              scrollbarWidth: 'none',
+              msOverflowStyle: 'none',
+              ...(isSingleLine && {
+                scrollSnapType: 'x mandatory',
+                WebkitOverflowScrolling: 'touch'
+              })
+            }}
+          >
+            {industries.map((industry, index) => (
+              <div 
+                key={industry.id} 
+                className={`flex justify-center items-center ${isSingleLine ? 'flex-none snap-start' : ''}`}
+                style={isSingleLine ? { marginRight: index === industries.length - 1 ? 0 : '16px' } : {}}
+              >
+                {renderIndustryCard(industry, index)}
+              </div>
+            ))}
+          </div>
+
+          {/* Right Arrow - only show in single line mode */}
+          {isSingleLine && canScrollRight && (
+            <button
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white/80 hover:bg-white rounded-full shadow p-1.5 transition-all duration-300 hover:scale-110"
+              style={{ marginRight: -10 }}
+              onClick={() => scrollByAmount(160)}
               aria-label="Scroll right"
             >
               <ChevronRight size={22} className="text-gray-700" />
             </button>
           )}
-        </div>
-
-        {/* Tablet/Desktop grid layout */}
-        <div className="hidden md:grid grid-cols-8 gap-4 max-w-[1200px] mx-auto items-center justify-center">
-          {industries.map((industry, index) => (
-            <div key={industry.id} className="flex justify-center items-center">
-              {renderIndustryCard(industry, index)}
-            </div>
-          ))}
         </div>
       </div>
 

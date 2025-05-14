@@ -98,8 +98,8 @@ const ScrollImageSlider = () => {
           {/* Image container - full viewport size with all images visible */}
           <div className="absolute inset-0 w-full h-full">
             {/* Fixed Mission Quote */}
-            <div className="absolute left-0 top-0 bottom-0 w-1/2 hidden md:flex items-center justify-center z-50 px-8 md:px-12 lg:px-16">
-              <p className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-relaxed">
+            <div className="absolute left-0 top-0 bottom-0 w-1/2 hidden md:flex items-center justify-center z-50 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+              <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold text-white leading-relaxed">
                 Empowering innovation through accessible fabrication technology. We provide the tools, space, and expertise to turn ideas into reality.
               </p>
             </div>
@@ -183,7 +183,7 @@ const ScrollImageSlider = () => {
           </div>
           
           {/* Quote containers - one for each image */}
-          <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute inset-0">
             {quotes.map((quote, index) => {
               // Calculate vertical movement based on scroll progress
               const yOffsetInput = [index - 1.1, index - 0.4, index, index + 0.4, index + 1.1];
@@ -226,25 +226,25 @@ const ScrollImageSlider = () => {
               return (
                 <motion.div
                   key={`quote-${index}`}
-                  className="absolute left-0 right-0 px-8 flex justify-end items-center pr-16 md:pr-24 will-change-[opacity,transform]"
+                  className="absolute left-0 right-0 px-4 sm:px-6 md:px-8 flex justify-end items-center pr-4 sm:pr-8 md:pr-12 lg:pr-16 will-change-[opacity,transform]"
                   style={{
                     opacity: opacityTransform,
-                    height: viewportHeight, // Use dynamic height
-                    zIndex: (index + 1) * 10, // Higher z-index than images
-                    transition: "opacity 0.5s ease-out" // Smooth CSS transitions as backup
+                    height: viewportHeight,
+                    zIndex: (index + 1) * 10,
+                    transition: "opacity 0.5s ease-out"
                   }}
                 >
                   <motion.div 
-                    className="bg-white p-8 flex flex-col justify-center text-gray-800 border border-gray-200 shadow-lg will-change-transform transition-transform duration-700 ease-out w-[350px] h-[400px] sm:w-[400px] sm:h-[450px] md:w-[450px] md:h-[500px] lg:w-[500px] lg:h-[550px] text-left"
+                    className="bg-white p-3 sm:p-4 md:p-6 lg:p-8 xl:p-10 flex flex-col justify-center text-gray-800 border border-gray-200 shadow-lg will-change-transform transition-transform duration-700 ease-out w-[240px] sm:w-[280px] md:w-[320px] lg:w-[400px] xl:w-[500px] 2xl:w-[600px] h-[260px] sm:h-[300px] md:h-[360px] lg:h-[420px] xl:h-[500px] 2xl:h-[600px] text-left"
                     style={{
                       transform: cssYValue
                     }}
                   >
-                    <h3 className="text-2xl sm:text-3xl font-bold mb-4 text-left">{quote.title}</h3>
-                    <div className="mb-4">
-                      <span className="block text-4xl sm:text-5xl font-extrabold leading-tight text-gray-900">{quote.achievement}</span>
+                    <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold mb-2 sm:mb-3 md:mb-4 lg:mb-6 text-left">{quote.title}</h3>
+                    <div className="mb-2 sm:mb-3 md:mb-4 lg:mb-6">
+                      <span className="block text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-extrabold leading-tight text-gray-900">{quote.achievement}</span>
                     </div>
-                    <p className="text-lg sm:text-xl text-gray-600 text-left">{quote.text}</p>
+                    <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl text-gray-600 text-left">{quote.text}</p>
                   </motion.div>
                 </motion.div>
               );
@@ -252,8 +252,8 @@ const ScrollImageSlider = () => {
           </div>
           
           {/* Scroll hint - only visible at the beginning */}
-          <motion.div 
-            className="absolute bottom-12 left-1/2 transform -translate-x-1/2 text-gray-800"
+          <motion.div
+            className="absolute bottom-8 sm:bottom-12 left-1/2 transform -translate-x-1/2 text-gray-800"
             style={{
               opacity: useTransform(
                 scrollYProgress, 
@@ -268,7 +268,8 @@ const ScrollImageSlider = () => {
               ease: "easeInOut"
             }}
           >
-            <ChevronDown size={24} />
+            <ChevronDown size={20} className="sm:hidden" />
+            <ChevronDown size={24} className="hidden sm:block" />
           </motion.div>
         </div>
       </div>

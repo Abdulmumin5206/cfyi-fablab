@@ -186,7 +186,7 @@ const ServiceCategories = () => {
                 className={`inline-flex items-center ${category.color} text-white py-2 sm:py-2.5 md:py-3 px-4 sm:px-5 md:px-6 rounded-sm hover:opacity-90 transition-all duration-300 text-sm sm:text-base md:text-lg mx-2 sm:mx-3 md:mx-4`}
                 aria-label={`Learn more about ${t(category.titleKey)}`}
               >
-                <span>{t(`Explore ${t(category.buttonTextKey)}`)}</span>
+                <span>{`${t('serviceCategories.explorePrefix')} ${t(category.buttonTextKey)}`}</span>
                 <ArrowRight size={16} className="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             </div>
@@ -236,7 +236,7 @@ const ServiceCategories = () => {
                 className={`inline-flex items-center ${category.color} text-white py-1.5 sm:py-2 lg:py-2.5 xl:py-3 px-3 sm:px-4 lg:px-5 xl:px-6 rounded-sm hover:opacity-90 transition-all duration-300 text-sm sm:text-base lg:text-lg xl:text-lg group-hover:translate-x-1`}
                 aria-label={`Learn more about ${t(category.titleKey)}`}
               >
-                <span>{t(`Explore ${t(category.buttonTextKey)}`)}</span>
+                <span>{`${t('serviceCategories.explorePrefix')} ${t(category.buttonTextKey)}`}</span>
                 <ArrowRight size={16} className="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             </div>

@@ -1,8 +1,10 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const ScrollImageSlider = () => {
+  const { t } = useTranslation();
   const containerRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
   const [hasCompletedScroll, setHasCompletedScroll] = useState(false);
@@ -41,19 +43,19 @@ const ScrollImageSlider = () => {
   // Quote content for each image
   const quotes = [
     {
-      title: "Innovation Lab",
-      achievement: "500+ Projects Completed",
-      text: "Our state-of-the-art facility is equipped with the latest technology for digital fabrication and prototyping. Empowering creators to launch their ideas."
+      title: t("slider.innovationLab.title"),
+      achievement: t("slider.innovationLab.achievement"),
+      text: t("slider.innovationLab.text")
     },
     {
-      title: "Creative Workspace",
-      achievement: "1000+ Active Makers",
-      text: "A thriving community of innovators. Where ideas transform into reality through collaboration, experimentation, and cutting-edge tools."
+      title: t("slider.creativeWorkspace.title"),
+      achievement: t("slider.creativeWorkspace.achievement"),
+      text: t("slider.creativeWorkspace.text")
     },
     {
-      title: "Future Development",
-      achievement: "99.9% Precision Rate",
-      text: "Industry-leading accuracy in every project. Building tomorrow's solutions with advanced manufacturing techniques and innovative approaches."
+      title: t("slider.futureDevelopment.title"),
+      achievement: t("slider.futureDevelopment.achievement"),
+      text: t("slider.futureDevelopment.text")
     }
   ];
 
@@ -100,7 +102,7 @@ const ScrollImageSlider = () => {
             {/* Fixed Mission Quote */}
             <div className="absolute left-0 top-0 bottom-0 w-1/2 hidden md:flex items-center justify-center z-50 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
               <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold text-white leading-relaxed">
-                Empowering innovation through accessible fabrication technology. We provide the tools, space, and expertise to turn ideas into reality.
+                {t("slider.mainMessage")}
               </p>
             </div>
 
@@ -147,7 +149,7 @@ const ScrollImageSlider = () => {
                 >
                   <img 
                     src={src} 
-                    alt={`Showcase image ${index + 1}`}
+                    alt={t("slider.showcaseImage", {number: index + 1})}
                     className="w-full h-full object-cover will-change-transform"
                     style={{
                       width: "100%",
@@ -267,6 +269,7 @@ const ScrollImageSlider = () => {
               duration: 2,
               ease: "easeInOut"
             }}
+            aria-label={t("slider.scrollHint")}
           >
             <ChevronDown size={20} className="sm:hidden" />
             <ChevronDown size={24} className="hidden sm:block" />

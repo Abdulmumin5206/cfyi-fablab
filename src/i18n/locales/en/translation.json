@@ -32,9 +32,30 @@
       "buttonText": "Book a Session"
     }
   },
+  "slider": {
+    "mainMessage": "Empowering innovation through accessible fabrication technology. We provide the tools, space, and expertise to turn ideas into reality.",
+    "showcaseImage": "Showcase image {{number}}",
+    "scrollHint": "Scroll down",
+    "innovationLab": {
+      "title": "Innovation Lab",
+      "achievement": "500+ Projects Completed",
+      "text": "Our state-of-the-art facility is equipped with the latest technology for digital fabrication and prototyping. Empowering creators to launch their ideas."
+    },
+    "creativeWorkspace": {
+      "title": "Creative Workspace",
+      "achievement": "1000+ Active Makers",
+      "text": "A thriving community of innovators. Where ideas transform into reality through collaboration, experimentation, and cutting-edge tools."
+    },
+    "futureDevelopment": {
+      "title": "Future Development",
+      "achievement": "99.9% Precision Rate",
+      "text": "Industry-leading accuracy in every project. Building tomorrow's solutions with advanced manufacturing techniques and innovative approaches."
+    }
+  },
   "serviceCategories": {
     "title": "Our Services",
     "subtitle": "Explore our range of fabrication services",
+    "explorePrefix": "Explore",
     "3dPrinting": {
       "title": "3D Printing",
       "description": "Additive manufacturing for rapid prototyping and production"
@@ -50,6 +71,142 @@
     "customFabrication": {
       "title": "Custom Fabrication",
       "description": "Bring ideas to life with laser cutting, CNC, and UV printing."
+    }
+  },
+  "industries": {
+    "title": "Our Professions",
+    "subtitle": "Where innovation meets fabrication",
+    "capabilities": "Capabilities",
+    "caseStudies": "Case Studies",
+    "contactUs": "Contact Us About This",
+    "engineering": {
+      "title": "Engineering",
+      "description": "Engineering solutions spanning prototyping, tooling, and production components for innovative projects.",
+      "capabilities": [
+        "Functional prototypes",
+        "Tooling and fixtures", 
+        "End-use parts", 
+        "Testing equipment"
+      ],
+      "caseStudies": [
+        {
+          "title": "Rapid Prototype Development",
+          "description": "Accelerating engineering cycles with quick-turn prototypes for validation and testing."
+        }
+      ]
+    },
+    "textile": {
+      "title": "Textile",
+      "description": "Innovative textile manufacturing solutions and fabric processing equipment for modern production needs.",
+      "capabilities": [
+        "Fabric inspection", 
+        "Textile machinery", 
+        "Processing equipment", 
+        "Quality control"
+      ],
+      "caseStudies": [
+        {
+          "title": "Advanced Fabric Processing",
+          "description": "State-of-the-art textile manufacturing solutions for enhanced production efficiency."
+        }
+      ]
+    },
+    "medical": {
+      "title": "Medical",
+      "description": "Medical applications from surgical planning models to custom devices and equipment components.",
+      "capabilities": [
+        "Patient-specific models", 
+        "Surgical planning tools", 
+        "Medical device prototypes", 
+        "Anatomical replicas"
+      ],
+      "caseStudies": [
+        {
+          "title": "Surgical Planning Models",
+          "description": "Custom anatomical models that help surgeons plan and practice complex procedures before surgery."
+        }
+      ]
+    },
+    "furniture": {
+      "title": "Furniture",
+      "description": "Custom furniture design and manufacturing solutions for both residential and commercial applications.",
+      "capabilities": [
+        "Custom designs", 
+        "Prototype development", 
+        "Production tooling", 
+        "Assembly solutions"
+      ],
+      "caseStudies": [
+        {
+          "title": "Modern Furniture Collection",
+          "description": "Innovative furniture designs brought to life through advanced manufacturing techniques."
+        }
+      ]
+    },
+    "automotive": {
+      "title": "Automotive",
+      "description": "Automotive solutions for prototype development, testing components, and custom parts.",
+      "capabilities": [
+        "Concept models", 
+        "Functional prototypes", 
+        "Test fixtures", 
+        "Custom components"
+      ],
+      "caseStudies": [
+        {
+          "title": "Automotive Testing Equipment",
+          "description": "Custom testing rigs for validating new automotive components and systems."
+        }
+      ]
+    },
+    "education": {
+      "title": "Education",
+      "description": "Educational tools and models for enhanced learning experiences and hands-on training.",
+      "capabilities": [
+        "Anatomical models", 
+        "Teaching aids", 
+        "Interactive tools", 
+        "Educational kits"
+      ],
+      "caseStudies": [
+        {
+          "title": "Educational Anatomy Models",
+          "description": "Detailed anatomical models that improve medical education and training."
+        }
+      ]
+    },
+    "manufacturing": {
+      "title": "Manufacturing",
+      "description": "Manufacturing solutions for production needs, including moulding and spare parts, from jigs and fixtures to end-use components.",
+      "capabilities": [
+        "Production tooling", 
+        "Assembly fixtures", 
+        "Custom components", 
+        "Short-run production", 
+        "Moulding and spare parts"
+      ],
+      "caseStudies": [
+        {
+          "title": "Custom Manufacturing Fixtures",
+          "description": "Specialized fixtures that improve production efficiency and quality control."
+        }
+      ]
+    },
+    "jewelry": {
+      "title": "Jewelry",
+      "description": "Custom jewelry design, prototyping, and production solutions for unique and precision pieces.",
+      "capabilities": [
+        "Detailed designs", 
+        "Casting patterns", 
+        "Custom settings", 
+        "Finished pieces"
+      ],
+      "caseStudies": [
+        {
+          "title": "Custom Jewelry Collection",
+          "description": "Creating intricate, personalized jewelry pieces using advanced fabrication techniques."
+        }
+      ]
     }
   },
   "about": {
@@ -76,5 +233,20 @@
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
     "copyright": "© 2023 FabLab. All rights reserved."
+  },
+  "video": {
+    "ariaLabel": "FabLab promotional video",
+    "fallbackText": "Your browser does not support the video tag."
+  },
+  "projects": {
+    "title": "Our Recent Projects",
+    "subtitle": "Explore some of our latest work and innovations in digital fabrication and manufacturing.",
+    "viewAll": "View all projects",
+    "readMore": "Read more",
+    "1": {
+      "title": "3D Printed Prototype Development",
+      "excerpt": "Created a fully functional prototype using advanced 3D printing techniques for an Uzbek tech startup.",
+      "category": "3D Printing"
+    }
   }
 } 

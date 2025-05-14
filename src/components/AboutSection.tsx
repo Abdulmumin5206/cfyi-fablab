@@ -4,14 +4,16 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface IndustryCategory {
   id: string;
-  title: string;
+  titleKey: string;
   iconPath: string;
+  descriptionKey: string;
+  capabilitiesKey: string;
+  caseStudiesKey: string;
+}
+
+interface CaseStudy {
+  title: string;
   description: string;
-  capabilities: string[];
-  caseStudies: {
-    title: string;
-    description: string;
-  }[];
 }
 
 const AboutSection = () => {
@@ -22,9 +24,10 @@ const AboutSection = () => {
   const [activeIndustry, setActiveIndustry] = useState<string | null>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
+  const [isSingleLine, setIsSingleLine] = useState(false);
 
   // Function to handle contact button click
-  const handleContactClick = (industryTitle: string) => {
+  const handleContactClick = (industryId: string) => {
     // Close popup
     closePopup();
     
@@ -35,7 +38,7 @@ const AboutSection = () => {
     if (contactSection) {
       // Add industry to URL query parameters
       const searchParams = new URLSearchParams(window.location.search);
-      searchParams.set('inquiry', `${industryTitle} Projects`);
+      searchParams.set('inquiry', `${t(`industries.${industryId}.title`)} Projects`);
       
       // Update URL without reloading page
       const newUrl = `${window.location.pathname}?${searchParams.toString()}${window.location.hash}`;
@@ -47,114 +50,74 @@ const AboutSection = () => {
       }, 100);
     } else {
       // If contact section not found on current page, navigate to contact page with query parameter
-      window.location.href = '/#contact-section?inquiry=' + encodeURIComponent(`${industryTitle} Projects`);
+      window.location.href = '/#contact-section?inquiry=' + encodeURIComponent(`${t(`industries.${industryId}.title`)} Projects`);
     }
   };
 
   const industries: IndustryCategory[] = [
     {
       id: "engineering",
-      title: "Engineering",
+      titleKey: "industries.engineering.title",
       iconPath: "/main/engineeringsvg.webp",
-      description: "Engineering solutions spanning prototyping, tooling, and production components for innovative projects.",
-      capabilities: ["Functional prototypes", "Tooling and fixtures", "End-use parts", "Testing equipment"],
-      caseStudies: [
-        {
-          title: "Rapid Prototype Development",
-          description: "Accelerating engineering cycles with quick-turn prototypes for validation and testing."
-        }
-      ]
+      descriptionKey: "industries.engineering.description",
+      capabilitiesKey: "industries.engineering.capabilities",
+      caseStudiesKey: "industries.engineering.caseStudies"
     },
     {
       id: "textile",
-      title: "Textile",
+      titleKey: "industries.textile.title",
       iconPath: "/main/textilesvg.png",
-      description: "Innovative textile manufacturing solutions and fabric processing equipment for modern production needs.",
-      capabilities: ["Fabric inspection", "Textile machinery", "Processing equipment", "Quality control"],
-      caseStudies: [
-        {
-          title: "Advanced Fabric Processing",
-          description: "State-of-the-art textile manufacturing solutions for enhanced production efficiency."
-        }
-      ]
+      descriptionKey: "industries.textile.description",
+      capabilitiesKey: "industries.textile.capabilities",
+      caseStudiesKey: "industries.textile.caseStudies"
     },
     {
       id: "medical",
-      title: "Medical",
+      titleKey: "industries.medical.title",
       iconPath: "/main/medicalsvg.webp",
-      description: "Medical applications from surgical planning models to custom devices and equipment components.",
-      capabilities: ["Patient-specific models", "Surgical planning tools", "Medical device prototypes", "Anatomical replicas"],
-      caseStudies: [
-        {
-          title: "Surgical Planning Models",
-          description: "Custom anatomical models that help surgeons plan and practice complex procedures before surgery."
-        }
-      ]
+      descriptionKey: "industries.medical.description",
+      capabilitiesKey: "industries.medical.capabilities",
+      caseStudiesKey: "industries.medical.caseStudies"
     },
     {
       id: "furniture",
-      title: "Furniture",
+      titleKey: "industries.furniture.title",
       iconPath: "/main/furnituresvg.png",
-      description: "Custom furniture design and manufacturing solutions for both residential and commercial applications.",
-      capabilities: ["Custom designs", "Prototype development", "Production tooling", "Assembly solutions"],
-      caseStudies: [
-        {
-          title: "Modern Furniture Collection",
-          description: "Innovative furniture designs brought to life through advanced manufacturing techniques."
-        }
-      ]
+      descriptionKey: "industries.furniture.description",
+      capabilitiesKey: "industries.furniture.capabilities",
+      caseStudiesKey: "industries.furniture.caseStudies"
     },
     {
       id: "automotive",
-      title: "Automotive",
+      titleKey: "industries.automotive.title",
       iconPath: "/main/automotivesvg.webp",
-      description: "Automotive solutions for prototype development, testing components, and custom parts.",
-      capabilities: ["Concept models", "Functional prototypes", "Test fixtures", "Custom components"],
-      caseStudies: [
-        {
-          title: "Automotive Testing Equipment",
-          description: "Custom testing rigs for validating new automotive components and systems."
-        }
-      ]
+      descriptionKey: "industries.automotive.description",
+      capabilitiesKey: "industries.automotive.capabilities",
+      caseStudiesKey: "industries.automotive.caseStudies"
     },
     {
       id: "education",
-      title: "Education",
+      titleKey: "industries.education.title",
       iconPath: "/main/educationsvg.webp",
-      description: "Educational tools and models for enhanced learning experiences and hands-on training.",
-      capabilities: ["Anatomical models", "Teaching aids", "Interactive tools", "Educational kits"],
-      caseStudies: [
-        {
-          title: "Educational Anatomy Models",
-          description: "Detailed anatomical models that improve medical education and training."
-        }
-      ]
+      descriptionKey: "industries.education.description",
+      capabilitiesKey: "industries.education.capabilities",
+      caseStudiesKey: "industries.education.caseStudies"
     },
     {
       id: "manufacturing",
-      title: "Manufacturing",
+      titleKey: "industries.manufacturing.title",
       iconPath: "/main/manufacturingsvg.webp",
-      description: "Manufacturing solutions for production needs, including moulding and spare parts, from jigs and fixtures to end-use components.",
-      capabilities: ["Production tooling", "Assembly fixtures", "Custom components", "Short-run production", "Moulding and spare parts"],
-      caseStudies: [
-        {
-          title: "Custom Manufacturing Fixtures",
-          description: "Specialized fixtures that improve production efficiency and quality control."
-        }
-      ]
+      descriptionKey: "industries.manufacturing.description",
+      capabilitiesKey: "industries.manufacturing.capabilities",
+      caseStudiesKey: "industries.manufacturing.caseStudies"
     },
     {
       id: "jewelry",
-      title: "Jewelry",
+      titleKey: "industries.jewelry.title",
       iconPath: "/main/jewelrysvg.webp",
-      description: "Custom jewelry design, prototyping, and production solutions for unique and precision pieces.",
-      capabilities: ["Detailed designs", "Casting patterns", "Custom settings", "Finished pieces"],
-      caseStudies: [
-        {
-          title: "Custom Jewelry Collection",
-          description: "Creating intricate, personalized jewelry pieces using advanced fabrication techniques."
-        }
-      ]
+      descriptionKey: "industries.jewelry.description",
+      capabilitiesKey: "industries.jewelry.capabilities",
+      caseStudiesKey: "industries.jewelry.caseStudies"
     }
   ];
 
@@ -210,13 +173,23 @@ const AboutSection = () => {
         setCanScrollRight(scrollLeft + clientWidth < scrollWidth - 1);
       }
     };
+    
+    const checkLayout = () => {
+      setIsSingleLine(checkIfItemsFitInOneLine());
+    };
+    
     const container = scrollContainerRef.current;
     if (container) {
       container.addEventListener('scroll', checkScroll);
       checkScroll();
+      checkLayout();
+      
+      window.addEventListener('resize', checkLayout);
     }
+    
     return () => {
       if (container) container.removeEventListener('scroll', checkScroll);
+      window.removeEventListener('resize', checkLayout);
     };
   }, []);
 
@@ -235,6 +208,18 @@ const AboutSection = () => {
     ? industries.find(industry => industry.id === activeIndustry) 
     : null;
 
+  // Helper function to get capabilities array from translations
+  const getCapabilities = (key: string): string[] => {
+    const capabilities = t(key, { returnObjects: true });
+    return Array.isArray(capabilities) ? capabilities : [];
+  };
+
+  // Helper function to get case studies array from translations
+  const getCaseStudies = (key: string): CaseStudy[] => {
+    const caseStudies = t(key, { returnObjects: true });
+    return Array.isArray(caseStudies) ? caseStudies : [];
+  };
+
   // Update the checkIfItemsFitInOneLine function to be more precise
   const checkIfItemsFitInOneLine = () => {
     if (scrollContainerRef.current) {
@@ -247,66 +232,56 @@ const AboutSection = () => {
     return false;
   };
 
-  // Add state for layout mode
-  const [isSingleLine, setIsSingleLine] = useState(true);
-
-  // Update useEffect to check layout mode
-  useEffect(() => {
-    const checkLayout = () => {
-      setIsSingleLine(checkIfItemsFitInOneLine());
-    };
-
-    checkLayout();
-    window.addEventListener('resize', checkLayout);
-    return () => window.removeEventListener('resize', checkLayout);
-  }, []);
-
   const renderIndustryCard = (industry: IndustryCategory, index: number) => (
     <div
-      key={industry.id}
       onClick={() => openPopup(industry.id)}
       onMouseEnter={() => {
         const img = new Image();
         img.src = `/main/popups/${industry.id}.${industry.id === 'manufacturing' ? 'png' : (industry.id === 'education' || industry.id === 'medical' || industry.id === 'engineering' ? 'webp' : 'jpg')}`;
       }}
-      className={`industry-card bg-white text-gray-800 flex flex-col items-center justify-center border border-gray-200 shadow-md rounded-lg cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+      className={`flex flex-col items-center justify-center bg-white text-gray-800 border border-gray-200 shadow-md rounded-lg cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:shadow-xl ${
+        isVisible
+          ? "opacity-100 translate-y-0"
+          : "opacity-0 translate-y-10"
       }`}
       style={{ 
-        aspectRatio: '1/1',
-        width: isSingleLine ? '160px' : '100%',
-        minWidth: isSingleLine ? '160px' : '120px',
-        maxWidth: isSingleLine ? '160px' : '180px',
-        transition: 'all 0.3s ease',
-        margin: '0 auto',
+        aspectRatio: '1/1', 
+        width: '100%', 
+        minWidth: '150px',
+        maxWidth: '160px',
+        transitionDelay: `${index * 100}ms`,
+        margin: '0 auto'
       }}
     >
-      <div className="flex flex-col items-center justify-center h-full w-full p-2">
-        <div className={`${isSingleLine ? 'w-24 h-24' : 'w-28 h-28'} mb-2 flex items-center justify-center transition-transform duration-300 group-hover:scale-110`}>
-          <img 
-            src={getIconUrl(industry.iconPath)} 
-            alt={`${industry.title} icon`} 
-            className="w-full h-full object-contain transition-all duration-300"
-            onError={(e) => {
-              const target = e.target as HTMLImageElement;
-              target.src = `https://placehold.co/200x200/333/white?text=${industry.title}`;
-            }}
-          />
-        </div>
-        <h3 className={`text-center ${isSingleLine ? 'text-base' : 'text-lg'} font-semibold transition-all duration-300 group-hover:text-brand-yellow mt-1 px-1`}>{industry.title}</h3>
+      <div className="w-28 h-28 mb-3 flex items-center justify-center p-2">
+        <img 
+          src={getIconUrl(industry.iconPath)} 
+          alt={`${t(industry.titleKey)} icon`} 
+          className="w-full h-full object-contain transition-all duration-300"
+          onError={(e) => {
+            const target = e.target as HTMLImageElement;
+            target.src = `https://placehold.co/200x200/333/white?text=${t(industry.titleKey)}`;
+          }}
+        />
       </div>
+      <h3 className="text-center text-sm font-semibold transition-all duration-300 px-4">{t(industry.titleKey)}</h3>
     </div>
   );
 
   return (
-    <section ref={sectionRef} id="about-section" className="py-16 md:py-20 bg-brand-gray overflow-hidden">
-      <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-[1600px] relative z-10">
-        <div className="mb-10 md:mb-12 text-center">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            {t('about.title')}
+    <section 
+      ref={sectionRef} 
+      id="about-section" 
+      className="py-16 sm:py-20 bg-white"
+      aria-label="About Section"
+    >
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1600px]">
+        <div className="text-center mb-10 sm:mb-12 md:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
+            {t('industries.title')}
           </h2>
-          <p className="text-lg md:text-xl max-w-3xl mx-auto text-gray-700">
-            {t('about.subtitle', 'Discover how our services support various industries with specialized solutions')}
+          <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base md:text-lg">
+            {t('industries.subtitle')}
           </p>
         </div>
 
@@ -350,15 +325,15 @@ const AboutSection = () => {
                     <div className="w-28 h-28 mb-3 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
                       <img 
                         src={getIconUrl(industry.iconPath)} 
-                        alt={`${industry.title} icon`} 
+                        alt={`${t(industry.titleKey)} icon`} 
                         className="w-full h-full object-contain transition-all duration-300"
                         onError={(e) => {
                           const target = e.target as HTMLImageElement;
-                          target.src = `https://placehold.co/200x200/333/white?text=${industry.title}`;
+                          target.src = `https://placehold.co/200x200/333/white?text=${t(industry.titleKey)}`;
                         }}
                       />
                     </div>
-                    <h3 className="text-center text-sm font-semibold transition-all duration-300 group-hover:text-brand-yellow mt-1 px-2">{industry.title}</h3>
+                    <h3 className="text-center text-sm font-semibold transition-all duration-300 group-hover:text-brand-yellow mt-1 px-2">{t(industry.titleKey)}</h3>
                   </div>
                 </div>
               </div>
@@ -433,15 +408,15 @@ const AboutSection = () => {
                 <div className="w-12 h-12 sm:w-16 sm:h-16 mr-3">
                   <img 
                     src={getIconUrl(activeIndustryData.iconPath)} 
-                    alt={`${activeIndustryData.title} icon`} 
+                    alt={`${t(activeIndustryData.titleKey)} icon`} 
                     className="w-full h-full object-contain"
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
-                      target.src = `https://placehold.co/200x200/333/white?text=${activeIndustryData.title}`;
+                      target.src = `https://placehold.co/200x200/333/white?text=${t(activeIndustryData.titleKey)}`;
                     }}
                   />
                 </div>
-                <h3 className="text-xl sm:text-2xl font-bold">{activeIndustryData.title}</h3>
+                <h3 className="text-xl sm:text-2xl font-bold">{t(activeIndustryData.titleKey)}</h3>
               </div>
               <button 
                 onClick={closePopup}
@@ -455,11 +430,11 @@ const AboutSection = () => {
 
             <div className="flex flex-col md:flex-row gap-6 flex-grow overflow-y-auto p-4" style={{ maxHeight: '80vh' }}>
               <div className="md:w-1/2 space-y-6">
-                <p className="text-base">{activeIndustryData.description}</p>
+                <p className="text-base">{t(activeIndustryData.descriptionKey)}</p>
                 <div>
-                  <h4 className="text-lg font-semibold mb-2">Capabilities</h4>
+                  <h4 className="text-lg font-semibold mb-2">{t('industries.capabilities')}</h4>
                   <ul className="grid grid-cols-1 gap-2">
-                    {activeIndustryData.capabilities.map((capability, index) => (
+                    {getCapabilities(activeIndustryData.capabilitiesKey).map((capability, index) => (
                       <li key={index} className="flex items-start">
                         <svg className="h-5 w-5 mr-2 text-brand-yellow flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -469,32 +444,38 @@ const AboutSection = () => {
                     ))}
                   </ul>
                 </div>
-                {activeIndustryData.caseStudies.length > 0 && (
-                  <div>
-                    <h4 className="text-lg font-semibold mb-2">Case Studies</h4>
-                    <div className="space-y-3">
-                      {activeIndustryData.caseStudies.map((caseStudy, index) => (
-                        <div key={index} className="border p-3 rounded-md">
-                          <h5 className="font-medium mb-1">{caseStudy.title}</h5>
-                          <p className="text-gray-700 text-sm">{caseStudy.description}</p>
-                        </div>
-                      ))}
-                    </div>
+                <div>
+                  <h4 className="text-lg font-semibold mb-2">{t('industries.caseStudies')}</h4>
+                  <div className="space-y-3">
+                    {getCaseStudies(activeIndustryData.caseStudiesKey).map((caseStudy, index) => (
+                      <div key={index} className="border p-3 rounded-md">
+                        <h5 className="font-medium mb-1">{caseStudy.title}</h5>
+                        <p className="text-gray-700 text-sm">{caseStudy.description}</p>
+                      </div>
+                    ))}
                   </div>
-                )}
+                </div>
+                <div className="pt-4">
+                  <button
+                    onClick={() => handleContactClick(activeIndustryData.id)}
+                    className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded transition-colors duration-300"
+                  >
+                    {t('industries.contactUs')}
+                  </button>
+                </div>
               </div>
               {/* Industry showcase image */}
               <div className="md:w-1/2 rounded-md overflow-hidden h-auto flex items-center justify-center">
                 <img 
                   src={`/main/popups/${activeIndustryData.id}.${activeIndustryData.id === 'manufacturing' ? 'png' : (activeIndustryData.id === 'education' || activeIndustryData.id === 'medical' || activeIndustryData.id === 'engineering' ? 'webp' : 'jpg')}`}
-                  alt={`${activeIndustryData.title} showcase`}
+                  alt={`${t(activeIndustryData.titleKey)} showcase`}
                   className="w-full h-full object-contain max-h-48"
                   style={{ aspectRatio: '16/9' }}
                   loading="eager"
                   decoding="async"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
-                    target.src = `https://placehold.co/800x450/333/white?text=${activeIndustryData.title}`;
+                    target.src = `https://placehold.co/800x450/333/white?text=${t(activeIndustryData.titleKey)}`;
                   }}
                 />
               </div>

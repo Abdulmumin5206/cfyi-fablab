@@ -32,9 +32,30 @@
       "buttonText": "Sessiyani band qilish"
     }
   },
+  "slider": {
+    "mainMessage": "Innovatsiyani qo'llab-quvvatlovchi texnologiyalar orqali. Biz g'oyalarni haqiqatga aylantirish uchun vositalar, makon va tajribani taqdim etamiz.",
+    "showcaseImage": "Ko'rsatma tasvir {{number}}",
+    "scrollHint": "Pastga aylantiring",
+    "innovationLab": {
+      "title": "Innovatsiya Laboratoriyasi",
+      "achievement": "500+ Loyihalar Bajarilgan",
+      "text": "Bizning zamonaviy uskunalarimiz raqamli ishlab chiqarish va prototiplash uchun eng so'nggi texnologiyalar bilan jihozlangan. Ijodkorlarni o'z g'oyalarini amalga oshirishga imkon beradi."
+    },
+    "creativeWorkspace": {
+      "title": "Ijodiy Ish Makoni",
+      "achievement": "1000+ Faol Ijodkorlar",
+      "text": "Rivojlanayotgan innovatorlar jamoasi. G'oyalar hamkorlik, tajriba va zamonaviy vositalar orqali haqiqatga aylanadigan joy."
+    },
+    "futureDevelopment": {
+      "title": "Kelajak Rivojlanishi",
+      "achievement": "99.9% Aniqlik Darajasi",
+      "text": "Har bir loyihada yuqori aniqlik. Ilg'or ishlab chiqarish texnikalari va innovatsion yondashuvlar bilan ertangi kunning yechimlarini yaratish."
+    }
+  },
   "serviceCategories": {
     "title": "Bizning xizmatlar",
     "subtitle": "Ishlab chiqarish xizmatlarimiz bilan tanishing",
+    "explorePrefix": "Ko'rish",
     "3dPrinting": {
       "title": "3D Chop etish",
       "description": "Tezkor prototiplayash va ishlab chiqarish uchun qo'shimcha texnologiyalar"
@@ -46,6 +67,146 @@
     "prototyping": {
       "title": "Prototiplash",
       "description": "G'oyalaringizni tezda jismoniy prototiplarga aylantiring"
+    },
+    "customFabrication": {
+      "title": "Maxsus ishlab chiqarish",
+      "description": "Lazer kesish, CNC va UV chop etish orqali g'oyalarni hayotga keltiring."
+    }
+  },
+  "industries": {
+    "title": "Bizning kasblarimiz",
+    "subtitle": "Innovatsiya ishlab chiqarish bilan uchrashgan joy",
+    "capabilities": "Imkoniyatlar",
+    "caseStudies": "Loyiha namunalari",
+    "contactUs": "Bu haqda biz bilan bog'laning",
+    "engineering": {
+      "title": "Muhandislik",
+      "description": "Innovatsion loyihalar uchun prototiplash, asboblar va ishlab chiqarish komponentlarini o'z ichiga olgan muhandislik yechimlari.",
+      "capabilities": [
+        "Funktsional prototiplar",
+        "Asboblar va moslamalar", 
+        "Foydalanish uchun qismlar", 
+        "Sinov uskunalari"
+      ],
+      "caseStudies": [
+        {
+          "title": "Tezkor prototip ishlab chiqish",
+          "description": "Tekshirish va sinov uchun tezkor prototiplar bilan muhandislik sikllari tezlashtirilmoqda."
+        }
+      ]
+    },
+    "textile": {
+      "title": "To'qimachilik",
+      "description": "Zamonaviy ishlab chiqarish ehtiyojlari uchun innovatsion to'qimachilik ishlab chiqarish yechimlari va mato qayta ishlash uskunalari.",
+      "capabilities": [
+        "Mato tekshirish", 
+        "To'qimachilik mashinalari", 
+        "Qayta ishlash uskunalari", 
+        "Sifat nazorati"
+      ],
+      "caseStudies": [
+        {
+          "title": "Ilg'or mato qayta ishlash",
+          "description": "Ishlab chiqarish samaradorligini oshirish uchun zamonaviy to'qimachilik ishlab chiqarish yechimlari."
+        }
+      ]
+    },
+    "medical": {
+      "title": "Tibbiyot",
+      "description": "Jarrohlik rejalashtirish modellaridan maxsus qurilmalarga va uskunalar komponentlariga qadar tibbiy dasturlar.",
+      "capabilities": [
+        "Bemorga xos modellar", 
+        "Jarrohlik rejalashtirish vositalari", 
+        "Tibbiy qurilma prototiplari", 
+        "Anatomik nusxalar"
+      ],
+      "caseStudies": [
+        {
+          "title": "Jarrohlik rejalashtirish modellari",
+          "description": "Jarrohlik amaliyotidan oldin jarro'hlarga murakkab jarayonlarni rejalashtirish va mashq qilishga yordam beradigan maxsus anatomik modellar."
+        }
+      ]
+    },
+    "furniture": {
+      "title": "Mebel",
+      "description": "Turar-joy va tijorat ilovalari uchun maxsus mebel dizayni va ishlab chiqarish yechimlari.",
+      "capabilities": [
+        "Maxsus dizaynlar", 
+        "Prototiplarni ishlab chiqish", 
+        "Ishlab chiqarish vositalari", 
+        "Montaj yechimlari"
+      ],
+      "caseStudies": [
+        {
+          "title": "Zamonaviy mebel to'plami",
+          "description": "Ilg'or ishlab chiqarish texnologiyalari orqali hayotga tatbiq etilgan innovatsion mebel dizaynlari."
+        }
+      ]
+    },
+    "automotive": {
+      "title": "Avtomobilsozlik",
+      "description": "Prototiplarni ishlab chiqish, komponentlarni sinash va maxsus qismlar uchun avtomobil yechimlari.",
+      "capabilities": [
+        "Konsept modellar", 
+        "Funktsional prototiplar", 
+        "Sinov moslamalari", 
+        "Maxsus komponentlar"
+      ],
+      "caseStudies": [
+        {
+          "title": "Avtomobillarni sinash uskunalari",
+          "description": "Yangi avtomobil komponentlari va tizimlarini tekshirish uchun maxsus sinov moslamalari."
+        }
+      ]
+    },
+    "education": {
+      "title": "Ta'lim",
+      "description": "O'qish tajribasini va amaliy tayyorgarlikni yaxshilash uchun ta'lim vositalari va modellari.",
+      "capabilities": [
+        "Anatomik modellar", 
+        "O'qitish vositalari", 
+        "Interaktiv vositalar", 
+        "Ta'lim to'plamlari"
+      ],
+      "caseStudies": [
+        {
+          "title": "Ta'lim anatomiya modellari",
+          "description": "Tibbiy ta'lim va mashq qilishni yaxshilaydigan batafsil anatomik modellar."
+        }
+      ]
+    },
+    "manufacturing": {
+      "title": "Ishlab chiqarish",
+      "description": "Ishlab chiqarish ehtiyojlari uchun qoliplash va ehtiyot qismlarni o'z ichiga olgan ishlab chiqarish yechimlari.",
+      "capabilities": [
+        "Ishlab chiqarish asboblari", 
+        "Yig'ish moslamalari", 
+        "Maxsus komponentlar", 
+        "Qisqa seriyali ishlab chiqarish", 
+        "Qoliplash va ehtiyot qismlar"
+      ],
+      "caseStudies": [
+        {
+          "title": "Maxsus ishlab chiqarish moslamalari",
+          "description": "Ishlab chiqarish samaradorligi va sifat nazoratini yaxshilaydigan maxsus moslamalar."
+        }
+      ]
+    },
+    "jewelry": {
+      "title": "Zargarlik buyumlari",
+      "description": "Noyob va aniq buyumlar uchun maxsus zargarlik dizayni, prototiplash va ishlab chiqarish yechimlari.",
+      "capabilities": [
+        "Batafsil dizaynlar", 
+        "Quyma naqshlar", 
+        "Maxsus sozlamalar", 
+        "Tayyor buyumlar"
+      ],
+      "caseStudies": [
+        {
+          "title": "Maxsus zargarlik to'plami",
+          "description": "Ilg'or ishlab chiqarish texnologiyalardan foydalangan holda murakkab, shaxsiylashtirilgan zargarlik buyumlarini yaratish."
+        }
+      ]
     }
   },
   "about": {
@@ -72,5 +233,20 @@
     "privacy": "Maxfiylik siyosati",
     "terms": "Xizmat ko'rsatish shartlari",
     "copyright": "© 2023 FabLab. Barcha huquqlar himoyalangan."
+  },
+  "video": {
+    "ariaLabel": "FabLab targ'ibot videosi",
+    "fallbackText": "Brauzeringiz video tegini qo'llab-quvvatlamaydi."
+  },
+  "projects": {
+    "title": "Bizning so'nggi loyihalarimiz",
+    "subtitle": "Raqamli ishlab chiqarish va ishlab chiqarishdagi eng so'nggi ishlarimiz va innovatsiyalarimizni o'rganing.",
+    "viewAll": "Barcha loyihalarni ko'rish",
+    "readMore": "Ko'proq o'qish",
+    "1": {
+      "title": "3D bosib chiqarilgan prototip ishlab chiqarish",
+      "excerpt": "O'zbek texnologik startapi uchun ilg'or 3D bosma texnologiyalaridan foydalangan holda to'liq funktsional prototip yaratildi.",
+      "category": "3D Chop etish"
+    }
   }
 } 

@@ -53,7 +53,7 @@ const Footer = ({ bgClass = "bg-black", textClass = "text-white" }: FooterProps)
             </div>
             
             <p className={`${secondaryTextColor} text-sm mb-6`}>
-              FabLab Uzbekistan, in collaboration with Center for Youth Initiatives, is committed to advancing technical education and digital manufacturing. We provide modern equipment and expert support to inspire future innovators.
+              {t('footer.description')}
             </p>
           </div>
           <div className="grid grid-cols-2 gap-8">

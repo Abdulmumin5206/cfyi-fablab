@@ -96,8 +96,8 @@ const ContactSection = () => {
               className="lg:col-span-2 bg-white rounded-xl shadow-lg overflow-hidden"
             >
               <div className="bg-brand-red text-white p-8">
-                <h3 className="text-2xl font-bold mb-2">Get in Touch</h3>
-                <p className="opacity-90">We're here to answer any questions you might have</p>
+                <h3 className="text-2xl font-bold mb-2">{t('contact.title')}</h3>
+                <p className="opacity-90">{t('contact.subtitle')}</p>
               </div>
               
               <div className="p-8">
@@ -145,7 +145,7 @@ const ContactSection = () => {
                 </div>
                 
                 <div className="mt-10 pt-8 border-t border-gray-200">
-                  <h4 className="text-lg font-semibold text-gray-900 mb-4">Connect With Us</h4>
+                  <h4 className="text-lg font-semibold text-gray-900 mb-4">{t('contact.connectWithUs')}</h4>
                   <div className="flex space-x-4">
                     <a href="https://www.linkedin.com/company/center-for-youth-initiatives" target="_blank" rel="noopener noreferrer" className="bg-gray-100 hover:bg-[#fb8500] hover:text-white transition-all duration-300 p-3 rounded-full">
                       <svg className="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
@@ -188,7 +188,7 @@ const ContactSection = () => {
               className="lg:col-span-3 bg-white rounded-xl shadow-lg overflow-hidden"
             >
               <div className="p-8 lg:p-10">
-                <h3 className="text-2xl font-bold mb-6">Send Us a Message</h3>
+                <h3 className="text-2xl font-bold mb-6">{t('contact.sendMessage')}</h3>
                 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -201,7 +201,7 @@ const ContactSection = () => {
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
-                        placeholder="John Doe"
+                        placeholder={t('contact.namePlaceholder')}
                         required
                         className="w-full border border-gray-300 rounded-md px-4 py-2.5 focus:ring-2 focus:ring-brand-red focus:border-transparent transition-all duration-200 bg-gray-50 hover:bg-white focus:bg-white"
                       />
@@ -216,7 +216,7 @@ const ContactSection = () => {
                         type="email"
                         value={formData.email}
                         onChange={handleChange}
-                        placeholder="johndoe@example.com"
+                        placeholder={t('contact.emailPlaceholder')}
                         required
                         className="w-full border border-gray-300 rounded-md px-4 py-2.5 focus:ring-2 focus:ring-brand-red focus:border-transparent transition-all duration-200 bg-gray-50 hover:bg-white focus:bg-white"
                       />
@@ -231,7 +231,7 @@ const ContactSection = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      placeholder="+998 XX XXX XX XX"
+                      placeholder={t('contact.phonePlaceholder')}
                       className="w-full border border-gray-300 rounded-md px-4 py-2.5 focus:ring-2 focus:ring-brand-red focus:border-transparent transition-all duration-200 bg-gray-50 hover:bg-white focus:bg-white"
                     />
                   </div>
@@ -244,7 +244,7 @@ const ContactSection = () => {
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
-                      placeholder="How can we help you?"
+                      placeholder={t('contact.messagePlaceholder')}
                       rows={5}
                       required
                       className="w-full border border-gray-300 rounded-md px-4 py-2.5 focus:ring-2 focus:ring-brand-red focus:border-transparent transition-all duration-200 bg-gray-50 hover:bg-white focus:bg-white min-h-[150px] resize-y"

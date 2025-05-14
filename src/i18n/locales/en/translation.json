@@ -216,23 +216,37 @@
     "learnMore": "Learn More"
   },
   "contact": {
-    "title": "Contact Us",
-    "subtitle": "Get in touch with our team",
-    "name": "Name",
-    "email": "Email",
-    "message": "Message",
+    "title": "Get in Touch",
+    "subtitle": "We're here to answer any questions you might have",
+    "name": "Name *",
+    "namePlaceholder": "John Doe",
+    "email": "Email *",
+    "emailPlaceholder": "johndoe@example.com",
+    "phone": "Phone (Optional)",
+    "phonePlaceholder": "+998 XX XXX XX XX",
+    "message": "Message *",
+    "messagePlaceholder": "How can we help you?",
     "send": "Send Message",
     "address": "Address",
-    "phone": "Phone",
-    "emailContact": "Email"
+    "addressValue": "17 Olmachi St., Mirzo-Ulugbek District,\nTashkent, Uzbekistan",
+    "phoneValue": "+998 (77) 088 39 77 (ru/uz)\n+998 (77) 088 49 77 (ru/en)",
+    "emailContact": "Email",
+    "emailValue": "info@cfyi.uz",
+    "connectWithUs": "Connect With Us",
+    "sendMessage": "Send Us a Message"
   },
   "footer": {
     "services": "Services",
-    "about": "About",
+    "about": "About FabLab",
+    "aboutUs": "About Us",
+    "projects": "Projects",
+    "blog": "Blog",
     "contact": "Contact",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
-    "copyright": "© 2023 FabLab. All rights reserved."
+    "cookiePolicy": "Cookie Policy",
+    "copyright": "© 2025 Center for Youth Initiatives FabLab. All rights reserved.",
+    "description": "FabLab Uzbekistan, in collaboration with Center for Youth Initiatives, is committed to advancing technical education and digital manufacturing. We provide modern equipment and expert support to inspire future innovators."
   },
   "video": {
     "ariaLabel": "FabLab promotional video",
@@ -247,6 +261,46 @@
       "title": "3D Printed Prototype Development",
       "excerpt": "Created a fully functional prototype using advanced 3D printing techniques for an Uzbek tech startup.",
       "category": "3D Printing"
+    }
+  },
+  "blog": {
+    "backToAllPosts": "All Posts",
+    "tableOfContents": "Table of Contents",
+    "readTime": "{{minutes}} minutes read",
+    "posts": {
+      "3d-printing-innovations": {
+        "title": "SLA Resin Printing: Revolutionizing Small-Batch Production for Spare Parts",
+        "date": "May 15, 2023",
+        "author": "John Smith",
+        "category": "Manufacturing",
+        "content": "In today's manufacturing landscape, there's often a challenging gap between one-off prototyping and full-scale mass production. At our FABLAB, we recently tackled this exact problem for a client who needed a specialized component in quantities that made traditional injection molding impractical. This blog post explores how we leveraged SLA printing technology to deliver a cost-effective small-batch production solution with remarkable efficiency.",
+        "sections": {
+          "challenge": {
+            "title": "The Challenge: When Injection Molding Isn't the Answer",
+            "content": "Our client approached us with a small but critical component that needed to be produced in moderate quantities. Traditional injection molding would have required:"
+          },
+          "design-process": {
+            "title": "From Measurement to Model: Precision Design Process",
+            "content": "The first step in our process involved precise measurement of the required component. Using digital calipers, we captured all critical dimensions with sub-millimeter accuracy. These measurements were then translated into a detailed CAD model, creating an exact digital replica of the needed part."
+          },
+          "optimization": {
+            "title": "Optimizing for Production Efficiency",
+            "content": "One of the key innovations in our approach was the optimization of support structures. Rather than using the default support settings that would have placed supports across the entire bottom surface, we strategically positioned supports only where structurally necessary."
+          },
+          "production": {
+            "title": "The Production Process",
+            "content": "Our streamlined production workflow consisted of:"
+          },
+          "results": {
+            "title": "Results: Manufacturing Agility",
+            "content": "This approach allowed us to deliver the following advantages over traditional manufacturing methods:"
+          },
+          "conclusion": {
+            "title": "Conclusion: Bridging the Manufacturing Gap",
+            "content": "At our FABLAB, we're continuously pushing the boundaries of what's possible with advanced fabrication technologies. This project demonstrates how SLA printing can bridge the gap between prototyping and mass production, offering a viable manufacturing path for components that would otherwise be caught in the \"too few for injection molding, too many for one-off printing\" dilemma."
+          }
+        }
+      }
     }
   }
 } 

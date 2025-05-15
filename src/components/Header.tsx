@@ -14,6 +14,7 @@ const Header = () => {
   const [servicesMenuOpen, setServicesMenuOpen] = useState(false);
   const servicesButtonRef = useRef<HTMLButtonElement>(null);
   const servicesMenuRef = useRef<HTMLDivElement>(null);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
   const location = useLocation();
   const is3DPrintingPage = location.pathname === "/3d-printing";
   const is3DPrintingBlogPost = location.pathname === "/blog/3d-printing-innovations";
@@ -25,6 +26,7 @@ const Header = () => {
   // More aggressive laptop detection (covers most laptop screens)
   const isLaptopScreen = windowWidth < 1440;
   const isMobileScreen = windowWidth < 768; // md breakpoint
+  const isTabletScreen = windowWidth <= 1024; // lg breakpoint, include 1024px
 
   // ref + state for measuring the main nav width
   const navRef = useRef<HTMLDivElement>(null);
@@ -68,7 +70,17 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [prevScrollPos]);
 
-  // Handle services menu hover behavior
+  // Detect touch device
+  useEffect(() => {
+    const checkTouchDevice = () => {
+      setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
+    };
+    checkTouchDevice();
+    window.addEventListener('resize', checkTouchDevice);
+    return () => window.removeEventListener('resize', checkTouchDevice);
+  }, []);
+
+  // Handle services menu hover and click behavior
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -113,24 +125,31 @@ const Header = () => {
     }, 300);
   };
 
-  const openServicesMenu = () => setServicesMenuOpen(true);
-  const closeServicesMenu = () => setServicesMenuOpen(false);
+  const toggleServicesMenu = () => {
+    setServicesMenuOpen(!servicesMenuOpen);
+  };
 
   // This timeout helps with more natural hover behavior
   let hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   
   const handleServicesMouseEnter = () => {
-    if (hoverTimeoutRef.current) {
-      clearTimeout(hoverTimeoutRef.current);
-      hoverTimeoutRef.current = null;
+    // Only apply hover behavior on desktop
+    if (!isTabletScreen) {
+      if (hoverTimeoutRef.current) {
+        clearTimeout(hoverTimeoutRef.current);
+        hoverTimeoutRef.current = null;
+      }
+      setServicesMenuOpen(true);
     }
-    openServicesMenu();
   };
 
   const handleServicesMouseLeave = () => {
-    hoverTimeoutRef.current = setTimeout(() => {
-      closeServicesMenu();
-    }, 150); // Small delay to make the interaction feel natural
+    // Only apply hover behavior on desktop
+    if (!isTabletScreen) {
+      hoverTimeoutRef.current = setTimeout(() => {
+        setServicesMenuOpen(false);
+      }, 150); // Small delay to make the interaction feel natural
+    }
   };
 
   // Dynamic styling for laptop screens
@@ -225,7 +244,7 @@ const Header = () => {
                     ref={servicesButtonRef}
                     style={textStyle}
                     className={`flex items-center h-full ${shouldUseBlackTheme ? "text-white group-hover:text-blue-500" : "text-black group-hover:text-blue-600"} transition-colors text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} px-1 sm:px-2`}
-                    onClick={() => setServicesMenuOpen(!servicesMenuOpen)}
+                    onClick={toggleServicesMenu}
                   >
                     {t('header.services')}
                     <ChevronDown className={`ml-1 h-4 w-4 ${isLaptopScreen ? 'md:h-4 md:w-4' : 'lg:h-5 lg:w-5'} transition-transform duration-200 ${servicesMenuOpen ? 'rotate-180' : ''}`} />

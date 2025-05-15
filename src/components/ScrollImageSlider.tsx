@@ -100,7 +100,7 @@ const ScrollImageSlider = () => {
           {/* Image container - full viewport size with all images visible */}
           <div className="absolute inset-0 w-full h-full">
             {/* Fixed Mission Quote */}
-            <div className="absolute left-0 top-0 bottom-0 w-1/2 hidden md:flex items-center justify-center z-50 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+            <div className="absolute left-0 top-0 bottom-0 w-full md:w-1/2 hidden lg:flex items-center justify-center z-50 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
               <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold text-white leading-relaxed">
                 {t("slider.mainMessage")}
               </p>

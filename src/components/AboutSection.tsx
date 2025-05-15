@@ -399,8 +399,8 @@ const AboutSection = () => {
           onClick={closePopup}
         >
           <div 
-            className="bg-white w-full max-w-3xl rounded-md flex flex-col shadow-xl overflow-hidden"
-            style={{ maxHeight: '90vh' }}
+            className="bg-white w-full max-w-[95vw] md:max-w-2xl lg:max-w-4xl xl:max-w-[80vw] rounded-md flex flex-col shadow-xl overflow-hidden"
+            style={{ maxHeight: '98vh' }}
             onClick={(e) => e.stopPropagation()}
           >
             <div className="bg-white z-10 flex justify-between items-center border-b p-4">
@@ -428,8 +428,8 @@ const AboutSection = () => {
               </button>
             </div>
 
-            <div className="flex flex-col md:flex-row gap-6 flex-grow overflow-y-auto p-4" style={{ maxHeight: '80vh' }}>
-              <div className="md:w-1/2 space-y-6">
+            <div className="flex flex-col md:flex-row gap-6 flex-grow p-4 min-h-[60vh] md:h-[70vh] overflow-y-auto overflow-x-hidden max-h-[70vh]">
+              <div className="md:w-1/2 h-full space-y-6 flex-shrink-0">
                 <p className="text-base">{t(activeIndustryData.descriptionKey)}</p>
                 <div>
                   <h4 className="text-lg font-semibold mb-2">{t('industries.capabilities')}</h4>
@@ -455,22 +455,13 @@ const AboutSection = () => {
                     ))}
                   </div>
                 </div>
-                <div className="pt-4">
-                  <button
-                    onClick={() => handleContactClick(activeIndustryData.id)}
-                    className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded transition-colors duration-300"
-                  >
-                    {t('industries.contactUs')}
-                  </button>
-                </div>
               </div>
               {/* Industry showcase image */}
-              <div className="md:w-1/2 rounded-md overflow-hidden h-auto flex items-center justify-center">
+              <div className="md:w-1/2 w-full h-full flex p-0 m-0 items-stretch flex-shrink-0 md:p-6">
                 <img 
                   src={`/main/popups/${activeIndustryData.id}.${activeIndustryData.id === 'manufacturing' ? 'png' : (activeIndustryData.id === 'education' || activeIndustryData.id === 'medical' || activeIndustryData.id === 'engineering' ? 'webp' : 'jpg')}`}
                   alt={`${t(activeIndustryData.titleKey)} showcase`}
-                  className="w-full h-full object-contain max-h-48"
-                  style={{ aspectRatio: '16/9' }}
+                  className="w-full h-full object-cover"
                   loading="eager"
                   decoding="async"
                   onError={(e) => {

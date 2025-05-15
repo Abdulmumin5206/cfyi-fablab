@@ -90,13 +90,27 @@ const Header = () => {
   }, [servicesMenuOpen]);
 
   const toggleMenu = () => {
-    setIsMobileMenuOpen((o) => !o);
-    document.body.style.overflow = isMobileMenuOpen ? "" : "hidden";
+    // Toggle mobile menu state
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+    
+    // Handle body scroll locking properly
+    if (!isMobileMenuOpen) {
+      // Opening menu - lock scrolling
+      document.body.style.overflow = "hidden";
+    } else {
+      // Closing menu - restore scrolling with a small delay to allow animation
+      setTimeout(() => {
+        document.body.style.overflow = "";
+      }, 300);
+    }
   };
   
   const closeMenu = () => {
     setIsMobileMenuOpen(false);
-    document.body.style.overflow = "";
+    // Add delay when closing to allow animation to complete
+    setTimeout(() => {
+      document.body.style.overflow = "";
+    }, 300);
   };
 
   const openServicesMenu = () => setServicesMenuOpen(true);

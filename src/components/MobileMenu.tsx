@@ -34,10 +34,18 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
   // Lock body scroll when menu is open
   useEffect(() => {
     if (isOpen) {
+      // Lock scrolling but ensure the menu itself can scroll internally
       document.body.style.overflow = 'hidden';
+      
+      // Force scroll to top when opening menu for better experience
+      window.scrollTo(0, 0);
     } else {
-      document.body.style.overflow = '';
+      // Delay unlocking scroll to match animation duration
+      setTimeout(() => {
+        document.body.style.overflow = '';
+      }, 500);
     }
+    
     return () => {
       document.body.style.overflow = '';
     };
@@ -74,6 +82,25 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
     window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  // Handle viewport height for mobile browsers (addresses iOS safari issues)
+  useEffect(() => {
+    const setVh = () => {
+      // Set a CSS variable based on real viewport height
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    };
+    
+    // Set initial value
+    setVh();
+    
+    // Update on resize
+    window.addEventListener('resize', setVh);
+    
+    return () => {
+      window.removeEventListener('resize', setVh);
     };
   }, []);
 
@@ -118,6 +145,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
       className={`fixed inset-0 w-screen h-screen z-[100] ${
         isOpen ? "" : "pointer-events-none"
       }`}
+      style={{ height: 'calc(var(--vh, 1vh) * 100)' }}
     >
       {/* Background overlay with fade effect */}
       <div 
@@ -131,8 +159,9 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
         className={`absolute inset-0 transition-all duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] ${
           isOpen ? "translate-y-0 opacity-100" : "-translate-y-8 opacity-0"
         }`}
+        style={{ height: isOpen ? '100%' : '0' }}
       >
-        <div className="min-h-screen w-full flex flex-col md:flex-row">
+        <div className="h-full w-full flex flex-col md:flex-row">
           {/* Desktop slider (hidden on small screens) */}
           <div className={`hidden md:block ${isLargeScreen ? 'w-[30%]' : 'w-[40%]'} relative overflow-hidden z-20`}>
             <div 
@@ -140,57 +169,19 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                 isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
               }`}
             >
-              {/* Blog Slide */}
-              <div 
-                className={`absolute inset-0 transition-opacity duration-700 ease-in-out bg-black ${
-                  activeSlide === 0 ? "opacity-100 z-10" : "opacity-0 z-0"
-                }`}
-              >
-                <img 
-                  src="/menu/blog1.png" 
-                  alt="Blog" 
-                  className="w-full h-full object-cover transition-transform duration-10000 ease-out scale-110 origin-center"
-                  style={{ transform: activeSlide === 0 ? 'scale(1)' : 'scale(1.1)' }}
-                  onError={(e) => {
-                    const imgElement = e.currentTarget;
-                    imgElement.onerror = null; // Prevent infinite loops
-                    imgElement.src = "/fablab/3.jpg"; // Fallback image
-                  }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/80" />
-                <div className={`absolute bottom-0 left-0 right-0 ${isLargeScreen ? 'p-8' : 'p-6'}`}>
-                  <div className={`text-[#E6DB00] uppercase ${isLargeScreen ? 'text-base' : 'text-sm'} font-medium mb-2 transition-all duration-700 delay-300 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
-                    {t('mobileMenu.latestPost')}
-                  </div>
-                  <h2 className={`${isLargeScreen ? 'text-3xl' : 'text-2xl'} font-light mb-2 text-white transition-all duration-700 delay-400 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
-                    {t('mobileMenu.latestPostTitle')}
-                  </h2>
-                  <p className={`${isLargeScreen ? 'text-lg' : 'text-base'} text-white/80 mb-3 transition-all duration-700 delay-500 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'} ${isLaptopScreen ? 'hidden md:block' : ''}`}>
-                    {t('mobileMenu.latestPostDescription')}
-                  </p>
-                  <Link 
-                    to="/blog/3d-printing-innovations" 
-                    onClick={onClose}
-                    className={`inline-flex items-center ${isLargeScreen ? 'text-lg' : 'text-base'} text-white hover:text-[#E6DB00] transition-all duration-700 delay-600 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
-                  >
-                    {t('mobileMenu.readArticle')} <ArrowRight className={`ml-2 ${isLargeScreen ? 'h-5 w-5' : 'h-4 w-4'}`} />
-                  </Link>
-                </div>
-              </div>
-              
-              {/* Service Slides */}
-              {services.map((service, index) => (
+              {/* Blog and Service Slides - Only render the active one */}
+              {activeSlide === 0 ? (
                 <div 
-                  key={service.title}
-                  className={`absolute inset-0 transition-opacity duration-700 ease-in-out bg-black ${
-                    activeSlide === index + 1 ? "opacity-100 z-10" : "opacity-0 z-0"
-                  }`}
+                  className="absolute inset-0 transition-opacity duration-700 ease-in-out bg-black opacity-100 z-10"
                 >
                   <img 
-                    src={service.image} 
-                    alt={service.title} 
-                    className="w-full h-full object-cover transition-transform duration-10000 ease-out scale-110 origin-center"
-                    style={{ transform: activeSlide === index + 1 ? 'scale(1)' : 'scale(1.1)' }}
+                    src="/menu/blog1.png" 
+                    alt="Blog" 
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out scale-110 origin-center"
+                    style={{ 
+                      transform: 'scale(1)', 
+                      willChange: 'transform, opacity' 
+                    }}
                     onError={(e) => {
                       const imgElement = e.currentTarget;
                       imgElement.onerror = null; // Prevent infinite loops
@@ -198,26 +189,64 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                     }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/80" />
-                  <div className={`absolute bottom-0 left-0 right-0 ${isLargeScreen ? 'p-8' : 'p-6'}`}>
-                    <div className={`text-[#E6DB00] uppercase ${isLargeScreen ? 'text-base' : 'text-sm'} font-medium mb-2 transition-all duration-700 delay-300 ${activeSlide === index + 1 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
-                      {t('mobileMenu.ourServices')}
+                  <div className={`absolute bottom-0 left-0 right-0 ${isLargeScreen ? 'p-8' : 'p-6'}`}> 
+                    <div className={`text-[#E6DB00] uppercase ${isLargeScreen ? 'text-base' : 'text-sm'} font-medium mb-2 transition-all duration-700 delay-300`}>
+                      {t('mobileMenu.latestPost')}
                     </div>
-                    <h2 className={`${isLargeScreen ? 'text-3xl' : 'text-2xl'} font-light mb-2 text-white transition-all duration-700 delay-400 ${activeSlide === index + 1 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
-                      {service.title}
+                    <h2 className={`${isLargeScreen ? 'text-3xl' : 'text-2xl'} font-light mb-2 text-white transition-all duration-700 delay-400`}>
+                      {t('mobileMenu.latestPostTitle')}
                     </h2>
-                    <p className={`${isLargeScreen ? 'text-lg' : 'text-base'} text-white/80 mb-3 transition-all duration-700 delay-500 ${activeSlide === index + 1 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'} ${isLaptopScreen ? 'hidden md:block' : ''}`}>
-                      {service.description}
+                    <p className={`${isLargeScreen ? 'text-lg' : 'text-base'} text-white/80 mb-3 transition-all duration-700 delay-500 ${isLaptopScreen ? 'hidden md:block' : ''}`}>
+                      {t('mobileMenu.latestPostDescription')}
                     </p>
                     <Link 
-                      to={service.path} 
+                      to="/blog/3d-printing-innovations" 
                       onClick={onClose}
-                      className={`inline-flex items-center ${isLargeScreen ? 'text-lg' : 'text-base'} text-white hover:text-[#E6DB00] transition-all duration-700 delay-600 ${activeSlide === index + 1 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+                      className={`inline-flex items-center ${isLargeScreen ? 'text-lg' : 'text-base'} text-white hover:text-[#E6DB00] transition-all duration-700 delay-600`}
                     >
-                      {t('mobileMenu.explore')} {service.title} <ArrowRight className={`ml-2 ${isLargeScreen ? 'h-5 w-5' : 'h-4 w-4'}`} />
+                      {t('mobileMenu.readArticle')} <ArrowRight className={`ml-2 ${isLargeScreen ? 'h-5 w-5' : 'h-4 w-4'}`} />
                     </Link>
                   </div>
                 </div>
-              ))}
+              ) : (
+                <div 
+                  className="absolute inset-0 transition-opacity duration-700 ease-in-out bg-black opacity-100 z-10"
+                >
+                  <img 
+                    src={services[activeSlide - 1].image} 
+                    alt={services[activeSlide - 1].title} 
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out scale-110 origin-center"
+                    style={{ 
+                      transform: 'scale(1)', 
+                      willChange: 'transform, opacity' 
+                    }}
+                    onError={(e) => {
+                      const imgElement = e.currentTarget;
+                      imgElement.onerror = null; // Prevent infinite loops
+                      imgElement.src = "/fablab/3.jpg"; // Fallback image
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/80" />
+                  <div className={`absolute bottom-0 left-0 right-0 ${isLargeScreen ? 'p-8' : 'p-6'}`}> 
+                    <div className={`text-[#E6DB00] uppercase ${isLargeScreen ? 'text-base' : 'text-sm'} font-medium mb-2 transition-all duration-700 delay-300`}>
+                      {t('mobileMenu.ourServices')}
+                    </div>
+                    <h2 className={`${isLargeScreen ? 'text-3xl' : 'text-2xl'} font-light mb-2 text-white transition-all duration-700 delay-400`}>
+                      {services[activeSlide - 1].title}
+                    </h2>
+                    <p className={`${isLargeScreen ? 'text-lg' : 'text-base'} text-white/80 mb-3 transition-all duration-700 delay-500 ${isLaptopScreen ? 'hidden md:block' : ''}`}>
+                      {services[activeSlide - 1].description}
+                    </p>
+                    <Link 
+                      to={services[activeSlide - 1].path} 
+                      onClick={onClose}
+                      className={`inline-flex items-center ${isLargeScreen ? 'text-lg' : 'text-base'} text-white hover:text-[#E6DB00] transition-all duration-700 delay-600`}
+                    >
+                      {t('mobileMenu.explore')} {services[activeSlide - 1].title} <ArrowRight className={`ml-2 ${isLargeScreen ? 'h-5 w-5' : 'h-4 w-4'}`} />
+                    </Link>
+                  </div>
+                </div>
+              )}
               
               {/* Slide Indicators */}
               <div className={`absolute ${isLargeScreen ? 'bottom-24' : 'bottom-16'} left-0 right-0 flex justify-center space-x-2`}>
@@ -236,14 +265,14 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
           </div>
 
           {/* Menu Content and Mobile Slider */}
-          <div className="flex-1 flex flex-col overflow-y-auto justify-between">
-            {/* Header with fade-down effect - FIXED SECTION */}
-            <div className={`flex justify-between items-center h-16 sm:h-20 ${isLaptopScreen ? 'md:h-[75px]' : 'md:h-24 lg:h-28'}`}>
+          <div className="flex-1 flex flex-col h-full overflow-hidden">
+            {/* Header with fade-down effect - FIXED at top */}
+            <div className={`flex justify-between items-center h-16 sm:h-20 ${isLaptopScreen ? 'md:h-[75px]' : 'md:h-24 lg:h-28'} bg-black`}>
               <div className={`h-full flex items-center pl-4 sm:pl-6 ${isLaptopScreen ? 'md:pl-8' : 'md:pl-10 lg:pl-16 xl:pl-20'}`}>
-                {/* Left side empty for alignment */}
+                {/* Empty space for alignment */}
               </div>
 
-              {/* Right side nav with close button */}
+              {/* Right side nav with close button - always visible */}
               <div className={`h-full flex items-center px-3 sm:px-4 ${isLaptopScreen ? 'md:px-6' : 'md:px-8 lg:px-12 xl:px-20'}`}>
                 <button
                   onClick={onClose}
@@ -258,255 +287,122 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
               </div>
             </div>
 
-            {/* Navigation with staggered fade-in effect */}
-            <div className={`flex-1 overflow-y-auto flex items-center ${isLargeScreen ? 'p-8' : 'p-6'}`}>
-              <div className="flex flex-row max-w-4xl mx-auto w-full">
-                {/* Navigation Links */}
-                <div className="flex-1">
-                  <div className="space-y-4">
-                    {/* Direct navigation links */}
-                    <Link 
-                      to="/3d-printing"
-                      onClick={onClose}
-                      className={`block ${isLargeScreen ? 'text-3xl' : 'text-2xl'} text-white hover:text-[#cb2026] transition-colors duration-300 ${
-                        isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-                      }`}
-                    >
-                      {t('header.3dPrinting')}
-                    </Link>
-                    <Link 
-                      to="/mould"
-                      onClick={onClose}
-                      className={`block ${isLargeScreen ? 'text-3xl' : 'text-2xl'} text-white hover:text-[#0e9a48] transition-colors duration-300 ${
-                        isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-                      }`}
-                    >
-                      {t('header.mould')}
-                    </Link>
-                    <Link 
-                      to="/blog"
-                      onClick={onClose}
-                      className={`block ${isLargeScreen ? 'text-3xl' : 'text-2xl'} text-white hover:text-[#E6DB00] transition-colors duration-300 ${
-                        isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-                      }`}
-                    >
-                      {t('header.projects')}
-                    </Link>
-                    <Link
-                      to="/about-fablab"
-                      onClick={onClose}
-                      className={`block ${isLargeScreen ? 'text-3xl' : 'text-2xl'} text-white hover:text-[#E6DB00] transition-colors duration-300 ${
-                        isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-                      }`}
-                    >
-                      {t('header.aboutFablab')}
-                    </Link>
-                    <Link
-                      to="/blog"
-                      onClick={onClose}
-                      className={`block ${isLargeScreen ? 'text-3xl' : 'text-2xl'} text-white hover:text-[#E6DB00] transition-colors duration-300 ${
-                        isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-                      }`}
-                    >
-                      {t('header.blog')}
-                    </Link>
-                    <button
-                      onClick={scrollToContact}
-                      className={`block ${isLargeScreen ? 'text-3xl' : 'text-2xl'} text-white hover:text-[#E6DB00] transition-colors duration-300 text-left ${
-                        isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-                      }`}
-                    >
-                      {t('mobileMenu.contactUs')}
-                    </button>
-                    <Link
-                      to="/book-session"
-                      onClick={onClose}
-                      className={`block ${isLargeScreen ? 'text-3xl' : 'text-2xl'} text-white hover:text-[#E6DB00] transition-colors duration-300 ${
-                        isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-                      }`}
-                    >
-                      {t('header.bookSession')}
-                    </Link>
-                  </div>
-                </div>
-
-                {/* Social Media Icons - Mobile */}
-                <div className="md:hidden w-24 flex flex-col justify-center items-center space-y-6 ml-8">
-                  <a 
-                    href="https://www.facebook.com/centerforyouthinitiatives" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300 text-white"
-                  >
-                    <Facebook size={20} />
-                  </a>
-                  <a 
-                    href="https://www.instagram.com/fablab.cfyi" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300 text-white"
-                  >
-                    <Instagram size={20} />
-                  </a>
-                  <a 
-                    href="https://www.linkedin.com/company/center-for-youth-initiatives" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300 text-white"
-                  >
-                    <Linkedin size={20} />
-                  </a>
-                  <a 
-                    href="https://www.youtube.com/@CenterforYouthInitiatives" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300 text-white"
-                  >
-                    <Youtube size={20} />
-                  </a>
-                  <a 
-                    href="https://t.me/+998770884977" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300 text-white"
-                  >
-                    <svg 
-                      className="w-5 h-5" 
-                      xmlns="http://www.w3.org/2000/svg" 
-                      fill="currentColor" 
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.96 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            </div>
-            
-            {/* Footer with location and social media */}
-            <div className={`w-full ${isLargeScreen ? 'p-8' : 'p-0'} border-t border-white/10 transition-all duration-700 delay-[800ms] ${isOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-              {/* Mobile slider - Responsive full width, always at bottom */}
-              <div className="md:hidden w-full h-[30vh] min-h-[160px] flex flex-col justify-end overflow-hidden">
-                <div className={`relative w-full h-full transition-all duration-1000 ${isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}> 
-                  {/* Blog Slide */}
-                  <div className={`absolute inset-0 transition-opacity duration-700 ease-in-out bg-black ${activeSlide === 0 ? "opacity-100 z-10" : "opacity-0 z-0"}`}> 
-                    <img 
-                      src="/blog_images/blog1.png" 
-                      alt="Blog" 
-                      className="w-full h-full object-cover object-center transition-transform duration-10000 ease-out scale-110 origin-center" 
-                      style={{ transform: activeSlide === 0 ? 'scale(1)' : 'scale(1.1)' }} 
-                      onError={(e) => { 
-                        const imgElement = e.currentTarget; 
-                        imgElement.onerror = null; 
-                        imgElement.src = "/fablab/3.jpg"; 
-                      }} 
-                    /> 
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-black/90" /> 
-                    <div className="absolute bottom-0 left-0 right-0 p-6"> 
-                      <div className={`text-[#E6DB00] uppercase text-base font-medium mb-3 transition-all duration-700 delay-300 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>Latest Post</div> 
-                      <h2 className={`text-2xl font-light mb-3 text-white transition-all duration-700 delay-400 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>3D Printing Innovations</h2> 
-                      <p className={`text-white/80 mb-3 transition-all duration-700 delay-500 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'} ${isLaptopScreen ? 'hidden md:block' : ''}`}>Discover the latest advancements in 3D printing technology</p> 
+            {/* Scrollable content area */}
+            <div className="flex-1 overflow-y-auto">
+              {/* Navigation with staggered fade-in effect */}
+              <div className={`flex items-center ${isLargeScreen ? 'p-8' : 'p-6'}`}>
+                <div className="flex flex-row max-w-4xl mx-auto w-full">
+                  {/* Navigation Links - improved spacing */}
+                  <div className="flex-1">
+                    <div className="space-y-6 md:space-y-5">
+                      {/* Direct navigation links */}
                       <Link 
-                        to="/blog/3d-printing-innovations" 
-                        onClick={onClose} 
-                        className={`inline-flex items-center text-base text-white hover:text-[#E6DB00] transition-all duration-700 delay-600 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
-                      > 
-                        Read Article <ArrowRight className="ml-3 h-5 w-5" /> 
-                      </Link> 
-                    </div> 
-                  </div>
-                  {/* Service Slides */}
-                  {services.map((service, index) => (
-                    <div 
-                      key={service.title} 
-                      className={`absolute inset-0 transition-opacity duration-700 ease-in-out bg-black ${activeSlide === index + 1 ? "opacity-100 z-10" : "opacity-0 z-0"}`}
-                    > 
-                      <img 
-                        src={service.image} 
-                        alt={service.title} 
-                        className="w-full h-full object-cover object-center transition-transform duration-10000 ease-out scale-110 origin-center" 
-                        style={{ transform: activeSlide === index + 1 ? 'scale(1)' : 'scale(1.1)' }} 
-                        onError={(e) => { 
-                          const imgElement = e.currentTarget; 
-                          imgElement.onerror = null; 
-                          imgElement.src = "/fablab/3.jpg"; 
-                        }} 
-                      /> 
-                      <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-black/90" /> 
-                      <div className="absolute bottom-0 left-0 right-0 p-6"> 
-                        <div className={`text-[#E6DB00] uppercase text-base font-medium mb-3 transition-all duration-700 delay-300 ${activeSlide === index + 1 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>Our Services</div> 
-                        <h2 className={`text-2xl font-light mb-3 text-white transition-all duration-700 delay-400 ${activeSlide === index + 1 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>{service.title}</h2> 
-                        <Link 
-                          to={service.path} 
-                          onClick={onClose} 
-                          className={`inline-flex items-center text-base text-white hover:text-[#E6DB00] transition-all duration-700 delay-600 ${activeSlide === index + 1 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
-                        > 
-                          {t('mobileMenu.explore')} {service.title} <ArrowRight className="ml-3 h-5 w-5" /> 
-                        </Link> 
-                      </div> 
+                        to="/3d-printing"
+                        onClick={onClose}
+                        className={`block ${isLargeScreen ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'} text-white hover:text-[#cb2026] transition-colors duration-300 ${
+                          isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+                        }`}
+                      >
+                        {t('header.3dPrinting')}
+                      </Link>
+                      <Link 
+                        to="/mould"
+                        onClick={onClose}
+                        className={`block ${isLargeScreen ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'} text-white hover:text-[#0e9a48] transition-colors duration-300 ${
+                          isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+                        }`}
+                      >
+                        {t('header.mould')}
+                      </Link>
+                      <Link 
+                        to="/blog"
+                        onClick={onClose}
+                        className={`block ${isLargeScreen ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'} text-white hover:text-[#E6DB00] transition-colors duration-300 ${
+                          isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+                        }`}
+                      >
+                        {t('header.projects')}
+                      </Link>
+                      <Link
+                        to="/about-fablab"
+                        onClick={onClose}
+                        className={`block ${isLargeScreen ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'} text-white hover:text-[#E6DB00] transition-colors duration-300 ${
+                          isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+                        }`}
+                      >
+                        {t('header.aboutFablab')}
+                      </Link>
+                      <Link
+                        to="/blog"
+                        onClick={onClose}
+                        className={`block ${isLargeScreen ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'} text-white hover:text-[#E6DB00] transition-colors duration-300 ${
+                          isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+                        }`}
+                      >
+                        {t('header.blog')}
+                      </Link>
+                      <button
+                        onClick={scrollToContact}
+                        className={`block ${isLargeScreen ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'} text-white hover:text-[#E6DB00] transition-colors duration-300 text-left ${
+                          isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+                        }`}
+                      >
+                        {t('mobileMenu.contactUs')}
+                      </button>
+                      <Link
+                        to="/book-session"
+                        onClick={onClose}
+                        className={`block ${isLargeScreen ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'} text-white hover:text-[#E6DB00] transition-colors duration-300 ${
+                          isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+                        }`}
+                      >
+                        {t('header.bookSession')}
+                      </Link>
                     </div>
-                  ))}
-                  {/* Slide Indicators */}
-                  <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2"> 
-                    {[...Array(totalSlides)].map((_, index) => ( 
-                      <button 
-                        key={index} 
-                        onClick={() => setActiveSlide(index)} 
-                        className={`h-2 rounded-full transition-all duration-300 ${activeSlide === index ? "bg-[#E6DB00] w-8" : "bg-white/50 w-2 hover:bg-white/80"}`} 
-                        aria-label={`Slide ${index + 1}`} 
-                      /> 
-                    ))} 
-                  </div> 
-                </div> 
-              </div>
+                  </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mt-6">
-                {/* Social Media - Desktop only */}
-                <div className="hidden md:flex flex-col md:items-start">
-                  <h3 className={`${isLargeScreen ? 'text-xl' : 'text-lg'} font-medium text-white mb-4`}>
-                    {t('mobileMenu.connectWithUs')}
-                  </h3>
-                  <div className="flex justify-start items-center space-x-4 w-full">
+                  {/* Social Media Icons - Mobile */}
+                  <div className="md:hidden w-24 flex flex-col justify-center items-center space-y-6 ml-8">
                     <a 
                       href="https://www.facebook.com/centerforyouthinitiatives" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className={`${isLargeScreen ? 'w-12 h-12' : 'w-10 h-10'} rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300 text-white`}
+                      className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300 text-white"
                     >
-                      <Facebook size={isLargeScreen ? 24 : 20} />
+                      <Facebook size={20} />
                     </a>
                     <a 
                       href="https://www.instagram.com/fablab.cfyi" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className={`${isLargeScreen ? 'w-12 h-12' : 'w-10 h-10'} rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300 text-white`}
+                      className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300 text-white"
                     >
-                      <Instagram size={isLargeScreen ? 24 : 20} />
+                      <Instagram size={20} />
                     </a>
                     <a 
                       href="https://www.linkedin.com/company/center-for-youth-initiatives" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className={`${isLargeScreen ? 'w-12 h-12' : 'w-10 h-10'} rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300 text-white`}
+                      className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300 text-white"
                     >
-                      <Linkedin size={isLargeScreen ? 24 : 20} />
+                      <Linkedin size={20} />
                     </a>
                     <a 
                       href="https://www.youtube.com/@CenterforYouthInitiatives" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className={`${isLargeScreen ? 'w-12 h-12' : 'w-10 h-10'} rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300 text-white`}
+                      className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300 text-white"
                     >
-                      <Youtube size={isLargeScreen ? 24 : 20} />
+                      <Youtube size={20} />
                     </a>
                     <a 
                       href="https://t.me/+998770884977" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className={`${isLargeScreen ? 'w-12 h-12' : 'w-10 h-10'} rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300 text-white`}
+                      className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300 text-white"
                     >
                       <svg 
-                        className={isLargeScreen ? 'w-6 h-6' : 'w-5 h-5'} 
+                        className="w-5 h-5" 
                         xmlns="http://www.w3.org/2000/svg" 
                         fill="currentColor" 
                         viewBox="0 0 24 24"
@@ -515,11 +411,143 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       </svg>
                     </a>
                   </div>
-                  <div className="mt-6">
-                    <p className={`text-white/50 ${isLargeScreen ? 'text-sm' : 'text-xs'}`}>
-                      © 2025 Center for Youth Initiatives FabLab. All rights reserved.
-                    </p>
+                </div>
+              </div>
+              
+              {/* Mobile slider content */}
+              <div className={`w-full ${isLargeScreen ? 'p-8' : 'p-0'} border-t border-white/10 transition-all duration-700 delay-[800ms] ${isOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+                {/* Mobile slider - Fixed height, always at bottom */}
+                <div className="md:hidden w-full h-[25vh] min-h-[150px] max-h-[200px] flex flex-col justify-end overflow-hidden mt-6">
+                  <div className={`relative w-full h-full transition-all duration-1000 ${isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}> 
+                    {/* Blog Slide */}
+                    <div className={`absolute inset-0 transition-opacity duration-700 ease-in-out bg-black ${activeSlide === 0 ? "opacity-100 z-10" : "opacity-0 z-0"}`}> 
+                      <img 
+                        src="/blog_images/blog1.png" 
+                        alt="Blog" 
+                        className="w-full h-full object-cover object-center transition-transform duration-10000 ease-out scale-110 origin-center" 
+                        style={{ transform: activeSlide === 0 ? 'scale(1)' : 'scale(1.1)' }} 
+                        onError={(e) => { 
+                          const imgElement = e.currentTarget; 
+                          imgElement.onerror = null; 
+                          imgElement.src = "/fablab/3.jpg"; 
+                        }} 
+                      /> 
+                      <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-black/90" /> 
+                      <div className="absolute bottom-0 left-0 right-0 p-6"> 
+                        <div className={`text-[#E6DB00] uppercase text-base font-medium mb-3 transition-all duration-700 delay-300 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>Latest Post</div> 
+                        <h2 className={`text-2xl font-light mb-3 text-white transition-all duration-700 delay-400 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>3D Printing Innovations</h2> 
+                        <p className={`text-white/80 mb-3 transition-all duration-700 delay-500 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'} ${isLaptopScreen ? 'hidden md:block' : ''}`}>Discover the latest advancements in 3D printing technology</p> 
+                        <Link 
+                          to="/blog/3d-printing-innovations" 
+                          onClick={onClose} 
+                          className={`inline-flex items-center text-base text-white hover:text-[#E6DB00] transition-all duration-700 delay-600 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+                        > 
+                          Read Article <ArrowRight className="ml-3 h-5 w-5" /> 
+                        </Link> 
+                      </div> 
+                    </div>
+                    {/* Service Slides */}
+                    {services.map((service, index) => (
+                      <div 
+                        key={service.title} 
+                        className={`absolute inset-0 transition-opacity duration-700 ease-in-out bg-black ${activeSlide === index + 1 ? "opacity-100 z-10" : "opacity-0 z-0"}`}
+                      > 
+                        <img 
+                          src={service.image} 
+                          alt={service.title} 
+                          className="w-full h-full object-cover object-center transition-transform duration-10000 ease-out scale-110 origin-center" 
+                          style={{ transform: activeSlide === index + 1 ? 'scale(1)' : 'scale(1.1)' }} 
+                          onError={(e) => { 
+                            const imgElement = e.currentTarget; 
+                            imgElement.onerror = null; 
+                            imgElement.src = "/fablab/3.jpg"; 
+                          }} 
+                        /> 
+                        <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-black/90" /> 
+                        <div className="absolute bottom-0 left-0 right-0 p-6"> 
+                          <div className={`text-[#E6DB00] uppercase text-base font-medium mb-3 transition-all duration-700 delay-300 ${activeSlide === index + 1 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>Our Services</div> 
+                          <h2 className={`text-2xl font-light mb-3 text-white transition-all duration-700 delay-400 ${activeSlide === index + 1 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>{service.title}</h2> 
+                          <Link 
+                            to={service.path} 
+                            onClick={onClose} 
+                            className={`inline-flex items-center text-base text-white hover:text-[#E6DB00] transition-all duration-700 delay-600 ${activeSlide === index + 1 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+                          > 
+                            {t('mobileMenu.explore')} {service.title} <ArrowRight className="ml-3 h-5 w-5" /> 
+                          </Link> 
+                        </div> 
+                      </div>
+                    ))}
+                    {/* Slide Indicators */}
+                    <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2"> 
+                      {[...Array(totalSlides)].map((_, index) => ( 
+                        <button 
+                          key={index} 
+                          onClick={() => setActiveSlide(index)} 
+                          className={`h-2 rounded-full transition-all duration-300 ${activeSlide === index ? "bg-[#E6DB00] w-8" : "bg-white/50 w-2 hover:bg-white/80"}`} 
+                          aria-label={`Slide ${index + 1}`} 
+                        /> 
+                      ))} 
+                    </div> 
+                  </div> 
+                </div>
+
+                {/* Footer content */}
+                <div className="w-full flex flex-col items-center justify-center mt-8 mb-4">
+                  <h3 className="text-lg font-medium text-white mb-2 text-center">
+                    {t('mobileMenu.connectWithUs')}
+                  </h3>
+                  <div className="flex justify-center items-center space-x-4 mb-2">
+                    <a 
+                      href="https://www.facebook.com/centerforyouthinitiatives" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300 text-white"
+                    >
+                      <Facebook size={20} />
+                    </a>
+                    <a 
+                      href="https://www.instagram.com/fablab.cfyi" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300 text-white"
+                    >
+                      <Instagram size={20} />
+                    </a>
+                    <a 
+                      href="https://www.linkedin.com/company/center-for-youth-initiatives" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300 text-white"
+                    >
+                      <Linkedin size={20} />
+                    </a>
+                    <a 
+                      href="https://www.youtube.com/@CenterforYouthInitiatives" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300 text-white"
+                    >
+                      <Youtube size={20} />
+                    </a>
+                    <a 
+                      href="https://t.me/+998770884977" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300 text-white"
+                    >
+                      <svg 
+                        className="w-5 h-5" 
+                        xmlns="http://www.w3.org/2000/svg" 
+                        fill="currentColor" 
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.96 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                      </svg>
+                    </a>
                   </div>
+                  <p className="text-white/50 text-xs text-center">
+                    © 2025 Center for Youth Initiatives FabLab. All rights reserved.
+                  </p>
                 </div>
               </div>
             </div>

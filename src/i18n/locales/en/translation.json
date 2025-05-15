@@ -8,7 +8,8 @@
     "menu": "Menu",
     "mould": "Moulding and Spare Parts",
     "3dPrinting": "3D Printing",
-    "prototyping": "Prototyping"
+    "prototyping": "Prototyping",
+    "blog": "Blog"
   },
   "hero": {
     "slide1": {
@@ -410,7 +411,15 @@
     }
   },
   "mobileMenu": {
+    "latestPost": "Latest Post",
     "latestPostTitle": "3D Printing Innovations",
-    "latestPostDescription": "Discover the latest advancements in 3D printing technology"
+    "latestPostDescription": "Discover the latest advancements in 3D printing technology and how they're revolutionizing manufacturing.",
+    "readArticle": "Read Article",
+    "ourServices": "Our Services",
+    "explore": "Explore",
+    "connectWithUs": "Connect With Us",
+    "contactUs": "Contact Us",
+    "aboutFablab": "About FabLab",
+    "blog": "Blog"
   }
 } 

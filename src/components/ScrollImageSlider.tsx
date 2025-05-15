@@ -66,7 +66,7 @@ const ScrollImageSlider = () => {
   });
 
   // Transform scroll progress to image index - adjusted to ensure last image stays visible longer
-  const imageIndexProgress = useTransform(scrollYProgress, [0, 0.9], [0, images.length - 1]);
+  const imageIndexProgress = useTransform(scrollYProgress, [0, 0.95], [0, images.length - 1]);
   
   useEffect(() => {
     const unsubscribe = scrollYProgress.on("change", (latest) => {
@@ -86,7 +86,7 @@ const ScrollImageSlider = () => {
         ref={containerRef}
         className="relative"
         style={{ 
-          height: "300vh", // Three times viewport height for scroll space
+          height: "400vh", // Increased from 300vh to 400vh for more gradual scrolling
         }}
       >
         <div
@@ -119,22 +119,22 @@ const ScrollImageSlider = () => {
                 // First image starts visible and fades out gradually
                 opacityTransform = useTransform(
                   imageIndexProgress,
-                  [0, 0.5, 1],
-                  [1, 0.85, 0]
+                  [0, 0.3, 0.7, 1],
+                  [1, 0.9, 0.5, 0]
                 );
               } else if (isLastImage) {
                 // Last image fades in and stays visible longer
                 opacityTransform = useTransform(
                   imageIndexProgress,
-                  [index - 1, index - 0.5, index],
-                  [0, 0.85, 1]
+                  [index - 1, index - 0.7, index - 0.3, index],
+                  [0, 0.5, 0.9, 1]
                 );
               } else {
                 // Middle images fade in and out with larger overlap
                 opacityTransform = useTransform(
                   imageIndexProgress,
-                  [index - 1, index - 0.5, index, index + 0.5, index + 1],
-                  [0, 0.85, 1, 0.85, 0]
+                  [index - 1, index - 0.7, index - 0.3, index, index + 0.3, index + 0.7, index + 1],
+                  [0, 0.5, 0.9, 1, 0.9, 0.5, 0]
                 );
               }
               
@@ -188,8 +188,8 @@ const ScrollImageSlider = () => {
           <div className="absolute inset-0">
             {quotes.map((quote, index) => {
               // Calculate vertical movement based on scroll progress
-              const yOffsetInput = [index - 1.1, index - 0.4, index, index + 0.4, index + 1.1];
-              const yOffsetOutput = [100, 20, 0, -20, -100];
+              const yOffsetInput = [index - 1.3, index - 0.7, index - 0.3, index, index + 0.3, index + 0.7, index + 1.3];
+              const yOffsetOutput = [150, 80, 30, 0, -30, -80, -150];
               
               const yOffset = useTransform(
                 imageIndexProgress,

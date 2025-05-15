@@ -34,23 +34,23 @@
     }
   },
   "slider": {
-    "mainMessage": "Innovatsiyani qo'llab-quvvatlovchi texnologiyalar orqali. Biz g'oyalarni haqiqatga aylantirish uchun vositalar, makon va tajribani taqdim etamiz.",
+    "mainMessage": "Innovatsiya orqali texnologiyalar. G'oyalarni haqiqatga aylantirishda yordam beramiz.",
     "showcaseImage": "Ko'rsatma tasvir {{number}}",
     "scrollHint": "Pastga aylantiring",
     "innovationLab": {
       "title": "Innovatsiya Laboratoriyasi",
-      "achievement": "500+ Loyihalar Bajarilgan",
-      "text": "Bizning zamonaviy uskunalarimiz raqamli ishlab chiqarish va prototiplash uchun eng so'nggi texnologiyalar bilan jihozlangan. Ijodkorlarni o'z g'oyalarini amalga oshirishga imkon beradi."
+      "achievement": "500+ Loyihalar",
+      "text": "Raqamli ishlab chiqarish va prototiplash uchun zamonaviy uskunalar."
     },
     "creativeWorkspace": {
       "title": "Ijodiy Ish Makoni",
-      "achievement": "1000+ Faol Ijodkorlar",
-      "text": "Rivojlanayotgan innovatorlar jamoasi. G'oyalar hamkorlik, tajriba va zamonaviy vositalar orqali haqiqatga aylanadigan joy."
+      "achievement": "1000+ Ijodkorlar",
+      "text": "G'oyalar haqiqatga aylanadigan innovatorlar jamoasi."
     },
     "futureDevelopment": {
       "title": "Kelajak Rivojlanishi",
-      "achievement": "99.9% Aniqlik Darajasi",
-      "text": "Har bir loyihada yuqori aniqlik. Ilg'or ishlab chiqarish texnikalari va innovatsion yondashuvlar bilan ertangi kunning yechimlarini yaratish."
+      "achievement": "99.9% Aniqlik",
+      "text": "Kelajak yechimlarini yaratish uchun ilg'or ishlab chiqarish texnologiyalari."
     }
   },
   "serviceCategories": {

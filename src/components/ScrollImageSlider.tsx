@@ -242,11 +242,11 @@ const ScrollImageSlider = () => {
                       transform: cssYValue
                     }}
                   >
-                    <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold mb-2 sm:mb-3 md:mb-4 lg:mb-6 text-left">{quote.title}</h3>
+                    <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-bold mb-2 sm:mb-3 md:mb-4 lg:mb-6 text-left max-w-full break-words">{quote.title}</h3>
                     <div className="mb-2 sm:mb-3 md:mb-4 lg:mb-6">
-                      <span className="block text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-extrabold leading-tight text-gray-900">{quote.achievement}</span>
+                      <span className="block text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-extrabold leading-tight text-gray-900 max-w-full break-words">{quote.achievement}</span>
                     </div>
-                    <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl text-gray-600 text-left">{quote.text}</p>
+                    <p className="text-[10px] sm:text-xs md:text-sm lg:text-base xl:text-lg 2xl:text-xl text-gray-600 text-left max-w-full break-words line-clamp-4 sm:line-clamp-5 md:line-clamp-6 lg:line-clamp-7 xl:line-clamp-8">{quote.text}</p>
                   </motion.div>
                 </motion.div>
               );

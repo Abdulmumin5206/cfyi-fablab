@@ -5,21 +5,36 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import styles from "@/styles/Slider.module.css";
 import SlaMaterials from "@/components/SlaMaterials";
 import FdmFilaments from "@/components/FdmFilaments";
+import { useTranslation } from "react-i18next";
 
 const ThreeDPrintingPage = () => {
+  const { t } = useTranslation();
   const videoRef = useRef<HTMLVideoElement>(null);
   const marketsRef = useRef<HTMLDivElement>(null);
   const [currentPrinterIndex, setCurrentPrinterIndex] = useState(0);
+
+  const materialTypeKeys = [
+    'generalPurpose',
+    'tough',
+    'rigid',
+    'flameRetardant',
+    'silicone',
+    'elastic',
+    'biocompatible',
+    'polyurethane',
+    'ceramic',
+    'openMaterialMode',
+  ];
 
   useEffect(() => {
     // Scroll to top when component mounts
     window.scrollTo(0, 0);
     
     // Update document title
-    document.title = "3D Printing Services | FabLab";
+    document.title = t("3dPrinting.hero.title") + " | FabLab";
     
     console.log("3D Printing page mounted");
-  }, []);
+  }, [t]);
 
   const handleVideoError = (e: React.SyntheticEvent<HTMLVideoElement, Event>) => {
     console.error("Video failed to load", e);
@@ -64,8 +79,8 @@ const ThreeDPrintingPage = () => {
               
               {/* Right side content */}
               <div className="w-full lg:w-1/2 pl-0 lg:pl-10">
-                <div className="text-blue-600 font-medium mb-2">STEREOLITHOGRAPHY (SLA) TECHNOLOGY</div>
-                <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight text-gray-900">High-Precision <span className="text-gray-600">SLA 3D Printing Services</span></h1>
+                <div className="text-blue-600 font-medium mb-2">{t("3dPrinting.hero.subtitle")}</div>
+                <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight text-gray-900">{t("3dPrinting.hero.title")}</h1>
                 
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
@@ -76,7 +91,7 @@ const ThreeDPrintingPage = () => {
                         </svg>
                       </div>
                     </div>
-                    <p className="text-gray-700">Ultra-smooth surface finish with 25-micron precision</p>
+                    <p className="text-gray-700">{t("3dPrinting.hero.features.precision")}</p>
                   </div>
                   
                   <div className="flex items-start gap-3">
@@ -87,7 +102,7 @@ const ThreeDPrintingPage = () => {
                         </svg>
                       </div>
                     </div>
-                    <p className="text-gray-700">Wide range of engineering and dental resins available</p>
+                    <p className="text-gray-700">{t("3dPrinting.hero.features.materials")}</p>
                   </div>
                   
                   <div className="flex items-start gap-3">
@@ -98,16 +113,16 @@ const ThreeDPrintingPage = () => {
                         </svg>
                       </div>
                     </div>
-                    <p className="text-gray-700">Ideal for detailed prototypes, medical models, and production parts</p>
+                    <p className="text-gray-700">{t("3dPrinting.hero.features.applications")}</p>
                   </div>
                 </div>
                 
                 <div className="mt-8 flex flex-col sm:flex-row gap-4">
                   <a href="#" className="inline-block bg-blue-600 text-white font-medium px-6 py-3 rounded-md hover:bg-blue-700 transition-colors text-center">
-                    Get a Quote
+                    {t("3dPrinting.hero.buttons.quote")}
                   </a>
                   <a href="#" className="inline-block bg-white text-blue-600 font-medium px-6 py-3 rounded-md border border-blue-600 hover:bg-blue-50 transition-colors text-center">
-                    Request Sample Parts
+                    {t("3dPrinting.hero.buttons.samples")}
                   </a>
                 </div>
               </div>
@@ -121,44 +136,17 @@ const ThreeDPrintingPage = () => {
             {/* Left side content */}
             <div className="w-full lg:w-1/2 mb-12 lg:mb-0 pr-0 lg:pr-10">
               <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-                Tackle any problem <span className="text-gray-600">with our industry-leading materials, or use Open Material Mode.</span>
+                {t('3dPrinting.materials.tackleAnyProblem')}
               </h1>
-              
               <div className="flex flex-wrap gap-2 mb-8">
-                <button className="flex items-center gap-2 bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-md text-sm">
-                  <span>General Purpose</span>
-                </button>
-                <button className="flex items-center gap-2 bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-md text-sm">
-                  <span>Tough</span>
-                </button>
-                <button className="flex items-center gap-2 bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-md text-sm">
-                  <span>Rigid</span>
-                </button>
-                <button className="flex items-center gap-2 bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-md text-sm">
-                  <span>Flame Retardant</span>
-                </button>
-                <button className="flex items-center gap-2 bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-md text-sm">
-                  <span>Silicone</span>
-                </button>
-                <button className="flex items-center gap-2 bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-md text-sm">
-                  <span>Elastic</span>
-                </button>
-                <button className="flex items-center gap-2 bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-md text-sm">
-                  <span>Biocompatible</span>
-                </button>
-                <button className="flex items-center gap-2 bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-md text-sm">
-                  <span>Polyurethane</span>
-                </button>
-                <button className="flex items-center gap-2 bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-md text-sm">
-                  <span>Ceramic</span>
-                </button>
-                <button className="flex items-center gap-2 bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-md text-sm">
-                  <span>Open Material Mode</span>
-                </button>
+                {materialTypeKeys.map((key) => (
+                  <button key={key} className="flex items-center gap-2 bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-md text-sm">
+                    <span>{t(`3dPrinting.materials.types.${key}`)}</span>
+                  </button>
+                ))}
               </div>
-              
               <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md font-medium">
-                REQUEST A SAMPLE PART
+                {t('3dPrinting.materials.requestSample')}
               </button>
             </div>
             
@@ -178,7 +166,7 @@ const ThreeDPrintingPage = () => {
         {/* SLA 3D Printing Equipment Section - Modern Card Layout */}
         <section className="py-16 md:py-24 bg-gray-50">
           <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl md:text-4xl font-bold mb-10 md:mb-16 text-center">Our SLA 3D Printing Equipment</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-10 md:mb-16 text-center">{t("3dPrinting.equipment.title")}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {/* Form 4 Card */}
               <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
@@ -190,8 +178,8 @@ const ThreeDPrintingPage = () => {
                 </div>
                 <div className="flex flex-col items-center justify-center px-8 pt-6 pb-8 w-full text-center">
                   <div className="text-[11px] font-semibold text-blue-700 mb-1 tracking-widest uppercase text-center mt-2">MAXIMUM VERSATILITY</div>
-                  <h3 className="text-2xl font-bold mb-3 text-center">FormLabs Form 3</h3>
-                  <p className="text-gray-700 mb-4 text-center text-base">Produce high-quality, functional prototypes and end-use parts with an extensive materials library.</p>
+                  <h3 className="text-2xl font-bold mb-3 text-center">{t("3dPrinting.equipment.sla.items.form3.title")}</h3>
+                  <p className="text-gray-700 mb-4 text-center text-base">{t("3dPrinting.equipment.sla.items.form3.description")}</p>
                   <hr className="w-12 border-t border-gray-200 my-3" />
                 </div>
               </div>
@@ -205,8 +193,8 @@ const ThreeDPrintingPage = () => {
                 </div>
                 <div className="flex flex-col items-center justify-center px-8 pt-6 pb-8 w-full text-center">
                   <div className="text-[11px] font-semibold text-blue-700 mb-1 tracking-widest uppercase text-center mt-2">THINK BIG</div>
-                  <h3 className="text-2xl font-bold mb-3 text-center">PHROZEN Sonic MEGA 8K MSLA</h3>
-                  <p className="text-gray-700 mb-4 text-center text-base">Take control of large-scale part production, increase your throughput, and bring your biggest ideas to life.</p>
+                  <h3 className="text-2xl font-bold mb-3 text-center">{t("3dPrinting.equipment.sla.items.phrozenMega.title")}</h3>
+                  <p className="text-gray-700 mb-4 text-center text-base">{t("3dPrinting.equipment.sla.items.phrozenMega.description")}</p>
                   <hr className="w-12 border-t border-gray-200 my-3" />
                 </div>
               </div>
@@ -220,8 +208,8 @@ const ThreeDPrintingPage = () => {
                 </div>
                 <div className="flex flex-col items-center justify-center px-8 pt-6 pb-8 w-full text-center">
                   <div className="text-[11px] font-semibold text-blue-700 mb-1 tracking-widest uppercase text-center mt-2">HIGHEST PERFORMANCE</div>
-                  <h3 className="text-2xl font-bold mb-3 text-center">PHROZEN Sonic Mini 8K MSLA</h3>
-                  <p className="text-gray-700 mb-4 text-center text-base">Bring production-ready nylon 3D printing onto your benchtop with an affordable, compact selective laser sintering (SLS) platform.</p>
+                  <h3 className="text-2xl font-bold mb-3 text-center">{t("3dPrinting.equipment.sla.items.phrozenMini.title")}</h3>
+                  <p className="text-gray-700 mb-4 text-center text-base">{t("3dPrinting.equipment.sla.items.phrozenMini.description")}</p>
                   <hr className="w-12 border-t border-gray-200 my-3" />
                 </div>
               </div>
@@ -235,8 +223,8 @@ const ThreeDPrintingPage = () => {
                 </div>
                 <div className="flex flex-col items-center justify-center px-8 pt-6 pb-8 w-full text-center">
                   <div className="text-[11px] font-semibold text-blue-700 mb-1 tracking-widest uppercase text-center mt-2">RELIABLE PERFORMANCE</div>
-                  <h3 className="text-2xl font-bold mb-3 text-center">Original Prusa SL1S Complete</h3>
-                  <p className="text-gray-700 mb-4 text-center text-base">Trusted FDM 3D printer for robust, versatile prototyping and production.</p>
+                  <h3 className="text-2xl font-bold mb-3 text-center">{t("3dPrinting.equipment.sla.items.prusa.title")}</h3>
+                  <p className="text-gray-700 mb-4 text-center text-base">{t("3dPrinting.equipment.sla.items.prusa.description")}</p>
                   <hr className="w-12 border-t border-gray-200 my-3" />
                 </div>
               </div>

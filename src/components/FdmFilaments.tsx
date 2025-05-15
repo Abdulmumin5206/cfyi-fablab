@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 interface Material {
   id: number;
@@ -9,6 +10,8 @@ interface Material {
 }
 
 export default function FdmFilaments() {
+  const { t } = useTranslation();
+  
   // Material data
   const materials: Material[] = [
     {
@@ -86,8 +89,9 @@ export default function FdmFilaments() {
         {/* Header Section */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
-            Premium FDM Filaments
+            {t("3dPrinting.materials.fdm.title")}
           </h2>
+          <p className="text-gray-600">{t("3dPrinting.materials.fdm.subtitle")}</p>
         </div>
 
         {/* Company Filters */}
@@ -101,7 +105,7 @@ export default function FdmFilaments() {
                   : 'text-gray-600 hover:text-gray-900'
               }`}
             >
-              All Materials
+              {t("3dPrinting.materials.all")}
             </button>
             <button
               onClick={() => handleCompanyFilter('Prusament')}
@@ -131,7 +135,7 @@ export default function FdmFilaments() {
                   : 'text-gray-600 hover:text-gray-900'
               }`}
             >
-              Formlabs Premium
+              {t("3dPrinting.materials.formlabsPremium")}
             </button>
           </div>
         </div>
@@ -160,7 +164,7 @@ export default function FdmFilaments() {
                       {material.isPremium && (
                         <div className="absolute top-1 right-1">
                           <span className="inline-flex items-center px-1.5 py-0.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">
-                            Premium
+                            {t("3dPrinting.materials.premium")}
                           </span>
                         </div>
                       )}

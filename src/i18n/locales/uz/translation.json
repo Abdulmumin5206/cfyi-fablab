@@ -473,5 +473,110 @@
     "contactUs": "Biz bilan bog'lanish",
     "aboutFablab": "FabLab haqida",
     "blog": "Blog"
+  },
+  "3dPrinting": {
+    "hero": {
+      "subtitle": "STEREOLITOGRAFIYA (SLA) TEXNOLOGIYASI",
+      "title": "Yuqori aniqlikdagi SLA 3D chop etish xizmatlari",
+      "features": {
+        "precision": "25 mikron aniqlikdagi ultra silliq sirt",
+        "materials": "Keng ko'lamli muhandislik va stomatologik smolalar",
+        "applications": "Batafsil prototiplar, tibbiy modellar va ishlab chiqarish qismlari uchun ideal"
+      },
+      "buttons": {
+        "quote": "Narxni olish",
+        "samples": "Namuna qismlarni so'rash"
+      }
+    },
+    "equipment": {
+      "title": "Bizning 3D chop etish uskunalarimiz",
+      "sla": {
+        "title": "SLA 3D chop etish uskunalari",
+        "items": {
+          "form3": {
+            "title": "FormLabs Form 3",
+            "description": "Keng materiallar kutubxonasi bilan yuqori sifatli, funksional prototiplar va yakuniy qismlarni ishlab chiqarish"
+          },
+          "phrozenMega": {
+            "title": "PHROZEN Sonic MEGA 8K MSLA",
+            "description": "Katta hajmdagi qismlarni ishlab chiqarishni boshqarish, ishlab chiqarish hajmini oshirish va eng katta g'oyalaringizni hayotga tatbiq etish"
+          },
+          "phrozenMini": {
+            "title": "PHROZEN Sonic Mini 8K MSLA",
+            "description": "Naylon 3D chop etishni ishlab chiqarishga arzon, ixcham selektiv lazer sintirlash (SLS) platformasi bilan stolingizga olib keling"
+          },
+          "prusa": {
+            "title": "Original Prusa SL1S Complete",
+            "description": "Ishonchli, ko'p qirrali prototiplash va ishlab chiqarish uchun ishonchli FDM 3D printer"
+          }
+        }
+      },
+      "fdm": {
+        "title": "QO'SHIMCHA QATLAMLI MODEL (FDM) TEXNOLOGIYASI",
+        "subtitle": "Ko'p qirrali FDM 3D chop etish xizmatlari",
+        "features": {
+          "durable": "Turli to'ldirish naqshlari bilan mustahkam funksional prototiplar",
+          "materials": "PLA, PETG, ABS, TPU va kompozitlarni o'z ichiga olgan ko'plab materiallar",
+          "perfect": "Konsept modellar, moslamalar, asboblar va yakuniy qismlar uchun ideal"
+        },
+        "buttons": {
+          "quote": "Narxni olish",
+          "samples": "Namuna qismlarni so'rash"
+        },
+        "equipment": {
+          "title": "Bizning FDM 3D chop etish uskunalarimiz",
+          "items": {
+            "prusa": {
+              "title": "Prusa i3 MK3S+",
+              "tag": "ISHONCHLI ISHCHI",
+              "description": "Yuqori sifatli prototiplash va ishlab chiqarish uchun ko'p qirrali va ishonchli FDM 3D printer"
+            },
+            "prusaMmu": {
+              "title": "Prusa i3 MK3S+ MMU2S",
+              "tag": "KO'P MATERIALLI",
+              "description": "Murakkab, rangli qismlar uchun ilg'or ko'p materialli FDM chop etish"
+            },
+            "skrinter": {
+              "title": "Skrinter",
+              "tag": "STOL USTIDAGI FDM",
+              "description": "Kundalik prototiplash ehtiyojlari uchun ixcham stol ustidagi FDM printer"
+            },
+            "raise3d": {
+              "title": "Raise3D Pro3",
+              "tag": "SANOAT FDM",
+              "description": "Katta, mustahkam qismlar uchun sanoat FDM 3D printeri"
+            }
+          }
+        }
+      }
+    },
+    "materials": {
+      "title": "Materiallar",
+      "sla": {
+        "title": "SLA Materiallar",
+        "subtitle": "Turli ilovalar uchun yuqori sifatli smolalar"
+      },
+      "fdm": {
+        "title": "FDM Materiallar",
+        "subtitle": "Turli ilovalar uchun keng ko'lamli filamentlar"
+      },
+      "all": "Barcha materiallar",
+      "premium": "Premium",
+      "formlabsPremium": "Formlabs Premium",
+      "types": {
+        "generalPurpose": "Umumiy maqsad",
+        "tough": "Mustahkam",
+        "rigid": "Qattiq",
+        "flameRetardant": "Yong'inga chidamli",
+        "silicone": "Silikon",
+        "elastic": "Elastik",
+        "biocompatible": "Biomuvofiqlashtirilgan",
+        "polyurethane": "Poliuretan",
+        "ceramic": "Keramika",
+        "openMaterialMode": "Ochiq material rejimi"
+      },
+      "requestSample": "NAMUNA QISMNI SO'RASH",
+      "tackleAnyProblem": "Bizning ilg'or materiallarimiz yoki ochiq material rejimidan foydalanish orqali har qanday muammoni hal qiling."
+    }
   }
 } 

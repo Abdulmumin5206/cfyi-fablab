@@ -421,5 +421,60 @@
     "contactUs": "Contact Us",
     "aboutFablab": "About FabLab",
     "blog": "Blog"
+  },
+  "prototyping": {
+    "design": {
+      "title": "Design",
+      "description": "Transform your ideas into detailed designs",
+      "details": {
+        "title": "Design Services",
+        "description": "Our expert team helps you transform your ideas into detailed, manufacturable designs.",
+        "features": [
+          "Concept development",
+          "3D modeling",
+          "Technical drawings",
+          "Design optimization",
+          "Material selection"
+        ]
+      }
+    },
+    "prototype": {
+      "title": "Prototype",
+      "description": "Create physical prototypes quickly",
+      "details": {
+        "title": "Prototyping Services",
+        "description": "Rapid prototyping services to validate your designs and accelerate development.",
+        "features": [
+          "Rapid prototyping",
+          "Functional testing",
+          "Design iteration",
+          "Material testing",
+          "Performance validation"
+        ]
+      }
+    },
+    "manufacture": {
+      "title": "Manufacture",
+      "description": "Scale up to production",
+      "details": {
+        "title": "Manufacturing Services",
+        "description": "End-to-end manufacturing solutions to bring your products to market.",
+        "features": [
+          "Production planning",
+          "Quality control",
+          "Assembly services",
+          "Packaging solutions",
+          "Supply chain management"
+        ]
+      }
+    },
+    "services": {
+      "title": "Our Prototyping Services"
+    },
+    "cta": {
+      "title": "Ready to Start Your Project?",
+      "description": "Contact us today to discuss your prototyping needs and get started on your journey from concept to production.",
+      "button": "Contact Us"
+    }
   }
 } 

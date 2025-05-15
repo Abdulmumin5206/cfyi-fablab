@@ -84,22 +84,22 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
   // Service data for the left slider
   const services = [
     {
-      title: "3D Printing",
-      description: "Additive manufacturing for rapid prototyping and production",
+      title: t('serviceCategories.3dPrinting.title'),
+      description: t('serviceCategories.3dPrinting.description'),
       path: "/3d-printing",
       image: "/menu/3Dprinting.webp",
       color: "bg-[#cb2026]"
     },
     {
-      title: "Mould",
-      description: "Custom mold design and fabrication for various materials",
+      title: t('serviceCategories.mould.title'),
+      description: t('serviceCategories.mould.description'),
       path: "/mould",
       image: "/mould/imhero.webp",
       color: "bg-[#0e9a48]"
     },
     {
-      title: "Engineering",
-      description: "Turn your ideas into physical prototypes quickly",
+      title: t('serviceCategories.prototyping.title'),
+      description: t('serviceCategories.prototyping.description'),
       path: "/engineering",
       image: "/menu/form3plus-hero_main-v2.webp",
       color: "bg-[#35469d]"
@@ -160,20 +160,20 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                 <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/80" />
                 <div className={`absolute bottom-0 left-0 right-0 ${isLargeScreen ? 'p-8' : 'p-6'}`}>
                   <div className={`text-[#E6DB00] uppercase ${isLargeScreen ? 'text-base' : 'text-sm'} font-medium mb-2 transition-all duration-700 delay-300 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
-                    Latest Post
+                    {t('mobileMenu.latestPost')}
                   </div>
                   <h2 className={`${isLargeScreen ? 'text-3xl' : 'text-2xl'} font-light mb-2 text-white transition-all duration-700 delay-400 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
-                    3D Printing Innovations
+                    {t('mobileMenu.latestPostTitle')}
                   </h2>
                   <p className={`${isLargeScreen ? 'text-lg' : 'text-base'} text-white/80 mb-3 transition-all duration-700 delay-500 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'} ${isLaptopScreen ? 'hidden md:block' : ''}`}>
-                    Discover the latest advancements in 3D printing technology
+                    {t('mobileMenu.latestPostDescription')}
                   </p>
                   <Link 
                     to="/blog/3d-printing-innovations" 
                     onClick={onClose}
                     className={`inline-flex items-center ${isLargeScreen ? 'text-lg' : 'text-base'} text-white hover:text-[#E6DB00] transition-all duration-700 delay-600 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
                   >
-                    Read Article <ArrowRight className={`ml-2 ${isLargeScreen ? 'h-5 w-5' : 'h-4 w-4'}`} />
+                    {t('mobileMenu.readArticle')} <ArrowRight className={`ml-2 ${isLargeScreen ? 'h-5 w-5' : 'h-4 w-4'}`} />
                   </Link>
                 </div>
               </div>
@@ -200,7 +200,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                   <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/80" />
                   <div className={`absolute bottom-0 left-0 right-0 ${isLargeScreen ? 'p-8' : 'p-6'}`}>
                     <div className={`text-[#E6DB00] uppercase ${isLargeScreen ? 'text-base' : 'text-sm'} font-medium mb-2 transition-all duration-700 delay-300 ${activeSlide === index + 1 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
-                      Our Services
+                      {t('mobileMenu.ourServices')}
                     </div>
                     <h2 className={`${isLargeScreen ? 'text-3xl' : 'text-2xl'} font-light mb-2 text-white transition-all duration-700 delay-400 ${activeSlide === index + 1 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
                       {service.title}
@@ -213,7 +213,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       onClick={onClose}
                       className={`inline-flex items-center ${isLargeScreen ? 'text-lg' : 'text-base'} text-white hover:text-[#E6DB00] transition-all duration-700 delay-600 ${activeSlide === index + 1 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
                     >
-                      Explore {service.title} <ArrowRight className={`ml-2 ${isLargeScreen ? 'h-5 w-5' : 'h-4 w-4'}`} />
+                      {t('mobileMenu.explore')} {service.title} <ArrowRight className={`ml-2 ${isLargeScreen ? 'h-5 w-5' : 'h-4 w-4'}`} />
                     </Link>
                   </div>
                 </div>
@@ -272,7 +272,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                         isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                       }`}
                     >
-                      3D Printing
+                      {t('header.3dPrinting')}
                     </Link>
                     <Link 
                       to="/mould"
@@ -281,7 +281,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                         isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                       }`}
                     >
-                      Mould & Spare Parts
+                      {t('header.mould')}
                     </Link>
                     <Link 
                       to="/blog"
@@ -290,7 +290,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                         isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                       }`}
                     >
-                      Projects
+                      {t('header.projects')}
                     </Link>
                     <Link
                       to="/about-fablab"
@@ -299,7 +299,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                         isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                       }`}
                     >
-                      About Fablab
+                      {t('header.aboutFablab')}
                     </Link>
                     <Link
                       to="/blog"
@@ -308,7 +308,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                         isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                       }`}
                     >
-                      Blog
+                      {t('header.blog')}
                     </Link>
                     <button
                       onClick={scrollToContact}
@@ -316,7 +316,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                         isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                       }`}
                     >
-                      Contact us
+                      {t('mobileMenu.contactUs')}
                     </button>
                     <Link
                       to="/book-session"
@@ -325,7 +325,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                         isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                       }`}
                     >
-                      Book Session
+                      {t('header.bookSession')}
                     </Link>
                   </div>
                 </div>
@@ -405,6 +405,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                     <div className="absolute bottom-0 left-0 right-0 p-6"> 
                       <div className={`text-[#E6DB00] uppercase text-base font-medium mb-3 transition-all duration-700 delay-300 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>Latest Post</div> 
                       <h2 className={`text-2xl font-light mb-3 text-white transition-all duration-700 delay-400 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>3D Printing Innovations</h2> 
+                      <p className={`text-white/80 mb-3 transition-all duration-700 delay-500 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'} ${isLaptopScreen ? 'hidden md:block' : ''}`}>Discover the latest advancements in 3D printing technology</p> 
                       <Link 
                         to="/blog/3d-printing-innovations" 
                         onClick={onClose} 
@@ -440,7 +441,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                           onClick={onClose} 
                           className={`inline-flex items-center text-base text-white hover:text-[#E6DB00] transition-all duration-700 delay-600 ${activeSlide === index + 1 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
                         > 
-                          Explore {service.title} <ArrowRight className="ml-3 h-5 w-5" /> 
+                          {t('mobileMenu.explore')} {service.title} <ArrowRight className="ml-3 h-5 w-5" /> 
                         </Link> 
                       </div> 
                     </div>
@@ -463,7 +464,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                 {/* Social Media - Desktop only */}
                 <div className="hidden md:flex flex-col md:items-start">
                   <h3 className={`${isLargeScreen ? 'text-xl' : 'text-lg'} font-medium text-white mb-4`}>
-                    Connect With Us
+                    {t('mobileMenu.connectWithUs')}
                   </h3>
                   <div className="flex justify-start items-center space-x-4 w-full">
                     <a 

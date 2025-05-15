@@ -408,5 +408,9 @@
         }
       }
     }
+  },
+  "mobileMenu": {
+    "latestPostTitle": "3D Printing Innovations",
+    "latestPostDescription": "Discover the latest advancements in 3D printing technology"
   }
 } 

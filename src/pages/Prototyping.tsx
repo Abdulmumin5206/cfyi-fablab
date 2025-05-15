@@ -148,17 +148,17 @@ const PrototypingPage = () => {
                       className="text-white"
                     >
                       <h2 className="text-xl md:text-3xl font-bold mb-2 md:mb-4">
-                        Design
+                        {t('prototyping.design.title')}
                       </h2>
                       <p className="text-xs md:text-base mb-2 md:mb-4 max-w-[200px] md:max-w-none">
-                        Turn your ideas into reality with our design services.
+                        {t('prototyping.design.description')}
                       </p>
                       <a 
                         href="#design" 
                         onClick={(e) => scrollToSection(e, 'design')}
                         className="inline-block bg-[#35469d] border-2 border-white text-white py-1 px-3 md:py-2 md:px-4 rounded hover:bg-opacity-90 transition-all text-xs md:text-sm"
                       >
-                        Learn More
+                        {t('about.learnMore')}
                       </a>
                     </motion.div>
                   </div>
@@ -192,17 +192,17 @@ const PrototypingPage = () => {
                       className="text-white"
                     >
                       <h2 className="text-xl md:text-3xl font-bold mb-2 md:mb-4">
-                        Prototype
+                        {t('prototyping.prototype.title')}
                       </h2>
                       <p className="text-xs md:text-base mb-2 md:mb-4 max-w-[200px] md:max-w-none">
-                        Build functional prototypes with our advanced equipment.
+                        {t('prototyping.prototype.description')}
                       </p>
                       <a 
                         href="#prototype" 
                         onClick={(e) => scrollToSection(e, 'prototype')}
                         className="inline-block bg-[#294078] border-2 border-white text-white py-1 px-3 md:py-2 md:px-4 rounded hover:bg-opacity-90 transition-all text-xs md:text-sm"
                       >
-                        Learn More
+                        {t('about.learnMore')}
                       </a>
                     </motion.div>
                   </div>
@@ -236,17 +236,17 @@ const PrototypingPage = () => {
                       className="text-white"
                     >
                       <h2 className="text-xl md:text-3xl font-bold mb-2 md:mb-4">
-                        Manufacture
+                        {t('prototyping.manufacture.title')}
                       </h2>
                       <p className="text-xs md:text-base mb-2 md:mb-4 max-w-[200px] md:max-w-none">
-                        Scale your projects with UV printing, sticker production, and small-batch manufacturing.
+                        {t('prototyping.manufacture.description')}
                       </p>
                       <a 
                         href="#manufacture" 
                         onClick={(e) => scrollToSection(e, 'manufacture')}
                         className="inline-block bg-[#1E2F5C] border-2 border-white text-white py-1 px-3 md:py-2 md:px-4 rounded hover:bg-opacity-90 transition-all text-xs md:text-sm"
                       >
-                        Learn More
+                        {t('about.learnMore')}
                       </a>
                     </motion.div>
                   </div>
@@ -259,39 +259,29 @@ const PrototypingPage = () => {
         {/* Services Section */}
         <section id="services" className="py-12 md:py-16 bg-white">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-gray-800">Our Prototyping Services</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-gray-800">{t('prototyping.services.title')}</h2>
             
             {/* Design Section */}
             <div id="design" className="mb-16 scroll-mt-20">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                 <div className="order-2 md:order-1">
-                  <h3 className="text-2xl font-bold mb-4 text-gray-800">Design</h3>
+                  <h3 className="text-2xl font-bold mb-4 text-gray-800">{t('prototyping.design.details.title')}</h3>
                   <p className="text-gray-600 mb-4">
-                    Our design services help turn your innovative ideas into tangible concepts. We work closely with you to understand your vision, requirements, and constraints.
+                    {t('prototyping.design.details.description')}
                   </p>
                   <ul className="space-y-2 mb-6">
-                    <li className="flex items-start">
-                      <span className="text-blue-600 mr-2">✓</span>
-                      <span>Concept development and ideation</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-blue-600 mr-2">✓</span>
-                      <span>3D modeling and CAD design</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-blue-600 mr-2">✓</span>
-                      <span>Design for manufacturing optimizations</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-blue-600 mr-2">✓</span>
-                      <span>User experience and interface design</span>
-                    </li>
+                    {(t('prototyping.design.details.features', { returnObjects: true }) as string[]).map((feature: string, index: number) => (
+                      <li key={index} className="flex items-start">
+                        <span className="text-blue-600 mr-2">✓</span>
+                        <span>{feature}</span>
+                      </li>
+                    ))}
                   </ul>
                 </div>
                 <div className="order-1 md:order-2">
                   <img 
                     src="/prototyping/Design.jpeg" 
-                    alt="Design process" 
+                    alt={t('prototyping.design.details.title')} 
                     className="rounded-lg shadow-lg w-full h-auto object-cover aspect-[4/3]"
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
@@ -308,7 +298,7 @@ const PrototypingPage = () => {
                 <div>
                   <img 
                     src="/prototyping/Prototype.webp" 
-                    alt="Prototyping equipment" 
+                    alt={t('prototyping.prototype.details.title')} 
                     className="rounded-lg shadow-lg w-full h-auto object-cover aspect-[4/3]"
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
@@ -317,27 +307,17 @@ const PrototypingPage = () => {
                   />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold mb-4 text-gray-800">Prototype</h3>
+                  <h3 className="text-2xl font-bold mb-4 text-gray-800">{t('prototyping.prototype.details.title')}</h3>
                   <p className="text-gray-600 mb-4">
-                    Bring your designs to life with our advanced prototyping services. We use state-of-the-art equipment to create functional prototypes for testing and validation.
+                    {t('prototyping.prototype.details.description')}
                   </p>
                   <ul className="space-y-2 mb-6">
-                    <li className="flex items-start">
-                      <span className="text-blue-600 mr-2">✓</span>
-                      <span>Rapid prototyping with 3D printing</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-blue-600 mr-2">✓</span>
-                      <span>CNC machining for precision components</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-blue-600 mr-2">✓</span>
-                      <span>Laser cutting and engraving</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-blue-600 mr-2">✓</span>
-                      <span>Electronic prototyping and PCB fabrication</span>
-                    </li>
+                    {(t('prototyping.prototype.details.features', { returnObjects: true }) as string[]).map((feature: string, index: number) => (
+                      <li key={index} className="flex items-start">
+                        <span className="text-blue-600 mr-2">✓</span>
+                        <span>{feature}</span>
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </div>
@@ -347,37 +327,23 @@ const PrototypingPage = () => {
             <div id="manufacture" className="mb-8 scroll-mt-20">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                 <div className="order-2 md:order-1">
-                  <h3 className="text-2xl font-bold mb-4 text-gray-800">Manufacture</h3>
+                  <h3 className="text-2xl font-bold mb-4 text-gray-800">{t('prototyping.manufacture.details.title')}</h3>
                   <p className="text-gray-600 mb-4">
-                    Scale your project from prototype to production with our manufacturing capabilities. We help you move from concept to market-ready products efficiently with advanced machines including UV printing and sticker production.
+                    {t('prototyping.manufacture.details.description')}
                   </p>
                   <ul className="space-y-2 mb-6">
-                    <li className="flex items-start">
-                      <span className="text-blue-600 mr-2">✓</span>
-                      <span>Small batch production runs</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-blue-600 mr-2">✓</span>
-                      <span>UV printing for high-quality finishes</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-blue-600 mr-2">✓</span>
-                      <span>Custom sticker and label production</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-blue-600 mr-2">✓</span>
-                      <span>Assembly and quality control</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-blue-600 mr-2">✓</span>
-                      <span>Production optimization</span>
-                    </li>
+                    {(t('prototyping.manufacture.details.features', { returnObjects: true }) as string[]).map((feature: string, index: number) => (
+                      <li key={index} className="flex items-start">
+                        <span className="text-blue-600 mr-2">✓</span>
+                        <span>{feature}</span>
+                      </li>
+                    ))}
                   </ul>
                 </div>
                 <div className="order-1 md:order-2">
                   <img 
                     src="/fablab/prototyping/manufacture.jpg" 
-                    alt="Manufacturing process" 
+                    alt={t('prototyping.manufacture.details.title')} 
                     className="rounded-lg shadow-lg w-full h-auto object-cover aspect-[4/3]"
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
@@ -393,15 +359,15 @@ const PrototypingPage = () => {
         {/* CTA Section */}
         <section className="py-12 md:py-16 bg-gray-100">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gray-800">Ready to Turn Your Ideas into Reality?</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gray-800">{t('prototyping.cta.title')}</h2>
             <p className="text-gray-600 max-w-xl mx-auto mb-8">
-              Our team of experts is ready to help you through every stage of the development process, from initial concept to final production.
+              {t('prototyping.cta.description')}
             </p>
             <a 
               href="/contact" 
               className="inline-block bg-blue-600 text-white py-3 px-8 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-300"
             >
-              Contact Us Today
+              {t('prototyping.cta.button')}
             </a>
           </div>
         </section>

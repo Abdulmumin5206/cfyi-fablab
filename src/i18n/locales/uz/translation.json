@@ -6,9 +6,10 @@
     "projects": "Loyihalar",
     "bookSession": "Sessiya band qilish",
     "menu": "Menyu",
-    "mould": "Qoliplash",
+    "mould": "Qoliplash va ehtiyot qismlar",
     "3dPrinting": "3D Chop etish",
-    "prototyping": "Prototiplash"
+    "prototyping": "Prototiplash",
+    "blog": "Blog"
   },
   "hero": {
     "slide1": {
@@ -407,5 +408,70 @@
       "title": "Materiallar",
       "viewAll": "Barcha materiallarni ko'rish"
     }
+  },
+  "prototyping": {
+    "design": {
+      "title": "Dizayn",
+      "description": "G'oyalaringizni bizning dizayn xizmatlarimiz orqali haqiqatga aylantiring.",
+      "details": {
+        "title": "Dizayn",
+        "description": "Bizning dizayn xizmatlarimiz sizning innovatsion g'oyalaringizni aniq kontseptsiyalarga aylantirishga yordam beradi. Biz sizning ko'rinishingiz, talablaringiz va cheklovlaringizni tushunish uchun siz bilan yaqin hamkorlik qilamiz.",
+        "features": [
+          "Kontseptsiya ishlab chiqish va g'oyalar yaratish",
+          "3D modellashtirish va CAD dizayni",
+          "Ishlab chiqarish uchun dizayn optimizatsiyasi",
+          "Foydalanuvchi tajribasi va interfeys dizayni"
+        ]
+      }
+    },
+    "prototype": {
+      "title": "Prototip",
+      "description": "Bizning ilg'or uskunalarimiz yordamida funksional prototiplar yarating.",
+      "details": {
+        "title": "Prototip",
+        "description": "Loyihalaringizni bizning ilg'or prototiplash xizmatlarimiz yordamida hayotga tatbiq eting. Biz sinov va tekshirish uchun funksional prototiplar yaratishda zamonaviy uskunalardan foydalanamiz.",
+        "features": [
+          "3D bosish orqali tezkor prototiplash",
+          "Aniq komponentlar uchun CNC ishlov berish",
+          "Lazerli kesish va o'yish",
+          "Elektron prototiplash va PCB ishlab chiqarish"
+        ]
+      }
+    },
+    "manufacture": {
+      "title": "Ishlab chiqarish",
+      "description": "UV chop etish, etiketka ishlab chiqarish va kichik seriyali ishlab chiqarish orqali loyihalaringizni kengaytiring.",
+      "details": {
+        "title": "Ishlab chiqarish",
+        "description": "Loyihangizni prototipdan ishlab chiqarishga bizning ishlab chiqarish imkoniyatlarimiz yordamida kengaytiring. Biz sizga UV chop etish va etiketka ishlab chiqarishni o'z ichiga olgan ilg'or mashinalar yordamida kontseptsiyadan bozor uchun tayyor mahsulotlarga samarali o'tishda yordam beramiz.",
+        "features": [
+          "Kichik seriyali ishlab chiqarish",
+          "Yuqori sifatli pardozlash uchun UV chop etish",
+          "Maxsus etiketka va yorliqlar ishlab chiqarish",
+          "Yig'ish va sifat nazorati",
+          "Ishlab chiqarish optimizatsiyasi"
+        ]
+      }
+    },
+    "services": {
+      "title": "Bizning prototiplash xizmatlarimiz"
+    },
+    "cta": {
+      "title": "G'oyalaringizni haqiqatga aylantirishga tayyormisiz?",
+      "description": "Bizning mutaxassislar jamoamiz dastlabki kontseptsiyadan yakuniy ishlab chiqarishgacha bo'lgan har bir rivojlanish bosqichida sizga yordam berishga tayyor.",
+      "button": "Biz bilan bog'laning"
+    }
+  },
+  "mobileMenu": {
+    "latestPost": "So'nggi maqola",
+    "latestPostTitle": "3D bosib chiqarish innovatsiyalari",
+    "latestPostDescription": "3D bosib chiqarish texnologiyasidagi so'nggi yutuqlar bilan tanishing",
+    "ourServices": "Bizning xizmatlarimiz",
+    "explore": "Ko'rish",
+    "readArticle": "Maqolani o'qish",
+    "connectWithUs": "Biz bilan bog'lanish",
+    "contactUs": "Biz bilan bog'lanish",
+    "aboutFablab": "FabLab haqida",
+    "blog": "Blog"
   }
 } 

@@ -266,51 +266,6 @@ const BlogPost = () => {
               </div>
             )}
           </div>
-
-          {/* Related Posts */}
-          {relatedPosts.length > 0 && (
-            <div className="bg-gray-50 py-12">
-              <div className="container mx-auto px-4">
-                <div className="max-w-3xl mx-auto">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-8">Related Articles</h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {relatedPosts.map((relatedPost) => (
-                      <article key={relatedPost.slug} className="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
-                        <div className="h-40 bg-gray-200 relative">
-                          <div 
-                            className="absolute inset-0 bg-cover bg-center"
-                            style={{ backgroundImage: `url(${relatedPost.image})` }}
-                          />
-                        </div>
-                        <div className="p-5">
-                          <div className="flex items-center gap-2 mb-2">
-                            <span className="text-xs bg-brand-yellow px-2 py-1 rounded-full text-gray-800 font-medium">{relatedPost.categoryKey}</span>
-                          </div>
-                          <h4 className="text-lg font-bold mb-2 text-gray-900">
-                            <Link to={`/blog/${relatedPost.slug}`} className="hover:text-brand-red transition-colors">
-                              {t(relatedPost.titleKey)}
-                            </Link>
-                          </h4>
-                          <div className="flex items-center justify-between">
-                            <span className="text-xs text-gray-500">{t(relatedPost.dateKey)}</span>
-                            <Link 
-                              to={`/blog/${relatedPost.slug}`}
-                              className="text-brand-red hover:text-brand-darkred font-medium flex items-center gap-1 text-sm transition-colors"
-                            >
-                              Read more
-                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-3 h-3">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                              </svg>
-                            </Link>
-                          </div>
-                        </div>
-                      </article>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
         </article>
       </main>
       <Footer />

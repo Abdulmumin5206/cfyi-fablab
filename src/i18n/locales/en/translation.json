@@ -272,10 +272,42 @@
       "all": "All",
       "3dprinting": "3D Printing"
     },
+    "backToAllPosts": "Back to All Posts",
+    "tableOfContents": "Table of Contents",
+    "readTime": "{{minutes}} min read",
     "posts": {
       "3d-printing-innovations": {
         "title": "SLA Resin Printing: Revolutionizing Small-Batch Production for Spare Parts",
-        "description": "Created a fully functional prototype using advanced 3D printing techniques for an Uzbek tech startup."
+        "date": "May 1, 2025",
+        "author": "FabLab Team",
+        "readTime": "8",
+        "content": "In today's manufacturing landscape, there's often a challenging gap between one-off prototyping and full-scale mass production. At our FABLAB, we recently tackled this exact problem for a client who needed a specialized component in quantities that made traditional injection molding impractical. This blog post explores how we leveraged SLA printing technology to deliver a cost-effective small-batch production solution with remarkable efficiency.",
+        "sections": {
+          "challenge": {
+            "title": "The Challenge: When Injection Molding Isn't the Answer",
+            "content": "Our client approached us with a small but critical component that needed to be produced in moderate quantities. Traditional injection molding would have required expensive metal mold fabrication, lengthy lead times for tooling, and a minimum order quantity that exceeded their actual needs. These factors made injection molding economically unfeasible for their project. This is where our advanced SLA printing capabilities offered the perfect middle-ground solution."
+          },
+          "design-process": {
+            "title": "From Measurement to Model: Precision Design Process",
+            "content": "The first step in our process involved precise measurement of the required component. Using digital calipers, we captured all critical dimensions with sub-millimeter accuracy. These measurements were then translated into a detailed CAD model, creating an exact digital replica of the needed part. The client's specifications required a unique balance of material properties: sufficient structural strength, flexibility in specific areas, and consistent black coloration. After extensive testing, we developed a custom resin mixture by combining our flexible and rigid resins at carefully calibrated ratios, then adding black pigment to achieve the desired aesthetic finish."
+          },
+          "optimization": {
+            "title": "Optimizing for Production Efficiency",
+            "content": "One of the key innovations in our approach was the optimization of support structures. Rather than using the default support settings that would have placed supports across the entire bottom surface, we strategically positioned supports only where structurally necessary. This optimization delivered remarkable improvements in production efficiency: 30% reduction in printing time, 40% reduction in resin consumption, and significantly reduced post-processing labor. We further refined our print settings to balance resolution with production speed, finding the optimal layer height and exposure times that maintained part quality while maximizing throughput."
+          },
+          "production": {
+            "title": "The Production Process",
+            "content": "Our streamlined production workflow consisted of: Printing multiple components arranged efficiently on the build platform, thorough cleaning in isopropyl alcohol to remove uncured resin, careful detachment of supports to maintain surface quality, UV post-curing to achieve final material properties, and dimensional verification and functional testing for quality control."
+          },
+          "results": {
+            "title": "Results: Manufacturing Agility",
+            "content": "This approach allowed us to deliver the following advantages over traditional manufacturing methods: No tooling costs with elimination of expensive mold fabrication, rapid turnaround as production began immediately after design approval, supply chain flexibility with ability to produce exact quantities as needed, easy implementation of design improvements between batches, and cost-effective small batches that would be prohibitive with injection molding."
+          },
+          "conclusion": {
+            "title": "Conclusion: Bridging the Manufacturing Gap",
+            "content": "At our FABLAB, we're continuously pushing the boundaries of what's possible with advanced fabrication technologies. This project demonstrates how SLA printing can bridge the gap between prototyping and mass production, offering a viable manufacturing path for components that would otherwise be caught in the 'too few for injection molding, too many for one-off printing' dilemma. Whether you need replacement parts, small production runs, or specialized components with unique material properties, our optimized SLA printing capabilities offer a solution that combines quality, speed, and cost-effectiveness."
+          }
+        }
       }
     },
     "readMore": "Read more",

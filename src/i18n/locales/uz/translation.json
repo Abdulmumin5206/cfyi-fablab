@@ -276,7 +276,36 @@
     "posts": {
       "3d-printing-innovations": {
         "title": "SLA bosma: Ehtiyot qismlar uchun kichik seriyali ishlab chiqarishda inqilob",
-        "description": "O'zbek texnologik startapi uchun ilg'or 3D chop etish texnologiyalaridan foydalangan holda to'liq funktsional prototip yaratildi."
+        "date": "1-may 2025",
+        "author": "FabLab Jamoasi",
+        "readTime": "8",
+        "content": "Bugungi ishlab chiqarish sohasida bir martalik prototiplash va to'liq miqyosli ommaviy ishlab chiqarish o'rtasida ko'pincha murakkab bo'shliq mavjud. Yaqinda bizning FABLABda an'anaviy quyish usuli amaliy bo'lmagan miqdorda maxsus komponent kerak bo'lgan mijoz uchun aynan shu muammoni hal qildik. Ushbu blog postida biz SLA bosma texnologiyasidan foydalanib, ajoyib samaradorlik bilan tejamkor kichik seriyali ishlab chiqarish yechimini qanday yaratganimiz haqida so'z boradi.",
+        "sections": {
+          "challenge": {
+            "title": "Muammo: Quyish usuli javob bo'lmaganda",
+            "content": "Mijozimiz bizga o'rtacha miqdorda ishlab chiqarish kerak bo'lgan kichik, ammo muhim komponent bilan murojaat qildi. An'anaviy quyish usuli qimmatbaho metall qolip yasash, asbob-uskunalar uchun uzoq muddat va ularning haqiqiy ehtiyojlaridan ortiq minimal buyurtma miqdorini talab qilardi. Bu omillar ularning loyihasi uchun quyish usulini iqtisodiy jihatdan maqsadga muvofiq emas qildi. Aynan shu yerda bizning ilg'or SLA bosma imkoniyatlarimiz mukammal o'rta yechimni taklif qildi."
+          },
+          "design-process": {
+            "title": "O'lchovdan modelgacha: Aniq dizayn jarayoni",
+            "content": "Jarayonimizdagi birinchi qadam kerakli komponentni aniq o'lchash edi. Raqamli shtangensirkuldan foydalanib, barcha muhim o'lchamlarni millimetrdan past aniqlik bilan qayd etdik. Keyin bu o'lchovlar batafsil CAD modeliga aylantirildi va kerakli qismning aniq raqamli nusxasi yaratildi. Mijoz talablari material xususiyatlarining noyob muvozanatini talab qilardi: yetarli strukturaviy mustahkamlik, ma'lum joylarda moslashuvchanlik va doimiy qora rang. Keng qamrovli sinovlardan so'ng, biz moslashuvchan va qattiq smolalarimizni ehtiyotkorlik bilan kalibrlangan nisbatlarda birlashtirish, keyin esa kerakli estetik ko'rinishga erishish uchun qora pigment qo'shish orqali maxsus smola aralashmasini ishlab chiqdik."
+          },
+          "optimization": {
+            "title": "Ishlab chiqarish samaradorligini optimallashtirish",
+            "content": "Bizning yondashuvimizdagi asosiy innovatsiyalardan biri tayanch tuzilmalarini optimallashtirishdi. Butun pastki yuzaga tayanch qo'yadigan standart tayanch sozlamalaridan foydalanish o'rniga, biz tayanchlarni faqat strukturaviy zarur bo'lgan joylarga strategik ravishda joylashtirdik. Bu optimallashtirish ishlab chiqarish samaradorligida ajoyib yaxshilanishlarga olib keldi: bosma vaqtini 30% qisqartirish, smola sarfini 40% kamaytirish va keyingi ishlov berish mehnatini sezilarli darajada kamaytirish. Biz qismlar sifatini maksimal unumdorlik bilan saqlab qolgan holda optimal qatlam balandligi va ta'sir vaqtini topib, aniqlik bilan ishlab chiqarish tezligini muvozanatlash uchun bosma sozlamalarimizni yanada takomillashtirdik."
+          },
+          "production": {
+            "title": "Ishlab chiqarish jarayoni",
+            "content": "Bizning optimallashtirilgan ishlab chiqarish jarayonimiz quyidagilardan iborat edi: Qurilish platformasida samarali joylashtirilgan bir nechta komponentlarni bosib chiqarish, qotmagan smolani olib tashlash uchun izopropil spirtida puxta tozalash, sirt sifatini saqlash uchun tayanchlarni ehtiyotkorlik bilan olib tashlash, yakuniy material xususiyatlariga erishish uchun UV bilan qotirish va sifat nazorati uchun o'lchamlarni tekshirish va funktsional sinov."
+          },
+          "results": {
+            "title": "Natijalar: Ishlab chiqarish moslashuvchanligi",
+            "content": "Bu yondashuv bizga an'anaviy ishlab chiqarish usullariga nisbatan quyidagi afzalliklarni ta'minlash imkonini berdi: Qimmatbaho qolip yasashni istisno qilish bilan asbob-uskunalar xarajatlari yo'q, dizayn tasdiqlangandan so'ng ishlab chiqarish darhol boshlanganligi sababli tez bajarish, kerak bo'lganda aniq miqdorlarni ishlab chiqarish imkoniyati bilan ta'minot zanjiri moslashuvchanligi, partiyalar orasida dizayn yaxshilanishlarini oson joriy qilish va quyish usulida imkonsiz bo'lgan tejamkor kichik partiyalar."
+          },
+          "conclusion": {
+            "title": "Xulosa: Ishlab chiqarish bo'shlig'ini to'ldirish",
+            "content": "Bizning FABLABda biz ilg'or ishlab chiqarish texnologiyalari bilan mumkin bo'lgan chegaralarni doimiy ravishda kengaytirib bormoqdamiz. Ushbu loyiha SLA bosma prototiplash va ommaviy ishlab chiqarish o'rtasidagi bo'shliqni qanday to'ldirishini ko'rsatadi, aks holda 'quyish uchun juda kam, bir martalik bosma uchun juda ko'p' degan muammoga duch keladigan komponentlar uchun amaliy ishlab chiqarish yo'lini taklif qiladi. Sizga ehtiyot qismlar, kichik ishlab chiqarish partiyalari yoki o'ziga xos material xususiyatlariga ega maxsus komponentlar kerak bo'ladimi, bizning optimallashtirilgan SLA bosma imkoniyatlarimiz sifat, tezlik va tejamkorlikni birlashtirgan yechimni taklif qiladi."
+          }
+        }
       }
     },
     "readMore": "Batafsil",
@@ -286,7 +315,10 @@
       "emailPlaceholder": "Email manzilingizni kiriting",
       "subscribe": "Obuna bo'lish",
       "privacyNotice": "Biz sizning maxfiyligingizni hurmat qilamiz. Istalgan vaqtda obunani bekor qilishingiz mumkin."
-    }
+    },
+    "backToAllPosts": "Barcha postlarga qaytish",
+    "tableOfContents": "Mundarija",
+    "readTime": "{{minutes}} daqiqa o'qish"
   },
   "mould": {
     "hero": {

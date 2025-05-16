@@ -71,8 +71,8 @@ const Footer = ({ bgClass = "bg-black", textClass = "text-white" }: FooterProps)
                   </Link>
                 </li>
                 <li>
-                  <Link to="/prototyping" className={linkHoverColor}>
-                    {t('header.prototyping')}
+                  <Link to="/custom-fabrication" className={linkHoverColor}>
+                    {t('header.customFabrication')}
                   </Link>
                 </li>
                 <li>

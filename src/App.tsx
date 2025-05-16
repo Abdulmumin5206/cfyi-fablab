@@ -9,7 +9,7 @@ import NotFound from "./pages/NotFound";
 import ThreeDPrintingPage from "./pages/3DPrinting";
 import MouldPage from "./pages/Mould";
 import EngineeringPage from "./pages/Engineering";
-import PrototypingPage from "./pages/Prototyping";
+import CustomFabricationPage from "./pages/CustomFabrication";
 import BlogIndex from "./pages/blog/Index";
 import BlogPost from "./pages/blog/BlogPost";
 import SplashScreen from "./components/SplashScreen";
@@ -59,7 +59,7 @@ const App = () => {
                 <Route path="/3d-printing" element={<ThreeDPrintingPage />} />
                 <Route path="/mould" element={<MouldPage />} />
                 <Route path="/engineering" element={<EngineeringPage />} />
-                <Route path="/prototyping" element={<PrototypingPage />} />
+                <Route path="/custom-fabrication" element={<CustomFabricationPage />} />
                 <Route path="/blog" element={<BlogIndex />} />
                 <Route path="/blog/:slug" element={<BlogPost />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

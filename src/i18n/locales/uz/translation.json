@@ -2,13 +2,14 @@
   "header": {
     "services": "Xizmatlar",
     "engineering": "Muhandislik",
-    "aboutFablab": "FabLab haqida",
+    "aboutFablab": "CFYI FabLab",
     "projects": "Loyihalar",
-    "bookSession": "Sessiya band qilish",
+    "bookSession": "Sessiyani band qilish",
     "menu": "Menyu",
     "mould": "Qoliplash va ehtiyot qismlar",
     "3dPrinting": "3D Chop etish",
     "prototyping": "Prototiplash",
+    "customFabrication": "Maxsus ishlab chiqarish",
     "blog": "Blog"
   },
   "hero": {

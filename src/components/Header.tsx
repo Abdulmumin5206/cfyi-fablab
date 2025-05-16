@@ -32,6 +32,10 @@ const Header = () => {
   const navRef = useRef<HTMLDivElement>(null);
   const [navWidth, setNavWidth] = useState(0);
   
+  // Add this new state for measuring the right nav width
+  const rightNavRef = useRef<HTMLDivElement>(null);
+  const [rightNavWidth, setRightNavWidth] = useState(0);
+  
   // Update nav width when language changes or window resizes
   useEffect(() => {
     const updateNavWidth = () => {
@@ -57,6 +61,19 @@ const Header = () => {
       clearTimeout(timeoutId);
     };
   }, [i18n.language]); // Added i18n.language as a dependency
+
+  // Add this effect to measure the right nav width
+  useEffect(() => {
+    const updateRightNavWidth = () => {
+      if (rightNavRef.current) {
+        setRightNavWidth(rightNavRef.current.offsetWidth);
+      }
+    };
+
+    updateRightNavWidth();
+    window.addEventListener('resize', updateRightNavWidth);
+    return () => window.removeEventListener('resize', updateRightNavWidth);
+  }, []);
 
   // scroll hide/show logic
   useEffect(() => {
@@ -226,9 +243,9 @@ const Header = () => {
               </Link>
             </div>
 
-            {/* Main right-side nav (measured) - Only apply black bg on non-mobile */}
+            {/* Main right-side nav (measured) */}
             <div
-              ref={navRef}
+              ref={rightNavRef}
               className={`transition-colors duration-300 ${
                 shouldUseBlackTheme && !isMobileScreen ? "bg-black" : isScrolled ? "bg-white" : "bg-transparent md:bg-white"
               } px-3 sm:px-4 ${isLaptopScreen ? 'md:px-6' : 'md:px-8 lg:px-12 xl:px-20'} h-full`}
@@ -320,51 +337,52 @@ const Header = () => {
           </div>
         </div>
 
-        <MobileMenu isOpen={isMobileMenuOpen} onClose={closeMenu} />
-      </header>
-
-      {/* Secondary bar: exactly navWidth, three equal sections */}
-      <div
-        ref={servicesMenuRef}
-        className={`fixed right-0 z-40 overflow-hidden transition-all duration-500 ease-in-out ${
-          servicesMenuOpen ? "max-h-[350px] opacity-100 visible" : "max-h-0 opacity-0 invisible"
-        }`}
-        style={{ 
-          width: navWidth > 0 ? navWidth : 'auto',
-          top: getDropdownPosition()
-        }}
-        onMouseEnter={handleServicesMouseEnter}
-        onMouseLeave={handleServicesMouseLeave}
-      >
-        <div className="bg-gray-100 shadow-md w-full transform transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] origin-top" 
-             style={{ 
-               transform: servicesMenuOpen ? 'translateY(0)' : 'translateY(-100%)'
-             }}>
-          <div className={`grid grid-cols-3 min-h-[4rem] sm:min-h-[5rem] ${isLaptopScreen ? 'md:min-h-[4.5rem]' : 'md:min-h-[6rem] lg:min-h-[7rem]'} items-stretch`}>
-            <Link
-              to="/mould"
-              style={textStyle}
-              className={`col-span-1 flex items-center justify-center text-black hover:text-white bg-gray-100 hover:bg-[#0e9a48] transition-all duration-300 text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} transform transition-transform hover:scale-105 hover:shadow-lg ease-out p-4 w-full h-full`}
-            >
-              {t('header.mould')}
-            </Link>
-            <Link
-              to="/3d-printing"
-              style={textStyle}
-              className={`col-span-1 flex items-center justify-center text-black hover:text-white bg-gray-100 hover:bg-[#cb2026] transition-all duration-300 text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} transform transition-transform hover:scale-105 hover:shadow-lg ease-out delay-[100ms] p-4 w-full h-full`}
-            >
-              {t('header.3dPrinting')}
-            </Link>
-            <Link
-              to="/prototyping"
-              style={textStyle}
-              className={`col-span-1 flex items-center justify-center text-black hover:text-white bg-gray-100 hover:bg-[#35469d] transition-all duration-300 text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} transform transition-transform hover:scale-105 hover:shadow-lg ease-out delay-[200ms] p-4 w-full h-full`}
-            >
-              {t('header.prototyping')}
-            </Link>
+        {/* Services Dropdown Menu */}
+        <div
+          ref={servicesMenuRef}
+          className={`absolute z-40 overflow-hidden transition-all duration-300 ease-in-out ${
+            servicesMenuOpen ? "max-h-[380px] opacity-100 visible" : "max-h-0 opacity-0 invisible"
+          }`}
+          style={{ 
+            width: rightNavWidth > 0 ? rightNavWidth : 'auto',
+            top: '100%',
+            right: 0
+          }}
+          onMouseEnter={handleServicesMouseEnter}
+          onMouseLeave={handleServicesMouseLeave}
+        >
+          <div className="bg-gray-100 shadow-lg w-full transform transition-transform duration-300 ease-out origin-top" 
+               style={{ 
+                 transform: servicesMenuOpen ? 'translateY(0)' : 'translateY(-100%)'
+               }}>
+            <div className="grid grid-cols-3 gap-px bg-gray-200">
+              <Link
+                to="/mould"
+                style={textStyle}
+                className="col-span-1 flex items-center justify-center text-black hover:text-white bg-gray-100 hover:bg-[#0e9a48] transition-all duration-300 text-sm lg:text-base transform transition-transform hover:scale-[1.02] hover:shadow-md ease-out p-5 w-full h-full min-h-[90px]"
+              >
+                {t('header.mould')}
+              </Link>
+              <Link
+                to="/3d-printing"
+                style={textStyle}
+                className="col-span-1 flex items-center justify-center text-black hover:text-white bg-gray-100 hover:bg-[#cb2026] transition-all duration-300 text-sm lg:text-base transform transition-transform hover:scale-[1.02] hover:shadow-md ease-out p-5 w-full h-full min-h-[90px]"
+              >
+                {t('header.3dPrinting')}
+              </Link>
+              <Link
+                to="/custom-fabrication"
+                style={textStyle}
+                className="col-span-1 flex items-center justify-center text-black hover:text-white bg-gray-100 hover:bg-[#35469d] transition-all duration-300 text-sm lg:text-base transform transition-transform hover:scale-[1.02] hover:shadow-md ease-out p-5 w-full h-full min-h-[90px]"
+              >
+                {t('header.customFabrication')}
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
+
+        <MobileMenu isOpen={isMobileMenuOpen} onClose={closeMenu} />
+      </header>
     </>
   );
 };

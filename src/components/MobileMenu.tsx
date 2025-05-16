@@ -137,7 +137,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
   const mainServices = [
     { name: t('header.mould'), path: "/mould", color: "hover:text-[#0e9a48]" },
     { name: t('header.3dPrinting'), path: "/3d-printing", color: "hover:text-[#cb2026]" },
-    { name: t('header.prototyping'), path: "/prototyping", color: "hover:text-[#35469d]" },
+    { name: t('header.customFabrication'), path: "/custom-fabrication", color: "hover:text-[#35469d]" },
   ];
 
   return (
@@ -315,6 +315,15 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                         {t('header.mould')}
                       </Link>
                       <Link 
+                        to="/custom-fabrication"
+                        onClick={onClose}
+                        className={`block ${isLargeScreen ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'} text-white hover:text-[#35469d] transition-colors duration-300 ${
+                          isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+                        }`}
+                      >
+                        {t('header.customFabrication')}
+                      </Link>
+                      <Link 
                         to="/blog"
                         onClick={onClose}
                         className={`block ${isLargeScreen ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'} text-white hover:text-[#E6DB00] transition-colors duration-300 ${
@@ -359,57 +368,6 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                         {t('header.bookSession')}
                       </Link>
                     </div>
-                  </div>
-
-                  {/* Social Media Icons - Mobile */}
-                  <div className="md:hidden w-24 flex flex-col justify-center items-center space-y-6 ml-8">
-                    <a 
-                      href="https://www.facebook.com/centerforyouthinitiatives" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300 text-white"
-                    >
-                      <Facebook size={20} />
-                    </a>
-                    <a 
-                      href="https://www.instagram.com/fablab.cfyi" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300 text-white"
-                    >
-                      <Instagram size={20} />
-                    </a>
-                    <a 
-                      href="https://www.linkedin.com/company/center-for-youth-initiatives" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300 text-white"
-                    >
-                      <Linkedin size={20} />
-                    </a>
-                    <a 
-                      href="https://www.youtube.com/@CenterforYouthInitiatives" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300 text-white"
-                    >
-                      <Youtube size={20} />
-                    </a>
-                    <a 
-                      href="https://t.me/+998770884977" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300 text-white"
-                    >
-                      <svg 
-                        className="w-5 h-5" 
-                        xmlns="http://www.w3.org/2000/svg" 
-                        fill="currentColor" 
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.96 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
-                      </svg>
-                    </a>
                   </div>
                 </div>
               </div>

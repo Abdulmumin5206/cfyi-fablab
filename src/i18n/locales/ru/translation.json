@@ -1,14 +1,15 @@
 {
   "header": {
     "services": "Услуги",
-    "engineering": "Инженерия",
-    "aboutFablab": "О ФабЛабе",
+    "engineering": "Инжиниринг",
+    "aboutFablab": "CFYI FabLab",
     "projects": "Проекты",
     "bookSession": "Забронировать сессию",
     "menu": "Меню",
-    "mould": "Литье и запчасти",
+    "mould": "Литье и запасные части",
     "3dPrinting": "3D Печать",
     "prototyping": "Прототипирование",
+    "customFabrication": "Индивидуальное изготовление",
     "blog": "Блог"
   },
   "hero": {

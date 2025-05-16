@@ -3,8 +3,11 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { ArrowRight, Scissors, Printer, Cpu } from "lucide-react";
 
-const PrototypingPage = () => {
+const CustomFabrication = () => {
   const { t } = useTranslation();
   const [videosLoaded, setVideosLoaded] = useState<boolean[]>([false, false, false]);
   const [activeSection, setActiveSection] = useState<string>("hero");
@@ -19,6 +22,24 @@ const PrototypingPage = () => {
     "/fablab/prototyping/videos/1.mp4",
     "/fablab/prototyping/videos/2.mp4",
     "/fablab/prototyping/videos/3.mp4"
+  ];
+
+  const services = [
+    {
+      title: "Laser Cutting",
+      description: "Precision cutting and engraving for various materials including wood, acrylic, and metal.",
+      icon: <Scissors className="w-8 h-8" />,
+    },
+    {
+      title: "CNC Machining",
+      description: "Computer-controlled machining for precise and complex parts in various materials.",
+      icon: <Cpu className="w-8 h-8" />,
+    },
+    {
+      title: "UV Printing",
+      description: "High-quality printing with UV-cured inks for vibrant, durable results on multiple surfaces.",
+      icon: <Printer className="w-8 h-8" />,
+    },
   ];
 
   // Handle smooth scrolling for anchor links
@@ -378,4 +399,4 @@ const PrototypingPage = () => {
   );
 };
 
-export default PrototypingPage;
+export default CustomFabrication;

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { Facebook, Instagram, Linkedin, Youtube, Send } from "lucide-react";
 
 interface FooterProps {
   bgClass?: string;
@@ -55,6 +56,30 @@ const Footer = ({ bgClass = "bg-black", textClass = "text-white" }: FooterProps)
             <p className={`${secondaryTextColor} text-sm mb-6`}>
               {t('footer.description')}
             </p>
+            
+            {/* Social Media Icons */}
+            <div className="flex space-x-4 mb-6">
+              <a href="https://www.facebook.com/centerforyouthinitiatives" target="_blank" rel="noopener noreferrer" className={`${secondaryTextColor} ${linkHoverColor} transition-colors duration-200`}>
+                <Facebook size={24} />
+                <span className="sr-only">Facebook</span>
+              </a>
+              <a href="https://www.instagram.com/fablab.cfyi" target="_blank" rel="noopener noreferrer" className={`${secondaryTextColor} ${linkHoverColor} transition-colors duration-200`}>
+                <Instagram size={24} />
+                <span className="sr-only">Instagram</span>
+              </a>
+              <a href="https://t.me/+998770884977" target="_blank" rel="noopener noreferrer" className={`${secondaryTextColor} ${linkHoverColor} transition-colors duration-200`}>
+                <Send size={24} />
+                <span className="sr-only">Telegram</span>
+              </a>
+              <a href="https://www.linkedin.com/company/center-for-youth-initiatives" target="_blank" rel="noopener noreferrer" className={`${secondaryTextColor} ${linkHoverColor} transition-colors duration-200`}>
+                <Linkedin size={24} />
+                <span className="sr-only">LinkedIn</span>
+              </a>
+              <a href="https://www.youtube.com/@CenterforYouthInitiatives" target="_blank" rel="noopener noreferrer" className={`${secondaryTextColor} ${linkHoverColor} transition-colors duration-200`}>
+                <Youtube size={24} />
+                <span className="sr-only">YouTube</span>
+              </a>
+            </div>
           </div>
           <div className="grid grid-cols-2 gap-8">
             <div>
@@ -110,16 +135,38 @@ const Footer = ({ bgClass = "bg-black", textClass = "text-white" }: FooterProps)
         <div className={`mt-12 pt-6 border-t ${borderColor} text-sm ${secondaryTextColor}`}>
           <div className="flex flex-col md:flex-row justify-between">
             <p>© 2025 Center for Youth Initiatives FabLab. All rights reserved.</p>
-            <div className="flex space-x-4 mt-4 md:mt-0">
-              <Link to="/" className={bgClass.includes("white") ? "hover:text-gray-900" : "hover:text-white"}>
-                {t('footer.privacy')}
-              </Link>
-              <Link to="/" className={bgClass.includes("white") ? "hover:text-gray-900" : "hover:text-white"}>
-                {t('footer.terms')}
-              </Link>
-              <Link to="/" className={bgClass.includes("white") ? "hover:text-gray-900" : "hover:text-white"}>
-                Cookie Policy
-              </Link>
+            
+            <div className="flex flex-col md:flex-row gap-4 mt-4 md:mt-0">
+              <div className="flex space-x-4">
+                <Link to="/" className={bgClass.includes("white") ? "hover:text-gray-900" : "hover:text-white"}>
+                  {t('footer.privacy')}
+                </Link>
+                <Link to="/" className={bgClass.includes("white") ? "hover:text-gray-900" : "hover:text-white"}>
+                  {t('footer.terms')}
+                </Link>
+                <Link to="/" className={bgClass.includes("white") ? "hover:text-gray-900" : "hover:text-white"}>
+                  Cookie Policy
+                </Link>
+              </div>
+              
+              {/* Mobile Social Media Icons */}
+              <div className="flex space-x-4 md:hidden mt-4">
+                <a href="https://www.facebook.com/centerforyouthinitiatives" target="_blank" rel="noopener noreferrer" className={`${secondaryTextColor} ${linkHoverColor} transition-colors duration-200`}>
+                  <Facebook size={20} />
+                </a>
+                <a href="https://www.instagram.com/fablab.cfyi" target="_blank" rel="noopener noreferrer" className={`${secondaryTextColor} ${linkHoverColor} transition-colors duration-200`}>
+                  <Instagram size={20} />
+                </a>
+                <a href="https://t.me/+998770884977" target="_blank" rel="noopener noreferrer" className={`${secondaryTextColor} ${linkHoverColor} transition-colors duration-200`}>
+                  <Send size={20} />
+                </a>
+                <a href="https://www.linkedin.com/company/center-for-youth-initiatives" target="_blank" rel="noopener noreferrer" className={`${secondaryTextColor} ${linkHoverColor} transition-colors duration-200`}>
+                  <Linkedin size={20} />
+                </a>
+                <a href="https://www.youtube.com/@CenterforYouthInitiatives" target="_blank" rel="noopener noreferrer" className={`${secondaryTextColor} ${linkHoverColor} transition-colors duration-200`}>
+                  <Youtube size={20} />
+                </a>
+              </div>
             </div>
           </div>
         </div>

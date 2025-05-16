@@ -266,43 +266,26 @@
     }
   },
   "blog": {
-    "backToAllPosts": "Barcha maqolalar",
-    "tableOfContents": "Mundarija",
-    "readTime": "{{minutes}} daqiqa o'qish",
+    "title": "Bizning Blog",
+    "subtitle": "FabLab O'zbekiston jamoasidan yangiliklar, yangilanishlar va hikoyalar. Ishlab chiqarishdagi so'nggi innovatsiyalar va rivojlanishlar haqida xabardor bo'ling.",
+    "searchPlaceholder": "Maqolalarni qidirish...",
+    "categories": {
+      "all": "Barchasi",
+      "3dprinting": "3D Chop etish"
+    },
     "posts": {
       "3d-printing-innovations": {
         "title": "SLA bosma: Ehtiyot qismlar uchun kichik seriyali ishlab chiqarishda inqilob",
-        "date": "15 may 2023",
-        "author": "Jon Smit",
-        "category": "Ishlab chiqarish",
-        "content": "Zamonaviy ishlab chiqarish landshaftida ko'pincha bir martalik prototiplash va katta hajmdagi ishlab chiqarish o'rtasida murakkab tafovut mavjud. Bizning FABLABimizda biz yaqinda an'anaviy quyma ishlab chiqarishni amaliy bo'lmagan miqdordagi maxsus komponentga muhtoj mijoz uchun aynan bu muammoni hal qildik. Ushbu blog postda biz SLA bosma texnologiyasidan qanday foydalanish orqali ajoyib samaradorlik bilan kichik seriyali ishlab chiqarish uchun iqtisodiy samarali yechimni taqdim etganimizni ko'rib chiqamiz.",
-        "sections": {
-          "challenge": {
-            "title": "Muammo: Quyma ishlab chiqarish mos kelmaganda",
-            "content": "Bizning mijozimiz o'rtacha miqdorda ishlab chiqarilishi kerak bo'lgan kichik, lekin muhim komponent bilan murojaat qildi. An'anaviy quyma ishlab chiqarish quyidagilarni talab qilardi:"
-          },
-          "design-process": {
-            "title": "O'lchovdan modelgacha: Aniq loyihalash jarayoni",
-            "content": "Jarayonimizning birinchi qadami kerakli komponentni aniq o'lchash edi. Raqamli shtangen sirkul yordamida biz barcha muhim o'lchamlarni submillimetr aniqlikda o'lchadik. Bu o'lchovlar keyin kerakli qismning aniq raqamli nusxasini yaratib, batafsil CAD modeliga aylantirildi."
-          },
-          "optimization": {
-            "title": "Ishlab chiqarish samaradorligini optimallashtirish",
-            "content": "Yondashuvimizdagi asosiy innovatsiyalardan biri qo'llab-quvvatlovchi tuzilmalarni optimallashtirish edi. Butun pastki yuzaga qo'llab-quvvatlovchi elementlarni joylashtiradigan standart sozlamalardan foydalanish o'rniga, biz ularni faqat strukturaviy jihatdan zarur bo'lgan joylarda strategik jihatdan joylashtirdik."
-          },
-          "production": {
-            "title": "Ishlab chiqarish jarayoni",
-            "content": "Bizning optimallashtirilgan ishlab chiqarish jarayonimiz quyidagilardan iborat edi:"
-          },
-          "results": {
-            "title": "Natijalar: Ishlab chiqarish moslashuvchanligi",
-            "content": "Bu yondashuv bizga an'anaviy ishlab chiqarish usullariga nisbatan quyidagi afzalliklarni taqdim etishga imkon berdi:"
-          },
-          "conclusion": {
-            "title": "Xulosa: Ishlab chiqarish tafovutini bartaraf etish",
-            "content": "Bizning FABLABimizda biz ilg'or ishlab chiqarish texnologiyalari yordamida imkoniyatlar chegaralarini doimiy ravishda kengaytirmoqdamiz. Bu loyiha SLA bosmaning prototiplash va ommaviy ishlab chiqarish o'rtasidagi tafovutni qanday bartaraf etishi mumkinligini ko'rsatadi, aks holda \"quyma ishlab chiqarish uchun juda kam, bir martalik bosish uchun juda ko'p\" dilemmasida qolishi mumkin bo'lgan komponentlar uchun hayotiy ishlab chiqarish yo'lini taklif qiladi."
-          }
-        }
+        "description": "O'zbek texnologik startapi uchun ilg'or 3D chop etish texnologiyalaridan foydalangan holda to'liq funktsional prototip yaratildi."
       }
+    },
+    "readMore": "Batafsil",
+    "newsletter": {
+      "title": "Bizning yangiliklarimizga obuna bo'ling",
+      "description": "FabLab O'zbekistondan so'nggi yangiliklar, blog postlari va maxsus e'lonlardan xabardor bo'ling.",
+      "emailPlaceholder": "Email manzilingizni kiriting",
+      "subscribe": "Obuna bo'lish",
+      "privacyNotice": "Biz sizning maxfiyligingizni hurmat qilamiz. Istalgan vaqtda obunani bekor qilishingiz mumkin."
     }
   },
   "mould": {
@@ -489,6 +472,42 @@
         "samples": "Namuna qismlarni so'rash"
       }
     },
+    "fdm": {
+      "title": "QATLAMA-LOYIHALASH (FDM) TEXNOLOGIYASI",
+      "subtitle": "Ko'p maqsadli FDM 3D bosib chiqarish xizmatlari",
+      "features": {
+        "durable": "Turli to'ldirish naqshlari bilan mustahkam funksional prototiplar",
+        "materials": "PLA, PETG, ABS, TPU va kompozitlar kabi ko'plab materiallar",
+        "perfect": "Konseptual modellar, asboblar, moslamalar va tayyor qismlar uchun ideal"
+      },
+      "cta": {
+        "quote": "Narxlarni olish",
+        "sample": "Namuna qismlarni so'rash"
+      },
+      "equipment": {
+        "title": "Bizning FDM 3D bosib chiqarish uskunalarimiz",
+        "prusa": {
+          "title": "Prusa i3 MK3S+",
+          "subtitle": "ISHLAR UCHUN ISHONCHLI",
+          "description": "Yuqori sifatli prototiplar va ishlab chiqarish uchun ko'p maqsadli va ishonchli FDM 3D printer."
+        },
+        "prusaMMU": {
+          "title": "Prusa i3 MK3S+ MMU2S",
+          "subtitle": "KO'P MATERIALLI BOSIB CHIQARISH",
+          "description": "Murakkab, rangli qismlar uchun ilg'or ko'p materialli FDM bosib chiqarish."
+        },
+        "skrinter": {
+          "title": "Skrinter",
+          "subtitle": "STOL USTI FDM",
+          "description": "Kundalik prototiplar uchun ixcham stol ustasi FDM printer."
+        },
+        "raise3d": {
+          "title": "Raise3D Pro3",
+          "subtitle": "SANOAT FDM",
+          "description": "Katta, mustahkam qismlar uchun sanoat FDM 3D printer."
+        }
+      }
+    },
     "equipment": {
       "title": "Bizning 3D chop etish uskunalarimiz",
       "sla": {
@@ -509,44 +528,6 @@
           "prusa": {
             "title": "Original Prusa SL1S Complete",
             "description": "Ishonchli, ko'p qirrali prototiplash va ishlab chiqarish uchun ishonchli FDM 3D printer"
-          }
-        }
-      },
-      "fdm": {
-        "title": "QO'SHIMCHA QATLAMLI MODEL (FDM) TEXNOLOGIYASI",
-        "subtitle": "Ko'p qirrali FDM 3D chop etish xizmatlari",
-        "features": {
-          "durable": "Turli to'ldirish naqshlari bilan mustahkam funksional prototiplar",
-          "materials": "PLA, PETG, ABS, TPU va kompozitlarni o'z ichiga olgan ko'plab materiallar",
-          "perfect": "Konsept modellar, moslamalar, asboblar va yakuniy qismlar uchun ideal"
-        },
-        "buttons": {
-          "quote": "Narxni olish",
-          "samples": "Namuna qismlarni so'rash"
-        },
-        "equipment": {
-          "title": "Bizning FDM 3D chop etish uskunalarimiz",
-          "items": {
-            "prusa": {
-              "title": "Prusa i3 MK3S+",
-              "tag": "ISHONCHLI ISHCHI",
-              "description": "Yuqori sifatli prototiplash va ishlab chiqarish uchun ko'p qirrali va ishonchli FDM 3D printer"
-            },
-            "prusaMmu": {
-              "title": "Prusa i3 MK3S+ MMU2S",
-              "tag": "KO'P MATERIALLI",
-              "description": "Murakkab, rangli qismlar uchun ilg'or ko'p materialli FDM chop etish"
-            },
-            "skrinter": {
-              "title": "Skrinter",
-              "tag": "STOL USTIDAGI FDM",
-              "description": "Kundalik prototiplash ehtiyojlari uchun ixcham stol ustidagi FDM printer"
-            },
-            "raise3d": {
-              "title": "Raise3D Pro3",
-              "tag": "SANOAT FDM",
-              "description": "Katta, mustahkam qismlar uchun sanoat FDM 3D printeri"
-            }
           }
         }
       }

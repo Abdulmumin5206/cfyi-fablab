@@ -66,7 +66,7 @@ const ScrollImageSlider = () => {
   });
 
   // Transform scroll progress to image index - adjusted to ensure last image stays visible longer
-  const imageIndexProgress = useTransform(scrollYProgress, [0, 0.95], [0, images.length - 1]);
+  const imageIndexProgress = useTransform(scrollYProgress, [0, 0.85], [0, images.length - 1]);
   
   useEffect(() => {
     const unsubscribe = scrollYProgress.on("change", (latest) => {
@@ -86,7 +86,7 @@ const ScrollImageSlider = () => {
         ref={containerRef}
         className="relative"
         style={{ 
-          height: "400vh", // Increased from 300vh to 400vh for more gradual scrolling
+          height: "300vh", // Reduced from 400vh to 300vh for more control
         }}
       >
         <div
@@ -116,25 +116,25 @@ const ScrollImageSlider = () => {
               let opacityTransform;
               
               if (isFirstImage) {
-                // First image starts visible and fades out gradually
+                // First image starts visible and fades out more dramatically
                 opacityTransform = useTransform(
                   imageIndexProgress,
-                  [0, 0.3, 0.7, 1],
-                  [1, 0.9, 0.5, 0]
+                  [0, 0.2, 0.5, 0.8],
+                  [1, 0.7, 0.3, 0]
                 );
               } else if (isLastImage) {
-                // Last image fades in and stays visible longer
+                // Last image fades in more dramatically
                 opacityTransform = useTransform(
                   imageIndexProgress,
-                  [index - 1, index - 0.7, index - 0.3, index],
-                  [0, 0.5, 0.9, 1]
+                  [index - 1, index - 0.8, index - 0.5, index - 0.2, index],
+                  [0, 0.3, 0.7, 0.9, 1]
                 );
               } else {
-                // Middle images fade in and out with larger overlap
+                // Middle images fade in and out with more dramatic transitions
                 opacityTransform = useTransform(
                   imageIndexProgress,
-                  [index - 1, index - 0.7, index - 0.3, index, index + 0.3, index + 0.7, index + 1],
-                  [0, 0.5, 0.9, 1, 0.9, 0.5, 0]
+                  [index - 1, index - 0.8, index - 0.5, index - 0.2, index, index + 0.2, index + 0.5, index + 0.8, index + 1],
+                  [0, 0.3, 0.7, 0.9, 1, 0.9, 0.7, 0.3, 0]
                 );
               }
               
@@ -168,7 +168,7 @@ const ScrollImageSlider = () => {
                     className="absolute inset-0 bg-black" 
                     style={{ 
                       zIndex: 1,
-                      opacity: 0.4 // Adjust this value to make it darker or lighter
+                      opacity: 0.25 // Reduced from 0.4 to make images more visible
                     }} 
                   />
                   {/* Add a solid color backdrop to ensure no content shows through */}
@@ -189,7 +189,7 @@ const ScrollImageSlider = () => {
             {quotes.map((quote, index) => {
               // Calculate vertical movement based on scroll progress
               const yOffsetInput = [index - 1.3, index - 0.7, index - 0.3, index, index + 0.3, index + 0.7, index + 1.3];
-              const yOffsetOutput = [150, 80, 30, 0, -30, -80, -150];
+              const yOffsetOutput = [250, 120, 50, 0, -50, -120, -250];
               
               const yOffset = useTransform(
                 imageIndexProgress,
@@ -197,25 +197,25 @@ const ScrollImageSlider = () => {
                 yOffsetOutput
               );
               
-              // Calculate opacity based on scroll progress with wider transitions
+              // Calculate opacity based on scroll progress with more dramatic transitions
               let opacityTransform;
               if (index === 0) {
                 opacityTransform = useTransform(
                   imageIndexProgress,
-                  [0, 0.3, 0.8],
-                  [1, 1, 0]
+                  [0, 0.2, 0.5, 0.8],
+                  [1, 0.7, 0.3, 0]
                 );
               } else if (index === quotes.length - 1) {
                 opacityTransform = useTransform(
                   imageIndexProgress,
-                  [index - 0.8, index - 0.3, index],
-                  [0, 1, 1]
+                  [index - 0.8, index - 0.5, index - 0.2, index],
+                  [0, 0.3, 0.7, 1]
                 );
               } else {
                 opacityTransform = useTransform(
                   imageIndexProgress,
-                  [index - 0.8, index - 0.3, index, index + 0.3, index + 0.8],
-                  [0, 1, 1, 1, 0]
+                  [index - 0.8, index - 0.5, index - 0.2, index, index + 0.2, index + 0.5, index + 0.8],
+                  [0, 0.3, 0.7, 1, 0.7, 0.3, 0]
                 );
               }
               
@@ -228,7 +228,7 @@ const ScrollImageSlider = () => {
               return (
                 <motion.div
                   key={`quote-${index}`}
-                  className="absolute left-0 right-0 px-4 sm:px-6 md:px-8 flex justify-end items-center pr-4 sm:pr-8 md:pr-12 lg:pr-16 will-change-[opacity,transform]"
+                  className="absolute left-0 right-0 px-4 sm:px-6 md:px-8 flex justify-center lg:justify-end items-center pr-4 sm:pr-8 md:pr-12 lg:pr-16 will-change-[opacity,transform]"
                   style={{
                     opacity: opacityTransform,
                     height: viewportHeight,
@@ -237,7 +237,7 @@ const ScrollImageSlider = () => {
                   }}
                 >
                   <motion.div 
-                    className="bg-white p-3 sm:p-4 md:p-6 lg:p-8 xl:p-10 flex flex-col justify-center text-gray-800 border border-gray-200 shadow-lg will-change-transform transition-transform duration-700 ease-out w-[240px] sm:w-[280px] md:w-[320px] lg:w-[400px] xl:w-[500px] 2xl:w-[600px] h-[260px] sm:h-[300px] md:h-[360px] lg:h-[420px] xl:h-[500px] 2xl:h-[600px] text-left"
+                    className="bg-white p-4 sm:p-5 md:p-6 lg:p-8 xl:p-10 flex flex-col justify-center text-gray-800 border border-gray-200 shadow-lg will-change-transform transition-transform duration-700 ease-out w-[280px] sm:w-[320px] md:w-[360px] lg:w-[400px] xl:w-[500px] 2xl:w-[600px] h-[300px] sm:h-[340px] md:h-[380px] lg:h-[420px] xl:h-[500px] 2xl:h-[600px] text-left"
                     style={{
                       transform: cssYValue
                     }}

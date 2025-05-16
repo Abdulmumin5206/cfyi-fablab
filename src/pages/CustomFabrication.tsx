@@ -147,8 +147,12 @@ const CustomFabrication = () => {
             <div className="h-1/3 md:h-full md:w-1/3 bg-[#35469d] relative overflow-hidden">
               <div className="absolute inset-0">
                 {!videosLoaded[0] && (
-                  <div className="absolute inset-0 flex items-center justify-center bg-[#35469d] bg-opacity-70 z-10">
-                    <div className="w-8 h-8 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
+                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#35469d] bg-opacity-70 z-10">
+                    <div className="w-16 h-16 border-4 border-white border-t-transparent rounded-full animate-spin mb-4"></div>
+                    <div className="text-white text-center">
+                      <p className="font-medium">Loading video...</p>
+                      <p className="text-xs opacity-75 mt-1">Please wait</p>
+                    </div>
                   </div>
                 )}
                 <video 
@@ -191,8 +195,12 @@ const CustomFabrication = () => {
             <div className="h-1/3 md:h-full md:w-1/3 bg-[#294078] relative overflow-hidden">
               <div className="absolute inset-0">
                 {!videosLoaded[1] && (
-                  <div className="absolute inset-0 flex items-center justify-center bg-[#294078] bg-opacity-70 z-10">
-                    <div className="w-8 h-8 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
+                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#294078] bg-opacity-70 z-10">
+                    <div className="w-16 h-16 border-4 border-white border-t-transparent rounded-full animate-spin mb-4"></div>
+                    <div className="text-white text-center">
+                      <p className="font-medium">Loading video...</p>
+                      <p className="text-xs opacity-75 mt-1">Please wait</p>
+                    </div>
                   </div>
                 )}
                 <video 
@@ -235,8 +243,12 @@ const CustomFabrication = () => {
             <div className="h-1/3 md:h-full md:w-1/3 bg-[#1E2F5C] relative overflow-hidden">
               <div className="absolute inset-0">
                 {!videosLoaded[2] && (
-                  <div className="absolute inset-0 flex items-center justify-center bg-[#1E2F5C] bg-opacity-70 z-10">
-                    <div className="w-8 h-8 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
+                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#1E2F5C] bg-opacity-70 z-10">
+                    <div className="w-16 h-16 border-4 border-white border-t-transparent rounded-full animate-spin mb-4"></div>
+                    <div className="text-white text-center">
+                      <p className="font-medium">Loading video...</p>
+                      <p className="text-xs opacity-75 mt-1">Please wait</p>
+                    </div>
                   </div>
                 )}
                 <video 
@@ -385,7 +397,9 @@ const CustomFabrication = () => {
               {t('prototyping.cta.description')}
             </p>
             <a 
-              href="/contact" 
+              href="https://t.me/+998770884977" 
+              target="_blank" 
+              rel="noopener noreferrer"
               className="inline-block bg-blue-600 text-white py-3 px-8 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-300"
             >
               {t('prototyping.cta.button')}

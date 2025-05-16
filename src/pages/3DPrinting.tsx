@@ -241,8 +241,8 @@ const ThreeDPrintingPage = () => {
             <div className="flex flex-col lg:flex-row items-center">
               {/* Left side content */}
               <div className="w-full lg:w-1/2 mb-12 lg:mb-0 pr-0 lg:pr-10">
-                <div className="text-blue-500 font-medium mb-2">FUSED DEPOSITION MODELING (FDM) TECHNOLOGY</div>
-                <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight text-white">Versatile <span className="text-gray-400">FDM 3D Printing Services</span></h1>
+                <div className="text-blue-500 font-medium mb-2">{t("3dPrinting.fdm.title")}</div>
+                <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight text-white">{t("3dPrinting.fdm.subtitle")}</h1>
                 
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
@@ -253,7 +253,7 @@ const ThreeDPrintingPage = () => {
                         </svg>
                       </div>
                     </div>
-                    <p className="text-gray-300">Durable functional prototypes with various infill patterns</p>
+                    <p className="text-gray-300">{t("3dPrinting.fdm.features.durable")}</p>
                   </div>
                   
                   <div className="flex items-start gap-3">
@@ -264,7 +264,7 @@ const ThreeDPrintingPage = () => {
                         </svg>
                       </div>
                     </div>
-                    <p className="text-gray-300">Multiple materials including PLA, PETG, ABS, TPU, and composites</p>
+                    <p className="text-gray-300">{t("3dPrinting.fdm.features.materials")}</p>
                   </div>
                   
                   <div className="flex items-start gap-3">
@@ -275,16 +275,16 @@ const ThreeDPrintingPage = () => {
                         </svg>
                       </div>
                     </div>
-                    <p className="text-gray-300">Perfect for concept models, jigs, fixtures, and end-use parts</p>
+                    <p className="text-gray-300">{t("3dPrinting.fdm.features.perfect")}</p>
                   </div>
                 </div>
                 
                 <div className="mt-8 flex flex-col sm:flex-row gap-4">
                   <a href="#" className="inline-block bg-blue-600 text-white font-medium px-6 py-3 rounded-md hover:bg-blue-700 transition-colors text-center">
-                    Get a Quote
+                    {t("3dPrinting.fdm.cta.quote")}
                   </a>
-                  <a href="#" className="inline-block bg-transparent text-blue-500 font-medium px-6 py-3 rounded-md border border-blue-500 hover:bg-blue-900 transition-colors text-center">
-                    Request Sample Parts
+                  <a href="#" className="inline-block bg-white text-blue-600 font-medium px-6 py-3 rounded-md border border-blue-600 hover:bg-blue-50 transition-colors text-center">
+                    {t("3dPrinting.fdm.cta.sample")}
                   </a>
                 </div>
               </div>
@@ -306,65 +306,65 @@ const ThreeDPrintingPage = () => {
         {/* FDM 3D Printing Equipment Section */}
         <section className="py-16 md:py-24 bg-gray-50">
           <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl md:text-4xl font-bold mb-10 md:mb-16 text-center">Our FDM 3D Printing Equipment</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-10 md:mb-16 text-center">{t("3dPrinting.fdm.equipment.title")}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {/* Prusa i3 MK3S+ */}
               <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
                 <div className="w-full h-32 md:h-36 bg-gray-100 relative">
-                  <img src="/3dprinters/1.prusa-i3-mk3s-3d-printer-tashkent.webp" alt="Prusa i3 MK3S+ background" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
+                  <img src="/3dprinters/1.prusa-i3-mk3s-3d-printer-tashkent.webp" alt={t("3dPrinting.fdm.equipment.prusa.title")} className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
                 </div>
                 <div className="-mt-16 z-10 flex justify-center w-full">
-                  <img src="/3dprinters/prusa-i3-mk3s-3d-printer-tashkent.webp" alt="Prusa i3 MK3S+" className="w-48 h-56 object-contain" />
+                  <img src="/3dprinters/prusa-i3-mk3s-3d-printer-tashkent.webp" alt={t("3dPrinting.fdm.equipment.prusa.title")} className="w-48 h-56 object-contain" />
                 </div>
                 <div className="flex flex-col items-center justify-center px-8 pt-6 pb-8 w-full text-center">
-                  <div className="text-[11px] font-semibold text-blue-700 mb-1 tracking-widest uppercase text-center mt-2">RELIABLE WORKHORSE</div>
-                  <h3 className="text-2xl font-bold mb-3 text-center">Prusa i3 MK3S+</h3>
-                  <p className="text-gray-700 mb-4 text-center text-base">Versatile and robust FDM 3D printer for high-quality prototyping and production.</p>
+                  <div className="text-[11px] font-semibold text-blue-700 mb-1 tracking-widest uppercase text-center mt-2">{t("3dPrinting.fdm.equipment.prusa.subtitle")}</div>
+                  <h3 className="text-2xl font-bold mb-3 text-center">{t("3dPrinting.fdm.equipment.prusa.title")}</h3>
+                  <p className="text-gray-700 mb-4 text-center text-base">{t("3dPrinting.fdm.equipment.prusa.description")}</p>
                   <hr className="w-12 border-t border-gray-200 my-3" />
                 </div>
               </div>
               {/* Prusa i3 MK3S+ MMU2S */}
               <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
                 <div className="w-full h-32 md:h-36 bg-gray-100 relative">
-                  <img src="/3dprinters/1.prusa-i3-mk3s-mmu2s-multicolor-3d-printer-tashkent.webp" alt="Prusa i3 MK3S+ MMU2S background" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
+                  <img src="/3dprinters/1.prusa-i3-mk3s-mmu2s-multicolor-3d-printer-tashkent.webp" alt={t("3dPrinting.fdm.equipment.prusaMMU.title")} className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
                 </div>
                 <div className="-mt-16 z-10 flex justify-center w-full">
-                  <img src="/3dprinters/prusa-i3-mk3s-mmu2s-multicolor-3d-printer-tashkent.webp" alt="Prusa i3 MK3S+ MMU2S" className="w-48 h-56 object-contain" />
+                  <img src="/3dprinters/prusa-i3-mk3s-mmu2s-multicolor-3d-printer-tashkent.webp" alt={t("3dPrinting.fdm.equipment.prusaMMU.title")} className="w-48 h-56 object-contain" />
                 </div>
                 <div className="flex flex-col items-center justify-center px-8 pt-6 pb-8 w-full text-center">
-                  <div className="text-[11px] font-semibold text-blue-700 mb-1 tracking-widest uppercase text-center mt-2">MULTI-MATERIAL</div>
-                  <h3 className="text-2xl font-bold mb-3 text-center">Prusa i3 MK3S+ MMU2S</h3>
-                  <p className="text-gray-700 mb-4 text-center text-base">Advanced multi-material FDM printing for complex, colorful parts.</p>
+                  <div className="text-[11px] font-semibold text-blue-700 mb-1 tracking-widest uppercase text-center mt-2">{t("3dPrinting.fdm.equipment.prusaMMU.subtitle")}</div>
+                  <h3 className="text-2xl font-bold mb-3 text-center">{t("3dPrinting.fdm.equipment.prusaMMU.title")}</h3>
+                  <p className="text-gray-700 mb-4 text-center text-base">{t("3dPrinting.fdm.equipment.prusaMMU.description")}</p>
                   <hr className="w-12 border-t border-gray-200 my-3" />
                 </div>
               </div>
               {/* Skrinter */}
               <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
                 <div className="w-full h-32 md:h-36 bg-gray-100 relative">
-                  <img src="/3dprinters/1.skrinter-3d-printer-uzbekistan.webp" alt="Skrinter background" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
+                  <img src="/3dprinters/1.skrinter-3d-printer-uzbekistan.webp" alt={t("3dPrinting.fdm.equipment.skrinter.title")} className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
                 </div>
                 <div className="-mt-16 z-10 flex justify-center w-full">
-                  <img src="/3dprinters/skrinter-3d-printer-uzbekistan.webp" alt="Skrinter" className="w-48 h-56 object-contain" />
+                  <img src="/3dprinters/skrinter-3d-printer-uzbekistan.webp" alt={t("3dPrinting.fdm.equipment.skrinter.title")} className="w-48 h-56 object-contain" />
                 </div>
                 <div className="flex flex-col items-center justify-center px-8 pt-6 pb-8 w-full text-center">
-                  <div className="text-[11px] font-semibold text-blue-700 mb-1 tracking-widest uppercase text-center mt-2">DESKTOP FDM</div>
-                  <h3 className="text-2xl font-bold mb-3 text-center">Skrinter</h3>
-                  <p className="text-gray-700 mb-4 text-center text-base">Compact desktop FDM printer for everyday prototyping needs.</p>
+                  <div className="text-[11px] font-semibold text-blue-700 mb-1 tracking-widest uppercase text-center mt-2">{t("3dPrinting.fdm.equipment.skrinter.subtitle")}</div>
+                  <h3 className="text-2xl font-bold mb-3 text-center">{t("3dPrinting.fdm.equipment.skrinter.title")}</h3>
+                  <p className="text-gray-700 mb-4 text-center text-base">{t("3dPrinting.fdm.equipment.skrinter.description")}</p>
                   <hr className="w-12 border-t border-gray-200 my-3" />
                 </div>
               </div>
               {/* Raise3D Pro3 */}
               <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
                 <div className="w-full h-32 md:h-36 bg-gray-100 relative">
-                  <img src="/3dprinters/1.raise3d-pro3-industrial-3d-printer-tashkent.webp" alt="Raise3D Pro3 background" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
+                  <img src="/3dprinters/1.raise3d-pro3-industrial-3d-printer-tashkent.webp" alt={t("3dPrinting.fdm.equipment.raise3d.title")} className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
                 </div>
                 <div className="-mt-16 z-10 flex justify-center w-full">
-                  <img src="/3dprinters/raise3d-pro3-industrial-3d-printer-tashkent.webp" alt="Raise3D Pro3" className="w-48 h-56 object-contain" />
+                  <img src="/3dprinters/raise3d-pro3-industrial-3d-printer-tashkent.webp" alt={t("3dPrinting.fdm.equipment.raise3d.title")} className="w-48 h-56 object-contain" />
                 </div>
                 <div className="flex flex-col items-center justify-center px-8 pt-6 pb-8 w-full text-center">
-                  <div className="text-[11px] font-semibold text-blue-700 mb-1 tracking-widest uppercase text-center mt-2">INDUSTRIAL FDM</div>
-                  <h3 className="text-2xl font-bold mb-3 text-center">Raise3D Pro3</h3>
-                  <p className="text-gray-700 mb-4 text-center text-base">Industrial-grade FDM 3D printer for large, durable parts.</p>
+                  <div className="text-[11px] font-semibold text-blue-700 mb-1 tracking-widest uppercase text-center mt-2">{t("3dPrinting.fdm.equipment.raise3d.subtitle")}</div>
+                  <h3 className="text-2xl font-bold mb-3 text-center">{t("3dPrinting.fdm.equipment.raise3d.title")}</h3>
+                  <p className="text-gray-700 mb-4 text-center text-base">{t("3dPrinting.fdm.equipment.raise3d.description")}</p>
                   <hr className="w-12 border-t border-gray-200 my-3" />
                 </div>
               </div>
@@ -376,7 +376,7 @@ const ThreeDPrintingPage = () => {
         <FdmFilaments />
       </main>
 
-      <Footer bgClass="bg-white" textClass="text-gray-800" />
+      <Footer bgClass="bg-black" textClass="text-white" />
     </div>
   );
 };

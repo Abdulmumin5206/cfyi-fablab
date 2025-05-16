@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useState, useEffect } from "react";
 import { ArrowRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 // Blog post data - updated to only include the 3D Printed Prototype
 const blogPosts = [
@@ -122,6 +123,7 @@ const Pagination = ({
 };
 
 const BlogIndex = () => {
+  const { t } = useTranslation();
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -190,10 +192,9 @@ const BlogIndex = () => {
       <main className="flex-grow bg-white">
         <div className="bg-white py-16 md:py-24 mt-20 md:mt-24 lg:mt-28 border-b border-gray-100">
           <div className="container mx-auto px-4">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">Our Blog</h1>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">{t('blog.title')}</h1>
             <p className="text-xl text-gray-600 max-w-3xl">
-              Insights, updates, and stories from the FabLab Uzbekistan team. 
-              Stay informed about the latest innovations and developments in manufacturing.
+              {t('blog.subtitle')}
             </p>
           </div>
         </div>
@@ -206,7 +207,7 @@ const BlogIndex = () => {
               <form onSubmit={handleSearch} className="relative">
                 <input
                   type="text"
-                  placeholder="Search articles..."
+                  placeholder={t('blog.searchPlaceholder')}
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full px-4 py-3 pr-10 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-red focus:border-transparent"
@@ -245,7 +246,7 @@ const BlogIndex = () => {
                       : 'bg-white text-gray-700 hover:bg-gray-100'
                   }`}
                 >
-                  {category}
+                  {category === "All" ? t('blog.categories.all') : t(`blog.categories.${category.toLowerCase().replace(/\s+/g, '')}`)}
                 </button>
               ))}
             </div>
@@ -264,22 +265,24 @@ const BlogIndex = () => {
                       />
                       <div className="absolute bottom-0 left-0 bg-brand-red py-2 px-4 z-20">
                         <p className="text-white font-medium">
-                          {post.category}
+                          {t(`blog.categories.${post.category.toLowerCase().replace(/\s+/g, '')}`)}
                         </p>
                       </div>
                     </div>
                     <div className="p-4">
                       <h2 className="text-xl font-bold mb-4 text-gray-900">
                         <Link to={`/blog/${post.slug}`} className="hover:text-brand-red transition-colors">
-                          {post.title}
+                          {t(`blog.posts.${post.slug}.title`)}
                         </Link>
                       </h2>
-                      <p className="text-sm mb-5 text-gray-700 leading-relaxed">{post.excerpt}</p>
+                      <p className="text-sm mb-5 text-gray-700 leading-relaxed">
+                        {t(`blog.posts.${post.slug}.description`)}
+                      </p>
                       <Link 
                         to={`/blog/${post.slug}`}
                         className="inline-flex items-center bg-brand-red text-white py-1.5 px-3 hover:opacity-90 transition-opacity text-sm"
                       >
-                        Read more
+                        {t('blog.readMore')}
                         <ArrowRight className="ml-1.5 w-4 h-4" />
                       </Link>
                     </div>
@@ -296,14 +299,14 @@ const BlogIndex = () => {
             </>
           ) : (
             <div className="text-center py-16">
-              <h3 className="text-xl font-medium text-gray-600">No posts found matching your search.</h3>
+              <h3 className="text-xl font-medium text-gray-600">{t('blog.noPostsFound')}</h3>
               <div className="mt-4 space-x-4">
                 {searchQuery && (
                   <button 
                     onClick={clearSearch} 
                     className="text-brand-red hover:text-brand-darkred font-medium"
                   >
-                    Clear search
+                    {t('blog.clearSearch')}
                   </button>
                 )}
                 {selectedCategory !== "All" && (
@@ -311,7 +314,7 @@ const BlogIndex = () => {
                     onClick={() => setSelectedCategory("All")} 
                     className="text-brand-red hover:text-brand-darkred font-medium"
                   >
-                    View all categories
+                    {t('blog.viewAllCategories')}
                   </button>
                 )}
               </div>
@@ -321,16 +324,16 @@ const BlogIndex = () => {
           {/* Newsletter Subscription Section */}
           <div className="mt-16 py-12 px-4 sm:px-8 bg-white">
             <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Subscribe to Our Newsletter</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">{t('blog.newsletter.title')}</h2>
               <p className="text-lg text-gray-600 mb-8">
-                Stay updated with the latest news, blog posts, and special announcements from FabLab Uzbekistan.
+                {t('blog.newsletter.description')}
               </p>
               {subscribed ? (
                 <div className="bg-green-50 text-green-800 rounded-lg p-4 mb-4 flex items-center justify-center">
                   <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                   </svg>
-                  <span>Thank you for subscribing!</span>
+                  <span>{t('blog.newsletter.thankYou')}</span>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
@@ -338,17 +341,17 @@ const BlogIndex = () => {
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Enter your email address"
+                    placeholder={t('blog.newsletter.emailPlaceholder')}
                     required
                     className="flex-grow px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-red focus:border-transparent"
                   />
                   <button type="submit" className="bg-brand-red hover:bg-brand-darkred text-white font-medium py-3 px-6 rounded-lg transition-colors whitespace-nowrap">
-                    Subscribe
+                    {t('blog.newsletter.subscribe')}
                   </button>
                 </form>
               )}
               <p className="text-sm text-gray-500 mt-4">
-                We respect your privacy. Unsubscribe at any time.
+                {t('blog.newsletter.privacyNotice')}
               </p>
             </div>
           </div>

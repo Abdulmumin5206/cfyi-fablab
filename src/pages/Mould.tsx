@@ -654,47 +654,27 @@ const MouldPage = () => {
           </div>
         </section>
 
-        {/* Spare Parts Applications Section */}
-        <section className="py-12 md:py-20 bg-gray-50">
+        {/* Blog Section */}
+        <section className="py-16 md:py-24 bg-gray-100 text-gray-900">
           <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8">Spare Parts Applications</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8">Spare Part Projects</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-              {/* Application 1 */}
+              {/* Blog Post */}
               <div className="bg-white rounded-lg overflow-hidden shadow-md flex flex-col md:flex-row">
                 <div className="md:w-2/5 h-48 md:h-auto overflow-hidden">
                   <img 
-                    src="/mould/Screenshot_7.jpg" 
-                    alt="Industrial Machine Parts" 
+                    src="/blog_images/blog1.webp" 
+                    alt="3D Printing Innovations" 
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="md:w-3/5 p-6">
-                  <div className="text-blue-600 text-sm font-semibold mb-2">INDUSTRIAL EQUIPMENT</div>
-                  <h3 className="text-xl font-bold mb-4">Replacement Parts for Industrial Machinery and Equipment</h3>
-                  <a href="#" className="text-blue-600 flex items-center gap-2 font-medium hover:text-blue-800 transition-colors">
-                    Learn More
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-              
-              {/* Application 2 */}
-              <div className="bg-white rounded-lg overflow-hidden shadow-md flex flex-col md:flex-row">
-                <div className="md:w-2/5 h-48 md:h-auto overflow-hidden">
-                  <img 
-                    src="/mould/optimized_for_web_jpeg-07202023_rigid_10k_sample_card_2_189d-sh-standard-square.webp" 
-                    alt="Consumer Product Parts" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="md:w-3/5 p-6">
-                  <div className="text-blue-600 text-sm font-semibold mb-2">CONSUMER PRODUCTS</div>
-                  <h3 className="text-xl font-bold mb-4">Custom Parts for Consumer Products and Home Appliances</h3>
-                  <a href="#" className="text-blue-600 flex items-center gap-2 font-medium hover:text-blue-800 transition-colors">
-                    Learn More
+                  <div className="text-blue-600 text-sm font-semibold mb-2">3D PRINTING</div>
+                  <h3 className="text-xl font-bold mb-4">SLA Resin Printing: Revolutionizing Small-Batch Production for Spare Parts</h3>
+                  <p className="text-gray-600 mb-4">Created a fully functional prototype using advanced 3D printing techniques for an Uzbek tech startup.</p>
+                  <a href="/blog/3d-printing-innovations" className="text-blue-600 flex items-center gap-2 font-medium hover:text-blue-800 transition-colors">
+                    Read More
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>

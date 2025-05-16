@@ -285,13 +285,15 @@ const Header = () => {
                 >
                   {t('header.projects')}
                 </Link>
-                <Link
-                  to="/book-session"
+                <a
+                  href="https://t.me/+998770884977"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   style={{...textStyle, ...buttonStyle}}
                   className={`bg-blue-600 text-white border border-blue-600 px-2 sm:px-3 ${isLaptopScreen ? 'md:px-3 md:py-1.5' : 'lg:px-4 xl:px-6'} py-1.5 sm:py-2 h-[38px] sm:h-[42px] ${isLaptopScreen ? 'md:h-[38px]' : 'lg:h-[42px] xl:h-[46px]'} text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} hover:opacity-90 transition-opacity`}
                 >
                   {t('header.bookSession')}
-                </Link>
+                </a>
 
                 {/* Language Switcher */}
                 <div className={`flex items-center ml-2 ${isLaptopScreen ? 'md:ml-1' : 'md:ml-3 lg:ml-4 xl:ml-6'}`}>

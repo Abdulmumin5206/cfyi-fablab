@@ -332,15 +332,17 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       >
                         {t('header.projects')}
                       </Link>
-                      <Link
-                        to="/about-fablab"
+                      <a
+                        href="https://cfyi.uz/fablab"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         onClick={onClose}
                         className={`block ${isLargeScreen ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'} text-white hover:text-[#E6DB00] transition-colors duration-300 ${
                           isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                         }`}
                       >
                         {t('header.aboutFablab')}
-                      </Link>
+                      </a>
                       <Link
                         to="/blog"
                         onClick={onClose}
@@ -358,15 +360,17 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       >
                         {t('mobileMenu.contactUs')}
                       </button>
-                      <Link
-                        to="/book-session"
+                      <a
+                        href="https://t.me/+998770884977"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         onClick={onClose}
                         className={`block ${isLargeScreen ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'} text-white hover:text-[#E6DB00] transition-colors duration-300 ${
                           isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                         }`}
                       >
                         {t('header.bookSession')}
-                      </Link>
+                      </a>
                     </div>
                   </div>
                 </div>

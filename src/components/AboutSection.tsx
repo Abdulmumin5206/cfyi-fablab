@@ -459,7 +459,7 @@ const AboutSection = () => {
               {/* Industry showcase image */}
               <div className="md:w-1/2 w-full h-full flex p-0 m-0 items-stretch flex-shrink-0 md:p-6">
                 <img 
-                  src={`/main/popups/${activeIndustryData.id}.${activeIndustryData.id === 'manufacturing' ? 'png' : (activeIndustryData.id === 'education' || activeIndustryData.id === 'medical' || activeIndustryData.id === 'engineering' || activeIndustryData.id === 'furniture' ? 'webp' : 'jpg')}`}
+                  src={`/main/popups/${activeIndustryData.id === 'textile' ? 'textile.webp' : `${activeIndustryData.id}.${activeIndustryData.id === 'manufacturing' ? 'png' : (activeIndustryData.id === 'education' || activeIndustryData.id === 'medical' || activeIndustryData.id === 'engineering' || activeIndustryData.id === 'furniture' ? 'webp' : 'jpg')}`}`}
                   alt={`${t(activeIndustryData.titleKey)} showcase`}
                   className="w-full h-full object-cover"
                   loading="eager"

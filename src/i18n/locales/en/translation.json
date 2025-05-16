@@ -265,43 +265,26 @@
     }
   },
   "blog": {
-    "backToAllPosts": "All Posts",
-    "tableOfContents": "Table of Contents",
-    "readTime": "{{minutes}} minutes read",
+    "title": "Our Blog",
+    "subtitle": "Insights, updates, and stories from the FabLab Uzbekistan team. Stay informed about the latest innovations and developments in manufacturing.",
+    "searchPlaceholder": "Search articles...",
+    "categories": {
+      "all": "All",
+      "3dprinting": "3D Printing"
+    },
     "posts": {
       "3d-printing-innovations": {
         "title": "SLA Resin Printing: Revolutionizing Small-Batch Production for Spare Parts",
-        "date": "May 15, 2023",
-        "author": "John Smith",
-        "category": "Manufacturing",
-        "content": "In today's manufacturing landscape, there's often a challenging gap between one-off prototyping and full-scale mass production. At our FABLAB, we recently tackled this exact problem for a client who needed a specialized component in quantities that made traditional injection molding impractical. This blog post explores how we leveraged SLA printing technology to deliver a cost-effective small-batch production solution with remarkable efficiency.",
-        "sections": {
-          "challenge": {
-            "title": "The Challenge: When Injection Molding Isn't the Answer",
-            "content": "Our client approached us with a small but critical component that needed to be produced in moderate quantities. Traditional injection molding would have required:"
-          },
-          "design-process": {
-            "title": "From Measurement to Model: Precision Design Process",
-            "content": "The first step in our process involved precise measurement of the required component. Using digital calipers, we captured all critical dimensions with sub-millimeter accuracy. These measurements were then translated into a detailed CAD model, creating an exact digital replica of the needed part."
-          },
-          "optimization": {
-            "title": "Optimizing for Production Efficiency",
-            "content": "One of the key innovations in our approach was the optimization of support structures. Rather than using the default support settings that would have placed supports across the entire bottom surface, we strategically positioned supports only where structurally necessary."
-          },
-          "production": {
-            "title": "The Production Process",
-            "content": "Our streamlined production workflow consisted of:"
-          },
-          "results": {
-            "title": "Results: Manufacturing Agility",
-            "content": "This approach allowed us to deliver the following advantages over traditional manufacturing methods:"
-          },
-          "conclusion": {
-            "title": "Conclusion: Bridging the Manufacturing Gap",
-            "content": "At our FABLAB, we're continuously pushing the boundaries of what's possible with advanced fabrication technologies. This project demonstrates how SLA printing can bridge the gap between prototyping and mass production, offering a viable manufacturing path for components that would otherwise be caught in the \"too few for injection molding, too many for one-off printing\" dilemma."
-          }
-        }
+        "description": "Created a fully functional prototype using advanced 3D printing techniques for an Uzbek tech startup."
       }
+    },
+    "readMore": "Read more",
+    "newsletter": {
+      "title": "Subscribe to Our Newsletter",
+      "description": "Stay updated with the latest news, blog posts, and special announcements from FabLab Uzbekistan.",
+      "emailPlaceholder": "Enter your email address",
+      "subscribe": "Subscribe",
+      "privacyNotice": "We respect your privacy. Unsubscribe at any time."
     }
   },
   "mould": {
@@ -475,6 +458,111 @@
       "title": "Ready to Start Your Project?",
       "description": "Contact us today to discuss your prototyping needs and get started on your journey from concept to production.",
       "button": "Contact Us"
+    }
+  },
+  "3dPrinting": {
+    "hero": {
+      "subtitle": "ADVANCED 3D PRINTING SOLUTIONS",
+      "title": "Professional 3D Printing Services",
+      "features": {
+        "precision": "High-precision printing with exceptional detail and accuracy",
+        "materials": "Wide range of materials for various applications",
+        "applications": "Suitable for prototyping, production, and custom parts"
+      },
+      "buttons": {
+        "quote": "Get a Quote",
+        "samples": "Request Samples"
+      }
+    },
+    "fdm": {
+      "title": "FUSED DEPOSITION MODELING (FDM) TECHNOLOGY",
+      "subtitle": "Versatile FDM 3D Printing Services",
+      "features": {
+        "durable": "Durable functional prototypes with various infill patterns",
+        "materials": "Multiple materials including PLA, PETG, ABS, TPU, and composites",
+        "perfect": "Perfect for conceptual models, tooling, fixtures, and end-use parts"
+      },
+      "cta": {
+        "quote": "Get a Quote",
+        "sample": "Request Sample Parts"
+      },
+      "equipment": {
+        "title": "Our FDM 3D Printing Equipment",
+        "prusa": {
+          "title": "Prusa i3 MK3S+",
+          "subtitle": "RELIABLE WORKHORSE",
+          "description": "Versatile and reliable FDM 3D printer for high-quality prototyping and production."
+        },
+        "prusaMMU": {
+          "title": "Prusa i3 MK3S+ MMU2S",
+          "subtitle": "MULTI-MATERIAL",
+          "description": "Advanced multi-material FDM printing for complex, colorful parts."
+        },
+        "skrinter": {
+          "title": "Skrinter",
+          "subtitle": "DESKTOP FDM",
+          "description": "Compact desktop FDM printer for everyday prototyping needs."
+        },
+        "raise3d": {
+          "title": "Raise3D Pro3",
+          "subtitle": "INDUSTRIAL FDM",
+          "description": "Industrial FDM 3D printer for large, durable parts."
+        }
+      }
+    },
+    "materials": {
+      "tackleAnyProblem": "Tackle Any Problem with Our Materials",
+      "types": {
+        "generalPurpose": "General Purpose",
+        "tough": "Tough",
+        "rigid": "Rigid",
+        "flameRetardant": "Flame Retardant",
+        "silicone": "Silicone",
+        "elastic": "Elastic",
+        "biocompatible": "Biocompatible",
+        "polyurethane": "Polyurethane",
+        "ceramic": "Ceramic",
+        "openMaterialMode": "Open Material Mode"
+      },
+      "requestSample": "Request Sample",
+      "sla": {
+        "title": "SLA Materials",
+        "subtitle": "High-quality resin materials for precise printing"
+      },
+      "fdm": {
+        "title": "FDM Materials",
+        "subtitle": "High-performance filaments for functional parts"
+      },
+      "all": "All Materials",
+      "premium": "Premium Materials",
+      "brands": {
+        "prusament": "Prusament",
+        "polymaker": "Polymaker",
+        "formlabsPremium": "Formlabs Premium"
+      }
+    },
+    "equipment": {
+      "title": "Our 3D Printing Equipment",
+      "sla": {
+        "items": {
+          "form3": {
+            "title": "FormLabs Form 3",
+            "description": "High-quality, functional prototypes and end-use parts with extensive materials library"
+          },
+          "phrozenMega": {
+            "title": "PHROZEN Sonic MEGA 8K MSLA",
+            "description": "Manage large volume part production, increase production volume, and bring your biggest ideas to life"
+          },
+          "phrozenMini": {
+            "title": "PHROZEN Sonic Mini 8K MSLA",
+            "description": "Bring affordable, compact selective laser sintering (SLS) platform to your desktop for nylon 3D printing production"
+          },
+          "prusa": {
+            "title": "Original Prusa SL1S Complete",
+            "description": "Reliable, versatile FDM 3D printer for prototyping and production"
+          }
+        }
+      }
     }
   }
 } 

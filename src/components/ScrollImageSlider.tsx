@@ -1,7 +1,32 @@
-import { useState, useRef, useEffect, useMemo } from "react";
+import { useState, useRef, useEffect, useMemo, useCallback } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { useTranslation } from "react-i18next";
+
+// Custom hook for responsive scroll behavior
+const useResponsiveScroll = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  return isMobile;
+};
+
+// Preload images
+const preloadImages = (images: string[]) => {
+  images.forEach(src => {
+    const img = new Image();
+    img.src = src;
+  });
+};
 
 const ScrollImageSlider = () => {
   const { t } = useTranslation();
@@ -10,6 +35,8 @@ const ScrollImageSlider = () => {
   const [hasCompletedScroll, setHasCompletedScroll] = useState(false);
   const [viewportHeight, setViewportHeight] = useState("100vh");
   const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set());
+  const [isInitialLoad, setIsInitialLoad] = useState(true);
+  const isMobile = useResponsiveScroll();
   
   // Memoize image paths to prevent unnecessary re-renders
   const images = useMemo(() => [
@@ -17,6 +44,11 @@ const ScrollImageSlider = () => {
     "/main/scrolling2.webp",
     "/main/scrolling3.webp"
   ], []);
+
+  // Preload images on component mount
+  useEffect(() => {
+    preloadImages(images);
+  }, [images]);
   
   // Memoize quotes to prevent unnecessary re-renders
   const quotes = useMemo(() => [
@@ -36,14 +68,14 @@ const ScrollImageSlider = () => {
       text: t("slider.futureDevelopment.text")
     }
   ], [t]);
+
+  // Optimize viewport height updates
+  const updateViewportHeight = useCallback(() => {
+    const vh = window.innerHeight;
+    setViewportHeight(`${vh}px`);
+  }, []);
   
-  // Update viewport height to handle mobile browsers with variable UI elements
   useEffect(() => {
-    const updateViewportHeight = () => {
-      const vh = window.innerHeight;
-      setViewportHeight(`${vh}px`);
-    };
-    
     updateViewportHeight();
     window.addEventListener('resize', updateViewportHeight);
     window.addEventListener('orientationchange', updateViewportHeight);
@@ -52,39 +84,61 @@ const ScrollImageSlider = () => {
       window.removeEventListener('resize', updateViewportHeight);
       window.removeEventListener('orientationchange', updateViewportHeight);
     };
-  }, []);
+  }, [updateViewportHeight]);
 
   // Use Framer Motion's scroll utilities with optimized settings
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
-    layoutEffect: false // Use useEffect instead of useLayoutEffect for better performance
+    layoutEffect: false
   });
 
-  // Optimize transform calculations with slower transitions
+  // Optimize transform calculations with responsive scroll behavior
   const imageIndexProgress = useTransform(
     scrollYProgress,
-    [0, 0.95], // Increased from 0.85 to 0.95 to make transitions slower
+    [0, isMobile ? 0.98 : 0.95],
     [0, images.length - 1],
     { clamp: true }
   );
+
+  // Optimize scroll progress handling
+  const handleScrollProgress = useCallback((latest: number) => {
+    if (latest >= (isMobile ? 0.99 : 0.98)) {
+      setHasCompletedScroll(true);
+    } else if (latest <= 0.02) {
+      setHasCompletedScroll(false);
+    }
+  }, [isMobile]);
   
   useEffect(() => {
-    const unsubscribe = scrollYProgress.on("change", (latest) => {
-      if (latest >= 0.98) {
-        setHasCompletedScroll(true);
-      } else if (latest <= 0.02) {
-        setHasCompletedScroll(false);
-      }
-    });
-    
+    const unsubscribe = scrollYProgress.on("change", handleScrollProgress);
     return () => unsubscribe();
-  }, [scrollYProgress]);
+  }, [scrollYProgress, handleScrollProgress]);
 
-  // Handle image loading
-  const handleImageLoad = (index: number) => {
-    setLoadedImages(prev => new Set([...prev, index]));
-  };
+  // Handle image loading with performance optimization
+  const handleImageLoad = useCallback((index: number) => {
+    setLoadedImages(prev => {
+      const newSet = new Set(prev);
+      newSet.add(index);
+      if (newSet.size === images.length) {
+        setIsInitialLoad(false);
+      }
+      return newSet;
+    });
+  }, [images.length]);
+
+  // Memoize opacity transform calculations
+  const getOpacityTransform = useCallback((index: number, isFirstImage: boolean, isLastImage: boolean) => {
+    return useTransform(
+      imageIndexProgress,
+      isFirstImage ? [0, 0.2, 0.5, 0.8] :
+      isLastImage ? [index - 1, index - 0.8, index - 0.5, index - 0.2, index] :
+      [index - 1, index - 0.5, index, index + 0.5, index + 1],
+      isFirstImage ? [1, 0.7, 0.3, 0] :
+      isLastImage ? [0, 0.3, 0.7, 0.9, 1] :
+      [0, 0.3, 1, 0.3, 0]
+    );
+  }, [imageIndexProgress]);
 
   return (
     <section className="relative bg-white">
@@ -92,7 +146,9 @@ const ScrollImageSlider = () => {
         ref={containerRef}
         className="relative"
         style={{ 
-          height: "400vh", // Increased from 300vh to 400vh for slower scrolling
+          height: isMobile ? "500vh" : "400vh",
+          opacity: isInitialLoad ? 0 : 1,
+          transition: "opacity 0.5s ease-in"
         }}
       >
         <div
@@ -113,17 +169,7 @@ const ScrollImageSlider = () => {
             {images.map((src, index) => {
               const isFirstImage = index === 0;
               const isLastImage = index === images.length - 1;
-              
-              // Simplified opacity transform calculations
-              const opacityTransform = useTransform(
-                imageIndexProgress,
-                isFirstImage ? [0, 0.2, 0.5, 0.8] :
-                isLastImage ? [index - 1, index - 0.8, index - 0.5, index - 0.2, index] :
-                [index - 1, index - 0.5, index, index + 0.5, index + 1],
-                isFirstImage ? [1, 0.7, 0.3, 0] :
-                isLastImage ? [0, 0.3, 0.7, 0.9, 1] :
-                [0, 0.3, 1, 0.3, 0]
-              );
+              const opacityTransform = getOpacityTransform(index, isFirstImage, isLastImage);
               
               return (
                 <motion.div
@@ -145,9 +191,10 @@ const ScrollImageSlider = () => {
                       objectFit: "cover",
                       objectPosition: "center",
                       transform: "translateZ(0)",
-                      backfaceVisibility: "hidden"
+                      backfaceVisibility: "hidden",
+                      willChange: "transform"
                     }}
-                    loading="lazy"
+                    loading="eager"
                     onLoad={() => handleImageLoad(index)}
                   />
                   <div 

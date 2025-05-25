@@ -149,32 +149,33 @@ const ServiceCategories = () => {
     <section 
       ref={sectionRef} 
       id="service-categories" 
-      className="py-12 sm:py-16 md:py-20 lg:py-24 bg-gray-100 relative overflow-hidden"
+      className="py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 bg-gray-100 relative overflow-hidden"
       aria-label="Our Services"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1600px] relative z-10">
-        <div className="text-center mb-12 sm:mb-16 md:mb-20">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
+        <div className="text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 md:mb-5">
             {t('serviceCategories.title')}
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base md:text-lg">
+          <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base md:text-lg px-4">
             {t('serviceCategories.subtitle')}
           </p>
         </div>
 
-        {/* Mobile Layout */}
-        <div className="block sm:hidden space-y-8">
+        {/* Mobile Layout (< 640px) */}
+        <div className="sm:hidden space-y-8 md:space-y-12 lg:space-y-16">
           {categories.map((category, index) => (
-            <div
+            <Link
+              to={category.buttonLink}
               key={category.id}
-              className={`w-full transition-all duration-500 ease-in-out ${
+              className={`block w-full transition-all duration-500 ease-in-out cursor-pointer hover:transform hover:scale-[1.02] ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-10"
               }`}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
-              <div className="relative aspect-[4/3] mb-6 overflow-hidden group bg-white">
+              <div className="relative aspect-[16/12] mb-4 overflow-hidden group bg-white shadow-sm">
                 {category.images.map((image, imgIndex) => (
                   <div
                     key={imgIndex}
@@ -189,67 +190,65 @@ const ServiceCategories = () => {
                   />
                 ))}
                 
-                <div className={`absolute bottom-0 left-0 right-0 ${category.color} py-2 sm:py-3 md:py-4 px-4 sm:px-5 md:px-6`}>
-                  <p className="text-white font-medium text-sm sm:text-base md:text-lg lg:text-xl">
+                <div className={`absolute bottom-0 left-0 right-0 ${category.color} py-3 px-4`}>
+                  <p className="text-white font-medium text-base">
                     {t(category.titleKey)}
                   </p>
                 </div>
               </div>
               
-              <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed mb-4 sm:mb-5 md:mb-6 px-2 sm:px-3 md:px-4">
-                {t(category.descriptionKey)}
-              </p>
+              <div className="px-4">
+                <p className="text-sm leading-relaxed mb-4 text-gray-700">
+                  {t(category.descriptionKey)}
+                </p>
 
-              <Link 
-                to={category.buttonLink}
-                className={`inline-flex items-center ${category.color} text-white py-2 sm:py-2.5 md:py-3 px-4 sm:px-5 md:px-6 rounded-sm hover:opacity-90 transition-all duration-300 text-sm sm:text-base md:text-lg mx-2 sm:mx-3 md:mx-4`}
-                aria-label={`Learn more about ${t(category.titleKey)}`}
-              >
-                <span>{`${t('serviceCategories.explorePrefix')} ${t(category.buttonTextKey)}`}</span>
-                <ArrowRight size={16} className="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
-              </Link>
-            </div>
+                <div className={`inline-flex items-center ${category.color} text-white py-2 px-4`}>
+                  <span className="text-sm">{`${t('serviceCategories.explorePrefix')} ${t(category.buttonTextKey)}`}</span>
+                  <ArrowRight size={16} className="ml-2" />
+                </div>
+              </div>
+            </Link>
           ))}
         </div>
 
-        {/* Desktop Grid */}
+        {/* Tablet and Desktop Layout (≥ 640px) */}
         <div className="hidden sm:block relative">
           <div className="flex items-center justify-center">
             {currentSlide > 0 && (
               <button
                 onClick={handleScrollLeft}
-                className="absolute left-0 z-10 bg-black p-2 rounded-sm shadow-lg transition-all duration-300 -translate-x-1/2 top-1/2 -translate-y-1/2"
+                className="absolute left-[-8%] lg:left-[-10%] z-10 bg-black p-3 sm:p-4 shadow-lg transition-all duration-300 hover:bg-gray-800 top-[40%] -translate-y-1/2"
                 aria-label="Scroll left"
               >
-                <ChevronLeft className="w-6 h-6 text-white" />
+                <ChevronLeft className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
               </button>
             )}
             
-            <div className="relative w-full max-w-[1600px] mx-auto px-12 overflow-hidden">
+            <div className="overflow-visible w-full max-w-[1400px] mx-auto px-4">
               <div 
                 className="flex transition-transform duration-500 ease-out"
                 style={{ 
-                  transform: `translateX(calc(-33.333% * ${currentSlide}))`
+                  transform: `translateX(calc(-${100/3}% * ${currentSlide}))`
                 }}
               >
                 {categories.map((category, index) => (
-                  <div
+                  <Link
+                    to={category.buttonLink}
                     key={category.id}
-                    className={`group transition-all duration-700 transform flex-shrink-0 ${
+                    className={`group transition-all duration-700 transform flex-shrink-0 cursor-pointer hover:transform hover:scale-[1.02] ${
                       isVisible
                         ? "opacity-100 translate-y-0"
                         : "opacity-0 translate-y-10"
                     }`}
                     style={{ 
                       transitionDelay: `${index * 150}ms`,
-                      flex: '0 0 33.333%',
-                      padding: '0 1rem'
+                      flex: '0 0 32%',
+                      marginRight: '2%'
                     }}
                     onMouseEnter={() => setHoveredIndex(index)}
                     onMouseLeave={() => setHoveredIndex(null)}
                   >
-                    {/* Image container with hover effect */}
-                    <div className="relative aspect-[16/12] mb-0 overflow-hidden transition-all duration-500 group bg-white">
+                    <div className="relative aspect-[16/12] mb-0 overflow-hidden transition-all duration-500 group bg-white shadow-sm">
                       {category.images.map((image, imgIndex) => (
                         <div
                           key={imgIndex}
@@ -263,41 +262,35 @@ const ServiceCategories = () => {
                           aria-label={`${t(category.titleKey)} - Image ${imgIndex + 1}`}
                         />
                       ))}
-                      {/* Overlay on hover */}
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300" />
-                      {/* Optional: logo/text overlay on hover */}
                       <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-300">
-                        <span className="text-white text-3xl font-bold drop-shadow-lg text-center px-4 select-none">
+                        <span className="text-white text-xl sm:text-2xl lg:text-3xl font-bold drop-shadow-lg text-center px-4 select-none">
                           {t(category.titleKey)}
                         </span>
                       </div>
                     </div>
-                    {/* Card content below image */}
+                    
                     <div
-                      className="bg-white transition-all duration-300 p-8 pt-6 pb-16 h-[270px] flex flex-col items-start justify-between relative overflow-hidden shadow-sm"
+                      className="bg-white transition-all duration-300 p-4 sm:p-6 lg:p-8 pt-4 sm:pt-5 lg:pt-6 pb-16 h-[240px] sm:h-[260px] lg:h-[280px] flex flex-col items-start justify-between relative overflow-hidden shadow-sm"
                       style={{ backgroundColor: hoveredIndex === index ? '#0e9a48' : '#fff' }}
                     >
                       <div>
-                        <span className="block text-gray-500 text-base mb-2 transition-colors duration-300">
+                        <span className="block text-gray-500 text-sm sm:text-base mb-2 transition-colors duration-300">
                           {t(category.logoText) || t(category.titleKey)}
                         </span>
-                        <h3 className="text-2xl font-bold mb-2 transition-colors duration-300">
+                        <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-2 transition-colors duration-300">
                           {t(category.titleKey)}
                         </h3>
-                        <p className="text-gray-700 leading-relaxed text-base transition-colors duration-300">
+                        <p className="text-gray-700 leading-relaxed text-sm sm:text-base transition-colors duration-300">
                           {t(category.descriptionKey)}
                         </p>
                       </div>
-                      <Link 
-                        to={category.buttonLink}
-                        className="flex items-center absolute left-8 bottom-[-64px] group-hover:bottom-8 bg-black text-white py-3 px-8 rounded-sm hover:opacity-90 transition-all duration-300 text-lg pointer-events-none group-hover:pointer-events-auto min-w-[180px]"
-                        aria-label={`Learn more about ${t(category.titleKey)}`}
-                      >
+                      <div className="flex items-center absolute left-4 sm:left-6 lg:left-8 bottom-[-64px] group-hover:bottom-6 lg:group-hover:bottom-8 bg-black text-white py-2 sm:py-3 px-6 sm:px-8 transition-all duration-300 text-base lg:text-lg">
                         <span>Learn More</span>
-                        <ArrowRight size={20} className="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
-                      </Link>
+                        <ArrowRight size={18} className="ml-2" />
+                      </div>
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -305,10 +298,10 @@ const ServiceCategories = () => {
             {currentSlide < categories.length - 3 && (
               <button
                 onClick={handleScrollRight}
-                className="absolute right-0 z-10 bg-black p-2 rounded-sm shadow-lg transition-all duration-300 translate-x-1/2 top-1/2 -translate-y-1/2"
+                className="absolute right-[-8%] lg:right-[-10%] z-10 bg-black p-3 sm:p-4 shadow-lg transition-all duration-300 hover:bg-gray-800 top-[40%] -translate-y-1/2"
                 aria-label="Scroll right"
               >
-                <ChevronRight className="w-6 h-6 text-white" />
+                <ChevronRight className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
               </button>
             )}
           </div>

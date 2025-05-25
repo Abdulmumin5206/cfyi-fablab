@@ -71,7 +71,7 @@ const ProductSlider = () => {
             <button
               onClick={prevSlide}
               disabled={currentIndex === 0}
-              className="p-2 bg-black text-white disabled:opacity-50 rounded-sm"
+              className="p-2 bg-black text-white disabled:opacity-50"
               aria-label="Previous slide"
             >
               <ArrowLeft size={20} />
@@ -79,7 +79,7 @@ const ProductSlider = () => {
             <button
               onClick={nextSlide}
               disabled={currentIndex === products.length - 1}
-              className="p-2 bg-black text-white disabled:opacity-50 rounded-sm"
+              className="p-2 bg-black text-white disabled:opacity-50"
               aria-label="Next slide"
             >
               <ArrowRight size={20} />

@@ -107,7 +107,7 @@ const ScrollAnimationSection2 = () => {
           {/* Mobile Navigation Buttons */}
           <button
             onClick={prevSlide}
-            className="absolute left-2 top-1/2 -translate-y-1/2 bg-black p-2 sm:p-3 rounded-sm z-10"
+            className="absolute left-2 top-1/2 -translate-y-1/2 bg-black p-2 sm:p-3 z-10"
             aria-label="Previous slide"
           >
             <ArrowLeft size={16} className="text-white" />
@@ -115,7 +115,7 @@ const ScrollAnimationSection2 = () => {
           
           <button
             onClick={nextSlide}
-            className="absolute right-2 top-1/2 -translate-y-1/2 bg-black p-2 sm:p-3 rounded-sm z-10"
+            className="absolute right-2 top-1/2 -translate-y-1/2 bg-black p-2 sm:p-3 z-10"
             aria-label="Next slide"
           >
             <ArrowRight size={16} className="text-white" />
@@ -161,7 +161,7 @@ const ScrollAnimationSection2 = () => {
           {/* Navigation Buttons - Desktop */}
           <button
             onClick={prevSlide}
-            className="absolute left-4 top-1/2 -translate-y-1/2 bg-black p-3 sm:p-4 md:p-5 rounded-sm z-10"
+            className="absolute left-4 top-1/2 -translate-y-1/2 bg-black p-3 sm:p-4 md:p-5 z-10"
             aria-label="Previous slide"
           >
             <ArrowLeft size={24} className="text-white" />
@@ -169,7 +169,7 @@ const ScrollAnimationSection2 = () => {
           
           <button
             onClick={nextSlide}
-            className="absolute -right-2 top-1/2 -translate-y-1/2 bg-black p-3 sm:p-4 md:p-5 rounded-sm z-10"
+            className="absolute -right-2 top-1/2 -translate-y-1/2 bg-black p-3 sm:p-4 md:p-5 z-10"
             aria-label="Next slide"
           >
             <ArrowRight size={24} className="text-white" />

@@ -20,12 +20,19 @@ const useResponsiveScroll = () => {
   return isMobile;
 };
 
-// Preload images
+// Optimized image preloading with lazy loading
 const preloadImages = (images: string[]) => {
-  images.forEach(src => {
-    const img = new Image();
-    img.src = src;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const img = entry.target as HTMLImageElement;
+        img.src = img.dataset.src || '';
+        observer.unobserve(img);
+      }
+    });
   });
+
+  return observer;
 };
 
 const ScrollImageSlider = () => {
@@ -37,20 +44,22 @@ const ScrollImageSlider = () => {
   const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set());
   const [isInitialLoad, setIsInitialLoad] = useState(true);
   const isMobile = useResponsiveScroll();
+  const observerRef = useRef<IntersectionObserver | null>(null);
   
-  // Memoize image paths to prevent unnecessary re-renders
+  // Memoize image paths
   const images = useMemo(() => [
     "/main/scrolling1.jpeg",
     "/main/scrolling2.webp",
     "/main/scrolling3.webp"
   ], []);
 
-  // Preload images on component mount
+  // Initialize intersection observer for lazy loading
   useEffect(() => {
-    preloadImages(images);
+    observerRef.current = preloadImages(images);
+    return () => observerRef.current?.disconnect();
   }, [images]);
-  
-  // Memoize quotes to prevent unnecessary re-renders
+
+  // Memoize quotes
   const quotes = useMemo(() => [
     {
       title: t("slider.innovationLab.title"),
@@ -69,31 +78,37 @@ const ScrollImageSlider = () => {
     }
   ], [t]);
 
-  // Optimize viewport height updates
+  // Optimize viewport height updates with debounce
   const updateViewportHeight = useCallback(() => {
     const vh = window.innerHeight;
     setViewportHeight(`${vh}px`);
   }, []);
   
   useEffect(() => {
+    let timeoutId: NodeJS.Timeout;
+    const debouncedUpdate = () => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(updateViewportHeight, 100);
+    };
+
     updateViewportHeight();
-    window.addEventListener('resize', updateViewportHeight);
-    window.addEventListener('orientationchange', updateViewportHeight);
+    window.addEventListener('resize', debouncedUpdate);
+    window.addEventListener('orientationchange', debouncedUpdate);
     
     return () => {
-      window.removeEventListener('resize', updateViewportHeight);
-      window.removeEventListener('orientationchange', updateViewportHeight);
+      window.removeEventListener('resize', debouncedUpdate);
+      window.removeEventListener('orientationchange', debouncedUpdate);
+      clearTimeout(timeoutId);
     };
   }, [updateViewportHeight]);
 
-  // Use Framer Motion's scroll utilities with optimized settings
+  // Optimize scroll progress handling with throttling
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
     layoutEffect: false
   });
 
-  // Optimize transform calculations with responsive scroll behavior
   const imageIndexProgress = useTransform(
     scrollYProgress,
     [0, isMobile ? 0.98 : 0.95],
@@ -101,7 +116,7 @@ const ScrollImageSlider = () => {
     { clamp: true }
   );
 
-  // Optimize scroll progress handling
+  // Throttled scroll progress handler
   const handleScrollProgress = useCallback((latest: number) => {
     if (latest >= (isMobile ? 0.99 : 0.98)) {
       setHasCompletedScroll(true);
@@ -111,11 +126,23 @@ const ScrollImageSlider = () => {
   }, [isMobile]);
   
   useEffect(() => {
-    const unsubscribe = scrollYProgress.on("change", handleScrollProgress);
-    return () => unsubscribe();
+    let timeoutId: NodeJS.Timeout;
+    const throttledHandler = (latest: number) => {
+      if (timeoutId) return;
+      timeoutId = setTimeout(() => {
+        handleScrollProgress(latest);
+        timeoutId = 0;
+      }, 16); // ~60fps
+    };
+
+    const unsubscribe = scrollYProgress.on("change", throttledHandler);
+    return () => {
+      unsubscribe();
+      clearTimeout(timeoutId);
+    };
   }, [scrollYProgress, handleScrollProgress]);
 
-  // Handle image loading with performance optimization
+  // Optimized image loading handler
   const handleImageLoad = useCallback((index: number) => {
     setLoadedImages(prev => {
       const newSet = new Set(prev);
@@ -182,7 +209,7 @@ const ScrollImageSlider = () => {
                   }}
                 >
                   <img 
-                    src={src} 
+                    data-src={src}
                     alt={t("slider.showcaseImage", {number: index + 1})}
                     className="w-full h-full object-cover"
                     style={{
@@ -194,8 +221,13 @@ const ScrollImageSlider = () => {
                       backfaceVisibility: "hidden",
                       willChange: "transform"
                     }}
-                    loading="eager"
+                    loading="lazy"
                     onLoad={() => handleImageLoad(index)}
+                    ref={(el) => {
+                      if (el && observerRef.current) {
+                        observerRef.current.observe(el);
+                      }
+                    }}
                   />
                   <div 
                     className="absolute inset-0 bg-black" 
@@ -218,7 +250,6 @@ const ScrollImageSlider = () => {
           
           <div className="absolute inset-0">
             {quotes.map((quote, index) => {
-              // Simplified transform calculations
               const yOffset = useTransform(
                 imageIndexProgress,
                 [index - 1, index, index + 1],

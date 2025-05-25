@@ -107,18 +107,18 @@ const ScrollAnimationSection = () => {
           {/* Mobile Navigation Buttons */}
           <button
             onClick={prevSlide}
-            className="absolute left-2 top-1/2 -translate-y-1/2 bg-white p-1.5 sm:p-2 rounded-full z-10"
+            className="absolute left-2 top-1/2 -translate-y-1/2 bg-black p-2 sm:p-3 z-10"
             aria-label="Previous slide"
           >
-            <ArrowLeft size={14} className="text-black" />
+            <ArrowLeft size={14} className="text-white" />
           </button>
           
           <button
             onClick={nextSlide}
-            className="absolute right-2 top-1/2 -translate-y-1/2 bg-white p-1.5 sm:p-2 rounded-full z-10"
+            className="absolute right-2 top-1/2 -translate-y-1/2 bg-black p-2 sm:p-3 z-10"
             aria-label="Next slide"
           >
-            <ArrowRight size={14} className="text-black" />
+            <ArrowRight size={14} className="text-white" />
           </button>
         </div>
 
@@ -161,22 +161,22 @@ const ScrollAnimationSection = () => {
           {/* Navigation Buttons - Desktop */}
           <button
             onClick={prevSlide}
-            className="absolute left-4 top-1/2 -translate-y-1/2 bg-white p-2 sm:p-3 md:p-4 rounded-full z-10"
+            className="absolute left-4 top-1/2 -translate-y-1/2 bg-black p-3 sm:p-4 md:p-5 z-10"
             aria-label="Previous slide"
           >
-            <ArrowLeft size={16} className="text-black sm:hidden" />
-            <ArrowLeft size={20} className="text-black hidden sm:block md:hidden" />
-            <ArrowLeft size={24} className="text-black hidden md:block" />
+            <ArrowLeft size={16} className="text-white sm:hidden" />
+            <ArrowLeft size={20} className="text-white hidden sm:block md:hidden" />
+            <ArrowLeft size={24} className="text-white hidden md:block" />
           </button>
           
           <button
             onClick={nextSlide}
-            className="absolute -right-2 top-1/2 -translate-y-1/2 bg-white p-2 sm:p-3 md:p-4 rounded-full z-10"
+            className="absolute -right-2 top-1/2 -translate-y-1/2 bg-black p-3 sm:p-4 md:p-5 z-10"
             aria-label="Next slide"
           >
-            <ArrowRight size={16} className="text-black sm:hidden" />
-            <ArrowRight size={20} className="text-black hidden sm:block md:hidden" />
-            <ArrowRight size={24} className="text-black hidden md:block" />
+            <ArrowRight size={16} className="text-white sm:hidden" />
+            <ArrowRight size={20} className="text-white hidden sm:block md:hidden" />
+            <ArrowRight size={24} className="text-white hidden md:block" />
           </button>
         </div>
       </div>

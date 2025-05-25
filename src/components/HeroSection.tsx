@@ -19,6 +19,9 @@ const HeroSection = () => {
   const [startX, setStartX] = useState(0);
   const [currentX, setCurrentX] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [isInView, setIsInView] = useState(false);
 
   const handleScrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
     e.preventDefault();
@@ -161,10 +164,39 @@ const HeroSection = () => {
     ];
   };
 
+  // Detect when section is in view
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
+  // Auto-play when in view
+  useEffect(() => {
+    if (isInView && videoRef.current) {
+      videoRef.current.play().catch((error) => {
+        console.error("Auto-play failed:", error);
+      });
+    }
+  }, [isInView]);
+
   return (
     <section 
+      ref={sectionRef}
       className="relative h-screen w-full overflow-hidden bg-black"
-      ref={containerRef}
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
@@ -173,63 +205,25 @@ const HeroSection = () => {
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
-      {/* Slides */}
-      {renderSlides().map((slide) => (
-        <div
-          key={slide.id}
-          className={`absolute inset-0 transition-transform duration-1000 ease-in-out ${
-            slide.position === "center"
-              ? "translate-x-0 z-20"
-              : slide.position === "before"
-              ? "-translate-x-full z-10"
-              : "translate-x-full z-10"
-          }`}
-        >
-          {/* Background image */}
-          <div className={`absolute inset-0 bg-cover bg-center ${slide.background}`} />
-          
-          {/* Gradient overlay - added for better text visibility while maintaining image quality */}
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/50 z-10"></div>
-          
-          {/* Content overlay */}
-          <div className="absolute inset-0 flex items-center z-20">
-            <div className="container mx-auto px-4 md:px-8 max-w-7xl mt-16 sm:mt-20 md:mt-24">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-bold mb-2 sm:mb-4 max-w-xs sm:max-w-sm md:max-w-2xl lg:max-w-3xl">
-                {t(slide.titleKey)}
-              </h1>
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white mb-4 sm:mb-6 md:mb-8 max-w-xs sm:max-w-sm md:max-w-xl lg:max-w-2xl">
-                {t(slide.subtitleKey)}
-              </p>
-              <a
-                href={slide.buttonLink}
-                onClick={(e) => slide.buttonLink.startsWith('#') ? handleScrollToSection(e, slide.buttonLink.substring(1)) : undefined}
-                className="inline-flex items-center space-x-1 sm:space-x-2 bg-white text-black px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 text-sm sm:text-base font-medium hover:bg-gray-100 transition-colors duration-300"
-                {...(slide.buttonLink.startsWith('http') ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-              >
-                <span>{t(slide.buttonTextKey)}</span>
-                <ArrowRight size={16} />
-              </a>
-            </div>
-          </div>
+      <div className="w-full h-full bg-black">
+        <div className="w-full h-full">
+          <video
+            ref={videoRef}
+            className="w-full h-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster="/fablab/1.jpg"
+          >
+            <source src="/video/FabLab video horizontal.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
-      ))}
-
-      {/* Slide indicators */}
-      <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-0 right-0 flex justify-center space-x-1 sm:space-x-2 z-30">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => {
-              setDirection(index > activeIndex ? "right" : "left");
-              setActiveIndex(index);
-            }}
-            className={`w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
-              index === activeIndex ? "bg-white" : "bg-white/50"
-            }`}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
       </div>
+      
+      {/* Consistent black overlay for better text visibility */}
+      <div className="absolute inset-0 bg-black/50 z-10"></div>
     </section>
   );
 };

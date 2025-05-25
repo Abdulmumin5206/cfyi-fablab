@@ -207,22 +207,18 @@ const Header = () => {
     <>
       {/* Main header */}
       <header
-        className={`fixed top-0 w-full z-50 transition-transform duration-300 ${
+        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
           isVisible ? "translate-y-0" : "-translate-y-full"
-        }`}
+        } ${isScrolled ? "bg-white shadow-md" : "bg-transparent"}`}
       >
         <div className="relative">
           <div
             style={headerStyle}
-            className={`flex justify-between items-center h-16 sm:h-20 ${isLaptopScreen ? 'md:h-[75px]' : 'md:h-24 lg:h-28'} transition-colors duration-300 ${
-              isScrolled ? "bg-white shadow-md" : "bg-transparent"
-            }`}
+            className={`flex justify-between items-center h-16 sm:h-20 ${isLaptopScreen ? 'md:h-[75px]' : 'md:h-24 lg:h-28'} transition-colors duration-300`}
           >
             {/* Logo */}
             <div
-              className={`h-full flex items-center pl-4 sm:pl-6 ${isLaptopScreen ? 'md:pl-8' : 'md:pl-10 lg:pl-16 xl:pl-20'} transition-colors duration-300 ${
-                isScrolled ? "bg-white" : "bg-transparent"
-              }`}
+              className={`h-full flex items-center pl-4 sm:pl-6 ${isLaptopScreen ? 'md:pl-8' : 'md:pl-10 lg:pl-16 xl:pl-20'} transition-colors duration-300`}
             >
               <Link 
                 to="/" 
@@ -246,58 +242,112 @@ const Header = () => {
             {/* Main right-side nav (measured) */}
             <div
               ref={rightNavRef}
-              className={`transition-colors duration-300 ${
-                shouldUseBlackTheme && !isMobileScreen ? "bg-black" : isScrolled ? "bg-white" : "bg-transparent md:bg-white"
-              } px-3 sm:px-4 ${isLaptopScreen ? 'md:px-6' : 'md:px-8 lg:px-12 xl:px-20'} h-full`}
+              className={`transition-colors duration-300 ${shouldUseBlackTheme && !isMobileScreen ? "bg-black" : "bg-transparent"} px-3 sm:px-4 ${isLaptopScreen ? 'md:px-6' : 'md:px-8 lg:px-12 xl:px-20'} h-full`}
             >
               <div className="hidden md:flex items-center space-x-2 lg:space-x-4 xl:space-x-8 h-full">
                 {/* Services link with dropdown */}
-                <div 
-                  className="relative group h-full"
-                  onMouseEnter={handleServicesMouseEnter}
-                  onMouseLeave={handleServicesMouseLeave}
-                >
-                  <button
-                    ref={servicesButtonRef}
-                    style={textStyle}
-                    className={`flex items-center h-full ${shouldUseBlackTheme ? "text-white group-hover:text-blue-500" : "text-black group-hover:text-blue-600"} transition-colors text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} px-1 sm:px-2`}
-                    onClick={toggleServicesMenu}
+                <div className="relative" onMouseEnter={handleServicesMouseEnter} onMouseLeave={handleServicesMouseLeave}>
+                  <span
+                    style={buttonStyle}
+                    className={`flex items-center space-x-1 border px-2 sm:px-3 py-1.5 sm:py-2 h-[38px] sm:h-[42px] ${isLaptopScreen ? 'md:h-[38px]' : 'lg:h-[42px] xl:h-[46px]'} text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} ${isScrolled ? "border-black bg-white text-black" : (shouldUseBlackTheme && !isMobileScreen ? "border-black bg-black text-white" : "border-white bg-transparent text-white")}`}
                   >
-                    {t('header.services')}
-                    <ChevronDown className={`ml-1 h-4 w-4 ${isLaptopScreen ? 'md:h-4 md:w-4' : 'lg:h-5 lg:w-5'} transition-transform duration-200 ${servicesMenuOpen ? 'rotate-180' : ''}`} />
-                  </button>
+                    <button
+                      ref={servicesButtonRef}
+                      style={textStyle}
+                      className={`flex items-center h-full ${isScrolled ? "text-black" : "text-white"} ${shouldUseBlackTheme ? "group-hover:text-blue-500" : "group-hover:text-blue-600"} transition-colors duration-300 text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} px-1 sm:px-2 bg-transparent`}
+                      onClick={toggleServicesMenu}
+                    >
+                      {t('header.services')}
+                      <ChevronDown className={`ml-1 h-4 w-4 ${isLaptopScreen ? 'md:h-4 md:w-4' : 'lg:h-5 lg:w-5'} transition-transform duration-200 ${servicesMenuOpen ? 'rotate-180' : ''}`} />
+                    </button>
+                  </span>
+                  {/* Services Dropdown Menu */}
+                  <div
+                    ref={servicesMenuRef}
+                    className={`absolute z-40 overflow-hidden transition-all duration-300 ease-in-out mt-4 ${
+                      servicesMenuOpen ? "max-h-[380px] opacity-100 visible" : "max-h-0 opacity-0 invisible"
+                    }`}
+                    style={{ 
+                      width: '200px',
+                      top: '100%',
+                      left: 0
+                    }}
+                  >
+                    <div className={`${isScrolled ? 'bg-white' : 'bg-transparent'} shadow-lg w-full transform transition-transform duration-300 ease-out origin-top border ${isScrolled ? 'border-black' : 'border-white'}`}
+                         style={{ 
+                           transform: servicesMenuOpen ? 'translateY(0)' : 'translateY(-100%)'
+                         }}>
+                      <div className="flex flex-col">
+                        <Link
+                          to="/mould"
+                          style={textStyle}
+                          className={`flex items-center ${isScrolled ? 'text-black' : 'text-white'} hover:text-white ${isScrolled ? 'bg-white hover:bg-[#0e9a48]' : 'bg-transparent hover:bg-[#0e9a48]'} transition-all duration-300 text-sm lg:text-base p-4 w-full border-b ${isScrolled ? 'border-black' : 'border-white'} last:border-b-0`}
+                        >
+                          {t('header.mould')}
+                        </Link>
+                        <Link
+                          to="/3d-printing"
+                          style={textStyle}
+                          className={`flex items-center ${isScrolled ? 'text-black' : 'text-white'} hover:text-white ${isScrolled ? 'bg-white hover:bg-[#cb2026]' : 'bg-transparent hover:bg-[#cb2026]'} transition-all duration-300 text-sm lg:text-base p-4 w-full border-b ${isScrolled ? 'border-black' : 'border-white'} last:border-b-0`}
+                        >
+                          {t('header.3dPrinting')}
+                        </Link>
+                        <Link
+                          to="/custom-fabrication"
+                          style={textStyle}
+                          className={`flex items-center ${isScrolled ? 'text-black' : 'text-white'} hover:text-white ${isScrolled ? 'bg-white hover:bg-[#35469d]' : 'bg-transparent hover:bg-[#35469d]'} transition-all duration-300 text-sm lg:text-base p-4 w-full border-b ${isScrolled ? 'border-black' : 'border-white'} last:border-b-0`}
+                        >
+                          {t('header.customFabrication')}
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
                 {/* Other top-level links */}
-                <a
-                  href="https://cfyi.uz/fablab"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={textStyle}
-                  className={`${shouldUseBlackTheme ? "text-white hover:text-blue-500" : "text-black hover:text-blue-600"} transition-colors text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} px-1 sm:px-2`}
+                {/* Wrap About Fablab link in a styled span */}
+                <span
+                  style={{...textStyle, ...buttonStyle}}
+                  className={`flex items-center space-x-1 border px-2 sm:px-3 py-1.5 sm:py-2 h-[38px] sm:h-[42px] ${isLaptopScreen ? 'md:h-[38px]' : 'lg:h-[42px] xl:h-[46px]'} text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} ${isScrolled ? "border-black bg-white text-black" : (shouldUseBlackTheme && !isMobileScreen ? "border-black bg-black text-white" : "border-white bg-transparent text-white")}`}
                 >
-                  {t('header.aboutFablab')}
-                </a>
-                <Link
-                  to="/blog"
-                  style={textStyle}
-                  className={`${shouldUseBlackTheme ? "text-white hover:text-blue-500" : "text-black hover:text-blue-600"} transition-colors text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} px-1 sm:px-2`}
+                  <a
+                    href="https://cfyi.uz/fablab"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={textStyle}
+                    className={`${isScrolled ? "text-black" : "text-white"} ${shouldUseBlackTheme ? "hover:text-blue-500" : "hover:text-blue-600"} transition-colors duration-300 text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} px-1 sm:px-2 bg-transparent`}
+                  >
+                    {t('header.aboutFablab')}
+                  </a>
+                </span>
+
+                {/* Wrap Projects link in a styled span */}
+                <span
+                  style={{...textStyle, ...buttonStyle}}
+                  className={`flex items-center space-x-1 border px-2 sm:px-3 py-1.5 sm:py-2 h-[38px] sm:h-[42px] ${isLaptopScreen ? 'md:h-[38px]' : 'lg:h-[42px] xl:h-[46px]'} text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} ${isScrolled ? "border-black bg-white text-black" : (shouldUseBlackTheme && !isMobileScreen ? "border-black bg-black text-white" : "border-white bg-transparent text-white")}`}
                 >
-                  {t('header.projects')}
-                </Link>
+                  <Link
+                    to="/blog"
+                    style={textStyle}
+                    className={`${isScrolled ? "text-black" : "text-white"} ${shouldUseBlackTheme ? "hover:text-blue-500" : "hover:text-blue-600"} transition-colors duration-300 text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} px-1 sm:px-2 bg-transparent`}
+                  >
+                    {t('header.projects')}
+                  </Link>
+                </span>
+
                 <a
                   href="https://t.me/+998770884977"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{...textStyle, ...buttonStyle}}
-                  className={`bg-blue-600 text-white border border-blue-600 px-2 sm:px-3 ${isLaptopScreen ? 'md:px-3 md:py-1.5' : 'lg:px-4 xl:px-6'} py-1.5 sm:py-2 h-[38px] sm:h-[42px] ${isLaptopScreen ? 'md:h-[38px]' : 'lg:h-[42px] xl:h-[46px]'} text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} hover:opacity-90 transition-opacity`}
+                  className={`flex items-center space-x-1 px-2 sm:px-3 py-1.5 sm:py-2 h-[38px] sm:h-[42px] ${isLaptopScreen ? 'md:h-[38px]' : 'lg:h-[42px] xl:h-[46px]'} text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} hover:opacity-90 transition-opacity transition-colors duration-300 ${isScrolled ? "border border-black bg-white text-black" : (shouldUseBlackTheme && !isMobileScreen ? "border border-black bg-black text-white" : "border border-white bg-transparent text-white")}`}
                 >
                   {t('header.bookSession')}
                 </a>
 
                 {/* Language Switcher */}
                 <div className={`flex items-center ml-2 ${isLaptopScreen ? 'md:ml-1' : 'md:ml-3 lg:ml-4 xl:ml-6'}`}>
-                  <LanguageSwitcher useBlackTheme={shouldUseBlackTheme} />
+                  <LanguageSwitcher useBlackTheme={shouldUseBlackTheme} isScrolled={isScrolled} />
                 </div>
 
                 {/* Hamburger / close */}
@@ -305,9 +355,9 @@ const Header = () => {
                   className={`flex items-center justify-center hover:opacity-75 transition-opacity ml-2 sm:ml-3 ${isLaptopScreen ? 'md:ml-2' : 'md:ml-4 lg:ml-5 xl:ml-6'}`}
                   onClick={toggleMenu}
                 >
-                  <span 
+                  <span
                     style={buttonStyle}
-                    className={`flex items-center space-x-1 border ${shouldUseBlackTheme ? "border-white" : "border-black"} px-2 sm:px-3 py-1.5 sm:py-2 h-[38px] sm:h-[42px] ${isLaptopScreen ? 'md:h-[38px]' : 'lg:h-[42px] xl:h-[46px]'} ${shouldUseBlackTheme ? "bg-black text-white" : "bg-white text-black"}`}
+                    className={`flex items-center space-x-1 border px-2 sm:px-3 py-1.5 sm:py-2 h-[38px] sm:h-[42px] ${isLaptopScreen ? 'md:h-[38px]' : 'lg:h-[42px] xl:h-[46px]'} text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} ${isScrolled ? "border-black bg-white text-black" : (shouldUseBlackTheme ? "border-black bg-black text-white" : "border-white bg-transparent text-white")}`}
                   >
                     {isMobileMenuOpen ? 
                       <X size={isLaptopScreen ? 16 : 18} className={`${isLaptopScreen ? 'md:w-4 md:h-4' : 'lg:w-5 lg:h-5 xl:w-6 xl:h-6'}`} /> : 
@@ -335,50 +385,6 @@ const Header = () => {
                   <span className="text-xs sm:text-sm">{t('header.menu')}</span>
                 </span>
               </button>
-            </div>
-          </div>
-        </div>
-
-        {/* Services Dropdown Menu */}
-        <div
-          ref={servicesMenuRef}
-          className={`absolute z-40 overflow-hidden transition-all duration-300 ease-in-out ${
-            servicesMenuOpen ? "max-h-[380px] opacity-100 visible" : "max-h-0 opacity-0 invisible"
-          }`}
-          style={{ 
-            width: rightNavWidth > 0 ? rightNavWidth : 'auto',
-            top: '100%',
-            right: 0
-          }}
-          onMouseEnter={handleServicesMouseEnter}
-          onMouseLeave={handleServicesMouseLeave}
-        >
-          <div className="bg-gray-100 shadow-lg w-full transform transition-transform duration-300 ease-out origin-top" 
-               style={{ 
-                 transform: servicesMenuOpen ? 'translateY(0)' : 'translateY(-100%)'
-               }}>
-            <div className="grid grid-cols-3 gap-px bg-gray-200">
-              <Link
-                to="/mould"
-                style={textStyle}
-                className="col-span-1 flex items-center justify-center text-black hover:text-white bg-gray-100 hover:bg-[#0e9a48] transition-all duration-300 text-sm lg:text-base transform transition-transform hover:scale-[1.02] hover:shadow-md ease-out p-5 w-full h-full min-h-[90px]"
-              >
-                {t('header.mould')}
-              </Link>
-              <Link
-                to="/3d-printing"
-                style={textStyle}
-                className="col-span-1 flex items-center justify-center text-black hover:text-white bg-gray-100 hover:bg-[#cb2026] transition-all duration-300 text-sm lg:text-base transform transition-transform hover:scale-[1.02] hover:shadow-md ease-out p-5 w-full h-full min-h-[90px]"
-              >
-                {t('header.3dPrinting')}
-              </Link>
-              <Link
-                to="/custom-fabrication"
-                style={textStyle}
-                className="col-span-1 flex items-center justify-center text-black hover:text-white bg-gray-100 hover:bg-[#35469d] transition-all duration-300 text-sm lg:text-base transform transition-transform hover:scale-[1.02] hover:shadow-md ease-out p-5 w-full h-full min-h-[90px]"
-              >
-                {t('header.customFabrication')}
-              </Link>
             </div>
           </div>
         </div>

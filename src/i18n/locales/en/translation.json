@@ -72,6 +72,10 @@
     "customFabrication": {
       "title": "Custom Fabrication",
       "description": "Bring ideas to life with laser cutting, CNC, and UV printing."
+    },
+    "engineering": {
+      "title": "Engineering",
+      "description": "Engineering solutions spanning prototyping, tooling, and production components for innovative projects."
     }
   },
   "industries": {

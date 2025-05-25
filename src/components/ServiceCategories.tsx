@@ -19,11 +19,15 @@ const ServiceCategories = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState<{ [key: string]: number }>({
     "3d-printing": 0,
     "mould": 0,
     "custom-fabrication": 0,
+    "engineering": 0,
+    "prototyping": 0,
   });
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const categories: ServiceCategory[] = [
     {
@@ -35,7 +39,7 @@ const ServiceCategories = () => {
         "/main/3dprinting2.jpg",
         "/main/3dprinting3.jpg",
       ],
-      logoText: "Think: 3D Printing",
+      logoText: "3D Printing",
       buttonTextKey: "serviceCategories.3dPrinting.title",
       buttonLink: "/3d-printing",
       color: "bg-[#cb2026]",
@@ -50,7 +54,7 @@ const ServiceCategories = () => {
         "/main/molding1.jpg",
         "/main/molding2.jpg",
       ],
-      logoText: "Think: Moulding and Spare Parts",
+      logoText: "Moulding and Spare Parts",
       buttonTextKey: "serviceCategories.mould.title",
       buttonLink: "/mould",
       color: "bg-[#0e9a48]",
@@ -65,30 +69,42 @@ const ServiceCategories = () => {
         "/fablab/1.jpg",
         "/fablab/11.jpg"
       ],
-      logoText: "Think: Custom Fabrication",
+      logoText: "Custom Fabrication",
       buttonTextKey: "serviceCategories.customFabrication.title",
       buttonLink: "/custom-fabrication",
       color: "bg-[#35469d]",
     },
+    {
+      id: "engineering",
+      titleKey: "serviceCategories.engineering.title",
+      descriptionKey: "serviceCategories.engineering.description",
+      images: [
+        "/fablab/13.jpg",
+        "/fablab/1.jpg",
+        "/fablab/11.jpg",
+        "/fablab/12.jpg"
+      ],
+      logoText: "Engineering",
+      buttonTextKey: "serviceCategories.engineering.title",
+      buttonLink: "/engineering",
+      color: "bg-[#8a2be2]",
+    },
+    {
+      id: "prototyping",
+      titleKey: "serviceCategories.prototyping.title",
+      descriptionKey: "serviceCategories.prototyping.description",
+      images: [
+        "/prototyping/Design.jpeg",
+        "/prototyping/Prototype.webp",
+        "/prototyping/Manufacture.webp",
+        "/prototyping/Design.jpeg"
+      ],
+      logoText: "Prototyping",
+      buttonTextKey: "serviceCategories.prototyping.title",
+      buttonLink: "/prototyping",
+      color: "bg-[#ff6b6b]",
+    },
   ];
-
-  // Auto-scroll effect for image sliders
-  useEffect(() => {
-    if (!isVisible) return;
-    
-    const intervalIds = categories.map(category => {
-      return setInterval(() => {
-        setCurrentImageIndex(prev => ({
-          ...prev,
-          [category.id]: (prev[category.id] + 1) % category.images.length
-        }));
-      }, 4000 + Math.random() * 1000); // Increased interval for better UX
-    });
-    
-    return () => {
-      intervalIds.forEach(id => clearInterval(id));
-    };
-  }, [isVisible]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -115,24 +131,27 @@ const ServiceCategories = () => {
     };
   }, []);
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % categories.length);
+  const handleScrollLeft = () => {
+    if (isTransitioning || currentSlide === 0) return;
+    setIsTransitioning(true);
+    setCurrentSlide((prev) => prev - 1);
+    setTimeout(() => setIsTransitioning(false), 500);
   };
 
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + categories.length) % categories.length);
+  const handleScrollRight = () => {
+    if (isTransitioning || currentSlide >= categories.length - 3) return;
+    setIsTransitioning(true);
+    setCurrentSlide((prev) => prev + 1);
+    setTimeout(() => setIsTransitioning(false), 500);
   };
 
   return (
     <section 
       ref={sectionRef} 
       id="service-categories" 
-      className="py-12 sm:py-16 md:py-20 lg:py-24 bg-white relative"
+      className="py-12 sm:py-16 md:py-20 lg:py-24 bg-gray-100 relative overflow-hidden"
       aria-label="Our Services"
     >
-      {/* Subtle background pattern with improved opacity */}
-      <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none"></div>
-      
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1600px] relative z-10">
         <div className="text-center mb-12 sm:mb-16 md:mb-20">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
@@ -155,13 +174,13 @@ const ServiceCategories = () => {
               }`}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
-              <div className="relative aspect-[4/3] mb-6 overflow-hidden rounded-lg shadow-lg">
+              <div className="relative aspect-[4/3] mb-6 overflow-hidden group bg-white">
                 {category.images.map((image, imgIndex) => (
                   <div
                     key={imgIndex}
-                    className={`absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out ${
+                    className={`absolute inset-0 bg-cover bg-center transition-all duration-500 ease-in-out ${
                       currentImageIndex[category.id] === imgIndex 
-                        ? 'opacity-100 scale-100' 
+                        ? 'opacity-100 scale-100 group-hover:scale-110' 
                         : 'opacity-0 scale-105'
                     }`}
                     style={{ backgroundImage: `url(${image})` }}
@@ -194,53 +213,105 @@ const ServiceCategories = () => {
         </div>
 
         {/* Desktop Grid */}
-        <div className="hidden sm:flex flex-row justify-center gap-8 sm:gap-10 lg:gap-12 max-w-[1600px] mx-auto">
-          {categories.map((category, index) => (
-            <div
-              key={category.id}
-              className={`group transition-all duration-700 transform w-[300px] sm:w-[400px] lg:w-[500px] xl:w-[600px] ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
-              }`}
-              style={{ transitionDelay: `${index * 150}ms` }}
-            >
-              <div className="relative aspect-[16/9] sm:aspect-[16/10] lg:aspect-[16/11] xl:aspect-[16/12] mb-6 sm:mb-8 lg:mb-10 xl:mb-12 overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
-                {category.images.map((image, imgIndex) => (
-                  <div
-                    key={imgIndex}
-                    className={`absolute inset-0 bg-cover bg-center transition-all duration-1000 ease-in-out ${
-                      currentImageIndex[category.id] === imgIndex 
-                        ? 'opacity-100 scale-100 z-10' 
-                        : 'opacity-0 scale-105 z-0'
-                    }`}
-                    style={{ backgroundImage: `url(${image})` }}
-                    role="img"
-                    aria-label={`${t(category.titleKey)} - Image ${imgIndex + 1}`}
-                  />
-                ))}
-                
-                <div className={`absolute bottom-0 left-0 right-0 ${category.color} py-1.5 sm:py-2 lg:py-2.5 xl:py-3 px-2 sm:px-3 lg:px-4 xl:px-5 z-20 transform transition-transform duration-300 group-hover:translate-y-0 translate-y-full`}>
-                  <p className="text-white font-medium text-sm sm:text-base lg:text-lg xl:text-xl">
-                    {t(category.titleKey)}
-                  </p>
-                </div>
-              </div>
-              
-              <p className="text-sm sm:text-base lg:text-lg xl:text-lg text-gray-700 leading-relaxed mb-3 sm:mb-4 lg:mb-5 xl:mb-6">
-                {t(category.descriptionKey)}
-              </p>
-
-              <Link 
-                to={category.buttonLink}
-                className={`inline-flex items-center ${category.color} text-white py-1.5 sm:py-2 lg:py-2.5 xl:py-3 px-3 sm:px-4 lg:px-5 xl:px-6 rounded-sm hover:opacity-90 transition-all duration-300 text-sm sm:text-base lg:text-lg xl:text-lg group-hover:translate-x-1`}
-                aria-label={`Learn more about ${t(category.titleKey)}`}
+        <div className="hidden sm:block relative">
+          <div className="flex items-center justify-center">
+            {currentSlide > 0 && (
+              <button
+                onClick={handleScrollLeft}
+                className="absolute left-0 z-10 bg-black p-2 rounded-sm shadow-lg transition-all duration-300 -translate-x-1/2 top-1/2 -translate-y-1/2"
+                aria-label="Scroll left"
               >
-                <span>{`${t('serviceCategories.explorePrefix')} ${t(category.buttonTextKey)}`}</span>
-                <ArrowRight size={16} className="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
-              </Link>
+                <ChevronLeft className="w-6 h-6 text-white" />
+              </button>
+            )}
+            
+            <div className="relative w-full max-w-[1600px] mx-auto px-12 overflow-hidden">
+              <div 
+                className="flex transition-transform duration-500 ease-out"
+                style={{ 
+                  transform: `translateX(calc(-33.333% * ${currentSlide}))`
+                }}
+              >
+                {categories.map((category, index) => (
+                  <div
+                    key={category.id}
+                    className={`group transition-all duration-700 transform flex-shrink-0 ${
+                      isVisible
+                        ? "opacity-100 translate-y-0"
+                        : "opacity-0 translate-y-10"
+                    }`}
+                    style={{ 
+                      transitionDelay: `${index * 150}ms`,
+                      flex: '0 0 33.333%',
+                      padding: '0 1rem'
+                    }}
+                    onMouseEnter={() => setHoveredIndex(index)}
+                    onMouseLeave={() => setHoveredIndex(null)}
+                  >
+                    {/* Image container with hover effect */}
+                    <div className="relative aspect-[16/12] mb-0 overflow-hidden transition-all duration-500 group bg-white">
+                      {category.images.map((image, imgIndex) => (
+                        <div
+                          key={imgIndex}
+                          className={`absolute inset-0 bg-cover bg-center transition-all duration-500 ease-in-out ${
+                            currentImageIndex[category.id] === imgIndex 
+                              ? 'opacity-100 scale-100 group-hover:scale-110 z-10' 
+                              : 'opacity-0 scale-105 z-0'
+                          }`}
+                          style={{ backgroundImage: `url(${image})` }}
+                          role="img"
+                          aria-label={`${t(category.titleKey)} - Image ${imgIndex + 1}`}
+                        />
+                      ))}
+                      {/* Overlay on hover */}
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300" />
+                      {/* Optional: logo/text overlay on hover */}
+                      <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-300">
+                        <span className="text-white text-3xl font-bold drop-shadow-lg text-center px-4 select-none">
+                          {t(category.titleKey)}
+                        </span>
+                      </div>
+                    </div>
+                    {/* Card content below image */}
+                    <div
+                      className="bg-white transition-all duration-300 p-8 pt-6 pb-16 h-[270px] flex flex-col items-start justify-between relative overflow-hidden shadow-sm"
+                      style={{ backgroundColor: hoveredIndex === index ? '#0e9a48' : '#fff' }}
+                    >
+                      <div>
+                        <span className="block text-gray-500 text-base mb-2 transition-colors duration-300">
+                          {t(category.logoText) || t(category.titleKey)}
+                        </span>
+                        <h3 className="text-2xl font-bold mb-2 transition-colors duration-300">
+                          {t(category.titleKey)}
+                        </h3>
+                        <p className="text-gray-700 leading-relaxed text-base transition-colors duration-300">
+                          {t(category.descriptionKey)}
+                        </p>
+                      </div>
+                      <Link 
+                        to={category.buttonLink}
+                        className="flex items-center absolute left-8 bottom-[-64px] group-hover:bottom-8 bg-black text-white py-3 px-8 rounded-sm hover:opacity-90 transition-all duration-300 text-lg pointer-events-none group-hover:pointer-events-auto min-w-[180px]"
+                        aria-label={`Learn more about ${t(category.titleKey)}`}
+                      >
+                        <span>Learn More</span>
+                        <ArrowRight size={20} className="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+                      </Link>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
-          ))}
+
+            {currentSlide < categories.length - 3 && (
+              <button
+                onClick={handleScrollRight}
+                className="absolute right-0 z-10 bg-black p-2 rounded-sm shadow-lg transition-all duration-300 translate-x-1/2 top-1/2 -translate-y-1/2"
+                aria-label="Scroll right"
+              >
+                <ChevronRight className="w-6 h-6 text-white" />
+              </button>
+            )}
+          </div>
         </div>
       </div>
     </section>

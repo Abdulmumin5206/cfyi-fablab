@@ -214,17 +214,18 @@ const ServiceCategories = () => {
         {/* Tablet and Desktop Layout (≥ 640px) */}
         <div className="hidden sm:block relative">
           <div className="flex items-center justify-center">
-            {currentSlide > 0 && (
-              <button
-                onClick={handleScrollLeft}
-                className="absolute left-[-8%] lg:left-[-10%] z-10 bg-black p-3 sm:p-4 shadow-lg transition-all duration-300 hover:bg-gray-800 top-[40%] -translate-y-1/2"
-                aria-label="Scroll left"
-              >
-                <ChevronLeft className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
-              </button>
-            )}
+            <button
+              onClick={handleScrollLeft}
+              className={`absolute left-[-8%] lg:left-[-10%] z-10 bg-black p-3 sm:p-4 shadow-lg transition-all duration-300 hover:bg-gray-800 top-[40%] -translate-y-1/2 ${
+                currentSlide === 0 ? 'opacity-50 cursor-not-allowed' : 'opacity-100 cursor-pointer'
+              }`}
+              aria-label="Scroll left"
+              disabled={currentSlide === 0}
+            >
+              <ChevronLeft className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
+            </button>
             
-            <div className="overflow-visible w-full max-w-[1400px] mx-auto px-4">
+            <div className="w-full overflow-hidden">
               <div 
                 className="flex transition-transform duration-500 ease-out"
                 style={{ 
@@ -242,7 +243,7 @@ const ServiceCategories = () => {
                     }`}
                     style={{ 
                       transitionDelay: `${index * 150}ms`,
-                      flex: '0 0 32%',
+                      flex: '0 0 28%',
                       marginRight: '2%'
                     }}
                     onMouseEnter={() => setHoveredIndex(index)}
@@ -295,15 +296,16 @@ const ServiceCategories = () => {
               </div>
             </div>
 
-            {currentSlide < categories.length - 3 && (
-              <button
-                onClick={handleScrollRight}
-                className="absolute right-[-8%] lg:right-[-10%] z-10 bg-black p-3 sm:p-4 shadow-lg transition-all duration-300 hover:bg-gray-800 top-[40%] -translate-y-1/2"
-                aria-label="Scroll right"
-              >
-                <ChevronRight className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
-              </button>
-            )}
+            <button
+              onClick={handleScrollRight}
+              className={`absolute right-[-8%] lg:right-[-10%] z-10 bg-black p-3 sm:p-4 shadow-lg transition-all duration-300 hover:bg-gray-800 top-[40%] -translate-y-1/2 ${
+                currentSlide >= categories.length - 3 ? 'opacity-50 cursor-not-allowed' : 'opacity-100 cursor-pointer'
+              }`}
+              aria-label="Scroll right"
+              disabled={currentSlide >= categories.length - 3}
+            >
+              <ChevronRight className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
+            </button>
           </div>
         </div>
       </div>

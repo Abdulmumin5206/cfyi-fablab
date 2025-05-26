@@ -374,13 +374,15 @@ const Header = () => {
             {/* Mobile toggle with proper background handling */}
             <div className="md:hidden flex items-center space-x-4 pr-4 sm:pr-6">
               {/* Mobile Language Switcher */}
-              <LanguageSwitcher useBlackTheme={false} />
+              <LanguageSwitcher useBlackTheme={false} isScrolled={isScrolled} />
               
               <button
                 className="flex items-center justify-center"
                 onClick={toggleMenu}
               >
-                <span className="flex items-center space-x-1 border border-black bg-white text-black px-2 py-1.5 h-[38px] sm:h-[42px]">
+                <span className={`flex items-center space-x-1 border px-2 py-1.5 h-[38px] sm:h-[42px] ${
+                  isScrolled ? 'border-black text-black bg-transparent' : 'border-white text-white bg-transparent'
+                }`}>
                   {isMobileMenuOpen ? <X size={16} /> : <Menu size={16} />}
                   <span className="text-xs sm:text-sm">{t('header.menu')}</span>
                 </span>

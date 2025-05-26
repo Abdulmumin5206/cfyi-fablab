@@ -61,8 +61,8 @@ const ScrollImageSlider = () => {
   
   // Memoize image paths
   const images = useMemo(() => [
-    "/main/scrolling1.jpeg",
-    "/main/scrolling2.webp",
+    "/main/scrolling1.jpg",
+    "/main/scrolling2.jpg",
     "/main/scrolling3.webp"
   ], []);
 
@@ -175,12 +175,8 @@ const ScrollImageSlider = () => {
   const getOpacityTransform = useCallback((index: number, isFirstImage: boolean, isLastImage: boolean) => {
     return useTransform(
       imageIndexProgress,
-      isFirstImage ? [0, 0.2, 0.5, 0.8] :
-      isLastImage ? [index - 1, index - 0.8, index - 0.5, index - 0.2, index] :
-      [index - 1, index - 0.5, index, index + 0.5, index + 1],
-      isFirstImage ? [1, 0.7, 0.3, 0] :
-      isLastImage ? [0, 0.3, 0.7, 0.9, 1] :
-      [0, 0.3, 1, 0.3, 0]
+      [index - 0.5, index, index + 0.5],
+      [0, 1, 0]
     );
   }, [imageIndexProgress]);
 
@@ -197,7 +193,7 @@ const ScrollImageSlider = () => {
       >
         <div
           ref={sectionRef}
-          className="sticky top-0 w-full overflow-hidden flex items-center justify-center bg-white"
+          className="sticky top-0 w-full overflow-hidden flex items-center justify-center bg-black"
           style={{
             height: viewportHeight,
             zIndex: 10,
@@ -224,9 +220,10 @@ const ScrollImageSlider = () => {
                     opacity: opacityTransform,
                     zIndex: index + 1,
                     visibility: loadedImages.has(index) ? 'visible' : 'hidden',
-                    willChange: "opacity, transform",
+                    willChange: "transform",
                     transform: "translateZ(0)",
-                    backfaceVisibility: "hidden"
+                    backfaceVisibility: "hidden",
+                    backgroundColor: "black"
                   }}
                 >
                   <img 

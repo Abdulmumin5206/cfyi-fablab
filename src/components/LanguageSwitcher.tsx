@@ -56,17 +56,17 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ useBlackTheme = fal
         }}
         className={`flex items-center border hover:text-[#329db7] transition-opacity px-2 sm:px-3 py-1.5 sm:py-2 h-[38px] sm:h-[42px] md:h-[38px] lg:h-[42px] xl:h-[46px] ${
           isScrolled 
-            ? (useBlackTheme ? "border-black bg-transparent text-white" : "border-black bg-transparent text-black")
+            ? "border-black bg-transparent text-black"
             : "border-white bg-transparent text-white"
         }`}
         aria-label="Change language"
       >
-        <Globe className={`mr-1 h-4 w-4 ${isScrolled ? (useBlackTheme ? "text-white" : "text-black") : "text-white"}`} />
+        <Globe className={`mr-1 h-4 w-4 ${isScrolled ? "text-black" : "text-white"}`} />
         <span className="text-xs sm:text-sm font-medium uppercase">{currentLanguage.code}</span>
       </button>
       
       {isOpen && (
-        <div className="absolute right-0 mt-2 bg-white shadow-lg overflow-hidden z-50 w-32 border border-gray-100">
+        <div className={`absolute right-0 mt-2 ${isScrolled ? 'bg-white' : 'bg-transparent'} shadow-lg overflow-hidden z-50 w-32 border ${isScrolled ? 'border-gray-100' : 'border-white'}`}>
           {languages.map(language => (
             <button
               key={language.code}
@@ -74,14 +74,16 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ useBlackTheme = fal
                 e.stopPropagation();
                 changeLanguage(language.code);
               }}
-              className={`w-full text-left px-3 py-2.5 flex items-center justify-between text-gray-800 ${
+              className={`w-full text-left px-3 py-2.5 flex items-center justify-between ${
+                isScrolled ? 'text-gray-800' : 'text-white'
+              } ${
                 language.code === i18n.language 
-                  ? 'bg-gray-100' 
-                  : 'hover:bg-gray-50'
+                  ? (isScrolled ? 'bg-gray-100' : 'bg-white/10') 
+                  : (isScrolled ? 'hover:bg-gray-50' : 'hover:bg-white/5')
               } transition-colors duration-150`}
             >
               <span className="text-sm">{language.name}</span>
-              <span className="text-xs text-gray-500 uppercase">{language.code}</span>
+              <span className={`text-xs uppercase ${isScrolled ? 'text-gray-500' : 'text-white/70'}`}>{language.code}</span>
             </button>
           ))}
         </div>

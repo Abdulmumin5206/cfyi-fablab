@@ -39,7 +39,7 @@ const ImageFabLabTour = () => {
     {
       id: 1,
       x: 30, // 30% from left
-      y: 40, // 40% from top
+      y: 45, // Updated: 60% from top (previously 40%)
       title: "3D Printing Area",
       description: "State-of-the-art 3D printers for rapid prototyping",
       image: "/main/tour/3dprinting.webp",
@@ -56,8 +56,8 @@ const ImageFabLabTour = () => {
     },
     {
       id: 3,
-      x: 10, // 10% from left
-      y: 70, // 70% from top
+      x: 10, // Updated: 15% from left (previously 10%)
+      y: 90, // 70% from top
       title: "Left Side of the Room",
       description: "Additional workspace and equipment area",
       image: "/main/tour/leftsideroom.webp",
@@ -65,8 +65,8 @@ const ImageFabLabTour = () => {
     },
     {
       id: 4,
-      x: 70, // 70% from left
-      y: 70, // 70% from top
+      x: 55, // Updated: 85% from left
+      y: 95, // Updated: 85% from top
       title: "Back Side - UV Printing, CNC & Laser",
       description: "Advanced manufacturing equipment including UV printing, CNC machines, and laser cutting systems",
       image: "/main/tour/bacsideuvprinting.webp",
@@ -86,8 +86,8 @@ const ImageFabLabTour = () => {
     },
     {
       id: 2,
-      x: 50, // 50% from left
-      y: 50, // 50% from top
+      x: 70, // Updated: moved right from 50% to 65%
+      y: 65, // 50% from top
       title: "Main Workshop View",
       description: "Overview of our main workshop area",
       image: "/main/tour/anotherside.jpg",
@@ -101,44 +101,12 @@ const ImageFabLabTour = () => {
       description: "Professional sticker printing and cutting equipment",
       image: "/main/tour/stickermachine.webp",
       view: "stickermachine"
-    },
-    {
-      id: 4,
-      x: 80, // 80% from left
-      y: 80, // 80% from top
-      title: "Back to Entry",
-      description: "Return to the main entrance view",
-      image: "/main/tour/starting.webp",
-      view: "entry",
-      isBackButton: true
     }
   ];
 
-  const threeDPrintingPoints: TourPoint[] = [
-    {
-      id: 1,
-      x: 80, // 80% from left
-      y: 80, // 80% from top
-      title: "Back to Entry",
-      description: "Return to the main entrance view",
-      image: "/main/tour/starting.webp",
-      view: "entry",
-      isBackButton: true
-    }
-  ];
+  const threeDPrintingPoints: TourPoint[] = [];
 
-  const stickerMachinePoints: TourPoint[] = [
-    {
-      id: 1,
-      x: 80, // 80% from left
-      y: 80, // 80% from top
-      title: "Back to Entry",
-      description: "Return to the main entrance view",
-      image: "/main/tour/starting.webp",
-      view: "entry",
-      isBackButton: true
-    }
-  ];
+  const stickerMachinePoints: TourPoint[] = [];
 
   const backsidePoints: TourPoint[] = [
     {

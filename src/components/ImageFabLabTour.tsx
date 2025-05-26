@@ -16,6 +16,7 @@ const ImageFabLabTour = () => {
   const [activeImage, setActiveImage] = useState('/main/tour/starting.webp');
   const [activePoint, setActivePoint] = useState<number | null>(null);
   const [currentView, setCurrentView] = useState('entry');
+  const [isExpanded, setIsExpanded] = useState(false);
 
   // Preload all images
   useEffect(() => {
@@ -153,9 +154,19 @@ const ImageFabLabTour = () => {
   ];
 
   const handlePointClick = (point: TourPoint) => {
-    setActiveImage(point.image);
-    setActivePoint(point.id);
-    setCurrentView(point.view);
+    if (!point.isBackButton) {
+      setActiveImage(point.image);
+      setActivePoint(point.id);
+      setCurrentView(point.view);
+      setIsExpanded(true);
+    }
+  };
+
+  const handleCloseExpanded = () => {
+    setIsExpanded(false);
+    setActiveImage('/main/tour/starting.webp');
+    setActivePoint(null);
+    setCurrentView('entry');
   };
 
   const getCurrentPoints = () => {
@@ -176,92 +187,110 @@ const ImageFabLabTour = () => {
   };
 
   return (
-    <section className="w-full py-16 bg-white">
+    <section className="w-full py-8 md:py-12 lg:py-16 bg-white overflow-hidden">
       <div className="container mx-auto px-4">
-        <div className="max-w-[1800px] mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            {/* Left side - Text content */}
-            <div className="lg:col-span-4 space-y-6 lg:pr-8">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900">
-                What We Have in FABLAB?
-              </h2>
-              <p className="text-lg lg:text-xl text-gray-600">
-                Our state-of-the-art FabLab is equipped with cutting-edge technology and tools to bring your ideas to life. From 3D printing to CNC machining, we have everything you need to turn your concepts into reality.
-              </p>
-              <ul className="space-y-3">
-                <li className="flex items-center space-x-2">
-                  <span className="text-blue-600">•</span>
-                  <span>Advanced 3D Printing Technology</span>
-                </li>
-                <li className="flex items-center space-x-2">
-                  <span className="text-blue-600">•</span>
-                  <span>CNC Machining Equipment</span>
-                </li>
-                <li className="flex items-center space-x-2">
-                  <span className="text-blue-600">•</span>
-                  <span>Laser Cutting Systems</span>
-                </li>
-                <li className="flex items-center space-x-2">
-                  <span className="text-blue-600">•</span>
-                  <span>Professional Design Software</span>
-                </li>
-              </ul>
+        <div className="max-w-[2000px] mx-auto">
+          <div className="relative">
+            {/* Text content with slide animation */}
+            <div className={`absolute left-0 top-0 w-full lg:w-1/3 transition-all duration-500 ease-in-out transform hidden lg:block ${
+              isExpanded ? 'lg:-translate-x-full lg:opacity-0' : 'lg:translate-x-0 lg:opacity-100'
+            } z-10 lg:z-0`}>
+              <div className="space-y-4 md:space-y-6 lg:space-y-8 pr-0 lg:pr-8">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight">
+                  What We Have in FABLAB?
+                </h2>
+                <p className="text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed">
+                  Our state-of-the-art FabLab is equipped with cutting-edge technology and tools to bring your ideas to life. From 3D printing to CNC machining, we have everything you need to turn your concepts into reality.
+                </p>
+                <ul className="space-y-3 md:space-y-4">
+                  <li className="flex items-center space-x-3">
+                    <span className="text-blue-600 text-lg md:text-xl">•</span>
+                    <span className="text-base md:text-lg lg:text-xl">Advanced 3D Printing Technology</span>
+                  </li>
+                  <li className="flex items-center space-x-3">
+                    <span className="text-blue-600 text-lg md:text-xl">•</span>
+                    <span className="text-base md:text-lg lg:text-xl">CNC Machining Equipment</span>
+                  </li>
+                  <li className="flex items-center space-x-3">
+                    <span className="text-blue-600 text-lg md:text-xl">•</span>
+                    <span className="text-base md:text-lg lg:text-xl">Laser Cutting Systems</span>
+                  </li>
+                  <li className="flex items-center space-x-3">
+                    <span className="text-blue-600 text-lg md:text-xl">•</span>
+                    <span className="text-base md:text-lg lg:text-xl">Professional Design Software</span>
+                  </li>
+                </ul>
+              </div>
             </div>
-            
-            {/* Right side - Interactive Image */}
-            <div className="lg:col-span-8 relative h-[500px] md:h-[600px] lg:h-[700px] rounded-lg overflow-hidden shadow-xl">
-              <img
-                src={activeImage}
-                alt="FabLab Tour"
-                className="w-full h-full object-cover transition-all duration-300 ease-in-out"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.src = "https://placehold.co/600x400/e2e8f0/1e293b?text=FabLab+Tour";
-                }}
-              />
-              
-              {/* Interactive Points */}
-              {getCurrentPoints().map((point) => (
-                <button
-                  key={point.id}
-                  className={`absolute transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ${
-                    activePoint === point.id ? 'scale-125' : 'hover:scale-110'
-                  }`}
-                  style={{
-                    left: `${point.x}%`,
-                    top: `${point.y}%`,
+
+            {/* Image container with slide animation */}
+            <div className={`w-full lg:ml-auto transition-all duration-500 ease-in-out ${
+              isExpanded ? 'lg:w-full' : 'lg:w-2/3'
+            }`}>
+              <div className="relative h-[400px] sm:h-[500px] md:h-[600px] lg:h-[600px] xl:h-[700px] rounded-lg overflow-hidden shadow-xl lg:ml-8">
+                <img
+                  src={activeImage}
+                  alt="FabLab Tour"
+                  className="w-full h-full object-cover transition-all duration-500 ease-in-out"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = "https://placehold.co/600x400/e2e8f0/1e293b?text=FabLab+Tour";
                   }}
-                  onClick={() => handlePointClick(point)}
-                  onMouseEnter={() => setActivePoint(point.id)}
-                  onMouseLeave={() => setActivePoint(null)}
-                >
-                  <div className="relative">
-                    {point.isBackButton ? (
-                      // Home icon for back button
-                      <div className="relative">
-                        <div className="absolute inset-0 bg-blue-600 rounded-full animate-ping opacity-75"></div>
-                        <div className="relative bg-blue-600 rounded-full w-8 h-8 flex items-center justify-center">
-                          <Home className="w-4 h-4 text-white" />
+                />
+                
+                {/* Home button for expanded view */}
+                {isExpanded && (
+                  <button
+                    onClick={handleCloseExpanded}
+                    className="absolute top-4 right-4 bg-white rounded-full p-2 md:p-3 shadow-lg hover:shadow-xl transition-all duration-300 z-30"
+                  >
+                    <Home className="w-5 h-5 md:w-6 md:h-6 text-blue-600" />
+                  </button>
+                )}
+                
+                {/* Interactive Points */}
+                {getCurrentPoints().map((point) => (
+                  <button
+                    key={point.id}
+                    className={`absolute transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ${
+                      activePoint === point.id ? 'scale-125 z-20' : 'hover:scale-110 z-10'
+                    }`}
+                    style={{
+                      left: `${point.x}%`,
+                      top: `${point.y}%`,
+                    }}
+                    onClick={() => handlePointClick(point)}
+                    onMouseEnter={() => setActivePoint(point.id)}
+                    onMouseLeave={() => setActivePoint(null)}
+                  >
+                    <div className="relative">
+                      {point.isBackButton ? (
+                        // Home icon for back button
+                        <div className="relative">
+                          <div className="absolute inset-0 bg-blue-600 rounded-full animate-ping opacity-75"></div>
+                          <div className="relative bg-blue-600 rounded-full w-8 h-8 md:w-10 md:h-10 flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow duration-300">
+                            <Home className="w-4 h-4 md:w-5 md:h-5 text-white" />
+                          </div>
                         </div>
-                      </div>
-                    ) : (
-                      // Regular dot for other points
-                      <div className="relative">
-                        <div className="absolute inset-0 bg-blue-600 rounded-full animate-ping opacity-75"></div>
-                        <div className="relative bg-blue-600 rounded-full w-4 h-4"></div>
-                      </div>
-                    )}
-                  </div>
-                  
-                  {/* Tooltip */}
-                  <div className={`absolute left-1/2 -translate-x-1/2 bottom-full mb-2 w-48 p-2 bg-white rounded-lg shadow-lg transition-opacity duration-300 ${
-                    activePoint === point.id ? 'opacity-100' : 'opacity-0 pointer-events-none'
-                  }`}>
-                    <h3 className="font-bold text-sm text-gray-900">{point.title}</h3>
-                    <p className="text-xs text-gray-600">{point.description}</p>
-                  </div>
-                </button>
-              ))}
+                      ) : (
+                        // Regular dot for other points
+                        <div className="relative">
+                          <div className="absolute inset-0 bg-blue-600 rounded-full animate-ping opacity-75"></div>
+                          <div className="relative bg-blue-600 rounded-full w-5 h-5 md:w-6 md:h-6 shadow-lg hover:shadow-xl transition-shadow duration-300"></div>
+                        </div>
+                      )}
+                    </div>
+                    
+                    {/* Tooltip */}
+                    <div className={`absolute left-1/2 -translate-x-1/2 bottom-full mb-3 w-48 md:w-56 p-2 md:p-3 bg-white rounded-lg shadow-xl transition-all duration-300 transform ${
+                      activePoint === point.id ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2 pointer-events-none'
+                    }`}>
+                      <h3 className="font-bold text-xs md:text-sm text-gray-900 mb-1">{point.title}</h3>
+                      <p className="text-[10px] md:text-xs text-gray-600 leading-relaxed">{point.description}</p>
+                    </div>
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
         </div>

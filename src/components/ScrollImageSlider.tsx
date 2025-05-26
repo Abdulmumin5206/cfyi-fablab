@@ -20,16 +20,28 @@ const useResponsiveScroll = () => {
   return isMobile;
 };
 
-// Optimized image preloading with lazy loading
+// Optimized image preloading with lazy loading and caching
 const preloadImages = (images: string[]) => {
+  const imageCache = new Map<string, HTMLImageElement>();
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const img = entry.target as HTMLImageElement;
-        img.src = img.dataset.src || '';
+        const src = img.dataset.src || '';
+        
+        if (!imageCache.has(src)) {
+          const cachedImg = new Image();
+          cachedImg.src = src;
+          imageCache.set(src, cachedImg);
+        }
+        
+        img.src = src;
         observer.unobserve(img);
       }
     });
+  }, {
+    rootMargin: '50px 0px',
+    threshold: 0.1
   });
 
   return observer;
@@ -45,6 +57,7 @@ const ScrollImageSlider = () => {
   const [isInitialLoad, setIsInitialLoad] = useState(true);
   const isMobile = useResponsiveScroll();
   const observerRef = useRef<IntersectionObserver | null>(null);
+  const rafRef = useRef<number>();
   
   // Memoize image paths
   const images = useMemo(() => [
@@ -56,7 +69,12 @@ const ScrollImageSlider = () => {
   // Initialize intersection observer for lazy loading
   useEffect(() => {
     observerRef.current = preloadImages(images);
-    return () => observerRef.current?.disconnect();
+    return () => {
+      observerRef.current?.disconnect();
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
+      }
+    };
   }, [images]);
 
   // Memoize quotes
@@ -102,7 +120,7 @@ const ScrollImageSlider = () => {
     };
   }, [updateViewportHeight]);
 
-  // Optimize scroll progress handling with throttling
+  // Optimize scroll progress handling with RAF
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
@@ -116,29 +134,28 @@ const ScrollImageSlider = () => {
     { clamp: true }
   );
 
-  // Throttled scroll progress handler
+  // Optimized scroll progress handler using RAF
   const handleScrollProgress = useCallback((latest: number) => {
-    if (latest >= (isMobile ? 0.99 : 0.98)) {
-      setHasCompletedScroll(true);
-    } else if (latest <= 0.02) {
-      setHasCompletedScroll(false);
+    if (rafRef.current) {
+      cancelAnimationFrame(rafRef.current);
     }
+
+    rafRef.current = requestAnimationFrame(() => {
+      if (latest >= (isMobile ? 0.99 : 0.98)) {
+        setHasCompletedScroll(true);
+      } else if (latest <= 0.02) {
+        setHasCompletedScroll(false);
+      }
+    });
   }, [isMobile]);
   
   useEffect(() => {
-    let timeoutId: NodeJS.Timeout;
-    const throttledHandler = (latest: number) => {
-      if (timeoutId) return;
-      timeoutId = setTimeout(() => {
-        handleScrollProgress(latest);
-        timeoutId = 0;
-      }, 16); // ~60fps
-    };
-
-    const unsubscribe = scrollYProgress.on("change", throttledHandler);
+    const unsubscribe = scrollYProgress.on("change", handleScrollProgress);
     return () => {
       unsubscribe();
-      clearTimeout(timeoutId);
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
+      }
     };
   }, [scrollYProgress, handleScrollProgress]);
 
@@ -183,7 +200,8 @@ const ScrollImageSlider = () => {
           className="sticky top-0 w-full overflow-hidden flex items-center justify-center bg-white"
           style={{
             height: viewportHeight,
-            zIndex: 10
+            zIndex: 10,
+            willChange: "transform"
           }}
         >
           <div className="absolute inset-0 w-full h-full">
@@ -201,11 +219,14 @@ const ScrollImageSlider = () => {
               return (
                 <motion.div
                   key={index}
-                  className="absolute inset-0 w-full h-full will-change-[opacity]"
+                  className="absolute inset-0 w-full h-full"
                   style={{
                     opacity: opacityTransform,
                     zIndex: index + 1,
-                    visibility: loadedImages.has(index) ? 'visible' : 'hidden'
+                    visibility: loadedImages.has(index) ? 'visible' : 'hidden',
+                    willChange: "opacity, transform",
+                    transform: "translateZ(0)",
+                    backfaceVisibility: "hidden"
                   }}
                 >
                   <img 
@@ -236,13 +257,6 @@ const ScrollImageSlider = () => {
                       opacity: 0.25
                     }} 
                   />
-                  <div 
-                    className="absolute inset-0 bg-white" 
-                    style={{ 
-                      zIndex: -1,
-                      opacity: 1
-                    }} 
-                  />
                 </motion.div>
               );
             })}
@@ -270,17 +284,19 @@ const ScrollImageSlider = () => {
               return (
                 <motion.div
                   key={`quote-${index}`}
-                  className="absolute left-0 right-0 px-4 sm:px-6 md:px-8 flex justify-center lg:justify-end items-center pr-4 sm:pr-8 md:pr-12 lg:pr-16 will-change-[opacity,transform]"
+                  className="absolute left-0 right-0 px-4 sm:px-6 md:px-8 flex justify-center lg:justify-end items-center pr-4 sm:pr-8 md:pr-12 lg:pr-16"
                   style={{
                     opacity: opacityTransform,
                     height: viewportHeight,
-                    zIndex: (index + 1) * 10
+                    zIndex: (index + 1) * 10,
+                    willChange: "opacity, transform"
                   }}
                 >
                   <motion.div 
-                    className="bg-white p-4 sm:p-5 md:p-6 lg:p-8 xl:p-10 flex flex-col justify-center text-gray-800 border border-gray-200 shadow-lg will-change-transform w-[280px] sm:w-[320px] md:w-[360px] lg:w-[400px] xl:w-[500px] 2xl:w-[600px] h-[300px] sm:h-[340px] md:h-[380px] lg:h-[420px] xl:h-[500px] 2xl:h-[600px] text-left"
+                    className="bg-white p-4 sm:p-5 md:p-6 lg:p-8 xl:p-10 flex flex-col justify-center text-gray-800 border border-gray-200 shadow-lg w-[280px] sm:w-[320px] md:w-[360px] lg:w-[400px] xl:w-[500px] 2xl:w-[600px] h-[300px] sm:h-[340px] md:h-[380px] lg:h-[420px] xl:h-[500px] 2xl:h-[600px] text-left"
                     style={{
-                      transform: cssYValue
+                      transform: cssYValue,
+                      willChange: "transform"
                     }}
                   >
                     <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-bold mb-2 sm:mb-3 md:mb-4 lg:mb-6 text-left max-w-full break-words">{quote.title}</h3>

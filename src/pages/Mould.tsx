@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight, Info, ChevronDown, ChevronUp } from "lucide-reac
 import styles from "@/styles/Slider.module.css";
 import "@/styles/Carousel.css"; // Import the carousel CSS
 import { useTranslation } from "react-i18next";
+import AboutSection from "@/components/AboutSection";
 
 const MouldPage = () => {
   const { t } = useTranslation();
@@ -220,6 +221,8 @@ const MouldPage = () => {
             </a>
           </div>
         </section>
+        
+        <AboutSection />
         
         {/* Premium Quality Section */}
         <section id="premium-quality" className="relative bg-white text-gray-900">

@@ -181,8 +181,8 @@ const ServiceCategories = () => {
                     key={imgIndex}
                     className={`absolute inset-0 bg-cover bg-center transition-all duration-500 ease-in-out ${
                       currentImageIndex[category.id] === imgIndex 
-                        ? 'opacity-100 scale-100 group-hover:scale-110' 
-                        : 'opacity-0 scale-105'
+                        ? 'opacity-100 group-hover:scale-110 z-10' 
+                        : 'opacity-0 z-0'
                     }`}
                     style={{ backgroundImage: `url(${image})` }}
                     role="img"
@@ -235,7 +235,7 @@ const ServiceCategories = () => {
                   <Link
                     to={category.buttonLink}
                     key={category.id}
-                    className={`group transition-all duration-700 transform flex-shrink-0 cursor-pointer hover:transform hover:scale-[1.02] ${
+                    className={`group transition-all duration-700 flex-shrink-0 cursor-pointer ${
                       isVisible
                         ? "opacity-100 translate-y-0"
                         : "opacity-0 translate-y-10"
@@ -254,8 +254,8 @@ const ServiceCategories = () => {
                           key={imgIndex}
                           className={`absolute inset-0 bg-cover bg-center transition-all duration-500 ease-in-out ${
                             currentImageIndex[category.id] === imgIndex 
-                              ? 'opacity-100 scale-100 group-hover:scale-110 z-10' 
-                              : 'opacity-0 scale-105 z-0'
+                              ? 'opacity-100 group-hover:scale-110 z-10' 
+                              : 'opacity-0 z-0'
                           }`}
                           style={{ backgroundImage: `url(${image})` }}
                           role="img"
@@ -272,7 +272,7 @@ const ServiceCategories = () => {
                     
                     <div
                       className="bg-white transition-all duration-300 p-4 sm:p-6 lg:p-8 pt-4 sm:pt-5 lg:pt-6 pb-16 h-[240px] sm:h-[260px] lg:h-[280px] flex flex-col items-start justify-between relative overflow-hidden shadow-sm"
-                      style={{ backgroundColor: hoveredIndex === index ? '#0e9a48' : '#fff' }}
+                      style={{ backgroundColor: hoveredIndex === index ? '#329db7' : '#fff' }}
                     >
                       <div>
                         <span className="block text-gray-500 text-sm sm:text-base mb-2 transition-colors duration-300">

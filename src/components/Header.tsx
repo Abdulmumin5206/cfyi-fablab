@@ -249,12 +249,12 @@ const Header = () => {
                 <div className="relative" onMouseEnter={handleServicesMouseEnter} onMouseLeave={handleServicesMouseLeave}>
                   <span
                     style={buttonStyle}
-                    className={`flex items-center space-x-1 border px-2 sm:px-3 py-1.5 sm:py-2 h-[38px] sm:h-[42px] ${isLaptopScreen ? 'md:h-[38px]' : 'lg:h-[42px] xl:h-[46px]'} text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} ${isScrolled ? "border-black bg-white text-black" : (shouldUseBlackTheme && !isMobileScreen ? "border-black bg-black text-white" : "border-white bg-transparent text-white")}`}
+                    className={`flex items-center space-x-1 border px-2 sm:px-3 py-1.5 sm:py-2 h-[38px] sm:h-[42px] ${isLaptopScreen ? 'md:h-[38px]' : 'lg:h-[42px] xl:h-[46px]'} text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} ${isScrolled ? "border-black bg-transparent text-black" : (shouldUseBlackTheme && !isMobileScreen ? "border-black bg-black text-white" : "border-white bg-transparent text-white")}`}
                   >
                     <button
                       ref={servicesButtonRef}
                       style={textStyle}
-                      className={`flex items-center h-full ${isScrolled ? "text-black" : "text-white"} ${shouldUseBlackTheme ? "group-hover:text-blue-500" : "group-hover:text-blue-600"} transition-colors duration-300 text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} px-1 sm:px-2 bg-transparent`}
+                      className={`flex items-center h-full ${isScrolled ? "text-black" : "text-white"} hover:text-[#329db7] transition-colors duration-300 text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} px-1 sm:px-2 bg-transparent`}
                       onClick={toggleServicesMenu}
                     >
                       {t('header.services')}
@@ -308,14 +308,14 @@ const Header = () => {
                 {/* Wrap About Fablab link in a styled span */}
                 <span
                   style={{...textStyle, ...buttonStyle}}
-                  className={`flex items-center space-x-1 border px-2 sm:px-3 py-1.5 sm:py-2 h-[38px] sm:h-[42px] ${isLaptopScreen ? 'md:h-[38px]' : 'lg:h-[42px] xl:h-[46px]'} text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} ${isScrolled ? "border-black bg-white text-black" : (shouldUseBlackTheme && !isMobileScreen ? "border-black bg-black text-white" : "border-white bg-transparent text-white")}`}
+                  className={`flex items-center space-x-1 border px-2 sm:px-3 py-1.5 sm:py-2 h-[38px] sm:h-[42px] ${isLaptopScreen ? 'md:h-[38px]' : 'lg:h-[42px] xl:h-[46px]'} text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} ${isScrolled ? "border-black bg-transparent text-black" : (shouldUseBlackTheme && !isMobileScreen ? "border-black bg-black text-white" : "border-white bg-transparent text-white")}`}
                 >
                   <a
                     href="https://cfyi.uz/fablab"
                     target="_blank"
                     rel="noopener noreferrer"
                     style={textStyle}
-                    className={`${isScrolled ? "text-black" : "text-white"} ${shouldUseBlackTheme ? "hover:text-blue-500" : "hover:text-blue-600"} transition-colors duration-300 text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} px-1 sm:px-2 bg-transparent`}
+                    className={`${isScrolled ? "text-black" : "text-white"} hover:text-[#329db7] transition-colors duration-300 text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} px-1 sm:px-2 bg-transparent`}
                   >
                     {t('header.aboutFablab')}
                   </a>
@@ -324,12 +324,12 @@ const Header = () => {
                 {/* Wrap Projects link in a styled span */}
                 <span
                   style={{...textStyle, ...buttonStyle}}
-                  className={`flex items-center space-x-1 border px-2 sm:px-3 py-1.5 sm:py-2 h-[38px] sm:h-[42px] ${isLaptopScreen ? 'md:h-[38px]' : 'lg:h-[42px] xl:h-[46px]'} text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} ${isScrolled ? "border-black bg-white text-black" : (shouldUseBlackTheme && !isMobileScreen ? "border-black bg-black text-white" : "border-white bg-transparent text-white")}`}
+                  className={`flex items-center space-x-1 border px-2 sm:px-3 py-1.5 sm:py-2 h-[38px] sm:h-[42px] ${isLaptopScreen ? 'md:h-[38px]' : 'lg:h-[42px] xl:h-[46px]'} text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} ${isScrolled ? "border-black bg-transparent text-black" : (shouldUseBlackTheme && !isMobileScreen ? "border-black bg-black text-white" : "border-white bg-transparent text-white")}`}
                 >
                   <Link
                     to="/blog"
                     style={textStyle}
-                    className={`${isScrolled ? "text-black" : "text-white"} ${shouldUseBlackTheme ? "hover:text-blue-500" : "hover:text-blue-600"} transition-colors duration-300 text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} px-1 sm:px-2 bg-transparent`}
+                    className={`${isScrolled ? "text-black" : "text-white"} hover:text-[#329db7] transition-colors duration-300 text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} px-1 sm:px-2 bg-transparent`}
                   >
                     {t('header.projects')}
                   </Link>
@@ -340,7 +340,7 @@ const Header = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{...textStyle, ...buttonStyle}}
-                  className={`flex items-center space-x-1 px-2 sm:px-3 py-1.5 sm:py-2 h-[38px] sm:h-[42px] ${isLaptopScreen ? 'md:h-[38px]' : 'lg:h-[42px] xl:h-[46px]'} text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} hover:opacity-90 transition-opacity transition-colors duration-300 ${isScrolled ? "border border-black bg-white text-black" : (shouldUseBlackTheme && !isMobileScreen ? "border border-black bg-black text-white" : "border border-white bg-transparent text-white")}`}
+                  className={`flex items-center space-x-1 px-2 sm:px-3 py-1.5 sm:py-2 h-[38px] sm:h-[42px] ${isLaptopScreen ? 'md:h-[38px]' : 'lg:h-[42px] xl:h-[46px]'} text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} hover:text-[#329db7] transition-opacity transition-colors duration-300 ${isScrolled ? "border border-black bg-transparent text-black" : (shouldUseBlackTheme && !isMobileScreen ? "border border-black bg-black text-white" : "border border-white bg-transparent text-white")}`}
                 >
                   {t('header.bookSession')}
                 </a>
@@ -352,12 +352,12 @@ const Header = () => {
 
                 {/* Hamburger / close */}
                 <button
-                  className={`flex items-center justify-center hover:opacity-75 transition-opacity ml-2 sm:ml-3 ${isLaptopScreen ? 'md:ml-2' : 'md:ml-4 lg:ml-5 xl:ml-6'}`}
+                  className={`flex items-center justify-center hover:text-[#329db7] transition-opacity ml-2 sm:ml-3 ${isLaptopScreen ? 'md:ml-2' : 'md:ml-4 lg:ml-5 xl:ml-6'}`}
                   onClick={toggleMenu}
                 >
                   <span
                     style={buttonStyle}
-                    className={`flex items-center space-x-1 border px-2 sm:px-3 py-1.5 sm:py-2 h-[38px] sm:h-[42px] ${isLaptopScreen ? 'md:h-[38px]' : 'lg:h-[42px] xl:h-[46px]'} text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} ${isScrolled ? "border-black bg-white text-black" : (shouldUseBlackTheme ? "border-black bg-black text-white" : "border-white bg-transparent text-white")}`}
+                    className={`flex items-center space-x-1 border px-2 sm:px-3 py-1.5 sm:py-2 h-[38px] sm:h-[42px] ${isLaptopScreen ? 'md:h-[38px]' : 'lg:h-[42px] xl:h-[46px]'} text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} ${isScrolled ? "border-black bg-transparent text-black" : (shouldUseBlackTheme ? "border-black bg-black text-white" : "border-white bg-transparent text-white")}`}
                   >
                     {isMobileMenuOpen ? 
                       <X size={isLaptopScreen ? 16 : 18} className={`${isLaptopScreen ? 'md:w-4 md:h-4' : 'lg:w-5 lg:h-5 xl:w-6 xl:h-6'}`} /> : 

@@ -54,14 +54,14 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ useBlackTheme = fal
           e.stopPropagation();
           setIsOpen(!isOpen);
         }}
-        className={`flex items-center border hover:opacity-75 transition-opacity px-2 sm:px-3 py-1.5 sm:py-2 h-[38px] sm:h-[42px] md:h-[38px] lg:h-[42px] xl:h-[46px] ${
+        className={`flex items-center border hover:text-[#329db7] transition-opacity px-2 sm:px-3 py-1.5 sm:py-2 h-[38px] sm:h-[42px] md:h-[38px] lg:h-[42px] xl:h-[46px] ${
           isScrolled 
-            ? (useBlackTheme ? "border-black bg-black text-white" : "border-black bg-white text-black")
+            ? (useBlackTheme ? "border-black bg-transparent text-white" : "border-black bg-transparent text-black")
             : "border-white bg-transparent text-white"
         }`}
         aria-label="Change language"
       >
-        <Globe className={`mr-1 h-4 w-4 ${isScrolled ? (useBlackTheme ? "text-white" : "text-gray-600") : "text-white"}`} />
+        <Globe className={`mr-1 h-4 w-4 ${isScrolled ? (useBlackTheme ? "text-white" : "text-black") : "text-white"}`} />
         <span className="text-xs sm:text-sm font-medium uppercase">{currentLanguage.code}</span>
       </button>
       

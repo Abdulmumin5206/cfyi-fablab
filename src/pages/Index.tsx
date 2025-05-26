@@ -5,6 +5,7 @@ import RecentProjects from "@/components/RecentProjects";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import ScrollImageSlider from "@/components/ScrollImageSlider";
+import ImageFabLabTour from "@/components/ImageFabLabTour";
 
 const Index = () => {
   return (
@@ -12,6 +13,7 @@ const Index = () => {
       <Header />
       <main>
         <HeroSection />
+        <ImageFabLabTour />
         <ServiceCategories />
         <ScrollImageSlider />
         <RecentProjects />

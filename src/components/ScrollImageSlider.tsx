@@ -61,7 +61,7 @@ const ScrollImageSlider = () => {
   
   // Memoize image paths
   const images = useMemo(() => [
-    "/main/scrolling1.jpg",
+    "/main/scrolling1.webp",
     "/main/scrolling2.jpg",
     "/main/scrolling3.webp"
   ], []);

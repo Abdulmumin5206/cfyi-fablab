@@ -77,6 +77,15 @@ const ImageFabLabTour = () => {
   const leftSidePoints: TourPoint[] = [
     {
       id: 1,
+      x: 10, // 10% from left
+      y: 70, // 70% from top
+      title: "Sticker Machine",
+      description: "Professional sticker printing and cutting equipment",
+      image: "/main/tour/stickermachine.webp",
+      view: "stickermachine"
+    },
+    {
+      id: 2,
       x: 50, // 50% from left
       y: 40, // 40% from top
       title: "3D Printing Area",
@@ -85,22 +94,43 @@ const ImageFabLabTour = () => {
       view: "3dprinting"
     },
     {
-      id: 2,
-      x: 70, // Updated: moved right from 50% to 65%
-      y: 65, // 50% from top
-      title: "Main Workshop View",
-      description: "Overview of our main workshop area",
+      id: 3,
+      x: 70, // 70% from left
+      y: 70, // 70% from top
+      title: "Main View Inside Room",
+      description: "Another view which is the main view inside the room",
       image: "/main/tour/anotherside.jpg",
-      view: "leftside"
+      view: "anotherside"
+    }
+  ];
+
+  const anothersidePoints: TourPoint[] = [
+    {
+      id: 1,
+      x: 25, // 40% from left
+      y: 40, // 40% from top
+      title: "CNC",
+      description: "CNC machine area",
+      image: "/main/tour/CNCVOLTER.jpg",
+      view: "backside"
+    },
+    {
+      id: 2,
+      x: 5, // 20% from left
+      y: 40, // 40% from top
+      title: "Backside UV CNC, Laser cutter",
+      description: "Backside area with UV printer, CNC, and laser cutter",
+      image: "/main/tour/bacsideuvprinting.webp",
+      view: "backside"
     },
     {
       id: 3,
-      x: 10, // 10% from left
-      y: 70, // 70% from top
-      title: "Sticker Machine",
-      description: "Professional sticker printing and cutting equipment",
-      image: "/main/tour/stickermachine.webp",
-      view: "stickermachine"
+      x: 20, // 40% from left
+      y: 66, // 70% from top
+      title: "Another View (Leftside View)",
+      description: "Go back to the leftside view",
+      image: "/main/tour/leftsideroom.webp",
+      view: "leftside"
     }
   ];
 
@@ -108,18 +138,7 @@ const ImageFabLabTour = () => {
 
   const stickerMachinePoints: TourPoint[] = [];
 
-  const backsidePoints: TourPoint[] = [
-    {
-      id: 1,
-      x: 80, // 80% from left
-      y: 80, // 80% from top
-      title: "Back to Entry",
-      description: "Return to the main entrance view",
-      image: "/main/tour/starting.webp",
-      view: "entry",
-      isBackButton: true
-    }
-  ];
+  const backsidePoints: TourPoint[] = [];
 
   const handlePointClick = (point: TourPoint) => {
     if (!point.isBackButton) {
@@ -143,6 +162,8 @@ const ImageFabLabTour = () => {
         return entryPoints;
       case 'leftside':
         return leftSidePoints;
+      case 'anotherside':
+        return anothersidePoints;
       case '3dprinting':
         return threeDPrintingPoints;
       case 'stickermachine':

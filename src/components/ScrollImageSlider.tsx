@@ -20,27 +20,19 @@ const useResponsiveScroll = () => {
   return isMobile;
 };
 
-// Optimized image preloading with lazy loading and caching
+// Optimized image preloading with reduced memory usage
 const preloadImages = (images: string[]) => {
-  const imageCache = new Map<string, HTMLImageElement>();
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const img = entry.target as HTMLImageElement;
         const src = img.dataset.src || '';
-        
-        if (!imageCache.has(src)) {
-          const cachedImg = new Image();
-          cachedImg.src = src;
-          imageCache.set(src, cachedImg);
-        }
-        
         img.src = src;
         observer.unobserve(img);
       }
     });
   }, {
-    rootMargin: '50px 0px',
+    rootMargin: '100px 0px',
     threshold: 0.1
   });
 
@@ -58,6 +50,8 @@ const ScrollImageSlider = () => {
   const isMobile = useResponsiveScroll();
   const observerRef = useRef<IntersectionObserver | null>(null);
   const rafRef = useRef<number>();
+  const lastScrollY = useRef(0);
+  const ticking = useRef(false);
   
   // Memoize image paths
   const images = useMemo(() => [
@@ -65,17 +59,6 @@ const ScrollImageSlider = () => {
     "/main/scrolling2.jpg",
     "/main/scrolling3.webp"
   ], []);
-
-  // Initialize intersection observer for lazy loading
-  useEffect(() => {
-    observerRef.current = preloadImages(images);
-    return () => {
-      observerRef.current?.disconnect();
-      if (rafRef.current) {
-        cancelAnimationFrame(rafRef.current);
-      }
-    };
-  }, [images]);
 
   // Memoize quotes
   const quotes = useMemo(() => [
@@ -96,7 +79,7 @@ const ScrollImageSlider = () => {
     }
   ], [t]);
 
-  // Optimize viewport height updates with debounce
+  // Optimized viewport height updates with debounce
   const updateViewportHeight = useCallback(() => {
     const vh = window.innerHeight;
     setViewportHeight(`${vh}px`);
@@ -120,7 +103,18 @@ const ScrollImageSlider = () => {
     };
   }, [updateViewportHeight]);
 
-  // Optimize scroll progress handling with RAF
+  // Initialize intersection observer for lazy loading
+  useEffect(() => {
+    observerRef.current = preloadImages(images);
+    return () => {
+      observerRef.current?.disconnect();
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
+      }
+    };
+  }, [images]);
+
+  // Optimized scroll progress handling with RAF and throttling
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
@@ -129,25 +123,25 @@ const ScrollImageSlider = () => {
 
   const imageIndexProgress = useTransform(
     scrollYProgress,
-    [0, isMobile ? 0.98 : 0.95],
+    [0, 0.95],
     [0, images.length - 1],
     { clamp: true }
   );
 
-  // Optimized scroll progress handler using RAF
+  // Optimized scroll progress handler using RAF and throttling
   const handleScrollProgress = useCallback((latest: number) => {
-    if (rafRef.current) {
-      cancelAnimationFrame(rafRef.current);
+    if (!ticking.current) {
+      rafRef.current = requestAnimationFrame(() => {
+        if (latest >= 0.98) {
+          setHasCompletedScroll(true);
+        } else if (latest <= 0.02) {
+          setHasCompletedScroll(false);
+        }
+        ticking.current = false;
+      });
+      ticking.current = true;
     }
-
-    rafRef.current = requestAnimationFrame(() => {
-      if (latest >= (isMobile ? 0.99 : 0.98)) {
-        setHasCompletedScroll(true);
-      } else if (latest <= 0.02) {
-        setHasCompletedScroll(false);
-      }
-    });
-  }, [isMobile]);
+  }, []);
   
   useEffect(() => {
     const unsubscribe = scrollYProgress.on("change", handleScrollProgress);
@@ -172,7 +166,7 @@ const ScrollImageSlider = () => {
   }, [images.length]);
 
   // Memoize opacity transform calculations
-  const getOpacityTransform = useCallback((index: number, isFirstImage: boolean, isLastImage: boolean) => {
+  const getOpacityTransform = useCallback((index: number) => {
     return useTransform(
       imageIndexProgress,
       [index - 0.5, index, index + 0.5],
@@ -208,9 +202,7 @@ const ScrollImageSlider = () => {
             </div>
 
             {images.map((src, index) => {
-              const isFirstImage = index === 0;
-              const isLastImage = index === images.length - 1;
-              const opacityTransform = getOpacityTransform(index, isFirstImage, isLastImage);
+              const opacityTransform = getOpacityTransform(index);
               
               return (
                 <motion.div

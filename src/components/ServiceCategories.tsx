@@ -216,8 +216,8 @@ const ServiceCategories = () => {
           <div className="flex items-center justify-center">
             <button
               onClick={handleScrollLeft}
-              className={`absolute left-[-8%] lg:left-[-10%] z-10 bg-black p-3 sm:p-4 shadow-lg transition-all duration-300 hover:bg-gray-800 top-[40%] -translate-y-1/2 ${
-                currentSlide === 0 ? 'opacity-50 cursor-not-allowed' : 'opacity-100 cursor-pointer'
+              className={`absolute left-2 sm:left-4 md:left-6 lg:left-8 z-10 bg-black p-3 sm:p-4 shadow-lg transition-all duration-300 hover:bg-gray-800 top-[40%] -translate-y-1/2 ${
+                currentSlide === 0 ? 'hidden' : 'opacity-100 cursor-pointer'
               }`}
               aria-label="Scroll left"
               disabled={currentSlide === 0}
@@ -298,8 +298,8 @@ const ServiceCategories = () => {
 
             <button
               onClick={handleScrollRight}
-              className={`absolute right-[-8%] lg:right-[-10%] z-10 bg-black p-3 sm:p-4 shadow-lg transition-all duration-300 hover:bg-gray-800 top-[40%] -translate-y-1/2 ${
-                currentSlide >= categories.length - 3 ? 'opacity-50 cursor-not-allowed' : 'opacity-100 cursor-pointer'
+              className={`absolute right-2 sm:right-4 md:right-6 lg:right-8 z-10 bg-black p-3 sm:p-4 shadow-lg transition-all duration-300 hover:bg-gray-800 top-[40%] -translate-y-1/2 ${
+                currentSlide >= categories.length - 3 ? 'hidden' : 'opacity-100 cursor-pointer'
               }`}
               aria-label="Scroll right"
               disabled={currentSlide >= categories.length - 3}

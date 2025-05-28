@@ -286,14 +286,17 @@ const ScrollImageSlider = () => {
                     opacity: opacityTransform,
                     height: viewportHeight,
                     zIndex: (index + 1) * 10,
-                    willChange: "opacity, transform"
+                    willChange: "opacity, transform",
+                    transform: "translateZ(0)",
+                    backfaceVisibility: "hidden"
                   }}
                 >
-                  <motion.div 
+                  <motion.div
                     className="bg-white p-4 sm:p-5 md:p-6 lg:p-8 xl:p-10 flex flex-col justify-center text-gray-800 border border-gray-200 shadow-lg w-[280px] sm:w-[320px] md:w-[360px] lg:w-[400px] xl:w-[500px] 2xl:w-[600px] h-[300px] sm:h-[340px] md:h-[380px] lg:h-[420px] xl:h-[500px] 2xl:h-[600px] text-left"
                     style={{
                       transform: cssYValue,
-                      willChange: "transform"
+                      willChange: "transform",
+                      transformOrigin: "center center"
                     }}
                   >
                     <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-bold mb-2 sm:mb-3 md:mb-4 lg:mb-6 text-left max-w-full break-words">{quote.title}</h3>

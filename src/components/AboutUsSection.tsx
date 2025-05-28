@@ -107,12 +107,12 @@ const AboutUsSection = () => {
         </div>
 
         {/* Tablet and Desktop Layout */}
-        <div className="hidden sm:flex gap-6">
+        <div className="hidden sm:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {cardData.map((card, index) => (
             <div 
               key={index}
-              className={`group bg-white p-4 sm:p-6 lg:p-8 shadow-md relative flex flex-col justify-between flex-shrink-0 basis-[23.5%] min-h-[350px] lg:min-h-[400px] transition-all duration-500 ease-in-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-               style={{ transitionDelay: `${index * 100}ms` }}
+              className={`group bg-white p-4 sm:p-6 lg:p-8 shadow-md relative flex flex-col justify-between min-h-[350px] lg:min-h-[400px] transition-all duration-500 ease-in-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              style={{ transitionDelay: `${index * 100}ms` }}
             >
               <div className="absolute top-0 right-0 w-8 h-8 bg-yellow-400"></div>
               

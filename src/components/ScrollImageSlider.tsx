@@ -67,7 +67,7 @@ const ScrollImageSlider = () => {
       const img = new Image();
       img.src = src;
       img.onload = handleImageLoad;
-      img.onerror = handleImageLoad; // Count even if error
+      img.onerror = handleImageLoad;
     });
 
     return () => {
@@ -87,7 +87,7 @@ const ScrollImageSlider = () => {
 
   const activeImageIndex = useTransform(
     scrollYProgress,
-    [0, isMobile ? 0.98 : 0.95],
+    [0, 0.95],
     [0, images.length - 1]
   );
 
@@ -97,7 +97,7 @@ const ScrollImageSlider = () => {
         ref={containerRef}
         className="relative"
         style={{ 
-          height: isMobile ? "500vh" : "400vh",
+          height: "500vh",
           opacity: imagesLoaded ? 1 : 0,
           transition: "opacity 0.5s ease-in"
         }}
@@ -143,7 +143,11 @@ const ScrollImageSlider = () => {
               const yPosition = useTransform(
                 activeImageIndex,
                 [index - 1, index, index + 1],
-                [100, 0, -100]
+                index === 0 
+                  ? [800, 0, -800]
+                  : index === 1 
+                    ? [800, 0, -800]
+                    : [800, 0, -800]
               );
 
               const opacity = useTransform(
@@ -163,7 +167,10 @@ const ScrollImageSlider = () => {
                 >
                   <motion.div
                     className="bg-white p-6 lg:p-8 xl:p-10 flex flex-col text-gray-800 border border-gray-200 shadow-lg w-full max-w-[400px] lg:max-w-[500px] xl:max-w-[600px] h-[380px] lg:h-[420px] xl:h-[500px] text-left"
-                    style={{ y: yPosition }}
+                    style={{ 
+                      y: yPosition,
+                      transition: "transform 0.2s ease-out"
+                    }}
                   >
                     <h3 className="text-xl lg:text-2xl xl:text-3xl font-bold mb-4 lg:mb-6">
                       {quote.title}
@@ -199,9 +206,6 @@ const ScrollImageSlider = () => {
           </motion.div>
         </div>
       </div>
-
-      {/* Spacer */}
-      <div className="h-[50vh] bg-white -mt-[50vh] relative z-10" />
     </section>
   );
 };

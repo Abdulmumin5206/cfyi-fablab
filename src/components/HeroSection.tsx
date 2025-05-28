@@ -215,9 +215,17 @@ const HeroSection = () => {
             loop
             playsInline
             poster="/fablab/1.jpg"
+            preload="auto"
+            onLoadedData={() => {
+              if (videoRef.current) {
+                videoRef.current.play().catch((error) => {
+                  console.error("Video play failed:", error);
+                });
+              }
+            }}
           >
             <source src="/video/FabLab video horizontal.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
+            {t('video.fallbackText')}
           </video>
         </div>
       </div>

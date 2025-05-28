@@ -1,73 +1,22 @@
-import { useState, useRef, useEffect, useMemo, useCallback } from "react";
+import { useState, useRef, useEffect, useMemo } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
-// Custom hook for responsive scroll behavior
-const useResponsiveScroll = () => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-
-  return isMobile;
-};
-
-// Optimized image preloading with reduced memory usage and better performance
-const preloadImages = (images: string[]) => {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const img = entry.target as HTMLImageElement;
-        const src = img.dataset.src || '';
-        if (src) {
-          const tempImg = new Image();
-          tempImg.onload = () => {
-            img.src = src;
-            observer.unobserve(img);
-          };
-          tempImg.src = src;
-        }
-      }
-    });
-  }, {
-    rootMargin: '200px 0px',
-    threshold: 0.1
-  });
-
-  return observer;
-};
-
 const ScrollImageSlider = () => {
   const { t } = useTranslation();
   const containerRef = useRef<HTMLDivElement>(null);
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const [hasCompletedScroll, setHasCompletedScroll] = useState(false);
-  const [viewportHeight, setViewportHeight] = useState("100vh");
-  const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set());
-  const [isInitialLoad, setIsInitialLoad] = useState(true);
-  const isMobile = useResponsiveScroll();
-  const observerRef = useRef<IntersectionObserver | null>(null);
-  const rafRef = useRef<number>();
-  const lastScrollY = useRef(0);
-  const ticking = useRef(false);
-  const scrollTimeout = useRef<NodeJS.Timeout>();
-  
-  // Memoize image paths
+  const [isMobile, setIsMobile] = useState(false);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+  const requestRef = useRef<number>();
+
+  // Image and quote data
   const images = useMemo(() => [
     "/main/scrolling1.webp",
     "/main/scrolling2.jpg",
     "/main/scrolling3.webp"
   ], []);
 
-  // Memoize quotes
   const quotes = useMemo(() => [
     {
       title: t("slider.innovationLab.title"),
@@ -86,101 +35,61 @@ const ScrollImageSlider = () => {
     }
   ], [t]);
 
-  // Optimized viewport height updates with debounce
-  const updateViewportHeight = useCallback(() => {
-    if (scrollTimeout.current) {
-      clearTimeout(scrollTimeout.current);
-    }
-    scrollTimeout.current = setTimeout(() => {
-      const vh = window.innerHeight;
-      setViewportHeight(`${vh}px`);
-    }, 100);
-  }, []);
-  
+  // Device detection and resize handler
   useEffect(() => {
-    updateViewportHeight();
-    window.addEventListener('resize', updateViewportHeight);
-    window.addEventListener('orientationchange', updateViewportHeight);
-    
-    return () => {
-      window.removeEventListener('resize', updateViewportHeight);
-      window.removeEventListener('orientationchange', updateViewportHeight);
-      if (scrollTimeout.current) {
-        clearTimeout(scrollTimeout.current);
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    const resizeHandler = () => {
+      cancelAnimationFrame(requestRef.current!);
+      requestRef.current = requestAnimationFrame(checkMobile);
+    };
+
+    window.addEventListener('resize', resizeHandler);
+    return () => window.removeEventListener('resize', resizeHandler);
+  }, []);
+
+  // Preload images
+  useEffect(() => {
+    let loadedCount = 0;
+    const totalImages = images.length;
+
+    const handleImageLoad = () => {
+      loadedCount++;
+      if (loadedCount === totalImages) {
+        setImagesLoaded(true);
       }
     };
-  }, [updateViewportHeight]);
 
-  // Initialize intersection observer for lazy loading
-  useEffect(() => {
-    observerRef.current = preloadImages(images);
+    images.forEach(src => {
+      const img = new Image();
+      img.src = src;
+      img.onload = handleImageLoad;
+      img.onerror = handleImageLoad; // Count even if error
+    });
+
     return () => {
-      observerRef.current?.disconnect();
-      if (rafRef.current) {
-        cancelAnimationFrame(rafRef.current);
-      }
+      images.forEach(src => {
+        const img = new Image();
+        img.onload = null;
+        img.onerror = null;
+      });
     };
   }, [images]);
 
-  // Optimized scroll progress handling with RAF and throttling
+  // Scroll animation setup
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start start", "end end"],
-    layoutEffect: false
+    offset: ["start start", "end end"]
   });
 
-  const imageIndexProgress = useTransform(
+  const activeImageIndex = useTransform(
     scrollYProgress,
-    [0, 0.95],
-    [0, images.length - 1],
-    { clamp: true }
+    [0, isMobile ? 0.98 : 0.95],
+    [0, images.length - 1]
   );
-
-  // Optimized scroll progress handler using RAF and throttling
-  const handleScrollProgress = useCallback((latest: number) => {
-    if (!ticking.current) {
-      rafRef.current = requestAnimationFrame(() => {
-        if (latest >= 0.98) {
-          setHasCompletedScroll(true);
-        } else if (latest <= 0.02) {
-          setHasCompletedScroll(false);
-        }
-        ticking.current = false;
-      });
-      ticking.current = true;
-    }
-  }, []);
-  
-  useEffect(() => {
-    const unsubscribe = scrollYProgress.on("change", handleScrollProgress);
-    return () => {
-      unsubscribe();
-      if (rafRef.current) {
-        cancelAnimationFrame(rafRef.current);
-      }
-    };
-  }, [scrollYProgress, handleScrollProgress]);
-
-  // Optimized image loading handler
-  const handleImageLoad = useCallback((index: number) => {
-    setLoadedImages(prev => {
-      const newSet = new Set(prev);
-      newSet.add(index);
-      if (newSet.size === images.length) {
-        setIsInitialLoad(false);
-      }
-      return newSet;
-    });
-  }, [images.length]);
-
-  // Memoize opacity transform calculations
-  const getOpacityTransform = useCallback((index: number) => {
-    return useTransform(
-      imageIndexProgress,
-      [index - 0.5, index, index + 0.5],
-      [0, 1, 0]
-    );
-  }, [imageIndexProgress]);
 
   return (
     <section className="relative bg-white">
@@ -189,158 +98,112 @@ const ScrollImageSlider = () => {
         className="relative"
         style={{ 
           height: isMobile ? "500vh" : "400vh",
-          opacity: isInitialLoad ? 0 : 1,
+          opacity: imagesLoaded ? 1 : 0,
           transition: "opacity 0.5s ease-in"
         }}
       >
-        <div
-          ref={sectionRef}
-          className="sticky top-0 w-full overflow-hidden flex items-center justify-center bg-black"
-          style={{
-            height: viewportHeight,
-            zIndex: 10,
-            willChange: "transform",
-            transform: "translateZ(0)",
-            backfaceVisibility: "hidden"
-          }}
-        >
-          <div className="absolute inset-0 w-full h-full">
-            <div className="absolute left-0 top-0 bottom-0 w-full md:w-1/2 hidden lg:flex items-center justify-center z-50 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
-              <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold text-white leading-relaxed">
-                {t("slider.mainMessage")}
-              </p>
-            </div>
-
-            {images.map((src, index) => {
-              const opacityTransform = getOpacityTransform(index);
-              
-              return (
-                <motion.div
-                  key={index}
-                  className="absolute inset-0 w-full h-full"
-                  style={{
-                    opacity: opacityTransform,
-                    zIndex: index + 1,
-                    visibility: loadedImages.has(index) ? 'visible' : 'hidden',
-                    willChange: "transform, opacity",
-                    transform: "translateZ(0)",
-                    backfaceVisibility: "hidden",
-                    backgroundColor: "black"
-                  }}
-                >
-                  <img 
-                    data-src={src}
-                    alt={t("slider.showcaseImage", {number: index + 1})}
-                    className="w-full h-full object-cover"
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                      objectPosition: "center",
-                      transform: "translateZ(0)",
-                      backfaceVisibility: "hidden",
-                      willChange: "transform"
-                    }}
-                    loading="lazy"
-                    onLoad={() => handleImageLoad(index)}
-                    ref={(el) => {
-                      if (el && observerRef.current) {
-                        observerRef.current.observe(el);
-                      }
-                    }}
-                  />
-                  <div 
-                    className="absolute inset-0 bg-black" 
-                    style={{ 
-                      zIndex: 1,
-                      opacity: 0.25
-                    }} 
-                  />
-                </motion.div>
-              );
-            })}
+        <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center bg-black">
+          {/* Background images */}
+          <div className="absolute inset-0">
+            {images.map((src, index) => (
+              <motion.div
+                key={index}
+                className="absolute inset-0"
+                style={{
+                  opacity: useTransform(
+                    activeImageIndex,
+                    [index - 0.5, index, index + 0.5],
+                    [0, 1, 0]
+                  ),
+                  zIndex: index + 1,
+                  visibility: imagesLoaded ? 'visible' : 'hidden'
+                }}
+              >
+                <img
+                  src={src}
+                  alt={t("slider.showcaseImage", { number: index + 1 })}
+                  className="w-full h-full object-cover"
+                  loading="eager"
+                />
+                <div className="absolute inset-0 bg-black opacity-25" />
+              </motion.div>
+            ))}
           </div>
-          
+
+          {/* Main message (desktop only) */}
+          <div className="absolute left-0 top-0 bottom-0 w-full md:w-1/2 hidden lg:flex items-center justify-center z-50 px-12">
+            <p className="text-4xl xl:text-5xl 2xl:text-6xl font-bold text-white leading-relaxed">
+              {t("slider.mainMessage")}
+            </p>
+          </div>
+
+          {/* Quotes */}
           <div className="absolute inset-0">
             {quotes.map((quote, index) => {
-              const yOffset = useTransform(
-                imageIndexProgress,
+              const yPosition = useTransform(
+                activeImageIndex,
                 [index - 1, index, index + 1],
                 [100, 0, -100]
               );
-              
-              const opacityTransform = useTransform(
-                imageIndexProgress,
+
+              const opacity = useTransform(
+                activeImageIndex,
                 [index - 0.5, index, index + 0.5],
                 [0, 1, 0]
               );
-              
-              const cssYValue = useTransform(
-                yOffset,
-                (value) => `translateY(${value}vh)`
-              );
-              
+
               return (
                 <motion.div
                   key={`quote-${index}`}
-                  className="absolute left-0 right-0 px-4 sm:px-6 md:px-8 flex justify-center lg:justify-end items-center pr-4 sm:pr-8 md:pr-12 lg:pr-16"
+                  className="absolute inset-0 flex justify-center lg:justify-end items-center px-8 lg:pr-16"
                   style={{
-                    opacity: opacityTransform,
-                    height: viewportHeight,
-                    zIndex: (index + 1) * 10,
-                    willChange: "opacity, transform",
-                    transform: "translateZ(0)",
-                    backfaceVisibility: "hidden"
+                    opacity,
+                    zIndex: 20 + index
                   }}
                 >
                   <motion.div
-                    className="bg-white p-4 sm:p-5 md:p-6 lg:p-8 xl:p-10 flex flex-col justify-center text-gray-800 border border-gray-200 shadow-lg w-[280px] sm:w-[320px] md:w-[360px] lg:w-[400px] xl:w-[500px] 2xl:w-[600px] h-[300px] sm:h-[340px] md:h-[380px] lg:h-[420px] xl:h-[500px] 2xl:h-[600px] text-left"
-                    style={{
-                      transform: cssYValue,
-                      willChange: "transform",
-                      transformOrigin: "center center"
-                    }}
+                    className="bg-white p-6 lg:p-8 xl:p-10 flex flex-col text-gray-800 border border-gray-200 shadow-lg w-full max-w-[400px] lg:max-w-[500px] xl:max-w-[600px] h-[380px] lg:h-[420px] xl:h-[500px] text-left"
+                    style={{ y: yPosition }}
                   >
-                    <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-bold mb-2 sm:mb-3 md:mb-4 lg:mb-6 text-left max-w-full break-words">{quote.title}</h3>
-                    <div className="mb-2 sm:mb-3 md:mb-4 lg:mb-6">
-                      <span className="block text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-extrabold leading-tight text-gray-900 max-w-full break-words">{quote.achievement}</span>
+                    <h3 className="text-xl lg:text-2xl xl:text-3xl font-bold mb-4 lg:mb-6">
+                      {quote.title}
+                    </h3>
+                    <div className="mb-4 lg:mb-6">
+                      <span className="block text-2xl lg:text-3xl xl:text-4xl font-extrabold leading-tight text-gray-900">
+                        {quote.achievement}
+                      </span>
                     </div>
-                    <p className="text-[10px] sm:text-xs md:text-sm lg:text-base xl:text-lg 2xl:text-xl text-gray-600 text-left max-w-full break-words line-clamp-4 sm:line-clamp-5 md:line-clamp-6 lg:line-clamp-7 xl:line-clamp-8">{quote.text}</p>
+                    <p className="text-sm lg:text-base xl:text-lg text-gray-600 line-clamp-5 lg:line-clamp-6">
+                      {quote.text}
+                    </p>
                   </motion.div>
                 </motion.div>
               );
             })}
           </div>
-          
+
+          {/* Scroll indicator */}
           <motion.div
-            className="absolute bottom-8 sm:bottom-12 left-1/2 transform -translate-x-1/2 text-gray-800"
+            className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-50"
             style={{
-              opacity: useTransform(
-                scrollYProgress, 
-                [0, 0.1], 
-                [1, 0]
-              )
+              opacity: useTransform(scrollYProgress, [0, 0.1], [1, 0])
             }}
             animate={{ y: [0, 10, 0] }}
-            transition={{ 
-              repeat: Infinity, 
+            transition={{
+              repeat: Infinity,
               duration: 2,
               ease: "easeInOut"
             }}
-            aria-label={t("slider.scrollHint")}
           >
-            <ChevronDown size={20} className="sm:hidden" />
-            <ChevronDown size={24} className="hidden sm:block" />
+            <ChevronDown size={isMobile ? 20 : 24} className="text-white" />
           </motion.div>
         </div>
       </div>
-      
-      <div 
-        className="h-[50vh] bg-white -mt-[50vh] relative"
-        style={{ zIndex: 5 }}
-      />
+
+      {/* Spacer */}
+      <div className="h-[50vh] bg-white -mt-[50vh] relative z-10" />
     </section>
   );
 };
 
-export default ScrollImageSlider; 
+export default ScrollImageSlider;

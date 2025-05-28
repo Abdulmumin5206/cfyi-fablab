@@ -153,11 +153,11 @@ const ServiceCategories = () => {
       aria-label="Our Services"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1600px] relative z-10">
-        <div className="text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 md:mb-5">
+        <div className="text-left mb-8 sm:mb-12 md:mb-16 lg:mb-20">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 text-black">
             {t('serviceCategories.title')}
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base md:text-lg px-4">
+          <p className="text-gray-700 text-lg mb-8 sm:mb-12">
             {t('serviceCategories.subtitle')}
           </p>
         </div>

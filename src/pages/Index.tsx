@@ -6,6 +6,7 @@ import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import ScrollImageSlider from "@/components/ScrollImageSlider";
 import ImageFabLabTour from "@/components/ImageFabLabTour";
+import AboutUsSection from "@/components/AboutUsSection";
 
 const Index = () => {
   return (
@@ -13,10 +14,11 @@ const Index = () => {
       <Header />
       <main>
         <HeroSection />
-        <ImageFabLabTour />
         <ServiceCategories />
+        <AboutUsSection />
         <ScrollImageSlider />
         <RecentProjects />
+        <ImageFabLabTour />
         <ContactSection />
       </main>
       <Footer />

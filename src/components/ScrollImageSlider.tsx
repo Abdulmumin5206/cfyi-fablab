@@ -20,19 +20,25 @@ const useResponsiveScroll = () => {
   return isMobile;
 };
 
-// Optimized image preloading with reduced memory usage
+// Optimized image preloading with reduced memory usage and better performance
 const preloadImages = (images: string[]) => {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const img = entry.target as HTMLImageElement;
         const src = img.dataset.src || '';
-        img.src = src;
-        observer.unobserve(img);
+        if (src) {
+          const tempImg = new Image();
+          tempImg.onload = () => {
+            img.src = src;
+            observer.unobserve(img);
+          };
+          tempImg.src = src;
+        }
       }
     });
   }, {
-    rootMargin: '100px 0px',
+    rootMargin: '200px 0px',
     threshold: 0.1
   });
 
@@ -52,6 +58,7 @@ const ScrollImageSlider = () => {
   const rafRef = useRef<number>();
   const lastScrollY = useRef(0);
   const ticking = useRef(false);
+  const scrollTimeout = useRef<NodeJS.Timeout>();
   
   // Memoize image paths
   const images = useMemo(() => [
@@ -81,25 +88,26 @@ const ScrollImageSlider = () => {
 
   // Optimized viewport height updates with debounce
   const updateViewportHeight = useCallback(() => {
-    const vh = window.innerHeight;
-    setViewportHeight(`${vh}px`);
+    if (scrollTimeout.current) {
+      clearTimeout(scrollTimeout.current);
+    }
+    scrollTimeout.current = setTimeout(() => {
+      const vh = window.innerHeight;
+      setViewportHeight(`${vh}px`);
+    }, 100);
   }, []);
   
   useEffect(() => {
-    let timeoutId: NodeJS.Timeout;
-    const debouncedUpdate = () => {
-      clearTimeout(timeoutId);
-      timeoutId = setTimeout(updateViewportHeight, 100);
-    };
-
     updateViewportHeight();
-    window.addEventListener('resize', debouncedUpdate);
-    window.addEventListener('orientationchange', debouncedUpdate);
+    window.addEventListener('resize', updateViewportHeight);
+    window.addEventListener('orientationchange', updateViewportHeight);
     
     return () => {
-      window.removeEventListener('resize', debouncedUpdate);
-      window.removeEventListener('orientationchange', debouncedUpdate);
-      clearTimeout(timeoutId);
+      window.removeEventListener('resize', updateViewportHeight);
+      window.removeEventListener('orientationchange', updateViewportHeight);
+      if (scrollTimeout.current) {
+        clearTimeout(scrollTimeout.current);
+      }
     };
   }, [updateViewportHeight]);
 
@@ -191,7 +199,9 @@ const ScrollImageSlider = () => {
           style={{
             height: viewportHeight,
             zIndex: 10,
-            willChange: "transform"
+            willChange: "transform",
+            transform: "translateZ(0)",
+            backfaceVisibility: "hidden"
           }}
         >
           <div className="absolute inset-0 w-full h-full">
@@ -212,7 +222,7 @@ const ScrollImageSlider = () => {
                     opacity: opacityTransform,
                     zIndex: index + 1,
                     visibility: loadedImages.has(index) ? 'visible' : 'hidden',
-                    willChange: "transform",
+                    willChange: "transform, opacity",
                     transform: "translateZ(0)",
                     backfaceVisibility: "hidden",
                     backgroundColor: "black"

@@ -101,6 +101,11 @@ const Footer = ({ bgClass = "bg-black", textClass = "text-white" }: FooterProps)
                   </Link>
                 </li>
                 <li>
+                  <Link to="/membership" className={linkHoverColor}>
+                    Membership
+                  </Link>
+                </li>
+                <li>
                   <Link to="/" className={linkHoverColor}>
                     {t('header.aboutFablab')}
                   </Link>

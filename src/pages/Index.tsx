@@ -19,8 +19,8 @@ const Index = () => {
         <AboutUsSection />
         <ScrollImageSlider />
         <MembershipSection />
-        <RecentProjects />
         <ImageFabLabTour />
+        <RecentProjects />
         <ContactSection />
       </main>
       <Footer />

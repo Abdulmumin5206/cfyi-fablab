@@ -163,7 +163,7 @@ const MembershipSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`group relative bg-white shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 ${
+              className={`group relative bg-white shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 flex flex-col ${
                 plan.popular ? 'ring-2 ring-[#309eb7] transform scale-105' : ''
               }`}
             >
@@ -187,7 +187,7 @@ const MembershipSection = () => {
               </div>
 
               {/* Content Section */}
-              <div className="p-8">
+              <div className="p-8 flex flex-col flex-grow">
                 <div className="text-sm font-semibold text-[#309eb7] mb-2">{plan.badge}</div>
                 <h3 className="text-2xl font-bold mb-3 text-gray-900">{plan.title}</h3>
                 <p className="text-gray-600 mb-6">{plan.description}</p>
@@ -221,15 +221,17 @@ const MembershipSection = () => {
                     </ul>
                   </div>
                 )}
-                <a
-                  href="https://t.me/+998770884977"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center w-full bg-[#309eb7] text-white py-3 px-6 hover:bg-[#2a8ca3] transition-colors duration-300"
-                >
-                  <span>Get Started</span>
-                  <ArrowRight size={16} className="ml-2" />
-                </a>
+                <div className="mt-auto">
+                  <a
+                    href="https://t.me/+998770884977"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center w-full bg-[#309eb7] text-white py-3 px-6 hover:bg-[#2a8ca3] transition-colors duration-300"
+                  >
+                    <span>Get Started</span>
+                    <ArrowRight size={16} className="ml-2" />
+                  </a>
+                </div>
               </div>
             </motion.div>
           ))}

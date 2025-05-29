@@ -174,13 +174,13 @@ const MembershipSection = () => {
                   style={{ backgroundImage: `url(${plan.image})` }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/40" />
-                <div className="absolute top-0 right-0 bg-[#309eb7] text-white px-6 py-3">
+                <div className="absolute bottom-0 right-0 bg-[#309eb7] text-white px-5 py-2.5">
                   <span className="text-sm font-medium block">Starting from</span>
-                  <div className="text-2xl font-bold">{plan.price} UZS</div>
+                  <div className="text-xl font-bold">{plan.price} UZS</div>
                 </div>
                 {plan.popular && (
-                  <div className="absolute top-0 left-0 bg-[#309eb7] text-white px-6 py-3">
-                    <Star className="inline-block mr-2" size={16} />
+                  <div className="absolute top-0 left-0 bg-[#309eb7] text-white px-3 py-1.5 text-xs">
+                    <Star className="inline-block mr-1" size={12} />
                     Most Popular
                   </div>
                 )}
@@ -253,7 +253,7 @@ const MembershipSection = () => {
                 x: {
                   repeat: Infinity,
                   repeatType: "loop",
-                  duration: 300,
+                  duration: 20,
                   ease: "linear",
                 },
               }}
@@ -284,7 +284,7 @@ const MembershipSection = () => {
                 x: {
                   repeat: Infinity,
                   repeatType: "loop",
-                  duration: 300,
+                  duration: 20,
                   ease: "linear",
                 },
               }}

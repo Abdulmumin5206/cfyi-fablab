@@ -109,7 +109,7 @@ const ScrollImageSlider = () => {
             const yPosition = useTransform(
               activeIndex,
               [i - 1, i, i + 1], // When activeIndex is i-1, current (i), or i+1
-              [600, 0, -600]     // Corresponding y position
+              [1000, 0, -1000]   // Increased vertical movement distance
             );
 
             const opacity = useTransform(

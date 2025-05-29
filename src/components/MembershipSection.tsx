@@ -1,13 +1,13 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, Check, Star, Users, Target, BookOpen, Phone, Gift, Box } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { useMemo, useCallback } from "react";
-import { useTransform } from "framer-motion";
+import { useMemo, useCallback, useRef } from "react";
 
 const MembershipSection = () => {
   const { t } = useTranslation();
-  
+  const scrollRef = useRef(null); // Ref for the scrollable container
+
   // Memoize all data to prevent unnecessary re-renders
   const membershipFeatures = useMemo(() => [
     {
@@ -133,16 +133,48 @@ const MembershipSection = () => {
     universalBenefits.slice(4)
   ], [universalBenefits]);
 
-  // Create duplicated arrays for seamless looping
-  const duplicatedFirstRow = useMemo(() => [...firstRowBenefits, ...firstRowBenefits], [firstRowBenefits]);
-  const duplicatedSecondRow = useMemo(() => [...secondRowBenefits, ...secondRowBenefits], [secondRowBenefits]);
+  // Create duplicated arrays for seamless looping (x2 for a full loop)
+  // We duplicate enough times to ensure smooth transition
+  const duplicatedFirstRow = useMemo(() => [...firstRowBenefits, ...firstRowBenefits, ...firstRowBenefits], [firstRowBenefits]);
+  const duplicatedSecondRow = useMemo(() => [...secondRowBenefits, ...secondRowBenefits, ...secondRowBenefits], [secondRowBenefits]);
 
-  // Calculate the width of one set of cards
-  const [cardWidth, gapWidth, rowWidth] = useMemo(() => {
-    const cw = 260;
-    const gw = 24;
-    return [cw, gw, (cw * 4) + (gw * 3)];
-  }, []);
+
+  // Determine the width of a single set of cards + gaps for calculation
+  // A consistent card width and gap is assumed.
+  const CARD_WIDTH = 260; // Tailwind w-[260px]
+  const GAP_WIDTH = 16;   // Tailwind space-x-4 (16px)
+
+  // Calculate the width of one full set of original cards plus their gaps
+  // (e.g., 4 cards in first row)
+  const firstRowSetWidth = useMemo(() => (CARD_WIDTH * firstRowBenefits.length) + (GAP_WIDTH * (firstRowBenefits.length - 1)), [firstRowBenefits.length]);
+  const secondRowSetWidth = useMemo(() => (CARD_WIDTH * secondRowBenefits.length) + (GAP_WIDTH * (secondRowBenefits.length - 1)), [secondRowBenefits.length]);
+
+  // Framer Motion scroll logic
+  // We'll tie the animation to the scroll of the entire window for simplicity,
+  // or you can tie it to a specific ref if you want the animation to start/stop
+  // as the section comes into view. For continuous, looping effect, tying to window scroll
+  // or a sufficiently large scroll area often works best.
+
+  // We are creating a hypothetical scrollable area that covers the entire animation cycle
+  // The scroll progress will then be mapped to the translateX values.
+  const { scrollYProgress } = useScroll();
+
+  // For the first row (right to left): 0% to -100% of its total set width
+  // We map the scroll progress (0 to 1) to a translation range.
+  // The `[-firstRowSetWidth, 0]` means it starts at -`firstRowSetWidth` and moves to `0`.
+  // To make it loop, we need a larger input range and then reset the position.
+  // However, for an infinite carousel, a simpler approach is to use `animate`
+  // directly on the `motion.div` with an infinite loop.
+  // The `useScroll` and `useTransform` are more for scroll-based animations where the animation
+  // starts/stops or changes direction with scroll.
+  // For a truly continuous loop that is independent of specific scroll progress (unless you want it to pause on scroll),
+  // a plain `animate` prop with `repeat: Infinity` is more suitable and performant.
+
+  // Let's refine the solution for continuous loop that is not tied to window scroll directly
+  // but runs independently once the component is mounted.
+  // We can still use useScroll for detecting when the section is in view,
+  // but the looping animation itself will be managed by `animate` property for true infinite loop.
+
 
   // Memoized plan card component
   const PlanCard = useCallback(({ plan }: { plan: typeof membershipFeatures[0] }) => (
@@ -252,13 +284,24 @@ const MembershipSection = () => {
         {/* Universal Benefits with optimized animation */}
         <div className="space-y-4 mb-10">
           {/* First Row - Moving Left */}
+          {/* We wrap the motion.div in a div with overflow-hidden to clip the content */}
           <div className="relative overflow-hidden">
-            <div 
-              className="flex space-x-4 animate-scroll-left will-change-transform"
-              style={{
-                width: "fit-content",
-                animation: `scrollLeft ${rowWidth / 50}s linear infinite`,
+            <motion.div 
+              className="flex space-x-4 will-change-transform"
+              // Animate from 0 to negative of the full width of one set of cards
+              // We've duplicated the content three times, so to make it seamless,
+              // we animate the width of one set and then immediately reset.
+              // For a true infinite loop, the `animate` prop with `repeat: Infinity` is superior.
+              animate={{ x: [`0px`, `-${firstRowSetWidth + GAP_WIDTH}px`] }}
+              transition={{
+                x: {
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 20, // Adjust duration for desired speed
+                  ease: "linear",
+                },
               }}
+              style={{ width: 'fit-content' }} // Ensures the content takes its natural width
             >
               {duplicatedFirstRow.map((benefit, index) => (
                 <div
@@ -270,17 +313,24 @@ const MembershipSection = () => {
                   <p className="text-gray-600 text-sm">{benefit.description}</p>
                 </div>
               ))}
-            </div>
+            </motion.div>
           </div>
 
           {/* Second Row - Moving Right */}
           <div className="relative overflow-hidden">
-            <div 
-              className="flex space-x-4 animate-scroll-right will-change-transform"
-              style={{
-                width: "fit-content",
-                animation: `scrollRight ${rowWidth / 50}s linear infinite`,
+            <motion.div 
+              className="flex space-x-4 will-change-transform"
+              // Animate from negative of the full width of one set of cards back to 0
+              animate={{ x: [`-${secondRowSetWidth + GAP_WIDTH}px`, `0px`] }}
+              transition={{
+                x: {
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 20, // Adjust duration for desired speed
+                  ease: "linear",
+                },
               }}
+              style={{ width: 'fit-content' }}
             >
               {duplicatedSecondRow.map((benefit, index) => (
                 <div
@@ -292,7 +342,7 @@ const MembershipSection = () => {
                   <p className="text-gray-600 text-sm">{benefit.description}</p>
                 </div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </div>
 
@@ -345,22 +395,9 @@ const MembershipSection = () => {
           </div>
         </motion.div>
       </div>
-
-      <style>{`
-        @keyframes scrollLeft {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-${rowWidth}px); }
-        }
-        @keyframes scrollRight {
-          0% { transform: translateX(-${rowWidth}px); }
-          100% { transform: translateX(0); }
-        }
-        .animate-scroll-left, .animate-scroll-right {
-          will-change: transform;
-        }
-      `}</style>
+      {/* Remove the style block with @keyframes as it's no longer needed */}
     </section>
   );
 };
 
-export default MembershipSection; 
+export default MembershipSection;

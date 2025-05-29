@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Check, Star, Users, Target, BookOpen, Phone, Gift, Box } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useMemo, useCallback } from "react";
+import { useTransform } from "framer-motion";
 
 const MembershipSection = () => {
   const { t } = useTranslation();

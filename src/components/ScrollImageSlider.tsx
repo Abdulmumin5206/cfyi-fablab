@@ -6,12 +6,12 @@ import { useTranslation } from "react-i18next";
 const ScrollImageSlider = () => {
   const { t } = useTranslation();
   const containerRef = useRef<HTMLDivElement>(null);
-  
+
   // Pre-scaled images (WebP format)
   const images = [
     "/main/scrolling1.webp",
     "/main/scrolling2.jpg", // Changed back to jpg since webp might not be available
-    "/main/scrolling3.webp"
+    "/main/scrolling1.webp"
   ];
 
   const quotes = [
@@ -35,43 +35,66 @@ const ScrollImageSlider = () => {
   // Optimized scroll handler
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start start", "end end"]
+    offset: ["start start", "end start"]
   });
 
   const activeIndex = useTransform(
     scrollYProgress,
-    [0, 0.33, 0.66, 1],
-    [0, 1, 2, 2] // Clamp to last image
+    [0, 0.33, 0.66, 0.75], // Input scrollYProgress points
+    [0, 1, 2, 2]          // Output activeIndex values
   );
 
   return (
-    <section ref={containerRef} className="relative h-[300vh]">
+    <section ref={containerRef} className="relative h-[400vh]">
       <div className="sticky top-0 h-screen">
         {/* Background images */}
-        {images.map((src, i) => (
-          <motion.div
-            key={i}
-            className="absolute inset-0"
-            style={{
-              opacity: useTransform(
-                activeIndex,
-                [i - 0.5, i, i + 0.5],
-                [0, 1, 0]
-              ),
-              zIndex: i + 1
-            }}
-          >
-            <img
-              src={src}
-              alt={t(`slider.image${i}`)}
-              className="w-full h-full object-cover"
-              loading="eager"
-              width={1920}
-              height={1080}
-            />
-            <div className="absolute inset-0 bg-black/25" />
-          </motion.div>
-        ))}
+        {images.map((src, i) => {
+          let opacity;
+
+          if (i === 0) {
+            // First image: fade out as we scroll to second
+            opacity = useTransform(
+              scrollYProgress,
+              [0, 0.33],
+              [1, 0]
+            );
+          } else if (i === 1) {
+            // Second image: fade in from first, fade out to third
+            opacity = useTransform(
+              scrollYProgress,
+              [0, 0.33, 0.66],
+              [0, 1, 0]
+            );
+          } else {
+            // Third image: fade in from second
+            opacity = useTransform(
+              scrollYProgress,
+              [0.33, 0.66],
+              [0, 1]
+            );
+          }
+
+          return (
+            <motion.div
+              key={i}
+              className="absolute inset-0"
+              style={{
+                opacity,
+                zIndex: i + 1
+              }}
+            >
+              <img
+                src={src}
+                alt={t(`slider.image${i}`)}
+                className="w-full h-full object-cover"
+                loading="eager"
+                width={1920}
+                height={1080}
+              />
+              <div className="absolute inset-0 bg-black/25" />
+            </motion.div>
+          );
+        })}
 
         {/* Main message */}
         <div className="absolute left-0 top-0 bottom-0 w-full md:w-1/2 hidden lg:flex items-center justify-center z-50 px-12">
@@ -85,14 +108,14 @@ const ScrollImageSlider = () => {
           {quotes.map((quote, i) => {
             const yPosition = useTransform(
               activeIndex,
-              [i - 1, i, i + 1],
-              [800, 0, -800]
+              [i - 1, i, i + 1], // When activeIndex is i-1, current (i), or i+1
+              [600, 0, -600]     // Corresponding y position
             );
 
             const opacity = useTransform(
               activeIndex,
-              [i - 0.5, i, i + 0.5],
-              [0, 1, 0]
+              [i - 0.5, i, i + 0.5], // Opacity transition range around activeIndex i
+              [0, 1, 0]               // Fade out, fully visible, fade out
             );
 
             return (
@@ -106,9 +129,9 @@ const ScrollImageSlider = () => {
               >
                 <motion.div
                   className="bg-white p-6 lg:p-8 xl:p-10 flex flex-col text-gray-800 border border-gray-200 shadow-lg w-full max-w-[400px] lg:max-w-[500px] xl:max-w-[600px] h-[380px] lg:h-[420px] xl:h-[500px] text-left"
-                  style={{ 
-                    y: yPosition,
-                    transition: "transform 0.2s ease-out"
+                  style={{
+                    y: yPosition
+                    // Removed: transition: "transform 0.4s ease-out"
                   }}
                 >
                   <h3 className="text-xl lg:text-2xl xl:text-3xl font-bold mb-4 lg:mb-6">

@@ -26,7 +26,7 @@ const MembershipSection = () => {
         "No commercial use"
       ],
       color: "bg-[#309eb7]",
-      image: "/fablab/1.jpg",
+      image: "/main/membership/students.webp",
       badge: "Perfect for Learning",
       popularFeatures: [
         "Perfect for university projects",
@@ -50,7 +50,7 @@ const MembershipSection = () => {
         "2 guest passes/month"
       ],
       color: "bg-[#309eb7]",
-      image: "/fablab/3.jpg",
+      image: "/main/membership/maker.webp",
       badge: "Most Popular",
       popular: true,
       perfectFor: [
@@ -76,7 +76,7 @@ const MembershipSection = () => {
         "Business networking events"
       ],
       color: "bg-[#309eb7]",
-      image: "/fablab/11.jpg",
+      image: "/main/membership/professional.webp",
       badge: "Business Ready",
       businessBenefits: [
         "Scale your production",
@@ -134,8 +134,8 @@ const MembershipSection = () => {
   const secondRowBenefits = universalBenefits.slice(4);
 
   // Create duplicated arrays for seamless looping
-  const duplicatedFirstRow = [...firstRowBenefits, ...firstRowBenefits];
-  const duplicatedSecondRow = [...secondRowBenefits, ...secondRowBenefits];
+  const duplicatedFirstRow = [...firstRowBenefits, ...firstRowBenefits, ...firstRowBenefits];
+  const duplicatedSecondRow = [...secondRowBenefits, ...secondRowBenefits, ...secondRowBenefits];
 
   // Calculate the width of one set of cards (4 cards * 280px + 3 gaps * 24px)
   const cardWidth = 280;
@@ -253,7 +253,7 @@ const MembershipSection = () => {
                 x: {
                   repeat: Infinity,
                   repeatType: "loop",
-                  duration: 30,
+                  duration: 300,
                   ease: "linear",
                 },
               }}
@@ -261,7 +261,7 @@ const MembershipSection = () => {
               {duplicatedFirstRow.map((benefit, index) => (
                 <motion.div
                   key={index}
-                  className="flex-shrink-0 w-[280px] bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow"
+                  className="flex-shrink-0 w-[280px] bg-white p-6"
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.2 }}
                 >
@@ -284,7 +284,7 @@ const MembershipSection = () => {
                 x: {
                   repeat: Infinity,
                   repeatType: "loop",
-                  duration: 30,
+                  duration: 300,
                   ease: "linear",
                 },
               }}
@@ -292,7 +292,7 @@ const MembershipSection = () => {
               {duplicatedSecondRow.map((benefit, index) => (
                 <motion.div
                   key={index}
-                  className="flex-shrink-0 w-[280px] bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow"
+                  className="flex-shrink-0 w-[280px] bg-white p-6"
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.2 }}
                 >

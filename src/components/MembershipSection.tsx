@@ -9,7 +9,7 @@ const MembershipSection = () => {
   const membershipFeatures = [
     {
       title: "Student",
-      price: "200,000",
+      price: "500,000",
       description: "Perfect for students, recent graduates, and learning enthusiasts",
       features: [
         "10 hours monthly access",
@@ -25,7 +25,7 @@ const MembershipSection = () => {
         "Off-peak hours only (9AM-5PM)",
         "No commercial use"
       ],
-      color: "bg-[#cb2026]",
+      color: "bg-[#309eb7]",
       image: "/fablab/1.jpg",
       badge: "Perfect for Learning",
       popularFeatures: [
@@ -36,7 +36,7 @@ const MembershipSection = () => {
     },
     {
       title: "Maker",
-      price: "500,000",
+      price: "1,000,000",
       description: "Best for hobbyists, freelancers, and creative entrepreneurs",
       features: [
         "25 hours monthly access",
@@ -49,7 +49,7 @@ const MembershipSection = () => {
         "Weekend access included",
         "2 guest passes/month"
       ],
-      color: "bg-[#0e9a48]",
+      color: "bg-[#309eb7]",
       image: "/fablab/3.jpg",
       badge: "Most Popular",
       popular: true,
@@ -61,7 +61,7 @@ const MembershipSection = () => {
     },
     {
       title: "Professional",
-      price: "1,000,000",
+      price: "2,000,000",
       description: "Ideal for entrepreneurs, small businesses, and serious creators",
       features: [
         "Unlimited access",
@@ -75,7 +75,7 @@ const MembershipSection = () => {
         "Advanced software access",
         "Business networking events"
       ],
-      color: "bg-[#35469d]",
+      color: "bg-[#309eb7]",
       image: "/fablab/11.jpg",
       badge: "Business Ready",
       businessBenefits: [
@@ -143,11 +143,11 @@ const MembershipSection = () => {
   const rowWidth = (cardWidth * 4) + (gapWidth * 3);
 
   return (
-    <section className="py-20 bg-gray-100 relative overflow-hidden">
+    <section className="py-20 bg-gray-50 relative overflow-hidden">
       <div className="container mx-auto px-4">
-        <div className="text-left mb-6">
-          <h2 className="text-4xl font-bold mb-4 text-black">Choose Your Creative Freedom</h2>
-          <p className="text-gray-700 text-lg max-w-3xl">
+        <div className="text-left mb-12">
+          <h2 className="text-4xl font-bold mb-4 text-gray-900">Choose Your Creative Freedom</h2>
+          <p className="text-gray-600 text-lg max-w-3xl">
             Whether you're just starting your maker journey or running a growing business, 
             we have the perfect membership plan to unlock your creative potential. All memberships 
             include expert support, community access, and the tools to bring your ideas to life.
@@ -163,8 +163,8 @@ const MembershipSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`group relative bg-white shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 ${
-                plan.popular ? 'ring-2 ring-green-500 transform scale-105' : ''
+              className={`group relative bg-white shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 ${
+                plan.popular ? 'ring-2 ring-[#309eb7] transform scale-105' : ''
               }`}
             >
               {/* Image Section */}
@@ -173,13 +173,13 @@ const MembershipSection = () => {
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
                   style={{ backgroundImage: `url(${plan.image})` }}
                 />
-                <div className="absolute inset-0 bg-black/40" />
-                <div className={`absolute top-0 right-0 ${plan.color} text-white px-4 py-2`}>
-                  <span className="text-sm font-medium">Starting from</span>
+                <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/40" />
+                <div className="absolute top-0 right-0 bg-[#309eb7] text-white px-6 py-3">
+                  <span className="text-sm font-medium block">Starting from</span>
                   <div className="text-2xl font-bold">{plan.price} UZS</div>
                 </div>
                 {plan.popular && (
-                  <div className="absolute top-0 left-0 bg-green-500 text-white px-4 py-2">
+                  <div className="absolute top-0 left-0 bg-[#309eb7] text-white px-6 py-3">
                     <Star className="inline-block mr-2" size={16} />
                     Most Popular
                   </div>
@@ -187,20 +187,20 @@ const MembershipSection = () => {
               </div>
 
               {/* Content Section */}
-              <div className="p-6">
-                <div className="text-sm font-semibold text-blue-600 mb-2">{plan.badge}</div>
-                <h3 className="text-2xl font-bold mb-2">{plan.title}</h3>
+              <div className="p-8">
+                <div className="text-sm font-semibold text-[#309eb7] mb-2">{plan.badge}</div>
+                <h3 className="text-2xl font-bold mb-3 text-gray-900">{plan.title}</h3>
                 <p className="text-gray-600 mb-6">{plan.description}</p>
-                <ul className="space-y-3 mb-6">
+                <ul className="space-y-4 mb-8">
                   {plan.features.map((feature, idx) => (
                     <li key={idx} className="flex items-start text-gray-600">
-                      <Check className={`w-5 h-5 ${plan.color} mr-2 flex-shrink-0 mt-0.5`} />
+                      <Check className="w-5 h-5 text-[#309eb7] mr-3 flex-shrink-0 mt-0.5" />
                       <span className="text-sm">{feature}</span>
                     </li>
                   ))}
                 </ul>
                 {plan.restrictions && (
-                  <div className="mb-6">
+                  <div className="mb-6 bg-gray-50 p-4">
                     <h4 className="font-semibold mb-2 text-sm text-gray-500">Restrictions:</h4>
                     <ul className="space-y-2">
                       {plan.restrictions.map((restriction, idx) => (
@@ -210,7 +210,7 @@ const MembershipSection = () => {
                   </div>
                 )}
                 {(plan.popularFeatures || plan.perfectFor || plan.businessBenefits) && (
-                  <div className="mb-6">
+                  <div className="mb-6 bg-gray-50 p-4">
                     <h4 className="font-semibold mb-2 text-sm text-gray-500">
                       {plan.popularFeatures ? "Popular Features:" : plan.perfectFor ? "Perfect For:" : "Business Benefits:"}
                     </h4>
@@ -221,17 +221,16 @@ const MembershipSection = () => {
                     </ul>
                   </div>
                 )}
-                <Link
-                  to="/membership"
-                  className={`inline-flex items-center ${plan.color} text-white py-2 px-4 hover:opacity-90 transition-opacity`}
+                <a
+                  href="https://t.me/+998770884977"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center w-full bg-[#309eb7] text-white py-3 px-6 hover:bg-[#2a8ca3] transition-colors duration-300"
                 >
-                  <span>Learn More</span>
+                  <span>Get Started</span>
                   <ArrowRight size={16} className="ml-2" />
-                </Link>
+                </a>
               </div>
-
-              {/* Corner Accent */}
-              <div className={`absolute top-0 left-0 w-16 h-16 ${plan.color} opacity-10`} />
             </motion.div>
           ))}
         </div>
@@ -266,7 +265,7 @@ const MembershipSection = () => {
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <div className="text-blue-600 mb-4">{benefit.icon}</div>
+                  <div className="text-[#309eb7] mb-4">{benefit.icon}</div>
                   <h3 className="text-lg font-semibold mb-2">{benefit.title}</h3>
                   <p className="text-gray-600 text-sm">{benefit.description}</p>
                 </motion.div>
@@ -297,7 +296,7 @@ const MembershipSection = () => {
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <div className="text-blue-600 mb-4">{benefit.icon}</div>
+                  <div className="text-[#309eb7] mb-4">{benefit.icon}</div>
                   <h3 className="text-lg font-semibold mb-2">{benefit.title}</h3>
                   <p className="text-gray-600 text-sm">{benefit.description}</p>
                 </motion.div>

@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useCallback } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 interface Product {
@@ -10,13 +10,14 @@ interface Product {
   link: string;
 }
 
+// Memoize products to prevent re-renders
 const products: Product[] = [
   {
     id: "springbond",
     category: "Non-Wovens",
     title: "SpringBond®",
     description: "The PU foam replacement technology for underlay",
-    image: "/images/product1.jpg",
+    image: "/images/product1.jpg.webp",
     link: "/",
   },
   {
@@ -24,7 +25,7 @@ const products: Product[] = [
     category: "Non-Wovens",
     title: "SpringBond UltraFlex®",
     description: "Bespoke high performance foam replacement solutions for the world's leading brands.",
-    image: "/images/product2.jpg",
+    image: "/images/product2.jpg.webp",
     link: "/",
   },
   {
@@ -32,7 +33,7 @@ const products: Product[] = [
     category: "Fibres & Fillings",
     title: "Hollow Conjugate Fibres",
     description: "A spring-like structure that adds extra loft, providing superior comfort and resilience.",
-    image: "/images/product3.jpg",
+    image: "/images/product3.jpg.webp",
     link: "/",
   },
   {
@@ -40,26 +41,21 @@ const products: Product[] = [
     category: "Fibres & Fillings",
     title: "Carded Fibres",
     description: "A soft, uniformly processed fibre ideal for hand-filling.",
-    image: "/images/product4.jpg",
+    image: "/images/product4.jpg.webp",
     link: "/",
   },
 ];
 
 const ProductSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const sliderRef = useRef<HTMLDivElement>(null);
+  
+  const nextSlide = useCallback(() => {
+    setCurrentIndex(prev => Math.min(prev + 1, products.length - 1));
+  }, []);
 
-  const nextSlide = () => {
-    if (currentIndex < products.length - 1) {
-      setCurrentIndex(currentIndex + 1);
-    }
-  };
-
-  const prevSlide = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
-    }
-  };
+  const prevSlide = useCallback(() => {
+    setCurrentIndex(prev => Math.max(prev - 1, 0));
+  }, []);
 
   return (
     <section className="py-16 bg-[#f5f5f5]">
@@ -87,15 +83,14 @@ const ProductSlider = () => {
           </div>
         </div>
 
-        <div className="overflow-hidden">
-          <div
-            ref={sliderRef}
-            className="flex transition-transform duration-500 ease-out"
+        <div className="overflow-hidden relative h-[500px]">
+          <div 
+            className="flex transition-transform duration-300 ease-out" 
             style={{ transform: `translateX(-${currentIndex * 100}%)` }}
           >
             {products.map((product) => (
-              <div key={product.id} className="min-w-full">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div key={product.id} className="min-w-full flex-shrink-0">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 h-full">
                   <div className="bg-white p-8">
                     <div className="mb-4 text-gray-600">{product.category}</div>
                     <h3 className="text-2xl md:text-3xl font-bold mb-4">{product.title}</h3>
@@ -111,7 +106,10 @@ const ProductSlider = () => {
                     <img
                       src={product.image}
                       alt={product.title}
-                      className="max-h-80 object-contain"
+                      width={800}
+                      height={500}
+                      className="object-cover"
+                      loading="lazy"
                     />
                   </div>
                 </div>

@@ -164,73 +164,46 @@ const HeroSection = () => {
     ];
   };
 
-  // Detect when section is in view
+  // Intersection Observer for video autoplay
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsInView(entry.isIntersecting);
-      },
-      { threshold: 0.3 }
+      ([entry]) => setIsInView(entry.isIntersecting),
+      { threshold: 0.5 }
     );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
   }, []);
 
-  // Auto-play when in view
+  // Lazy video play
   useEffect(() => {
-    if (isInView && videoRef.current) {
-      videoRef.current.play().catch((error) => {
-        console.error("Auto-play failed:", error);
-      });
-    }
+    if (!isInView || !videoRef.current) return;
+    videoRef.current.play().catch(console.error);
   }, [isInView]);
 
   return (
     <section 
       ref={sectionRef}
-      className="relative h-screen w-full overflow-hidden bg-black"
-      onMouseDown={handleMouseDown}
-      onMouseMove={handleMouseMove}
-      onMouseUp={handleMouseUp}
-      onMouseLeave={handleMouseLeave}
-      onTouchStart={handleTouchStart}
-      onTouchMove={handleTouchMove}
-      onTouchEnd={handleTouchEnd}
+      className="relative h-screen w-full bg-black"
     >
-      <div className="w-full h-full bg-black">
-        <div className="w-full h-full">
-          <video
-            ref={videoRef}
-            className="w-full h-full object-cover"
-            autoPlay
-            muted
-            loop
-            playsInline
-            poster="/fablab/1.jpg"
-            preload="auto"
-            onLoadedData={() => {
-              if (videoRef.current) {
-                videoRef.current.play().catch((error) => {
-                  console.error("Video play failed:", error);
-                });
-              }
-            }}
-          >
-            <source src="/video/FabLab video horizontal.mp4" type="video/mp4" />
-            {t('video.fallbackText')}
-          </video>
-        </div>
+      <div className="w-full h-full">
+        <video
+          ref={videoRef}
+          className="w-full h-full object-cover"
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster="/fablab/1.jpg.webp"
+          onLoadedData={() => {
+            if (videoRef.current) {
+              videoRef.current.play().catch(console.error);
+            }
+          }}
+        >
+          <source src="/video/FabLab video horizontal.mp4" type="video/mp4" />
+          {t('video.fallbackText')}
+        </video>
       </div>
-      
-      {/* Consistent black overlay for better text visibility */}
       <div className="absolute inset-0 bg-black/50 z-10"></div>
     </section>
   );

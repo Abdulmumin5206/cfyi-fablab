@@ -378,6 +378,13 @@ const MembershipSection = () => {
                   <span>Hands-on Projects</span>
                 </li>
               </ul>
+              <Link 
+                to="/training" 
+                className="mt-6 inline-flex items-center bg-white text-[#309eb7] px-6 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105"
+              >
+                Learn More
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Link>
             </div>
 
             {/* Image Side */}

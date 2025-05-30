@@ -1,91 +1,71 @@
+import React from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import { useTranslation } from "react-i18next";
 
-// Sample project data - replace with actual data when available
-// These should match the structure of your existing blog posts
-const recentProjects = [
-  {
-    id: 1,
-    titleKey: "projects.1.title",
-    excerptKey: "projects.1.excerpt",
-    image: "/blog_images/blog1.webp", 
-    categoryKey: "projects.1.category",
-    slug: "3d-printing-innovations" // Should match existing blog slugs
-  }
+const featureImage = "/main/3dprinting1.jpg";
+const cardImages = [
+  "/blog_images/1.webp",
+  "/main/prototyping1.webp",
+  "/main/scrolling1.webp"
+];
+
+const cardLinks = [
+  "/project/1",
+  "/project/2",
+  "/project/3"
 ];
 
 const RecentProjects = () => {
-  const { t } = useTranslation();
-
   return (
-    <section className="py-16 bg-gray-50">
-      <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-baseline mb-12">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-3">{t('projects.title')}</h2>
-              <p className="text-gray-600 max-w-2xl">
-                {t('projects.subtitle')}
-              </p>
+    <section className="py-8 sm:py-10 md:py-12 bg-white">
+      <div className="container mx-auto px-2 sm:px-4">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-8">Latest News</h2>
+        {/* Top Feature Card */}
+        <div className="w-full mb-4 sm:mb-6">
+          <div className="bg-white overflow-hidden flex flex-col md:flex-row h-full border-none">
+            <div className="w-full md:w-2/3 h-48 sm:h-64 md:h-96 relative">
+              <img
+                src={featureImage}
+                alt="Feature"
+                className="object-cover w-full h-full"
+              />
             </div>
-            <Link 
-              to="/blog"
-              className="text-brand-red hover:text-red-700 font-medium mt-4 md:mt-0 flex items-center gap-1 transition-colors"
+            <div className="w-full md:w-1/3 flex flex-col justify-center p-4 sm:p-6 md:p-8 bg-gray-50 border-t md:border-t-0 md:border-l border-gray-200">
+              <div className="uppercase text-xs font-semibold mb-2 text-gray-500">Blazing Fast Post-Curing</div>
+              <h3 className="text-base sm:text-lg md:text-xl font-bold mb-2 sm:mb-3">Form Cure (2nd Generation): Post-Cure Parts 2x-8.6x Faster</h3>
+              <p className="mb-3 sm:mb-4 text-gray-700 text-xs sm:text-sm">Introducing Form Cure (2nd Generation), offering blazing fast curing and nearly instant heat up time. Save 2x-8.6x in cure time over Form Cure (1st Generation) in a bigger cure that can fit any part printed on Form 4.</p>
+              <button className="bg-black text-white px-4 sm:px-5 py-2 rounded-none font-semibold w-max text-xs sm:text-sm">Learn More</button>
+            </div>
+          </div>
+        </div>
+        {/* Bottom Row: 3 Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+          {cardImages.map((img, idx) => (
+            <Link
+              to={cardLinks[idx]}
+              key={idx}
+              className="bg-white overflow-hidden shadow-lg flex flex-col h-full transition-transform hover:scale-105 focus:scale-105 outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-2 mb-4 md:mb-0 border-none"
+              tabIndex={0}
+              style={{ borderRadius: 0 }}
             >
-              {t('projects.viewAll')}
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-              </svg>
+              <div className="w-full h-52 sm:h-64 relative" style={{ borderRadius: 0 }}>
+                <img
+                  src={img}
+                  alt={`Project ${idx + 1}`}
+                  className="object-cover w-full h-full"
+                  style={{ borderRadius: 0 }}
+                />
+              </div>
+              <div className="p-3 sm:p-4 flex flex-col flex-1 justify-center" style={{ borderRadius: 0 }}>
+                <div className="uppercase text-[10px] sm:text-xs font-semibold mb-1 text-gray-500">Category</div>
+                <h4 className="text-xs sm:text-sm font-bold mb-1">Project Title {idx + 1}</h4>
+                <p className="text-gray-700 mb-1 sm:mb-2 text-xs sm:text-sm">Short description of the project goes here. This is placeholder text.</p>
+              </div>
             </Link>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {recentProjects.map((project, index) => (
-              <motion.article 
-                key={project.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="flex flex-col bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
-              >
-                <Link 
-                  to={`/blog/${project.slug}`} 
-                  className="block w-full pt-[100%] relative"
-                  style={{ 
-                    backgroundImage: `url(${project.image})`, 
-                    backgroundSize: '95% 95%',
-                    backgroundPosition: 'center center',
-                    backgroundRepeat: 'no-repeat',
-                  }}
-                >
-                  <div className="absolute top-3 left-3 z-10">
-                    <span className="bg-brand-red text-white text-xs font-medium px-2.5 py-1 rounded">
-                      {t(project.categoryKey)}
-                    </span>
-                  </div>
-                </Link>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2">
-                    <Link to={`/blog/${project.slug}`} className="text-gray-900 hover:text-brand-red transition-colors">
-                      {t(project.titleKey)}
-                    </Link>
-                  </h3>
-                  <p className="text-gray-600 mb-4 line-clamp-2">{t(project.excerptKey)}</p>
-                  <Link 
-                    to={`/blog/${project.slug}`}
-                    className="text-brand-red hover:text-red-700 font-medium flex items-center gap-1 transition-colors"
-                  >
-                    {t('projects.readMore')}
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                    </svg>
-                  </Link>
-                </div>
-              </motion.article>
-            ))}
-          </div>
+          ))}
+        </div>
+        {/* Read All News Button */}
+        <div className="flex justify-center mt-8 sm:mt-10">
+          <button className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 sm:py-3 px-6 sm:px-8 rounded-full text-base sm:text-lg transition-all">READ ALL NEWS</button>
         </div>
       </div>
     </section>

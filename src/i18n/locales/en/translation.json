@@ -266,6 +266,21 @@
       "title": "3D Printed Prototype Development",
       "excerpt": "Created a fully functional prototype using advanced 3D printing techniques for an Uzbek tech startup.",
       "category": "3D Printing"
+    },
+    "2": {
+      "title": "3D Scanning Solutions",
+      "excerpt": "Revolutionizing reverse engineering and quality control with our state-of-the-art 3D scanning technology.",
+      "category": "3D Scanning"
+    },
+    "3": {
+      "title": "UV Printing Excellence",
+      "excerpt": "Delivering high-quality, vibrant prints on various materials with our advanced UV printing capabilities.",
+      "category": "UV Printing"
+    },
+    "4": {
+      "title": "SLA Printing Innovation",
+      "excerpt": "Producing intricate, high-resolution parts with exceptional surface finish using our SLA printing technology.",
+      "category": "SLA Printing"
     }
   },
   "blog": {

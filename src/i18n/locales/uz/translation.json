@@ -45,8 +45,8 @@
     },
     "creativeWorkspace": {
       "title": "Zamonaviy Fab Labi",
-      "achievement": "Eng so‘nggi texnologiyalar. Cheksiz imkoniyatlar.",
-      "text": "Yaratuvchanlik va aniqlik uyg‘unlashgan jamoada siz ham innovatsiyalarning bir qismiga aylanasiz.."
+      "achievement": "Eng so'nggi texnologiyalar. Cheksiz imkoniyatlar.",
+      "text": "Yaratuvchanlik va aniqlik uyg'unlashgan jamoada siz ham innovatsiyalarning bir qismiga aylanasiz.."
     },
     "futureDevelopment": {
       "title": "Kelajak Rivojlanishi",
@@ -263,6 +263,21 @@
       "title": "3D bosib chiqarilgan prototip ishlab chiqarish",
       "excerpt": "O'zbek texnologik startapi uchun ilg'or 3D bosma texnologiyalaridan foydalangan holda to'liq funktsional prototip yaratildi.",
       "category": "3D Chop etish"
+    },
+    "2": {
+      "title": "3D skanerlash yechimlari",
+      "excerpt": "Bizning zamonaviy 3D skanerlash texnologiyamiz yordamida teskari muhandislik va sifat nazoratini inqilob qilish.",
+      "category": "3D Skanerlash"
+    },
+    "3": {
+      "title": "UV bosma mukammalligi",
+      "excerpt": "Bizning ilg'or UV bosma imkoniyatlarimiz yordamida turli materiallarga yuqori sifatli, yorqin bosma ta'minlash.",
+      "category": "UV Bosma"
+    },
+    "4": {
+      "title": "SLA bosma innovatsiyasi",
+      "excerpt": "Bizning SLA bosma texnologiyamizdan foydalangan holda ajoyib sirt yuzasi bilan murakkab, yuqori aniqlikdagi qismlarni ishlab chiqarish.",
+      "category": "SLA Bosma"
     }
   },
   "blog": {

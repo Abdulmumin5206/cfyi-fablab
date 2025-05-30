@@ -389,7 +389,7 @@ const MembershipSection = () => {
 
             {/* Image Side */}
             <div className="relative h-full min-h-[500px] md:min-h-[600px]">
-              <div className="absolute inset-0 bg-gradient-to-br from-black/60 to-transparent z-10" />
+              <div className="absolute inset-0 bg-gradient-to-br from-black/25 to-transparent z-10" />
               <img
                 src="/main/training/training.webp"
                 alt={t('training.imageAlt')}

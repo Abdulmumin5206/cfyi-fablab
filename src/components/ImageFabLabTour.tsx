@@ -186,27 +186,27 @@ const ImageFabLabTour = () => {
             } z-10 lg:z-0`}>
               <div className="space-y-4 md:space-y-6 lg:space-y-8 pr-0 lg:pr-8">
                 <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight">
-                  What We Have in FABLAB?
+                  Explore Our <span className="text-blue-600">Innovation Hub</span>
                 </h2>
                 <p className="text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed">
-                  Our state-of-the-art FabLab is equipped with cutting-edge technology and tools to bring your ideas to life. From 3D printing to CNC machining, we have everything you need to turn your concepts into reality.
+                  Welcome to our state-of-the-art FabLab, where your ideas come to life. We combine cutting-edge technology with expert guidance to bring your innovations to reality.
                 </p>
                 <ul className="space-y-3 md:space-y-4">
                   <li className="flex items-center space-x-3">
                     <span className="text-blue-600 text-lg md:text-xl">•</span>
-                    <span className="text-base md:text-lg lg:text-xl">Advanced 3D Printing Technology</span>
+                    <span className="text-base md:text-lg lg:text-xl">High-Precision 3D Printing & Prototyping</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <span className="text-blue-600 text-lg md:text-xl">•</span>
-                    <span className="text-base md:text-lg lg:text-xl">CNC Machining Equipment</span>
+                    <span className="text-base md:text-lg lg:text-xl">Advanced CNC & Laser Cutting Systems</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <span className="text-blue-600 text-lg md:text-xl">•</span>
-                    <span className="text-base md:text-lg lg:text-xl">Laser Cutting Systems</span>
+                    <span className="text-base md:text-lg lg:text-xl">Professional UV Printing & Sticker Production</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <span className="text-blue-600 text-lg md:text-xl">•</span>
-                    <span className="text-base md:text-lg lg:text-xl">Professional Design Software</span>
+                    <span className="text-base md:text-lg lg:text-xl">Expert Design & Engineering Support</span>
                   </li>
                 </ul>
               </div>
@@ -216,7 +216,7 @@ const ImageFabLabTour = () => {
             <div className={`w-full lg:ml-auto transition-all duration-500 ease-in-out ${
               isExpanded ? 'lg:w-full' : 'lg:w-2/3'
             }`}>
-              <div className="relative h-[400px] sm:h-[500px] md:h-[600px] lg:h-[600px] xl:h-[700px] rounded-lg overflow-hidden shadow-xl lg:ml-8">
+              <div className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[500px] xl:h-[600px] rounded-lg overflow-hidden shadow-xl lg:ml-8">
                 <img
                   src={activeImage}
                   alt="FabLab Tour"

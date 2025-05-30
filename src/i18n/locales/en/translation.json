@@ -58,24 +58,24 @@
     "subtitle": "Explore our range of fabrication services",
     "explorePrefix": "Explore",
     "3dPrinting": {
-      "title": "3D Printing",
-      "description": "Additive manufacturing for rapid prototyping and production"
+      "title": "3D Printing & Additive Manufacturing",
+      "description": "State-of-the-art additive manufacturing solutions for rapid prototyping and production"
     },
-    "mould": {
-      "title": "Moulding and Spare Parts",
-      "description": "Custom mold design and fabrication for various materials"
+    "molding": {
+      "title": "Molding & Production Services",
+      "description": "Comprehensive molding and production services for various materials and industries"
     },
-    "prototyping": {
-      "title": "Prototyping",
-      "description": "Turn your ideas into physical prototypes quickly"
+    "digitalFabrication": {
+      "title": "Digital Fabrication & Custom Products",
+      "description": "Advanced digital fabrication technologies for custom product development"
     },
-    "customFabrication": {
-      "title": "Custom Fabrication",
-      "description": "Bring ideas to life with laser cutting, CNC, and UV printing."
+    "precisionManufacturing": {
+      "title": "Precision Manufacturing",
+      "description": "High-precision manufacturing solutions for complex and critical components"
     },
-    "engineering": {
-      "title": "Engineering",
-      "description": "Engineering solutions spanning prototyping, tooling, and production components for innovative projects."
+    "3dScanning": {
+      "title": "3D Scanning & Reverse Engineering",
+      "description": "Advanced 3D scanning and reverse engineering services for product development"
     }
   },
   "industries": {

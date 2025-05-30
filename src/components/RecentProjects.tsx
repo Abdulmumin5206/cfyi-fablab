@@ -65,7 +65,7 @@ const RecentProjects = () => {
         </div>
         {/* Read All News Button */}
         <div className="flex justify-center mt-8 sm:mt-10">
-          <button className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 sm:py-3 px-6 sm:px-8 rounded-full text-base sm:text-lg transition-all">READ ALL NEWS</button>
+          <button className="bg-[#309eb7] hover:bg-[#2a8ca3] text-white font-bold py-2 sm:py-3 px-6 sm:px-8 rounded-none text-base sm:text-lg transition-all">READ ALL NEWS</button>
         </div>
       </div>
     </section>

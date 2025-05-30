@@ -93,9 +93,9 @@ const ContactSection = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="lg:col-span-2 bg-white rounded-xl shadow-lg overflow-hidden"
+              className="lg:col-span-2 bg-white shadow-lg overflow-hidden"
             >
-              <div className="bg-brand-red text-white p-8">
+              <div className="bg-[#309eb7] text-white p-8">
                 <h3 className="text-2xl font-bold mb-2">{t('contact.title')}</h3>
                 <p className="opacity-90">{t('contact.subtitle')}</p>
               </div>
@@ -137,7 +137,7 @@ const ContactSection = () => {
                     </div>
                     <div>
                       <h4 className="text-lg font-semibold text-gray-900 mb-1">{t('contact.emailContact')}</h4>
-                      <a href="mailto:info@cfyi.uz" className="text-brand-red hover:underline transition-colors">
+                      <a href="mailto:info@cfyi.uz" className="text-[#309eb7] hover:underline transition-colors">
                         info@cfyi.uz
                       </a>
                     </div>
@@ -185,7 +185,7 @@ const ContactSection = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="lg:col-span-3 bg-white rounded-xl shadow-lg overflow-hidden"
+              className="lg:col-span-3 bg-white shadow-lg overflow-hidden"
             >
               <div className="p-8 lg:p-10">
                 <h3 className="text-2xl font-bold mb-6">{t('contact.sendMessage')}</h3>
@@ -203,7 +203,7 @@ const ContactSection = () => {
                         onChange={handleChange}
                         placeholder={t('contact.namePlaceholder')}
                         required
-                        className="w-full border border-gray-300 rounded-md px-4 py-2.5 focus:ring-2 focus:ring-brand-red focus:border-transparent transition-all duration-200 bg-gray-50 hover:bg-white focus:bg-white"
+                        className="w-full border border-gray-300 rounded-none px-4 py-2.5 focus:ring-2 focus:ring-[#309eb7] focus:border-transparent transition-all duration-200 bg-gray-50 hover:bg-white focus:bg-white"
                       />
                     </div>
                     <div>
@@ -218,7 +218,7 @@ const ContactSection = () => {
                         onChange={handleChange}
                         placeholder={t('contact.emailPlaceholder')}
                         required
-                        className="w-full border border-gray-300 rounded-md px-4 py-2.5 focus:ring-2 focus:ring-brand-red focus:border-transparent transition-all duration-200 bg-gray-50 hover:bg-white focus:bg-white"
+                        className="w-full border border-gray-300 rounded-none px-4 py-2.5 focus:ring-2 focus:ring-[#309eb7] focus:border-transparent transition-all duration-200 bg-gray-50 hover:bg-white focus:bg-white"
                       />
                     </div>
                   </div>
@@ -232,7 +232,7 @@ const ContactSection = () => {
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder={t('contact.phonePlaceholder')}
-                      className="w-full border border-gray-300 rounded-md px-4 py-2.5 focus:ring-2 focus:ring-brand-red focus:border-transparent transition-all duration-200 bg-gray-50 hover:bg-white focus:bg-white"
+                      className="w-full border border-gray-300 rounded-none px-4 py-2.5 focus:ring-2 focus:ring-[#309eb7] focus:border-transparent transition-all duration-200 bg-gray-50 hover:bg-white focus:bg-white"
                     />
                   </div>
                   <div>
@@ -247,7 +247,7 @@ const ContactSection = () => {
                       placeholder={t('contact.messagePlaceholder')}
                       rows={5}
                       required
-                      className="w-full border border-gray-300 rounded-md px-4 py-2.5 focus:ring-2 focus:ring-brand-red focus:border-transparent transition-all duration-200 bg-gray-50 hover:bg-white focus:bg-white min-h-[150px] resize-y"
+                      className="w-full border border-gray-300 rounded-none px-4 py-2.5 focus:ring-2 focus:ring-[#309eb7] focus:border-transparent transition-all duration-200 bg-gray-50 hover:bg-white focus:bg-white min-h-[150px] resize-y"
                     />
                   </div>
                   
@@ -261,7 +261,7 @@ const ContactSection = () => {
                   
                   <Button
                     type="submit"
-                    className="w-full bg-brand-red hover:bg-red-700 text-white font-semibold py-3.5 px-6 text-md transition-colors rounded-md shadow-sm hover:shadow-md overflow-hidden group relative"
+                    className="w-full bg-[#309eb7] hover:bg-[#2a8ca3] text-white font-semibold py-3.5 px-6 text-md transition-colors rounded-none shadow-sm hover:shadow-md overflow-hidden group relative"
                     disabled={isSubmitting}
                   >
                     <span className="relative z-10">
@@ -277,7 +277,7 @@ const ContactSection = () => {
                         t('contact.send')
                       )}
                     </span>
-                    <span className="absolute top-0 left-0 w-full h-0 bg-red-800 transition-all duration-300 group-hover:h-full"></span>
+                    <span className="absolute top-0 left-0 w-full h-0 bg-[#2a8ca3] transition-all duration-300 group-hover:h-full"></span>
                   </Button>
                 </form>
               </div>
@@ -290,7 +290,7 @@ const ContactSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-16 rounded-xl overflow-hidden shadow-lg"
+            className="mt-16 overflow-hidden shadow-lg"
           >
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2996.6504900120997!2d69.312132!3d41.3205264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38aef5005adfee5b%3A0x40d4ef6aaf3894d6!2sCenter%20For%20Youth%20Initiatives!5e0!3m2!1sen!2suk!4v1719448231018!5m2!1sen!2suk"

@@ -186,7 +186,7 @@ const ImageFabLabTour = () => {
             } z-10 lg:z-0`}>
               <div className="space-y-4 md:space-y-6 lg:space-y-8 pr-0 lg:pr-8">
                 <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight">
-                  Explore Our <span className="text-blue-600">Innovation Hub</span>
+                  Explore Our <span className="text-[#309eb7]">Innovation Hub</span>
                 </h2>
                 <p className="text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed">
                   Welcome to our state-of-the-art FabLab, where your ideas come to life. We combine cutting-edge technology with expert guidance to bring your innovations to reality.
@@ -216,7 +216,7 @@ const ImageFabLabTour = () => {
             <div className={`w-full lg:ml-auto transition-all duration-500 ease-in-out ${
               isExpanded ? 'lg:w-full' : 'lg:w-2/3'
             }`}>
-              <div className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[500px] xl:h-[600px] rounded-lg overflow-hidden shadow-xl lg:ml-8">
+              <div className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[500px] xl:h-[600px] overflow-hidden shadow-xl lg:ml-8">
                 <img
                   src={activeImage}
                   alt="FabLab Tour"
@@ -256,16 +256,16 @@ const ImageFabLabTour = () => {
                       {point.isBackButton ? (
                         // Home icon for back button
                         <div className="relative">
-                          <div className="absolute inset-0 bg-blue-600 rounded-full animate-ping opacity-75"></div>
-                          <div className="relative bg-blue-600 rounded-full w-8 h-8 md:w-10 md:h-10 flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow duration-300">
+                          <div className="absolute inset-0 bg-[#309eb7] rounded-full animate-ping opacity-75"></div>
+                          <div className="relative bg-[#309eb7] rounded-full w-8 h-8 md:w-10 md:h-10 flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow duration-300">
                             <Home className="w-4 h-4 md:w-5 md:h-5 text-white" />
                           </div>
                         </div>
                       ) : (
                         // Regular dot for other points
                         <div className="relative">
-                          <div className="absolute inset-0 bg-blue-600 rounded-full animate-ping opacity-75"></div>
-                          <div className="relative bg-blue-600 rounded-full w-5 h-5 md:w-6 md:h-6 shadow-lg hover:shadow-xl transition-shadow duration-300"></div>
+                          <div className="absolute inset-0 bg-[#309eb7] rounded-full animate-ping opacity-75"></div>
+                          <div className="relative bg-[#309eb7] rounded-full w-5 h-5 md:w-6 md:h-6 shadow-lg hover:shadow-xl transition-shadow duration-300"></div>
                         </div>
                       )}
                     </div>

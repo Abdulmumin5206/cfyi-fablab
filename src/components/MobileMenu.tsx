@@ -118,16 +118,16 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
       color: "bg-[#cb2026]"
     },
     {
-      title: t('serviceCategories.mould.title'),
-      description: t('serviceCategories.mould.description'),
-      path: "/mould",
+      title: t('serviceCategories.molding.title'),
+      description: t('serviceCategories.molding.description'),
+      path: "/molding",
       image: "/mould/imhero.webp",
       color: "bg-[#0e9a48]"
     },
     {
-      title: t('serviceCategories.prototyping.title'),
-      description: t('serviceCategories.prototyping.description'),
-      path: "/engineering",
+      title: t('serviceCategories.digitalFabrication.title'),
+      description: t('serviceCategories.digitalFabrication.description'),
+      path: "/digital-fabrication",
       image: "/menu/form3plus-hero_main-v2.webp",
       color: "bg-[#35469d]"
     }
@@ -135,9 +135,11 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
 
   // Main services categories matching desktop dropdown
   const mainServices = [
-    { name: t('header.mould'), path: "/mould", color: "hover:text-[#0e9a48]" },
-    { name: t('header.3dPrinting'), path: "/3d-printing", color: "hover:text-[#cb2026]" },
-    { name: t('header.customFabrication'), path: "/custom-fabrication", color: "hover:text-[#35469d]" },
+    { name: t('serviceCategories.molding.title'), path: "/molding", color: "hover:text-[#0e9a48]" },
+    { name: t('serviceCategories.3dPrinting.title'), path: "/3d-printing", color: "hover:text-[#cb2026]" },
+    { name: t('serviceCategories.digitalFabrication.title'), path: "/digital-fabrication", color: "hover:text-[#35469d]" },
+    { name: t('serviceCategories.precisionManufacturing.title'), path: "/precision-manufacturing", color: "hover:text-[#8a2be2]" },
+    { name: t('serviceCategories.3dScanning.title'), path: "/3d-scanning", color: "hover:text-[#ff6b6b]" }
   ];
 
   return (
@@ -306,22 +308,22 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                         {t('header.3dPrinting')}
                       </Link>
                       <Link 
-                        to="/mould"
+                        to="/molding"
                         onClick={onClose}
                         className={`block ${isLargeScreen ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'} text-white hover:text-[#0e9a48] transition-colors duration-300 ${
                           isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                         }`}
                       >
-                        {t('header.mould')}
+                        {t('serviceCategories.molding.title')}
                       </Link>
                       <Link 
-                        to="/custom-fabrication"
+                        to="/digital-fabrication"
                         onClick={onClose}
                         className={`block ${isLargeScreen ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'} text-white hover:text-[#35469d] transition-colors duration-300 ${
                           isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                         }`}
                       >
-                        {t('header.customFabrication')}
+                        {t('serviceCategories.digitalFabrication.title')}
                       </Link>
                       <Link 
                         to="/blog"

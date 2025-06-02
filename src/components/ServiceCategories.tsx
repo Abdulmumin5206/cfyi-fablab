@@ -35,7 +35,7 @@ const ServiceCategories = () => {
       titleKey: "serviceCategories.3dPrinting.title",
       descriptionKey: "serviceCategories.3dPrinting.description",
       images: [
-        "/main/3dprinting1.jpg",
+        "/main/3dprinting1.webp",
         "/main/3dprinting2.jpg",
         "/main/3dprinting3.jpg",
       ],
@@ -49,7 +49,7 @@ const ServiceCategories = () => {
       titleKey: "serviceCategories.molding.title",
       descriptionKey: "serviceCategories.molding.description",
       images: [
-        "/main/spareparts1.webp",
+        "/main/spareparts1.jpg",
         "/main/sparepart2.webp",
         "/main/molding1.jpg",
         "/main/molding2.jpg",
@@ -79,7 +79,7 @@ const ServiceCategories = () => {
       titleKey: "serviceCategories.precisionManufacturing.title",
       descriptionKey: "serviceCategories.precisionManufacturing.description",
       images: [
-        "/fablab/13.jpg",
+        "/main/scrolling2.webp",
         "/fablab/1.jpg",
         "/fablab/11.jpg",
         "/fablab/12.jpg"
@@ -94,7 +94,7 @@ const ServiceCategories = () => {
       titleKey: "serviceCategories.3dScanning.title",
       descriptionKey: "serviceCategories.3dScanning.description",
       images: [
-        "/prototyping/Design.jpeg",
+        "/main/scanner.webp",
         "/prototyping/Prototype.webp",
         "/prototyping/Manufacture.webp",
         "/prototyping/Design.jpeg"

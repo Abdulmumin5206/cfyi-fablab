@@ -14,7 +14,7 @@ const TrainingSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="bg-gradient-to-r from-[#309eb7] to-[#2a8ca3] overflow-hidden rounded-2xl"
+          className="bg-gradient-to-r from-[#309eb7] to-[#2a8ca3] overflow-hidden"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Content Side */}

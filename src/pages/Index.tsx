@@ -8,6 +8,7 @@ import ScrollImageSlider from "@/components/ScrollImageSlider";
 import ImageFabLabTour from "@/components/ImageFabLabTour";
 import AboutUsSection from "@/components/AboutUsSection";
 import MembershipSection from "@/components/MembershipSection";
+import TrainingSection from "@/components/TrainingSection";
 
 const Index = () => {
   return (
@@ -19,6 +20,7 @@ const Index = () => {
         <AboutUsSection />
         <ScrollImageSlider />
         <MembershipSection />
+        <TrainingSection />
         <ImageFabLabTour />
         <RecentProjects />
         <ContactSection />

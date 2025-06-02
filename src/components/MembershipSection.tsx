@@ -261,7 +261,7 @@ const MembershipSection = () => {
   ), []);
 
   return (
-    <section className="py-16 bg-gray-50 relative overflow-hidden">
+    <section className="py-16 bg-gray-200 relative overflow-hidden">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-left mb-10">
@@ -284,24 +284,19 @@ const MembershipSection = () => {
         {/* Universal Benefits with optimized animation */}
         <div className="space-y-4 mb-10">
           {/* First Row - Moving Left */}
-          {/* We wrap the motion.div in a div with overflow-hidden to clip the content */}
           <div className="relative overflow-hidden">
             <motion.div 
               className="flex space-x-4 will-change-transform"
-              // Animate from 0 to negative of the full width of one set of cards
-              // We've duplicated the content three times, so to make it seamless,
-              // we animate the width of one set and then immediately reset.
-              // For a true infinite loop, the `animate` prop with `repeat: Infinity` is superior.
               animate={{ x: [`0px`, `-${firstRowSetWidth + GAP_WIDTH}px`] }}
               transition={{
                 x: {
                   repeat: Infinity,
                   repeatType: "loop",
-                  duration: 20, // Adjust duration for desired speed
+                  duration: 20,
                   ease: "linear",
                 },
               }}
-              style={{ width: 'fit-content' }} // Ensures the content takes its natural width
+              style={{ width: 'fit-content' }}
             >
               {duplicatedFirstRow.map((benefit, index) => (
                 <div
@@ -320,13 +315,12 @@ const MembershipSection = () => {
           <div className="relative overflow-hidden">
             <motion.div 
               className="flex space-x-4 will-change-transform"
-              // Animate from negative of the full width of one set of cards back to 0
               animate={{ x: [`-${secondRowSetWidth + GAP_WIDTH}px`, `0px`] }}
               transition={{
                 x: {
                   repeat: Infinity,
                   repeatType: "loop",
-                  duration: 20, // Adjust duration for desired speed
+                  duration: 20,
                   ease: "linear",
                 },
               }}
@@ -345,64 +339,7 @@ const MembershipSection = () => {
             </motion.div>
           </div>
         </div>
-
-        {/* Training Preview Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="mt-16 bg-gradient-to-r from-[#309eb7] to-[#2a8ca3] overflow-hidden"
-        >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Content Side */}
-            <div className="flex flex-col justify-center p-8 md:p-12">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
-                Master Your Skills
-              </h2>
-              <p className="text-white/90 text-lg mb-6">
-                From beginner workshops to advanced masterclasses, discover our comprehensive 
-                training programs designed to elevate your making journey.
-              </p>
-              <ul className="space-y-3">
-                <li className="flex items-center text-white">
-                  <Check className="w-5 h-5 mr-2" />
-                  <span>Structured Learning</span>
-                </li>
-                <li className="flex items-center text-white">
-                  <Check className="w-5 h-5 mr-2" />
-                  <span>Expert Instructors</span>
-                </li>
-                <li className="flex items-center text-white">
-                  <Check className="w-5 h-5 mr-2" />
-                  <span>Hands-on Projects</span>
-                </li>
-              </ul>
-              <Link 
-                to="/training" 
-                className="mt-6 inline-flex items-center bg-white text-[#309eb7] px-6 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105"
-              >
-                Learn More
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Link>
-            </div>
-
-            {/* Image Side */}
-            <div className="relative h-full min-h-[500px] md:min-h-[600px]">
-              <div className="absolute inset-0 bg-gradient-to-br from-black/25 to-transparent z-10" />
-              <img
-                src="/main/training/training.webp"
-                alt={t('training.imageAlt')}
-                className="w-full h-full object-cover"
-                loading="lazy"
-                width={800}
-                height={600}
-              />
-            </div>
-          </div>
-        </motion.div>
       </div>
-      {/* Remove the style block with @keyframes as it's no longer needed */}
     </section>
   );
 };

@@ -153,11 +153,11 @@ const ServiceCategories = () => {
       aria-label="Our Services"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1600px] relative z-10">
-        <div className="text-left mb-8 sm:mb-12 md:mb-16 lg:mb-20">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 text-black">
+        <div className="text-left mb-4 sm:mb-6 md:mb-8 lg:mb-10">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 text-black font-['Magistral']">
             {t('serviceCategories.title')}
           </h2>
-          <p className="text-gray-700 text-lg mb-8 sm:mb-12">
+          <p className="text-gray-700 text-lg mb-4 sm:mb-6 font-['Magistral']">
             {t('serviceCategories.subtitle')}
           </p>
         </div>
@@ -191,18 +191,18 @@ const ServiceCategories = () => {
                 ))}
                 
                 <div className={`absolute bottom-0 left-0 right-0 ${category.color} py-3 px-4`}>
-                  <p className="text-white font-medium text-base">
+                  <p className="text-white font-medium text-base font-['Magistral']">
                     {t(category.titleKey)}
                   </p>
                 </div>
               </div>
               
               <div className="px-4">
-                <p className="text-sm leading-relaxed mb-4 text-gray-700">
+                <p className="text-sm leading-relaxed mb-4 text-gray-700 font-['Magistral']">
                   {t(category.descriptionKey)}
                 </p>
 
-                <div className={`inline-flex items-center ${category.color} text-white py-2 px-4`}>
+                <div className={`inline-flex items-center ${category.color} text-white py-2 px-4 font-['Magistral']`}>
                   <span className="text-sm">{`${t('serviceCategories.explorePrefix')} ${t(category.buttonTextKey)}`}</span>
                   <ArrowRight size={16} className="ml-2" />
                 </div>
@@ -265,7 +265,7 @@ const ServiceCategories = () => {
                       ))}
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300" />
                       <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-300">
-                        <span className="text-white text-xl sm:text-2xl lg:text-3xl font-bold drop-shadow-lg text-center px-4 select-none">
+                        <span className="text-white text-xl sm:text-2xl lg:text-3xl font-bold drop-shadow-lg text-center px-4 select-none font-['Magistral']">
                           {t(category.titleKey)}
                         </span>
                       </div>
@@ -276,17 +276,17 @@ const ServiceCategories = () => {
                       style={{ backgroundColor: hoveredIndex === index ? '#329db7' : '#fff' }}
                     >
                       <div>
-                        <span className="block text-gray-500 text-sm sm:text-base mb-2 transition-colors duration-300">
+                        <span className="block text-gray-500 text-sm sm:text-base mb-2 transition-colors duration-300 font-['Magistral']">
                           {t(category.logoText) || t(category.titleKey)}
                         </span>
-                        <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-2 transition-colors duration-300">
+                        <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-2 transition-colors duration-300 font-['Magistral']">
                           {t(category.titleKey)}
                         </h3>
-                        <p className="text-gray-700 leading-relaxed text-sm sm:text-base transition-colors duration-300">
+                        <p className="text-gray-700 leading-relaxed text-sm sm:text-base transition-colors duration-300 font-['Magistral']">
                           {t(category.descriptionKey)}
                         </p>
                       </div>
-                      <div className="flex items-center absolute left-4 sm:left-6 lg:left-8 bottom-[-64px] group-hover:bottom-6 lg:group-hover:bottom-8 bg-black text-white py-2 sm:py-3 px-6 sm:px-8 transition-all duration-300 text-base lg:text-lg">
+                      <div className="flex items-center absolute left-4 sm:left-6 lg:left-8 bottom-[-64px] group-hover:bottom-6 lg:group-hover:bottom-8 bg-black text-white py-2 sm:py-3 px-6 sm:px-8 transition-all duration-300 text-base lg:text-lg font-['Magistral']">
                         <span>Learn More</span>
                         <ArrowRight size={18} className="ml-2" />
                       </div>

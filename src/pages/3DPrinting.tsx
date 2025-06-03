@@ -31,10 +31,10 @@ const ThreeDPrintingPage = () => {
     window.scrollTo(0, 0);
     
     // Update document title
-    document.title = t("3dPrinting.hero.title") + " | FabLab";
+    document.title = "3D Printing Services | Modern Glide Design";
     
     console.log("3D Printing page mounted");
-  }, [t]);
+  }, []);
 
   const handleVideoError = (e: React.SyntheticEvent<HTMLVideoElement, Event>) => {
     console.error("Video failed to load", e);
@@ -89,97 +89,118 @@ const ThreeDPrintingPage = () => {
           </div>
         </section>
 
-        {/* --- SLA 3D Printing Services Section (Distinct, after Hero) --- */}
-        <section id="sla-printing-services" className="bg-white py-16 md:py-24">
+        {/* Minimalist Content Section */}
+        <section className="bg-white py-16 md:py-24 overflow-visible">
           <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col lg:flex-row items-center">
-              {/* Left side image */}
-              <div className="w-full lg:w-2/3 mb-12 lg:mb-0 pr-0 lg:pr-8">
-                <div className="relative w-full">
-                  <img 
-                    src="/fablab/optimized_for_web_jpeg-03072024_dsl_core_set_311.webp" 
-                    alt="3D Printing Equipment Core Set" 
-                    className="w-full aspect-auto object-cover h-auto max-h-[800px]"
-                  />
+            <div className="flex flex-col lg:flex-row items-start gap-12">
+              {/* Left side with two image containers */}
+              <div className="w-full lg:w-1/2 relative pt-16">
+                {/* First image container - larger and in front */}
+                <div className="relative z-30 w-[55%] ml-auto transform translate-y-2 transition-transform hover:-translate-y-1">
+                  <div className="aspect-[5/6] relative overflow-hidden shadow-2xl rounded-xl bg-white hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] transition-all duration-300">
+                    <img 
+                      src="/3dprinters/slaprinters.webp" 
+                      alt="Professional 3D Printing Equipment" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+
+                {/* Second image container - smaller and behind */}
+                <div className="absolute top-4 left-0 w-[50%] z-10 transition-transform hover:-translate-y-1">
+                  <div className="aspect-[7/8] relative overflow-hidden shadow-xl rounded-xl bg-white hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] transition-all duration-300">
+                    <img 
+                      src="/3dprinters/hero22.webp" 
+                      alt="FDM 3D Printing Solutions" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                 </div>
               </div>
+
               {/* Right side content */}
-              <div className="w-full lg:w-1/2 pl-0 lg:pl-10">
-                <div className="text-[#329db7] font-medium mb-2">{t("3dPrinting.hero.subtitle")}</div>
-                <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight text-gray-900">{t("3dPrinting.hero.title")}</h1>
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <div className="flex-shrink-0 mt-1">
-                      <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
-                        <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                      </div>
-                    </div>
-                    <p className="text-gray-700">{t("3dPrinting.hero.features.precision")}</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="flex-shrink-0 mt-1">
-                      <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
-                        <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                      </div>
-                    </div>
-                    <p className="text-gray-700">{t("3dPrinting.hero.features.materials")}</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <div className="flex-shrink-0 mt-1">
-                      <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
-                        <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                      </div>
-                    </div>
-                    <p className="text-gray-700">{t("3dPrinting.hero.features.applications")}</p>
-                  </div>
-                </div>
-                <div className="mt-8 flex flex-col sm:flex-row gap-4">
-                  <a href="#" className="inline-block bg-[#329db7] text-white font-medium px-6 py-3 rounded-md hover:bg-[#2b86a0] transition-colors text-center">
-                    {t("3dPrinting.hero.buttons.quote")}
-                  </a>
-                  <a href="#" className="inline-block bg-white text-[#329db7] font-medium px-6 py-3 rounded-md border border-[#329db7] hover:bg-[#f0f7fa] transition-colors text-center">
-                    {t("3dPrinting.hero.buttons.samples")}
-                  </a>
+              <div className="w-full lg:w-1/2">
+                <div className="max-w-xl mx-auto text-center lg:text-left flex flex-col items-center lg:items-start">
+                  <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight text-gray-900">
+                    Know your manufacturing needs, like you know your business.
+                  </h2>
+                  
+                  <p className="text-lg text-gray-600 mb-8">
+                    From rapid prototyping to end-use parts, our advanced 3D printing solutions deliver precision-engineered results that adapt to your specific requirements. We combine cutting-edge technology with deep expertise to transform your ideas into reality, ensuring each project meets the highest standards of quality and accuracy.
+                  </p>
+
+                  <button className="inline-flex items-center px-6 py-3 bg-[#329db7] text-white rounded-lg hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
+                    Get Started Today
+                  </button>
                 </div>
               </div>
             </div>
           </div>
         </section>
-        
-        {/* Hero section with video on right side - Moved here */}
-        <section className="relative bg-white text-gray-900">
-          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 flex flex-col lg:flex-row items-center">
+
+        {/* Hero section with materials grid */}
+        <section className="relative bg-white text-gray-900 border-t border-gray-100 pt-24 md:pt-32">
+          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 flex flex-col lg:flex-row items-start">
             {/* Left side content */}
-            <div className="w-full lg:w-1/2 mb-12 lg:mb-0 pr-0 lg:pr-10">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+            <div className="w-full lg:w-1/2 mb-12 lg:mb-0 pr-0 lg:pr-16">
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight text-[#1a2b4b]">
                 {t('3dPrinting.materials.tackleAnyProblem')}
               </h1>
-              <div className="flex flex-wrap gap-2 mb-8">
-                {materialTypeKeys.map((key) => (
-                  <button key={key} className="flex items-center gap-2 bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-md text-sm">
-                    <span>{t(`3dPrinting.materials.types.${key}`)}</span>
-                  </button>
-                ))}
-              </div>
-              <button className="bg-[#329db7] hover:bg-[#2b86a0] text-white px-6 py-3 rounded-md font-medium">
+              <p className="text-gray-600 text-lg mb-8">
+                Whatever you're using to create demand, convert intent, and manage your materials, we integrate with it.
+              </p>
+              <button className="bg-[#329db7] hover:bg-[#2b86a0] text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
                 {t('3dPrinting.materials.requestSample')}
               </button>
             </div>
             
-            {/* Right side video */}
-            <div className="w-full lg:w-3/4 lg:pl-8">
-              <div className="relative w-full">
-                <img 
-                  src="/3dprinters/Hero2.webp" 
-                  alt="Industry-leading materials" 
-                  className="w-full object-contain h-auto max-h-[800px]"
-                />
+            {/* Right side floating cards grid */}
+            <div className="w-full lg:w-1/2 lg:pl-8">
+              <div className="relative w-full min-h-[600px]">
+                {/* Grid of floating material cards */}
+                <div className="relative min-h-[600px]">
+                  {[
+                    // First column
+                    { top: '15%', left: '25%' },
+                    { top: '45%', left: '25%' },
+                    { top: '75%', left: '25%' },
+                    
+                    // Second column
+                    { top: '30%', left: '50%' },
+                    { top: '60%', left: '50%' },
+                    
+                    // Third column
+                    { top: '15%', left: '75%' },
+                    { top: '45%', left: '75%' },
+                    { top: '75%', left: '75%' }
+                  ].map((item, index) => (
+                    <div
+                      key={index}
+                      className="absolute"
+                      style={{
+                        top: item.top,
+                        left: item.left,
+                        transform: 'translate(-50%, -50%)'
+                      }}
+                    >
+                      <img
+                        src="/3dprinters/hero22.webp"
+                        alt={`Integration ${index + 1}`}
+                        className="w-[140px] h-[140px] object-contain"
+                      />
+                    </div>
+                  ))}
+                </div>
+
+                {/* Subtle gradient background */}
+                <div className="absolute inset-0 -z-10">
+                  <div 
+                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-[700px] max-h-[600px]"
+                    style={{
+                      background: 'radial-gradient(circle at center, rgba(50,157,183,0.08) 0%, rgba(50,157,183,0) 70%)'
+                    }}
+                  ></div>
+                </div>
               </div>
             </div>
           </div>

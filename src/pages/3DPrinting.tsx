@@ -90,7 +90,7 @@ const ThreeDPrintingPage = () => {
         </section>
 
         {/* Minimalist Content Section */}
-        <section className="bg-white py-16 md:py-24 overflow-visible">
+        <section className="bg-[#f7f7f7] py-16 md:py-24 overflow-visible">
           <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col lg:flex-row items-start gap-12">
               {/* Left side with two image containers */}
@@ -139,7 +139,7 @@ const ThreeDPrintingPage = () => {
         </section>
 
         {/* Hero section with materials grid */}
-        <section className="relative bg-white text-gray-900 border-t border-gray-100 pt-24 md:pt-32">
+        <section className="relative bg-white text-gray-900 border-t border-gray-100 pt-16 md:pt-24">
           <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 flex flex-col lg:flex-row items-start">
             {/* Left side content */}
             <div className="w-full lg:w-1/2 mb-12 lg:mb-0 pr-0 lg:pr-16">
@@ -155,26 +155,32 @@ const ThreeDPrintingPage = () => {
             </div>
             
             {/* Right side floating cards grid */}
-            <div className="w-full lg:w-1/2 lg:pl-8">
+            <div className="w-full lg:w-1/2 lg:pl-8 -mt-32">
               <div className="relative w-full min-h-[600px]">
                 {/* Grid of floating cards */}
                 <div className="relative min-h-[600px]">
                   {[
                     // First column - 3 images
-                    { top: '20%', left: '25%' },
-                    { top: '50%', left: '25%' },
-                    { top: '80%', left: '25%' },
+                    { top: '20%', left: '15%' },
+                    { top: '50%', left: '15%' },
+                    { top: '80%', left: '15%' },
                     
-                    // Middle column - 4 images
-                    { top: '15%', left: '50%' },
-                    { top: '40%', left: '50%' },
-                    { top: '65%', left: '50%' },
-                    { top: '90%', left: '50%' },
+                    // Second column - 4 images
+                    { top: '15%', left: '38%' },
+                    { top: '40%', left: '38%' },
+                    { top: '65%', left: '38%' },
+                    { top: '90%', left: '38%' },
                     
-                    // Last column - 3 images
-                    { top: '25%', left: '75%' },
-                    { top: '50%', left: '75%' },
-                    { top: '75%', left: '75%' }
+                    // Third column - 3 images
+                    { top: '20%', left: '61%' },
+                    { top: '50%', left: '61%' },
+                    { top: '80%', left: '61%' },
+
+                    // Fourth column - 4 images
+                    { top: '15%', left: '84%' },
+                    { top: '40%', left: '84%' },
+                    { top: '65%', left: '84%' },
+                    { top: '90%', left: '84%' }
                   ].map((item, index) => (
                     <div
                       key={index}
@@ -186,7 +192,7 @@ const ThreeDPrintingPage = () => {
                       }}
                     >
                       <div className="relative group">
-                        <div className="w-[140px] h-[140px] overflow-hidden rounded-2xl shadow-[0_8px_20px_rgba(0,0,0,0.1)] group-hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] transition-all duration-300">
+                        <div className="w-[120px] h-[120px] overflow-hidden rounded-2xl shadow-[0_8px_20px_rgba(0,0,0,0.1)] group-hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] transition-all duration-300">
                           <img
                             src="/3dprinters/hero22.webp"
                             alt={`Integration ${index + 1}`}
@@ -211,70 +217,41 @@ const ThreeDPrintingPage = () => {
             </div>
           </div>
         </section>
-        
-        {/* SLA 3D Printing Equipment Section - Modern Card Layout */}
-        <section className="py-16 md:py-24 bg-gray-50">
+
+        {/* Instagram Reels Section */}
+        <section className="py-12 md:py-16 bg-gray-50">
           <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl md:text-4xl font-bold mb-10 md:mb-16 text-center">{t("3dPrinting.equipment.title")}</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {/* Form 4 Card */}
-              <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
-                <div className="w-full h-32 md:h-36 bg-gray-100 relative">
-                  <img src="/3dprinters/1.formlabs-form3-01_2_1.webp" alt="Form 4 background" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
-                </div>
-                <div className="-mt-16 z-10 flex justify-center w-full">
-                  <img src="/3dprinters/formlabs-form3-01_2_1.webp" alt="Form 4" className="w-48 h-56 object-contain" />
-                </div>
-                <div className="flex flex-col items-center justify-center px-8 pt-6 pb-8 w-full text-center">
-                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center mt-2">MAXIMUM VERSATILITY</div>
-                  <h3 className="text-2xl font-bold mb-3 text-center">{t("3dPrinting.equipment.sla.items.form3.title")}</h3>
-                  <p className="text-gray-700 mb-4 text-center text-base">{t("3dPrinting.equipment.sla.items.form3.description")}</p>
-                  <hr className="w-12 border-t border-gray-200 my-3" />
-                </div>
+            <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+              {/* Left side content */}
+              <div className="w-full md:w-1/2 lg:w-2/5">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+                  Behind the Scenes
+                </h2>
+                <p className="text-gray-600 mb-6">
+                  Follow our journey and discover how we bring your ideas to life through cutting-edge 3D printing technology.
+                </p>
+                <a 
+                  href="https://www.instagram.com/reel/DJD-FBzMS-N/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#329db7] text-white rounded-lg hover:bg-[#2b86a0] transition-colors"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                  </svg>
+                  Follow Us on Instagram
+                </a>
               </div>
-              {/* Form 4L Card */}
-              <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
-                <div className="w-full h-32 md:h-36 bg-gray-100 relative">
-                  <img src="/3dprinters/1.Phrozen.webp" alt="Form 4L background" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
-                </div>
-                <div className="-mt-16 z-10 flex justify-center w-full">
-                  <img src="/3dprinters/Phrozen.webp" alt="Form 4L" className="w-48 h-56 object-contain" />
-                </div>
-                <div className="flex flex-col items-center justify-center px-8 pt-6 pb-8 w-full text-center">
-                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center mt-2">THINK BIG</div>
-                  <h3 className="text-2xl font-bold mb-3 text-center">{t("3dPrinting.equipment.sla.items.phrozenMega.title")}</h3>
-                  <p className="text-gray-700 mb-4 text-center text-base">{t("3dPrinting.equipment.sla.items.phrozenMega.description")}</p>
-                  <hr className="w-12 border-t border-gray-200 my-3" />
-                </div>
-              </div>
-              {/* Fuse 1+ 30W Card */}
-              <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
-                <div className="w-full h-32 md:h-36 bg-gray-100 relative">
-                  <img src="/3dprinters/1.Phrozen mini.webp" alt="Fuse 1+ 30W background" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
-                </div>
-                <div className="-mt-16 z-10 flex justify-center w-full">
-                  <img src="/3dprinters/Phrozen mini.webp" alt="Fuse 1+ 30W" className="w-48 h-56 object-contain" />
-                </div>
-                <div className="flex flex-col items-center justify-center px-8 pt-6 pb-8 w-full text-center">
-                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center mt-2">HIGHEST PERFORMANCE</div>
-                  <h3 className="text-2xl font-bold mb-3 text-center">{t("3dPrinting.equipment.sla.items.phrozenMini.title")}</h3>
-                  <p className="text-gray-700 mb-4 text-center text-base">{t("3dPrinting.equipment.sla.items.phrozenMini.description")}</p>
-                  <hr className="w-12 border-t border-gray-200 my-3" />
-                </div>
-              </div>
-              {/* Prusa i3 MK3S+ Card */}
-              <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
-                <div className="w-full h-32 md:h-36 bg-gray-100 relative">
-                  <img src="/3dprinters/1.prusa.webp" alt="Prusa i3 MK3S+ background" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
-                </div>
-                <div className="-mt-16 z-10 flex justify-center w-full">
-                  <img src="/3dprinters/Prusa.webp" alt="Prusa i3 MK3S+" className="w-48 h-56 object-contain" />
-                </div>
-                <div className="flex flex-col items-center justify-center px-8 pt-6 pb-8 w-full text-center">
-                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center mt-2">RELIABLE PERFORMANCE</div>
-                  <h3 className="text-2xl font-bold mb-3 text-center">{t("3dPrinting.equipment.sla.items.prusa.title")}</h3>
-                  <p className="text-gray-700 mb-4 text-center text-base">{t("3dPrinting.equipment.sla.items.prusa.description")}</p>
-                  <hr className="w-12 border-t border-gray-200 my-3" />
+
+              {/* Right side reel */}
+              <div className="w-full md:w-1/2 lg:w-3/5 flex justify-center md:justify-end">
+                <div className="w-full max-w-[400px] aspect-[9/16] rounded-xl overflow-hidden shadow-xl">
+                  <iframe
+                    className="w-full h-full"
+                    src="https://www.instagram.com/reel/DJD-FBzMS-N/embed"
+                    frameBorder="0"
+                    allowFullScreen
+                  ></iframe>
                 </div>
               </div>
             </div>
@@ -423,46 +400,6 @@ const ThreeDPrintingPage = () => {
         
         {/* FDM Materials Section */}
         <FdmFilaments />
-
-        {/* Instagram Reels Section */}
-        <section className="py-12 md:py-16 bg-gray-50">
-          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-              {/* Left side content */}
-              <div className="w-full md:w-1/2 lg:w-2/5">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
-                  Behind the Scenes
-                </h2>
-                <p className="text-gray-600 mb-6">
-                  Follow our journey and discover how we bring your ideas to life through cutting-edge 3D printing technology.
-                </p>
-                <a 
-                  href="https://www.instagram.com/reel/DJD-FBzMS-N/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#329db7] text-white rounded-lg hover:bg-[#2b86a0] transition-colors"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                  </svg>
-                  Follow Us on Instagram
-                </a>
-              </div>
-
-              {/* Right side reel */}
-              <div className="w-full md:w-1/2 lg:w-3/5 flex justify-center md:justify-end">
-                <div className="w-full max-w-[400px] aspect-[9/16] rounded-xl overflow-hidden shadow-xl">
-                  <iframe
-                    className="w-full h-full"
-                    src="https://www.instagram.com/reel/DJD-FBzMS-N/embed"
-                    frameBorder="0"
-                    allowFullScreen
-                  ></iframe>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
 
       </main>
 

@@ -22,6 +22,7 @@ const HeroSection = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isInView, setIsInView] = useState(false);
+  const [isVideoLoading, setIsVideoLoading] = useState(true);
 
   const handleScrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
     e.preventDefault();
@@ -177,7 +178,10 @@ const HeroSection = () => {
   // Lazy video play
   useEffect(() => {
     if (!isInView || !videoRef.current) return;
-    videoRef.current.play().catch(console.error);
+    videoRef.current.play().catch(error => {
+      console.error('Video playback error:', error);
+      setIsVideoLoading(false);
+    });
   }, [isInView]);
 
   return (
@@ -186,6 +190,11 @@ const HeroSection = () => {
       className="relative h-screen w-full bg-black"
     >
       <div className="w-full h-full">
+        {isVideoLoading && (
+          <div className="absolute inset-0 flex items-center justify-center bg-black z-20">
+            <div className="w-12 h-12 border-4 border-blue-500/20 border-t-blue-500 rounded-full animate-spin"></div>
+          </div>
+        )}
         <video
           ref={videoRef}
           className="w-full h-full object-cover"
@@ -195,16 +204,24 @@ const HeroSection = () => {
           preload="metadata"
           poster="/fablab/1.jpg.webp"
           onLoadedData={() => {
+            setIsVideoLoading(false);
             if (videoRef.current) {
-              videoRef.current.play().catch(console.error);
+              videoRef.current.play().catch(error => {
+                console.error('Video playback error:', error);
+                setIsVideoLoading(false);
+              });
             }
+          }}
+          onError={(e) => {
+            console.error('Video loading error:', e);
+            setIsVideoLoading(false);
           }}
         >
           <source src="/video/FabLab video horizontal.mp4" type="video/mp4" />
           {t('video.fallbackText')}
         </video>
+        <div className="absolute inset-0 bg-black/50 z-10"></div>
       </div>
-      <div className="absolute inset-0 bg-black/50 z-10"></div>
     </section>
   );
 };

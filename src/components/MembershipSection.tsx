@@ -86,6 +86,31 @@ const MembershipSection = () => {
         "Professional credibility",
         "Network with entrepreneurs"
       ]
+    },
+    {
+      title: "Startup",
+      price: "1,500,000",
+      description: "Designed for early-stage startups and growing businesses",
+      features: [
+        "40 hours monthly access",
+        "Business training workshops",
+        "Dedicated workspace hours",
+        "Project consultation (1hr/month)",
+        "Startup storage space (3m³)",
+        "Priority technical support",
+        "Material discounts (25% off)",
+        "Commercial use license",
+        "4 team member access",
+        "Networking events access"
+      ],
+      color: "bg-[#309eb7]",
+      image: "/main/membership/startup.webp",
+      badge: "Growth Package",
+      startupPerks: [
+        "Team collaboration space",
+        "Business mentorship",
+        "Startup community access"
+      ]
     }
   ], []);
 
@@ -275,7 +300,7 @@ const MembershipSection = () => {
         </div>
 
         {/* Membership Tiers */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
           {membershipFeatures.map((plan, index) => (
             <PlanCard key={index} plan={plan} />
           ))}

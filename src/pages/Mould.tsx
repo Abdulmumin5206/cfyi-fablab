@@ -160,24 +160,24 @@ const MouldPage = () => {
           <div className="relative z-10 h-full flex items-center">
             <div className="container mx-auto px-4 md:px-8 max-w-7xl mt-16 sm:mt-20 md:mt-24">
               <div className="max-w-2xl">
-                <div className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 font-medium mb-2 sm:mb-4">{t('mould.hero.subtitle')}</div>
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-bold mb-2 sm:mb-4 max-w-xs sm:max-w-sm md:max-w-2xl lg:max-w-3xl">{t('mould.hero.title')}</h1>
+                <div className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 font-medium mb-2 sm:mb-4">CUSTOM PLASTIC MOULDING & SLA SOLUTIONS</div>
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-bold mb-2 sm:mb-4 max-w-xs sm:max-w-sm md:max-w-2xl lg:max-w-3xl">Professional SLA Moulding & Spare Parts Production</h1>
                 
                 <div className="space-y-4 text-gray-100">
                   <div className="flex items-start gap-3">
                     <div className="flex-shrink-0 mt-1">
-                      <div className="w-5 h-5 rounded-full bg-gray-700 flex items-center justify-center">
+                      <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
                         <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                         </svg>
                       </div>
                     </div>
-                    <p className="text-base sm:text-lg md:text-xl lg:text-2xl">{t('mould.hero.features.costEffective')}</p>
+                    <p className="text-base sm:text-lg md:text-xl lg:text-2xl">Rapid SLA prototyping and small-batch production solutions</p>
                   </div>
                   
                   <div className="flex items-start gap-3">
                     <div className="flex-shrink-0 mt-1">
-                      <div className="w-5 h-5 rounded-full bg-gray-700 flex items-center justify-center">
+                      <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
                         <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                         </svg>
@@ -188,7 +188,7 @@ const MouldPage = () => {
                   
                   <div className="flex items-start gap-3">
                     <div className="flex-shrink-0 mt-1">
-                      <div className="w-5 h-5 rounded-full bg-gray-700 flex items-center justify-center">
+                      <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
                         <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                         </svg>
@@ -199,7 +199,7 @@ const MouldPage = () => {
                 </div>
                 
                 <div className="mt-8 flex flex-col sm:flex-row gap-4">
-                  <a href="#" className="inline-flex items-center space-x-1 sm:space-x-2 bg-white text-black px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 text-sm sm:text-base font-medium hover:bg-gray-100 transition-colors duration-300">
+                  <a href="#" className="inline-flex items-center space-x-1 sm:space-x-2 bg-[#329db7] text-white px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 text-sm sm:text-base font-medium hover:bg-[#2b86a0] transition-colors duration-300">
                     <span>{t('mould.hero.buttons.consultation')}</span>
                     <ArrowRight size={16} />
                   </a>
@@ -324,9 +324,9 @@ const MouldPage = () => {
                   />
                 </div>
                 <div className="md:w-3/5 p-4 sm:p-6">
-                  <div className="text-blue-600 text-xs sm:text-sm font-semibold mb-2">PRODUCT DESIGN</div>
+                  <div className="text-[#329db7] text-xs sm:text-sm font-semibold mb-2">PRODUCT DESIGN</div>
                   <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Creating High-Fidelity Prototypes with Silicone Moulds</h3>
-                  <a href="#" className="text-blue-600 flex items-center gap-2 font-medium hover:text-blue-800 transition-colors text-sm sm:text-base">
+                  <a href="#" className="text-[#329db7] flex items-center gap-2 font-medium hover:text-[#2b86a0] transition-colors text-sm sm:text-base">
                     Learn More
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 sm:h-4 sm:w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -345,9 +345,9 @@ const MouldPage = () => {
                   />
                 </div>
                 <div className="md:w-3/5 p-4 sm:p-6">
-                  <div className="text-blue-600 text-xs sm:text-sm font-semibold mb-2">ARCHITECTURE</div>
+                  <div className="text-[#329db7] text-xs sm:text-sm font-semibold mb-2">ARCHITECTURE</div>
                   <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Architectural Elements Casting for Model Making and Restoration</h3>
-                  <a href="#" className="text-blue-600 flex items-center gap-2 font-medium hover:text-blue-800 transition-colors text-sm sm:text-base">
+                  <a href="#" className="text-[#329db7] flex items-center gap-2 font-medium hover:text-[#2b86a0] transition-colors text-sm sm:text-base">
                     Learn More
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 sm:h-4 sm:w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -360,7 +360,7 @@ const MouldPage = () => {
         </section>
 
         {/* Our Equipment for Moulding & Spare Parts Section */}
-        <section className="py-16 md:py-24 bg-gray-900 text-white">
+        <section className="py-16 md:py-24 bg-[#329db7] text-white">
           <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col items-center">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-10 text-white text-center">{t('mould.equipment.title')}</h1>
@@ -604,7 +604,7 @@ const MouldPage = () => {
                 <div className="space-y-4 mb-8">
                   <div className="flex items-start gap-3">
                     <div className="flex-shrink-0 mt-1">
-                      <div className="w-5 h-5 rounded-full bg-gray-700 flex items-center justify-center">
+                      <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
                         <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                         </svg>
@@ -615,7 +615,7 @@ const MouldPage = () => {
                   
                   <div className="flex items-start gap-3">
                     <div className="flex-shrink-0 mt-1">
-                      <div className="w-5 h-5 rounded-full bg-gray-700 flex items-center justify-center">
+                      <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
                         <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                         </svg>
@@ -626,7 +626,7 @@ const MouldPage = () => {
                   
                   <div className="flex items-start gap-3">
                     <div className="flex-shrink-0 mt-1">
-                      <div className="w-5 h-5 rounded-full bg-gray-700 flex items-center justify-center">
+                      <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
                         <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                         </svg>
@@ -637,7 +637,7 @@ const MouldPage = () => {
                 </div>
                 
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <a href="#" className="inline-block bg-gray-800 text-white font-medium px-6 py-3 rounded-md hover:bg-black transition-colors text-center">
+                  <a href="#" className="inline-block bg-[#329db7] text-white font-medium px-6 py-3 rounded-md hover:bg-[#2b86a0] transition-colors text-center">
                     {t('mould.hero.buttons.consultation')}
                   </a>
                 </div>
@@ -673,10 +673,10 @@ const MouldPage = () => {
                   />
                 </div>
                 <div className="md:w-3/5 p-6">
-                  <div className="text-blue-600 text-sm font-semibold mb-2">3D PRINTING</div>
+                  <div className="text-[#329db7] text-xs sm:text-sm font-semibold mb-2">3D PRINTING</div>
                   <h3 className="text-xl font-bold mb-4">SLA Resin Printing: Revolutionizing Small-Batch Production for Spare Parts</h3>
                   <p className="text-gray-600 mb-4">Created a fully functional prototype using advanced 3D printing techniques for an Uzbek tech startup.</p>
-                  <a href="/blog/3d-printing-innovations" className="text-blue-600 flex items-center gap-2 font-medium hover:text-blue-800 transition-colors">
+                  <a href="/blog/3d-printing-innovations" className="text-[#329db7] flex items-center gap-2 font-medium hover:text-[#2b86a0] transition-colors">
                     Read More
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -702,7 +702,7 @@ const MouldPage = () => {
                   className="w-4/5 rounded-md shadow-lg"
                 />
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <a href="/3d-printing#materials" className="inline-block bg-gray-800 text-white font-medium px-8 py-3 rounded-md hover:bg-black transition-colors text-center">
+                  <a href="/3d-printing#materials" className="inline-block bg-[#329db7] text-white font-medium px-8 py-3 rounded-md hover:bg-[#2b86a0] transition-colors text-center">
                     {t('mould.materials.viewAll')}
                   </a>
                 </div>

@@ -63,7 +63,6 @@ const ThreeDPrintingPage = () => {
       <main className="flex-grow">
         {/* New Full-size Hero Section */}
         <section className="relative w-full h-screen">
-          <div className="absolute inset-0 bg-black/50 z-10"></div>
           <img 
             src="/3dprinters/hero.webp" 
             alt="3D Printing Hero" 
@@ -507,77 +506,144 @@ const ThreeDPrintingPage = () => {
         {/* Materials Section */}
         <PrintingMaterials />
         
-        {/* Innovating Markets Section - Our 3D Printing Equipment */}
-        <section className="py-10 md:py-16 bg-gray-900 text-white">
+        {/* 3D Printing Course Section */}
+        <section className="py-24 bg-gradient-to-b from-white to-gray-50">
           <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col lg:flex-row items-center">
+            <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side content */}
-              <div className="w-full lg:w-1/2 mb-12 lg:mb-0 pr-0 lg:pr-10">
-                <div className="text-[#329db7] font-medium mb-2">{t("3dPrinting.fdm.title")}</div>
-                <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight text-white">{t("3dPrinting.fdm.subtitle")}</h1>
-                
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <div className="flex-shrink-0 mt-1">
-                      <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
-                        <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                      </div>
-                    </div>
-                    <p className="text-gray-300">{t("3dPrinting.fdm.features.durable")}</p>
-                  </div>
-                  
-                  <div className="flex items-start gap-3">
-                    <div className="flex-shrink-0 mt-1">
-                      <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
-                        <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                      </div>
-                    </div>
-                    <p className="text-gray-300">{t("3dPrinting.fdm.features.materials")}</p>
-                  </div>
-                  
-                  <div className="flex items-start gap-3">
-                    <div className="flex-shrink-0 mt-1">
-                      <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
-                        <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                      </div>
-                    </div>
-                    <p className="text-gray-300">{t("3dPrinting.fdm.features.perfect")}</p>
-                  </div>
+              <div className="w-full lg:w-1/2 space-y-8">
+                <div className="inline-block">
+                  <span className="bg-[#329db7]/10 text-[#329db7] text-sm font-semibold px-4 py-2 rounded-full">
+                    Master 3D Printing
+                  </span>
                 </div>
                 
-                <div className="mt-8 flex flex-col sm:flex-row gap-4">
-                  <a href="#" className="inline-block bg-[#329db7] text-white font-medium px-6 py-3 rounded-md hover:bg-[#2b86a0] transition-colors text-center">
-                    {t("3dPrinting.fdm.cta.quote")}
-                  </a>
-                  <a href="#" className="inline-block bg-white text-[#329db7] font-medium px-6 py-3 rounded-md border border-[#329db7] hover:bg-[#f0f7fa] transition-colors text-center">
-                    {t("3dPrinting.fdm.cta.sample")}
-                  </a>
+                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+                  Transform Your Ideas Into Reality
+                </h2>
+                
+                <p className="text-xl text-gray-600">
+                  Join our comprehensive 3D printing course and learn from industry experts. From basics to advanced techniques, we'll guide you through every step of the journey.
+                </p>
+
+                <div className="space-y-6">
+                  {/* Course Features */}
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-[#329db7]/10 flex items-center justify-center">
+                      <svg className="w-6 h-6 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900">Hands-on Experience</h3>
+                      <p className="text-gray-600">Work with professional-grade equipment and learn through practical projects</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-[#329db7]/10 flex items-center justify-center">
+                      <svg className="w-6 h-6 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6V4m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900">Expert Instruction</h3>
+                      <p className="text-gray-600">Learn from certified professionals with years of industry experience</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-[#329db7]/10 flex items-center justify-center">
+                      <svg className="w-6 h-6 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900">Certification</h3>
+                      <p className="text-gray-600">Receive an industry-recognized certificate upon completion</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-4 pt-6">
+                  <button className="px-8 py-4 bg-[#329db7] text-white rounded-xl font-semibold hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
+                    Enroll Now
+                  </button>
+                  <button className="px-8 py-4 border-2 border-gray-200 text-gray-700 rounded-xl font-semibold hover:border-[#329db7] hover:text-[#329db7] transition-all duration-300">
+                    Download Syllabus
+                  </button>
                 </div>
               </div>
-              
-              {/* Right side image */}
-              <div className="w-full lg:w-3/4 lg:pl-8">
-                <div className="relative w-full">
-                  <img 
-                    src="/3dprinters/FDM.webp" 
-                    alt="FDM 3D Printing Equipment Core Set" 
-                    className="w-full aspect-[4/3] object-cover h-auto max-h-[650px]"
-                  />
+
+              {/* Right side image grid */}
+              <div className="w-full lg:w-1/2 relative">
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-4">
+                    <div className="rounded-2xl overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
+                      <img 
+                        src="/3dprinters/course1.webp" 
+                        alt="3D Printing Basics" 
+                        className="w-full h-48 object-cover"
+                      />
+                    </div>
+                    <div className="rounded-2xl overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
+                      <img 
+                        src="/3dprinters/course2.webp" 
+                        alt="Advanced Techniques" 
+                        className="w-full h-64 object-cover"
+                      />
+                    </div>
+                  </div>
+                  <div className="space-y-4 pt-8">
+                    <div className="rounded-2xl overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
+                      <img 
+                        src="/3dprinters/course3.webp" 
+                        alt="Project Work" 
+                        className="w-full h-64 object-cover"
+                      />
+                    </div>
+                    <div className="rounded-2xl overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
+                      <img 
+                        src="/3dprinters/course4.webp" 
+                        alt="Professional Equipment" 
+                        className="w-full h-48 object-cover"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Floating stats card */}
+                <div className="absolute -bottom-8 -left-8 bg-white rounded-2xl shadow-xl p-6 max-w-[280px]">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-12 h-12 rounded-full bg-[#329db7]/10 flex items-center justify-center">
+                      <svg className="w-6 h-6 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-600">Students Enrolled</p>
+                      <p className="text-2xl font-bold text-gray-900">500+</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-full bg-[#329db7]/10 flex items-center justify-center">
+                      <svg className="w-6 h-6 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-600">Course Rating</p>
+                      <p className="text-2xl font-bold text-gray-900">4.9/5.0</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
-
+        
+        <Footer bgClass="bg-black" textClass="text-white" />
       </main>
-
-      <Footer bgClass="bg-black" textClass="text-white" />
     </div>
   );
 };

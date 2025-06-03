@@ -14,8 +14,10 @@ interface Material {
     name: string;
     imageUrl: string;
     color: string; // CSS color value
+    needsBorder?: boolean;
   }[];
   selectedColor?: string;
+  isPremium?: boolean;
 }
 
 const initialMaterials: Material[] = [
@@ -37,7 +39,8 @@ const initialMaterials: Material[] = [
       { 
         name: 'Vanilla White', 
         imageUrl: '/3dprinters/PrusaPLA/Prusament PLA Vanilla White.avif',
-        color: '#F8F8F0'
+        color: '#F8F8F0',
+        needsBorder: true
       },
       { 
         name: 'Jet Black', 
@@ -57,7 +60,8 @@ const initialMaterials: Material[] = [
       { 
         name: 'Galaxy Silver', 
         imageUrl: '/3dprinters/PrusaPLA/Prusament PLA Galaxy Silver.avif',
-        color: 'linear-gradient(135deg, #C0C0C0, #E8E8E8)'
+        color: 'linear-gradient(135deg, #C0C0C0, #E8E8E8)',
+        needsBorder: true
       },
       {
         name: 'Prusa Orange',
@@ -87,7 +91,8 @@ const initialMaterials: Material[] = [
       {
         name: 'My Silverness',
         imageUrl: '/3dprinters/PrusaPLA/Prusament PLA Blend My Silverness.avif',
-        color: 'linear-gradient(135deg, #C0C0C0, #D3D3D3)'
+        color: 'linear-gradient(135deg, #C0C0C0, #D3D3D3)',
+        needsBorder: true
       },
       {
         name: 'Lime Green',
@@ -159,12 +164,14 @@ const initialMaterials: Material[] = [
       {
         name: 'Rapunzel Silver',
         imageUrl: '/3dprinters/FIlamentumPLA/PLA_Fillamentum__Rapunzel_Silver_1KG_540x.webp',
-        color: 'linear-gradient(135deg, #C0C0C0, #E8E8E8)'
+        color: 'linear-gradient(135deg, #C0C0C0, #E8E8E8)',
+        needsBorder: true
       },
       {
         name: 'Pure White',
         imageUrl: '/3dprinters/FIlamentumPLA/PLA_Fillamentum_White_1KG__1_540x.webp',
-        color: '#FFFFFF'
+        color: '#FFFFFF',
+        needsBorder: true
       },
       {
         name: 'Metallic Grey',
@@ -205,140 +212,311 @@ const initialMaterials: Material[] = [
     selectedColor: 'Gold Happens'
   },
   {
-    id: 'petg',
-    name: 'PETG',
+    id: 'raise-premium',
+    name: 'RAISE3D Premium Materials',
     type: 'FDM',
-    description: 'Durable material with good chemical resistance and impact strength.',
-    properties: ['Chemical resistant', 'Impact resistant', 'Food safe', 'Flexible'],
-    applications: ['Mechanical parts', 'Food containers', 'Outdoor use'],
-    imageUrl: '/materials/petg.webp'
-  },
-  {
-    id: 'abs',
-    name: 'ABS',
-    type: 'FDM',
-    description: 'Strong and impact-resistant material ideal for functional parts.',
-    properties: ['Heat resistant', 'Impact resistant', 'Machinable', 'Durable'],
-    applications: ['End-use parts', 'Automotive', 'Tools'],
-    imageUrl: '/materials/abs.webp'
-  },
-  {
-    id: 'tpu',
-    name: 'TPU',
-    type: 'FDM',
-    description: 'Flexible thermoplastic polyurethane for elastic and rubber-like parts.',
-    properties: ['Flexible', 'Durable', 'Abrasion resistant', 'Chemical resistant'],
-    applications: ['Flexible parts', 'Gaskets', 'Protective covers'],
-    imageUrl: '/materials/tpu.webp'
-  },
-  {
-    id: 'nylon',
-    name: 'Nylon',
-    type: 'FDM',
-    description: 'Strong and versatile material with excellent mechanical properties.',
-    properties: ['Strong', 'Durable', 'Heat resistant', 'Low friction'],
-    applications: ['End-use parts', 'Gears', 'Tools'],
-    imageUrl: '/materials/nylon.webp'
-  },
-  {
-    id: 'carbon-fiber',
-    name: 'Carbon Fiber',
-    type: 'FDM',
-    description: 'High-strength composite material for professional applications.',
-    properties: ['Extremely strong', 'Lightweight', 'Stiff', 'Heat resistant'],
-    applications: ['Aerospace', 'Automotive', 'Professional tools'],
-    imageUrl: '/materials/carbon-fiber.webp'
-  },
-  {
-    id: 'pc',
-    name: 'Polycarbonate',
-    type: 'FDM',
-    description: 'High-strength thermoplastic with excellent heat resistance.',
-    properties: ['Heat resistant', 'Impact resistant', 'Transparent', 'Strong'],
-    applications: ['Engineering parts', 'Lighting', 'Protective equipment'],
-    imageUrl: '/materials/pc.webp'
-  },
-  {
-    id: 'asa',
-    name: 'ASA',
-    type: 'FDM',
-    description: 'UV-resistant material perfect for outdoor applications.',
-    properties: ['UV stable', 'Weather resistant', 'Strong', 'Good aesthetics'],
-    applications: ['Outdoor parts', 'Automotive', 'Consumer products'],
-    imageUrl: '/materials/asa.webp'
+    description: 'Professional-grade materials optimized for the Raise3D Pro3 series. Superior quality and consistency for industrial applications.',
+    properties: [
+      'Industrial grade',
+      'High dimensional accuracy',
+      'Excellent layer adhesion',
+      'Professional finish'
+    ],
+    applications: [
+      'Industrial prototypes',
+      'Manufacturing aids',
+      'Professional models',
+      'Production parts'
+    ],
+    imageUrl: '/3dprinters/RAISE/Raise3DPremiumPLAWhite-2CardboardSpool_600x600.webp',
+    colors: [
+      // PLA Colors
+      {
+        name: 'PLA White',
+        imageUrl: '/3dprinters/RAISE/Raise3DPremiumPLAWhite-2CardboardSpool_600x600.webp',
+        color: '#FFFFFF',
+        needsBorder: true
+      },
+      {
+        name: 'PLA Black',
+        imageUrl: '/3dprinters/RAISE/Raise3DPremiumPLABlack-2CardboardSpool_600x600.webp',
+        color: '#1A1A1A'
+      },
+      {
+        name: 'PLA Blue',
+        imageUrl: '/3dprinters/RAISE/Raise3DPremiumPLABlue-2CardboardSpool_600x600.webp',
+        color: '#0047AB'
+      },
+      {
+        name: 'PLA Red',
+        imageUrl: '/3dprinters/RAISE/Raise3DPremiumPLARed-2CardboardSpool_600x600.webp',
+        color: '#CC0000'
+      },
+      {
+        name: 'PLA Orange',
+        imageUrl: '/3dprinters/RAISE/Raise3DPremiumPLAOrange-2CardboardSpool_600x600.webp',
+        color: '#FFA500'
+      },
+      // ABS Colors
+      {
+        name: 'ABS White',
+        imageUrl: '/3dprinters/RAISE/Raise3DPremiumABSWhite-2CardboardSpool_600x600.webp',
+        color: '#FFFFFF',
+        needsBorder: true
+      },
+      {
+        name: 'ABS Black',
+        imageUrl: '/3dprinters/RAISE/Raise3D Black Premium ABS Filament.webp',
+        color: '#1A1A1A'
+      },
+      {
+        name: 'ABS Grey',
+        imageUrl: '/3dprinters/RAISE/Raise3D Grey Premium ABS Filament.webp',
+        color: '#808080'
+      },
+      // PC Color
+      {
+        name: 'PC White',
+        imageUrl: '/3dprinters/RAISE/Raise3DPremiumPCWhite-2CardboardSpool_600x600.webp',
+        color: '#FFFFFF',
+        needsBorder: true
+      },
+      // TPU Color
+      {
+        name: 'TPU White',
+        imageUrl: '/3dprinters/RAISE/Raise3DPremiumTPU-95AWhite-2CardboardSpool_600x600.webp',
+        color: '#FFFFFF',
+        needsBorder: true
+      }
+    ],
+    selectedColor: 'PLA White',
+    isPremium: true
   },
   // SLA Materials
   {
-    id: 'standard-resin',
-    name: 'Standard Resin',
+    id: 'prusament-resin',
+    name: 'PRUSAMENT Resin',
     type: 'SLA',
-    description: 'High-detail resin perfect for visual prototypes and display models.',
-    properties: ['High detail', 'Smooth surface', 'Good accuracy', 'UV stable'],
-    applications: ['Visual prototypes', 'Display models', 'Art pieces'],
-    imageUrl: '/materials/standard-resin.webp'
+    description: 'High-quality SLA resins from Prusa Research offering exceptional detail, various properties, and multiple color options. Including standard model resins, flexible variants, and eco-friendly bio-based options.',
+    properties: [
+      'High detail',
+      'Multiple variants',
+      'Professional quality',
+      'Wide color range'
+    ],
+    applications: [
+      'Detailed prototypes',
+      'Flexible parts',
+      'Display models',
+      'Functional prints'
+    ],
+    imageUrl: '/3dprinters/PrusaSLAResin/Prusament Resin Model Transparent Clear.avif',
+    colors: [
+      // Model Resin Colors
+      {
+        name: 'Model Transparent Clear',
+        imageUrl: '/3dprinters/PrusaSLAResin/Prusament Resin Model Transparent Clear.avif',
+        color: 'linear-gradient(135deg, #FFFFFF80, #FFFFFF40)',
+        needsBorder: true
+      },
+      {
+        name: 'Model Transparent Green',
+        imageUrl: '/3dprinters/PrusaSLAResin/Prusament Resin Model Transparent Green.avif',
+        color: 'linear-gradient(135deg, #00FF0080, #00FF0040)',
+        needsBorder: true
+      },
+      {
+        name: 'Model Transparent Red',
+        imageUrl: '/3dprinters/PrusaSLAResin/Prusament Resin Model Transparent Red.avif',
+        color: 'linear-gradient(135deg, #FF000080, #FF000040)',
+        needsBorder: true
+      },
+      {
+        name: 'Model Anthracite Grey',
+        imageUrl: '/3dprinters/PrusaSLAResin/Prusament Resin Model Anthracite Grey.avif',
+        color: '#2F4F4F'
+      },
+      {
+        name: 'Model Brick Red',
+        imageUrl: '/3dprinters/PrusaSLAResin/Prusament Resin Model Brick Red.avif',
+        color: '#8B0000'
+      },
+      {
+        name: 'Model Classic Red',
+        imageUrl: '/3dprinters/PrusaSLAResin/Prusament Resin Model Classic Red.avif',
+        color: '#DC143C'
+      },
+      {
+        name: 'Model Prusa Orange',
+        imageUrl: '/3dprinters/PrusaSLAResin/Prusament Resin Model Prusa Orange 1kg.avif',
+        color: '#FF6B18'
+      },
+      {
+        name: 'Model Terra Brown',
+        imageUrl: '/3dprinters/PrusaSLAResin/Prusament Resin Model Terra Brown.avif',
+        color: '#8B4513'
+      },
+      {
+        name: 'Model Sandstone',
+        imageUrl: '/3dprinters/PrusaSLAResin/Prusament Resin Model Sandstone.avif',
+        color: '#DEB887'
+      },
+      {
+        name: 'Model Bright Yellow',
+        imageUrl: '/3dprinters/PrusaSLAResin/Prusament Resin Model Bright Yellow.avif',
+        color: '#FFD700'
+      },
+      {
+        name: 'Model Grass Green',
+        imageUrl: '/3dprinters/PrusaSLAResin/Prusament Resin Model Grass Green.avif',
+        color: '#228B22'
+      },
+      // Flex80 Colors
+      {
+        name: 'Flex80 Transparent Clear',
+        imageUrl: '/3dprinters/PrusaSLAResin/Prusament Resin Flex80 Transparent Clear.avif',
+        color: 'linear-gradient(135deg, #FFFFFF80, #FFFFFF40)',
+        needsBorder: true
+      },
+      {
+        name: 'Flex80 Black',
+        imageUrl: '/3dprinters/PrusaSLAResin/Prusament Resin Flex80 Black.avif',
+        color: '#000000'
+      },
+      // BioBased60 Colors
+      {
+        name: 'BioBased60 Natural Yellow',
+        imageUrl: '/3dprinters/PrusaSLAResin/Prusament Resin BioBased60 Natural Yellow.avif',
+        color: '#F0E68C'
+      },
+      {
+        name: 'BioBased60 Herbal Green',
+        imageUrl: '/3dprinters/PrusaSLAResin/Prusament Resin BioBased60 Herbal Green.avif',
+        color: '#2E8B57'
+      },
+      {
+        name: 'BioBased60 Magma Red',
+        imageUrl: '/3dprinters/PrusaSLAResin/Prusament Resin BioBased60 Magma Red.avif',
+        color: '#8B0000'
+      }
+    ],
+    selectedColor: 'Model Transparent Clear'
   },
   {
-    id: 'tough-resin',
-    name: 'Tough Resin',
+    id: 'phrozen-resin',
+    name: 'PHROZEN Resin',
     type: 'SLA',
-    description: 'Durable resin with ABS-like properties for functional prototypes.',
-    properties: ['Impact resistant', 'Flexible', 'Durable', 'Machinable'],
-    applications: ['Functional prototypes', 'End-use parts', 'Consumer products'],
-    imageUrl: '/materials/tough-resin.webp'
+    description: 'Professional-grade SLA resins from Phrozen, optimized for high-resolution 3D printing. Features specialized formulations for jewelry casting and water-washable options.',
+    properties: [
+      'High resolution',
+      'Specialized formulas',
+      'Water-washable options',
+      'Casting capable'
+    ],
+    applications: [
+      'Jewelry casting',
+      'Detailed models',
+      'Professional prints',
+      'Specialty applications'
+    ],
+    imageUrl: '/3dprinters/PhrozenSLAResin/AquaBlue_1400x1600_1.webp',
+    colors: [
+      {
+        name: 'Aqua Blue',
+        imageUrl: '/3dprinters/PhrozenSLAResin/AquaBlue_1400x1600_1.webp',
+        color: '#00CED1',
+        needsBorder: true
+      },
+      {
+        name: 'Aqua Green',
+        imageUrl: '/3dprinters/PhrozenSLAResin/Phrozen Aqua 3D Printing Resin Green.webp',
+        color: '#2E8B57',
+        needsBorder: true
+      },
+      {
+        name: 'Aqua Gray',
+        imageUrl: '/3dprinters/PhrozenSLAResin/Aqua-Gray8K_1400x1600_4.webp',
+        color: '#808080'
+      },
+      {
+        name: 'Castable Green W20',
+        imageUrl: '/3dprinters/PhrozenSLAResin/Phrozen Castable Resin W20 Green.webp',
+        color: '#228B22'
+      },
+      {
+        name: 'Castable Orange W40',
+        imageUrl: '/3dprinters/PhrozenSLAResin/Phrozen Castable Resin W40 Orange.webp',
+        color: '#FFA500'
+      },
+      {
+        name: 'Castable Violet',
+        imageUrl: '/3dprinters/PhrozenSLAResin/violet - Phrozen Castable Jewelry 3D Printing Resin.webp',
+        color: '#8A2BE2'
+      }
+    ],
+    selectedColor: 'Aqua Blue'
   },
   {
-    id: 'dental-resin',
-    name: 'Dental Resin',
+    id: 'formlabs-resin',
+    name: 'FORMLABS Resin',
     type: 'SLA',
-    description: 'Biocompatible resin specifically formulated for dental applications.',
-    properties: ['Biocompatible', 'High accuracy', 'Medical grade', 'Sterilizable'],
-    applications: ['Dental models', 'Surgical guides', 'Dental aligners'],
-    imageUrl: '/materials/dental-resin.webp'
-  },
-  {
-    id: 'clear-resin',
-    name: 'Clear Resin',
-    type: 'SLA',
-    description: 'Transparent resin for optical applications and visual prototypes.',
-    properties: ['Transparent', 'Polishable', 'UV stable', 'Water resistant'],
-    applications: ['Optical parts', 'Light guides', 'Display models'],
-    imageUrl: '/materials/clear-resin.webp'
-  },
-  {
-    id: 'castable-resin',
-    name: 'Castable Resin',
-    type: 'SLA',
-    description: 'Clean-burning resin designed for investment casting.',
-    properties: ['Zero ash content', 'High detail', 'Clean burning', 'Accurate'],
-    applications: ['Jewelry', 'Metal casting', 'Custom parts'],
-    imageUrl: '/materials/castable-resin.webp'
-  },
-  {
-    id: 'flexible-resin',
-    name: 'Flexible Resin',
-    type: 'SLA',
-    description: 'Soft and flexible resin for rubber-like parts.',
-    properties: ['Flexible', 'Tear resistant', 'Compressible', 'Durable'],
-    applications: ['Gaskets', 'Grips', 'Prototypes'],
-    imageUrl: '/materials/flexible-resin.webp'
-  },
-  {
-    id: 'high-temp-resin',
-    name: 'High Temp Resin',
-    type: 'SLA',
-    description: 'Heat-resistant resin for demanding applications.',
-    properties: ['Heat resistant', 'Rigid', 'Durable', 'Accurate'],
-    applications: ['Molds', 'Tooling', 'Heat testing'],
-    imageUrl: '/materials/high-temp-resin.webp'
-  },
-  {
-    id: 'ceramic-resin',
-    name: 'Ceramic Resin',
-    type: 'SLA',
-    description: 'Ceramic-filled resin for technical applications.',
-    properties: ['High stiffness', 'Temperature resistant', 'Low friction', 'Wear resistant'],
-    applications: ['Technical parts', 'Industrial components', 'Specialty applications'],
-    imageUrl: '/materials/ceramic-resin.webp'
+    description: 'Professional-grade engineering resins from Formlabs, offering unmatched quality and precision. Industry-leading materials for demanding applications.',
+    properties: [
+      'Engineering grade',
+      'Industry certified',
+      'Highest precision',
+      'Professional quality'
+    ],
+    applications: [
+      'Engineering parts',
+      'Medical devices',
+      'Dental applications',
+      'Industrial prototypes'
+    ],
+    imageUrl: '/3dprinters/FormlabsSLAResin/Formlabs Clear v4 Resin.jpg',
+    colors: [
+      {
+        name: 'Clear v4',
+        imageUrl: '/3dprinters/FormlabsSLAResin/Formlabs Clear v4 Resin.jpg',
+        color: 'linear-gradient(135deg, #FFFFFF80, #FFFFFF40)',
+        needsBorder: true
+      },
+      {
+        name: 'White v4',
+        imageUrl: '/3dprinters/FormlabsSLAResin/Formlabs White v4 Resin.jpg',
+        color: '#FFFFFF',
+        needsBorder: true
+      },
+      {
+        name: 'Grey v4',
+        imageUrl: '/3dprinters/FormlabsSLAResin/Formlabs Grey v4 Resin.jpg',
+        color: '#808080',
+        needsBorder: true
+      },
+      {
+        name: 'Black v4',
+        imageUrl: '/3dprinters/FormlabsSLAResin/Formlabs Black v4 Resin.jpg',
+        color: '#000000'
+      },
+      {
+        name: 'Color Kit',
+        imageUrl: '/3dprinters/FormlabsSLAResin/Formlabs Color Kit.jpg',
+        color: 'linear-gradient(135deg, #FF0000, #00FF00, #0000FF)'
+      },
+      {
+        name: 'Color Base',
+        imageUrl: '/3dprinters/FormlabsSLAResin/Color Base Resin.webp',
+        color: '#F5F5F5',
+        needsBorder: true
+      },
+      {
+        name: 'Castable Wax 40',
+        imageUrl: '/3dprinters/FormlabsSLAResin/Formlabs Castable Wax 40 Resin Cartridge.png',
+        color: '#DAA520'
+      }
+    ],
+    selectedColor: 'Clear v4',
+    isPremium: true
   }
 ];
 
@@ -481,7 +659,12 @@ const PrintingMaterials = () => {
                   alt={material.name}
                   className="w-auto h-auto max-w-[120%] max-h-[120%] object-contain transform scale-110"
                 />
-                <div className="absolute top-4 right-4">
+                <div className="absolute top-4 right-4 flex flex-col gap-2">
+                  {material.isPremium && (
+                    <span className="px-3 py-1 bg-gradient-to-r from-amber-500 to-yellow-500 text-white rounded-full text-sm font-medium shadow-md">
+                      Premium
+                    </span>
+                  )}
                   <span className="px-3 py-1 bg-white/90 rounded-full text-sm font-medium text-[#329db7]">
                     {material.type}
                   </span>
@@ -504,10 +687,11 @@ const PrintingMaterials = () => {
                               material.selectedColor === color.name
                                 ? 'ring-2 ring-offset-2 ring-[#329db7] scale-110'
                                 : 'hover:scale-105'
+                            } ${
+                              color.needsBorder ? 'border-2 border-gray-300' : ''
                             }`}
                             style={{
-                              background: color.color,
-                              border: color.color.includes('#F8F8F0') ? '1px solid #e5e7eb' : 'none'
+                              background: color.color
                             }}
                             aria-label={color.name}
                           />

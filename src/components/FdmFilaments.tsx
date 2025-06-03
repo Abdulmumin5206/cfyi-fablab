@@ -150,7 +150,7 @@ export default function FdmFilaments() {
                     key={material.id}
                     className={`group relative bg-white rounded-xl transition-all duration-200 cursor-pointer h-full ${
                       selectedMaterial.id === material.id 
-                        ? 'ring-2 ring-blue-500 shadow-md' 
+                        ? 'ring-2 ring-[#329db7] shadow-md' 
                         : 'hover:shadow-md hover:ring-1 hover:ring-gray-200'
                     }`}
                     onClick={() => setSelectedMaterial(material)}
@@ -163,7 +163,7 @@ export default function FdmFilaments() {
                       />
                       {material.isPremium && (
                         <div className="absolute top-1 right-1">
-                          <span className="inline-flex items-center px-1.5 py-0.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">
+                          <span className="inline-flex items-center px-1.5 py-0.5 rounded-full text-xs font-medium bg-[#329db7]/10 text-[#329db7] border border-[#329db7]/20">
                             {t("3dPrinting.materials.premium")}
                           </span>
                         </div>

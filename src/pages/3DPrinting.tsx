@@ -147,7 +147,7 @@ const ThreeDPrintingPage = () => {
                 {t('3dPrinting.materials.tackleAnyProblem')}
               </h1>
               <p className="text-gray-600 text-lg mb-8">
-                Whatever you're using to create demand, convert intent, and manage your materials, we integrate with it.
+                Whatever you're using to create demand, convert intent, and manage your materials, we integrate with it. From rapid prototyping to end-use parts, our extensive material selection ensures you'll find the perfect match for your project. Whether you need high-strength composites, flexible elastomers, or biocompatible resins, we've got you covered with industry-leading materials that meet the highest quality standards.
               </p>
               <button className="bg-[#329db7] hover:bg-[#2b86a0] text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
                 {t('3dPrinting.materials.requestSample')}
@@ -157,21 +157,23 @@ const ThreeDPrintingPage = () => {
             {/* Right side floating cards grid */}
             <div className="w-full lg:w-1/2 lg:pl-8">
               <div className="relative w-full min-h-[600px]">
-                {/* Grid of floating material cards */}
+                {/* Grid of floating cards */}
                 <div className="relative min-h-[600px]">
                   {[
-                    // First column
-                    { top: '15%', left: '25%' },
-                    { top: '45%', left: '25%' },
-                    { top: '75%', left: '25%' },
+                    // First column - 3 images
+                    { top: '20%', left: '25%' },
+                    { top: '50%', left: '25%' },
+                    { top: '80%', left: '25%' },
                     
-                    // Second column
-                    { top: '30%', left: '50%' },
-                    { top: '60%', left: '50%' },
+                    // Middle column - 4 images
+                    { top: '15%', left: '50%' },
+                    { top: '40%', left: '50%' },
+                    { top: '65%', left: '50%' },
+                    { top: '90%', left: '50%' },
                     
-                    // Third column
-                    { top: '15%', left: '75%' },
-                    { top: '45%', left: '75%' },
+                    // Last column - 3 images
+                    { top: '25%', left: '75%' },
+                    { top: '50%', left: '75%' },
                     { top: '75%', left: '75%' }
                   ].map((item, index) => (
                     <div
@@ -183,11 +185,15 @@ const ThreeDPrintingPage = () => {
                         transform: 'translate(-50%, -50%)'
                       }}
                     >
-                      <img
-                        src="/3dprinters/hero22.webp"
-                        alt={`Integration ${index + 1}`}
-                        className="w-[140px] h-[140px] object-contain"
-                      />
+                      <div className="relative group">
+                        <div className="w-[140px] h-[140px] overflow-hidden rounded-2xl shadow-[0_8px_20px_rgba(0,0,0,0.1)] group-hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] transition-all duration-300">
+                          <img
+                            src="/3dprinters/hero22.webp"
+                            alt={`Integration ${index + 1}`}
+                            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                          />
+                        </div>
+                      </div>
                     </div>
                   ))}
                 </div>

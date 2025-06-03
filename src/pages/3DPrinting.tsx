@@ -3,9 +3,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import styles from "@/styles/Slider.module.css";
-import SlaMaterials from "@/components/SlaMaterials";
-import FdmFilaments from "@/components/FdmFilaments";
 import { useTranslation } from "react-i18next";
+import PrintingMaterials from "@/components/PrintingMaterials";
 
 const ThreeDPrintingPage = () => {
   const { t } = useTranslation();
@@ -364,77 +363,78 @@ const ThreeDPrintingPage = () => {
           </div>
         </section>
 
-        {/* SLA Materials Section */}
-        <SlaMaterials />
-
-        {/* Innovating Markets Section - Our 3D Printing Equipment */}
-        <section className="py-10 md:py-16 bg-gray-900 text-white">
+        {/* SLA 3D Printing Equipment Section */}
+        <section className="py-16 md:py-24 bg-white">
           <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col lg:flex-row items-center">
-              {/* Left side content */}
-              <div className="w-full lg:w-1/2 mb-12 lg:mb-0 pr-0 lg:pr-10">
-                <div className="text-[#329db7] font-medium mb-2">{t("3dPrinting.fdm.title")}</div>
-                <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight text-white">{t("3dPrinting.fdm.subtitle")}</h1>
-                
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <div className="flex-shrink-0 mt-1">
-                      <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
-                        <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                      </div>
-                    </div>
-                    <p className="text-gray-300">{t("3dPrinting.fdm.features.durable")}</p>
-                  </div>
-                  
-                  <div className="flex items-start gap-3">
-                    <div className="flex-shrink-0 mt-1">
-                      <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
-                        <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                      </div>
-                    </div>
-                    <p className="text-gray-300">{t("3dPrinting.fdm.features.materials")}</p>
-                  </div>
-                  
-                  <div className="flex items-start gap-3">
-                    <div className="flex-shrink-0 mt-1">
-                      <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
-                        <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                      </div>
-                    </div>
-                    <p className="text-gray-300">{t("3dPrinting.fdm.features.perfect")}</p>
-                  </div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-10 md:mb-16 text-center">{t("3dPrinting.sla.equipment.title", "Professional SLA 3D Printers")}</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {/* Formlabs Form 3+ */}
+              <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
+                <div className="w-full h-32 md:h-36 bg-gray-100 relative">
+                  <img src="/3dprinters/1.formlabs-form3-01_2_1.webp" alt="Formlabs Form 3+" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
                 </div>
-                
-                <div className="mt-8 flex flex-col sm:flex-row gap-4">
-                  <a href="#" className="inline-block bg-[#329db7] text-white font-medium px-6 py-3 rounded-md hover:bg-[#2b86a0] transition-colors text-center">
-                    {t("3dPrinting.fdm.cta.quote")}
-                  </a>
-                  <a href="#" className="inline-block bg-white text-[#329db7] font-medium px-6 py-3 rounded-md border border-[#329db7] hover:bg-[#f0f7fa] transition-colors text-center">
-                    {t("3dPrinting.fdm.cta.sample")}
-                  </a>
+                <div className="-mt-16 z-10 flex justify-center w-full">
+                  <img src="/3dprinters/formlabs-form3-01_2_1.webp" alt="Formlabs Form 3+" className="w-48 h-56 object-contain" />
+                </div>
+                <div className="flex flex-col items-center justify-center px-8 pt-6 pb-8 w-full text-center">
+                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center mt-2">Professional SLA</div>
+                  <h3 className="text-2xl font-bold mb-3 text-center">Formlabs Form 3+</h3>
+                  <p className="text-gray-700 mb-4 text-center text-base">Advanced Low Force Stereolithography (LFS) technology for exceptional detail and surface finish.</p>
+                  <hr className="w-12 border-t border-gray-200 my-3" />
                 </div>
               </div>
-              
-              {/* Right side image */}
-              <div className="w-full lg:w-3/4 lg:pl-8">
-                <div className="relative w-full">
-                  <img 
-                    src="/3dprinters/FDM.webp" 
-                    alt="FDM 3D Printing Equipment Core Set" 
-                    className="w-full aspect-[4/3] object-cover h-auto max-h-[650px]"
-                  />
+
+              {/* Phrozen Sonic Mini 8K */}
+              <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
+                <div className="w-full h-32 md:h-36 bg-gray-100 relative">
+                  <img src="/3dprinters/1.Phrozen mini.webp" alt="Phrozen Sonic Mini 8K" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
+                </div>
+                <div className="-mt-16 z-10 flex justify-center w-full">
+                  <img src="/3dprinters/Phrozen mini.webp" alt="Phrozen Sonic Mini 8K" className="w-48 h-56 object-contain" />
+                </div>
+                <div className="flex flex-col items-center justify-center px-8 pt-6 pb-8 w-full text-center">
+                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center mt-2">High Resolution</div>
+                  <h3 className="text-2xl font-bold mb-3 text-center">Phrozen Sonic Mini 8K</h3>
+                  <p className="text-gray-700 mb-4 text-center text-base">Ultra-high 8K resolution for incredibly detailed prints with 22µm XY precision.</p>
+                  <hr className="w-12 border-t border-gray-200 my-3" />
+                </div>
+              </div>
+
+              {/* Phrozen Sonic Mighty */}
+              <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
+                <div className="w-full h-32 md:h-36 bg-gray-100 relative">
+                  <img src="/3dprinters/1.Phrozen.webp" alt="Phrozen Sonic Mighty" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
+                </div>
+                <div className="-mt-16 z-10 flex justify-center w-full">
+                  <img src="/3dprinters/Phrozen.webp" alt="Phrozen Sonic Mighty" className="w-48 h-56 object-contain" />
+                </div>
+                <div className="flex flex-col items-center justify-center px-8 pt-6 pb-8 w-full text-center">
+                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center mt-2">Large Format</div>
+                  <h3 className="text-2xl font-bold mb-3 text-center">Phrozen Sonic Mighty</h3>
+                  <p className="text-gray-700 mb-4 text-center text-base">Large build volume with 4K resolution for bigger projects without compromising quality.</p>
+                  <hr className="w-12 border-t border-gray-200 my-3" />
+                </div>
+              </div>
+
+              {/* Prusa SL1S */}
+              <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
+                <div className="w-full h-32 md:h-36 bg-gray-100 relative">
+                  <img src="/3dprinters/1.prusa.webp" alt="Prusa SL1S" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
+                </div>
+                <div className="-mt-16 z-10 flex justify-center w-full">
+                  <img src="/3dprinters/Prusa.webp" alt="Prusa SL1S" className="w-48 h-56 object-contain" />
+                </div>
+                <div className="flex flex-col items-center justify-center px-8 pt-6 pb-8 w-full text-center">
+                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center mt-2">Speed & Precision</div>
+                  <h3 className="text-2xl font-bold mb-3 text-center">Prusa SL1S</h3>
+                  <p className="text-gray-700 mb-4 text-center text-base">Fast MSLA technology with 5.5" mono LCD and integrated post-processing solution.</p>
+                  <hr className="w-12 border-t border-gray-200 my-3" />
                 </div>
               </div>
             </div>
           </div>
         </section>
-        
+
         {/* FDM 3D Printing Equipment Section */}
         <section className="py-16 md:py-24 bg-gray-50">
           <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -504,8 +504,76 @@ const ThreeDPrintingPage = () => {
           </div>
         </section>
         
-        {/* FDM Materials Section */}
-        <FdmFilaments />
+        {/* Materials Section */}
+        <PrintingMaterials />
+        
+        {/* Innovating Markets Section - Our 3D Printing Equipment */}
+        <section className="py-10 md:py-16 bg-gray-900 text-white">
+          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col lg:flex-row items-center">
+              {/* Left side content */}
+              <div className="w-full lg:w-1/2 mb-12 lg:mb-0 pr-0 lg:pr-10">
+                <div className="text-[#329db7] font-medium mb-2">{t("3dPrinting.fdm.title")}</div>
+                <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight text-white">{t("3dPrinting.fdm.subtitle")}</h1>
+                
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 mt-1">
+                      <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
+                        <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                      </div>
+                    </div>
+                    <p className="text-gray-300">{t("3dPrinting.fdm.features.durable")}</p>
+                  </div>
+                  
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 mt-1">
+                      <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
+                        <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                      </div>
+                    </div>
+                    <p className="text-gray-300">{t("3dPrinting.fdm.features.materials")}</p>
+                  </div>
+                  
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 mt-1">
+                      <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
+                        <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                      </div>
+                    </div>
+                    <p className="text-gray-300">{t("3dPrinting.fdm.features.perfect")}</p>
+                  </div>
+                </div>
+                
+                <div className="mt-8 flex flex-col sm:flex-row gap-4">
+                  <a href="#" className="inline-block bg-[#329db7] text-white font-medium px-6 py-3 rounded-md hover:bg-[#2b86a0] transition-colors text-center">
+                    {t("3dPrinting.fdm.cta.quote")}
+                  </a>
+                  <a href="#" className="inline-block bg-white text-[#329db7] font-medium px-6 py-3 rounded-md border border-[#329db7] hover:bg-[#f0f7fa] transition-colors text-center">
+                    {t("3dPrinting.fdm.cta.sample")}
+                  </a>
+                </div>
+              </div>
+              
+              {/* Right side image */}
+              <div className="w-full lg:w-3/4 lg:pl-8">
+                <div className="relative w-full">
+                  <img 
+                    src="/3dprinters/FDM.webp" 
+                    alt="FDM 3D Printing Equipment Core Set" 
+                    className="w-full aspect-[4/3] object-cover h-auto max-h-[650px]"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
       </main>
 

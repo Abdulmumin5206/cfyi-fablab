@@ -61,7 +61,7 @@ const ThreeDPrintingPage = () => {
       <Header />
       
       <main className="flex-grow">
-        {/* New Full-size Hero Section */}
+        {/* Hero section with video */}
         <section className="relative w-full h-screen">
           <img 
             src="/3dprinters/hero.webp" 
@@ -91,7 +91,24 @@ const ThreeDPrintingPage = () => {
         <section className="bg-[#f7f7f7] py-16 md:py-24 overflow-visible">
           <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col lg:flex-row items-start gap-12">
-              {/* Left side with two image containers */}
+              {/* Left side content */}
+              <div className="w-full lg:w-1/2">
+                <div className="max-w-xl mx-auto text-center lg:text-left flex flex-col items-center lg:items-start">
+                  <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight text-gray-900">
+                    Know your manufacturing needs, like you know your business.
+                  </h2>
+                  
+                  <p className="text-lg text-gray-600 mb-8">
+                    From rapid prototyping to end-use parts, our advanced 3D printing solutions deliver precision-engineered results that adapt to your specific requirements. We combine cutting-edge technology with deep expertise to transform your ideas into reality, ensuring each project meets the highest standards of quality and accuracy.
+                  </p>
+
+                  <button className="inline-flex items-center px-6 py-3 bg-[#329db7] text-white rounded-lg hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
+                    Get Started Today
+                  </button>
+                </div>
+              </div>
+
+              {/* Right side with two image containers */}
               <div className="w-full lg:w-1/2 relative pt-16">
                 {/* First image container - larger and in front */}
                 <div className="relative z-30 w-[55%] ml-auto transform translate-y-2 transition-transform hover:-translate-y-1">
@@ -115,20 +132,99 @@ const ThreeDPrintingPage = () => {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* New Section: Transform Your Vision */}
+        <section className="bg-white py-16 md:py-24 overflow-visible">
+          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col lg:flex-row items-start gap-12">
+              {/* Left side with main image and floating elements */}
+              <div className="w-full lg:w-1/2 relative">
+                {/* Main image container */}
+                <div className="relative rounded-xl overflow-hidden shadow-xl bg-white">
+                  <img 
+                    src="/3dprinters/FDM.webp" 
+                    alt="Complex 3D Printing" 
+                    className="w-full h-[600px] object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                </div>
+
+                {/* Floating stats cards */}
+                <div className="absolute -bottom-8 -left-8 bg-white rounded-2xl shadow-xl p-6 max-w-[280px]">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-12 h-12 rounded-full bg-[#329db7]/10 flex items-center justify-center">
+                      <svg className="w-6 h-6 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-600">Colors</p>
+                      <p className="text-lg font-bold text-gray-900">Multi-Material</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-full bg-[#329db7]/10 flex items-center justify-center">
+                      <svg className="w-6 h-6 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-600">Build Area</p>
+                      <p className="text-lg font-bold text-gray-900">Extra Large Space</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
               {/* Right side content */}
               <div className="w-full lg:w-1/2">
                 <div className="max-w-xl mx-auto text-center lg:text-left flex flex-col items-center lg:items-start">
                   <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight text-gray-900">
-                    Know your manufacturing needs, like you know your business.
+                    Transform Your Vision Into Reality
                   </h2>
                   
                   <p className="text-lg text-gray-600 mb-8">
-                    From rapid prototyping to end-use parts, our advanced 3D printing solutions deliver precision-engineered results that adapt to your specific requirements. We combine cutting-edge technology with deep expertise to transform your ideas into reality, ensuring each project meets the highest standards of quality and accuracy.
+                    Our advanced FDM technology brings industrial-grade precision to your desktop. With multi-material capabilities and a wide range of engineering-grade filaments, we enable you to create functional prototypes and end-use parts that meet the highest standards.
                   </p>
 
+                  <div className="space-y-4 mb-8">
+                    <div className="flex items-start gap-3">
+                      <div className="flex-shrink-0 mt-1">
+                        <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
+                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                          </svg>
+                        </div>
+                      </div>
+                      <p className="text-gray-600">Multi-material printing with up to 5 materials</p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="flex-shrink-0 mt-1">
+                        <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
+                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                          </svg>
+                        </div>
+                      </div>
+                      <p className="text-gray-600">Engineering-grade materials for functional parts</p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="flex-shrink-0 mt-1">
+                        <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
+                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                          </svg>
+                        </div>
+                      </div>
+                      <p className="text-gray-600">Advanced features like soluble supports and composite materials</p>
+                    </div>
+                  </div>
+
                   <button className="inline-flex items-center px-6 py-3 bg-[#329db7] text-white rounded-lg hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
-                    Get Started Today
+                    Explore FDM Capabilities
                   </button>
                 </div>
               </div>
@@ -136,89 +232,9 @@ const ThreeDPrintingPage = () => {
           </div>
         </section>
 
-        {/* Hero section with materials grid */}
-        <section className="relative bg-white text-gray-900 border-t border-gray-100 pt-16 md:pt-24">
-          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 flex flex-col lg:flex-row items-start">
-            {/* Left side content */}
-            <div className="w-full lg:w-1/2 mb-12 lg:mb-0 pr-0 lg:pr-16">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight text-[#1a2b4b]">
-                {t('3dPrinting.materials.tackleAnyProblem')}
-              </h1>
-              <p className="text-gray-600 text-lg mb-8">
-                Whatever you're using to create demand, convert intent, and manage your materials, we integrate with it. From rapid prototyping to end-use parts, our extensive material selection ensures you'll find the perfect match for your project. Whether you need high-strength composites, flexible elastomers, or biocompatible resins, we've got you covered with industry-leading materials that meet the highest quality standards.
-              </p>
-              <button className="bg-[#329db7] hover:bg-[#2b86a0] text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
-                {t('3dPrinting.materials.requestSample')}
-              </button>
-            </div>
-            
-            {/* Right side floating cards grid */}
-            <div className="w-full lg:w-1/2 lg:pl-8 -mt-32">
-              <div className="relative w-full min-h-[600px]">
-                {/* Grid of floating cards */}
-                <div className="relative min-h-[600px]">
-                  {[
-                    // First column - 3 images
-                    { top: '20%', left: '15%' },
-                    { top: '50%', left: '15%' },
-                    { top: '80%', left: '15%' },
-                    
-                    // Second column - 4 images
-                    { top: '15%', left: '38%' },
-                    { top: '40%', left: '38%' },
-                    { top: '65%', left: '38%' },
-                    { top: '90%', left: '38%' },
-                    
-                    // Third column - 3 images
-                    { top: '20%', left: '61%' },
-                    { top: '50%', left: '61%' },
-                    { top: '80%', left: '61%' },
-
-                    // Fourth column - 4 images
-                    { top: '15%', left: '84%' },
-                    { top: '40%', left: '84%' },
-                    { top: '65%', left: '84%' },
-                    { top: '90%', left: '84%' }
-                  ].map((item, index) => (
-                    <div
-                      key={index}
-                      className="absolute"
-                      style={{
-                        top: item.top,
-                        left: item.left,
-                        transform: 'translate(-50%, -50%)'
-                      }}
-                    >
-                      <div className="relative group">
-                        <div className="w-[120px] h-[120px] overflow-hidden rounded-2xl shadow-[0_8px_20px_rgba(0,0,0,0.1)] group-hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] transition-all duration-300">
-                          <img
-                            src="/3dprinters/hero22.webp"
-                            alt={`Integration ${index + 1}`}
-                            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Subtle gradient background */}
-                <div className="absolute inset-0 -z-10">
-                  <div 
-                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-[700px] max-h-[600px]"
-                    style={{
-                      background: 'radial-gradient(circle at center, rgba(50,157,183,0.08) 0%, rgba(50,157,183,0) 70%)'
-                    }}
-                  ></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* Instagram Reels Section */}
-        <section className="py-16 bg-gray-50">
-          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="relative bg-white text-gray-900 border-t border-gray-100">
+          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
             <div className="flex flex-col md:flex-row items-center justify-between gap-8">
               {/* Left side content */}
               <div className="w-full md:w-1/2 lg:w-2/5">
@@ -228,22 +244,40 @@ const ThreeDPrintingPage = () => {
                 <p className="text-gray-600 mb-6">
                   Follow our journey and discover how we bring your ideas to life through cutting-edge 3D printing technology.
                 </p>
-                <a 
-                  href="https://www.instagram.com/reel/DGPupgNsXk_/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#329db7] text-white rounded-lg hover:bg-[#2b86a0] transition-colors"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="w-5 h-5"
+                <div className="flex flex-col gap-4">
+                  <a 
+                    href="https://www.instagram.com/reel/DGPupgNsXk_/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#329db7] text-white rounded-lg hover:bg-[#2b86a0] transition-colors w-fit"
                   >
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                  </svg>
-                  Follow Us on Instagram
-                </a>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      className="w-5 h-5"
+                    >
+                      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                    Follow Instagram
+                  </a>
+                  <a 
+                    href="https://t.me/CenterForYouthInitiatives"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#0088cc] text-white rounded-lg hover:bg-[#0077b3] transition-colors w-fit"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      className="w-5 h-5"
+                    >
+                      <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                    </svg>
+                    Follow Telegram
+                  </a>
+                </div>
               </div>
 
               {/* Right side reels */}
@@ -617,23 +651,23 @@ const ThreeDPrintingPage = () => {
                   <div className="flex items-center gap-4 mb-4">
                     <div className="w-12 h-12 rounded-full bg-[#329db7]/10 flex items-center justify-center">
                       <svg className="w-6 h-6 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                       </svg>
                     </div>
                     <div>
-                      <p className="text-sm text-gray-600">Students Enrolled</p>
-                      <p className="text-2xl font-bold text-gray-900">500+</p>
+                      <p className="text-sm text-gray-600">Course Format</p>
+                      <p className="text-lg font-bold text-gray-900">Hands-on Learning</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 rounded-full bg-[#329db7]/10 flex items-center justify-center">
                       <svg className="w-6 h-6 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                     </div>
                     <div>
-                      <p className="text-sm text-gray-600">Course Rating</p>
-                      <p className="text-2xl font-bold text-gray-900">4.9/5.0</p>
+                      <p className="text-sm text-gray-600">Duration</p>
+                      <p className="text-lg font-bold text-gray-900">3-8 Weeks</p>
                     </div>
                   </div>
                 </div>

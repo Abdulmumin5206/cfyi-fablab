@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useTranslation } from "react-i18next";
+import ImageComparisonSlider from "@/components/ImageComparisonSlider";
 
 const DigitalFabricationPage = () => {
   const { t } = useTranslation();
@@ -101,14 +102,11 @@ const DigitalFabricationPage = () => {
 
               {/* Right side with image */}
               <div className="w-full lg:w-1/2 relative">
-                <div className="relative rounded-xl overflow-hidden shadow-xl bg-white">
-                  <img 
-                    src="/digital-fabrication/uv-printing.webp" 
-                    alt="UV Printing Process" 
-                    className="w-full h-[600px] object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-                </div>
+                <ImageComparisonSlider
+                  beforeImage="/digital-fabrication/righside.webp"
+                  afterImage="/digital-fabrication/leftside.webp"
+                  alt="UV Printing Comparison"
+                />
               </div>
             </div>
           </div>
@@ -172,7 +170,7 @@ const DigitalFabricationPage = () => {
               <div className="w-full lg:w-1/2 relative">
                 <div className="relative rounded-xl overflow-hidden shadow-xl bg-white">
                   <img 
-                    src="/digital-fabrication/sticker-machine.webp" 
+                    src="/digital-fabrication/sticker-production.webp" 
                     alt="Sticker Production" 
                     className="w-full h-[600px] object-cover"
                   />

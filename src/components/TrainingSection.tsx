@@ -7,62 +7,142 @@ const TrainingSection = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="py-16 bg-gray-100 relative overflow-hidden">
-      <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="bg-gradient-to-r from-[#309eb7] to-[#2a8ca3] overflow-hidden"
-        >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Content Side */}
-            <div className="flex flex-col justify-center p-8 md:p-12">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
-                Master Your Skills
-              </h2>
-              <p className="text-white/90 text-lg mb-6">
-                From beginner workshops to advanced masterclasses, discover our comprehensive 
-                training programs designed to elevate your making journey.
-              </p>
-              <ul className="space-y-3">
-                <li className="flex items-center text-white">
-                  <Check className="w-5 h-5 mr-2" />
-                  <span>Structured Learning</span>
-                </li>
-                <li className="flex items-center text-white">
-                  <Check className="w-5 h-5 mr-2" />
-                  <span>Expert Instructors</span>
-                </li>
-                <li className="flex items-center text-white">
-                  <Check className="w-5 h-5 mr-2" />
-                  <span>Hands-on Projects</span>
-                </li>
-              </ul>
-              <Link 
-                to="/training" 
-                className="mt-6 inline-flex items-center bg-white text-[#309eb7] px-6 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105"
-              >
-                Learn More
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Link>
+    <section className="py-12 md:py-16 lg:py-20 bg-[#f7f7f7]">
+      <div className="max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-8">
+          {/* Left side content */}
+          <div className="w-full lg:w-1/2 space-y-5 md:space-y-6">
+            <div className="inline-block">
+              <span className="bg-[#329db7]/10 text-[#329db7] text-sm font-semibold px-4 py-2 rounded-full">
+                Our Courses
+              </span>
+            </div>
+            
+            <h2 className="text-3xl sm:text-4xl lg:text-4xl font-bold text-gray-900 leading-tight">
+              Master Modern Manufacturing
+            </h2>
+            
+            <p className="text-base sm:text-lg lg:text-lg text-gray-600">
+              From 3D printing to laser cutting, discover our comprehensive range of courses designed to help you master the latest manufacturing technologies and bring your ideas to life.
+            </p>
+
+            <div className="space-y-3 md:space-y-4">
+              {/* Course Features */}
+              <div className="flex items-start gap-3">
+                <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-[#329db7]/10 flex items-center justify-center">
+                  <svg className="w-5 h-5 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900">Diverse Course Selection</h3>
+                  <p className="text-sm text-gray-600">Choose from 3D printing, laser cutting, CNC machining, and more</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-[#329db7]/10 flex items-center justify-center">
+                  <svg className="w-5 h-5 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6V4m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900">Expert Instructors</h3>
+                  <p className="text-sm text-gray-600">Learn from industry professionals with years of experience</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-[#329db7]/10 flex items-center justify-center">
+                  <svg className="w-5 h-5 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900">Hands-on Projects</h3>
+                  <p className="text-sm text-gray-600">Apply your skills through real-world projects and challenges</p>
+                </div>
+              </div>
             </div>
 
-            {/* Image Side */}
-            <div className="relative h-full min-h-[500px] md:min-h-[600px]">
-              <div className="absolute inset-0 bg-gradient-to-br from-black/25 to-transparent z-10" />
-              <img
-                src="/main/training/training.webp"
-                alt={t('training.imageAlt')}
-                className="w-full h-full object-cover"
-                loading="lazy"
-                width={800}
-                height={600}
-              />
+            <div className="flex flex-col sm:flex-row gap-3 pt-4">
+              <Link 
+                to="/courses" 
+                className="px-6 py-3 bg-[#329db7] text-white rounded-xl font-semibold hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 inline-flex items-center justify-center text-sm"
+              >
+                Explore Courses
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </Link>
+              <button className="px-6 py-3 border-2 border-gray-200 text-gray-700 rounded-xl font-semibold hover:border-[#329db7] hover:text-[#329db7] transition-all duration-300 text-sm">
+                Download Brochure
+              </button>
             </div>
           </div>
-        </motion.div>
+
+          {/* Right side image grid */}
+          <div className="w-full lg:w-1/2 relative mt-6 lg:mt-0">
+            <div className="grid grid-cols-2 gap-3">
+              <div className="space-y-3">
+                <div className="rounded-xl overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
+                  <img 
+                    src="/main/training/training.webp" 
+                    alt="3D Printing Course" 
+                    className="w-full h-36 sm:h-40 lg:h-44 object-cover"
+                  />
+                </div>
+                <div className="rounded-xl overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
+                  <img 
+                    src="/main/training/training2.webp" 
+                    alt="Laser Cutting Workshop" 
+                    className="w-full h-48 sm:h-52 lg:h-56 object-cover"
+                  />
+                </div>
+              </div>
+              <div className="space-y-3 pt-6">
+                <div className="rounded-xl overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
+                  <img 
+                    src="/main/training/training3.webp" 
+                    alt="CNC Machining Class" 
+                    className="w-full h-48 sm:h-52 lg:h-56 object-cover"
+                  />
+                </div>
+                <div className="rounded-xl overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
+                  <img 
+                    src="/main/training/training4.webp" 
+                    alt="Digital Fabrication Lab" 
+                    className="w-full h-36 sm:h-40 lg:h-44 object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Floating stats card */}
+            <div className="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-xl p-4 max-w-[220px]">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 rounded-full bg-[#329db7]/10 flex items-center justify-center">
+                  <svg className="w-5 h-5 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-xs text-gray-600">Course Format</p>
+                  <p className="text-base font-bold text-gray-900">Hands-on Learning</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-[#329db7]/10 flex items-center justify-center">
+                  <svg className="w-5 h-5 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-xs text-gray-600">Duration</p>
+                  <p className="text-base font-bold text-gray-900">2-12 Weeks</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

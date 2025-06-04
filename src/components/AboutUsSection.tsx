@@ -93,7 +93,7 @@ const AboutUsSection = () => {
       className="relative py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 bg-gray-200 overflow-hidden"
     >
       {/* Background Logo */}
-      <div className="absolute inset-0 flex items-center justify-center">
+      <div className="absolute inset-0 hidden lg:flex items-center justify-center">
         <div 
           className="w-[100%] h-[100%] relative transition-all duration-1000 ease-out"
           style={{
@@ -114,33 +114,33 @@ const AboutUsSection = () => {
         <p className="text-left text-gray-700 text-lg mb-8 sm:mb-12">Feels modern, fitting for a FabLab with cutting-edge tools.</p>
         
         {/* Mobile Layout */}
-        <div className="grid grid-cols-1 gap-6 sm:hidden">
+        <div className="grid grid-cols-1 gap-4 sm:hidden">
           {cardData.map((card, index) => (
             <div 
               key={index}
-              className={`group bg-white/90 backdrop-blur-sm p-4 shadow-md relative flex flex-col justify-between min-h-[300px] transition-all duration-500 ease-in-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              className={`group bg-white/90 backdrop-blur-sm p-4 shadow-md relative flex flex-col justify-between min-h-[280px] transition-all duration-500 ease-in-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <div className="absolute top-0 right-0 w-8 h-8 bg-yellow-400"></div>
+              <div className="absolute top-0 right-0 w-6 h-6 bg-yellow-400"></div>
               
               {/* Content */}
               <div className="relative z-20">
-                <h3 className="text-xl sm:text-2xl font-bold mb-6 text-black">{card.title}</h3>
-                <p className="text-gray-700 text-base">{card.text}</p>
+                <h3 className="text-lg font-bold mb-2 text-black">{card.title}</h3>
+                <p className="text-gray-700 text-sm">{card.text}</p>
               </div>
               
               {/* Logo Container */}
-              <div className="h-[120px] flex items-center justify-start">
+              <div className="h-[90px] flex items-center justify-center mt-2">
                 <a 
                   href={card.link} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="w-full h-full flex items-center justify-start pl-4"
+                  className="w-full h-full flex items-center justify-center"
                 >
                   <img 
                     src={card.image} 
                     alt={card.imageAlt} 
-                    className="object-contain transform transition-transform duration-500 group-hover:scale-110 w-[60%] h-[60%] mt-4"
+                    className="object-contain transform transition-transform duration-500 group-hover:scale-110 w-[65%] h-[65%]"
                   />
                 </a>
               </div>
@@ -149,33 +149,33 @@ const AboutUsSection = () => {
         </div>
 
         {/* Tablet and Desktop Layout */}
-        <div className="hidden sm:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="hidden sm:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
           {cardData.map((card, index) => (
             <div 
               key={index}
-              className={`group bg-white/90 backdrop-blur-sm p-4 sm:p-6 lg:p-8 shadow-md relative flex flex-col justify-between min-h-[350px] lg:min-h-[400px] transition-all duration-500 ease-in-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              className={`group bg-white/90 backdrop-blur-sm p-4 md:p-5 lg:p-6 shadow-md relative flex flex-col justify-between min-h-[300px] md:min-h-[320px] lg:min-h-[340px] transition-all duration-500 ease-in-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <div className="absolute top-0 right-0 w-8 h-8 bg-yellow-400"></div>
+              <div className="absolute top-0 right-0 w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 bg-yellow-400"></div>
               
               {/* Content */}
               <div className="relative z-20">
-                <h3 className="text-xl sm:text-2xl font-bold mb-6 text-black">{card.title}</h3>
-                <p className="text-gray-700 text-base">{card.text}</p>
+                <h3 className="text-lg md:text-xl lg:text-2xl font-bold mb-2 md:mb-3 lg:mb-3 text-black">{card.title}</h3>
+                <p className="text-gray-700 text-sm md:text-base lg:text-lg">{card.text}</p>
               </div>
               
               {/* Logo Container */}
-              <div className="h-[120px] flex items-center justify-start">
+              <div className="h-[90px] md:h-[100px] lg:h-[110px] flex items-center justify-center mt-2 md:mt-3 lg:mt-3">
                 <a 
                   href={card.link} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="w-full h-full flex items-center justify-start pl-4"
+                  className="w-full h-full flex items-center justify-center"
                 >
                   <img 
                     src={card.image} 
                     alt={card.imageAlt} 
-                    className="object-contain transform transition-transform duration-500 group-hover:scale-110 w-[60%] h-[60%] mt-4"
+                    className="object-contain transform transition-transform duration-500 group-hover:scale-110 w-[65%] h-[65%] md:w-[70%] md:h-[70%] lg:w-[75%] lg:h-[75%]"
                   />
                 </a>
               </div>

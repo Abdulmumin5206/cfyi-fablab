@@ -287,20 +287,20 @@ const MembershipSection = () => {
 
   return (
     <section className="py-16 bg-gray-200 relative overflow-hidden">
-      <div className="container mx-auto px-4">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-left mb-10">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 text-black">
             Unlock Your Potential
           </h2>
-          <p className="text-left text-gray-700 text-lg mb-8 sm:mb-12">
+          <p className="text-left text-gray-700 text-base sm:text-lg mb-8 sm:mb-12 max-w-3xl">
             From students to professionals, find the perfect plan to bring your ideas to life. 
             Join our community of makers and innovators.
           </p>
         </div>
 
         {/* Membership Tiers */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-6">
           {membershipFeatures.map((plan, index) => (
             <PlanCard key={index} plan={plan} />
           ))}
@@ -309,7 +309,7 @@ const MembershipSection = () => {
         {/* Universal Benefits with optimized animation */}
         <div className="space-y-4 mb-10">
           {/* First Row - Moving Left */}
-          <div className="relative overflow-hidden">
+          <div className="relative overflow-hidden -mx-4 sm:-mx-6 lg:-mx-8">
             <motion.div 
               className="flex space-x-4 will-change-transform"
               animate={{ x: [`0px`, `-${firstRowSetWidth + GAP_WIDTH}px`] }}
@@ -326,18 +326,18 @@ const MembershipSection = () => {
               {duplicatedFirstRow.map((benefit, index) => (
                 <div
                   key={`first-${index}`}
-                  className="flex-shrink-0 w-[260px] bg-white p-5 transition-transform duration-200 hover:scale-[1.02]"
+                  className="flex-shrink-0 w-[260px] bg-white p-4 sm:p-5 transition-transform duration-200 hover:scale-[1.02]"
                 >
                   <div className="text-[#309eb7] mb-3">{benefit.icon}</div>
-                  <h3 className="text-base font-semibold mb-2">{benefit.title}</h3>
-                  <p className="text-gray-600 text-sm">{benefit.description}</p>
+                  <h3 className="text-sm sm:text-base font-semibold mb-2">{benefit.title}</h3>
+                  <p className="text-gray-600 text-xs sm:text-sm">{benefit.description}</p>
                 </div>
               ))}
             </motion.div>
           </div>
 
           {/* Second Row - Moving Right */}
-          <div className="relative overflow-hidden">
+          <div className="relative overflow-hidden -mx-4 sm:-mx-6 lg:-mx-8">
             <motion.div 
               className="flex space-x-4 will-change-transform"
               animate={{ x: [`-${secondRowSetWidth + GAP_WIDTH}px`, `0px`] }}
@@ -354,11 +354,11 @@ const MembershipSection = () => {
               {duplicatedSecondRow.map((benefit, index) => (
                 <div
                   key={`second-${index}`}
-                  className="flex-shrink-0 w-[260px] bg-white p-5 transition-transform duration-200 hover:scale-[1.02]"
+                  className="flex-shrink-0 w-[260px] bg-white p-4 sm:p-5 transition-transform duration-200 hover:scale-[1.02]"
                 >
                   <div className="text-[#309eb7] mb-3">{benefit.icon}</div>
-                  <h3 className="text-base font-semibold mb-2">{benefit.title}</h3>
-                  <p className="text-gray-600 text-sm">{benefit.description}</p>
+                  <h3 className="text-sm sm:text-base font-semibold mb-2">{benefit.title}</h3>
+                  <p className="text-gray-600 text-xs sm:text-sm">{benefit.description}</p>
                 </div>
               ))}
             </motion.div>

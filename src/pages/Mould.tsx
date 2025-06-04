@@ -414,7 +414,7 @@ const MouldPage = () => {
                 <div className="absolute top-4 left-0 w-[50%] z-10 transition-transform hover:-translate-y-1">
                   <div className="aspect-[7/8] relative overflow-hidden shadow-xl rounded-xl bg-white hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] transition-all duration-300">
                     <img 
-                      src="/mould/mould2.webp" 
+                      src="/mould/imhero2.webp" 
                       alt="Moulding Solutions" 
                       className="w-full h-full object-cover"
                     />

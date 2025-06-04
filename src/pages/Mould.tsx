@@ -5,7 +5,6 @@ import { ArrowLeft, ArrowRight, Info, ChevronDown, ChevronUp } from "lucide-reac
 import styles from "@/styles/Slider.module.css";
 import "@/styles/Carousel.css"; // Import the carousel CSS
 import { useTranslation } from "react-i18next";
-import AboutSection from "@/components/AboutSection";
 
 const MouldPage = () => {
   const { t } = useTranslation();
@@ -13,12 +12,12 @@ const MouldPage = () => {
   const marketsRef = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [expandedFaq, setExpandedFaq] = useState<number | null>(0); // First FAQ item expanded by default
+  const [expandedFaq, setExpandedFaq] = useState<number | null>(0);
   
   // Image comparison slider references and state
   const sliderRef = useRef<HTMLDivElement>(null);
   const sliderKnobRef = useRef<HTMLDivElement>(null);
-  const [sliderPosition, setSliderPosition] = useState(50); // Start in the middle
+  const [sliderPosition, setSliderPosition] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
 
   useEffect(() => {
@@ -205,7 +204,177 @@ const MouldPage = () => {
           </div>
         </section>
         
-        <AboutSection />
+        {/* Our Professions Section */}
+        <section className="py-20 bg-white">
+          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Professions</h2>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">Where innovation meets fabrication - delivering excellence in every project</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {/* Engineering */}
+              <div className="group bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+                <div className="relative h-64 overflow-hidden">
+                  <img 
+                    src="/mould/popups/engineering.webp" 
+                    alt="Engineering" 
+                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                </div>
+                <div className="p-4 flex flex-col gap-2">
+                  <h3 className="text-xl font-bold text-gray-900 mb-1">Engineering</h3>
+                  <p className="text-gray-600 text-sm">Precision parts and rapid prototyping.</p>
+                  <ul className="mt-1 space-y-1">
+                    <li className="flex items-center text-sm text-gray-700"><svg className="w-4 h-4 mr-2 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>Functional prototypes</li>
+                    <li className="flex items-center text-sm text-gray-700"><svg className="w-4 h-4 mr-2 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>End-use parts</li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Textile */}
+              <div className="group bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+                <div className="relative h-64 overflow-hidden">
+                  <img 
+                    src="/mould/popups/textile.webp" 
+                    alt="Textile" 
+                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                </div>
+                <div className="p-4 flex flex-col gap-2">
+                  <h3 className="text-xl font-bold text-gray-900 mb-1">Textile</h3>
+                  <p className="text-gray-600 text-sm">Custom tools for textile production.</p>
+                  <ul className="mt-1 space-y-1">
+                    <li className="flex items-center text-sm text-gray-700"><svg className="w-4 h-4 mr-2 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>Specialized fixtures</li>
+                    <li className="flex items-center text-sm text-gray-700"><svg className="w-4 h-4 mr-2 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>Production aids</li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Medical */}
+              <div className="group bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+                <div className="relative h-64 overflow-hidden">
+                  <img 
+                    src="/mould/popups/medical.webp" 
+                    alt="Medical" 
+                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                </div>
+                <div className="p-4 flex flex-col gap-2">
+                  <h3 className="text-xl font-bold text-gray-900 mb-1">Medical</h3>
+                  <p className="text-gray-600 text-sm">Reliable parts for medical devices.</p>
+                  <ul className="mt-1 space-y-1">
+                    <li className="flex items-center text-sm text-gray-700"><svg className="w-4 h-4 mr-2 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>Lab equipment</li>
+                    <li className="flex items-center text-sm text-gray-700"><svg className="w-4 h-4 mr-2 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>Custom enclosures</li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Furniture */}
+              <div className="group bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+                <div className="relative h-64 overflow-hidden">
+                  <img 
+                    src="/mould/popups/furniture.webp" 
+                    alt="Furniture" 
+                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                </div>
+                <div className="p-4 flex flex-col gap-2">
+                  <h3 className="text-xl font-bold text-gray-900 mb-1">Furniture</h3>
+                  <p className="text-gray-600 text-sm">Custom fittings for furniture makers.</p>
+                  <ul className="mt-1 space-y-1">
+                    <li className="flex items-center text-sm text-gray-700"><svg className="w-4 h-4 mr-2 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>Prototyping</li>
+                    <li className="flex items-center text-sm text-gray-700"><svg className="w-4 h-4 mr-2 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>Custom joints</li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Automotive */}
+              <div className="group bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+                <div className="relative h-64 overflow-hidden">
+                  <img 
+                    src="/mould/popups/automotive.jpg" 
+                    alt="Automotive" 
+                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                </div>
+                <div className="p-4 flex flex-col gap-2">
+                  <h3 className="text-xl font-bold text-gray-900 mb-1">Automotive</h3>
+                  <p className="text-gray-600 text-sm">Spare parts and custom solutions.</p>
+                  <ul className="mt-1 space-y-1">
+                    <li className="flex items-center text-sm text-gray-700"><svg className="w-4 h-4 mr-2 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>Replacement parts</li>
+                    <li className="flex items-center text-sm text-gray-700"><svg className="w-4 h-4 mr-2 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>Rapid prototyping</li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Education */}
+              <div className="group bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+                <div className="relative h-64 overflow-hidden">
+                  <img 
+                    src="/mould/popups/education.webp" 
+                    alt="Education" 
+                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                </div>
+                <div className="p-4 flex flex-col gap-2">
+                  <h3 className="text-xl font-bold text-gray-900 mb-1">Education</h3>
+                  <p className="text-gray-600 text-sm">Hands-on models for schools.</p>
+                  <ul className="mt-1 space-y-1">
+                    <li className="flex items-center text-sm text-gray-700"><svg className="w-4 h-4 mr-2 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>Teaching aids</li>
+                    <li className="flex items-center text-sm text-gray-700"><svg className="w-4 h-4 mr-2 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>STEM projects</li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Manufacturing */}
+              <div className="group bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+                <div className="relative h-64 overflow-hidden">
+                  <img 
+                    src="/mould/popups/manufacturing.png" 
+                    alt="Manufacturing" 
+                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                </div>
+                <div className="p-4 flex flex-col gap-2">
+                  <h3 className="text-xl font-bold text-gray-900 mb-1">Manufacturing</h3>
+                  <p className="text-gray-600 text-sm">Efficient parts for production lines.</p>
+                  <ul className="mt-1 space-y-1">
+                    <li className="flex items-center text-sm text-gray-700"><svg className="w-4 h-4 mr-2 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>Tooling solutions</li>
+                    <li className="flex items-center text-sm text-gray-700"><svg className="w-4 h-4 mr-2 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>Small-batch runs</li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Jewelry */}
+              <div className="group bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+                <div className="relative h-64 overflow-hidden">
+                  <img 
+                    src="/mould/popups/jewelry.jpg" 
+                    alt="Jewelry" 
+                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                </div>
+                <div className="p-4 flex flex-col gap-2">
+                  <h3 className="text-xl font-bold text-gray-900 mb-1">Jewelry</h3>
+                  <p className="text-gray-600 text-sm">Detailed models for jewelry design.</p>
+                  <ul className="mt-1 space-y-1">
+                    <li className="flex items-center text-sm text-gray-700"><svg className="w-4 h-4 mr-2 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>Wax casting models</li>
+                    <li className="flex items-center text-sm text-gray-700"><svg className="w-4 h-4 mr-2 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>Design prototypes</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
         
         {/* Premium Quality Section */}
         <section id="premium-quality" className="bg-[#f7f7f7] py-16 md:py-24 overflow-visible">

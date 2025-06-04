@@ -11,19 +11,15 @@ const MouldPage = () => {
   const { t } = useTranslation();
   const videoRef = useRef<HTMLVideoElement>(null);
   const marketsRef = useRef<HTMLDivElement>(null);
-  const equipmentContainerRef = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const equipmentItems = 5; // Total number of equipment items
-  const [hoveredItem, setHoveredItem] = useState<number | null>(null);
-  const animationRef = useRef<number | null>(null);
+  const [expandedFaq, setExpandedFaq] = useState<number | null>(0); // First FAQ item expanded by default
   
   // Image comparison slider references and state
   const sliderRef = useRef<HTMLDivElement>(null);
   const sliderKnobRef = useRef<HTMLDivElement>(null);
   const [sliderPosition, setSliderPosition] = useState(50); // Start in the middle
   const [isDragging, setIsDragging] = useState(false);
-  const [expandedFaq, setExpandedFaq] = useState<number | null>(0); // First FAQ item expanded by default
 
   useEffect(() => {
     // Scroll to top when component mounts
@@ -34,19 +30,6 @@ const MouldPage = () => {
     
     console.log("Mould page mounted");
   }, [t]);
-
-  // Add CSS animation control for the equipment carousel
-  useEffect(() => {
-    if (!equipmentContainerRef.current) return;
-    
-    const container = equipmentContainerRef.current;
-    
-    if (isPaused) {
-      container.style.animationPlayState = 'paused';
-    } else {
-      container.style.animationPlayState = 'running';
-    }
-  }, [isPaused]);
 
   // Initialize image comparison slider
   useEffect(() => {
@@ -225,364 +208,158 @@ const MouldPage = () => {
         <AboutSection />
         
         {/* Premium Quality Section */}
-        <section id="premium-quality" className="relative bg-white text-gray-900">
-          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20 lg:py-24 flex flex-col lg:flex-row items-center">
-            {/* Left side content */}
-            <div className="w-full lg:w-1/2 mb-8 sm:mb-12 lg:mb-0 pr-0 lg:pr-10">
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 leading-tight">
-                {t('mould.premiumQuality.title')} <span className="text-gray-600">{t('mould.premiumQuality.subtitle')}</span>
-              </h1>
-              
-              <div className="flex flex-wrap gap-2 mb-6 sm:mb-8">
-                <button className="flex items-center gap-2 bg-gray-200 hover:bg-gray-300 px-3 sm:px-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm">
-                  <span>{t('mould.premiumQuality.materials.rigid')}</span>
-                </button>
-                <button className="flex items-center gap-2 bg-gray-200 hover:bg-gray-300 px-3 sm:px-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm">
-                  <span>{t('mould.premiumQuality.materials.flexible')}</span>
-                </button>
-                <button className="flex items-center gap-2 bg-gray-200 hover:bg-gray-300 px-3 sm:px-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm">
-                  <span>{t('mould.premiumQuality.materials.transparent')}</span>
-                </button>
-                <button className="flex items-center gap-2 bg-gray-200 hover:bg-gray-300 px-3 sm:px-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm">
-                  <span>{t('mould.premiumQuality.materials.foodSafe')}</span>
-                </button>
-                <button className="flex items-center gap-2 bg-gray-200 hover:bg-gray-300 px-3 sm:px-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm">
-                  <span>{t('mould.premiumQuality.materials.highTemp')}</span>
-                </button>
-                <button className="flex items-center gap-2 bg-gray-200 hover:bg-gray-300 px-3 sm:px-4 py-1.5 sm:py-2 rounded-md text-xs sm:text-sm">
-                  <span>{t('mould.premiumQuality.materials.multiColor')}</span>
-                </button>
+        <section id="premium-quality" className="bg-[#f7f7f7] py-16 md:py-24 overflow-visible">
+          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col lg:flex-row items-start gap-12">
+              {/* Left side content */}
+              <div className="w-full lg:w-1/2">
+                <div className="max-w-xl mx-auto text-center lg:text-left flex flex-col items-center lg:items-start">
+                  <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight text-gray-900">
+                    Precision Plastic Moulding for Small-Batch Excellence
+                  </h2>
+                  
+                  <p className="text-lg text-gray-600 mb-8">
+                    Transform your spare parts and small-volume production needs with our specialized plastic moulding solutions. Whether you need replacement parts for legacy equipment or small-batch production runs, our advanced moulding technologies deliver consistent quality and precise tolerances. Perfect for manufacturers, maintenance teams, and businesses requiring reliable, cost-effective solutions for quantities from 1 to 1000 units.
+                  </p>
+
+                  <button className="inline-flex items-center px-6 py-3 bg-[#329db7] text-white rounded-lg hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
+                    Request a Quote
+                  </button>
+                </div>
               </div>
-              
-              <a href="https://t.me/your_telegram_handle" target="_blank" rel="noopener noreferrer" className="inline-block bg-gray-800 hover:bg-black text-white px-4 sm:px-6 py-2 sm:py-3 rounded-md font-medium text-sm sm:text-base">
-                REQUEST A CONSULTATION
-              </a>
-            </div>
-            
-            {/* Right side image */}
-            <div className="w-full lg:w-3/4 lg:pl-8">
-              <div className="relative w-full">
-                <img 
-                  src="/mould/imhero.webp" 
-                  alt="Premium Moulding Materials" 
-                  className="w-full aspect-[4/3] object-cover h-auto max-h-[500px] sm:max-h-[650px]"
-                />
+
+              {/* Right side with two image containers */}
+              <div className="w-full lg:w-1/2 relative pt-16">
+                {/* First image container - larger and in front */}
+                <div className="relative z-30 w-[55%] ml-auto transform translate-y-2 transition-transform hover:-translate-y-1">
+                  <div className="aspect-[5/6] relative overflow-hidden shadow-2xl rounded-xl bg-white hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] transition-all duration-300">
+                    <img 
+                      src="/mould/imhero.webp" 
+                      alt="Professional Moulding Equipment" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+
+                {/* Second image container - smaller and behind */}
+                <div className="absolute top-4 left-0 w-[50%] z-10 transition-transform hover:-translate-y-1">
+                  <div className="aspect-[7/8] relative overflow-hidden shadow-xl rounded-xl bg-white hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] transition-all duration-300">
+                    <img 
+                      src="/mould/mould2.webp" 
+                      alt="Moulding Solutions" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </section>
         
-        {/* Why Go Digital Section */}
+        {/* Why Choose Plastic Moulding Section */}
         <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-gray-50">
           <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 md:mb-16 text-center">{t('mould.whyDigital.title')}</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight text-gray-900 text-center">Why Choose Plastic Moulding?</h2>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 md:gap-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 md:gap-12 mb-8">
               {/* Benefit 1 */}
               <div className="flex flex-col items-center text-center">
-                <div className="mb-4 sm:mb-6 w-24 h-24 sm:w-32 sm:h-32 flex items-center justify-center">
+                <div className="mb-3 w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center">
                   <img src="/mould/lower_costs.webp" alt={t('mould.whyDigital.benefits.lowerCosts.title')} className="w-full h-full object-contain" />
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3">{t('mould.whyDigital.benefits.lowerCosts.title')}</h3>
+                <h3 className="text-lg sm:text-xl font-bold mb-2">{t('mould.whyDigital.benefits.lowerCosts.title')}</h3>
                 <p className="text-sm sm:text-base text-gray-600">{t('mould.whyDigital.benefits.lowerCosts.description')}</p>
               </div>
               
               {/* Benefit 2 */}
               <div className="flex flex-col items-center text-center">
-                <div className="mb-4 sm:mb-6 w-24 h-24 sm:w-32 sm:h-32 flex items-center justify-center">
+                <div className="mb-3 w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center">
                   <img src="/mould/faster_time.webp" alt={t('mould.whyDigital.benefits.fasterTime.title')} className="w-full h-full object-contain" />
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3">{t('mould.whyDigital.benefits.fasterTime.title')}</h3>
+                <h3 className="text-lg sm:text-xl font-bold mb-2">{t('mould.whyDigital.benefits.fasterTime.title')}</h3>
                 <p className="text-sm sm:text-base text-gray-600">{t('mould.whyDigital.benefits.fasterTime.description')}</p>
               </div>
               
               {/* Benefit 3 */}
               <div className="flex flex-col items-center text-center">
-                <div className="mb-4 sm:mb-6 w-24 h-24 sm:w-32 sm:h-32 flex items-center justify-center">
+                <div className="mb-3 w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center">
                   <img src="/mould/clean_workflow.webp" alt={t('mould.whyDigital.benefits.designFreedom.title')} className="w-full h-full object-contain" />
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3">{t('mould.whyDigital.benefits.designFreedom.title')}</h3>
+                <h3 className="text-lg sm:text-xl font-bold mb-2">{t('mould.whyDigital.benefits.designFreedom.title')}</h3>
                 <p className="text-sm sm:text-base text-gray-600">{t('mould.whyDigital.benefits.designFreedom.description')}</p>
               </div>
             </div>
-          </div>
-        </section>
-        
-        {/* Case Studies Section */}
-        <section className="py-12 sm:py-16 md:py-20 bg-gray-50">
-          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-6 sm:mb-8">Moulding Applications</h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
-              {/* Case Study 1 */}
-              <div className="bg-white rounded-lg overflow-hidden shadow-md flex flex-col md:flex-row">
-                <div className="md:w-2/5 h-40 sm:h-48 md:h-auto overflow-hidden">
-                  <img 
-                    src="/mould/Screenshot_7.jpg" 
-                    alt="Product Design Prototype" 
-                    className="w-full h-full object-cover"
+
+            {/* Video Section */}
+            <div className="mb-12">
+              <div className="relative w-full max-w-4xl mx-auto rounded-xl overflow-hidden shadow-2xl">
+                <video
+                  className="w-full aspect-video object-cover"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                >
+                  <source 
+                    src="/mould/im21_multiplus_webheader-compressed.mp4" 
+                    type="video/mp4" 
                   />
-                </div>
-                <div className="md:w-3/5 p-4 sm:p-6">
-                  <div className="text-[#329db7] text-xs sm:text-sm font-semibold mb-2">PRODUCT DESIGN</div>
-                  <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Creating High-Fidelity Prototypes with Silicone Moulds</h3>
-                  <a href="#" className="text-[#329db7] flex items-center gap-2 font-medium hover:text-[#2b86a0] transition-colors text-sm sm:text-base">
-                    Learn More
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 sm:h-4 sm:w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-              
-              {/* Case Study 2 */}
-              <div className="bg-white rounded-lg overflow-hidden shadow-md flex flex-col md:flex-row">
-                <div className="md:w-2/5 h-40 sm:h-48 md:h-auto overflow-hidden">
-                  <img 
-                    src="/mould/optimized_for_web_jpeg-07202023_rigid_10k_sample_card_2_189d-sh-standard-square.webp" 
-                    alt="Architectural Model" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="md:w-3/5 p-4 sm:p-6">
-                  <div className="text-[#329db7] text-xs sm:text-sm font-semibold mb-2">ARCHITECTURE</div>
-                  <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Architectural Elements Casting for Model Making and Restoration</h3>
-                  <a href="#" className="text-[#329db7] flex items-center gap-2 font-medium hover:text-[#2b86a0] transition-colors text-sm sm:text-base">
-                    Learn More
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 sm:h-4 sm:w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                  </a>
+                  Your browser does not support the video tag.
+                </video>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">See Plastic Moulding in Action</h3>
+                  <p className="text-white/90 text-lg">Watch how Formlabs' advanced moulding technology transforms raw materials into precise, high-quality parts with exceptional detail and consistency.</p>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
 
-        {/* Our Equipment for Moulding & Spare Parts Section */}
-        <section className="py-16 md:py-24 bg-[#329db7] text-white">
-          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col items-center">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-10 text-white text-center">{t('mould.equipment.title')}</h1>
+            {/* Formlabs Solutions */}
+            <div className="mt-12">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-6">Read Formlabs Injection Molding Solutions</h2>
               
-              {/* Equipment slider - CSS animation version */}
-              <div className="w-full max-w-5xl mx-auto carousel-container">
-                <div className="relative">
-                  <div className="overflow-hidden mb-6">
-                    <div 
-                      ref={equipmentContainerRef}
-                      className="carousel-track" 
-                    >
-                      {/* Equipment 1 */}
-                      <div 
-                        className="equipment-item relative transform transition-all duration-300"
-                        onMouseEnter={() => {
-                          setIsPaused(true);
-                          setHoveredItem(0);
-                        }}
-                        onMouseLeave={() => {
-                          setIsPaused(false);
-                          setHoveredItem(null);
-                        }}
-                        style={{
-                          transform: hoveredItem === 0 ? 'scale(1.05)' : 'scale(1)',
-                          zIndex: hoveredItem === 0 ? 10 : 1
-                        }}
-                      >
-                        <div className="bg-white rounded-lg overflow-hidden p-4 border border-gray-200 h-full shadow-lg transition-shadow duration-300" 
-                          style={{
-                            boxShadow: hoveredItem === 0 ? '0 10px 25px rgba(0, 0, 0, 0.2)' : ''
-                          }}
-                        >
-                          <div className="h-64 mb-4 flex items-center justify-center overflow-hidden">
-                            <img src="/mould/Equipments/formlabs-form3-01_2_1.webp" alt={t('mould.equipment.items.form3.title')} 
-                              className="h-full object-contain transition-transform duration-700" 
-                              style={{
-                                transform: hoveredItem === 0 ? 'scale(1.1) rotate(2deg)' : 'scale(1) rotate(0)'
-                              }}
-                            />
-                          </div>
-                          <h3 className="text-xl font-bold text-gray-900 text-center mb-2">{t('mould.equipment.items.form3.title')}</h3>
-                          <div 
-                            className="overflow-hidden transition-all duration-500"
-                            style={{
-                              maxHeight: hoveredItem === 0 ? '100px' : '0',
-                              opacity: hoveredItem === 0 ? 1 : 0
-                            }}
-                          >
-                            <p className="text-gray-600 text-sm text-center">{t('mould.equipment.items.form3.description')}</p>
-                          </div>
-                        </div>
-                      </div>
-                      
-                      {/* Equipment 2 */}
-                      <div 
-                        className="equipment-item relative transform transition-all duration-300"
-                        onMouseEnter={() => {
-                          setIsPaused(true);
-                          setHoveredItem(1);
-                        }}
-                        onMouseLeave={() => {
-                          setIsPaused(false);
-                          setHoveredItem(null);
-                        }}
-                        style={{
-                          transform: hoveredItem === 1 ? 'scale(1.05)' : 'scale(1)',
-                          zIndex: hoveredItem === 1 ? 10 : 1
-                        }}
-                      >
-                        <div className="bg-white rounded-lg overflow-hidden p-4 border border-gray-200 h-full shadow-lg transition-shadow duration-300"
-                          style={{
-                            boxShadow: hoveredItem === 1 ? '0 10px 25px rgba(0, 0, 0, 0.2)' : ''
-                          }}
-                        >
-                          <div className="h-64 mb-4 flex items-center justify-center overflow-hidden">
-                            <img src="/mould/Equipments/Phrozen.webp" alt={t('mould.equipment.items.phrozenMega.title')} 
-                              className="h-full object-contain transition-transform duration-700"
-                              style={{
-                                transform: hoveredItem === 1 ? 'scale(1.1) rotate(2deg)' : 'scale(1) rotate(0)'
-                              }}
-                            />
-                          </div>
-                          <h3 className="text-xl font-bold text-gray-900 text-center mb-2">{t('mould.equipment.items.phrozenMega.title')}</h3>
-                          <div 
-                            className="overflow-hidden transition-all duration-500"
-                            style={{
-                              maxHeight: hoveredItem === 1 ? '100px' : '0',
-                              opacity: hoveredItem === 1 ? 1 : 0
-                            }}
-                          >
-                            <p className="text-gray-600 text-sm text-center">{t('mould.equipment.items.phrozenMega.description')}</p>
-                          </div>
-                        </div>
-                      </div>
-                      
-                      {/* Equipment 3 */}
-                      <div 
-                        className="equipment-item relative transform transition-all duration-300"
-                        onMouseEnter={() => {
-                          setIsPaused(true);
-                          setHoveredItem(2);
-                        }}
-                        onMouseLeave={() => {
-                          setIsPaused(false);
-                          setHoveredItem(null);
-                        }}
-                        style={{
-                          transform: hoveredItem === 2 ? 'scale(1.05)' : 'scale(1)',
-                          zIndex: hoveredItem === 2 ? 10 : 1
-                        }}
-                      >
-                        <div className="bg-white rounded-lg overflow-hidden p-4 border border-gray-200 h-full shadow-lg transition-shadow duration-300"
-                          style={{
-                            boxShadow: hoveredItem === 2 ? '0 10px 25px rgba(0, 0, 0, 0.2)' : ''
-                          }}
-                        >
-                          <div className="h-64 mb-4 flex items-center justify-center overflow-hidden">
-                            <img src="/mould/Equipments/Raise.webp" alt={t('mould.equipment.items.raise3d.title')} 
-                              className="h-full object-contain transition-transform duration-700"
-                              style={{
-                                transform: hoveredItem === 2 ? 'scale(1.1) rotate(2deg)' : 'scale(1) rotate(0)'
-                              }}
-                            />
-                          </div>
-                          <h3 className="text-xl font-bold text-gray-900 text-center mb-2">{t('mould.equipment.items.raise3d.title')}</h3>
-                          <div 
-                            className="overflow-hidden transition-all duration-500"
-                            style={{
-                              maxHeight: hoveredItem === 2 ? '100px' : '0',
-                              opacity: hoveredItem === 2 ? 1 : 0
-                            }}
-                          >
-                            <p className="text-gray-600 text-sm text-center">{t('mould.equipment.items.raise3d.description')}</p>
-                          </div>
-                        </div>
-                      </div>
-                      
-                      {/* Equipment 4 */}
-                      <div 
-                        className="equipment-item relative transform transition-all duration-300"
-                        onMouseEnter={() => {
-                          setIsPaused(true);
-                          setHoveredItem(3);
-                        }}
-                        onMouseLeave={() => {
-                          setIsPaused(false);
-                          setHoveredItem(null);
-                        }}
-                        style={{
-                          transform: hoveredItem === 3 ? 'scale(1.05)' : 'scale(1)',
-                          zIndex: hoveredItem === 3 ? 10 : 1
-                        }}
-                      >
-                        <div className="bg-white rounded-lg overflow-hidden p-4 border border-gray-200 h-full shadow-lg transition-shadow duration-300"
-                          style={{
-                            boxShadow: hoveredItem === 3 ? '0 10px 25px rgba(0, 0, 0, 0.2)' : ''
-                          }}
-                        >
-                          <div className="h-64 mb-4 flex items-center justify-center overflow-hidden">
-                            <img src="/mould/Equipments/Phrozen mini.webp" alt={t('mould.equipment.items.phrozenMini.title')} 
-                              className="h-full object-contain transition-transform duration-700"
-                              style={{
-                                transform: hoveredItem === 3 ? 'scale(1.1) rotate(2deg)' : 'scale(1) rotate(0)'
-                              }}
-                            />
-                          </div>
-                          <h3 className="text-xl font-bold text-gray-900 text-center mb-2">{t('mould.equipment.items.phrozenMini.title')}</h3>
-                          <div 
-                            className="overflow-hidden transition-all duration-500"
-                            style={{
-                              maxHeight: hoveredItem === 3 ? '100px' : '0',
-                              opacity: hoveredItem === 3 ? 1 : 0
-                            }}
-                          >
-                            <p className="text-gray-600 text-sm text-center">{t('mould.equipment.items.phrozenMini.description')}</p>
-                          </div>
-                        </div>
-                      </div>
-                      
-                      {/* Equipment 5 */}
-                      <div 
-                        className="equipment-item relative transform transition-all duration-300"
-                        onMouseEnter={() => {
-                          setIsPaused(true);
-                          setHoveredItem(4);
-                        }}
-                        onMouseLeave={() => {
-                          setIsPaused(false);
-                          setHoveredItem(null);
-                        }}
-                        style={{
-                          transform: hoveredItem === 4 ? 'scale(1.05)' : 'scale(1)',
-                          zIndex: hoveredItem === 4 ? 10 : 1
-                        }}
-                      >
-                        <div className="bg-white rounded-lg overflow-hidden p-4 border border-gray-200 h-full shadow-lg transition-shadow duration-300"
-                          style={{
-                            boxShadow: hoveredItem === 4 ? '0 10px 25px rgba(0, 0, 0, 0.2)' : ''
-                          }}
-                        >
-                          <div className="h-64 mb-4 flex items-center justify-center overflow-hidden">
-                            <img src="/mould/Equipments/Prusa.webp" alt={t('mould.equipment.items.prusa.title')} 
-                              className="h-full object-contain transition-transform duration-700"
-                              style={{
-                                transform: hoveredItem === 4 ? 'scale(1.1) rotate(2deg)' : 'scale(1) rotate(0)'
-                              }}
-                            />
-                          </div>
-                          <h3 className="text-xl font-bold text-gray-900 text-center mb-2">{t('mould.equipment.items.prusa.title')}</h3>
-                          <div 
-                            className="overflow-hidden transition-all duration-500"
-                            style={{
-                              maxHeight: hoveredItem === 4 ? '100px' : '0',
-                              opacity: hoveredItem === 4 ? 1 : 0
-                            }}
-                          >
-                            <p className="text-gray-600 text-sm text-center">{t('mould.equipment.items.prusa.description')}</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
+                {/* Case Study 1 */}
+                <div className="bg-white rounded-lg overflow-hidden shadow-md flex flex-col md:flex-row">
+                  <div className="md:w-2/5 h-40 sm:h-48 md:h-auto overflow-hidden">
+                    <img 
+                      src="/mould/Screenshot_7.jpg" 
+                      alt="Guide to Low-Volume Injection Molding" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="md:w-3/5 p-4 sm:p-6">
+                    <div className="text-[#329db7] text-xs sm:text-sm font-semibold mb-2">MANUFACTURING GUIDE</div>
+                    <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Guide to Low-Volume Injection Molding</h3>
+                    <p className="text-gray-600 mb-4">Learn how to use 3D printed injection molds to produce high-quality parts for prototyping and low-volume production.</p>
+                    <a href="https://formlabs.com/global/blog/low-volume-injection-molding/" target="_blank" rel="noopener noreferrer" className="text-[#329db7] flex items-center gap-2 font-medium hover:text-[#2b86a0] transition-colors text-sm sm:text-base">
+                      Learn More
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 sm:h-4 sm:w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+                
+                {/* Case Study 2 */}
+                <div className="bg-white rounded-lg overflow-hidden shadow-md flex flex-col md:flex-row">
+                  <div className="md:w-2/5 h-40 sm:h-48 md:h-auto overflow-hidden">
+                    <img 
+                      src="/mould/optimized_for_web_jpeg-07202023_rigid_10k_sample_card_2_189d-sh-standard-square.webp" 
+                      alt="When to Replace Injection Molding" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="md:w-3/5 p-4 sm:p-6">
+                    <div className="text-[#329db7] text-xs sm:text-sm font-semibold mb-2">MANUFACTURING INSIGHTS</div>
+                    <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">When to Replace Injection Molding With 3D Printing?</h3>
+                    <p className="text-gray-600 mb-4">Discover when to use 3D printing as an alternative to traditional injection molding for your manufacturing needs.</p>
+                    <a href="https://formlabs.com/global/applications/injection-molding/" target="_blank" rel="noopener noreferrer" className="text-[#329db7] flex items-center gap-2 font-medium hover:text-[#2b86a0] transition-colors text-sm sm:text-base">
+                      Learn More
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 sm:h-4 sm:w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                      </svg>
+                    </a>
                   </div>
                 </div>
               </div>

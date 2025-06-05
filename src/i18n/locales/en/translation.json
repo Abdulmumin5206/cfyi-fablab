@@ -577,6 +577,29 @@
     },
     "equipment": {
       "title": "Our 3D Printing Equipment",
+      "fdm": {
+        "title": "Professional FDM 3D Printers",
+        "prusa": {
+          "title": "Prusa i3 MK3S+",
+          "subtitle": "Professional FDM",
+          "description": "Reliable workhorse for rapid prototyping and functional parts with wide material compatibility."
+        },
+        "prusaMMU": {
+          "title": "Prusa i3 MK3S+ MMU2S",
+          "subtitle": "Multi-Material",
+          "description": "Multi-material printing capabilities with up to 5 different materials in a single print."
+        },
+        "skrinter": {
+          "title": "Skrinter",
+          "subtitle": "Large Format",
+          "description": "Large build volume printer for bigger projects and production runs."
+        },
+        "raise3d": {
+          "title": "Raise3D Pro3",
+          "subtitle": "Industrial Grade",
+          "description": "Industrial-grade FDM printer for professional production and engineering applications."
+        }
+      },
       "sla": {
         "items": {
           "form3": {
@@ -606,8 +629,41 @@
     "behindScenes": {
       "title": "Behind the Scenes",
       "description": "Follow our journey and discover how we bring your ideas to life through cutting-edge 3D printing technology.",
-      "followInstagram": "Follow Us on Instagram",
-      "followTelegram": "Follow Us on Telegram"
+      "instagramButton": "Follow Us on Instagram",
+      "telegramButton": "Follow Us on Telegram"
+    },
+    "sla": {
+      "title": "See the Invisible, Print the Impossible",
+      "description": "Experience microscopic precision with our SLA technology. At 25 microns, we achieve details smaller than a human hair, bringing unprecedented accuracy to your projects. From intricate jewelry to precise engineering components, witness the future of manufacturing.",
+      "features": {
+        "layerHeight": "25 micron layer height (1/3 the width of a human hair)",
+        "surfaceFinish": "Ultra-smooth surface finish that feels like injection molded",
+        "applications": "Perfect for jewelry, dental work, and miniatures"
+      },
+      "cta": "Explore SLA Capabilities",
+      "equipment": {
+        "title": "Professional SLA 3D Printers",
+        "formlabs": {
+          "title": "Formlabs Form 3+",
+          "subtitle": "Professional SLA",
+          "description": "Advanced Low Force Stereolithography (LFS) technology for exceptional detail and surface finish."
+        },
+        "phrozenMini": {
+          "title": "Phrozen Sonic Mini 8K",
+          "subtitle": "High Resolution",
+          "description": "Ultra-high 8K resolution for incredibly detailed prints with 22µm XY precision."
+        },
+        "phrozenMighty": {
+          "title": "PHROZEN Sonic MEGA 8K MSLA",
+          "subtitle": "Large Format",
+          "description": "Large build volume with 4K resolution for bigger projects without compromising quality."
+        },
+        "prusa": {
+          "title": "Prusa SL1S",
+          "subtitle": "Speed & Precision",
+          "description": "Fast MSLA technology with 5.5\" mono LCD and integrated post-processing solution."
+        }
+      }
     }
   },
   "aboutUs": {

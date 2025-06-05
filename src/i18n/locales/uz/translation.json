@@ -541,6 +541,29 @@
     },
     "equipment": {
       "title": "Bizning 3D chop etish uskunalarimiz",
+      "fdm": {
+        "title": "Professional FDM 3D printerlar",
+        "prusa": {
+          "title": "Prusa i3 MK3S+",
+          "subtitle": "Professional FDM",
+          "description": "Keng materiallar bilan ishlash imkoniyatiga ega, tezkor prototiplar va funksional qismlar uchun ishonchli ishchi mashina."
+        },
+        "prusaMMU": {
+          "title": "Prusa i3 MK3S+ MMU2S",
+          "subtitle": "Ko'p materialli",
+          "description": "Bitta bosib chiqarishda 5 xil materialdan foydalanish imkoniyati."
+        },
+        "skrinter": {
+          "title": "Skrinter",
+          "subtitle": "Katta format",
+          "description": "Katta loyihalar va seriyali ishlab chiqarish uchun katta bosib chiqarish hajmiga ega printer."
+        },
+        "raise3d": {
+          "title": "Raise3D Pro3",
+          "subtitle": "Sanoat darajasi",
+          "description": "Professional ishlab chiqarish va muhandislik qo'llanmalari uchun sanoat darajasidagi FDM printer."
+        }
+      },
       "sla": {
         "title": "SLA 3D chop etish uskunalari",
         "items": {
@@ -591,10 +614,10 @@
       "requestSample": "NAMUNA QISMNI SO'RASH",
       "tackleAnyProblem": "Bizning ilg'or materiallarimiz yoki ochiq material rejimidan foydalanish orqali har qanday muammoni hal qiling.",
       "behindScenes": {
-        "title": "Sahna Ortida",
-        "description": "Bizning sayohatimizni kuzating va zamonaviy 3D bosib chiqarish texnologiyasi orqali g'oyalaringizni qanday hayotga tatbiq etayotganimizni bilib oling.",
-        "followInstagram": "Instagramda kuzating",
-        "followTelegram": "Telegramda kuzating"
+        "title": "Sahna ortida",
+        "description": "Bizning sayohatimizni kuzating va zamonaviy 3D-bosib chiqarish texnologiyalari orqali qanday qilib sizning g'oyalaringizni hayotga tatbiq etayotganimizni bilib oling.",
+        "instagramButton": "Instagramda kuzating",
+        "telegramButton": "Telegramda kuzating"
       }
     },
     "manufacturing": {
@@ -603,10 +626,43 @@
       "cta": "Bugundan boshlang"
     },
     "behindScenes": {
-      "title": "Sahna Ortida",
-      "description": "Bizning sayohatimizni kuzating va zamonaviy 3D bosib chiqarish texnologiyasi orqali g'oyalaringizni qanday hayotga tatbiq etayotganimizni bilib oling.",
-      "followInstagram": "Instagramda kuzating",
-      "followTelegram": "Telegramda kuzating"
+      "title": "Sahna ortida",
+      "description": "Bizning sayohatimizni kuzating va zamonaviy 3D-bosib chiqarish texnologiyalari orqali qanday qilib sizning g'oyalaringizni hayotga tatbiq etayotganimizni bilib oling.",
+      "instagramButton": "Instagramda kuzating",
+      "telegramButton": "Telegramda kuzating"
+    },
+    "sla": {
+      "title": "Ko'rinmas narsalarni ko'ring, imkonsiz narsalarni chop eting",
+      "description": "Bizning SLA texnologiyamiz bilan mikroskopik aniqlikni bilib oling. 25 mikron qatlam qalinligi bilan biz inson sochidan ham maydaroq detallarni amalga oshiramiz, loyihalaringizga benzeri yo'q aniqlikni ta'minlaymiz. Nozik zargarlik buyumlaridan aniq muhandislik komponentlarigacha - ishlab chiqarishning kelajagini kuzating.",
+      "features": {
+        "layerHeight": "25 mikron qatlam qalinligi (inson sochining 1/3 qalinligi)",
+        "surfaceFinish": "Quyma sirtga o'xshash ultratekis sirt",
+        "applications": "Zargarlik buyumlari, stomatologiya va miniatyuralar uchun mukammal"
+      },
+      "cta": "SLA imkoniyatlarini o'rganing",
+      "equipment": {
+        "title": "Professional SLA 3D Printerlar",
+        "formlabs": {
+          "title": "Formlabs Form 3+",
+          "subtitle": "Professional SLA",
+          "description": "Ajoyib detallar va sirt sifati uchun ilg'or Low Force Stereolithography (LFS) texnologiyasi."
+        },
+        "phrozenMini": {
+          "title": "Phrozen Sonic Mini 8K",
+          "subtitle": "Yuqori aniqlik",
+          "description": "22µm XY aniqlik bilan ajoyib detalli chop etish uchun ultra yuqori 8K aniqlik."
+        },
+        "phrozenMighty": {
+          "title": "PHROZEN Sonic MEGA 8K MSLA",
+          "subtitle": "Katta format",
+          "description": "Sifatdan voz kechmasdan katta loyihalar uchun 4K aniqlik bilan katta ishlab chiqarish hajmi."
+        },
+        "prusa": {
+          "title": "Prusa SL1S",
+          "subtitle": "Tezlik va aniqlik",
+          "description": "5.5\" mono LCD va integratsiyalangan keyingi ishlov berish yechimi bilan tez MSLA texnologiyasi."
+        }
+      }
     }
   },
   "aboutUs": {

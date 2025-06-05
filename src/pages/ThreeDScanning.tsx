@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useTranslation } from "react-i18next";
+import { ArrowRight } from "lucide-react";
 
 const ThreeDScanningPage = () => {
   const { t } = useTranslation();
@@ -45,57 +46,63 @@ const ThreeDScanningPage = () => {
           </div>
         </section>
 
-        {/* High-Resolution Scanning Section */}
-        <section className="bg-[#f7f7f7] py-16 md:py-24 overflow-visible">
-          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col lg:flex-row items-start gap-12">
+        {/* High-Resolution 3D Scanning Section */}
+        <section className="py-16 md:py-24 bg-white">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
+            <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
                 <div className="max-w-xl mx-auto text-center lg:text-left flex flex-col items-center lg:items-start">
-                  <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight text-gray-900">
+                  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 leading-tight text-gray-900 font-['Magistral']">
                     High-Resolution 3D Scanning
                   </h2>
                   
-                  <p className="text-lg text-gray-600 mb-8">
+                  <p className="text-base sm:text-lg text-gray-600 mb-8 font-['Magistral']">
                     Capture precise digital replicas of physical objects with our advanced 3D scanning technology. Perfect for reverse engineering, quality control, and digital preservation.
                   </p>
 
-                  <div className="space-y-4 mb-8">
+                  <div className="space-y-4 mb-8 w-full">
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
                         <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
-                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                           </svg>
                         </div>
                       </div>
-                      <p className="text-gray-600">Sub-millimeter accuracy</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">Sub-millimeter accuracy</p>
                     </div>
+                    
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
                         <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
-                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                           </svg>
                         </div>
                       </div>
-                      <p className="text-gray-600">Full-color texture mapping</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">Full-color texture mapping</p>
                     </div>
+                    
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
                         <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
-                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                           </svg>
                         </div>
                       </div>
-                      <p className="text-gray-600">Multiple file format support</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">Multiple file format support</p>
                     </div>
                   </div>
 
-                  <button className="inline-flex items-center px-6 py-3 bg-[#329db7] text-white rounded-lg hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
-                    Explore 3D Scanning
-                  </button>
+                  <a 
+                    href="#contact" 
+                    className="inline-flex items-center space-x-2 bg-[#329db7] text-white px-6 py-3 text-base sm:text-lg font-medium hover:bg-[#2b86a0] transition-colors duration-300 hover:shadow-lg hover:-translate-y-0.5"
+                  >
+                    <span>Explore 3D Scanning</span>
+                    <ArrowRight size={20} />
+                  </a>
                 </div>
               </div>
 
@@ -104,7 +111,7 @@ const ThreeDScanningPage = () => {
                 <div className="relative rounded-xl overflow-hidden shadow-xl bg-white">
                   <img 
                     src="/3d-scanning/scanning.webp" 
-                    alt="3D Scanning Process" 
+                    alt="3D Scanning Technology" 
                     className="w-full h-[500px] object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
@@ -115,56 +122,62 @@ const ThreeDScanningPage = () => {
         </section>
 
         {/* Applications Section */}
-        <section className="bg-white py-16 md:py-24 overflow-visible">
-          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col lg:flex-row-reverse items-start gap-12">
+        <section className="py-16 md:py-24 bg-white">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
+            <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
                 <div className="max-w-xl mx-auto text-center lg:text-left flex flex-col items-center lg:items-start">
-                  <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight text-gray-900">
+                  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 leading-tight text-gray-900 font-['Magistral']">
                     Versatile Applications
                   </h2>
                   
-                  <p className="text-lg text-gray-600 mb-8">
+                  <p className="text-base sm:text-lg text-gray-600 mb-8 font-['Magistral']">
                     From product development to cultural preservation, our 3D scanning services support a wide range of applications with unmatched precision and detail.
                   </p>
 
-                  <div className="space-y-4 mb-8">
+                  <div className="space-y-4 mb-8 w-full">
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
                         <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
-                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                           </svg>
                         </div>
                       </div>
-                      <p className="text-gray-600">Reverse engineering</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">Reverse engineering</p>
                     </div>
+                    
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
                         <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
-                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                           </svg>
                         </div>
                       </div>
-                      <p className="text-gray-600">Quality control and inspection</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">Quality control and inspection</p>
                     </div>
+                    
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
                         <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
-                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                           </svg>
                         </div>
                       </div>
-                      <p className="text-gray-600">Digital archiving and preservation</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">Digital archiving and preservation</p>
                     </div>
                   </div>
 
-                  <button className="inline-flex items-center px-6 py-3 bg-[#329db7] text-white rounded-lg hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
-                    View Applications
-                  </button>
+                  <a 
+                    href="#contact" 
+                    className="inline-flex items-center space-x-2 bg-[#329db7] text-white px-6 py-3 text-base sm:text-lg font-medium hover:bg-[#2b86a0] transition-colors duration-300 hover:shadow-lg hover:-translate-y-0.5"
+                  >
+                    <span>View Applications</span>
+                    <ArrowRight size={20} />
+                  </a>
                 </div>
               </div>
 
@@ -229,11 +242,11 @@ const ThreeDScanningPage = () => {
 
         {/* EinScan SP V2 Guide Section */}
         <section className="py-16 md:py-24 bg-white">
-          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col lg:flex-row items-start gap-12">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
+            <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side with image */}
               <div className="w-full lg:w-1/2 relative">
-                <div className="relative rounded-xl overflow-hidden shadow-xl bg-gray-100">
+                <div className="relative rounded-xl overflow-hidden shadow-xl bg-white">
                   <img 
                     src="/3d-scanning/SP2.webp" 
                     alt="EinScan SP V2 Scanner"
@@ -246,22 +259,21 @@ const ThreeDScanningPage = () => {
               {/* Right side content */}
               <div className="w-full lg:w-1/2">
                 <div className="max-w-xl mx-auto text-center lg:text-left flex flex-col items-center lg:items-start">
-                  <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight text-gray-900">
+                  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 leading-tight text-gray-900 font-['Magistral']">
                     Guide to Using the EinScan SP V2
                   </h2>
                   
-                  <p className="text-lg text-gray-600 mb-8">
+                  <p className="text-base sm:text-lg text-gray-600 mb-8 font-['Magistral']">
                     [Placeholder for the blog content about using the EinScan SP V2 scanner. This section will explain the steps, tips, and best practices for achieving high-quality scans.]
                   </p>
 
-                  {/* You can add more paragraphs, lists, or images here for the guide content */}
-                  {/* Example: */}
-                  {/* <p className="text-gray-600 mb-4">Step 1: Calibrate the scanner...</p> */}
-                  {/* <ul><li>Tip 1: Ensure proper lighting...</li></ul> */}
-
-                  <button className="inline-flex items-center px-6 py-3 bg-[#329db7] text-white rounded-lg hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
-                    Read the Full Guide
-                  </button>
+                  <a 
+                    href="#contact" 
+                    className="inline-flex items-center space-x-2 bg-[#329db7] text-white px-6 py-3 text-base sm:text-lg font-medium hover:bg-[#2b86a0] transition-colors duration-300 hover:shadow-lg hover:-translate-y-0.5"
+                  >
+                    <span>Read the Full Guide</span>
+                    <ArrowRight size={20} />
+                  </a>
                 </div>
               </div>
             </div>
@@ -269,28 +281,32 @@ const ThreeDScanningPage = () => {
         </section>
 
         {/* Contact Section */}
-        <section className="py-24 bg-white">
-          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-16 md:py-24 bg-white">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
             <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2 space-y-8">
                 <div className="inline-block">
-                  <span className="bg-[#329db7]/10 text-[#329db7] text-sm font-semibold px-4 py-2 rounded-full">
+                  <span className="bg-[#329db7]/10 text-[#329db7] text-sm font-semibold px-4 py-2 rounded-full font-['Magistral']">
                     Get Started Today
                   </span>
                 </div>
                 
-                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight font-['Magistral']">
                   Ready to Digitize Your Objects?
                 </h2>
                 
-                <p className="text-xl text-gray-600">
+                <p className="text-base sm:text-lg text-gray-600 font-['Magistral']">
                   Contact us today to discuss your 3D scanning needs. Our team of experts is ready to help you capture precise digital replicas of your objects.
                 </p>
 
-                <button className="inline-flex items-center px-6 py-3 bg-[#329db7] text-white rounded-lg hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
-                  Contact Us
-                </button>
+                <a 
+                  href="#contact" 
+                  className="inline-flex items-center space-x-2 bg-[#329db7] text-white px-6 py-3 text-base sm:text-lg font-medium hover:bg-[#2b86a0] transition-colors duration-300 hover:shadow-lg hover:-translate-y-0.5"
+                >
+                  <span>Contact Us</span>
+                  <ArrowRight size={20} />
+                </a>
               </div>
 
               {/* Right side image */}

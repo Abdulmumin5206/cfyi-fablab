@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import { useTranslation } from "react-i18next";
 import ImageComparisonSlider from "@/components/ImageComparisonSlider";
 import { useLocation } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 
 const DigitalFabricationPage = () => {
   const { t } = useTranslation();
@@ -58,61 +59,67 @@ const DigitalFabricationPage = () => {
           </div>
         </section>
 
-        {/* UV Printing Section */}
-        <section className="bg-[#f7f7f7] py-16 md:py-24 overflow-visible">
-          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col lg:flex-row items-start gap-12">
+        {/* UV Printing Excellence Section */}
+        <section className="py-16 md:py-24 bg-white">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
+            <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
                 <div className="max-w-xl mx-auto text-center lg:text-left flex flex-col items-center lg:items-start">
-                  <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight text-gray-900">
+                  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 leading-tight text-gray-900 font-['Magistral']">
                     UV Printing Excellence
                   </h2>
                   
-                  <p className="text-lg text-gray-600 mb-8">
+                  <p className="text-base sm:text-lg text-gray-600 mb-8 font-['Magistral']">
                     Experience the future of printing with our state-of-the-art UV printing technology. Perfect for creating vibrant, durable prints on a wide range of materials with exceptional detail and color accuracy.
                   </p>
 
-                  <div className="space-y-4 mb-8">
+                  <div className="space-y-4 mb-8 w-full">
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
                         <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
-                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                           </svg>
                         </div>
                       </div>
-                      <p className="text-gray-600">Instant curing for immediate handling</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">Instant curing for immediate handling</p>
                     </div>
+                    
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
                         <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
-                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                           </svg>
                         </div>
                       </div>
-                      <p className="text-gray-600">Vibrant colors with exceptional durability</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">Vibrant colors with exceptional durability</p>
                     </div>
+                    
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
                         <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
-                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                           </svg>
                         </div>
                       </div>
-                      <p className="text-gray-600">Print on virtually any material</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">Print on virtually any material</p>
                     </div>
                   </div>
 
-                  <button className="inline-flex items-center px-6 py-3 bg-[#329db7] text-white rounded-lg hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
-                    Explore UV Printing
-                  </button>
+                  <a 
+                    href="#contact" 
+                    className="inline-flex items-center space-x-2 bg-[#329db7] text-white px-6 py-3 text-base sm:text-lg font-medium hover:bg-[#2b86a0] transition-colors duration-300 hover:shadow-lg hover:-translate-y-0.5"
+                  >
+                    <span>Explore UV Printing</span>
+                    <ArrowRight size={20} />
+                  </a>
                 </div>
               </div>
 
-              {/* Right side with image */}
+              {/* Right side image */}
               <div className="w-full lg:w-1/2 relative">
                 <ImageComparisonSlider
                   beforeImage="/digital-fabrication/righside.webp"
@@ -125,56 +132,62 @@ const DigitalFabricationPage = () => {
         </section>
 
         {/* Sticker Machine Section */}
-        <section className="bg-white py-16 md:py-24 overflow-visible">
-          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col lg:flex-row-reverse items-start gap-12">
+        <section className="py-16 md:py-24 bg-white">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
+            <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
                 <div className="max-w-xl mx-auto text-center lg:text-left flex flex-col items-center lg:items-start">
-                  <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight text-gray-900">
+                  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 leading-tight text-gray-900 font-['Magistral']">
                     Professional Sticker Production
                   </h2>
                   
-                  <p className="text-lg text-gray-600 mb-8">
+                  <p className="text-base sm:text-lg text-gray-600 mb-8 font-['Magistral']">
                     Create high-quality stickers with our advanced cutting and printing technology. From custom designs to bulk production, we deliver precise, durable stickers for any application.
                   </p>
 
-                  <div className="space-y-4 mb-8">
+                  <div className="space-y-4 mb-8 w-full">
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
                         <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
-                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                           </svg>
                         </div>
                       </div>
-                      <p className="text-gray-600">Precise cutting for complex shapes</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">Precise cutting for complex shapes</p>
                     </div>
+                    
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
                         <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
-                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                           </svg>
                         </div>
                       </div>
-                      <p className="text-gray-600">High-resolution printing</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">High-resolution printing</p>
                     </div>
+                    
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
                         <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
-                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                           </svg>
                         </div>
                       </div>
-                      <p className="text-gray-600">Various material options</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">Various material options</p>
                     </div>
                   </div>
 
-                  <button className="inline-flex items-center px-6 py-3 bg-[#329db7] text-white rounded-lg hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
-                    Create Your Stickers
-                  </button>
+                  <a 
+                    href="#contact" 
+                    className="inline-flex items-center space-x-2 bg-[#329db7] text-white px-6 py-3 text-base sm:text-lg font-medium hover:bg-[#2b86a0] transition-colors duration-300 hover:shadow-lg hover:-translate-y-0.5"
+                  >
+                    <span>Create Your Stickers</span>
+                    <ArrowRight size={20} />
+                  </a>
                 </div>
               </div>
 
@@ -195,8 +208,10 @@ const DigitalFabricationPage = () => {
 
         {/* Equipment Showcase Section */}
         <section className="py-16 md:py-24 bg-white">
-          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl md:text-4xl font-bold mb-10 md:mb-16 text-center">Digital Fabrication Equipment</h2>
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-10 md:mb-16 text-center text-gray-900 font-['Magistral']">
+              Digital Fabrication Equipment
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* UV Printer */}
               <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
@@ -204,9 +219,9 @@ const DigitalFabricationPage = () => {
                   <img src="/digital-fabrication/UV.jpg" alt="UV Printer" className="absolute inset-0 w-full h-full object-contain object-center" />
                 </div>
                 <div className="flex flex-col items-center justify-center px-8 pt-4 pb-4 w-full text-center">
-                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center">Professional UV Printing</div>
-                  <h3 className="text-2xl font-bold mb-2 text-center">Roland UV Printer</h3>
-                  <p className="text-gray-700 text-center text-base">High-resolution UV printing with instant curing technology for exceptional quality and durability.</p>
+                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center font-['Magistral']">Professional UV Printing</div>
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 text-center text-gray-900 font-['Magistral']">Roland UV Printer</h3>
+                  <p className="text-base sm:text-lg text-gray-700 text-center font-['Magistral']">High-resolution UV printing with instant curing technology for exceptional quality and durability.</p>
                 </div>
               </div>
 
@@ -216,9 +231,9 @@ const DigitalFabricationPage = () => {
                   <img src="/digital-fabrication/Stickerr.jpg" alt="Sticker Cutting Machine" className="absolute inset-0 w-full h-full object-contain object-center" />
                 </div>
                 <div className="flex flex-col items-center justify-center px-8 pt-4 pb-4 w-full text-center">
-                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center">Precision Cutting</div>
-                  <h3 className="text-2xl font-bold mb-2 text-center">Roland Sticker Cutter</h3>
-                  <p className="text-gray-700 text-center text-base">Advanced cutting technology for precise, complex sticker shapes with perfect registration.</p>
+                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center font-['Magistral']">Precision Cutting</div>
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 text-center text-gray-900 font-['Magistral']">Roland Sticker Cutter</h3>
+                  <p className="text-base sm:text-lg text-gray-700 text-center font-['Magistral']">Advanced cutting technology for precise, complex sticker shapes with perfect registration.</p>
                 </div>
               </div>
             </div>
@@ -226,56 +241,62 @@ const DigitalFabricationPage = () => {
         </section>
 
         {/* Precision Laser Cutting Section */}
-        <section id="precision-manufacturing" className="bg-white py-16 md:py-24 overflow-visible">
-          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col lg:flex-row items-start gap-12">
+        <section className="py-16 md:py-24 bg-white">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
+            <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
                 <div className="max-w-xl mx-auto text-center lg:text-left flex flex-col items-center lg:items-start">
-                  <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight text-gray-900">
+                  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 leading-tight text-gray-900 font-['Magistral']">
                     Precision Laser Cutting
                   </h2>
                   
-                  <p className="text-lg text-gray-600 mb-8">
+                  <p className="text-base sm:text-lg text-gray-600 mb-8 font-['Magistral']">
                     Experience the precision of our advanced laser cutting technology, perfect for creating intricate designs in wood and other materials with exceptional accuracy and clean edges.
                   </p>
 
-                  <div className="space-y-4 mb-8">
+                  <div className="space-y-4 mb-8 w-full">
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
                         <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
-                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                           </svg>
                         </div>
                       </div>
-                      <p className="text-gray-600">High-precision cutting for complex designs</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">High-precision cutting for complex designs</p>
                     </div>
+                    
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
                         <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
-                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                           </svg>
                         </div>
                       </div>
-                      <p className="text-gray-600">Clean, burnished edges on wood</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">Clean, burnished edges on wood</p>
                     </div>
+                    
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
                         <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
-                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                           </svg>
                         </div>
                       </div>
-                      <p className="text-gray-600">Versatile material compatibility</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">Versatile material compatibility</p>
                     </div>
                   </div>
 
-                  <button className="inline-flex items-center px-6 py-3 bg-[#329db7] text-white rounded-lg hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
-                    Explore Laser Cutting
-                  </button>
+                  <a 
+                    href="#contact" 
+                    className="inline-flex items-center space-x-2 bg-[#329db7] text-white px-6 py-3 text-base sm:text-lg font-medium hover:bg-[#2b86a0] transition-colors duration-300 hover:shadow-lg hover:-translate-y-0.5"
+                  >
+                    <span>Explore Laser Cutting</span>
+                    <ArrowRight size={20} />
+                  </a>
                 </div>
               </div>
 
@@ -295,56 +316,62 @@ const DigitalFabricationPage = () => {
         </section>
 
         {/* CNC Wood Machining Section */}
-        <section className="bg-[#f7f7f7] py-16 md:py-24 overflow-visible">
-          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col lg:flex-row-reverse items-start gap-12">
+        <section className="py-16 md:py-24 bg-white">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
+            <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
                 <div className="max-w-xl mx-auto text-center lg:text-left flex flex-col items-center lg:items-start">
-                  <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight text-gray-900">
+                  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 leading-tight text-gray-900 font-['Magistral']">
                     CNC Wood Machining
                   </h2>
                   
-                  <p className="text-lg text-gray-600 mb-8">
+                  <p className="text-base sm:text-lg text-gray-600 mb-8 font-['Magistral']">
                     Transform your woodworking projects with our state-of-the-art CNC machining capabilities. From intricate carvings to precise joinery, we bring your designs to life with unmatched accuracy.
                   </p>
 
-                  <div className="space-y-4 mb-8">
+                  <div className="space-y-4 mb-8 w-full">
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
                         <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
-                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                           </svg>
                         </div>
                       </div>
-                      <p className="text-gray-600">3D carving and relief work</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">3D carving and relief work</p>
                     </div>
+                    
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
                         <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
-                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                           </svg>
                         </div>
                       </div>
-                      <p className="text-gray-600">Precise joinery and inlays</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">Precise joinery and inlays</p>
                     </div>
+                    
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
                         <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
-                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                           </svg>
                         </div>
                       </div>
-                      <p className="text-gray-600">Custom furniture components</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">Custom furniture components</p>
                     </div>
                   </div>
 
-                  <button className="inline-flex items-center px-6 py-3 bg-[#329db7] text-white rounded-lg hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
-                    Explore CNC Machining
-                  </button>
+                  <a 
+                    href="#contact" 
+                    className="inline-flex items-center space-x-2 bg-[#329db7] text-white px-6 py-3 text-base sm:text-lg font-medium hover:bg-[#2b86a0] transition-colors duration-300 hover:shadow-lg hover:-translate-y-0.5"
+                  >
+                    <span>Explore CNC Machining</span>
+                    <ArrowRight size={20} />
+                  </a>
                 </div>
               </div>
 
@@ -364,9 +391,11 @@ const DigitalFabricationPage = () => {
         </section>
 
         {/* Precision Manufacturing Equipment Showcase Section */}
-        <section className="py-16 md:py-24 bg-[#f7f7f7]">
-          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl md:text-4xl font-bold mb-10 md:mb-16 text-center">Precision Manufacturing Equipment</h2>
+        <section className="py-16 md:py-24 bg-white">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-10 md:mb-16 text-center text-gray-900 font-['Magistral']">
+              Precision Manufacturing Equipment
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* Roland DG Shape */}
               <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
@@ -374,9 +403,9 @@ const DigitalFabricationPage = () => {
                   <img src="/precision-manufacturing/roland-dgshape-1.jpg" alt="Roland DG Shape" className="absolute inset-0 w-full h-full object-contain object-center" />
                 </div>
                 <div className="flex flex-col items-center justify-center px-8 pt-4 pb-4 w-full text-center">
-                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center">Advanced Milling</div>
-                  <h3 className="text-2xl font-bold mb-2 text-center">Roland DG Shape</h3>
-                  <p className="text-gray-700 text-center text-base">High-precision 3D milling machine for creating detailed prototypes and production parts.</p>
+                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center font-['Magistral']">Advanced Milling</div>
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 text-center text-gray-900 font-['Magistral']">Roland DG Shape</h3>
+                  <p className="text-base sm:text-lg text-gray-700 text-center font-['Magistral']">High-precision 3D milling machine for creating detailed prototypes and production parts.</p>
                 </div>
               </div>
 
@@ -386,9 +415,9 @@ const DigitalFabricationPage = () => {
                   <img src="/precision-manufacturing/srm-20.jpg" alt="SRM-20" className="absolute inset-0 w-full h-full object-contain object-center" />
                 </div>
                 <div className="flex flex-col items-center justify-center px-8 pt-4 pb-4 w-full text-center">
-                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center">Precision Milling</div>
-                  <h3 className="text-2xl font-bold mb-2 text-center">SRM-20</h3>
-                  <p className="text-gray-700 text-center text-base">Compact desktop milling machine for precise machining of small parts and prototypes.</p>
+                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center font-['Magistral']">Precision Milling</div>
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 text-center text-gray-900 font-['Magistral']">SRM-20</h3>
+                  <p className="text-base sm:text-lg text-gray-700 text-center font-['Magistral']">Compact desktop milling machine for precise machining of small parts and prototypes.</p>
                 </div>
               </div>
 
@@ -398,9 +427,9 @@ const DigitalFabricationPage = () => {
                   <img src="/precision-manufacturing/photonim-1.jpg" alt="Photon IM" className="absolute inset-0 w-full h-full object-contain object-center" />
                 </div>
                 <div className="flex flex-col items-center justify-center px-8 pt-4 pb-4 w-full text-center">
-                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center">Laser Engraving</div>
-                  <h3 className="text-2xl font-bold mb-2 text-center">Photonim GS6040</h3>
-                  <p className="text-gray-700 text-center text-base">Advanced laser engraving machine for precise and detailed surface marking and engraving.</p>
+                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center font-['Magistral']">Laser Engraving</div>
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 text-center text-gray-900 font-['Magistral']">Photonim GS6040</h3>
+                  <p className="text-base sm:text-lg text-gray-700 text-center font-['Magistral']">Advanced laser engraving machine for precise and detailed surface marking and engraving.</p>
                 </div>
               </div>
             </div>
@@ -414,9 +443,9 @@ const DigitalFabricationPage = () => {
                     <img src="/precision-manufacturing/volters.jpg" alt="Volters" className="absolute inset-0 w-full h-full object-contain object-center" />
                   </div>
                   <div className="flex flex-col items-center justify-center px-8 pt-4 pb-4 w-full text-center">
-                    <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center">Milling & Engraving</div>
-                    <h3 className="text-2xl font-bold mb-2 text-center">VOLTER-S</h3>
-                    <p className="text-gray-700 text-center text-base">Professional milling and engraving machine for precise material processing and surface finishing.</p>
+                    <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center font-['Magistral']">Milling & Engraving</div>
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 text-center text-gray-900 font-['Magistral']">VOLTER-S</h3>
+                    <p className="text-base sm:text-lg text-gray-700 text-center font-['Magistral']">Professional milling and engraving machine for precise material processing and surface finishing.</p>
                   </div>
                 </div>
 
@@ -426,9 +455,9 @@ const DigitalFabricationPage = () => {
                     <img src="/precision-manufacturing/mdx-50.jpg" alt="MDX-50" className="absolute inset-0 w-full h-full object-contain object-center" />
                   </div>
                   <div className="flex flex-col items-center justify-center px-8 pt-4 pb-4 w-full text-center">
-                    <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center">CNC Milling</div>
-                    <h3 className="text-2xl font-bold mb-2 text-center">MDX-50</h3>
-                    <p className="text-gray-700 text-center text-base">Advanced CNC milling machine for high-precision machining and prototyping.</p>
+                    <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center font-['Magistral']">CNC Milling</div>
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 text-center text-gray-900 font-['Magistral']">MDX-50</h3>
+                    <p className="text-base sm:text-lg text-gray-700 text-center font-['Magistral']">Advanced CNC milling machine for high-precision machining and prototyping.</p>
                   </div>
                 </div>
               </div>
@@ -437,13 +466,13 @@ const DigitalFabricationPage = () => {
         </section>
 
         {/* Behind the Scenes Section */}
-        <section className="relative bg-[#f7f7f7] text-gray-900 border-t border-gray-100">
-          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+        <section className="py-16 md:py-24 bg-white">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
             <div className="flex flex-col items-center justify-center gap-8 max-w-3xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 text-center font-['Magistral']">
                 Behind the Scenes
               </h2>
-              <p className="text-gray-600 text-center">
+              <p className="text-base sm:text-lg text-gray-600 text-center font-['Magistral']">
                 Follow our journey and discover how we bring your ideas to life through cutting-edge digital fabrication technology.
               </p>
               <div className="w-full max-w-[350px] aspect-[9/16] rounded-xl overflow-hidden shadow-xl">
@@ -461,7 +490,7 @@ const DigitalFabricationPage = () => {
                   href="https://www.instagram.com/reel/DGPupgNsXk_/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#329db7] text-white rounded-lg hover:bg-[#2b86a0] transition-colors w-fit"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#329db7] text-white rounded-lg hover:bg-[#2b86a0] transition-colors w-fit font-['Magistral']"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -477,7 +506,7 @@ const DigitalFabricationPage = () => {
                   href="https://t.me/CenterForYouthInitiatives"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#0088cc] text-white rounded-lg hover:bg-[#0077b3] transition-colors w-fit"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#0088cc] text-white rounded-lg hover:bg-[#0077b3] transition-colors w-fit font-['Magistral']"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -495,28 +524,32 @@ const DigitalFabricationPage = () => {
         </section>
 
         {/* Contact Section */}
-        <section className="py-24 bg-white">
-          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-16 md:py-24 bg-white">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
             <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2 space-y-8">
                 <div className="inline-block">
-                  <span className="bg-[#329db7]/10 text-[#329db7] text-sm font-semibold px-4 py-2 rounded-full">
+                  <span className="bg-[#329db7]/10 text-[#329db7] text-sm font-semibold px-4 py-2 rounded-full font-['Magistral']">
                     Get Started Today
                   </span>
                 </div>
                 
-                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight font-['Magistral']">
                   Ready to Bring Your Ideas to Life?
                 </h2>
                 
-                <p className="text-xl text-gray-600">
+                <p className="text-base sm:text-lg text-gray-600 font-['Magistral']">
                   Contact us today to discuss your project requirements. Our team of experts is ready to help you create stunning UV prints and custom stickers.
                 </p>
 
-                <button className="inline-flex items-center px-6 py-3 bg-[#329db7] text-white rounded-lg hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
-                  Contact Us
-                </button>
+                <a 
+                  href="#contact" 
+                  className="inline-flex items-center space-x-2 bg-[#329db7] text-white px-6 py-3 text-base sm:text-lg font-medium hover:bg-[#2b86a0] transition-colors duration-300 hover:shadow-lg hover:-translate-y-0.5 font-['Magistral']"
+                >
+                  <span>Contact Us</span>
+                  <ArrowRight size={20} />
+                </a>
               </div>
 
               {/* Right side image */}

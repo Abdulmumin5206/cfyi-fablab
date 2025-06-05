@@ -803,5 +803,16 @@
       "uvPrinting": "Professional UV chop etish va stiker ishlab chiqarish",
       "designSupport": "Mutaxassis dizayn va muhandislik yordami"
     }
+  },
+  "fablabTour": {
+    "3dPrintingArea": "3D bosib chiqarish hududi",
+    "workshop": "Ustaxona",
+    "leftSideOfRoom": "Xonaning chap tomoni",
+    "backSideUV": "Orqa tomon — UV bosma, CNC va lazer",
+    "stickerMachine": "Stiker mashinasi",
+    "mainViewInsideRoom": "Xonadagi asosiy ko'rinish",
+    "cnc": "CNC",
+    "backsideUvCncLaser": "Orqa tomon — UV, CNC, lazer kesuvchi",
+    "anotherViewLeftside": "Boshqa ko'rinish (chap tomon)"
   }
 } 

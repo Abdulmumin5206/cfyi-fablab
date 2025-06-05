@@ -812,5 +812,16 @@
       "uvPrinting": "High-quality UV printing solutions for various materials",
       "designSupport": "Expert design support and consultation services"
     }
+  },
+  "fablabTour": {
+    "3dPrintingArea": "3D Printing Area",
+    "workshop": "Workshop",
+    "leftSideOfRoom": "Left Side of the Room",
+    "backSideUV": "Back Side - UV Printing, CNC & Laser",
+    "stickerMachine": "Sticker Machine",
+    "mainViewInsideRoom": "Main View Inside Room",
+    "cnc": "CNC",
+    "backsideUvCncLaser": "Backside UV CNC, Laser cutter",
+    "anotherViewLeftside": "Another View (Leftside View)"
   }
 } 

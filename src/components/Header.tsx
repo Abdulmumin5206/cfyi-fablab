@@ -269,12 +269,12 @@ const Header = () => {
                       servicesMenuOpen ? "max-h-[380px] opacity-100 visible" : "max-h-0 opacity-0 invisible"
                     }`}
                     style={{ 
-                      width: '200px',
+                      width: '240px',
                       top: '100%',
                       left: 0
                     }}
                   >
-                    <div className={`${isScrolled ? 'bg-white' : 'bg-transparent'} shadow-lg w-full transform transition-transform duration-300 ease-out origin-top border ${isScrolled ? 'border-black' : 'border-white'}`}
+                    <div className={`${isScrolled ? 'bg-white' : 'bg-transparent'} shadow-lg w-full transform transition-transform duration-300 ease-out origin-top border-b ${isScrolled ? 'border-b-black' : 'border-b-white'}`}
                          style={{ 
                            transform: servicesMenuOpen ? 'translateY(0)' : 'translateY(-100%)'
                          }}>
@@ -284,21 +284,35 @@ const Header = () => {
                           style={textStyle}
                           className={`flex items-center ${isScrolled ? 'text-black' : 'text-white'} hover:text-white ${isScrolled ? 'bg-white hover:bg-[#0e9a48]' : 'bg-transparent hover:bg-[#0e9a48]'} transition-all duration-300 text-sm lg:text-base p-4 w-full border-b ${isScrolled ? 'border-black' : 'border-white'} last:border-b-0`}
                         >
-                          {t('header.mould')}
+                          {t('serviceCategories.molding.title')}
                         </Link>
                         <Link
                           to="/3d-printing"
                           style={textStyle}
                           className={`flex items-center ${isScrolled ? 'text-black' : 'text-white'} hover:text-white ${isScrolled ? 'bg-white hover:bg-[#cb2026]' : 'bg-transparent hover:bg-[#cb2026]'} transition-all duration-300 text-sm lg:text-base p-4 w-full border-b ${isScrolled ? 'border-black' : 'border-white'} last:border-b-0`}
                         >
-                          {t('header.3dPrinting')}
+                          {t('serviceCategories.3dPrinting.title')}
                         </Link>
                         <Link
                           to="/custom-fabrication"
                           style={textStyle}
                           className={`flex items-center ${isScrolled ? 'text-black' : 'text-white'} hover:text-white ${isScrolled ? 'bg-white hover:bg-[#35469d]' : 'bg-transparent hover:bg-[#35469d]'} transition-all duration-300 text-sm lg:text-base p-4 w-full border-b ${isScrolled ? 'border-black' : 'border-white'} last:border-b-0`}
                         >
-                          {t('header.customFabrication')}
+                          {t('serviceCategories.digitalFabrication.title')}
+                        </Link>
+                        <Link
+                          to="/digital-fabrication#precision-manufacturing"
+                          style={textStyle}
+                          className={`flex items-center ${isScrolled ? 'text-black' : 'text-white'} hover:text-white ${isScrolled ? 'bg-white hover:bg-[#8a2be2]' : 'bg-transparent hover:bg-[#8a2be2]'} transition-all duration-300 text-sm lg:text-base p-4 w-full border-b ${isScrolled ? 'border-black' : 'border-white'} last:border-b-0`}
+                        >
+                          {t('serviceCategories.precisionManufacturing.title')}
+                        </Link>
+                        <Link
+                          to="/3d-scanning"
+                          style={textStyle}
+                          className={`flex items-center ${isScrolled ? 'text-black' : 'text-white'} hover:text-white ${isScrolled ? 'bg-white hover:bg-[#ff6b6b]' : 'bg-transparent hover:bg-[#ff6b6b]'} transition-all duration-300 text-sm lg:text-base p-4 w-full border-b ${isScrolled ? 'border-black' : 'border-white'} last:border-b-0`}
+                        >
+                          {t('serviceCategories.3dScanning.title')}
                         </Link>
                       </div>
                     </div>

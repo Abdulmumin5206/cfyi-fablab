@@ -56,7 +56,7 @@ const ServiceCategories = () => {
       ],
       logoText: "Molding & Production",
       buttonTextKey: "serviceCategories.molding.title",
-      buttonLink: "/molding",
+      buttonLink: "http://192.168.6.28:8080/mould",
       color: "bg-[#0e9a48]",
     },
     {

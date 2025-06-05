@@ -9,7 +9,6 @@ import NotFound from "./pages/NotFound";
 import ThreeDPrintingPage from "./pages/3DPrinting";
 import MouldPage from "./pages/Mould";
 import EngineeringPage from "./pages/Engineering";
-import CustomFabricationPage from "./pages/CustomFabrication";
 import DigitalFabricationPage from "./pages/DigitalFabrication";
 import ThreeDScanningPage from "./pages/ThreeDScanning";
 import BlogIndex from "./pages/blog/Index";
@@ -61,7 +60,6 @@ const App = () => {
                 <Route path="/3d-printing" element={<ThreeDPrintingPage />} />
                 <Route path="/mould" element={<MouldPage />} />
                 <Route path="/engineering" element={<EngineeringPage />} />
-                <Route path="/custom-fabrication" element={<CustomFabricationPage />} />
                 <Route path="/digital-fabrication" element={<DigitalFabricationPage />} />
                 <Route path="/3d-scanning" element={<ThreeDScanningPage />} />
                 <Route path="/blog" element={<BlogIndex />} />

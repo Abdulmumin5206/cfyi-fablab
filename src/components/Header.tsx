@@ -294,7 +294,7 @@ const Header = () => {
                           {t('serviceCategories.3dPrinting.title')}
                         </Link>
                         <Link
-                          to="/custom-fabrication"
+                          to="/digital-fabrication"
                           style={textStyle}
                           className={`flex items-center ${isScrolled ? 'text-black' : 'text-white'} hover:text-white ${isScrolled ? 'bg-white hover:bg-[#35469d]' : 'bg-transparent hover:bg-[#35469d]'} transition-all duration-300 text-sm lg:text-base p-4 w-full border-b ${isScrolled ? 'border-black' : 'border-white'} last:border-b-0`}
                         >

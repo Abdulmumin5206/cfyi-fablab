@@ -78,9 +78,9 @@ const AboutUsSection = () => {
       title: 'Cutting-Edge Tools',
       text: 'Equipped with advanced digital fabrication tools, from high-precision CNCs to industrial-grade 3D printers and laser cutters, we offer unmatched opportunities for prototyping, education, and production.',
       buttonText: 'Explore our equipment',
-      link: 'https://cfyi.uz/labs',
-      image: '/main/About US/equipment.svg',
-      imageAlt: 'Cutting-Edge Tools'
+      link: 'https://cfyi.uz/fablab',
+      image: '/fablab/logo.png',
+      imageAlt: 'FabLab Logo'
     }
   ];
 
@@ -140,7 +140,7 @@ const AboutUsSection = () => {
                   <img 
                     src={card.image} 
                     alt={card.imageAlt} 
-                    className="object-contain transform transition-transform duration-500 group-hover:scale-110 w-[65%] h-[65%]"
+                    className={`object-contain transform transition-transform duration-500 group-hover:scale-110 w-[65%] h-[65%] md:w-[70%] md:h-[70%] lg:w-[75%] lg:h-[75%] ${card.title === 'Cutting-Edge Tools' ? 'w-[85%] h-[85%] md:w-[90%] md:h-[90%] lg:w-[95%] lg:h-[95%]' : ''}`}
                   />
                 </a>
               </div>
@@ -175,7 +175,7 @@ const AboutUsSection = () => {
                   <img 
                     src={card.image} 
                     alt={card.imageAlt} 
-                    className="object-contain transform transition-transform duration-500 group-hover:scale-110 w-[65%] h-[65%] md:w-[70%] md:h-[70%] lg:w-[75%] lg:h-[75%]"
+                    className={`object-contain transform transition-transform duration-500 group-hover:scale-110 w-[65%] h-[65%] md:w-[70%] md:h-[70%] lg:w-[75%] lg:h-[75%] ${card.title === 'Cutting-Edge Tools' ? 'w-[85%] h-[85%] md:w-[90%] md:h-[90%] lg:w-[95%] lg:h-[95%]' : ''}`}
                   />
                 </a>
               </div>

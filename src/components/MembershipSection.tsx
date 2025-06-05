@@ -286,7 +286,7 @@ const MembershipSection = () => {
   ), []);
 
   return (
-    <section className="py-16 bg-gray-200 relative overflow-hidden">
+    <section id="membership-section" className="py-16 bg-gray-200 relative overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-left mb-10">

@@ -22,6 +22,14 @@ const Footer = ({ bgClass = "bg-black", textClass = "text-white" }: FooterProps)
       contactSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  // Function to scroll to membership section
+  const scrollToMembership = () => {
+    const membershipSection = document.getElementById('membership-section');
+    if (membershipSection) {
+      membershipSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   
   return (
     <footer className={`${bgClass} ${textClass}`}>
@@ -101,9 +109,12 @@ const Footer = ({ bgClass = "bg-black", textClass = "text-white" }: FooterProps)
                   </Link>
                 </li>
                 <li>
-                  <Link to="/membership" className={linkHoverColor}>
+                  <button 
+                    onClick={scrollToMembership}
+                    className={`${linkHoverColor} cursor-pointer`}
+                  >
                     Membership
-                  </Link>
+                  </button>
                 </li>
                 <li>
                   <Link to="/" className={linkHoverColor}>

@@ -9,26 +9,26 @@ const ScrollImageSlider = () => {
 
   // Pre-scaled images (WebP format)
   const images = [
-    "/main/scrolling1.webp",
-    "/main/scrolling2.jpg", // Changed back to jpg since webp might not be available
-    "/main/scrolling1.webp"
+    "/main/fablabroom.webp",
+    "/main/fablearn.webp",
+    "/main/cfyi.webp"
   ];
 
   const quotes = [
     {
-      title: t("slider.innovationLab.title"),
-      achievement: t("slider.innovationLab.achievement"),
-      text: t("slider.innovationLab.text")
+      title: t("slider.fablabRoom.title"),
+      achievement: t("slider.fablabRoom.achievement"),
+      text: t("slider.fablabRoom.text")
     },
     {
-      title: t("slider.creativeWorkspace.title"),
-      achievement: t("slider.creativeWorkspace.achievement"),
-      text: t("slider.creativeWorkspace.text")
+      title: t("slider.fabLearn.title"),
+      achievement: t("slider.fabLearn.achievement"),
+      text: t("slider.fabLearn.text")
     },
     {
-      title: t("slider.futureDevelopment.title"),
-      achievement: t("slider.futureDevelopment.achievement"),
-      text: t("slider.futureDevelopment.text")
+      title: t("slider.cfyi.title"),
+      achievement: t("slider.cfyi.achievement"),
+      text: t("slider.cfyi.text")
     }
   ];
 

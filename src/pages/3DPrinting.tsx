@@ -88,22 +88,22 @@ const ThreeDPrintingPage = () => {
         </section>
 
         {/* Minimalist Content Section */}
-        <section className="bg-[#f7f7f7] py-16 md:py-24 overflow-visible">
-          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-16 md:py-24 bg-white">
+          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col lg:flex-row items-start gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
                 <div className="max-w-xl mx-auto text-center lg:text-left flex flex-col items-center lg:items-start">
-                  <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight text-gray-900">
-                    {t("3dPrinting.manufacturing.title")}
+                  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-black font-['Magistral']">
+                    Know your manufacturing needs, like you know your business.
                   </h2>
                   
-                  <p className="text-lg text-gray-600 mb-8">
-                    {t("3dPrinting.manufacturing.description")}
+                  <p className="text-gray-700 text-base sm:text-lg mb-3 sm:mb-4 font-['Magistral']">
+                    From rapid prototyping to end-use parts, our advanced 3D printing solutions deliver precision-engineered results that adapt to your specific requirements. We combine cutting-edge technology with deep expertise to transform your ideas into reality, ensuring each project meets the highest standards of quality and accuracy.
                   </p>
 
                   <button className="inline-flex items-center px-6 py-3 bg-[#329db7] text-white rounded-lg hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
-                    {t("3dPrinting.manufacturing.cta")}
+                    Get Started Today
                   </button>
                 </div>
               </div>
@@ -137,8 +137,8 @@ const ThreeDPrintingPage = () => {
         </section>
 
         {/* New Section: Transform Your Vision */}
-        <section className="bg-white py-16 md:py-24 overflow-visible">
-          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-16 md:py-24 bg-[#f7f7f7]">
+          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col lg:flex-row items-start gap-12">
               {/* Left side with main image and floating elements */}
               <div className="w-full lg:w-1/2 relative">
@@ -161,8 +161,8 @@ const ThreeDPrintingPage = () => {
                       </svg>
                     </div>
                     <div>
-                      <p className="text-sm text-gray-600">{t("3dPrinting.fdm.highlights.colors")}</p>
-                      <p className="text-lg font-bold text-gray-900">{t("3dPrinting.fdm.highlights.multiMaterial")}</p>
+                      <p className="text-sm text-gray-600">Colors</p>
+                      <p className="text-lg font-bold text-gray-900">Multi-Material</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
@@ -172,8 +172,8 @@ const ThreeDPrintingPage = () => {
                       </svg>
                     </div>
                     <div>
-                      <p className="text-sm text-gray-600">{t("3dPrinting.fdm.highlights.buildArea")}</p>
-                      <p className="text-lg font-bold text-gray-900">{t("3dPrinting.fdm.highlights.extraLarge")}</p>
+                      <p className="text-sm text-gray-600">Build Area</p>
+                      <p className="text-lg font-bold text-gray-900">Extra Large Space</p>
                     </div>
                   </div>
                 </div>
@@ -182,12 +182,12 @@ const ThreeDPrintingPage = () => {
               {/* Right side content */}
               <div className="w-full lg:w-1/2">
                 <div className="max-w-xl mx-auto text-center lg:text-left flex flex-col items-center lg:items-start">
-                  <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight text-gray-900">
-                    {t("3dPrinting.fdm.title")}
+                  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-black font-['Magistral']">
+                    Transform Your Vision Into Reality
                   </h2>
                   
-                  <p className="text-lg text-gray-600 mb-8">
-                    {t("3dPrinting.fdm.description")}
+                  <p className="text-gray-700 text-base sm:text-lg mb-3 sm:mb-4 font-['Magistral']">
+                    Our advanced FDM technology brings industrial-grade precision to your desktop. With multi-material capabilities and a wide range of engineering-grade filaments, we enable you to create functional prototypes and end-use parts that meet the highest standards.
                   </p>
 
                   <div className="space-y-4 mb-8">
@@ -199,7 +199,7 @@ const ThreeDPrintingPage = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-gray-600">{t("3dPrinting.fdm.features.multiMaterial")}</p>
+                      <p className="text-gray-700 text-base sm:text-lg font-['Magistral']">Multi-material printing with up to 5 materials</p>
                     </div>
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
@@ -209,7 +209,7 @@ const ThreeDPrintingPage = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-gray-600">{t("3dPrinting.fdm.features.engineeringGrade")}</p>
+                      <p className="text-gray-700 text-base sm:text-lg font-['Magistral']">Engineering-grade materials for functional parts</p>
                     </div>
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
@@ -219,12 +219,12 @@ const ThreeDPrintingPage = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-gray-600">{t("3dPrinting.fdm.features.advancedFeatures")}</p>
+                      <p className="text-gray-700 text-base sm:text-lg font-['Magistral']">Advanced features like soluble supports and composite materials</p>
                     </div>
                   </div>
 
                   <button className="inline-flex items-center px-6 py-3 bg-[#329db7] text-white rounded-lg hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
-                    {t("3dPrinting.fdm.cta")}
+                    Explore FDM Capabilities
                   </button>
                 </div>
               </div>
@@ -234,14 +234,14 @@ const ThreeDPrintingPage = () => {
 
         {/* Instagram Reels Section */}
         <section className="relative bg-[#f7f7f7] text-gray-900 border-t border-gray-100">
-          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
             <div className="flex flex-col md:flex-row items-center justify-between gap-8">
               {/* Left side content */}
               <div className="w-full md:w-1/2 lg:w-2/5">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-gray-900">
                   {t("3dPrinting.behindScenes.title", "Behind the Scenes")}
                 </h2>
-                <p className="text-gray-600 mb-6">
+                <p className="text-base sm:text-lg text-gray-600 mb-6">
                   {t("3dPrinting.behindScenes.description", "Follow our journey and discover how we bring your ideas to life through cutting-edge 3D printing technology.")}
                 </p>
                 <div className="flex flex-col gap-4">
@@ -304,18 +304,18 @@ const ThreeDPrintingPage = () => {
         </section>
 
         {/* SLA Detail Showcase Section */}
-        <section className="bg-white py-16 md:py-24 overflow-visible">
-          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-16 md:py-24 bg-white">
+          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col lg:flex-row items-start gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
                 <div className="max-w-xl mx-auto text-center lg:text-left flex flex-col items-center lg:items-start">
-                  <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight text-gray-900">
-                    {t("3dPrinting.sla.title")}
+                  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-black font-['Magistral']">
+                    See the Invisible, Print the Impossible
                   </h2>
                   
-                  <p className="text-lg text-gray-600 mb-8">
-                    {t("3dPrinting.sla.description")}
+                  <p className="text-gray-700 text-base sm:text-lg mb-3 sm:mb-4 font-['Magistral']">
+                    Experience microscopic precision with our SLA technology. At 25 microns, we achieve details smaller than a human hair, bringing unprecedented accuracy to your projects. From intricate jewelry to precise engineering components, witness the future of manufacturing.
                   </p>
 
                   <div className="space-y-4 mb-8">
@@ -327,7 +327,7 @@ const ThreeDPrintingPage = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-gray-600">{t("3dPrinting.sla.features.layerHeight")}</p>
+                      <p className="text-gray-700 text-base sm:text-lg font-['Magistral']">25 micron layer height (1/3 the width of a human hair)</p>
                     </div>
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
@@ -337,7 +337,7 @@ const ThreeDPrintingPage = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-gray-600">{t("3dPrinting.sla.features.surfaceFinish")}</p>
+                      <p className="text-gray-700 text-base sm:text-lg font-['Magistral']">Ultra-smooth surface finish that feels like injection molded</p>
                     </div>
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
@@ -347,12 +347,12 @@ const ThreeDPrintingPage = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-gray-600">{t("3dPrinting.sla.features.applications")}</p>
+                      <p className="text-gray-700 text-base sm:text-lg font-['Magistral']">Perfect for jewelry, dental work, and miniatures</p>
                     </div>
                   </div>
 
                   <button className="inline-flex items-center px-6 py-3 bg-[#329db7] text-white rounded-lg hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
-                    {t("3dPrinting.sla.cta")}
+                    Explore SLA Capabilities
                   </button>
                 </div>
               </div>
@@ -394,21 +394,23 @@ const ThreeDPrintingPage = () => {
 
         {/* SLA 3D Printing Equipment Section */}
         <section className="py-16 md:py-24 bg-[#f7f7f7]">
-          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl md:text-4xl font-bold mb-10 md:mb-16 text-center">{t("3dPrinting.sla.equipment.title")}</h2>
+          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-black font-['Magistral'] text-center">
+              Professional SLA 3D Printers
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {/* Formlabs Form 3+ */}
               <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
                 <div className="w-full h-32 md:h-36 bg-gray-100 relative">
-                  <img src="/3dprinters/1.formlabs-form3-01_2_1.webp" alt={t("3dPrinting.sla.equipment.formlabs.title")} className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
+                  <img src="/3dprinters/1.formlabs-form3-01_2_1.webp" alt="Formlabs Form 3+" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
                 </div>
                 <div className="-mt-16 z-10 flex justify-center w-full">
-                  <img src="/3dprinters/formlabs-form3-01_2_1.webp" alt={t("3dPrinting.sla.equipment.formlabs.title")} className="w-48 h-56 object-contain" />
+                  <img src="/3dprinters/formlabs-form3-01_2_1.webp" alt="Formlabs Form 3+" className="w-48 h-56 object-contain" />
                 </div>
                 <div className="flex flex-col items-center justify-center px-8 pt-6 pb-8 w-full text-center">
-                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center mt-2">{t("3dPrinting.sla.equipment.formlabs.subtitle")}</div>
-                  <h3 className="text-2xl font-bold mb-3 text-center">{t("3dPrinting.sla.equipment.formlabs.title")}</h3>
-                  <p className="text-gray-700 mb-4 text-center text-base">{t("3dPrinting.sla.equipment.formlabs.description")}</p>
+                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center mt-2 font-['Magistral']">Professional SLA</div>
+                  <h3 className="text-2xl font-bold mb-3 text-center font-['Magistral']">Formlabs Form 3+</h3>
+                  <p className="text-gray-700 mb-4 text-center text-base font-['Magistral']">Advanced Low Force Stereolithography (LFS) technology for exceptional detail and surface finish.</p>
                   <hr className="w-12 border-t border-gray-200 my-3" />
                 </div>
               </div>
@@ -416,15 +418,15 @@ const ThreeDPrintingPage = () => {
               {/* Phrozen Sonic Mini 8K */}
               <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
                 <div className="w-full h-32 md:h-36 bg-gray-100 relative">
-                  <img src="/3dprinters/1.Phrozen mini.webp" alt={t("3dPrinting.sla.equipment.phrozenMini.title")} className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
+                  <img src="/3dprinters/1.Phrozen mini.webp" alt="Phrozen Sonic Mini 8K" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
                 </div>
                 <div className="-mt-16 z-10 flex justify-center w-full">
-                  <img src="/3dprinters/Phrozen mini.webp" alt={t("3dPrinting.sla.equipment.phrozenMini.title")} className="w-48 h-56 object-contain" />
+                  <img src="/3dprinters/Phrozen mini.webp" alt="Phrozen Sonic Mini 8K" className="w-48 h-56 object-contain" />
                 </div>
                 <div className="flex flex-col items-center justify-center px-8 pt-6 pb-8 w-full text-center">
-                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center mt-2">{t("3dPrinting.sla.equipment.phrozenMini.subtitle")}</div>
-                  <h3 className="text-2xl font-bold mb-3 text-center">{t("3dPrinting.sla.equipment.phrozenMini.title")}</h3>
-                  <p className="text-gray-700 mb-4 text-center text-base">{t("3dPrinting.sla.equipment.phrozenMini.description")}</p>
+                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center mt-2 font-['Magistral']">High Resolution</div>
+                  <h3 className="text-2xl font-bold mb-3 text-center font-['Magistral']">Phrozen Sonic Mini 8K</h3>
+                  <p className="text-gray-700 mb-4 text-center text-base font-['Magistral']">Ultra-high 8K resolution for incredibly detailed prints with 22µm XY precision.</p>
                   <hr className="w-12 border-t border-gray-200 my-3" />
                 </div>
               </div>
@@ -432,15 +434,15 @@ const ThreeDPrintingPage = () => {
               {/* Phrozen Sonic Mighty */}
               <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
                 <div className="w-full h-32 md:h-36 bg-gray-100 relative">
-                  <img src="/3dprinters/1.Phrozen.webp" alt={t("3dPrinting.sla.equipment.phrozenMighty.title")} className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
+                  <img src="/3dprinters/1.Phrozen.webp" alt="PHROZEN Sonic MEGA 8K MSLA" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
                 </div>
                 <div className="-mt-16 z-10 flex justify-center w-full">
-                  <img src="/3dprinters/Phrozen.webp" alt={t("3dPrinting.sla.equipment.phrozenMighty.title")} className="w-48 h-56 object-contain" />
+                  <img src="/3dprinters/Phrozen.webp" alt="PHROZEN Sonic MEGA 8K MSLA" className="w-48 h-56 object-contain" />
                 </div>
                 <div className="flex flex-col items-center justify-center px-8 pt-6 pb-8 w-full text-center">
-                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center mt-2">{t("3dPrinting.sla.equipment.phrozenMighty.subtitle")}</div>
-                  <h3 className="text-2xl font-bold mb-3 text-center">{t("3dPrinting.sla.equipment.phrozenMighty.title")}</h3>
-                  <p className="text-gray-700 mb-4 text-center text-base">{t("3dPrinting.sla.equipment.phrozenMighty.description")}</p>
+                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center mt-2 font-['Magistral']">Large Format</div>
+                  <h3 className="text-2xl font-bold mb-3 text-center font-['Magistral']">PHROZEN Sonic MEGA 8K MSLA</h3>
+                  <p className="text-gray-700 mb-4 text-center text-base font-['Magistral']">Large build volume with 4K resolution for bigger projects without compromising quality.</p>
                   <hr className="w-12 border-t border-gray-200 my-3" />
                 </div>
               </div>
@@ -448,15 +450,15 @@ const ThreeDPrintingPage = () => {
               {/* Prusa SL1S */}
               <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
                 <div className="w-full h-32 md:h-36 bg-gray-100 relative">
-                  <img src="/3dprinters/1.prusa.webp" alt={t("3dPrinting.sla.equipment.prusa.title")} className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
+                  <img src="/3dprinters/1.prusa.webp" alt="Prusa SL1S" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
                 </div>
                 <div className="-mt-16 z-10 flex justify-center w-full">
-                  <img src="/3dprinters/Prusa.webp" alt={t("3dPrinting.sla.equipment.prusa.title")} className="w-48 h-56 object-contain" />
+                  <img src="/3dprinters/Prusa.webp" alt="Prusa SL1S" className="w-48 h-56 object-contain" />
                 </div>
                 <div className="flex flex-col items-center justify-center px-8 pt-6 pb-8 w-full text-center">
-                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center mt-2">{t("3dPrinting.sla.equipment.prusa.subtitle")}</div>
-                  <h3 className="text-2xl font-bold mb-3 text-center">{t("3dPrinting.sla.equipment.prusa.title")}</h3>
-                  <p className="text-gray-700 mb-4 text-center text-base">{t("3dPrinting.sla.equipment.prusa.description")}</p>
+                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center mt-2 font-['Magistral']">Speed & Precision</div>
+                  <h3 className="text-2xl font-bold mb-3 text-center font-['Magistral']">Prusa SL1S</h3>
+                  <p className="text-gray-700 mb-4 text-center text-base font-['Magistral']">Fast MSLA technology with 5.5" mono LCD and integrated post-processing solution.</p>
                   <hr className="w-12 border-t border-gray-200 my-3" />
                 </div>
               </div>
@@ -466,66 +468,71 @@ const ThreeDPrintingPage = () => {
 
         {/* FDM 3D Printing Equipment Section */}
         <section className="py-16 md:py-24 bg-white">
-          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl md:text-4xl font-bold mb-10 md:mb-16 text-center">{t("3dPrinting.equipment.fdm.title")}</h2>
+          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-black font-['Magistral'] text-center">
+              Professional FDM 3D Printers
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {/* Prusa i3 MK3S+ */}
               <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
                 <div className="w-full h-32 md:h-36 bg-gray-100 relative">
-                  <img src="/3dprinters/1.prusa-i3-mk3s-3d-printer-tashkent.webp" alt={t("3dPrinting.equipment.fdm.prusa.title")} className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
+                  <img src="/3dprinters/1.prusa-i3-mk3s-3d-printer-tashkent.webp" alt="Prusa i3 MK3S+" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
                 </div>
                 <div className="-mt-16 z-10 flex justify-center w-full">
-                  <img src="/3dprinters/prusa-i3-mk3s-3d-printer-tashkent.webp" alt={t("3dPrinting.equipment.fdm.prusa.title")} className="w-48 h-56 object-contain" />
+                  <img src="/3dprinters/prusa-i3-mk3s-3d-printer-tashkent.webp" alt="Prusa i3 MK3S+" className="w-48 h-56 object-contain" />
                 </div>
                 <div className="flex flex-col items-center justify-center px-8 pt-6 pb-8 w-full text-center">
-                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center mt-2">{t("3dPrinting.equipment.fdm.prusa.subtitle")}</div>
-                  <h3 className="text-2xl font-bold mb-3 text-center">{t("3dPrinting.equipment.fdm.prusa.title")}</h3>
-                  <p className="text-gray-700 mb-4 text-center text-base">{t("3dPrinting.equipment.fdm.prusa.description")}</p>
+                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center mt-2 font-['Magistral']">Professional FDM</div>
+                  <h3 className="text-2xl font-bold mb-3 text-center font-['Magistral']">Prusa i3 MK3S+</h3>
+                  <p className="text-gray-700 mb-4 text-center text-base font-['Magistral']">Reliable workhorse for rapid prototyping and functional parts with wide material compatibility.</p>
                   <hr className="w-12 border-t border-gray-200 my-3" />
                 </div>
               </div>
+
               {/* Prusa i3 MK3S+ MMU2S */}
               <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
                 <div className="w-full h-32 md:h-36 bg-gray-100 relative">
-                  <img src="/3dprinters/1.prusa-i3-mk3s-mmu2s-multicolor-3d-printer-tashkent.webp" alt={t("3dPrinting.equipment.fdm.prusaMMU.title")} className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
+                  <img src="/3dprinters/1.prusa-i3-mk3s-mmu2s-multicolor-3d-printer-tashkent.webp" alt="Prusa i3 MK3S+ MMU2S" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
                 </div>
                 <div className="-mt-16 z-10 flex justify-center w-full">
-                  <img src="/3dprinters/prusa-i3-mk3s-mmu2s-multicolor-3d-printer-tashkent.webp" alt={t("3dPrinting.equipment.fdm.prusaMMU.title")} className="w-48 h-56 object-contain" />
+                  <img src="/3dprinters/prusa-i3-mk3s-mmu2s-multicolor-3d-printer-tashkent.webp" alt="Prusa i3 MK3S+ MMU2S" className="w-48 h-56 object-contain" />
                 </div>
                 <div className="flex flex-col items-center justify-center px-8 pt-6 pb-8 w-full text-center">
-                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center mt-2">{t("3dPrinting.equipment.fdm.prusaMMU.subtitle")}</div>
-                  <h3 className="text-2xl font-bold mb-3 text-center">{t("3dPrinting.equipment.fdm.prusaMMU.title")}</h3>
-                  <p className="text-gray-700 mb-4 text-center text-base">{t("3dPrinting.equipment.fdm.prusaMMU.description")}</p>
+                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center mt-2 font-['Magistral']">Multi-Material</div>
+                  <h3 className="text-2xl font-bold mb-3 text-center font-['Magistral']">Prusa i3 MK3S+ MMU2S</h3>
+                  <p className="text-gray-700 mb-4 text-center text-base font-['Magistral']">Multi-material printing capabilities with up to 5 different materials in a single print.</p>
                   <hr className="w-12 border-t border-gray-200 my-3" />
                 </div>
               </div>
+
               {/* Skrinter */}
               <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
                 <div className="w-full h-32 md:h-36 bg-gray-100 relative">
-                  <img src="/3dprinters/1.skrinter-3d-printer-uzbekistan.webp" alt={t("3dPrinting.equipment.fdm.skrinter.title")} className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
+                  <img src="/3dprinters/1.skrinter-3d-printer-uzbekistan.webp" alt="Skrinter" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
                 </div>
                 <div className="-mt-16 z-10 flex justify-center w-full">
-                  <img src="/3dprinters/skrinter-3d-printer-uzbekistan.webp" alt={t("3dPrinting.equipment.fdm.skrinter.title")} className="w-48 h-56 object-contain" />
+                  <img src="/3dprinters/skrinter-3d-printer-uzbekistan.webp" alt="Skrinter" className="w-48 h-56 object-contain" />
                 </div>
                 <div className="flex flex-col items-center justify-center px-8 pt-6 pb-8 w-full text-center">
-                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center mt-2">{t("3dPrinting.equipment.fdm.skrinter.subtitle")}</div>
-                  <h3 className="text-2xl font-bold mb-3 text-center">{t("3dPrinting.equipment.fdm.skrinter.title")}</h3>
-                  <p className="text-gray-700 mb-4 text-center text-base">{t("3dPrinting.equipment.fdm.skrinter.description")}</p>
+                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center mt-2 font-['Magistral']">Large Format</div>
+                  <h3 className="text-2xl font-bold mb-3 text-center font-['Magistral']">Skrinter</h3>
+                  <p className="text-gray-700 mb-4 text-center text-base font-['Magistral']">Large build volume printer for bigger projects and production runs.</p>
                   <hr className="w-12 border-t border-gray-200 my-3" />
                 </div>
               </div>
+
               {/* Raise3D Pro3 */}
               <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
                 <div className="w-full h-32 md:h-36 bg-gray-100 relative">
-                  <img src="/3dprinters/1.raise3d-pro3-industrial-3d-printer-tashkent.webp" alt={t("3dPrinting.equipment.fdm.raise3d.title")} className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
+                  <img src="/3dprinters/1.raise3d-pro3-industrial-3d-printer-tashkent.webp" alt="Raise3D Pro3" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
                 </div>
                 <div className="-mt-16 z-10 flex justify-center w-full">
-                  <img src="/3dprinters/raise3d-pro3-industrial-3d-printer-tashkent.webp" alt={t("3dPrinting.equipment.fdm.raise3d.title")} className="w-48 h-56 object-contain" />
+                  <img src="/3dprinters/raise3d-pro3-industrial-3d-printer-tashkent.webp" alt="Raise3D Pro3" className="w-48 h-56 object-contain" />
                 </div>
                 <div className="flex flex-col items-center justify-center px-8 pt-6 pb-8 w-full text-center">
-                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center mt-2">{t("3dPrinting.equipment.fdm.raise3d.subtitle")}</div>
-                  <h3 className="text-2xl font-bold mb-3 text-center">{t("3dPrinting.equipment.fdm.raise3d.title")}</h3>
-                  <p className="text-gray-700 mb-4 text-center text-base">{t("3dPrinting.equipment.fdm.raise3d.description")}</p>
+                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center mt-2 font-['Magistral']">Industrial Grade</div>
+                  <h3 className="text-2xl font-bold mb-3 text-center font-['Magistral']">Raise3D Pro3</h3>
+                  <p className="text-gray-700 mb-4 text-center text-base font-['Magistral']">Industrial-grade FDM printer for professional production and engineering applications.</p>
                   <hr className="w-12 border-t border-gray-200 my-3" />
                 </div>
               </div>
@@ -537,22 +544,22 @@ const ThreeDPrintingPage = () => {
         <PrintingMaterials />
         
         {/* 3D Printing Course Section */}
-        <section className="py-24 bg-[#f7f7f7]">
-          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-16 md:py-24 bg-[#f7f7f7]">
+          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2 space-y-8">
                 <div className="inline-block">
-                  <span className="bg-[#329db7]/10 text-[#329db7] text-sm font-semibold px-4 py-2 rounded-full">
+                  <span className="bg-[#329db7]/10 text-[#329db7] text-sm font-semibold px-4 py-2 rounded-full font-['Magistral']">
                     Master 3D Printing
                   </span>
                 </div>
                 
-                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight font-['Magistral']">
                   Transform Your Ideas Into Reality
                 </h2>
                 
-                <p className="text-xl text-gray-600">
+                <p className="text-gray-700 text-base sm:text-lg mb-3 sm:mb-4 font-['Magistral']">
                   Join our comprehensive 3D printing course and learn from industry experts. From basics to advanced techniques, we'll guide you through every step of the journey.
                 </p>
 
@@ -565,8 +572,8 @@ const ThreeDPrintingPage = () => {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold text-gray-900">Hands-on Experience</h3>
-                      <p className="text-gray-600">Work with professional-grade equipment and learn through practical projects</p>
+                      <h3 className="text-xl font-semibold text-gray-900 font-['Magistral']">Hands-on Experience</h3>
+                      <p className="text-gray-600 font-['Magistral']">Work with professional-grade equipment and learn through practical projects</p>
                     </div>
                   </div>
 
@@ -577,8 +584,8 @@ const ThreeDPrintingPage = () => {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold text-gray-900">Expert Instruction</h3>
-                      <p className="text-gray-600">Learn from certified professionals with years of industry experience</p>
+                      <h3 className="text-xl font-semibold text-gray-900 font-['Magistral']">Expert Instruction</h3>
+                      <p className="text-gray-600 font-['Magistral']">Learn from certified professionals with years of industry experience</p>
                     </div>
                   </div>
 
@@ -589,17 +596,17 @@ const ThreeDPrintingPage = () => {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold text-gray-900">Certification</h3>
-                      <p className="text-gray-600">Receive an industry-recognized certificate upon completion</p>
+                      <h3 className="text-xl font-semibold text-gray-900 font-['Magistral']">Certification</h3>
+                      <p className="text-gray-600 font-['Magistral']">Receive an industry-recognized certificate upon completion</p>
                     </div>
                   </div>
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4 pt-6">
-                  <button className="px-8 py-4 bg-[#329db7] text-white rounded-xl font-semibold hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
+                  <button className="px-8 py-4 bg-[#329db7] text-white rounded-xl font-semibold hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 font-['Magistral']">
                     Enroll Now
                   </button>
-                  <button className="px-8 py-4 border-2 border-gray-200 text-gray-700 rounded-xl font-semibold hover:border-[#329db7] hover:text-[#329db7] transition-all duration-300">
+                  <button className="px-8 py-4 border-2 border-gray-200 text-gray-700 rounded-xl font-semibold hover:border-[#329db7] hover:text-[#329db7] transition-all duration-300 font-['Magistral']">
                     Download Syllabus
                   </button>
                 </div>

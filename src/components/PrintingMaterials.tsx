@@ -594,12 +594,13 @@ const PrintingMaterials = () => {
 
   return (
     <section id="materials-section" className="py-16 md:py-24 bg-white">
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">3D Printing Materials</h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Explore our comprehensive range of high-quality materials for both FDM and SLA printing technologies,
-            each carefully selected to meet specific application requirements.
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-black font-['Magistral']">
+            3D Printing Materials
+          </h2>
+          <p className="text-gray-700 text-base sm:text-lg mb-3 sm:mb-4 font-['Magistral'] max-w-3xl mx-auto">
+            Explore our comprehensive range of high-quality materials for both FDM and SLA printing technologies, each carefully selected to meet specific application requirements.
           </p>
         </div>
 

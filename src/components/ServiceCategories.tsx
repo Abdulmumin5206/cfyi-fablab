@@ -149,21 +149,21 @@ const ServiceCategories = () => {
     <section 
       ref={sectionRef} 
       id="service-categories" 
-      className="py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 bg-gray-100 relative overflow-hidden"
+      className="py-6 sm:py-8 md:py-12 lg:py-16 xl:py-20 bg-gray-100 relative overflow-hidden"
       aria-label="Our Services"
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1600px] relative z-10">
-        <div className="text-left mb-4 sm:mb-6 md:mb-8 lg:mb-10">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 text-black font-['Magistral']">
+      <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1400px] relative z-10">
+        <div className="text-left mb-3 sm:mb-4 md:mb-6 lg:mb-8">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-black font-['Magistral']">
             {t('serviceCategories.title')}
           </h2>
-          <p className="text-gray-700 text-lg mb-4 sm:mb-6 font-['Magistral']">
+          <p className="text-gray-700 text-base sm:text-lg mb-3 sm:mb-4 font-['Magistral']">
             {t('serviceCategories.subtitle')}
           </p>
         </div>
 
         {/* Mobile Layout (< 640px) */}
-        <div className="sm:hidden space-y-8 md:space-y-12 lg:space-y-16">
+        <div className="sm:hidden space-y-6 md:space-y-8 lg:space-y-10">
           {categories.map((category, index) => (
             <Link
               to={category.buttonLink}
@@ -216,13 +216,13 @@ const ServiceCategories = () => {
           <div className="flex items-center justify-center">
             <button
               onClick={handleScrollLeft}
-              className={`absolute left-2 sm:left-4 md:left-6 lg:left-8 z-10 bg-black p-3 sm:p-4 shadow-lg transition-all duration-300 hover:bg-gray-800 top-[40%] -translate-y-1/2 ${
+              className={`absolute left-1 sm:left-2 md:left-4 lg:left-6 z-10 bg-black p-2 sm:p-3 shadow-lg transition-all duration-300 hover:bg-gray-800 top-[40%] -translate-y-1/2 ${
                 currentSlide === 0 ? 'hidden' : 'opacity-100 cursor-pointer'
               }`}
               aria-label="Scroll left"
               disabled={currentSlide === 0}
             >
-              <ChevronLeft className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
+              <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
             </button>
             
             <div className="w-full overflow-hidden">
@@ -298,13 +298,13 @@ const ServiceCategories = () => {
 
             <button
               onClick={handleScrollRight}
-              className={`absolute right-2 sm:right-4 md:right-6 lg:right-8 z-10 bg-black p-3 sm:p-4 shadow-lg transition-all duration-300 hover:bg-gray-800 top-[40%] -translate-y-1/2 ${
+              className={`absolute right-1 sm:right-2 md:right-4 lg:right-6 z-10 bg-black p-2 sm:p-3 shadow-lg transition-all duration-300 hover:bg-gray-800 top-[40%] -translate-y-1/2 ${
                 currentSlide >= categories.length - 3 ? 'hidden' : 'opacity-100 cursor-pointer'
               }`}
               aria-label="Scroll right"
               disabled={currentSlide >= categories.length - 3}
             >
-              <ChevronRight className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
+              <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
             </button>
           </div>
         </div>

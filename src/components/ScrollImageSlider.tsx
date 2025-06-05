@@ -90,7 +90,7 @@ const ScrollImageSlider = () => {
               <img
                 src={src}
                 alt={t(`slider.image${i}`)}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-center"
                 loading="eager"
                 width={1920}
                 height={1080}
@@ -102,8 +102,8 @@ const ScrollImageSlider = () => {
         })}
 
         {/* Main message */}
-        <div className="absolute left-0 top-0 bottom-0 w-full md:w-1/2 hidden lg:flex items-center justify-center z-50 px-12">
-          <p className="text-4xl xl:text-5xl 2xl:text-6xl font-bold text-white leading-relaxed" style={{ transform: 'translateZ(0)' }}>
+        <div className="absolute left-0 top-0 bottom-0 w-full md:w-1/2 hidden lg:flex items-center justify-center z-50 px-4 sm:px-6 lg:px-8 xl:px-12">
+          <p className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold text-white leading-relaxed" style={{ transform: 'translateZ(0)' }}>
             {t("slider.mainMessage")}
           </p>
         </div>
@@ -128,7 +128,7 @@ const ScrollImageSlider = () => {
             return (
               <motion.div
                 key={`quote-${i}`}
-                className="absolute inset-0 flex justify-center lg:justify-end items-center px-8 lg:pr-16"
+                className="absolute inset-0 flex justify-center lg:justify-end items-center px-3 sm:px-4 lg:px-6 xl:px-8"
                 style={{
                   opacity,
                   zIndex: 20 + i,
@@ -138,7 +138,7 @@ const ScrollImageSlider = () => {
                 transition={{ duration: 0.5, ease: "easeInOut" }}
               >
                 <motion.div
-                  className="bg-white p-6 lg:p-8 xl:p-10 flex flex-col text-gray-800 border border-gray-200 shadow-lg w-full max-w-[400px] lg:max-w-[500px] xl:max-w-[600px] h-[380px] lg:h-[420px] xl:h-[500px] text-left"
+                  className="bg-white p-3 sm:p-4 lg:p-5 xl:p-6 flex flex-col text-gray-800 border border-gray-200 shadow-lg w-full max-w-[280px] sm:max-w-[320px] lg:max-w-[380px] xl:max-w-[440px] h-[280px] sm:h-[320px] lg:h-[360px] xl:h-[400px] text-left"
                   style={{
                     y: yPosition,
                     willChange: 'transform',
@@ -146,15 +146,15 @@ const ScrollImageSlider = () => {
                   }}
                   transition={{ duration: 0.5, ease: "easeInOut" }}
                 >
-                  <h3 className="text-xl lg:text-2xl xl:text-3xl font-bold mb-4 lg:mb-6">
+                  <h3 className="text-base sm:text-lg lg:text-xl xl:text-2xl font-bold mb-2 sm:mb-3 lg:mb-4">
                     {quote.title}
                   </h3>
-                  <div className="mb-4 lg:mb-6">
-                    <span className="block text-2xl lg:text-3xl xl:text-4xl font-extrabold leading-tight text-gray-900">
+                  <div className="mb-2 sm:mb-3 lg:mb-4">
+                    <span className="block text-lg sm:text-xl lg:text-2xl xl:text-3xl font-extrabold leading-tight text-gray-900">
                       {quote.achievement}
                     </span>
                   </div>
-                  <p className="text-sm lg:text-base xl:text-lg text-gray-600 line-clamp-5 lg:line-clamp-6">
+                  <p className="text-xs sm:text-sm lg:text-base text-gray-600 line-clamp-3 sm:line-clamp-4 lg:line-clamp-5">
                     {quote.text}
                   </p>
                 </motion.div>
@@ -165,20 +165,20 @@ const ScrollImageSlider = () => {
 
         {/* Scroll indicator */}
         <motion.div
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-50"
+          className="absolute bottom-3 sm:bottom-4 lg:bottom-6 left-1/2 transform -translate-x-1/2 z-50"
           style={{
             opacity: useTransform(scrollYProgress, [0, 0.1], [1, 0], { clamp: false }),
             willChange: 'opacity, transform',
             transform: 'translateZ(0)'
           }}
-          animate={{ y: [0, 10, 0] }}
+          animate={{ y: [0, 6, 0] }}
           transition={{
             repeat: Infinity,
             duration: 2,
             ease: "easeInOut"
           }}
         >
-          <ChevronDown size={24} className="text-white" />
+          <ChevronDown size={18} className="text-white" />
         </motion.div>
       </div>
     </section>

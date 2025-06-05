@@ -153,7 +153,7 @@ const MembershipSection = () => {
       }`}
     >
       {/* Image Section */}
-      <div className="relative h-44 overflow-hidden">
+      <div className="relative h-36 sm:h-40 lg:h-44 overflow-hidden">
         <img 
           src={plan.image}
           alt={plan.title}
@@ -163,12 +163,12 @@ const MembershipSection = () => {
           height={176}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/40 transition-opacity duration-500" />
-        <div className="absolute bottom-0 right-0 bg-[#309eb7] text-white px-4 py-2 transition-transform duration-500 group-hover:translate-y-[-5px]">
-          <span className="text-sm font-medium block">{t('membership.planCard.startingFrom')}</span>
-          <div className="text-lg font-bold">{plan.price} UZS</div>
+        <div className="absolute bottom-0 right-0 bg-[#309eb7] text-white px-3 sm:px-4 py-1.5 sm:py-2 transition-transform duration-500 group-hover:translate-y-[-5px]">
+          <span className="text-xs sm:text-sm font-medium block">{t('membership.planCard.startingFrom')}</span>
+          <div className="text-base sm:text-lg font-bold">{plan.price} UZS</div>
         </div>
         {plan.popular && (
-          <div className="absolute top-0 left-0 bg-[#309eb7] text-white px-3 py-1.5 text-xs transition-transform duration-500 group-hover:translate-y-[5px]">
+          <div className="absolute top-0 left-0 bg-[#309eb7] text-white px-2 sm:px-3 py-1 sm:py-1.5 text-xs transition-transform duration-500 group-hover:translate-y-[5px]">
             <Star className="inline-block mr-1" size={12} />
             {t('membership.planCard.mostPopular')}
           </div>
@@ -176,43 +176,43 @@ const MembershipSection = () => {
       </div>
 
       {/* Content Section */}
-      <div className="p-6 flex flex-col flex-grow">
-        <div className="text-sm font-semibold text-[#309eb7] mb-2 transition-colors duration-500">
+      <div className="p-4 sm:p-5 lg:p-6 flex flex-col flex-grow">
+        <div className="text-xs sm:text-sm font-semibold text-[#309eb7] mb-1 sm:mb-2 transition-colors duration-500">
           {plan.badge === "Perfect for Learning" && t('membership.planCard.perfectForLearning')}
           {plan.badge === "Business Ready" && t('membership.planCard.businessReady')}
           {plan.badge === "Growth Package" && t('membership.planCard.growthPackage')}
           {plan.badge === "Most Popular" && t('membership.planCard.mostPopular')}
         </div>
-        <h3 className="text-2xl sm:text-3xl font-bold mb-2 text-black transition-colors duration-500">{plan.title}</h3>
-        <p className="text-gray-600 text-sm mb-4 transition-colors duration-500">{plan.description}</p>
-        <ul className="space-y-2 mb-4">
+        <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-1 sm:mb-2 text-black transition-colors duration-500">{plan.title}</h3>
+        <p className="text-gray-600 text-xs sm:text-sm mb-3 sm:mb-4 transition-colors duration-500">{plan.description}</p>
+        <ul className="space-y-1.5 sm:space-y-2 mb-3 sm:mb-4">
           {plan.features.map((feature, idx) => (
             <li key={idx} className="flex items-start text-gray-600 transition-all duration-500 hover:translate-x-2">
-              <Check className="w-4 h-4 text-[#309eb7] mr-2 flex-shrink-0 mt-0.5 transition-transform duration-500" />
-              <span className="text-sm transition-colors duration-500">{feature}</span>
+              <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#309eb7] mr-1.5 sm:mr-2 flex-shrink-0 mt-0.5 transition-transform duration-500" />
+              <span className="text-xs sm:text-sm transition-colors duration-500">{feature}</span>
             </li>
           ))}
         </ul>
         {plan.restrictions && (
-          <div className="mb-4 bg-gray-50 p-3 transition-all duration-500 hover:bg-gray-100">
-            <h4 className="font-semibold mb-1 text-sm text-gray-500">{t('membership.restrictions')}</h4>
-            <ul className="space-y-1">
+          <div className="mb-3 sm:mb-4 bg-gray-50 p-2 sm:p-3 transition-all duration-500 hover:bg-gray-100">
+            <h4 className="font-semibold mb-1 text-xs sm:text-sm text-gray-500">{t('membership.restrictions')}</h4>
+            <ul className="space-y-0.5 sm:space-y-1">
               {plan.restrictions.map((restriction, idx) => (
-                <li key={idx} className="text-gray-500 text-sm transition-colors duration-500">• {restriction}</li>
+                <li key={idx} className="text-gray-500 text-xs sm:text-sm transition-colors duration-500">• {restriction}</li>
               ))}
             </ul>
           </div>
         )}
         {(plan.popularFeatures || plan.perfectFor || plan.businessBenefits) && (
-          <div className="mb-4 bg-gray-50 p-3 transition-all duration-500 hover:bg-gray-100">
-            <h4 className="font-semibold mb-1 text-sm text-gray-500">
+          <div className="mb-3 sm:mb-4 bg-gray-50 p-2 sm:p-3 transition-all duration-500 hover:bg-gray-100">
+            <h4 className="font-semibold mb-1 text-xs sm:text-sm text-gray-500">
               {plan.popularFeatures ? t('membership.popularFeatures') : 
                plan.perfectFor ? t('membership.perfectFor') : 
                t('membership.businessBenefits')}
             </h4>
-            <ul className="space-y-1">
+            <ul className="space-y-0.5 sm:space-y-1">
               {(plan.popularFeatures || plan.perfectFor || plan.businessBenefits)?.map((item, idx) => (
-                <li key={idx} className="text-gray-500 text-sm transition-colors duration-500">• {item}</li>
+                <li key={idx} className="text-gray-500 text-xs sm:text-sm transition-colors duration-500">• {item}</li>
               ))}
             </ul>
           </div>
@@ -222,10 +222,10 @@ const MembershipSection = () => {
             href="https://t.me/+998770884977"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center w-full bg-[#309eb7] text-white py-2.5 px-4 hover:bg-[#2a8ca3] transition-all duration-500 hover:translate-y-[-2px] hover:shadow-lg text-sm"
+            className="inline-flex items-center justify-center w-full bg-[#309eb7] text-white py-2 sm:py-2.5 px-3 sm:px-4 hover:bg-[#2a8ca3] transition-all duration-500 hover:translate-y-[-2px] hover:shadow-lg text-xs sm:text-sm"
           >
             <span>{t('membership.cta.button')}</span>
-            <ArrowRight size={14} className="ml-2 transition-transform duration-500 group-hover:translate-x-1" />
+            <ArrowRight size={12} className="ml-1.5 sm:ml-2 transition-transform duration-500 group-hover:translate-x-1" />
           </a>
         </div>
       </div>
@@ -233,21 +233,21 @@ const MembershipSection = () => {
   ), [t]);
 
   return (
-    <section id="membership-section" className="py-16 bg-gray-200 relative overflow-hidden">
+    <section id="membership-section" className="py-8 sm:py-12 lg:py-16 bg-gray-200 relative overflow-hidden">
       <div className="w-full">
         {/* Header */}
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-left mb-10">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 text-black">
+        <div className="max-w-[1400px] mx-auto px-3 sm:px-4 lg:px-6">
+          <div className="text-left mb-6 sm:mb-8 lg:mb-10">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-black">
               {t('membership.title')}
             </h2>
-            <p className="text-left text-gray-700 text-base sm:text-lg mb-8 sm:mb-12 max-w-3xl">
+            <p className="text-left text-gray-700 text-sm sm:text-base lg:text-lg mb-4 sm:mb-6 lg:mb-8 max-w-3xl">
               {t('membership.subtitle')}
             </p>
           </div>
 
           {/* Membership Tiers */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 mb-4 sm:mb-6">
             {membershipFeatures.map((plan, index) => (
               <PlanCard key={index} plan={plan} />
             ))}

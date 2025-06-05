@@ -172,31 +172,31 @@ const Header = () => {
 
   // Dynamic styling for laptop screens
   const headerStyle = isLaptopScreen ? {
-    height: windowWidth < 768 ? '60px' : windowWidth < 1024 ? '70px' : '75px'
+    height: windowWidth < 768 ? '50px' : windowWidth < 1024 ? '60px' : '65px'
   } : {};
 
   const logoStyle = isLaptopScreen ? {
-    maxHeight: windowWidth < 768 ? '40px' : windowWidth < 1024 ? '45px' : '50px'
+    maxHeight: windowWidth < 768 ? '35px' : windowWidth < 1024 ? '40px' : '45px'
   } : {};
 
   const textStyle = isLaptopScreen ? {
-    fontSize: windowWidth < 768 ? '0.875rem' : windowWidth < 1024 ? '0.9375rem' : '1rem'
+    fontSize: windowWidth < 768 ? '0.8125rem' : windowWidth < 1024 ? '0.875rem' : '0.9375rem'
   } : {};
 
   const buttonStyle = isLaptopScreen ? {
-    padding: windowWidth < 768 ? '0.25rem 0.5rem' : windowWidth < 1024 ? '0.375rem 0.75rem' : '0.5rem 1rem'
+    padding: windowWidth < 768 ? '0.25rem 0.5rem' : windowWidth < 1024 ? '0.3125rem 0.625rem' : '0.375rem 0.75rem'
   } : {};
   
   // Position dropdown based on header height
   const getDropdownPosition = () => {
     if (windowWidth < 768) {
-      return '60px'; // mobile
+      return '50px'; // mobile
     } else if (windowWidth < 1024) {
-      return '70px'; // tablet
+      return '60px'; // tablet
     } else if (windowWidth < 1440) {
-      return '75px'; // laptop
+      return '65px'; // laptop
     } else {
-      return '80px'; // desktop
+      return '70px'; // desktop
     }
   };
   
@@ -215,15 +215,15 @@ const Header = () => {
         <div className="relative">
           <div
             style={headerStyle}
-            className={`flex justify-between items-center h-16 sm:h-20 ${isLaptopScreen ? 'md:h-[75px]' : 'md:h-24 lg:h-28'} transition-colors duration-300`}
+            className={`flex justify-between items-center h-12 sm:h-16 ${isLaptopScreen ? 'md:h-[65px]' : 'md:h-20 lg:h-24'} transition-colors duration-300`}
           >
             {/* Logo */}
             <div
-              className={`h-full flex items-center pl-4 sm:pl-6 ${isLaptopScreen ? 'md:pl-8' : 'md:pl-10 lg:pl-16 xl:pl-20'} transition-colors duration-300`}
+              className={`h-full flex items-center pl-3 sm:pl-4 ${isLaptopScreen ? 'md:pl-6' : 'md:pl-8 lg:pl-12 xl:pl-16'} transition-colors duration-300`}
             >
               <Link 
                 to="/" 
-                className="block h-full py-3"
+                className="block h-full py-2"
                 onClick={(e) => {
                   if (location.pathname === '/') {
                     e.preventDefault();
@@ -235,7 +235,7 @@ const Header = () => {
                   style={logoStyle}
                   src="/fablab/logo.png"
                   alt="FabLab Logo"
-                  className={`h-full w-auto max-h-8 sm:max-h-10 ${isLaptopScreen ? 'md:max-h-10' : 'md:max-h-16 lg:max-h-20'} object-contain`}
+                  className={`h-full w-auto max-h-7 sm:max-h-8 ${isLaptopScreen ? 'md:max-h-9' : 'md:max-h-12 lg:max-h-16'} object-contain`}
                 />
               </Link>
             </div>
@@ -243,9 +243,9 @@ const Header = () => {
             {/* Main right-side nav (measured) */}
             <div
               ref={rightNavRef}
-              className={`transition-colors duration-300 ${shouldUseBlackTheme && !isMobileScreen ? "bg-black" : "bg-transparent"} px-3 sm:px-4 ${isLaptopScreen ? 'md:px-6' : 'md:px-8 lg:px-12 xl:px-20'} h-full`}
+              className={`transition-colors duration-300 ${shouldUseBlackTheme && !isMobileScreen ? "bg-black" : "bg-transparent"} px-2 sm:px-3 ${isLaptopScreen ? 'md:px-4' : 'md:px-6 lg:px-8 xl:px-16'} h-full`}
             >
-              <div className="hidden md:flex items-center space-x-2 lg:space-x-4 xl:space-x-8 h-full">
+              <div className="hidden md:flex items-center space-x-1 lg:space-x-2 xl:space-x-4 h-full">
                 {/* Services link with dropdown */}
                 <div className="relative" onMouseEnter={handleServicesMouseEnter} onMouseLeave={handleServicesMouseLeave}>
                   <span

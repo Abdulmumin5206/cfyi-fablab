@@ -187,17 +187,17 @@ const HeroSection = () => {
   return (
     <section 
       ref={sectionRef}
-      className="relative h-screen w-full bg-black"
+      className="relative h-[100vh] w-full bg-black md:h-[90vh] lg:h-screen"
     >
       <div className="w-full h-full">
         {isVideoLoading && (
           <div className="absolute inset-0 flex items-center justify-center bg-black z-20">
-            <div className="w-12 h-12 border-4 border-blue-500/20 border-t-blue-500 rounded-full animate-spin"></div>
+            <div className="w-8 h-8 md:w-12 md:h-12 border-4 border-blue-500/20 border-t-blue-500 rounded-full animate-spin"></div>
           </div>
         )}
         <video
           ref={videoRef}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-center"
           muted
           loop
           playsInline

@@ -178,18 +178,18 @@ const ImageFabLabTour = () => {
   };
 
   return (
-    <section className="w-full py-8 md:py-12 lg:py-16 bg-white overflow-hidden">
-      <div className="max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="w-full py-6 sm:py-8 md:py-12 lg:py-16 bg-white overflow-hidden">
+      <div className="max-w-[1300px] mx-auto px-3 sm:px-4 lg:px-6">
         <div className="relative">
           {/* Text content with slide animation */}
           <div className={`absolute left-0 top-1/2 -translate-y-1/2 w-full lg:w-1/3 transition-all duration-500 ease-in-out transform ${
             isExpanded ? 'lg:-translate-x-full lg:opacity-0' : 'lg:translate-x-0 lg:opacity-100'
           } z-10 lg:z-0 ${isExpanded ? 'hidden lg:block' : 'block lg:block'} hidden md:hidden`}>
-            <div className="space-y-4 md:space-y-6 lg:space-y-8 pr-0 lg:pr-6 text-center lg:text-left">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#329db7] leading-tight">
+            <div className="space-y-3 sm:space-y-4 lg:space-y-6 pr-0 lg:pr-4 text-center lg:text-left">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#329db7] leading-tight">
                 {t('innovationHub.title')}
               </h2>
-              <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
+              <p className="text-sm sm:text-base lg:text-lg text-gray-600 leading-relaxed">
                 {t('innovationHub.description')}
               </p>
             </div>
@@ -199,7 +199,7 @@ const ImageFabLabTour = () => {
           <div className={`w-full lg:ml-auto transition-all duration-500 ease-in-out ${
             isExpanded ? 'lg:w-full' : 'lg:w-2/3'
           }`}>
-            <div className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[500px] xl:h-[600px] overflow-hidden shadow-xl lg:ml-8">
+            <div className="relative h-[250px] sm:h-[350px] md:h-[450px] lg:h-[500px] xl:h-[550px] overflow-hidden shadow-lg lg:ml-6">
               <img
                 src={activeImage}
                 alt="FabLab Tour"
@@ -214,9 +214,9 @@ const ImageFabLabTour = () => {
               {isExpanded && (
                 <button
                   onClick={handleCloseExpanded}
-                  className="absolute top-4 right-4 bg-white rounded-full p-2 md:p-3 shadow-lg hover:shadow-xl transition-all duration-300 z-30"
+                  className="absolute top-3 right-3 sm:top-4 sm:right-4 bg-white rounded-full p-1.5 sm:p-2 md:p-3 shadow-lg hover:shadow-xl transition-all duration-300 z-30"
                 >
-                  <Home className="w-5 h-5 md:w-6 md:h-6 text-blue-600" />
+                  <Home className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-blue-600" />
                 </button>
               )}
               
@@ -225,7 +225,7 @@ const ImageFabLabTour = () => {
                 <button
                   key={point.id}
                   className={`absolute transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ${
-                    activePoint === point.id ? 'scale-125 z-20' : 'hover:scale-110 z-10'
+                    activePoint === point.id ? 'scale-110 sm:scale-125 z-20' : 'hover:scale-105 sm:hover:scale-110 z-10'
                   }`}
                   style={{
                     left: `${point.x}%`,
@@ -240,26 +240,26 @@ const ImageFabLabTour = () => {
                       // Home icon for back button
                       <div className="relative">
                         <div className="absolute inset-0 bg-[#309eb7] rounded-full animate-ping opacity-75"></div>
-                        <div className="relative bg-[#309eb7] rounded-full w-8 h-8 md:w-10 md:h-10 flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow duration-300">
-                          <Home className="w-4 h-4 md:w-5 md:h-5 text-white" />
+                        <div className="relative bg-[#309eb7] rounded-full w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow duration-300">
+                          <Home className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-white" />
                         </div>
                       </div>
                     ) : (
                       // Regular dot for other points
                       <div className="relative">
                         <div className="absolute inset-0 bg-[#309eb7] rounded-full animate-ping opacity-75"></div>
-                        <div className="relative bg-[#309eb7] rounded-full w-5 h-5 md:w-6 md:h-6 shadow-lg hover:shadow-xl transition-shadow duration-300"></div>
+                        <div className="relative bg-[#309eb7] rounded-full w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow duration-300">
+                          <div className="w-2 h-2 sm:w-3 sm:h-3 md:w-4 md:h-4 bg-white rounded-full"></div>
+                        </div>
                       </div>
                     )}
-                  </div>
-                  
-                  {/* Tooltip */}
-                  <div
-                    className={`absolute left-1/2 -translate-x-1/2 bottom-full mb-3 bg-white rounded-lg shadow-lg px-3 py-2 z-30 min-w-[120px] max-w-[220px] border border-gray-200 transition-all duration-300 text-center pointer-events-none
-                      ${activePoint === point.id ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2 pointer-events-none'}
-                    `}
-                  >
-                    <h3 className="font-bold text-xs md:text-sm text-gray-900 mb-1">{point.title}</h3>
+                    
+                    {/* Tooltip */}
+                    <div className={`absolute left-1/2 -translate-x-1/2 bottom-full mb-2 px-2 py-1 bg-white rounded-lg shadow-lg text-xs sm:text-sm whitespace-nowrap transition-all duration-300 ${
+                      activePoint === point.id ? 'opacity-100 visible' : 'opacity-0 invisible'
+                    }`}>
+                      {point.title}
+                    </div>
                   </div>
                 </button>
               ))}

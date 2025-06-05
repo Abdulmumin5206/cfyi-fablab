@@ -25,10 +25,10 @@ const MouldPage = () => {
     window.scrollTo(0, 0);
     
     // Update document title
-    document.title = t('header.mould') + " | FabLab";
+    document.title = "Molding & Production Services | Modern Glide Design";
     
     console.log("Mould page mounted");
-  }, [t]);
+  }, []);
 
   // Initialize image comparison slider
   useEffect(() => {
@@ -117,88 +117,71 @@ const MouldPage = () => {
       <Header />
       
       <main className="flex-grow">
-        {/* Hero Section with Full-Width Video */}
+        {/* Hero section */}
         <section className="relative w-full h-screen">
-          <div className="absolute inset-0 w-full h-full overflow-hidden">
-            <video
-              ref={videoRef}
-              className="w-full h-full object-cover"
-              autoPlay
-              muted
-              loop
-              playsInline
-              onError={handleVideoError}
-              onLoadedData={handleVideoLoad}
-            >
-              <source 
-                src="/video/clearcast_loop_240903_720p_1mbps_h264.mp4" 
-                type="video/mp4" 
-              />
-              Your browser does not support the video tag.
-            </video>
-            <div className="absolute inset-0 bg-black bg-opacity-40"></div>
-          </div>
+          <video
+            ref={videoRef}
+            className="w-full h-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+            onError={handleVideoError}
+            onLoadedData={handleVideoLoad}
+          >
+            <source src="/mould/im21_multiplus_webheader-compressed.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-black/50" />
           
-          <div className="relative z-10 h-full flex items-center">
-            <div className="container mx-auto px-4 md:px-8 max-w-7xl mt-16 sm:mt-20 md:mt-24">
+          {/* Content */}
+          <div className="absolute inset-0 flex items-center">
+            <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
               <div className="max-w-2xl">
-                <div className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 font-medium mb-2 sm:mb-4">CUSTOM PLASTIC MOULDING & SLA SOLUTIONS</div>
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-bold mb-2 sm:mb-4 max-w-xs sm:max-w-sm md:max-w-2xl lg:max-w-3xl">Professional SLA Moulding & Spare Parts Production</h1>
-                
-                <div className="space-y-4 text-gray-100">
-                  <div className="flex items-start gap-3">
-                    <div className="flex-shrink-0 mt-1">
-                      <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
-                        <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                      </div>
-                    </div>
-                    <p className="text-base sm:text-lg md:text-xl lg:text-2xl">Rapid SLA prototyping and small-batch production solutions</p>
-                  </div>
-                  
-                  <div className="flex items-start gap-3">
-                    <div className="flex-shrink-0 mt-1">
-                      <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
-                        <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                      </div>
-                    </div>
-                    <p className="text-base sm:text-lg md:text-xl lg:text-2xl">{t('mould.hero.features.highPrecision')}</p>
-                  </div>
-                  
-                  <div className="flex items-start gap-3">
-                    <div className="flex-shrink-0 mt-1">
-                      <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
-                        <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                      </div>
-                    </div>
-                    <p className="text-base sm:text-lg md:text-xl lg:text-2xl">{t('mould.hero.features.specialized')}</p>
-                  </div>
-                </div>
-                
-                <div className="mt-8 flex flex-col sm:flex-row gap-4">
-                  <a href="#" className="inline-flex items-center space-x-1 sm:space-x-2 bg-[#329db7] text-white px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 text-sm sm:text-base font-medium hover:bg-[#2b86a0] transition-colors duration-300">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 font-['Magistral']">
+                  {t('mould.hero.title')}
+                </h1>
+                <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-6 sm:mb-8 font-['Magistral']">
+                  {t('mould.hero.subtitle')}
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <a 
+                    href="#contact" 
+                    className="inline-flex items-center space-x-2 bg-[#329db7] text-white px-6 py-3 text-base sm:text-lg font-medium hover:bg-[#2b86a0] transition-colors duration-300"
+                  >
                     <span>{t('mould.hero.buttons.consultation')}</span>
-                    <ArrowRight size={16} />
+                    <ArrowRight size={20} />
                   </a>
-                  <a href="/3d-printing#materials" className="inline-flex items-center space-x-1 sm:space-x-2 bg-transparent text-white px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 text-sm sm:text-base font-medium border border-white hover:bg-white/10 transition-colors duration-300">
+                  <a 
+                    href="/3d-printing#materials" 
+                    className="inline-flex items-center space-x-2 bg-transparent text-white px-6 py-3 text-base sm:text-lg font-medium border border-white hover:bg-white/10 transition-colors duration-300"
+                  >
                     <span>{t('mould.hero.buttons.materials')}</span>
-                    <ArrowRight size={16} />
+                    <ArrowRight size={20} />
                   </a>
                 </div>
               </div>
             </div>
           </div>
           
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
+          {/* Scroll Down Icon */}
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
             <a href="#premium-quality" className="flex flex-col items-center text-white">
-              <span className="mb-2">{t('mould.hero.scrollDown')}</span>
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+              <span className="mb-2 text-sm sm:text-base">{t('mould.hero.scrollDown')}</span>
+              <svg 
+                className="w-6 h-6" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24" 
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  strokeWidth={2} 
+                  d="M19 14l-7 7m0 0l-7-7m7 7V3" 
+                />
               </svg>
             </a>
           </div>
@@ -206,7 +189,7 @@ const MouldPage = () => {
         
         {/* Our Professions Section */}
         <section className="py-20 bg-white">
-          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Professions</h2>
               <p className="text-xl text-gray-600 max-w-2xl mx-auto">Where innovation meets fabrication - delivering excellence in every project</p>
@@ -378,16 +361,16 @@ const MouldPage = () => {
         
         {/* Premium Quality Section */}
         <section id="premium-quality" className="bg-[#f7f7f7] py-16 md:py-24 overflow-visible">
-          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
             <div className="flex flex-col lg:flex-row items-start gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
                 <div className="max-w-xl mx-auto text-center lg:text-left flex flex-col items-center lg:items-start">
-                  <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight text-gray-900">
+                  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 leading-tight text-gray-900 font-['Magistral']">
                     Precision Plastic Moulding for Small-Batch Excellence
                   </h2>
                   
-                  <p className="text-lg text-gray-600 mb-8">
+                  <p className="text-base sm:text-lg text-gray-600 mb-8 font-['Magistral']">
                     Transform your spare parts and small-volume production needs with our specialized plastic moulding solutions. Whether you need replacement parts for legacy equipment or small-batch production runs, our advanced moulding technologies deliver consistent quality and precise tolerances. Perfect for manufacturers, maintenance teams, and businesses requiring reliable, cost-effective solutions for quantities from 1 to 1000 units.
                   </p>
 
@@ -427,35 +410,35 @@ const MouldPage = () => {
         
         {/* Why Choose Plastic Moulding Section */}
         <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-gray-50">
-          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight text-gray-900 text-center">Why Choose Plastic Moulding?</h2>
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 leading-tight text-gray-900 text-center font-['Magistral']">Why Choose Plastic Moulding?</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 md:gap-12 mb-8">
               {/* Benefit 1 */}
               <div className="flex flex-col items-center text-center">
                 <div className="mb-3 w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center">
-                  <img src="/mould/lower_costs.webp" alt={t('mould.whyDigital.benefits.lowerCosts.title')} className="w-full h-full object-contain" />
+                  <img src="/mould/lower_costs.webp" alt="Lower Costs" className="w-full h-full object-contain" />
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold mb-2">{t('mould.whyDigital.benefits.lowerCosts.title')}</h3>
-                <p className="text-sm sm:text-base text-gray-600">{t('mould.whyDigital.benefits.lowerCosts.description')}</p>
+                <h3 className="text-lg sm:text-xl font-bold mb-2 font-['Magistral']">Lower Costs</h3>
+                <p className="text-sm sm:text-base text-gray-600 font-['Magistral']">Avoid high upfront tooling investments and reduce labor costs.</p>
               </div>
               
               {/* Benefit 2 */}
               <div className="flex flex-col items-center text-center">
                 <div className="mb-3 w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center">
-                  <img src="/mould/faster_time.webp" alt={t('mould.whyDigital.benefits.fasterTime.title')} className="w-full h-full object-contain" />
+                  <img src="/mould/faster_time.webp" alt="Faster Time" className="w-full h-full object-contain" />
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold mb-2">{t('mould.whyDigital.benefits.fasterTime.title')}</h3>
-                <p className="text-sm sm:text-base text-gray-600">{t('mould.whyDigital.benefits.fasterTime.description')}</p>
+                <h3 className="text-lg sm:text-xl font-bold mb-2 font-['Magistral']">Faster Time</h3>
+                <p className="text-sm sm:text-base text-gray-600 font-['Magistral']">Produce high-quality models within 24 hours.</p>
               </div>
               
               {/* Benefit 3 */}
               <div className="flex flex-col items-center text-center">
                 <div className="mb-3 w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center">
-                  <img src="/mould/clean_workflow.webp" alt={t('mould.whyDigital.benefits.designFreedom.title')} className="w-full h-full object-contain" />
+                  <img src="/mould/clean_workflow.webp" alt="Design Freedom" className="w-full h-full object-contain" />
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold mb-2">{t('mould.whyDigital.benefits.designFreedom.title')}</h3>
-                <p className="text-sm sm:text-base text-gray-600">{t('mould.whyDigital.benefits.designFreedom.description')}</p>
+                <h3 className="text-lg sm:text-xl font-bold mb-2 font-['Magistral']">Design Freedom</h3>
+                <p className="text-sm sm:text-base text-gray-600 font-['Magistral']">Create complex shapes that are difficult to achieve with traditional casting.</p>
               </div>
             </div>
 
@@ -538,13 +521,13 @@ const MouldPage = () => {
         
         {/* Spare Parts Section */}
         <section className="py-16 md:py-24 bg-gray-100 text-gray-900">
-          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
             <div className="flex flex-col lg:flex-row items-center">
               {/* Left side content */}
               <div className="w-full lg:w-1/2 mb-12 lg:mb-0 pr-0 lg:pr-10">
-                <h2 className="text-3xl md:text-4xl font-bold mb-6">{t('mould.spareParts.title')}</h2>
-                <p className="text-gray-700 mb-6 text-lg">
-                  {t('mould.spareParts.description')}
+                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-6 font-['Magistral']">Spare Parts and Custom Components</h2>
+                <p className="text-base sm:text-lg text-gray-700 mb-6 font-['Magistral']">
+                  Our advanced SLA printing and casting capabilities allow us to reproduce discontinued or hard-to-find parts with precision and accuracy at a fraction of the cost of traditional manufacturing methods.
                 </p>
                 
                 <div className="space-y-4 mb-8">
@@ -556,7 +539,7 @@ const MouldPage = () => {
                         </svg>
                       </div>
                     </div>
-                    <p className="text-gray-700">{t('mould.spareParts.features.replicate')}</p>
+                    <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">Replicate discontinued parts faster and cheaper than traditional methods</p>
                   </div>
                   
                   <div className="flex items-start gap-3">
@@ -567,7 +550,7 @@ const MouldPage = () => {
                         </svg>
                       </div>
                     </div>
-                    <p className="text-gray-700">{t('mould.spareParts.features.custom')}</p>
+                    <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">Create custom parts that match your specific requirements with high precision</p>
                   </div>
                   
                   <div className="flex items-start gap-3">
@@ -578,13 +561,13 @@ const MouldPage = () => {
                         </svg>
                       </div>
                     </div>
-                    <p className="text-gray-700">{t('mould.spareParts.features.rapid')}</p>
+                    <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">Rapid prototyping and small series without expensive tooling costs</p>
                   </div>
                 </div>
                 
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <a href="#" className="inline-block bg-[#329db7] text-white font-medium px-6 py-3 rounded-md hover:bg-[#2b86a0] transition-colors text-center">
-                    {t('mould.hero.buttons.consultation')}
+                  <a href="#" className="inline-flex items-center px-6 py-3 bg-[#329db7] text-white font-medium rounded-lg hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
+                    Request a Consultation
                   </a>
                 </div>
               </div>
@@ -594,7 +577,7 @@ const MouldPage = () => {
                 <div className="relative w-full">
                   <img
                     src="/mould/spare1.webp"
-                    alt={t('mould.spareParts.title')}
+                    alt="Spare Parts and Custom Components"
                     className="w-full aspect-[4/3] object-cover h-auto max-h-[650px] rounded-md shadow-lg"
                   />
                 </div>
@@ -605,8 +588,8 @@ const MouldPage = () => {
 
         {/* Blog Section */}
         <section className="py-16 md:py-24 bg-gray-100 text-gray-900">
-          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8">Spare Part Projects</h2>
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 font-['Magistral']">Spare Part Projects</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               {/* Blog Post */}
@@ -619,10 +602,10 @@ const MouldPage = () => {
                   />
                 </div>
                 <div className="md:w-3/5 p-6">
-                  <div className="text-[#329db7] text-xs sm:text-sm font-semibold mb-2">3D PRINTING</div>
-                  <h3 className="text-xl font-bold mb-4">SLA Resin Printing: Revolutionizing Small-Batch Production for Spare Parts</h3>
-                  <p className="text-gray-600 mb-4">Created a fully functional prototype using advanced 3D printing techniques for an Uzbek tech startup.</p>
-                  <a href="/blog/3d-printing-innovations" className="text-[#329db7] flex items-center gap-2 font-medium hover:text-[#2b86a0] transition-colors">
+                  <div className="text-[#329db7] text-xs sm:text-sm font-semibold mb-2 font-['Magistral']">3D PRINTING</div>
+                  <h3 className="text-lg sm:text-xl font-bold mb-4 font-['Magistral']">SLA Resin Printing: Revolutionizing Small-Batch Production for Spare Parts</h3>
+                  <p className="text-base sm:text-lg text-gray-600 mb-4 font-['Magistral']">Created a fully functional prototype using advanced 3D printing techniques for an Uzbek tech startup.</p>
+                  <a href="/blog/3d-printing-innovations" className="text-[#329db7] flex items-center gap-2 font-medium hover:text-[#2b86a0] transition-colors font-['Magistral']">
                     Read More
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />

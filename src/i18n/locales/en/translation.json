@@ -779,5 +779,28 @@
         "description": "Secure storage for your projects and materials"
       }
     }
+  },
+  "training": {
+    "ourCourses": "Our Courses",
+    "masterManufacturing": "Master Modern Manufacturing",
+    "description": "From 3D printing to laser cutting, discover our comprehensive range of courses designed to help you master the latest manufacturing technologies and bring your ideas to life.",
+    "diverseSelection": {
+      "title": "Diverse Course Selection",
+      "description": "Choose from 3D printing, laser cutting, CNC machining, and more"
+    },
+    "expertInstructors": {
+      "title": "Expert Instructors",
+      "description": "Learn from industry professionals with years of experience"
+    },
+    "handsOnProjects": {
+      "title": "Hands-on Projects",
+      "description": "Apply your skills through real-world projects and challenges"
+    },
+    "exploreCourses": "Explore Courses",
+    "downloadBrochure": "Download Brochure",
+    "courseFormat": "Course Format",
+    "handsOnLearning": "Hands-on Learning",
+    "duration": "Duration",
+    "durationTime": "2-12 Weeks"
   }
 } 

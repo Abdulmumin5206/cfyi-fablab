@@ -770,5 +770,28 @@
       "businessReady": "Biznes uchun tayyor",
       "growthPackage": "O'sish paketi"
     }
+  },
+  "training": {
+    "ourCourses": "Bizning Kurslarimiz",
+    "masterManufacturing": "Zamonaviy Ishlab Chiqarishni O'rganing",
+    "description": "3D printerdan lazerli kesishgacha, sizning g'oyalaringizni hayotga tatbiq etish uchun eng so'nggi ishlab chiqarish texnologiyalarini o'rganishga yordam beradigan keng ko'lamli kurslarimizni kashf eting.",
+    "diverseSelection": {
+      "title": "Turli Xil Kurslar",
+      "description": "3D printer, lazerli kesish, CNC ishlov berish va boshqalardan tanlang"
+    },
+    "expertInstructors": {
+      "title": "Professional O'qituvchilar",
+      "description": "Ko'p yillik tajribaga ega sanoat mutaxassislaridan o'rganing"
+    },
+    "handsOnProjects": {
+      "title": "Amaliy Loyihalar",
+      "description": "Haqiqiy loyihalar va vazifalar orqali o'z ko'nikmalaringizni qo'llang"
+    },
+    "exploreCourses": "Kurslarni Ko'rish",
+    "downloadBrochure": "Broshyurani Yuklab Olish",
+    "courseFormat": "Kurs Formati",
+    "handsOnLearning": "Amaliy O'rganish",
+    "duration": "Davomiyligi",
+    "durationTime": "2-12 Hafta"
   }
 } 

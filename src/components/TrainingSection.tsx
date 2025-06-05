@@ -14,16 +14,16 @@ const TrainingSection = () => {
           <div className="w-full lg:w-1/2 space-y-5 md:space-y-6">
             <div className="inline-block">
               <span className="bg-[#329db7]/10 text-[#329db7] text-sm font-semibold px-4 py-2 rounded-full">
-                Our Courses
+                {t('training.ourCourses')}
               </span>
             </div>
             
             <h2 className="text-3xl sm:text-4xl lg:text-4xl font-bold text-gray-900 leading-tight">
-              Master Modern Manufacturing
+              {t('training.masterManufacturing')}
             </h2>
             
             <p className="text-base sm:text-lg lg:text-lg text-gray-600">
-              From 3D printing to laser cutting, discover our comprehensive range of courses designed to help you master the latest manufacturing technologies and bring your ideas to life.
+              {t('training.description')}
             </p>
 
             <div className="space-y-3 md:space-y-4">
@@ -35,8 +35,8 @@ const TrainingSection = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900">Diverse Course Selection</h3>
-                  <p className="text-sm text-gray-600">Choose from 3D printing, laser cutting, CNC machining, and more</p>
+                  <h3 className="text-lg font-semibold text-gray-900">{t('training.diverseSelection.title')}</h3>
+                  <p className="text-sm text-gray-600">{t('training.diverseSelection.description')}</p>
                 </div>
               </div>
 
@@ -47,8 +47,8 @@ const TrainingSection = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900">Expert Instructors</h3>
-                  <p className="text-sm text-gray-600">Learn from industry professionals with years of experience</p>
+                  <h3 className="text-lg font-semibold text-gray-900">{t('training.expertInstructors.title')}</h3>
+                  <p className="text-sm text-gray-600">{t('training.expertInstructors.description')}</p>
                 </div>
               </div>
 
@@ -59,8 +59,8 @@ const TrainingSection = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900">Hands-on Projects</h3>
-                  <p className="text-sm text-gray-600">Apply your skills through real-world projects and challenges</p>
+                  <h3 className="text-lg font-semibold text-gray-900">{t('training.handsOnProjects.title')}</h3>
+                  <p className="text-sm text-gray-600">{t('training.handsOnProjects.description')}</p>
                 </div>
               </div>
             </div>
@@ -70,11 +70,11 @@ const TrainingSection = () => {
                 to="/courses" 
                 className="px-6 py-3 bg-[#329db7] text-white rounded-xl font-semibold hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 inline-flex items-center justify-center text-sm"
               >
-                Explore Courses
+                {t('training.exploreCourses')}
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
               <button className="px-6 py-3 border-2 border-gray-200 text-gray-700 rounded-xl font-semibold hover:border-[#329db7] hover:text-[#329db7] transition-all duration-300 text-sm">
-                Download Brochure
+                {t('training.downloadBrochure')}
               </button>
             </div>
           </div>
@@ -125,8 +125,8 @@ const TrainingSection = () => {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-xs text-gray-600">Course Format</p>
-                  <p className="text-base font-bold text-gray-900">Hands-on Learning</p>
+                  <p className="text-xs text-gray-600">{t('training.courseFormat')}</p>
+                  <p className="text-base font-bold text-gray-900">{t('training.handsOnLearning')}</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
@@ -136,8 +136,8 @@ const TrainingSection = () => {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-xs text-gray-600">Duration</p>
-                  <p className="text-base font-bold text-gray-900">2-12 Weeks</p>
+                  <p className="text-xs text-gray-600">{t('training.duration')}</p>
+                  <p className="text-base font-bold text-gray-900">{t('training.durationTime')}</p>
                 </div>
               </div>
             </div>

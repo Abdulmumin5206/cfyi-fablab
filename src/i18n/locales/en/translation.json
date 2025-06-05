@@ -529,39 +529,19 @@
       }
     },
     "fdm": {
-      "title": "FUSED DEPOSITION MODELING (FDM) TECHNOLOGY",
-      "subtitle": "Versatile FDM 3D Printing Services",
+      "title": "Transform Your Vision Into Reality",
+      "description": "Our advanced FDM technology brings industrial-grade precision to your desktop. With multi-material capabilities and a wide range of engineering-grade filaments, we enable you to create functional prototypes and end-use parts that meet the highest standards.",
       "features": {
-        "durable": "Durable functional prototypes with various infill patterns",
-        "materials": "Multiple materials including PLA, PETG, ABS, TPU, and composites",
-        "perfect": "Perfect for conceptual models, tooling, fixtures, and end-use parts"
+        "multiMaterial": "Multi-material printing with up to 5 materials",
+        "engineeringGrade": "Engineering-grade materials for functional parts",
+        "advancedFeatures": "Advanced features like soluble supports and composite materials"
       },
-      "cta": {
-        "quote": "Get a Quote",
-        "sample": "Request Sample Parts"
-      },
-      "equipment": {
-        "title": "Our FDM 3D Printing Equipment",
-        "prusa": {
-          "title": "Prusa i3 MK3S+",
-          "subtitle": "RELIABLE WORKHORSE",
-          "description": "Versatile and reliable FDM 3D printer for high-quality prototyping and production."
-        },
-        "prusaMMU": {
-          "title": "Prusa i3 MK3S+ MMU2S",
-          "subtitle": "MULTI-MATERIAL",
-          "description": "Advanced multi-material FDM printing for complex, colorful parts."
-        },
-        "skrinter": {
-          "title": "Skrinter",
-          "subtitle": "DESKTOP FDM",
-          "description": "Compact desktop FDM printer for everyday prototyping needs."
-        },
-        "raise3d": {
-          "title": "Raise3D Pro3",
-          "subtitle": "INDUSTRIAL FDM",
-          "description": "Industrial FDM 3D printer for large, durable parts."
-        }
+      "cta": "Explore FDM Capabilities",
+      "highlights": {
+        "colors": "Colors",
+        "multiMaterial": "Multi-Material",
+        "buildArea": "Build Area",
+        "extraLarge": "Extra Large Space"
       }
     },
     "materials": {
@@ -617,6 +597,17 @@
           }
         }
       }
+    },
+    "manufacturing": {
+      "title": "Know your manufacturing needs, like you know your business.",
+      "description": "From rapid prototyping to end-use parts, our advanced 3D printing solutions deliver precision-engineered results that adapt to your specific requirements. We combine cutting-edge technology with deep expertise to transform your ideas into reality, ensuring each project meets the highest standards of quality and accuracy.",
+      "cta": "Get Started Today"
+    },
+    "behindScenes": {
+      "title": "Behind the Scenes",
+      "description": "Follow our journey and discover how we bring your ideas to life through cutting-edge 3D printing technology.",
+      "followInstagram": "Follow Us on Instagram",
+      "followTelegram": "Follow Us on Telegram"
     }
   },
   "aboutUs": {

@@ -524,39 +524,19 @@
       }
     },
     "fdm": {
-      "title": "QATLAMA-LOYIHALASH (FDM) TEXNOLOGIYASI",
-      "subtitle": "Ko'p maqsadli FDM 3D bosib chiqarish xizmatlari",
+      "title": "O'z Vizyoningizni Haqiqatga Aylantiring",
+      "description": "Bizning ilg'or FDM texnologiyamiz sizning ish stolingizga sanoat darajasidagi aniqlikni olib keladi. Ko'p materialli imkoniyatlar va keng muhandislik darajasidagi filamentlar turlari bilan biz sizga eng yuqori standartlarga javob beradigan funksional prototiplar va yakuniy qismlarni yaratish imkonini beramiz.",
       "features": {
-        "durable": "Turli to'ldirish naqshlari bilan mustahkam funksional prototiplar",
-        "materials": "PLA, PETG, ABS, TPU va kompozitlar kabi ko'plab materiallar",
-        "perfect": "Konseptual modellar, asboblar, moslamalar va tayyor qismlar uchun ideal"
+        "multiMaterial": "5 tagacha material bilan ko'p materialli chop etish",
+        "engineeringGrade": "Funksional qismlar uchun muhandislik darajasidagi materiallar",
+        "advancedFeatures": "Eritiladigan tayanchlar va kompozit materiallar kabi ilg'or xususiyatlar"
       },
-      "cta": {
-        "quote": "Narxlarni olish",
-        "sample": "Namuna qismlarni so'rash"
-      },
-      "equipment": {
-        "title": "Bizning FDM 3D bosib chiqarish uskunalarimiz",
-        "prusa": {
-          "title": "Prusa i3 MK3S+",
-          "subtitle": "ISHLAR UCHUN ISHONCHLI",
-          "description": "Yuqori sifatli prototiplar va ishlab chiqarish uchun ko'p maqsadli va ishonchli FDM 3D printer."
-        },
-        "prusaMMU": {
-          "title": "Prusa i3 MK3S+ MMU2S",
-          "subtitle": "KO'P MATERIALLI BOSIB CHIQARISH",
-          "description": "Murakkab, rangli qismlar uchun ilg'or ko'p materialli FDM bosib chiqarish."
-        },
-        "skrinter": {
-          "title": "Skrinter",
-          "subtitle": "STOL USTI FDM",
-          "description": "Kundalik prototiplar uchun ixcham stol ustasi FDM printer."
-        },
-        "raise3d": {
-          "title": "Raise3D Pro3",
-          "subtitle": "SANOAT FDM",
-          "description": "Katta, mustahkam qismlar uchun sanoat FDM 3D printer."
-        }
+      "cta": "FDM Imkoniyatlarini O'rganing",
+      "highlights": {
+        "colors": "Ranglar",
+        "multiMaterial": "Ko'p Materialli",
+        "buildArea": "Chop Etish Maydoni",
+        "extraLarge": "O'ta Katta Maydon"
       }
     },
     "equipment": {
@@ -609,7 +589,24 @@
         "openMaterialMode": "Ochiq material rejimi"
       },
       "requestSample": "NAMUNA QISMNI SO'RASH",
-      "tackleAnyProblem": "Bizning ilg'or materiallarimiz yoki ochiq material rejimidan foydalanish orqali har qanday muammoni hal qiling."
+      "tackleAnyProblem": "Bizning ilg'or materiallarimiz yoki ochiq material rejimidan foydalanish orqali har qanday muammoni hal qiling.",
+      "behindScenes": {
+        "title": "Sahna Ortida",
+        "description": "Bizning sayohatimizni kuzating va zamonaviy 3D bosib chiqarish texnologiyasi orqali g'oyalaringizni qanday hayotga tatbiq etayotganimizni bilib oling.",
+        "followInstagram": "Instagramda kuzating",
+        "followTelegram": "Telegramda kuzating"
+      }
+    },
+    "manufacturing": {
+      "title": "Ishlab chiqarish ehtiyojlaringizni o'z biznesingizni bilganingiz kabi biling.",
+      "description": "Tezkor prototiplashdan yakuniy qismlargacha, bizning ilg'or 3D chop etish yechimlarimiz sizning o'ziga xos talablaringizga moslashtirilgan aniq muhandislik natijalarini ta'minlaydi. Biz sizning g'oyalaringizni haqiqatga aylantirish uchun zamonaviy texnologiyani chuqur bilim bilan birlashtiramiz, har bir loyiha sifat va aniqlikning eng yuqori standartlariga javob beradi.",
+      "cta": "Bugundan boshlang"
+    },
+    "behindScenes": {
+      "title": "Sahna Ortida",
+      "description": "Bizning sayohatimizni kuzating va zamonaviy 3D bosib chiqarish texnologiyasi orqali g'oyalaringizni qanday hayotga tatbiq etayotganimizni bilib oling.",
+      "followInstagram": "Instagramda kuzating",
+      "followTelegram": "Telegramda kuzating"
     }
   },
   "aboutUs": {

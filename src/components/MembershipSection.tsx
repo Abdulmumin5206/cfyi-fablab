@@ -234,28 +234,30 @@ const MembershipSection = () => {
 
   return (
     <section id="membership-section" className="py-16 bg-gray-200 relative overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full">
         {/* Header */}
-        <div className="text-left mb-10">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 text-black">
-            {t('membership.title')}
-          </h2>
-          <p className="text-left text-gray-700 text-base sm:text-lg mb-8 sm:mb-12 max-w-3xl">
-            {t('membership.subtitle')}
-          </p>
-        </div>
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-left mb-10">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 text-black">
+              {t('membership.title')}
+            </h2>
+            <p className="text-left text-gray-700 text-base sm:text-lg mb-8 sm:mb-12 max-w-3xl">
+              {t('membership.subtitle')}
+            </p>
+          </div>
 
-        {/* Membership Tiers */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-6">
-          {membershipFeatures.map((plan, index) => (
-            <PlanCard key={index} plan={plan} />
-          ))}
+          {/* Membership Tiers */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-6">
+            {membershipFeatures.map((plan, index) => (
+              <PlanCard key={index} plan={plan} />
+            ))}
+          </div>
         </div>
 
         {/* Universal Benefits with optimized animation */}
-        <div className="space-y-4 mb-10">
+        <div className="w-full">
           {/* First Row - Moving Left */}
-          <div className="relative overflow-hidden -mx-4 sm:-mx-6 lg:-mx-8">
+          <div className="relative overflow-hidden">
             <motion.div 
               className="flex space-x-4 will-change-transform"
               animate={{ x: [`0px`, `-${firstRowSetWidth + GAP_WIDTH}px`] }}
@@ -283,7 +285,7 @@ const MembershipSection = () => {
           </div>
 
           {/* Second Row - Moving Right */}
-          <div className="relative overflow-hidden -mx-4 sm:-mx-6 lg:-mx-8">
+          <div className="relative overflow-hidden mt-4">
             <motion.div 
               className="flex space-x-4 will-change-transform"
               animate={{ x: [`-${secondRowSetWidth + GAP_WIDTH}px`, `0px`] }}

@@ -95,15 +95,15 @@ const ThreeDPrintingPage = () => {
               <div className="w-full lg:w-1/2">
                 <div className="max-w-xl mx-auto text-center lg:text-left flex flex-col items-center lg:items-start">
                   <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight text-gray-900">
-                    Know your manufacturing needs, like you know your business.
+                    {t("3dPrinting.manufacturing.title")}
                   </h2>
                   
                   <p className="text-lg text-gray-600 mb-8">
-                    From rapid prototyping to end-use parts, our advanced 3D printing solutions deliver precision-engineered results that adapt to your specific requirements. We combine cutting-edge technology with deep expertise to transform your ideas into reality, ensuring each project meets the highest standards of quality and accuracy.
+                    {t("3dPrinting.manufacturing.description")}
                   </p>
 
                   <button className="inline-flex items-center px-6 py-3 bg-[#329db7] text-white rounded-lg hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
-                    Get Started Today
+                    {t("3dPrinting.manufacturing.cta")}
                   </button>
                 </div>
               </div>
@@ -161,8 +161,8 @@ const ThreeDPrintingPage = () => {
                       </svg>
                     </div>
                     <div>
-                      <p className="text-sm text-gray-600">Colors</p>
-                      <p className="text-lg font-bold text-gray-900">Multi-Material</p>
+                      <p className="text-sm text-gray-600">{t("3dPrinting.fdm.highlights.colors")}</p>
+                      <p className="text-lg font-bold text-gray-900">{t("3dPrinting.fdm.highlights.multiMaterial")}</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
@@ -172,8 +172,8 @@ const ThreeDPrintingPage = () => {
                       </svg>
                     </div>
                     <div>
-                      <p className="text-sm text-gray-600">Build Area</p>
-                      <p className="text-lg font-bold text-gray-900">Extra Large Space</p>
+                      <p className="text-sm text-gray-600">{t("3dPrinting.fdm.highlights.buildArea")}</p>
+                      <p className="text-lg font-bold text-gray-900">{t("3dPrinting.fdm.highlights.extraLarge")}</p>
                     </div>
                   </div>
                 </div>
@@ -183,11 +183,11 @@ const ThreeDPrintingPage = () => {
               <div className="w-full lg:w-1/2">
                 <div className="max-w-xl mx-auto text-center lg:text-left flex flex-col items-center lg:items-start">
                   <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight text-gray-900">
-                    Transform Your Vision Into Reality
+                    {t("3dPrinting.fdm.title")}
                   </h2>
                   
                   <p className="text-lg text-gray-600 mb-8">
-                    Our advanced FDM technology brings industrial-grade precision to your desktop. With multi-material capabilities and a wide range of engineering-grade filaments, we enable you to create functional prototypes and end-use parts that meet the highest standards.
+                    {t("3dPrinting.fdm.description")}
                   </p>
 
                   <div className="space-y-4 mb-8">
@@ -199,7 +199,7 @@ const ThreeDPrintingPage = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-gray-600">Multi-material printing with up to 5 materials</p>
+                      <p className="text-gray-600">{t("3dPrinting.fdm.features.multiMaterial")}</p>
                     </div>
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
@@ -209,7 +209,7 @@ const ThreeDPrintingPage = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-gray-600">Engineering-grade materials for functional parts</p>
+                      <p className="text-gray-600">{t("3dPrinting.fdm.features.engineeringGrade")}</p>
                     </div>
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
@@ -219,18 +219,44 @@ const ThreeDPrintingPage = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-gray-600">Advanced features like soluble supports and composite materials</p>
+                      <p className="text-gray-600">{t("3dPrinting.fdm.features.advancedFeatures")}</p>
                     </div>
                   </div>
 
                   <button className="inline-flex items-center px-6 py-3 bg-[#329db7] text-white rounded-lg hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
-                    Explore FDM Capabilities
+                    {t("3dPrinting.fdm.cta")}
                   </button>
                 </div>
               </div>
             </div>
           </div>
         </section>
+
+        {/* Floating stats cards */}
+        <div className="absolute -right-4 top-1/2 transform -translate-y-1/2 bg-white rounded-xl shadow-lg p-6 w-64">
+          <div className="flex items-center gap-4 mb-4">
+            <div className="w-12 h-12 rounded-full bg-[#329db7]/10 flex items-center justify-center">
+              <svg className="w-6 h-6 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+              </svg>
+            </div>
+            <div>
+              <p className="text-sm text-gray-600">{t("3dPrinting.fdm.highlights.colors")}</p>
+              <p className="text-lg font-bold text-gray-900">{t("3dPrinting.fdm.highlights.multiMaterial")}</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 rounded-full bg-[#329db7]/10 flex items-center justify-center">
+              <svg className="w-6 h-6 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
+              </svg>
+            </div>
+            <div>
+              <p className="text-sm text-gray-600">{t("3dPrinting.fdm.highlights.buildArea")}</p>
+              <p className="text-lg font-bold text-gray-900">{t("3dPrinting.fdm.highlights.extraLarge")}</p>
+            </div>
+          </div>
+        </div>
 
         {/* Instagram Reels Section */}
         <section className="relative bg-[#f7f7f7] text-gray-900 border-t border-gray-100">

@@ -121,7 +121,7 @@ const AboutUsSection = () => {
         </div>
       </div>
 
-      <div className="container relative z-10 mx-auto px-3 sm:px-4 lg:px-6 max-w-[1400px]">
+      <div className="container relative z-10 mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
         <h2 className="text-left text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-black">{t('aboutUs.title')}</h2>
         <p className="text-left text-gray-700 text-base sm:text-lg mb-6 sm:mb-8">{t('aboutUs.subtitle')}</p>
         

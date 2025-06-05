@@ -102,10 +102,12 @@ const ScrollImageSlider = () => {
         })}
 
         {/* Main message */}
-        <div className="absolute left-0 top-0 bottom-0 w-full md:w-1/2 hidden lg:flex items-center justify-center z-50 px-4 sm:px-6 lg:px-8 xl:px-12">
-          <p className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold text-white leading-relaxed" style={{ transform: 'translateZ(0)' }}>
-            {t("slider.mainMessage")}
-          </p>
+        <div className="absolute inset-0 flex items-center">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px] relative z-10">
+            <p className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold text-white leading-relaxed max-w-2xl" style={{ transform: 'translateZ(0)' }}>
+              {t("slider.mainMessage")}
+            </p>
+          </div>
         </div>
 
         {/* Quotes with smooth animations */}

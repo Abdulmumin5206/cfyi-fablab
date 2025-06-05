@@ -152,7 +152,7 @@ const ServiceCategories = () => {
       className="py-6 sm:py-8 md:py-12 lg:py-16 xl:py-20 bg-gray-100 relative overflow-hidden"
       aria-label="Our Services"
     >
-      <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1400px] relative z-10">
+      <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px] relative z-10">
         <div className="text-left mb-3 sm:mb-4 md:mb-6 lg:mb-8">
           <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-black font-['Magistral']">
             {t('serviceCategories.title')}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Home } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface TourPoint {
   id: number;
@@ -40,8 +41,8 @@ const ImageFabLabTour = () => {
   const entryPoints: TourPoint[] = [
     {
       id: 1,
-      x: 30, // 30% from left
-      y: 45, // Updated: 60% from top (previously 40%)
+      x: 30,
+      y: 45,
       title: t('fablabTour.3dPrintingArea'),
       description: '',
       image: "/main/tour/3dprinting.webp",
@@ -49,8 +50,8 @@ const ImageFabLabTour = () => {
     },
     {
       id: 2,
-      x: 70, // 70% from left
-      y: 50, // 50% from top
+      x: 70,
+      y: 50,
       title: t('fablabTour.workshop'),
       description: '',
       image: "/main/tour/starting.webp",
@@ -58,8 +59,8 @@ const ImageFabLabTour = () => {
     },
     {
       id: 3,
-      x: 10, // Updated: 15% from left (previously 10%)
-      y: 90, // 70% from top
+      x: 10,
+      y: 90,
       title: t('fablabTour.leftSideOfRoom'),
       description: '',
       image: "/main/tour/leftsideroom.webp",
@@ -67,8 +68,8 @@ const ImageFabLabTour = () => {
     },
     {
       id: 4,
-      x: 55, // Updated: 85% from left
-      y: 95, // Updated: 85% from top
+      x: 55,
+      y: 95,
       title: t('fablabTour.backSideUV'),
       description: '',
       image: "/main/tour/bacsideuvprinting.webp",
@@ -79,8 +80,8 @@ const ImageFabLabTour = () => {
   const leftSidePoints: TourPoint[] = [
     {
       id: 1,
-      x: 10, // 10% from left
-      y: 70, // 70% from top
+      x: 10,
+      y: 70,
       title: t('fablabTour.stickerMachine'),
       description: '',
       image: "/main/tour/stickermachine.webp",
@@ -88,8 +89,8 @@ const ImageFabLabTour = () => {
     },
     {
       id: 2,
-      x: 50, // 50% from left
-      y: 40, // 40% from top
+      x: 50,
+      y: 40,
       title: t('fablabTour.3dPrintingArea'),
       description: '',
       image: "/main/tour/3dprinting.webp",
@@ -97,8 +98,8 @@ const ImageFabLabTour = () => {
     },
     {
       id: 3,
-      x: 70, // 70% from left
-      y: 70, // 70% from top
+      x: 70,
+      y: 70,
       title: t('fablabTour.mainViewInsideRoom'),
       description: '',
       image: "/main/tour/anotherside.jpg",
@@ -109,8 +110,8 @@ const ImageFabLabTour = () => {
   const anothersidePoints: TourPoint[] = [
     {
       id: 1,
-      x: 25, // 40% from left
-      y: 40, // 40% from top
+      x: 25,
+      y: 40,
       title: t('fablabTour.cnc'),
       description: '',
       image: "/main/tour/CNCVOLTER.jpg",
@@ -118,8 +119,8 @@ const ImageFabLabTour = () => {
     },
     {
       id: 2,
-      x: 5, // 20% from left
-      y: 40, // 40% from top
+      x: 5,
+      y: 40,
       title: t('fablabTour.backsideUvCncLaser'),
       description: '',
       image: "/main/tour/bacsideuvprinting.webp",
@@ -127,8 +128,8 @@ const ImageFabLabTour = () => {
     },
     {
       id: 3,
-      x: 20, // 40% from left
-      y: 66, // 70% from top
+      x: 20,
+      y: 66,
       title: t('fablabTour.anotherViewLeftside'),
       description: '',
       image: "/main/tour/leftsideroom.webp",
@@ -137,9 +138,7 @@ const ImageFabLabTour = () => {
   ];
 
   const threeDPrintingPoints: TourPoint[] = [];
-
   const stickerMachinePoints: TourPoint[] = [];
-
   const backsidePoints: TourPoint[] = [];
 
   const handlePointClick = (point: TourPoint) => {
@@ -178,51 +177,69 @@ const ImageFabLabTour = () => {
   };
 
   return (
-    <section className="w-full py-6 sm:py-8 md:py-12 lg:py-16 bg-white overflow-hidden">
-      <div className="max-w-[1300px] mx-auto px-3 sm:px-4 lg:px-6">
-        <div className="relative">
-          {/* Text content with slide animation */}
-          <div className={`absolute left-0 top-1/2 -translate-y-1/2 w-full lg:w-1/3 transition-all duration-500 ease-in-out transform ${
-            isExpanded ? 'lg:-translate-x-full lg:opacity-0' : 'lg:translate-x-0 lg:opacity-100'
-          } z-10 lg:z-0 ${isExpanded ? 'hidden lg:block' : 'block lg:block'} hidden md:hidden`}>
-            <div className="space-y-3 sm:space-y-4 lg:space-y-6 pr-0 lg:pr-4 text-center lg:text-left">
-              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#329db7] leading-tight">
+    <section className="w-full py-16 md:py-24 bg-white overflow-hidden">
+      <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
+        <div className="flex flex-col lg:flex-row items-start gap-8 sm:gap-12">
+          {/* Left side content */}
+          <motion.div 
+            className="w-full lg:w-1/3"
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="space-y-4 sm:space-y-6">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#329db7] leading-tight">
                 {t('innovationHub.title')}
               </h2>
-              <p className="text-sm sm:text-base lg:text-lg text-gray-600 leading-relaxed">
+              <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
                 {t('innovationHub.description')}
               </p>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Image container with slide animation */}
-          <div className={`w-full lg:ml-auto transition-all duration-500 ease-in-out ${
-            isExpanded ? 'lg:w-full' : 'lg:w-2/3'
-          }`}>
-            <div className="relative h-[250px] sm:h-[350px] md:h-[450px] lg:h-[500px] xl:h-[550px] overflow-hidden shadow-lg lg:ml-6">
-              <img
-                src={activeImage}
-                alt="FabLab Tour"
-                className="w-full h-full object-cover transition-all duration-500 ease-in-out"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.src = "https://placehold.co/600x400/e2e8f0/1e293b?text=FabLab+Tour";
-                }}
-              />
+          {/* Right side image container */}
+          <motion.div 
+            className="w-full lg:w-2/3"
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden rounded-xl shadow-xl">
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={activeImage}
+                  src={activeImage}
+                  alt="FabLab Tour"
+                  className="w-full h-full object-cover"
+                  initial={{ opacity: 0, scale: 1.1 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.5 }}
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = "https://placehold.co/600x400/e2e8f0/1e293b?text=FabLab+Tour";
+                  }}
+                />
+              </AnimatePresence>
               
               {/* Home button for expanded view */}
               {isExpanded && (
-                <button
+                <motion.button
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
                   onClick={handleCloseExpanded}
-                  className="absolute top-3 right-3 sm:top-4 sm:right-4 bg-white rounded-full p-1.5 sm:p-2 md:p-3 shadow-lg hover:shadow-xl transition-all duration-300 z-30"
+                  className="absolute top-4 right-4 bg-white rounded-full p-2 sm:p-3 shadow-lg hover:shadow-xl transition-all duration-300 z-30"
                 >
-                  <Home className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-blue-600" />
-                </button>
+                  <Home className="w-5 h-5 sm:w-6 sm:h-6 text-[#329db7]" />
+                </motion.button>
               )}
               
               {/* Interactive Points */}
               {getCurrentPoints().map((point) => (
-                <button
+                <motion.button
                   key={point.id}
                   className={`absolute transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ${
                     activePoint === point.id ? 'scale-110 sm:scale-125 z-20' : 'hover:scale-105 sm:hover:scale-110 z-10'
@@ -234,37 +251,33 @@ const ImageFabLabTour = () => {
                   onClick={() => handlePointClick(point)}
                   onMouseEnter={() => setActivePoint(point.id)}
                   onMouseLeave={() => setActivePoint(null)}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.3, delay: point.id * 0.1 }}
                 >
                   <div className="relative">
-                    {point.isBackButton ? (
-                      // Home icon for back button
-                      <div className="relative">
-                        <div className="absolute inset-0 bg-[#309eb7] rounded-full animate-ping opacity-75"></div>
-                        <div className="relative bg-[#309eb7] rounded-full w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow duration-300">
-                          <Home className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 text-white" />
-                        </div>
-                      </div>
-                    ) : (
-                      // Regular dot for other points
-                      <div className="relative">
-                        <div className="absolute inset-0 bg-[#309eb7] rounded-full animate-ping opacity-75"></div>
-                        <div className="relative bg-[#309eb7] rounded-full w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow duration-300">
-                          <div className="w-2 h-2 sm:w-3 sm:h-3 md:w-4 md:h-4 bg-white rounded-full"></div>
-                        </div>
-                      </div>
-                    )}
+                    <div className="absolute inset-0 bg-[#329db7] rounded-full animate-ping opacity-75"></div>
+                    <div className="relative bg-[#329db7] rounded-full w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow duration-300">
+                      <div className="w-2 h-2 sm:w-3 sm:h-3 md:w-4 md:h-4 bg-white rounded-full"></div>
+                    </div>
                     
                     {/* Tooltip */}
-                    <div className={`absolute left-1/2 -translate-x-1/2 bottom-full mb-2 px-2 py-1 bg-white rounded-lg shadow-lg text-xs sm:text-sm whitespace-nowrap transition-all duration-300 ${
-                      activePoint === point.id ? 'opacity-100 visible' : 'opacity-0 invisible'
-                    }`}>
+                    <motion.div 
+                      className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 px-3 py-1.5 bg-white rounded-lg shadow-lg text-sm sm:text-base whitespace-nowrap"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ 
+                        opacity: activePoint === point.id ? 1 : 0,
+                        y: activePoint === point.id ? 0 : 10
+                      }}
+                      transition={{ duration: 0.2 }}
+                    >
                       {point.title}
-                    </div>
+                    </motion.div>
                   </div>
-                </button>
+                </motion.button>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

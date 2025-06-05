@@ -86,7 +86,7 @@ const ServiceCategories = () => {
       ],
       logoText: "Precision Manufacturing",
       buttonTextKey: "serviceCategories.precisionManufacturing.title",
-      buttonLink: "/precision-manufacturing",
+      buttonLink: "/digital-fabrication#precision-manufacturing",
       color: "bg-[#8a2be2]",
     },
     {

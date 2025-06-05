@@ -103,9 +103,9 @@ const ThreeDScanningPage = () => {
               <div className="w-full lg:w-1/2 relative">
                 <div className="relative rounded-xl overflow-hidden shadow-xl bg-white">
                   <img 
-                    src="/3d-scanning/scanning-process.webp" 
+                    src="/3d-scanning/scanning.webp" 
                     alt="3D Scanning Process" 
-                    className="w-full h-[600px] object-cover"
+                    className="w-full h-[500px] object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
                 </div>
@@ -172,9 +172,9 @@ const ThreeDScanningPage = () => {
               <div className="w-full lg:w-1/2 relative">
                 <div className="relative rounded-xl overflow-hidden shadow-xl bg-white">
                   <img 
-                    src="/3d-scanning/applications.webp" 
+                    src="/3d-scanning/scanning2.webp" 
                     alt="3D Scanning Applications" 
-                    className="w-full h-[600px] object-cover"
+                    className="w-full h-[500px] object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
                 </div>
@@ -188,51 +188,80 @@ const ThreeDScanningPage = () => {
           <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl md:text-4xl font-bold mb-10 md:mb-16 text-center">Our Equipment</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {/* Structured Light Scanner */}
+              {/* EinScan SP V2 Scanner */}
               <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
-                <div className="w-full h-32 md:h-36 bg-gray-100 relative">
-                  <img src="/3d-scanning/structured-light.webp" alt="Structured Light Scanner" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
+                <div className="w-full h-96 bg-white overflow-hidden">
+                  <img src="/3d-scanning/3D SCANNER EINSCAN SP V2.webp" alt="EinScan SP V2" className="w-full h-full object-cover object-center" loading="lazy" />
                 </div>
-                <div className="-mt-16 z-10 flex justify-center w-full">
-                  <img src="/3d-scanning/structured-light.webp" alt="Structured Light Scanner" className="w-48 h-56 object-contain" />
-                </div>
-                <div className="flex flex-col items-center justify-center px-8 pt-6 pb-8 w-full text-center">
-                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center mt-2">High Precision</div>
-                  <h3 className="text-2xl font-bold mb-3 text-center">Structured Light Scanner</h3>
-                  <p className="text-gray-700 mb-4 text-center text-base">Advanced scanning system for detailed surface capture and texture mapping.</p>
-                  <hr className="w-12 border-t border-gray-200 my-3" />
+                <div className="flex flex-col items-center justify-center px-8 pt-4 pb-4 w-full text-center">
+                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center">High Precision</div>
+                  <h3 className="text-2xl font-bold mb-2 text-center">EinScan SP V2</h3>
+                  <p className="text-gray-700 text-center text-base">Professional-grade structured light scanner with 0.05mm accuracy for detailed surface capture.</p>
                 </div>
               </div>
 
-              {/* Handheld Scanner */}
+              {/* EinScan H Scanner */}
               <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
-                <div className="w-full h-32 md:h-36 bg-gray-100 relative">
-                  <img src="/3d-scanning/handheld.webp" alt="Handheld Scanner" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
+                <div className="w-full h-96 bg-white overflow-hidden">
+                  <img src="/3d-scanning/3D SCANNER EINSCAN H.webp" alt="EinScan H" className="w-full h-full object-cover object-center" loading="lazy" />
                 </div>
-                <div className="-mt-16 z-10 flex justify-center w-full">
-                  <img src="/3d-scanning/handheld.webp" alt="Handheld Scanner" className="w-48 h-56 object-contain" />
-                </div>
-                <div className="flex flex-col items-center justify-center px-8 pt-6 pb-8 w-full text-center">
-                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center mt-2">Portable Scanning</div>
-                  <h3 className="text-2xl font-bold mb-3 text-center">Handheld Scanner</h3>
-                  <p className="text-gray-700 mb-4 text-center text-base">Portable scanning solution for on-site and large object capture.</p>
-                  <hr className="w-12 border-t border-gray-200 my-3" />
+                <div className="flex flex-col items-center justify-center px-8 pt-4 pb-4 w-full text-center">
+                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center">Handheld Solution</div>
+                  <h3 className="text-2xl font-bold mb-2 text-center">EinScan H</h3>
+                  <p className="text-gray-700 text-center text-base">Portable handheld scanner with 0.1mm accuracy for flexible scanning of various objects.</p>
                 </div>
               </div>
 
-              {/* Photogrammetry System */}
+              {/* Academia 50 Scanner */}
               <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
-                <div className="w-full h-32 md:h-36 bg-gray-100 relative">
-                  <img src="/3d-scanning/photogrammetry.webp" alt="Photogrammetry System" className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
+                <div className="w-full h-96 bg-white overflow-hidden">
+                  <img src="/3d-scanning/SYS-ACA-SC50P1 ACADEMIA 50.webp" alt="Academia 50" className="w-full h-full object-cover object-center" loading="lazy" />
                 </div>
-                <div className="-mt-16 z-10 flex justify-center w-full">
-                  <img src="/3d-scanning/photogrammetry.webp" alt="Photogrammetry System" className="w-48 h-56 object-contain" />
+                <div className="flex flex-col items-center justify-center px-8 pt-4 pb-4 w-full text-center">
+                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center">Educational Grade</div>
+                  <h3 className="text-2xl font-bold mb-2 text-center">Academia 50</h3>
+                  <p className="text-gray-700 text-center text-base">High-resolution 3D scanner designed for educational and research applications.</p>
                 </div>
-                <div className="flex flex-col items-center justify-center px-8 pt-6 pb-8 w-full text-center">
-                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center mt-2">Large Scale</div>
-                  <h3 className="text-2xl font-bold mb-3 text-center">Photogrammetry System</h3>
-                  <p className="text-gray-700 mb-4 text-center text-base">Advanced photogrammetry for large-scale object and environment scanning.</p>
-                  <hr className="w-12 border-t border-gray-200 my-3" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* EinScan SP V2 Guide Section */}
+        <section className="py-16 md:py-24 bg-white">
+          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col lg:flex-row items-start gap-12">
+              {/* Left side with image */}
+              <div className="w-full lg:w-1/2 relative">
+                <div className="relative rounded-xl overflow-hidden shadow-xl bg-gray-100">
+                  <img 
+                    src="/3d-scanning/SP2.webp" 
+                    alt="EinScan SP V2 Scanner"
+                    className="w-full h-[500px] object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                </div>
+              </div>
+
+              {/* Right side content */}
+              <div className="w-full lg:w-1/2">
+                <div className="max-w-xl mx-auto text-center lg:text-left flex flex-col items-center lg:items-start">
+                  <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight text-gray-900">
+                    Guide to Using the EinScan SP V2
+                  </h2>
+                  
+                  <p className="text-lg text-gray-600 mb-8">
+                    [Placeholder for the blog content about using the EinScan SP V2 scanner. This section will explain the steps, tips, and best practices for achieving high-quality scans.]
+                  </p>
+
+                  {/* You can add more paragraphs, lists, or images here for the guide content */}
+                  {/* Example: */}
+                  {/* <p className="text-gray-600 mb-4">Step 1: Calibrate the scanner...</p> */}
+                  {/* <ul><li>Tip 1: Ensure proper lighting...</li></ul> */}
+
+                  <button className="inline-flex items-center px-6 py-3 bg-[#329db7] text-white rounded-lg hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
+                    Read the Full Guide
+                  </button>
                 </div>
               </div>
             </div>

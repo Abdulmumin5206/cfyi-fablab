@@ -138,7 +138,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
     { name: t('serviceCategories.molding.title'), path: "/molding", color: "hover:text-[#0e9a48]" },
     { name: t('serviceCategories.3dPrinting.title'), path: "/3d-printing", color: "hover:text-[#cb2026]" },
     { name: t('serviceCategories.digitalFabrication.title'), path: "/digital-fabrication", color: "hover:text-[#35469d]" },
-    { name: t('serviceCategories.precisionManufacturing.title'), path: "/precision-manufacturing", color: "hover:text-[#8a2be2]" },
+    { name: t('serviceCategories.precisionManufacturing.title'), path: "/digital-fabrication#precision-manufacturing", color: "hover:text-[#8a2be2]" },
     { name: t('serviceCategories.3dScanning.title'), path: "/3d-scanning", color: "hover:text-[#ff6b6b]" }
   ];
 

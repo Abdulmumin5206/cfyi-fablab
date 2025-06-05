@@ -615,5 +615,31 @@
         }
       }
     }
+  },
+  "aboutUs": {
+    "title": "Behind the Innovation",
+    "subtitle": "Feels modern, fitting for a FabLab with cutting-edge tools.",
+    "cards": {
+      "pioneers": {
+        "title": "Pioneers",
+        "text": "We are proud to be the first official FabLab in Uzbekistan, paving the way for digital fabrication and innovation in the region. Our lab operates under the umbrella of CFYI (Center for Youth Innovation), empowering the next generation of creators and engineers.",
+        "buttonText": "Learn more about CFYI"
+      },
+      "globalNetwork": {
+        "title": "Global Network",
+        "text": "As part of the worldwide FabLab network, we are connected to a global community of makers, educators, and innovators. The FabLab concept, rooted in open access and knowledge sharing, is transforming local communities across the planet.",
+        "buttonText": "Learn more about the FabLab network"
+      },
+      "mitStandards": {
+        "title": "MIT Standards",
+        "text": "Our FabLab is built on the original MIT FabLab principles, ensuring that we meet the global standards of innovation, safety, and accessibility established by the Massachusetts Institute of Technology.",
+        "buttonText": "Learn more about MIT FabLabs"
+      },
+      "cuttingEdgeTools": {
+        "title": "Cutting-Edge Tools",
+        "text": "Equipped with advanced digital fabrication tools, from high-precision CNCs to industrial-grade 3D printers and laser cutters, we offer unmatched opportunities for prototyping, education, and production.",
+        "buttonText": "Explore our equipment"
+      }
+    }
   }
 } 

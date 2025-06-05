@@ -4,6 +4,8 @@ const AboutUsSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
+  
+  
 
   useEffect(() => {
     const observer = new IntersectionObserver(

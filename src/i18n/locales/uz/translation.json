@@ -59,20 +59,24 @@
     "subtitle": "Ishlab chiqarish xizmatlarimiz bilan tanishing",
     "explorePrefix": "Ko'rish",
     "3dPrinting": {
-      "title": "3D Chop etish",
-      "description": "Tezkor prototiplayash va ishlab chiqarish uchun qo'shimcha texnologiyalar"
+      "title": "3D Chop etish va Qo'shimcha Ishlab chiqarish",
+      "description": "Tezkor prototiplayash va ishlab chiqarish uchun zamonaviy qo'shimcha ishlab chiqarish yechimlari"
     },
-    "mould": {
-      "title": "Qoliplash",
-      "description": "Turli materiallar uchun maxsus qolip dizayni va ishlab chiqarish"
+    "molding": {
+      "title": "Qoliplash va Ishlab chiqarish Xizmatlari",
+      "description": "Turli materiallar va sohalar uchun keng qamrovli qoliplash va ishlab chiqarish xizmatlari"
     },
-    "prototyping": {
-      "title": "Prototiplash",
-      "description": "G'oyalaringizni tezda jismoniy prototiplarga aylantiring"
+    "digitalFabrication": {
+      "title": "Raqamli Ishlab chiqarish va Maxsus Mahsulotlar",
+      "description": "Maxsus mahsulotlarni ishlab chiqish uchun zamonaviy raqamli ishlab chiqarish texnologiyalari"
     },
-    "customFabrication": {
-      "title": "Maxsus ishlab chiqarish",
-      "description": "Lazer kesish, CNC va UV chop etish orqali g'oyalarni hayotga keltiring."
+    "precisionManufacturing": {
+      "title": "Aniq Ishlab chiqarish",
+      "description": "Murakkab va muhim komponentlar uchun yuqori aniqlikdagi ishlab chiqarish yechimlari"
+    },
+    "3dScanning": {
+      "title": "3D Skanerlash va Teskari Muhandislik",
+      "description": "Mahsulotlarni ishlab chiqish uchun zamonaviy 3D skanerlash va teskari muhandislik xizmatlari"
     }
   },
   "industries": {
@@ -606,6 +610,32 @@
       },
       "requestSample": "NAMUNA QISMNI SO'RASH",
       "tackleAnyProblem": "Bizning ilg'or materiallarimiz yoki ochiq material rejimidan foydalanish orqali har qanday muammoni hal qiling."
+    }
+  },
+  "aboutUs": {
+    "title": "Innovatsiya Ortida",
+    "subtitle": "Zamonaviy yondashuv, ilg'or vositalar bilan FabLab'ga mos keladi.",
+    "cards": {
+      "pioneers": {
+        "title": "Pionerlar",
+        "text": "O'zbekistondagi birinchi rasmiy FabLab bo'lganimizdan faxrlanamiz, mintaqada raqamli ishlab chiqarish va innovatsiyalar uchun yo'l ochib beramiz. Bizning laboratoriyamiz CFYI (Yoshlar tashabbuslari markazi) homiyligida ishlaydi, kelajak avlod yaratuvchilari va muhandislariga imkoniyat beradi.",
+        "buttonText": "CFYI haqida ko'proq ma'lumot"
+      },
+      "globalNetwork": {
+        "title": "Global Tarmoq",
+        "text": "Dunyo bo'ylab FabLab tarmog'ining bir qismi sifatida, biz yaratuvchilar, o'qituvchilar va innovatorlarning global hamjamiyati bilan bog'langanmiz. Ochiq kirish va bilim almashinuvi asosida qurilgan FabLab kontseptsiyasi butun dunyo bo'ylab mahalliy hamjamiyatlarni o'zgartirmoqda.",
+        "buttonText": "FabLab tarmog'i haqida ko'proq ma'lumot"
+      },
+      "mitStandards": {
+        "title": "MIT Standartlari",
+        "text": "Bizning FabLab'imiz MIT FabLab'ning original tamoyillari asosida qurilgan bo'lib, Massachusets texnologiya instituti tomonidan belgilangan innovatsiya, xavfsizlik va kirish imkoniyati bo'yicha global standartlarga javob beradi.",
+        "buttonText": "MIT FabLab haqida ko'proq ma'lumot"
+      },
+      "cuttingEdgeTools": {
+        "title": "Ilg'or Vositalar",
+        "text": "Yuqori aniqlikdagi CNC dan sanoat darajasidagi 3D printerlar va lazer kesgichlargacha bo'lgan ilg'or raqamli ishlab chiqarish vositalari bilan jihozlangan bo'lib, prototiplash, ta'lim va ishlab chiqarish uchun tengsiz imkoniyatlarni taklif qilamiz.",
+        "buttonText": "Bizning uskunalarimizni ko'rish"
+      }
     }
   }
 } 

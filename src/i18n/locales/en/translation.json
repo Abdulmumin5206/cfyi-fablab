@@ -802,5 +802,15 @@
     "handsOnLearning": "Hands-on Learning",
     "duration": "Duration",
     "durationTime": "2-12 Weeks"
+  },
+  "innovationHub": {
+    "title": "Innovation Hub",
+    "description": "A state-of-the-art facility equipped with cutting-edge digital fabrication tools and equipment, providing a perfect environment for innovation and creation.",
+    "features": {
+      "3dPrinting": "Advanced 3D printing capabilities for rapid prototyping and production",
+      "cncLaser": "Precision CNC machining and laser cutting services",
+      "uvPrinting": "High-quality UV printing solutions for various materials",
+      "designSupport": "Expert design support and consultation services"
+    }
   }
 } 

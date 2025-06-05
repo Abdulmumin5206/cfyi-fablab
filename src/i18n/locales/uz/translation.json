@@ -793,5 +793,15 @@
     "handsOnLearning": "Amaliy O'rganish",
     "duration": "Davomiyligi",
     "durationTime": "2-12 Hafta"
+  },
+  "innovationHub": {
+    "title": "Bizning Innovatsion Markazimizni Keling",
+    "description": "G'oyalaringiz hayotga keltiriladigan zamonaviy FabLabimizga xush kelibsiz. Biz sizning innovatsiyalaringizni amalga oshirish uchun zamonaviy texnologiyalarni mutaxassislar ko'rsatmasi bilan birlashtiramiz.",
+    "features": {
+      "3dPrinting": "Yuqori aniqlikdagi 3D chop etish va prototiplash",
+      "cncLaser": "Ilg'or CNC va lazer kesish tizimlari",
+      "uvPrinting": "Professional UV chop etish va stiker ishlab chiqarish",
+      "designSupport": "Mutaxassis dizayn va muhandislik yordami"
+    }
   }
 } 

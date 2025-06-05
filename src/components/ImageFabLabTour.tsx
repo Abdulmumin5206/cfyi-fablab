@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Home } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 interface TourPoint {
   id: number;
@@ -13,6 +14,7 @@ interface TourPoint {
 }
 
 const ImageFabLabTour = () => {
+  const { t } = useTranslation();
   const [activeImage, setActiveImage] = useState('/main/tour/starting.webp');
   const [activePoint, setActivePoint] = useState<number | null>(null);
   const [currentView, setCurrentView] = useState('entry');
@@ -185,28 +187,29 @@ const ImageFabLabTour = () => {
               isExpanded ? 'lg:-translate-x-full lg:opacity-0' : 'lg:translate-x-0 lg:opacity-100'
             } z-10 lg:z-0`}>
               <div className="space-y-4 md:space-y-6 lg:space-y-8 pr-0 lg:pr-8">
-                <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight">
-                  Explore Our <span className="text-[#309eb7]">Innovation Hub</span>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+                  {t('innovationHub.title')}
                 </h2>
-                <p className="text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed">
-                  Welcome to our state-of-the-art FabLab, where your ideas come to life. We combine cutting-edge technology with expert guidance to bring your innovations to reality.
+                <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
+                  {t('innovationHub.description')}
                 </p>
-                <ul className="space-y-3 md:space-y-4">
+                
+                <ul className="space-y-3">
                   <li className="flex items-center space-x-3">
-                    <span className="text-blue-600 text-lg md:text-xl">•</span>
-                    <span className="text-base md:text-lg lg:text-xl">High-Precision 3D Printing & Prototyping</span>
+                    <span className="text-blue-600 text-base sm:text-lg">•</span>
+                    <span className="text-sm sm:text-base">{t('innovationHub.features.3dPrinting')}</span>
                   </li>
                   <li className="flex items-center space-x-3">
-                    <span className="text-blue-600 text-lg md:text-xl">•</span>
-                    <span className="text-base md:text-lg lg:text-xl">Advanced CNC & Laser Cutting Systems</span>
+                    <span className="text-blue-600 text-base sm:text-lg">•</span>
+                    <span className="text-sm sm:text-base">{t('innovationHub.features.cncLaser')}</span>
                   </li>
                   <li className="flex items-center space-x-3">
-                    <span className="text-blue-600 text-lg md:text-xl">•</span>
-                    <span className="text-base md:text-lg lg:text-xl">Professional UV Printing & Sticker Production</span>
+                    <span className="text-blue-600 text-base sm:text-lg">•</span>
+                    <span className="text-sm sm:text-base">{t('innovationHub.features.uvPrinting')}</span>
                   </li>
                   <li className="flex items-center space-x-3">
-                    <span className="text-blue-600 text-lg md:text-xl">•</span>
-                    <span className="text-base md:text-lg lg:text-xl">Expert Design & Engineering Support</span>
+                    <span className="text-blue-600 text-base sm:text-lg">•</span>
+                    <span className="text-sm sm:text-base">{t('innovationHub.features.designSupport')}</span>
                   </li>
                 </ul>
               </div>

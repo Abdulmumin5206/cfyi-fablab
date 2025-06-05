@@ -1,6 +1,8 @@
 import React, { useRef, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const AboutUsSection = () => {
+  const { t } = useTranslation();
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -53,33 +55,33 @@ const AboutUsSection = () => {
 
   const cardData = [
     {
-      title: 'Pioneers',
-      text: 'We are proud to be the first official FabLab in Uzbekistan, paving the way for digital fabrication and innovation in the region. Our lab operates under the umbrella of CFYI (Center for Youth Innovation), empowering the next generation of creators and engineers.',
-      buttonText: 'Learn more about CFYI',
+      title: t('aboutUs.cards.pioneers.title'),
+      text: t('aboutUs.cards.pioneers.text'),
+      buttonText: t('aboutUs.cards.pioneers.buttonText'),
       link: 'https://cfyi.uz/',
       image: '/main/About US/cfyi.svg',
       imageAlt: 'CFYI Logo'
     },
     {
-      title: 'Global Network',
-      text: 'As part of the worldwide FabLab network, we are connected to a global community of makers, educators, and innovators. The FabLab concept, rooted in open access and knowledge sharing, is transforming local communities across the planet.',
-      buttonText: 'Learn more about the FabLab network',
+      title: t('aboutUs.cards.globalNetwork.title'),
+      text: t('aboutUs.cards.globalNetwork.text'),
+      buttonText: t('aboutUs.cards.globalNetwork.buttonText'),
       link: 'https://fablabs.io/labs/fablabatthecenterforyouthinitiatives',
       image: '/main/About US/GlobalFablab.svg',
       imageAlt: 'FabLab Logo'
     },
     {
-      title: 'MIT Standards',
-      text: 'Our FabLab is built on the original MIT FabLab principles, ensuring that we meet the global standards of innovation, safety, and accessibility established by the Massachusetts Institute of Technology.',
-      buttonText: 'Learn more about MIT FabLabs',
+      title: t('aboutUs.cards.mitStandards.title'),
+      text: t('aboutUs.cards.mitStandards.text'),
+      buttonText: t('aboutUs.cards.mitStandards.buttonText'),
       link: 'https://fabacademy.org/',
       image: '/main/About US/Mit.jpg',
       imageAlt: 'MIT Logo'
     },
     {
-      title: 'Cutting-Edge Tools',
-      text: 'Equipped with advanced digital fabrication tools, from high-precision CNCs to industrial-grade 3D printers and laser cutters, we offer unmatched opportunities for prototyping, education, and production.',
-      buttonText: 'Explore our equipment',
+      title: t('aboutUs.cards.cuttingEdgeTools.title'),
+      text: t('aboutUs.cards.cuttingEdgeTools.text'),
+      buttonText: t('aboutUs.cards.cuttingEdgeTools.buttonText'),
       link: 'https://cfyi.uz/fablab',
       image: '/fablab/logo.png',
       imageAlt: 'FabLab Logo'
@@ -99,21 +101,29 @@ const AboutUsSection = () => {
         <div 
           className="w-[100%] h-[100%] relative transition-all duration-1000 ease-out"
           style={{
-            transform: `translateY(${translateY})`,
+            transform: `translateY(${translateY}) translateZ(0)`,
             opacity: isVisible ? 0.15 : 0,
+            willChange: 'transform, opacity',
+            backfaceVisibility: 'hidden',
+            perspective: '1000px'
           }}
         >
           <img 
             src="/main/FABLAB.webp"
             alt="FabLab Background"
             className="w-full h-full object-contain"
+            style={{
+              transform: 'translateZ(0)',
+              willChange: 'transform',
+              backfaceVisibility: 'hidden'
+            }}
           />
         </div>
       </div>
 
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-[1600px]">
-        <h2 className="text-left text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 text-black">Behind the Innovation</h2>
-        <p className="text-left text-gray-700 text-lg mb-8 sm:mb-12">Feels modern, fitting for a FabLab with cutting-edge tools.</p>
+        <h2 className="text-left text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 text-black">{t('aboutUs.title')}</h2>
+        <p className="text-left text-gray-700 text-lg mb-8 sm:mb-12">{t('aboutUs.subtitle')}</p>
         
         {/* Mobile Layout */}
         <div className="grid grid-cols-1 gap-4 sm:hidden">

@@ -37,6 +37,9 @@
     "mainMessage": "Empowering innovation through accessible fabrication technology. We provide the tools, space, and expertise to turn ideas into reality.",
     "showcaseImage": "Showcase image {{number}}",
     "scrollHint": "Scroll down",
+    "image0": "FabLab Room",
+    "image1": "FabLearn Program",
+    "image2": "CFYI Center",
     "fablabRoom": {
       "title": "FabLab Space",
       "achievement": "State-of-the-Art Facility",
@@ -58,15 +61,15 @@
     "subtitle": "Explore our range of fabrication services",
     "explorePrefix": "Explore",
     "3dPrinting": {
-      "title": "3D Printing & Additive Manufacturing",
+      "title": "3D Printing",
       "description": "State-of-the-art additive manufacturing solutions for rapid prototyping and production"
     },
     "molding": {
-      "title": "Molding & Production Services",
+      "title": "Molding & Production",
       "description": "Comprehensive molding and production services for various materials and industries"
     },
     "digitalFabrication": {
-      "title": "Digital Fabrication & Custom Products",
+      "title": "Digital Fabrication",
       "description": "Advanced digital fabrication technologies for custom product development"
     },
     "precisionManufacturing": {
@@ -74,7 +77,7 @@
       "description": "High-precision manufacturing solutions for complex and critical components"
     },
     "3dScanning": {
-      "title": "3D Scanning & Reverse Engineering",
+      "title": "3D Scanning",
       "description": "Advanced 3D scanning and reverse engineering services for product development"
     }
   },
@@ -639,6 +642,141 @@
         "title": "Cutting-Edge Tools",
         "text": "Equipped with advanced digital fabrication tools, from high-precision CNCs to industrial-grade 3D printers and laser cutters, we offer unmatched opportunities for prototyping, education, and production.",
         "buttonText": "Explore our equipment"
+      }
+    }
+  },
+  "membership": {
+    "title": "Join Our Community",
+    "subtitle": "Become a member and unlock the full potential of our FabLab",
+    "types": {
+      "student": {
+        "title": "Student",
+        "description": "Perfect for students, recent graduates, and learning enthusiasts",
+        "features": [
+          "10 hours monthly access",
+          "Free basic training (8-hour program)",
+          "Access to community workshops (2/month)",
+          "Student project storage (1m³)",
+          "Email support",
+          "Basic materials included",
+          "Educational discounts (30% off)",
+          "Access to study groups"
+        ],
+        "restrictions": [
+          "Off-hours only (9:00-17:00)",
+          "No commercial use"
+        ],
+        "popularFeatures": [
+          "Perfect for university projects",
+          "Learn at your own pace",
+          "Connect with other students"
+        ]
+      },
+      "maker": {
+        "title": "Maker",
+        "description": "Best choice for hobbyists, freelancers, and creative entrepreneurs",
+        "features": [
+          "25 hours monthly access",
+          "Advanced training workshops",
+          "Priority booking system",
+          "Project consultations (30min/month)",
+          "Extended storage (2m³)",
+          "Phone and email support",
+          "Material discounts (20% off)",
+          "Weekend access included",
+          "2 guest passes/month"
+        ],
+        "perfectFor": [
+          "Weekend makers",
+          "Etsy shop owners",
+          "Prototype development"
+        ]
+      },
+      "professional": {
+        "title": "Professional",
+        "description": "Ideal for entrepreneurs, small businesses, and serious makers",
+        "features": [
+          "Unlimited access",
+          "Dedicated storage (5m³)",
+          "Priority during business hours",
+          "Technical consultations (2h/month)",
+          "Priority urgent work",
+          "Marketing collaboration",
+          "Bulk material discounts (30% off)",
+          "Commercial license",
+          "Access to advanced software",
+          "Business networking events"
+        ],
+        "businessBenefits": [
+          "Scale your production",
+          "Professional reputation",
+          "Connect with entrepreneurs"
+        ]
+      },
+      "startup": {
+        "title": "Startup",
+        "description": "Designed for early-stage startups and growing businesses",
+        "features": [
+          "40 hours monthly access",
+          "Business workshops",
+          "Dedicated workspace hours",
+          "Project consultations (1h/month)",
+          "Startup storage (3m³)",
+          "Priority technical support",
+          "Material discounts (25% off)",
+          "Commercial license",
+          "Access for 4 team members",
+          "Access to networking events"
+        ],
+        "startupPerks": [
+          "Team workspace",
+          "Business mentorship",
+          "Access to startup community"
+        ]
+      }
+    },
+    "planCard": {
+      "startingFrom": "Starting from",
+      "mostPopular": "Most Popular",
+      "perfectForLearning": "Perfect for Learning",
+      "businessReady": "Business Ready",
+      "growthPackage": "Growth Package"
+    },
+    "restrictions": "Restrictions",
+    "businessBenefits": "Business Benefits",
+    "cta": {
+      "title": "Ready to Join?",
+      "description": "Choose the membership that best fits your needs and start creating today",
+      "button": "Become a Member"
+    },
+    "universalBenefits": {
+      "expertTraining": {
+        "title": "Expert Training",
+        "description": "Free workshops and ongoing technical support"
+      },
+      "communityAccess": {
+        "title": "Community Access",
+        "description": "Connect with innovative makers in Tashkent"
+      },
+      "learningResources": {
+        "title": "Learning Resources",
+        "description": "Access to tutorials and design libraries"
+      },
+      "professionalSpace": {
+        "title": "Professional Space",
+        "description": "Clean, well-lit environment with all the tools"
+      },
+      "technicalSupport": {
+        "title": "Technical Support",
+        "description": "Get help via phone, email, or in person"
+      },
+      "memberDiscounts": {
+        "title": "Member Discounts",
+        "description": "20-50% off materials and advanced courses"
+      },
+      "storageSpace": {
+        "title": "Storage Space",
+        "description": "Secure storage for your projects and materials"
       }
     }
   }

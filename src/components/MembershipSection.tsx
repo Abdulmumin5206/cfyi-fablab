@@ -11,146 +11,86 @@ const MembershipSection = () => {
   // Memoize all data to prevent unnecessary re-renders
   const membershipFeatures = useMemo(() => [
     {
-      title: "Student",
+      title: t('membership.types.student.title'),
       price: "500,000",
-      description: "Perfect for students, recent graduates, and learning enthusiasts",
-      features: [
-        "10 hours monthly access",
-        "Free basic training (8-hour program)",
-        "Community workshop access (2/month)",
-        "Student project storage (1m³)",
-        "Email technical support",
-        "Basic materials included",
-        "Educational discounts (30% off)",
-        "Study group access"
-      ],
-      restrictions: [
-        "Off-peak hours only (9AM-5PM)",
-        "No commercial use"
-      ],
+      description: t('membership.types.student.description'),
+      features: t('membership.types.student.features', { returnObjects: true }) as string[],
+      restrictions: t('membership.types.student.restrictions', { returnObjects: true }) as string[],
       color: "bg-[#309eb7]",
       image: "/main/membership/students.webp",
       badge: "Perfect for Learning",
-      popularFeatures: [
-        "Perfect for university projects",
-        "Learn at your own pace",
-        "Network with fellow students"
-      ]
+      popularFeatures: t('membership.types.student.popularFeatures', { returnObjects: true }) as string[]
     },
     {
-      title: "Maker",
+      title: t('membership.types.maker.title'),
       price: "1,000,000",
-      description: "Best for hobbyists, freelancers, and creative entrepreneurs",
-      features: [
-        "25 hours monthly access",
-        "Advanced training workshops",
-        "Priority booking system",
-        "Project consultation (30min/month)",
-        "Extended storage (2m³)",
-        "Phone + email support",
-        "Material discounts (20% off)",
-        "Weekend access included",
-        "2 guest passes/month"
-      ],
+      description: t('membership.types.maker.description'),
+      features: t('membership.types.maker.features', { returnObjects: true }) as string[],
       color: "bg-[#309eb7]",
       image: "/main/membership/maker.webp",
       badge: "Most Popular",
       popular: true,
-      perfectFor: [
-        "Weekend warriors",
-        "Etsy shop owners",
-        "Prototype development"
-      ]
+      perfectFor: t('membership.types.maker.perfectFor', { returnObjects: true }) as string[]
     },
     {
-      title: "Professional",
+      title: t('membership.types.professional.title'),
       price: "2,000,000",
-      description: "Ideal for entrepreneurs, small businesses, and serious creators",
-      features: [
-        "Unlimited access",
-        "Dedicated storage (5m³)",
-        "Business hours priority",
-        "Technical consultation (2hrs/month)",
-        "Rush job priority",
-        "Marketing collaboration",
-        "Bulk material discounts (30% off)",
-        "Commercial license",
-        "Advanced software access",
-        "Business networking events"
-      ],
+      description: t('membership.types.professional.description'),
+      features: t('membership.types.professional.features', { returnObjects: true }) as string[],
       color: "bg-[#309eb7]",
       image: "/main/membership/professional.webp",
       badge: "Business Ready",
-      businessBenefits: [
-        "Scale your production",
-        "Professional credibility",
-        "Network with entrepreneurs"
-      ]
+      businessBenefits: t('membership.types.professional.businessBenefits', { returnObjects: true }) as string[]
     },
     {
-      title: "Startup",
+      title: t('membership.types.startup.title'),
       price: "1,500,000",
-      description: "Designed for early-stage startups and growing businesses",
-      features: [
-        "40 hours monthly access",
-        "Business training workshops",
-        "Dedicated workspace hours",
-        "Project consultation (1hr/month)",
-        "Startup storage space (3m³)",
-        "Priority technical support",
-        "Material discounts (25% off)",
-        "Commercial use license",
-        "4 team member access",
-        "Networking events access"
-      ],
+      description: t('membership.types.startup.description'),
+      features: t('membership.types.startup.features', { returnObjects: true }) as string[],
       color: "bg-[#309eb7]",
       image: "/main/membership/startup.webp",
       badge: "Growth Package",
-      startupPerks: [
-        "Team collaboration space",
-        "Business mentorship",
-        "Startup community access"
-      ]
+      startupPerks: t('membership.types.startup.startupPerks', { returnObjects: true }) as string[]
     }
-  ], []);
+  ], [t]);
 
   const universalBenefits = useMemo(() => [
     {
       icon: <Target className="w-6 h-6" />,
-      title: "Expert Training",
-      description: "Free workshops and ongoing technical support"
+      title: t('membership.universalBenefits.expertTraining.title'),
+      description: t('membership.universalBenefits.expertTraining.description')
     },
     {
       icon: <Users className="w-6 h-6" />,
-      title: "Community Access",
-      description: "Connect with Tashkent's innovative makers"
+      title: t('membership.universalBenefits.communityAccess.title'),
+      description: t('membership.universalBenefits.communityAccess.description')
     },
     {
       icon: <BookOpen className="w-6 h-6" />,
-      title: "Learning Resources",
-      description: "Access to tutorials and design libraries"
+      title: t('membership.universalBenefits.learningResources.title'),
+      description: t('membership.universalBenefits.learningResources.description')
     },
     {
       icon: <Target className="w-6 h-6" />,
-      title: "Professional Space",
-      description: "Clean, well-lit environment with all tools"
+      title: t('membership.universalBenefits.professionalSpace.title'),
+      description: t('membership.universalBenefits.professionalSpace.description')
     },
     {
       icon: <Phone className="w-6 h-6" />,
-      title: "Technical Support",
-      description: "Get help via phone, email, or in-person"
+      title: t('membership.universalBenefits.technicalSupport.title'),
+      description: t('membership.universalBenefits.technicalSupport.description')
     },
     {
       icon: <Gift className="w-6 h-6" />,
-      title: "Member Discounts",
-      description: "20-50% off materials and advanced courses"
+      title: t('membership.universalBenefits.memberDiscounts.title'),
+      description: t('membership.universalBenefits.memberDiscounts.description')
     },
     {
       icon: <Box className="w-6 h-6" />,
-      title: "Storage Space",
-      description: "Keep your projects and materials secure"
+      title: t('membership.universalBenefits.storageSpace.title'),
+      description: t('membership.universalBenefits.storageSpace.description')
     }
-  ], []);
+  ], [t]);
 
   // Split benefits into two groups
   const [firstRowBenefits, secondRowBenefits] = useMemo(() => [
@@ -224,20 +164,25 @@ const MembershipSection = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/40 transition-opacity duration-500" />
         <div className="absolute bottom-0 right-0 bg-[#309eb7] text-white px-4 py-2 transition-transform duration-500 group-hover:translate-y-[-5px]">
-          <span className="text-sm font-medium block">Starting from</span>
+          <span className="text-sm font-medium block">{t('membership.planCard.startingFrom')}</span>
           <div className="text-lg font-bold">{plan.price} UZS</div>
         </div>
         {plan.popular && (
           <div className="absolute top-0 left-0 bg-[#309eb7] text-white px-3 py-1.5 text-xs transition-transform duration-500 group-hover:translate-y-[5px]">
             <Star className="inline-block mr-1" size={12} />
-            Most Popular
+            {t('membership.planCard.mostPopular')}
           </div>
         )}
       </div>
 
       {/* Content Section */}
-      <div className="p-6 flex flex-col flex-grow transition-all duration-500">
-        <div className="text-sm font-semibold text-[#309eb7] mb-2 transition-colors duration-500">{plan.badge}</div>
+      <div className="p-6 flex flex-col flex-grow">
+        <div className="text-sm font-semibold text-[#309eb7] mb-2 transition-colors duration-500">
+          {plan.badge === "Perfect for Learning" && t('membership.planCard.perfectForLearning')}
+          {plan.badge === "Business Ready" && t('membership.planCard.businessReady')}
+          {plan.badge === "Growth Package" && t('membership.planCard.growthPackage')}
+          {plan.badge === "Most Popular" && t('membership.planCard.mostPopular')}
+        </div>
         <h3 className="text-2xl sm:text-3xl font-bold mb-2 text-black transition-colors duration-500">{plan.title}</h3>
         <p className="text-gray-600 text-sm mb-4 transition-colors duration-500">{plan.description}</p>
         <ul className="space-y-2 mb-4">
@@ -250,7 +195,7 @@ const MembershipSection = () => {
         </ul>
         {plan.restrictions && (
           <div className="mb-4 bg-gray-50 p-3 transition-all duration-500 hover:bg-gray-100">
-            <h4 className="font-semibold mb-1 text-sm text-gray-500">Restrictions:</h4>
+            <h4 className="font-semibold mb-1 text-sm text-gray-500">{t('membership.restrictions')}</h4>
             <ul className="space-y-1">
               {plan.restrictions.map((restriction, idx) => (
                 <li key={idx} className="text-gray-500 text-sm transition-colors duration-500">• {restriction}</li>
@@ -261,7 +206,9 @@ const MembershipSection = () => {
         {(plan.popularFeatures || plan.perfectFor || plan.businessBenefits) && (
           <div className="mb-4 bg-gray-50 p-3 transition-all duration-500 hover:bg-gray-100">
             <h4 className="font-semibold mb-1 text-sm text-gray-500">
-              {plan.popularFeatures ? "Popular Features:" : plan.perfectFor ? "Perfect For:" : "Business Benefits:"}
+              {plan.popularFeatures ? t('membership.popularFeatures') : 
+               plan.perfectFor ? t('membership.perfectFor') : 
+               t('membership.businessBenefits')}
             </h4>
             <ul className="space-y-1">
               {(plan.popularFeatures || plan.perfectFor || plan.businessBenefits)?.map((item, idx) => (
@@ -277,13 +224,13 @@ const MembershipSection = () => {
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center w-full bg-[#309eb7] text-white py-2.5 px-4 hover:bg-[#2a8ca3] transition-all duration-500 hover:translate-y-[-2px] hover:shadow-lg text-sm"
           >
-            <span>Get Started</span>
+            <span>{t('membership.cta.button')}</span>
             <ArrowRight size={14} className="ml-2 transition-transform duration-500 group-hover:translate-x-1" />
           </a>
         </div>
       </div>
     </motion.div>
-  ), []);
+  ), [t]);
 
   return (
     <section id="membership-section" className="py-16 bg-gray-200 relative overflow-hidden">
@@ -291,11 +238,10 @@ const MembershipSection = () => {
         {/* Header */}
         <div className="text-left mb-10">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 text-black">
-            Unlock Your Potential
+            {t('membership.title')}
           </h2>
           <p className="text-left text-gray-700 text-base sm:text-lg mb-8 sm:mb-12 max-w-3xl">
-            From students to professionals, find the perfect plan to bring your ideas to life. 
-            Join our community of makers and innovators.
+            {t('membership.subtitle')}
           </p>
         </div>
 

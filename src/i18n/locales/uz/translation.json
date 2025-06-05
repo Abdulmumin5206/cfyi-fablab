@@ -41,17 +41,17 @@
     "fablabRoom": {
       "title": "FabLab Xonasi",
       "achievement": "Zamonaviy Uskunalar",
-      "text": "Bizning zamonaviy FabLab raqamli ishlab chiqarish vositalari bilan jihozlangan bo'lib, innovatsiya va ijod uchun mukammal muhit yaratadi."
+      "text": "Bizning zamonaviy FabLab raqamli ishlab chiqarish vositalari va uskunalari bilan jihozlangan bo'lib, innovatsiya va ijod uchun mukammal muhit yaratadi. 3D printerlardan CNC stanoklarga, lazer kesuvchilardan elektronika ish stansiyalarigacha - biz g'oyalarni haqiqatga aylantirish uchun keng qamrovli resurslarni taklif qilamiz."
     },
     "fabLearn": {
       "title": "FabLearn Dasturi",
       "achievement": "O'rganing va Yarating",
-      "text": "Raqamli ishlab chiqarish ko'nikmalarini o'rganish va o'z g'oyalaringizni amaliy tajriba va mutaxassislar ko'rsatmasi bilan hayotga tatbiq etish uchun bizning ta'lim dasturlarimizga qo'shiling."
+      "text": "Raqamli ishlab chiqarish ko'nikmalarini o'rganish va o'z g'oyalaringizni amaliy tajriba va mutaxassislar ko'rsatmasi bilan hayotga tatbiq etish uchun bizning ta'lim dasturlarimizga qo'shiling. Bizning o'quv dasturimiz nazariy bilimlarni amaliy qo'llash bilan birlashtiradi, talabalarni muhandislik va texnologiya sohasidagi kelajakdagi martaba uchun tayyorlaydi."
     },
     "cfyi": {
-      "title": "CFYI Tashabbusi",
-      "achievement": "Jamiyatga Ta'sir",
-      "text": "Mahalliy innovatsiyalar va tadbirkorlikni qo'llab-quvvatlash orqali texnologiyalarga kirish va hamkorlikda o'rganish imkoniyatlarini ta'minlash."
+      "title": "Yoshlar Tashabbuslari Markazi",
+      "achievement": "Innovatsion Texnologik Markaz",
+      "text": "O'zbekiston va MDH mintaqasida ilg'or muhandislik ta'limi va ixtirochilik ijodiyoti uchun yetakchi markaz. FabLabs, CDIO™ va STEM kabi dunyo standartlaridagi metodologiyalarni integratsiya qilish orqali kelajakdagi muhandislik mutaxassislarini rivojlantirish, STEM sohasida gender tengligini targ'ib qilish va maktabgacha yoshdan universitetgacha bo'lgan innovatorlarni tayyorlash."
     }
   },
   "serviceCategories": {
@@ -636,6 +636,139 @@
         "text": "Yuqori aniqlikdagi CNC dan sanoat darajasidagi 3D printerlar va lazer kesgichlargacha bo'lgan ilg'or raqamli ishlab chiqarish vositalari bilan jihozlangan bo'lib, prototiplash, ta'lim va ishlab chiqarish uchun tengsiz imkoniyatlarni taklif qilamiz.",
         "buttonText": "Bizning uskunalarimizni ko'rish"
       }
+    }
+  },
+  "membership": {
+    "title": "Jamiyatimizga qo'shiling",
+    "subtitle": "A'zo bo'ling va FabLabimizning to'liq imkoniyatlaridan foydalaning",
+    "types": {
+      "student": {
+        "title": "Talaba",
+        "description": "Talabalar, yangi bitiruvchilar va o'rganishni yaxshi ko'ruvchilar uchun ideal",
+        "features": [
+          "Oylik 10 soatlik kirish",
+          "Bepul asosiy o'qitish (8 soatlik dastur)",
+          "Jamiyat ustaxonasiga kirish (oyiga 2 marta)",
+          "Talaba loyihalari uchun saqlash joyi (1m³)",
+          "Elektron pochta orqali texnik yordam",
+          "Asosiy materiallar kiritilgan",
+          "Ta'lim chegirmalari (30% chegirma)",
+          "O'quv guruhlariga kirish"
+        ],
+        "restrictions": [
+          "Faqat ish vaqti tashqarisida (9:00-17:00)",
+          "Tijoriy maqsadlarda foydalanish taqiqlanadi"
+        ],
+        "popularFeatures": [
+          "Universitet loyihalari uchun ideal",
+          "O'z tezoringizda o'rganing",
+          "Boshqa talabalar bilan tanishing"
+        ]
+      },
+      "maker": {
+        "title": "Yaratuvchi",
+        "description": "Xobbi uchun, frilanserlar va ijodiy tadbirkorlar uchun eng yaxshi tanlov",
+        "features": [
+          "Oylik 25 soatlik kirish",
+          "Ilg'or o'qitish ustaxonasi",
+          "Birinchi navbatda band qilish tizimi",
+          "Loyiha maslahati (oyiga 30 daqiqa)",
+          "Kengaytirilgan saqlash joyi (2m³)",
+          "Telefon va elektron pochta orqali yordam",
+          "Materiallar uchun chegirmalar (20% chegirma)",
+          "Dam olish kunlarida kirish kiritilgan",
+          "Oylik 2 ta mehmon chiptasi"
+        ],
+        "perfectFor": [
+          "Dam olish kunlari ustalari",
+          "Etsy do'konlari egalari",
+          "Prototip ishlab chiqish"
+        ]
+      },
+      "professional": {
+        "title": "Professional",
+        "description": "Tadbirkorlar, kichik biznes va jiddiy yaratuvchilar uchun ideal",
+        "features": [
+          "Cheklanmagan kirish",
+          "Maxsus saqlash joyi (5m³)",
+          "Ish vaqtida birinchi navbatda",
+          "Texnik maslahat (oyiga 2 soat)",
+          "Shoshilinch ishlar uchun birinchi navbatda",
+          "Marketing hamkorligi",
+          "Opta materiallar uchun chegirmalar (30% chegirma)",
+          "Tijoriy litsenziya",
+          "Ilg'or dasturiy ta'minotga kirish",
+          "Biznes tarmoq tadbirlari"
+        ],
+        "businessBenefits": [
+          "Ishlab chiqarishni kengaytiring",
+          "Professional obro'",
+          "Tadbirkorlar bilan tanishing"
+        ]
+      },
+      "startup": {
+        "title": "Startap",
+        "description": "Boshlang'ich startaplar va o'sib borayotgan biznes uchun mo'ljallangan",
+        "features": [
+          "Oylik 40 soatlik kirish",
+          "Biznes ustaxonasi",
+          "Maxsus ish vaqti",
+          "Loyiha maslahati (oyiga 1 soat)",
+          "Startaplar uchun saqlash joyi (3m³)",
+          "Birinchi navbatda texnik yordam",
+          "Materiallar uchun chegirmalar (25% chegirma)",
+          "Tijoriy litsenziya",
+          "4 ta jamoa a'zosi uchun kirish",
+          "Tarmoq tadbirlariga kirish"
+        ],
+        "startupPerks": [
+          "Jamoa ishlash joyi",
+          "Biznes maslahatchiligi",
+          "Startap jamiyatiga kirish"
+        ]
+      }
+    },
+    "cta": {
+      "title": "Qo'shilishga tayyormisiz?",
+      "description": "O'zingizga mos a'zolikni tanlang va bugundan yaratishni boshlang",
+      "button": "A'zo bo'lish"
+    },
+    "universalBenefits": {
+      "expertTraining": {
+        "title": "Professional o'qitish",
+        "description": "Bepul workshoplar va doimiy texnik yordam"
+      },
+      "communityAccess": {
+        "title": "Jamiyatga kirish",
+        "description": "Toshkentning innovatsion ijodkorlari bilan bog'laning"
+      },
+      "learningResources": {
+        "title": "O'rganish resurslari",
+        "description": "O'quv qo'llanmalar va dizayn kutubxonalariga kirish"
+      },
+      "professionalSpace": {
+        "title": "Professional makon",
+        "description": "Barcha asboblar bilan toza, yaxshi yoritilgan muhit"
+      },
+      "technicalSupport": {
+        "title": "Texnik yordam",
+        "description": "Telefon, elektron pochta yoki shaxsan yordam oling"
+      },
+      "memberDiscounts": {
+        "title": "A'zolar uchun chegirmalar",
+        "description": "Materiallar va ilg'or kurslar uchun 20-50% chegirma"
+      },
+      "storageSpace": {
+        "title": "Saqlash joyi",
+        "description": "Loyihalaringiz va materiallaringizni xavfsiz saqlang"
+      }
+    },
+    "planCard": {
+      "startingFrom": "Boshlang'ich narx",
+      "mostPopular": "Eng mashhur",
+      "perfectForLearning": "O'rganish uchun ideal",
+      "businessReady": "Biznes uchun tayyor",
+      "growthPackage": "O'sish paketi"
     }
   }
 } 

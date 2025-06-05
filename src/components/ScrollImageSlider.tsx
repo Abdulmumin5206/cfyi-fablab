@@ -32,7 +32,7 @@ const ScrollImageSlider = () => {
     }
   ];
 
-  // Optimized scroll handler
+  // Optimized scroll handler with smoother transitions
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"]
@@ -40,37 +40,38 @@ const ScrollImageSlider = () => {
 
   const activeIndex = useTransform(
     scrollYProgress,
-    [0, 0.33, 0.66, 0.75], // Input scrollYProgress points
-    [0, 1, 2, 2]          // Output activeIndex values
+    [0, 0.33, 0.66, 0.75],
+    [0, 1, 2, 2],
+    { clamp: false }
   );
 
   return (
     <section ref={containerRef} className="relative h-[400vh]">
       <div className="sticky top-0 h-screen">
-        {/* Background images */}
+        {/* Background images with smooth transitions */}
         {images.map((src, i) => {
           let opacity;
 
           if (i === 0) {
-            // First image: fade out as we scroll to second
             opacity = useTransform(
               scrollYProgress,
               [0, 0.33],
-              [1, 0]
+              [1, 0],
+              { clamp: false }
             );
           } else if (i === 1) {
-            // Second image: fade in from first, fade out to third
             opacity = useTransform(
               scrollYProgress,
               [0, 0.33, 0.66],
-              [0, 1, 0]
+              [0, 1, 0],
+              { clamp: false }
             );
           } else {
-            // Third image: fade in from second
             opacity = useTransform(
               scrollYProgress,
               [0.33, 0.66],
-              [0, 1]
+              [0, 1],
+              { clamp: false }
             );
           }
 
@@ -80,8 +81,11 @@ const ScrollImageSlider = () => {
               className="absolute inset-0"
               style={{
                 opacity,
-                zIndex: i + 1
+                zIndex: i + 1,
+                willChange: 'opacity',
+                transform: 'translateZ(0)'
               }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
             >
               <img
                 src={src}
@@ -90,6 +94,7 @@ const ScrollImageSlider = () => {
                 loading="eager"
                 width={1920}
                 height={1080}
+                style={{ transform: 'translateZ(0)' }}
               />
               <div className="absolute inset-0 bg-black/25" />
             </motion.div>
@@ -98,24 +103,26 @@ const ScrollImageSlider = () => {
 
         {/* Main message */}
         <div className="absolute left-0 top-0 bottom-0 w-full md:w-1/2 hidden lg:flex items-center justify-center z-50 px-12">
-          <p className="text-4xl xl:text-5xl 2xl:text-6xl font-bold text-white leading-relaxed">
+          <p className="text-4xl xl:text-5xl 2xl:text-6xl font-bold text-white leading-relaxed" style={{ transform: 'translateZ(0)' }}>
             {t("slider.mainMessage")}
           </p>
         </div>
 
-        {/* Quotes */}
+        {/* Quotes with smooth animations */}
         <div className="absolute inset-0">
           {quotes.map((quote, i) => {
             const yPosition = useTransform(
               activeIndex,
-              [i - 1, i, i + 1], // When activeIndex is i-1, current (i), or i+1
-              [1000, 0, -1000]   // Increased vertical movement distance
+              [i - 1, i, i + 1],
+              [1000, 0, -1000],
+              { clamp: false }
             );
 
             const opacity = useTransform(
               activeIndex,
-              [i - 0.5, i, i + 0.5], // Opacity transition range around activeIndex i
-              [0, 1, 0]               // Fade out, fully visible, fade out
+              [i - 0.5, i, i + 0.5],
+              [0, 1, 0],
+              { clamp: false }
             );
 
             return (
@@ -124,15 +131,20 @@ const ScrollImageSlider = () => {
                 className="absolute inset-0 flex justify-center lg:justify-end items-center px-8 lg:pr-16"
                 style={{
                   opacity,
-                  zIndex: 20 + i
+                  zIndex: 20 + i,
+                  willChange: 'opacity, transform',
+                  transform: 'translateZ(0)'
                 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
               >
                 <motion.div
                   className="bg-white p-6 lg:p-8 xl:p-10 flex flex-col text-gray-800 border border-gray-200 shadow-lg w-full max-w-[400px] lg:max-w-[500px] xl:max-w-[600px] h-[380px] lg:h-[420px] xl:h-[500px] text-left"
                   style={{
-                    y: yPosition
-                    // Removed: transition: "transform 0.4s ease-out"
+                    y: yPosition,
+                    willChange: 'transform',
+                    transform: 'translateZ(0)'
                   }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
                 >
                   <h3 className="text-xl lg:text-2xl xl:text-3xl font-bold mb-4 lg:mb-6">
                     {quote.title}
@@ -155,7 +167,9 @@ const ScrollImageSlider = () => {
         <motion.div
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-50"
           style={{
-            opacity: useTransform(scrollYProgress, [0, 0.1], [1, 0])
+            opacity: useTransform(scrollYProgress, [0, 0.1], [1, 0], { clamp: false }),
+            willChange: 'opacity, transform',
+            transform: 'translateZ(0)'
           }}
           animate={{ y: [0, 10, 0] }}
           transition={{

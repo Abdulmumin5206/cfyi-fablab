@@ -870,5 +870,8 @@
     "cnc": "CNC",
     "backsideUvCncLaser": "Backside UV CNC, Laser cutter",
     "anotherViewLeftside": "Another View (Leftside View)"
+  },
+  "common": {
+    "learnMore": "Learn More"
   }
 } 

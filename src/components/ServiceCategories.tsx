@@ -15,7 +15,7 @@ interface ServiceCategory {
 }
 
 const ServiceCategories = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -276,19 +276,35 @@ const ServiceCategories = () => {
                       style={{ backgroundColor: hoveredIndex === index ? '#329db7' : '#fff' }}
                     >
                       <div>
-                        <span className="block text-gray-500 text-sm sm:text-base mb-2 transition-colors duration-300 font-['Magistral']">
+                        <span className={`block text-gray-500 mb-2 transition-colors duration-300 font-['Magistral'] ${
+                          i18n.language === 'en' 
+                            ? 'text-sm sm:text-base'
+                            : 'text-xs sm:text-sm'
+                        }`}>
                           {t(category.logoText) || t(category.titleKey)}
                         </span>
-                        <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-2 transition-colors duration-300 font-['Magistral']">
+                        <h3 className={`font-bold mb-2 transition-colors duration-300 font-['Magistral'] ${
+                          i18n.language === 'en'
+                            ? 'text-lg sm:text-xl lg:text-2xl'
+                            : 'text-base sm:text-lg lg:text-xl'
+                        }`}>
                           {t(category.titleKey)}
                         </h3>
-                        <p className="text-gray-700 leading-relaxed text-sm sm:text-base transition-colors duration-300 font-['Magistral']">
+                        <p className={`text-gray-700 leading-relaxed transition-colors duration-300 font-['Magistral'] ${
+                          i18n.language === 'en'
+                            ? 'text-sm sm:text-base'
+                            : 'text-xs sm:text-sm'
+                        }`}>
                           {t(category.descriptionKey)}
                         </p>
                       </div>
-                      <div className="flex items-center absolute left-4 sm:left-6 lg:left-8 bottom-[-64px] group-hover:bottom-6 lg:group-hover:bottom-8 bg-black text-white py-2 sm:py-3 px-6 sm:px-8 transition-all duration-300 text-base lg:text-lg font-['Magistral']">
-                        <span>Learn More</span>
-                        <ArrowRight size={18} className="ml-2" />
+                      <div className={`flex items-center absolute left-4 sm:left-6 lg:left-8 bottom-[-64px] group-hover:bottom-6 lg:group-hover:bottom-8 bg-black text-white py-2 sm:py-3 px-6 sm:px-8 transition-all duration-300 font-['Magistral'] ${
+                        i18n.language === 'en'
+                          ? 'text-base lg:text-lg'
+                          : 'text-sm lg:text-base'
+                      }`}>
+                        <span>{t('common.learnMore')}</span>
+                        <ArrowRight size={i18n.language === 'en' ? 18 : 16} className="ml-2" />
                       </div>
                     </div>
                   </Link>

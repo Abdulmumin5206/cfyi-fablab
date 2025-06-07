@@ -867,5 +867,8 @@
     "cnc": "CNC",
     "backsideUvCncLaser": "Orqa tomon — UV, CNC, lazer kesuvchi",
     "anotherViewLeftside": "Boshqa ko'rinish (chap tomon)"
+  },
+  "common": {
+    "learnMore": "Batafsil"
   }
 } 

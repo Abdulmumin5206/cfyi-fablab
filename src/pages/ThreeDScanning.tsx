@@ -54,14 +54,14 @@ const ThreeDScanningPage = () => {
               <div className="w-full lg:w-1/2">
                 <div className="max-w-xl mx-auto text-center lg:text-left flex flex-col items-center lg:items-start">
                   <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 leading-tight text-gray-900 font-['Magistral']">
-                    High-Resolution 3D Scanning
+                    {t("serviceCategories.3dScanning.highResolution.title")}
                   </h2>
                   
                   <p className="text-base sm:text-lg text-gray-600 mb-8 font-['Magistral']">
-                    Capture precise digital replicas of physical objects with our advanced 3D scanning technology. Perfect for reverse engineering, quality control, and digital preservation.
+                    {t("serviceCategories.3dScanning.highResolution.description")}
                   </p>
 
-                  <div className="space-y-4 mb-8 w-full">
+                  <div className="space-y-4 mb-8">
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
                         <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
@@ -70,7 +70,7 @@ const ThreeDScanningPage = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">Sub-millimeter accuracy</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{t("serviceCategories.3dScanning.highResolution.features.accuracy")}</p>
                     </div>
                     
                     <div className="flex items-start gap-3">
@@ -81,7 +81,7 @@ const ThreeDScanningPage = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">Full-color texture mapping</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{t("serviceCategories.3dScanning.highResolution.features.textureMapping")}</p>
                     </div>
                     
                     <div className="flex items-start gap-3">
@@ -92,7 +92,7 @@ const ThreeDScanningPage = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">Multiple file format support</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{t("serviceCategories.3dScanning.highResolution.features.fileFormats")}</p>
                     </div>
                   </div>
 
@@ -100,7 +100,7 @@ const ThreeDScanningPage = () => {
                     href="#contact" 
                     className="inline-flex items-center space-x-2 bg-[#329db7] text-white px-6 py-3 text-base sm:text-lg font-medium hover:bg-[#2b86a0] transition-colors duration-300 hover:shadow-lg hover:-translate-y-0.5"
                   >
-                    <span>Explore 3D Scanning</span>
+                    <span>{t("serviceCategories.3dScanning.highResolution.cta")}</span>
                     <ArrowRight size={20} />
                   </a>
                 </div>
@@ -129,14 +129,14 @@ const ThreeDScanningPage = () => {
               <div className="w-full lg:w-1/2">
                 <div className="max-w-xl mx-auto text-center lg:text-left flex flex-col items-center lg:items-start">
                   <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 leading-tight text-gray-900 font-['Magistral']">
-                    Versatile Applications
+                    {t("serviceCategories.3dScanning.applications.title")}
                   </h2>
                   
                   <p className="text-base sm:text-lg text-gray-600 mb-8 font-['Magistral']">
-                    From product development to cultural preservation, our 3D scanning services support a wide range of applications with unmatched precision and detail.
+                    {t("serviceCategories.3dScanning.applications.description")}
                   </p>
 
-                  <div className="space-y-4 mb-8 w-full">
+                  <div className="space-y-4 mb-8">
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
                         <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
@@ -145,7 +145,7 @@ const ThreeDScanningPage = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">Reverse engineering</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{t("serviceCategories.3dScanning.applications.features.reverseEngineering")}</p>
                     </div>
                     
                     <div className="flex items-start gap-3">
@@ -156,7 +156,7 @@ const ThreeDScanningPage = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">Quality control and inspection</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{t("serviceCategories.3dScanning.applications.features.qualityControl")}</p>
                     </div>
                     
                     <div className="flex items-start gap-3">
@@ -167,7 +167,7 @@ const ThreeDScanningPage = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">Digital archiving and preservation</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{t("serviceCategories.3dScanning.applications.features.digitalArchiving")}</p>
                     </div>
                   </div>
 
@@ -175,7 +175,7 @@ const ThreeDScanningPage = () => {
                     href="#contact" 
                     className="inline-flex items-center space-x-2 bg-[#329db7] text-white px-6 py-3 text-base sm:text-lg font-medium hover:bg-[#2b86a0] transition-colors duration-300 hover:shadow-lg hover:-translate-y-0.5"
                   >
-                    <span>View Applications</span>
+                    <span>{t("serviceCategories.3dScanning.applications.cta")}</span>
                     <ArrowRight size={20} />
                   </a>
                 </div>
@@ -199,41 +199,41 @@ const ThreeDScanningPage = () => {
         {/* Equipment Showcase Section */}
         <section className="py-16 md:py-24 bg-[#f7f7f7]">
           <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl md:text-4xl font-bold mb-10 md:mb-16 text-center">Our Equipment</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-10 md:mb-16 text-center">{t('serviceCategories.3dScanning.equipment.title')}</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* EinScan SP V2 Scanner */}
               <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
                 <div className="w-full h-96 bg-white overflow-hidden">
-                  <img src="/3d-scanning/3D SCANNER EINSCAN SP V2.webp" alt="EinScan SP V2" className="w-full h-full object-cover object-center" loading="lazy" />
+                  <img src="/3d-scanning/3D SCANNER EINSCAN SP V2.webp" alt={t('serviceCategories.3dScanning.equipment.einScanSPV2.title')} className="w-full h-full object-cover object-center" loading="lazy" />
                 </div>
                 <div className="flex flex-col items-center justify-center px-8 pt-4 pb-4 w-full text-center">
-                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center">High Precision</div>
-                  <h3 className="text-2xl font-bold mb-2 text-center">EinScan SP V2</h3>
-                  <p className="text-gray-700 text-center text-base">Professional-grade structured light scanner with 0.05mm accuracy for detailed surface capture.</p>
+                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center">{t('serviceCategories.3dScanning.equipment.einScanSPV2.category')}</div>
+                  <h3 className="text-2xl font-bold mb-2 text-center">{t('serviceCategories.3dScanning.equipment.einScanSPV2.title')}</h3>
+                  <p className="text-gray-700 text-center text-base">{t('serviceCategories.3dScanning.equipment.einScanSPV2.description')}</p>
                 </div>
               </div>
 
               {/* EinScan H Scanner */}
               <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
                 <div className="w-full h-96 bg-white overflow-hidden">
-                  <img src="/3d-scanning/3D SCANNER EINSCAN H.webp" alt="EinScan H" className="w-full h-full object-cover object-center" loading="lazy" />
+                  <img src="/3d-scanning/3D SCANNER EINSCAN H.webp" alt={t('serviceCategories.3dScanning.equipment.einScanH.title')} className="w-full h-full object-cover object-center" loading="lazy" />
                 </div>
                 <div className="flex flex-col items-center justify-center px-8 pt-4 pb-4 w-full text-center">
-                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center">Handheld Solution</div>
-                  <h3 className="text-2xl font-bold mb-2 text-center">EinScan H</h3>
-                  <p className="text-gray-700 text-center text-base">Portable handheld scanner with 0.1mm accuracy for flexible scanning of various objects.</p>
+                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center">{t('serviceCategories.3dScanning.equipment.einScanH.category')}</div>
+                  <h3 className="text-2xl font-bold mb-2 text-center">{t('serviceCategories.3dScanning.equipment.einScanH.title')}</h3>
+                  <p className="text-gray-700 text-center text-base">{t('serviceCategories.3dScanning.equipment.einScanH.description')}</p>
                 </div>
               </div>
 
               {/* Academia 50 Scanner */}
               <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
                 <div className="w-full h-96 bg-white overflow-hidden">
-                  <img src="/3d-scanning/SYS-ACA-SC50P1 ACADEMIA 50.webp" alt="Academia 50" className="w-full h-full object-cover object-center" loading="lazy" />
+                  <img src="/3d-scanning/SYS-ACA-SC50P1 ACADEMIA 50.webp" alt={t('serviceCategories.3dScanning.equipment.academia50.title')} className="w-full h-full object-cover object-center" loading="lazy" />
                 </div>
                 <div className="flex flex-col items-center justify-center px-8 pt-4 pb-4 w-full text-center">
-                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center">Educational Grade</div>
-                  <h3 className="text-2xl font-bold mb-2 text-center">Academia 50</h3>
-                  <p className="text-gray-700 text-center text-base">High-resolution 3D scanner designed for educational and research applications.</p>
+                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center">{t('serviceCategories.3dScanning.equipment.academia50.category')}</div>
+                  <h3 className="text-2xl font-bold mb-2 text-center">{t('serviceCategories.3dScanning.equipment.academia50.title')}</h3>
+                  <p className="text-gray-700 text-center text-base">{t('serviceCategories.3dScanning.equipment.academia50.description')}</p>
                 </div>
               </div>
             </div>
@@ -249,7 +249,7 @@ const ThreeDScanningPage = () => {
                 <div className="relative rounded-xl overflow-hidden shadow-xl bg-white">
                   <img 
                     src="/3d-scanning/SP2.webp" 
-                    alt="EinScan SP V2 Scanner"
+                    alt={t('serviceCategories.3dScanning.guide.einScanSPV2.imageAlt')}
                     className="w-full h-[500px] object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
@@ -260,18 +260,18 @@ const ThreeDScanningPage = () => {
               <div className="w-full lg:w-1/2">
                 <div className="max-w-xl mx-auto text-center lg:text-left flex flex-col items-center lg:items-start">
                   <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 leading-tight text-gray-900 font-['Magistral']">
-                    Guide to Using the EinScan SP V2
+                    {t('serviceCategories.3dScanning.guide.einScanSPV2.title')}
                   </h2>
                   
                   <p className="text-base sm:text-lg text-gray-600 mb-8 font-['Magistral']">
-                    [Placeholder for the blog content about using the EinScan SP V2 scanner. This section will explain the steps, tips, and best practices for achieving high-quality scans.]
+                    {t('serviceCategories.3dScanning.guide.einScanSPV2.description')}
                   </p>
 
                   <a 
                     href="#contact" 
                     className="inline-flex items-center space-x-2 bg-[#329db7] text-white px-6 py-3 text-base sm:text-lg font-medium hover:bg-[#2b86a0] transition-colors duration-300 hover:shadow-lg hover:-translate-y-0.5"
                   >
-                    <span>Read the Full Guide</span>
+                    <span>{t('serviceCategories.3dScanning.guide.einScanSPV2.cta')}</span>
                     <ArrowRight size={20} />
                   </a>
                 </div>
@@ -288,23 +288,23 @@ const ThreeDScanningPage = () => {
               <div className="w-full lg:w-1/2 space-y-8">
                 <div className="inline-block">
                   <span className="bg-[#329db7]/10 text-[#329db7] text-sm font-semibold px-4 py-2 rounded-full font-['Magistral']">
-                    Get Started Today
+                    {t('serviceCategories.3dScanning.contactSection.badge')}
                   </span>
                 </div>
                 
                 <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight font-['Magistral']">
-                  Ready to Digitize Your Objects?
+                  {t('serviceCategories.3dScanning.contactSection.title')}
                 </h2>
                 
                 <p className="text-base sm:text-lg text-gray-600 font-['Magistral']">
-                  Contact us today to discuss your 3D scanning needs. Our team of experts is ready to help you capture precise digital replicas of your objects.
+                  {t('serviceCategories.3dScanning.contactSection.description')}
                 </p>
 
                 <a 
                   href="#contact" 
                   className="inline-flex items-center space-x-2 bg-[#329db7] text-white px-6 py-3 text-base sm:text-lg font-medium hover:bg-[#2b86a0] transition-colors duration-300 hover:shadow-lg hover:-translate-y-0.5"
                 >
-                  <span>Contact Us</span>
+                  <span>{t('serviceCategories.3dScanning.contactSection.cta')}</span>
                   <ArrowRight size={20} />
                 </a>
               </div>

@@ -597,15 +597,15 @@ const PrintingMaterials = () => {
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-black font-['Magistral']">
-            3D Printing Materials
+            {t('3dPrinting.materials.title')}
           </h2>
           <p className="text-gray-700 text-base sm:text-lg mb-3 sm:mb-4 font-['Magistral'] max-w-3xl mx-auto">
-            Explore our comprehensive range of high-quality materials for both FDM and SLA printing technologies, each carefully selected to meet specific application requirements.
+            {t('3dPrinting.materials.subtitle')}
           </p>
         </div>
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-12">
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap gap-2">
             <button
               onClick={() => setSelectedType('ALL')}
               className={`px-6 py-2 rounded-full ${
@@ -614,7 +614,7 @@ const PrintingMaterials = () => {
                   : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
               } transition-colors`}
             >
-              All Materials
+              {t('3dPrinting.materials.filters.all')}
             </button>
             <button
               onClick={() => setSelectedType('FDM')}
@@ -624,7 +624,7 @@ const PrintingMaterials = () => {
                   : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
               } transition-colors`}
             >
-              FDM Materials
+              {t('3dPrinting.materials.filters.fdm')}
             </button>
             <button
               onClick={() => setSelectedType('SLA')}
@@ -634,13 +634,13 @@ const PrintingMaterials = () => {
                   : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
               } transition-colors`}
             >
-              SLA Materials
+              {t('3dPrinting.materials.filters.sla')}
             </button>
           </div>
           <div className="w-full md:w-auto">
             <input
               type="text"
-              placeholder="Search materials..."
+              placeholder={t('3dPrinting.materials.search.placeholder')}
               className="w-full md:w-[300px] px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#329db7] focus:border-transparent"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
@@ -678,7 +678,7 @@ const PrintingMaterials = () => {
                 
                 {material.colors && (
                   <div className="mb-6">
-                    <h4 className="text-sm font-semibold text-gray-900 mb-2">Colors</h4>
+                    <h4 className="text-sm font-semibold text-gray-900 mb-2">{t('3dPrinting.materials.colors.title')}</h4>
                     <div className="flex flex-wrap gap-3">
                       {material.colors.map((color) => (
                         <div key={color.name} className="relative group">
@@ -696,10 +696,8 @@ const PrintingMaterials = () => {
                             }}
                             aria-label={color.name}
                           />
-                          {/* Professional color name tooltip */}
                           <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 text-white text-xs rounded-md whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
                             {color.name}
-                            {/* Arrow */}
                             <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-900 transform rotate-45"></div>
                           </div>
                         </div>
@@ -708,18 +706,17 @@ const PrintingMaterials = () => {
                   </div>
                 )}
                 
-                {/* Add selected color name below the color picker */}
                 {material.colors && material.selectedColor && (
                   <div className="mb-6">
                     <p className="text-sm text-gray-600">
-                      Selected: <span className="font-medium text-gray-900">{material.selectedColor}</span>
+                      {t('3dPrinting.materials.colors.selected')}: <span className="font-medium text-gray-900">{material.selectedColor}</span>
                     </p>
                   </div>
                 )}
                 
                 <div className="space-y-4">
                   <div>
-                    <h4 className="text-sm font-semibold text-gray-900 mb-2">Properties</h4>
+                    <h4 className="text-sm font-semibold text-gray-900 mb-2">{t('3dPrinting.materials.properties.title')}</h4>
                     <div className="flex flex-wrap gap-2">
                       {material.properties.map((property, index) => (
                         <span
@@ -733,7 +730,7 @@ const PrintingMaterials = () => {
                   </div>
                   
                   <div>
-                    <h4 className="text-sm font-semibold text-gray-900 mb-2">Applications</h4>
+                    <h4 className="text-sm font-semibold text-gray-900 mb-2">{t('3dPrinting.materials.applications.title')}</h4>
                     <div className="flex flex-wrap gap-2">
                       {material.applications.map((application, index) => (
                         <span

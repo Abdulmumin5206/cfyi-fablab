@@ -238,8 +238,8 @@
     "description": "FabLab O'zbekiston, Yoshlar tashabbuslari markazi bilan hamkorlikda, texnik ta'lim va raqamli ishlab chiqarishni rivojlantirishga sodiq. Biz kelajak innovatorlarini ilhomlantirish uchun zamonaviy uskunalar va mutaxassislar yordamini taqdim etamiz."
   },
   "video": {
-    "ariaLabel": "FabLab targ'ibot videosi",
-    "fallbackText": "Brauzeringiz video tegini qo'llab-quvvatlamaydi."
+    "ariaLabel": "FabLab promo video",
+    "fallbackText": "Sizning brauzeringiz video tegni qo'llab-quvvatlamaydi."
   },
   "projects": {
     "title": "Bizning so'nggi loyihalarimiz",
@@ -418,27 +418,51 @@
       "cta": "Maslahat so'rash"
     },
     "equipment": {
-      "title": "Qoliplash va ehtiyot qismlar uchun bizning uskunalarimiz",
-      "items": {
-        "form3": {
-          "title": "Form 3 SLA Printer",
-          "description": "Aniq master namunalar uchun ajoyib detallar bilan yuqori aniqlikdagi SLA-chop etish"
+      "title": "Bizning 3D bosib chiqarish uskunalarimiz",
+      "fdm": {
+        "title": "Professional FDM 3D printerlar",
+        "prusa": {
+          "title": "Prusa i3 MK3S+",
+          "subtitle": "Professional FDM",
+          "description": "Keng materiallar bilan mos keladigan tezkor prototiplar va funksional qismlar uchun ishonchli ishchi."
         },
-        "phrozenMega": {
-          "title": "Phrozen Sonic Mega 8K",
-          "description": "Ajoyib detallar bilan bir nechta qismlarni ishlab chiqarish uchun katta formatli 8K aniqlik"
+        "prusaMMU": {
+          "title": "Prusa i3 MK3S+ MMU2S",
+          "subtitle": "Ko'p materialli",
+          "description": "Bitta bosib chiqarishda 5 xil materialgacha bo'lgan ko'p materialli bosib chiqarish imkoniyatlari."
+        },
+        "skrinter": {
+          "title": "Skrinter",
+          "subtitle": "Katta format",
+          "description": "Katta loyihalar va ishlab chiqarish seriyalari uchun katta hajmdagi printer."
         },
         "raise3d": {
           "title": "Raise3D Pro3",
-          "description": "Mustahkam funksional qismlar va maxsus materiallar uchun professional FDM printer"
+          "subtitle": "Sanoat darajasi",
+          "description": "Professional ishlab chiqarish va muhandislik ilovalari uchun sanoat darajasidagi FDM printer."
+        }
+      },
+      "sla": {
+        "title": "Professional SLA 3D printerlar",
+        "form3": {
+          "title": "Formlabs Form 3+",
+          "subtitle": "Professional SLA",
+          "description": "Ajoyib detallar va sirt sifatini ta'minlovchi Low Force Stereolithography (LFS) texnologiyasi."
         },
         "phrozenMini": {
-          "title": "Phrozen Mini 8K",
-          "description": "Kichik qismlar uchun ajoyib detallarni ta'minlovchi ixcham stol ustidagi 8K smola printeri"
+          "title": "Phrozen Sonic Mini 8K",
+          "subtitle": "Yuqori aniqlik",
+          "description": "22µm XY aniqlikdagi ajoyib detalli chop etish uchun 8K ultra yuqori aniqlik."
+        },
+        "phrozenMega": {
+          "title": "PHROZEN Sonic MEGA 8K MSLA",
+          "subtitle": "Katta format",
+          "description": "Katta loyihalar uchun sifatni yo'qotmasdan 4K aniqlikdagi katta chop etish hajmi."
         },
         "prusa": {
-          "title": "Prusa i3 MK3S+",
-          "description": "Keng materiallar mosligi bilan tezkor prototiplash va funksional qismlar uchun ishonchli ishchi"
+          "title": "Prusa SL1S",
+          "subtitle": "Tezlik va aniqlik",
+          "description": "5.5\" mono LCD va integratsiyalangan keyingi ishlov berish yechimi bilan tezkor MSLA texnologiyasi."
         }
       }
     },
@@ -691,7 +715,26 @@
       }
     },
     "materials": {
-      "title": "Materiallar",
+      "title": "3D bosib chiqarish materiallari",
+      "subtitle": "FDM va SLA bosib chiqarish texnologiyalari uchun yuqori sifatli materiallarning keng assortimentini kashf eting, ularning har biri aniq qo'llash talablarini qondirish uchun diqqat bilan tanlangan.",
+      "filters": {
+        "all": "Barcha materiallar",
+        "fdm": "FDM materiallari",
+        "sla": "SLA materiallari"
+      },
+      "search": {
+        "placeholder": "Materiallarni qidirish..."
+      },
+      "colors": {
+        "title": "Ranglar",
+        "selected": "Tanlangan"
+      },
+      "properties": {
+        "title": "Xususiyatlar"
+      },
+      "applications": {
+        "title": "Qo'llanma"
+      },
       "sla": {
         "title": "SLA Materiallar",
         "subtitle": "Turli ilovalar uchun yuqori sifatli smolalar"
@@ -700,7 +743,6 @@
         "title": "FDM Materiallar",
         "subtitle": "Turli ilovalar uchun keng ko'lamli filamentlar"
       },
-      "all": "Barcha materiallar",
       "premium": "Premium",
       "formlabsPremium": "Formlabs Premium",
       "types": {
@@ -766,6 +808,39 @@
           "subtitle": "Tezlik va aniqlik",
           "description": "5.5\" mono LCD va integratsiyalangan keyingi ishlov berish yechimi bilan tez MSLA texnologiyasi."
         }
+      }
+    },
+    "course": {
+      "badge": "3D Chop etishni o'rganing",
+      "title": "G'oyalaringizni haqiqatga aylantiring",
+      "description": "Bizning keng qamrovli 3D chop etish kursimizga qo'shiling va soha mutaxassislaridan o'rganing. Asoslardan tortib ilg'or texnikalargacha, biz sizni har bir qadamda yo'naltiramiz.",
+      "features": {
+        "handsOn": {
+          "title": "Amaliy tajriba",
+          "description": "Professional darajadagi uskunalar bilan ishlang va amaliy loyihalar orqali o'rganing"
+        },
+        "expert": {
+          "title": "Mutaxassislardan o'rganish",
+          "description": "Sohada ko'p yillik tajribaga ega sertifikatlangan mutaxassislardan o'rganing"
+        },
+        "certification": {
+          "title": "Sertifikat",
+          "description": "Kursni yakunlaganingizda sohada tan olingan sertifikat oling"
+        }
+      },
+      "stats": {
+        "format": {
+          "label": "Kurs formati",
+          "value": "Amaliy o'rganish"
+        },
+        "duration": {
+          "label": "Davomiyligi",
+          "value": "3-8 hafta"
+        }
+      },
+      "buttons": {
+        "enroll": "Hoziroq ro'yxatdan o'ting",
+        "syllabus": "Dasturni yuklab oling"
       }
     }
   },

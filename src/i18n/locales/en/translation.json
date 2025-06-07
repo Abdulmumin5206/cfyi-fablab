@@ -677,6 +677,26 @@
         "prusament": "Prusament",
         "polymaker": "Polymaker",
         "formlabsPremium": "Formlabs Premium"
+      },
+      "title": "3D Printing Materials",
+      "subtitle": "Explore our comprehensive range of high-quality materials for both FDM and SLA printing technologies, each carefully selected to meet specific application requirements.",
+      "filters": {
+        "all": "All Materials",
+        "fdm": "FDM Materials",
+        "sla": "SLA Materials"
+      },
+      "search": {
+        "placeholder": "Search materials..."
+      },
+      "colors": {
+        "title": "Colors",
+        "selected": "Selected"
+      },
+      "properties": {
+        "title": "Properties"
+      },
+      "applications": {
+        "title": "Applications"
       }
     },
     "equipment": {
@@ -705,23 +725,26 @@
         }
       },
       "sla": {
-        "items": {
-          "form3": {
-            "title": "FormLabs Form 3",
-            "description": "High-quality, functional prototypes and end-use parts with extensive materials library"
-          },
-          "phrozenMega": {
-            "title": "PHROZEN Sonic MEGA 8K MSLA",
-            "description": "Manage large volume part production, increase production volume, and bring your biggest ideas to life"
-          },
-          "phrozenMini": {
-            "title": "PHROZEN Sonic Mini 8K MSLA",
-            "description": "Bring affordable, compact selective laser sintering (SLS) platform to your desktop for nylon 3D printing production"
-          },
-          "prusa": {
-            "title": "Original Prusa SL1S Complete",
-            "description": "Reliable, versatile FDM 3D printer for prototyping and production"
-          }
+        "title": "Professional SLA 3D Printers",
+        "form3": {
+          "title": "Formlabs Form 3+",
+          "subtitle": "Professional SLA",
+          "description": "Advanced Low Force Stereolithography (LFS) technology for exceptional detail and surface finish."
+        },
+        "phrozenMini": {
+          "title": "Phrozen Sonic Mini 8K",
+          "subtitle": "High Resolution",
+          "description": "Ultra-high 8K resolution for incredibly detailed prints with 22µm XY precision."
+        },
+        "phrozenMega": {
+          "title": "PHROZEN Sonic MEGA 8K MSLA",
+          "subtitle": "Large Format",
+          "description": "Large build volume with 4K resolution for bigger projects without compromising quality."
+        },
+        "prusa": {
+          "title": "Prusa SL1S",
+          "subtitle": "Speed & Precision",
+          "description": "Fast MSLA technology with 5.5\" mono LCD and integrated post-processing solution."
         }
       }
     },
@@ -767,6 +790,39 @@
           "subtitle": "Speed & Precision",
           "description": "Fast MSLA technology with 5.5\" mono LCD and integrated post-processing solution."
         }
+      }
+    },
+    "course": {
+      "badge": "Master 3D Printing",
+      "title": "Transform Your Ideas Into Reality",
+      "description": "Join our comprehensive 3D printing course and learn from industry experts. From basics to advanced techniques, we'll guide you through every step of the journey.",
+      "features": {
+        "handsOn": {
+          "title": "Hands-on Experience",
+          "description": "Work with professional-grade equipment and learn through practical projects"
+        },
+        "expert": {
+          "title": "Expert Instruction",
+          "description": "Learn from certified professionals with years of industry experience"
+        },
+        "certification": {
+          "title": "Certification",
+          "description": "Receive an industry-recognized certificate upon completion"
+        }
+      },
+      "stats": {
+        "format": {
+          "label": "Course Format",
+          "value": "Hands-on Learning"
+        },
+        "duration": {
+          "label": "Duration",
+          "value": "3-8 Weeks"
+        }
+      },
+      "buttons": {
+        "enroll": "Enroll Now",
+        "syllabus": "Download Syllabus"
       }
     }
   },
@@ -977,5 +1033,53 @@
   },
   "common": {
     "learnMore": "Learn More"
+  },
+  "equipment": {
+    "sla": {
+      "title": "Professional SLA 3D Printers",
+      "form3": {
+        "title": "Formlabs Form 3+",
+        "subtitle": "Professional SLA",
+        "description": "Advanced Low Force Stereolithography (LFS) technology for exceptional detail and surface finish."
+      },
+      "phrozenMini": {
+        "title": "Phrozen Sonic Mini 8K",
+        "subtitle": "High Resolution",
+        "description": "Ultra-high 8K resolution for incredibly detailed prints with 22µm XY precision."
+      },
+      "phrozenMega": {
+        "title": "PHROZEN Sonic MEGA 8K MSLA",
+        "subtitle": "Large Format",
+        "description": "Large build volume with 4K resolution for bigger projects without compromising quality."
+      },
+      "prusa": {
+        "title": "Prusa SL1S",
+        "subtitle": "Speed & Precision",
+        "description": "Fast MSLA technology with 5.5\" mono LCD and integrated post-processing solution."
+      }
+    },
+    "fdm": {
+      "title": "Professional FDM 3D Printers",
+      "prusa": {
+        "title": "Prusa i3 MK3S+",
+        "subtitle": "Professional FDM",
+        "description": "Reliable workhorse for rapid prototyping and functional parts with wide material compatibility."
+      },
+      "prusaMMU": {
+        "title": "Prusa i3 MK3S+ MMU2S",
+        "subtitle": "Multi-Material",
+        "description": "Multi-material printing capabilities with up to 5 different materials in a single print."
+      },
+      "skrinter": {
+        "title": "Skrinter",
+        "subtitle": "Large Format",
+        "description": "Large build volume printer for bigger projects and production runs."
+      },
+      "raise3d": {
+        "title": "Raise3D Pro3",
+        "subtitle": "Industrial Grade",
+        "description": "Industrial-grade FDM printer for professional production and engineering applications."
+      }
+    }
   }
 } 

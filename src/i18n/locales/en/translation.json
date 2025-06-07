@@ -70,7 +70,113 @@
     },
     "digitalFabrication": {
       "title": "Digital Fabrication",
-      "description": "Advanced digital fabrication technologies for custom product development"
+      "description": "Advanced digital fabrication technologies for custom product development",
+      "uvPrinting": {
+        "title": "UV Printing Excellence",
+        "description": "Experience the future of printing with our state-of-the-art UV printing technology. Perfect for creating vibrant, durable prints on a wide range of materials with exceptional detail and color accuracy.",
+        "features": {
+          "instantCuring": "Instant curing for immediate handling",
+          "vibrantColors": "Vibrant colors with exceptional durability",
+          "anyMaterial": "Print on virtually any material"
+        },
+        "cta": "Explore UV Printing",
+        "labels": {
+          "emptyKeyboard": "Empty Keyboard",
+          "uvPrintedDesign": "UV Printed Design"
+        }
+      },
+      "stickerProduction": {
+        "title": "Professional Sticker Production",
+        "description": "Create high-quality stickers with our advanced cutting and printing technology. From custom designs to bulk production, we deliver precise, durable stickers for any application.",
+        "features": {
+          "preciseCutting": "Precise cutting for complex shapes",
+          "highResolution": "High-resolution printing",
+          "materialOptions": "Various material options"
+        },
+        "cta": "Create Your Stickers"
+      },
+      "laserCutting": {
+        "title": "Precision Laser Cutting",
+        "description": "Experience the precision of our advanced laser cutting technology, perfect for creating intricate designs in wood and other materials with exceptional accuracy and clean edges.",
+        "features": {
+          "highPrecision": "High-precision cutting for complex designs",
+          "cleanEdges": "Clean, burnished edges on wood",
+          "materialCompatibility": "Versatile material compatibility"
+        },
+        "cta": "Explore Laser Cutting",
+        "imageAlt": "Laser Cutting"
+      },
+      "cncMachining": {
+        "title": "CNC Wood Machining",
+        "description": "Transform your woodworking projects with our state-of-the-art CNC machining capabilities. From intricate carvings to precise joinery, we bring your designs to life with unmatched accuracy.",
+        "features": {
+          "carvingRelief": "3D carving and relief work",
+          "preciseJoinery": "Precise joinery and inlays",
+          "customComponents": "Custom furniture components"
+        },
+        "cta": "Explore CNC Machining",
+        "imageAlt": "CNC Wood Machining"
+      },
+      "precisionManufacturingEquipment": {
+        "title": "Precision Manufacturing Equipment",
+        "rolandDGShape": {
+          "alt": "Roland DG Shape",
+          "category": "Advanced Milling",
+          "title": "Roland DG Shape",
+          "description": "High-precision 3D milling machine for creating detailed prototypes and production parts."
+        },
+        "srm20": {
+          "alt": "SRM-20",
+          "category": "Precision Milling",
+          "title": "SRM-20",
+          "description": "Compact desktop milling machine for precise machining of small parts and prototypes."
+        },
+        "photonIM": {
+          "alt": "Photon IM",
+          "category": "Laser Engraving",
+          "title": "Photonim GS6040",
+          "description": "Advanced laser engraving machine for precise and detailed surface marking and engraving."
+        },
+        "volterS": {
+          "alt": "Volters",
+          "category": "Milling & Engraving",
+          "title": "VOLTER-S",
+          "description": "Professional milling and engraving machine for precise material processing and surface finishing."
+        },
+        "mdx50": {
+          "alt": "MDX-50",
+          "category": "CNC Milling",
+          "title": "MDX-50",
+          "description": "Advanced CNC milling machine for high-precision machining and prototyping."
+        }
+      },
+      "behindTheScenes": {
+        "title": "Behind the Scenes",
+        "description": "Follow our journey and see how we bring your ideas to life with advanced digital fabrication technology.",
+        "instagramCta": "Follow us on Instagram",
+        "telegramCta": "Follow us on Telegram"
+      },
+      "contactSection": {
+        "badge": "Get Started Today",
+        "title": "Ready to Bring Your Ideas to Life?",
+        "description": "Contact us today to discuss your project requirements. Our team of experts is ready to help you create stunning UV prints and custom stickers.",
+        "cta": "Contact Us"
+      },
+      "equipment": {
+        "title": "Digital Fabrication Equipment",
+        "uvPrinter": {
+          "alt": "UV Printer",
+          "category": "Professional UV Printing",
+          "title": "Roland UV Printer",
+          "description": "High-resolution UV printing with instant curing technology for exceptional quality and durability."
+        },
+        "stickerCutter": {
+          "alt": "Sticker Cutting Machine",
+          "category": "Precision Cutting",
+          "title": "Roland Sticker Cutter",
+          "description": "Advanced cutting technology for precise, complex sticker shapes with perfect registration."
+        }
+      }
     },
     "precisionManufacturing": {
       "title": "Precision Manufacturing",
@@ -1033,6 +1139,20 @@
   },
   "common": {
     "learnMore": "Learn More"
+  },
+  "digitalFabrication": {
+    "behindTheScenes": {
+      "title": "Behind the Scenes",
+      "description": "Follow our journey and see how we bring your ideas to life with advanced digital fabrication technology.",
+      "instagramCta": "Follow us on Instagram",
+      "telegramCta": "Follow us on Telegram"
+    },
+    "contactSection": {
+      "badge": "Get Started Today",
+      "title": "Ready to Bring Your Ideas to Life?",
+      "description": "Contact us today to discuss your project requirements. Our team of experts is ready to help you create stunning UV prints and custom stickers.",
+      "cta": "Contact Us"
+    }
   },
   "equipment": {
     "sla": {

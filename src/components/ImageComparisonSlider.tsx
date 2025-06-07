@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import { useTranslation } from "react-i18next";
 
 interface ImageComparisonSliderProps {
   beforeImage: string;
@@ -7,6 +8,7 @@ interface ImageComparisonSliderProps {
 }
 
 const ImageComparisonSlider = ({ beforeImage, afterImage, alt }: ImageComparisonSliderProps) => {
+  const { t } = useTranslation();
   const [sliderPosition, setSliderPosition] = useState(50);
   const containerRef = useRef<HTMLDivElement>(null);
   const isDragging = useRef(false);
@@ -106,10 +108,10 @@ const ImageComparisonSlider = ({ beforeImage, afterImage, alt }: ImageComparison
 
       {/* Labels */}
       <div className="absolute bottom-4 left-4 bg-black/50 text-white px-4 py-2 rounded-full text-sm font-medium backdrop-blur-sm">
-        Empty Keyboard
+        {t("serviceCategories.digitalFabrication.uvPrinting.labels.emptyKeyboard")}
       </div>
       <div className="absolute bottom-4 right-4 bg-black/50 text-white px-4 py-2 rounded-full text-sm font-medium backdrop-blur-sm">
-        UV Printed Design
+        {t("serviceCategories.digitalFabrication.uvPrinting.labels.uvPrintedDesign")}
       </div>
     </div>
   );

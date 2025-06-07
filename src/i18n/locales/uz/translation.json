@@ -67,8 +67,116 @@
       "description": "Turli materiallar va sohalar uchun keng qamrovli qoliplash va ishlab chiqarish xizmatlari"
     },
     "digitalFabrication": {
-      "title": "Raqamli Ishlab chiqarish va Maxsus Mahsulotlar",
-      "description": "Maxsus mahsulotlarni ishlab chiqish uchun zamonaviy raqamli ishlab chiqarish texnologiyalari"
+      "title": "Raqamli Ishlab Chiqarish",
+      "description": "Maxsus mahsulotlarni ishlab chiqish uchun zamonaviy raqamli ishlab chiqarish texnologiyalari",
+      "uvPrinting": {
+        "title": "UV Bosib Chiqarishning Mukammalligi",
+        "description": "Bizning zamonaviy UV bosib chiqarish texnologiyamiz bilan bosib chiqarishning kelajagini bilib oling. Ajoyib detallar va rang aniqligi bilan turli xil materiallarga yorqin, chidamli bosib chiqarish uchun mukammal.",
+        "features": {
+          "instantCuring": "Darhol qayta ishlash uchun tezkor qotish",
+          "vibrantColors": "Ajoyib chidamlilik bilan yorqin ranglar",
+          "anyMaterial": "Deyarli har qanday materialga bosib chiqarish"
+        },
+        "cta": "UV Bosib Chiqarishni O'rganish",
+        "labels": {
+          "emptyKeyboard": "Bo'sh klaviatura",
+          "uvPrintedDesign": "UV bosilgan dizayn"
+        }
+      },
+      "stickerProduction": {
+        "title": "Professional Stiker Ishlab Chiqarish",
+        "description": "Bizning zamonaviy kesish va bosib chiqarish texnologiyamiz bilan yuqori sifatli stikerlar yarating. Maxsus dizaynlardan ommaviy ishlab chiqarishgacha, biz har qanday qo'llash uchun aniq, chidamli stikerlarni taqdim etamiz.",
+        "features": {
+          "preciseCutting": "Murakkab shakllar uchun aniq kesish",
+          "highResolution": "Yuqori aniqlikdagi bosib chiqarish",
+          "materialOptions": "Turli xil material variantlari"
+        },
+        "cta": "Stikerlaringizni Yaratish"
+      },
+      "equipment": {
+        "title": "Raqamli Ishlab Chiqarish Uskunasi",
+        "uvPrinter": {
+          "alt": "UV Printer",
+          "category": "Professional UV Bosib Chiqarish",
+          "title": "Roland UV Printer",
+          "description": "Yuqori aniqlikdagi UV bosib chiqarish, tezkor qotish texnologiyasi bilan ajoyib sifat va chidamlilikni ta'minlaydi."
+        },
+        "stickerCutter": {
+          "alt": "Stiker Kesish Mashinasi",
+          "category": "Aniq Kesish",
+          "title": "Roland Stiker Kesuvchi",
+          "description": "Aniq, murakkab stiker shakllari uchun mukammal registratsiyaga ega ilg'or kesish texnologiyasi."
+        }
+      },
+      "laserCutting": {
+        "title": "Aniq Lazer Kesish",
+        "description": "Bizning ilg'or lazer kesish texnologiyamizning aniqligini his eting, u yog'och va boshqa materiallarda murakkab dizaynlarni ajoyib aniqlik va toza qirralar bilan yaratish uchun mukammaldir.",
+        "features": {
+          "highPrecision": "Murakkab dizaynlar uchun yuqori aniqlikdagi kesish",
+          "cleanEdges": "Yog'ochda toza, silliqlangan qirralar",
+          "materialCompatibility": "Ko'p qirrali material moslashuvi"
+        },
+        "cta": "Lazer Kesishni O'rganish",
+        "imageAlt": "Lazer Kesish"
+      },
+      "cncMachining": {
+        "title": "CNC Yog'och Ishlash",
+        "description": "Bizning zamonaviy CNC ishlov berish imkoniyatlarimiz bilan yog'och ishlash loyihalaringizni o'zgartiring. Murakkab o'ymakorlikdan aniq biriktirishgacha, biz sizning dizaynlaringizni benuqson aniqlik bilan hayotga tatbiq etamiz.",
+        "features": {
+          "carvingRelief": "3D o'ymakorlik va relyef ishlari",
+          "preciseJoinery": "Aniq biriktirish va inleylar",
+          "customComponents": "Maxsus mebel komponentlari"
+        },
+        "cta": "CNC Ishlov Berishni O'rganish",
+        "imageAlt": "CNC Yog'och Ishlash"
+      },
+      "precisionManufacturingEquipment": {
+        "title": "Aniq Ishlab Chiqarish Uskunasi",
+        "rolandDGShape": {
+          "alt": "Roland DG Shape",
+          "category": "Ilg'or Frezalash",
+          "title": "Roland DG Shape",
+          "description": "Batafsil prototiplar va ishlab chiqarish qismlarini yaratish uchun yuqori aniqlikdagi 3D frezalash mashinasi."
+        },
+        "srm20": {
+          "alt": "SRM-20",
+          "category": "Aniq Frezalash",
+          "title": "SRM-20",
+          "description": "Kichik qismlar va prototiplarni aniq ishlov berish uchun ixcham stol usti frezalash mashinasi."
+        },
+        "photonIM": {
+          "alt": "Photon IM",
+          "category": "Lazerli Gravür",
+          "title": "Photonim GS6040",
+          "description": "Aniq va batafsil sirt belgilash va o'ymakorlik uchun ilg'or lazerli gravür mashinasi."
+        },
+        "volterS": {
+          "alt": "Volters",
+          "category": "Frezalash va Gravür",
+          "title": "VOLTER-S",
+          "description": "Materiallarni aniq qayta ishlash va sirtni pardozlash uchun professional frezalash va gravür mashinasi."
+        },
+        "mdx50": {
+          "alt": "MDX-50",
+          "category": "CNC Frezalash",
+          "title": "MDX-50",
+          "description": "Yuqori aniqlikdagi ishlov berish va prototiplash uchun ilg'or CNC frezalash mashinasi."
+        }
+      },
+      "behindTheScenes": {
+        "title": "Sahna Ortida",
+        "description": "Sayohatimizni kuzatib boring va ilg'or raqamli ishlab chiqarish texnologiyasi orqali g'oyalaringizni qanday amalga oshirishimizni bilib oling.",
+        "videoSupportText": "Brauzeringiz video tegini qo'llab-quvvatlamaydi.",
+        "instagramCta": "Instagram'da bizni kuzating",
+        "telegramCta": "Telegram'da bizni kuzating"
+      },
+      "contactSection": {
+        "badge": "Bugundan Boshlang",
+        "title": "G'oyalaringizni Hayotga Tatbiq Etishga Tayyormisiz?",
+        "description": "Loyihangiz talablarini muhokama qilish uchun bugun biz bilan bog'laning. Bizning mutaxassislar jamoasi sizga ajoyib UV bosmalari va maxsus stikerlar yaratishda yordam berishga tayyor.",
+        "cta": "Biz Bilan Bog'laning",
+        "imageAlt": "Biz Bilan Bog'laning"
+      }
     },
     "precisionManufacturing": {
       "title": "Aniq Ishlab chiqarish",
@@ -1049,5 +1157,19 @@
   },
   "common": {
     "learnMore": "Batafsil"
+  },
+  "digitalFabrication": {
+    "behindTheScenes": {
+      "title": "Orqa fon",
+      "description": "Bizning sayohatimizni kuzating va zamonaviy raqamli ishlab chiqarish texnologiyalari yordamida g'oyalaringizni qanday amalga oshirishimizni bilib oling.",
+      "instagramCta": "Instagramda kuzating",
+      "telegramCta": "Telegramda kuzating"
+    },
+    "contactSection": {
+      "badge": "Bugundan boshlang",
+      "title": "G'oyalaringizni amalga oshirishga tayyormisiz?",
+      "description": "Loyiha talablaringizni muhokama qilish uchun bugun biz bilan bog'laning. Bizning mutaxassislar jamoasi sizga ajoyib UV bosmalar va maxsus stikerlar yaratishda yordam berishga tayyor.",
+      "cta": "Biz bilan bog'laning"
+    }
   }
 } 

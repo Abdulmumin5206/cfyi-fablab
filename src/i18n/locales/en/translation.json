@@ -92,9 +92,7 @@
       "description": "Engineering solutions spanning prototyping, tooling, and production components for innovative projects.",
       "capabilities": [
         "Functional prototypes",
-        "Tooling and fixtures", 
-        "End-use parts", 
-        "Testing equipment"
+        "End-use parts"
       ],
       "caseStudies": [
         {
@@ -107,10 +105,8 @@
       "title": "Textile",
       "description": "Innovative textile manufacturing solutions and fabric processing equipment for modern production needs.",
       "capabilities": [
-        "Fabric inspection", 
-        "Textile machinery", 
-        "Processing equipment", 
-        "Quality control"
+        "Fabric inspection",
+        "Textile machinery"
       ],
       "caseStudies": [
         {
@@ -123,10 +119,8 @@
       "title": "Medical",
       "description": "Medical applications from surgical planning models to custom devices and equipment components.",
       "capabilities": [
-        "Patient-specific models", 
-        "Surgical planning tools", 
-        "Medical device prototypes", 
-        "Anatomical replicas"
+        "Patient-specific models",
+        "Surgical planning tools"
       ],
       "caseStudies": [
         {
@@ -139,10 +133,8 @@
       "title": "Furniture",
       "description": "Custom furniture design and manufacturing solutions for both residential and commercial applications.",
       "capabilities": [
-        "Custom designs", 
-        "Prototype development", 
-        "Production tooling", 
-        "Assembly solutions"
+        "Custom designs",
+        "Prototype development"
       ],
       "caseStudies": [
         {
@@ -155,10 +147,8 @@
       "title": "Automotive",
       "description": "Automotive solutions for prototype development, testing components, and custom parts.",
       "capabilities": [
-        "Concept models", 
-        "Functional prototypes", 
-        "Test fixtures", 
-        "Custom components"
+        "Concept models",
+        "Functional prototypes"
       ],
       "caseStudies": [
         {
@@ -171,10 +161,8 @@
       "title": "Education",
       "description": "Educational tools and models for enhanced learning experiences and hands-on training.",
       "capabilities": [
-        "Anatomical models", 
-        "Teaching aids", 
-        "Interactive tools", 
-        "Educational kits"
+        "Anatomical models",
+        "Teaching aids"
       ],
       "caseStudies": [
         {
@@ -187,11 +175,8 @@
       "title": "Manufacturing",
       "description": "Manufacturing solutions for production needs, including moulding and spare parts, from jigs and fixtures to end-use components.",
       "capabilities": [
-        "Production tooling", 
-        "Assembly fixtures", 
-        "Custom components", 
-        "Short-run production", 
-        "Moulding and spare parts"
+        "Production tooling",
+        "Assembly fixtures"
       ],
       "caseStudies": [
         {
@@ -204,10 +189,8 @@
       "title": "Jewelry",
       "description": "Custom jewelry design, prototyping, and production solutions for unique and precision pieces.",
       "capabilities": [
-        "Detailed designs", 
-        "Casting patterns", 
-        "Custom settings", 
-        "Finished pieces"
+        "Detailed designs",
+        "Casting patterns"
       ],
       "caseStudies": [
         {
@@ -368,6 +351,11 @@
         "multiColor": "Multi-Color"
       }
     },
+    "precisionMoulding": {
+      "title": "Precision Plastic Moulding for Small-Batch Excellence",
+      "description": "Transform your spare parts and small-volume production needs with our specialized plastic moulding solutions. Whether you need replacement parts for legacy equipment or small-batch production runs, our advanced moulding technologies deliver consistent quality and precise tolerances. Perfect for manufacturers, maintenance teams, and businesses requiring reliable, cost-effective solutions for quantities from 1 to 1000 units.",
+      "requestQuote": "Request a Quote"
+    },
     "whyDigital": {
       "title": "Why Choose Digital Technology?",
       "benefits": {
@@ -387,13 +375,13 @@
     },
     "spareParts": {
       "title": "Spare Parts and Custom Components",
-      "subtitle": "when standard replacements aren't available",
       "description": "Our advanced SLA printing and casting capabilities allow us to reproduce discontinued or hard-to-find parts with precision and accuracy at a fraction of the cost of traditional manufacturing methods.",
       "features": {
-        "replicate": "Replicate discontinued parts faster and cheaper than traditional methods",
-        "custom": "Create custom parts that match your specific requirements with high precision",
-        "rapid": "Rapid prototyping and small series without expensive tooling costs"
-      }
+        "replication": "Replicate discontinued parts faster and cheaper than traditional methods",
+        "customParts": "Create custom parts that match your specific requirements with high precision",
+        "rapidPrototyping": "Rapid prototyping and small series without expensive tooling costs"
+      },
+      "cta": "Request a Consultation"
     },
     "equipment": {
       "title": "Our Equipment for Moulding & Spare Parts",
@@ -444,6 +432,122 @@
           "question": "What are the limitations of SLA printing for parts?",
           "answer": "While SLA printing offers exceptional detail and quality, it has limitations in terms of material properties and production volume. We'll help you determine if SLA is right for your project or if alternative methods would be more suitable based on your specific requirements and goals."
         }
+      }
+    },
+    "professions": {
+      "title": "Our Professions",
+      "subtitle": "Where innovation meets fabrication - delivering excellence in every project",
+      "categories": {
+        "engineering": {
+          "title": "Engineering",
+          "description": "Precision parts and rapid prototyping.",
+          "features": [
+            "Functional prototypes",
+            "End-use parts"
+          ]
+        },
+        "textile": {
+          "title": "Textile",
+          "description": "Custom tools for textile production.",
+          "features": [
+            "Specialized fixtures",
+            "Production aids"
+          ]
+        },
+        "medical": {
+          "title": "Medical",
+          "description": "Reliable parts for medical devices.",
+          "features": [
+            "Lab equipment",
+            "Custom enclosures"
+          ]
+        },
+        "furniture": {
+          "title": "Furniture",
+          "description": "Custom fittings for furniture makers.",
+          "features": [
+            "Prototyping",
+            "Custom joints"
+          ]
+        },
+        "automotive": {
+          "title": "Automotive",
+          "description": "Spare parts and custom solutions.",
+          "features": [
+            "Replacement parts",
+            "Rapid prototyping"
+          ]
+        },
+        "education": {
+          "title": "Education",
+          "description": "Hands-on models for schools.",
+          "features": [
+            "Teaching aids",
+            "STEM projects"
+          ]
+        },
+        "manufacturing": {
+          "title": "Manufacturing",
+          "description": "Efficient parts for production lines.",
+          "features": [
+            "Tooling solutions",
+            "Small-batch runs"
+          ]
+        },
+        "jewelry": {
+          "title": "Jewelry",
+          "description": "Detailed models for jewelry design.",
+          "features": [
+            "Wax casting models",
+            "Design prototypes"
+          ]
+        }
+      }
+    },
+    "whyChoosePlasticMoulding": {
+      "title": "Why Choose Plastic Moulding?",
+      "benefits": {
+        "lowerCosts": {
+          "title": "Lower Costs",
+          "description": "Avoid high upfront tooling investments and reduce labor costs."
+        },
+        "fasterTime": {
+          "title": "Faster Time",
+          "description": "Produce high-quality models within 24 hours."
+        },
+        "designFreedom": {
+          "title": "Design Freedom",
+          "description": "Create complex shapes that are difficult to achieve with traditional casting."
+        }
+      },
+      "video": {
+        "title": "See Plastic Moulding in Action",
+        "description": "Watch how Formlabs' advanced moulding technology transforms raw materials into precise, high-quality parts with exceptional detail and consistency."
+      },
+      "formlabsSolutions": {
+        "title": "Read Formlabs Injection Molding Solutions",
+        "caseStudy1": {
+          "category": "MANUFACTURING GUIDE",
+          "title": "Guide to Low-Volume Injection Molding",
+          "description": "Learn how to use 3D printed injection molds to produce high-quality parts for prototyping and low-volume production.",
+          "learnMore": "Learn More"
+        },
+        "caseStudy2": {
+          "category": "MANUFACTURING INSIGHTS",
+          "title": "When to Replace Injection Molding With 3D Printing?",
+          "description": "Discover when to use 3D printing as an alternative to traditional injection molding for your manufacturing needs.",
+          "learnMore": "Learn More"
+        }
+      }
+    },
+    "sparePartProjects": {
+      "title": "Spare Part Projects",
+      "blogPost": {
+        "imageAlt": "3D Printing Innovations",
+        "category": "3D PRINTING",
+        "title": "SLA Resin Printing: Revolutionizing Small-Batch Production for Spare Parts",
+        "description": "Created a fully functional prototype using advanced 3D printing techniques for an Uzbek tech startup.",
+        "readMore": "Read More"
       }
     }
   },

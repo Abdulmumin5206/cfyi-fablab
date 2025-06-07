@@ -81,23 +81,21 @@
   },
   "industries": {
     "title": "Bizning kasblarimiz",
-    "subtitle": "Innovatsiya ishlab chiqarish bilan uchrashgan joy",
+    "subtitle": "Innovatsiya ishlab chiqarish bilan uchrashadigan joy",
     "capabilities": "Imkoniyatlar",
     "caseStudies": "Loyiha namunalari",
     "contactUs": "Bu haqda biz bilan bog'laning",
     "engineering": {
       "title": "Muhandislik",
-      "description": "Innovatsion loyihalar uchun prototiplash, asboblar va ishlab chiqarish komponentlarini o'z ichiga olgan muhandislik yechimlari.",
+      "description": "Innovatsion loyihalar uchun prototiplar, asboblar va ishlab chiqarish komponentlarini o'z ichiga olgan muhandislik yechimlari.",
       "capabilities": [
-        "Funktsional prototiplar",
-        "Asboblar va moslamalar", 
-        "Foydalanish uchun qismlar", 
-        "Sinov uskunalari"
+        "Funksional prototiplar",
+        "Tayyor qismlar"
       ],
       "caseStudies": [
         {
-          "title": "Tezkor prototip ishlab chiqish",
-          "description": "Tekshirish va sinov uchun tezkor prototiplar bilan muhandislik sikllari tezlashtirilmoqda."
+          "title": "Tezkor Prototip Ishlab Chiqarish",
+          "description": "Tekshirish va sinab ko'rish uchun tezkor prototiplar orqali muhandislik tsikllarini tezlashtirish."
         }
       ]
     },
@@ -105,112 +103,97 @@
       "title": "To'qimachilik",
       "description": "Zamonaviy ishlab chiqarish ehtiyojlari uchun innovatsion to'qimachilik ishlab chiqarish yechimlari va mato qayta ishlash uskunalari.",
       "capabilities": [
-        "Mato tekshirish", 
-        "To'qimachilik mashinalari", 
-        "Qayta ishlash uskunalari", 
-        "Sifat nazorati"
+        "Mato tekshirish",
+        "To'qimachilik uskunalari"
       ],
       "caseStudies": [
         {
-          "title": "Ilg'or mato qayta ishlash",
+          "title": "Zamonaviy Mato Qayta Ishlash",
           "description": "Ishlab chiqarish samaradorligini oshirish uchun zamonaviy to'qimachilik ishlab chiqarish yechimlari."
         }
       ]
     },
     "medical": {
       "title": "Tibbiyot",
-      "description": "Jarrohlik rejalashtirish modellaridan maxsus qurilmalarga va uskunalar komponentlariga qadar tibbiy dasturlar.",
+      "description": "Jarrohlik rejalashtirish modellaridan tortib, maxsus qurilmalar va uskuna komponentlarigacha bo'lgan tibbiy ilovalar.",
       "capabilities": [
-        "Bemorga xos modellar", 
-        "Jarrohlik rejalashtirish vositalari", 
-        "Tibbiy qurilma prototiplari", 
-        "Anatomik nusxalar"
+        "Bemor-ga mos modellar",
+        "Jarrohlik rejalashtirish vositalari"
       ],
       "caseStudies": [
         {
-          "title": "Jarrohlik rejalashtirish modellari",
-          "description": "Jarrohlik amaliyotidan oldin jarro'hlarga murakkab jarayonlarni rejalashtirish va mashq qilishga yordam beradigan maxsus anatomik modellar."
+          "title": "Jarrohlik Rejalashtirish Modellari",
+          "description": "Jarrohlarga operatsiyadan oldin murakkab protseduralarni rejalashtirish va mashq qilishda yordam beradigan maxsus anatomik modellar."
         }
       ]
     },
     "furniture": {
       "title": "Mebel",
-      "description": "Turar-joy va tijorat ilovalari uchun maxsus mebel dizayni va ishlab chiqarish yechimlari.",
+      "description": "Turar-joy va tijoriy binolar uchun maxsus mebel dizayni va ishlab chiqarish yechimlari.",
       "capabilities": [
-        "Maxsus dizaynlar", 
-        "Prototiplarni ishlab chiqish", 
-        "Ishlab chiqarish vositalari", 
-        "Montaj yechimlari"
+        "Maxsus dizaynlar",
+        "Prototip ishlab chiqarish"
       ],
       "caseStudies": [
         {
-          "title": "Zamonaviy mebel to'plami",
-          "description": "Ilg'or ishlab chiqarish texnologiyalari orqali hayotga tatbiq etilgan innovatsion mebel dizaynlari."
+          "title": "Zamonaviy Mebel Koleksiyasi",
+          "description": "Zamonaviy ishlab chiqarish texnologiyalari yordamida hayotga keltirilgan innovatsion mebel dizaynlari."
         }
       ]
     },
     "automotive": {
       "title": "Avtomobilsozlik",
-      "description": "Prototiplarni ishlab chiqish, komponentlarni sinash va maxsus qismlar uchun avtomobil yechimlari.",
+      "description": "Prototip ishlab chiqarish, komponentlarni sinab ko'rish va maxsus qismlar uchun avtomobil yechimlari.",
       "capabilities": [
-        "Konsept modellar", 
-        "Funktsional prototiplar", 
-        "Sinov moslamalari", 
-        "Maxsus komponentlar"
+        "Kontseptual modellar",
+        "Funksional prototiplar"
       ],
       "caseStudies": [
         {
-          "title": "Avtomobillarni sinash uskunalari",
-          "description": "Yangi avtomobil komponentlari va tizimlarini tekshirish uchun maxsus sinov moslamalari."
+          "title": "Avtomobil Sinov Uskunalari",
+          "description": "Yangi avtomobil komponentlari va tizimlarini tekshirish uchun maxsus sinov stendlari."
         }
       ]
     },
     "education": {
       "title": "Ta'lim",
-      "description": "O'qish tajribasini va amaliy tayyorgarlikni yaxshilash uchun ta'lim vositalari va modellari.",
+      "description": "O'qitish jarayonini va amaliy mashg'ulotlarni yaxshilash uchun o'quv vositalari va modellar.",
       "capabilities": [
-        "Anatomik modellar", 
-        "O'qitish vositalari", 
-        "Interaktiv vositalar", 
-        "Ta'lim to'plamlari"
+        "Anatomik modellar",
+        "O'quv qo'llanmalar"
       ],
       "caseStudies": [
         {
-          "title": "Ta'lim anatomiya modellari",
-          "description": "Tibbiy ta'lim va mashq qilishni yaxshilaydigan batafsil anatomik modellar."
+          "title": "O'quv Anatomik Modellari",
+          "description": "Tibbiy ta'lim va o'qitishni yaxshilaydigan batafsil anatomik modellar."
         }
       ]
     },
     "manufacturing": {
-      "title": "Ishlab chiqarish",
-      "description": "Ishlab chiqarish ehtiyojlari uchun qoliplash va ehtiyot qismlarni o'z ichiga olgan ishlab chiqarish yechimlari.",
+      "title": "Ishlab Chiqarish",
+      "description": "Kalıplama va ehtiyot qismlarini o'z ichiga olgan ishlab chiqarish ehtiyojlari uchun ishlab chiqarish yechimlari, asboblardan tayyor komponentlargacha.",
       "capabilities": [
-        "Ishlab chiqarish asboblari", 
-        "Yig'ish moslamalari", 
-        "Maxsus komponentlar", 
-        "Qisqa seriyali ishlab chiqarish", 
-        "Qoliplash va ehtiyot qismlar"
+        "Ishlab chiqarish asboblari",
+        "Yig'ish moslamalari"
       ],
       "caseStudies": [
         {
-          "title": "Maxsus ishlab chiqarish moslamalari",
+          "title": "Maxsus Ishlab Chiqarish Moslamalari",
           "description": "Ishlab chiqarish samaradorligi va sifat nazoratini yaxshilaydigan maxsus moslamalar."
         }
       ]
     },
     "jewelry": {
-      "title": "Zargarlik buyumlari",
-      "description": "Noyob va aniq buyumlar uchun maxsus zargarlik dizayni, prototiplash va ishlab chiqarish yechimlari.",
+      "title": "Zargarlik",
+      "description": "Noyob va aniq buyumlar uchun maxsus zargarlik dizayni, prototiplar va ishlab chiqarish yechimlari.",
       "capabilities": [
-        "Batafsil dizaynlar", 
-        "Quyma naqshlar", 
-        "Maxsus sozlamalar", 
-        "Tayyor buyumlar"
+        "Batafsil dizaynlar",
+        "Quyma modellar"
       ],
       "caseStudies": [
         {
-          "title": "Maxsus zargarlik to'plami",
-          "description": "Ilg'or ishlab chiqarish texnologiyalardan foydalangan holda murakkab, shaxsiylashtirilgan zargarlik buyumlarini yaratish."
+          "title": "Maxsus Zargarlik Koleksiyasi",
+          "description": "Zamonaviy ishlab chiqarish texnologiyalaridan foydalangan holda murakkab, shaxsiy zargarlik buyumlarini yaratish."
         }
       ]
     }
@@ -341,30 +324,71 @@
   },
   "mould": {
     "hero": {
-      "subtitle": "PROFESSIONAL QOLIPLASHTIRISH YECHIMLARI",
-      "title": "Maxsus qolip va quyish xizmatlari",
+      "subtitle": "PROFESSIONAL QOLIY YECHIMLARI",
+      "title": "Maxsus qoliylar va quyma xizmatlari",
       "features": {
-        "costEffective": "Kichik seriyali ishlab chiqarish uchun metall qoliplarga qaraganda arzonroq alternativa",
-        "highPrecision": "Master namunalar va to'g'ridan-to'g'ri qismlarni ishlab chiqarish uchun yuqori aniqlikdagi SLA-chop etish",
-        "specialized": "Ehtiyot qismlar ishlab chiqarish va kichik seriyali ishlab chiqarishda ixtisoslashgan"
+        "costEffective": "Kichik seriyalar uchun metall qoliylarga qaraganda arzonroq alternativa",
+        "highPrecision": "Master modellar va to'g'ridan-to'g'ri qismlarni ishlab chiqarish uchun yuqori aniqlikdagi SLA chop etish",
+        "specialized": "Zaxira qismlar va kichik seriyali ishlab chiqarishda ixtisoslashgan"
       },
       "buttons": {
         "consultation": "Maslahat so'rash",
         "materials": "Materiallar haqida batafsil"
       },
-      "scrollDown": "Pastga aylantiring"
+      "scrollDown": "Pastga aylantirish"
+    },
+    "whyChoosePlasticMoulding": {
+      "title": "Nima uchun plastik qoliplashni tanlash kerak?",
+      "benefits": {
+        "lowerCosts": {
+          "title": "Past narxlar",
+          "description": "Yuqori boshlang'ich asbob-uskunalar investitsiyalaridan qoching va mehnat xarajatlarini kamaytiring."
+        },
+        "fasterTime": {
+          "title": "Tezroq vaqt",
+          "description": "24 soat ichida yuqori sifatli modellarni ishlab chiqaring."
+        },
+        "designFreedom": {
+          "title": "Dizayn erkinligi",
+          "description": "An'anaviy quyma bilan erishish qiyin bo'lgan murakkab shakllarni yarating."
+        }
+      },
+      "video": {
+        "title": "Plastik qoliplashni amalda ko'ring",
+        "description": "Formlabs'ning zamonaviy qoliplash texnologiyasi xom ashyoni qanday qilib ajoyib detallar va izchillik bilan aniq, yuqori sifatli qismlarga aylantirishini tomosha qiling."
+      },
+      "formlabsSolutions": {
+        "title": "Formlabs In'ektsion Qoliplash Yechimlari",
+        "caseStudy1": {
+          "category": "ISHLAB CHIQARISH BO'YICHA QO'LLANMA",
+          "title": "Kichik hajmdagi in'ektsion qoliplash bo'yicha qo'llanma",
+          "description": "Prototiplash va kichik hajmdagi ishlab chiqarish uchun yuqori sifatli qismlarni ishlab chiqarishda 3D chop etilgan in'ektsion qoliplardan qanday foydalanishni o'rganing.",
+          "learnMore": "Batafsil ma'lumot"
+        },
+        "caseStudy2": {
+          "category": "ISHLAB CHIQARISH TAXLILLARI",
+          "title": "Qachon in'ektsion qoliplashni 3D chop etish bilan almashtirish kerak?",
+          "description": "Ishlab chiqarish ehtiyojlaringiz uchun an'anaviy in'ektsion qoliplash o'rniga 3D chop etishdan qachon foydalanishni bilib oling.",
+          "learnMore": "Batafsil ma'lumot"
+        }
+      }
     },
     "premiumQuality": {
-      "title": "Yuqori sifat",
-      "subtitle": "har bir qolip va quyish loyihasi uchun",
+      "title": "Yuqori Sifat",
+      "subtitle": "har bir qoliplash va quyma loyihasi uchun",
       "materials": {
         "rigid": "Qattiq",
         "flexible": "Moslashuvchan",
         "transparent": "Shaffof",
         "foodSafe": "Oziq-ovqat uchun xavfsiz",
-        "highTemp": "Yuqori haroratli",
+        "highTemp": "Yuqori harorat",
         "multiColor": "Ko'p rangli"
       }
+    },
+    "precisionMoulding": {
+      "title": "Kichik Seriyalar uchun Aniq Plastik Qoliplash",
+      "description": "Ehtiyot qismlar va kichik hajmdagi ishlab chiqarish ehtiyojlaringizni bizning maxsus plastik qoliplash yechimlarimiz bilan o'zgartiring. Eski uskunalar uchun almashtirish qismlari yoki kichik seriyali ishlab chiqarish kerak bo'lsa ham, bizning ilg'or qoliplash texnologiyalarimiz barqaror sifat va aniq o'lchamlarni ta'minlaydi. 1 dan 1000 donagacha bo'lgan miqdorlar uchun ishonchli, arzon yechimlar talab qiluvchi ishlab chiqaruvchilar, texnik xizmat guruhlari va korxonalar uchun ideal.",
+      "requestQuote": "Narxni So'rash"
     },
     "whyDigital": {
       "title": "Nima uchun raqamli texnologiyalarni tanlash kerak?",
@@ -384,14 +408,14 @@
       }
     },
     "spareParts": {
-      "title": "Ehtiyot qismlar va maxsus qismlar",
-      "subtitle": "standart almashtirishlar mavjud bo'lmaganda",
-      "description": "Bizning ilg'or SLA-chop etish va quyish imkoniyatlarimiz an'anaviy ishlab chiqarish usullariga qaraganda ancha past narxda ishlab chiqarishdan chiqarilgan yoki topish qiyin bo'lgan qismlarni aniq va to'g'ri qayta ishlab chiqarishga imkon beradi.",
+      "title": "Zaxira qismlar va maxsus komponentlar",
+      "description": "Bizning ilg'or SLA chop etish va quyma imkoniyatlarimiz an'anaviy ishlab chiqarish usullariga qaraganda aniqroq va arzonroq narxlarda ishlab chiqarilmaydigan yoki topish qiyin bo'lgan qismlarni qayta ishlab chiqarishga imkon beradi.",
       "features": {
-        "replicate": "Ishlab chiqarishdan chiqarilgan qismlarni an'anaviy usullarga qaraganda tezroq va arzonroq qayta ishlab chiqaring",
-        "custom": "Yuqori aniqlik bilan sizning o'ziga xos talablaringizga mos keladigan maxsus qismlarni yarating",
-        "rapid": "Qimmatbaho asbob-uskunalar xarajatlarisiz tezkor prototiplash va kichik seriyali ishlab chiqarish"
-      }
+        "replication": "Ishlab chiqarilmaydigan qismlarni an'anaviy usullarga qaraganda tezroq va arzonroq qayta ishlab chiqarish",
+        "customParts": "Yuqori aniqlikda sizning maxsus talablaringizga mos keladigan maxsus qismlarni yaratish",
+        "rapidPrototyping": "Qimmatbaho asbob-uskunalar xarajatlarisiz tezkor prototiplar va kichik seriyalar"
+      },
+      "cta": "Maslahat so'rash"
     },
     "equipment": {
       "title": "Qoliplash va ehtiyot qismlar uchun bizning uskunalarimiz",
@@ -442,6 +466,86 @@
     "materials": {
       "title": "Materiallar",
       "viewAll": "Barcha materiallarni ko'rish"
+    },
+    "professions": {
+      "title": "Bizning Kasblarimiz",
+      "subtitle": "Innovatsiya ishlab chiqarish bilan uchrashadigan joy - har bir loyihada mukammallikni ta'minlash",
+      "categories": {
+        "engineering": {
+          "title": "Muhandislik",
+          "description": "Aniq qismlar va tezkor prototiplash.",
+          "features": [
+            "Funksional prototiplar",
+            "Yakuniy qismlar"
+          ]
+        },
+        "textile": {
+          "title": "To'qimachilik",
+          "description": "To'qimachilik ishlab chiqarish uchun maxsus asboblar.",
+          "features": [
+            "Maxsus moslamalar",
+            "Ishlab chiqarish yordamchilari"
+          ]
+        },
+        "medical": {
+          "title": "Tibbiyot",
+          "description": "Tibbiy qurilmalar uchun ishonchli qismlar.",
+          "features": [
+            "Laboratoriya uskunalari",
+            "Maxsus korpuslar"
+          ]
+        },
+        "furniture": {
+          "title": "Mebel",
+          "description": "Mebel ishlab chiqaruvchilari uchun maxsus o'rnatishlar.",
+          "features": [
+            "Prototiplash",
+            "Maxsus birikmalar"
+          ]
+        },
+        "automotive": {
+          "title": "Avtomobilsozlik",
+          "description": "Ehtiyot qismlar va maxsus yechimlar.",
+          "features": [
+            "Almashtirish qismlari",
+            "Tezkor prototiplash"
+          ]
+        },
+        "education": {
+          "title": "Ta'lim",
+          "description": "Maktablar uchun amaliy modellar.",
+          "features": [
+            "O'qitish vositalari",
+            "STEM loyihalari"
+          ]
+        },
+        "manufacturing": {
+          "title": "Ishlab chiqarish",
+          "description": "Ishlab chiqarish liniyalari uchun samarali qismlar.",
+          "features": [
+            "Asbob-uskunalar yechimlari",
+            "Kichik seriyalar"
+          ]
+        },
+        "jewelry": {
+          "title": "Zargarlik",
+          "description": "Zargarlik dizayni uchun batafsil modellar.",
+          "features": [
+            "Mum quyma modellari",
+            "Dizayn prototiplari"
+          ]
+        }
+      }
+    },
+    "sparePartProjects": {
+      "title": "Ehtiyot qismlar",
+      "blogPost": {
+        "imageAlt": "3D bosib chiqarish",
+        "category": "3D BOSIB CHIQARISH",
+        "title": "SLA bosib chiqarish: Ishlab chiqarishda inqilob",
+        "description": "O'zbek startapi uchun 3D bosib chiqarish orqali prototip yaratildi.",
+        "readMore": "Batafsil"
+      }
     }
   },
   "prototyping": {

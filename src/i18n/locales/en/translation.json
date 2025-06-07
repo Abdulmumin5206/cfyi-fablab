@@ -807,37 +807,8 @@
       }
     },
     "materials": {
-      "tackleAnyProblem": "Tackle Any Problem with Our Materials",
-      "types": {
-        "generalPurpose": "General Purpose",
-        "tough": "Tough",
-        "rigid": "Rigid",
-        "flameRetardant": "Flame Retardant",
-        "silicone": "Silicone",
-        "elastic": "Elastic",
-        "biocompatible": "Biocompatible",
-        "polyurethane": "Polyurethane",
-        "ceramic": "Ceramic",
-        "openMaterialMode": "Open Material Mode"
-      },
-      "requestSample": "Request Sample",
-      "sla": {
-        "title": "SLA Materials",
-        "subtitle": "High-quality resin materials for precise printing"
-      },
-      "fdm": {
-        "title": "FDM Materials",
-        "subtitle": "High-performance filaments for functional parts"
-      },
-      "all": "All Materials",
-      "premium": "Premium Materials",
-      "brands": {
-        "prusament": "Prusament",
-        "polymaker": "Polymaker",
-        "formlabsPremium": "Formlabs Premium"
-      },
       "title": "3D Printing Materials",
-      "subtitle": "Explore our comprehensive range of high-quality materials for both FDM and SLA printing technologies, each carefully selected to meet specific application requirements.",
+      "subtitle": "Explore our wide range of high-quality materials for both FDM and SLA printing technologies.",
       "filters": {
         "all": "All Materials",
         "fdm": "FDM Materials",
@@ -846,15 +817,190 @@
       "search": {
         "placeholder": "Search materials..."
       },
+      "premium": "Premium",
       "colors": {
-        "title": "Colors",
-        "selected": "Selected"
+        "title": "Available Colors",
+        "selected": "Selected Color"
       },
       "properties": {
         "title": "Properties"
       },
       "applications": {
         "title": "Applications"
+      },
+      "fdm": {
+        "prusament": {
+          "description": "Biodegradable thermoplastic with excellent print quality and ease of use.",
+          "properties": {
+            "biodegradable": "Biodegradable",
+            "easyToPrint": "Easy to print",
+            "goodSurfaceFinish": "Good surface finish",
+            "rigid": "Rigid"
+          },
+          "applications": {
+            "prototypes": "Prototypes",
+            "displayModels": "Display models",
+            "lowWearParts": "Low-wear parts"
+          },
+          "colors": {
+            "msPink": "Ms. Pink",
+            "vanillaWhite": "Vanilla White",
+            "jetBlack": "Jet Black",
+            "pearlMouse": "Pearl Mouse",
+            "ohMyGold": "Oh My Gold",
+            "galaxySilver": "Galaxy Silver",
+            "prusaOrange": "Prusa Orange",
+            "mysticBrown": "Mystic Brown",
+            "armyGreen": "Army Green",
+            "royalBlue": "Royal Blue",
+            "opalGreen": "Opal Green",
+            "mySilverness": "My Silverness",
+            "limeGreen": "Lime Green",
+            "simplyGreen": "Simply Green",
+            "gravityGrey": "Gravity Grey",
+            "pearlBlue": "Pearl Blue",
+            "yellow": "Yellow",
+            "pineappleYellow": "Pineapple Yellow",
+            "lila": "Lila"
+          }
+        },
+        "filamentum": {
+          "description": "Premium quality PLA filament known for its exceptional quality and unique color palette. Made in Czech Republic with precise diameter tolerance.",
+          "properties": {
+            "highQuality": "High quality materials",
+            "preciseDiameter": "Precise diameter",
+            "excellentPrintability": "Excellent printability",
+            "uniqueColors": "Unique color palette"
+          },
+          "applications": {
+            "decorative": "Decorative prints",
+            "architectural": "Architectural models",
+            "designPrototypes": "Design prototypes",
+            "artProjects": "Art projects"
+          },
+          "colors": {
+            "goldHappens": "Gold Happens",
+            "electricGrey": "Electric Grey",
+            "rapunzelSilver": "Rapunzel Silver",
+            "pureWhite": "Pure White",
+            "metallicGrey": "Metallic Grey",
+            "melonYellow": "Melon Yellow",
+            "purpleRed": "Purple Red",
+            "chocolateBrown": "Chocolate Brown",
+            "crystalClearIcelandBlue": "Crystal Clear Iceland Blue",
+            "luminousGreen": "Luminous Green",
+            "nobleBlue": "Noble Blue"
+          }
+        },
+        "raise3d": {
+          "description": "Professional-grade materials optimized for the Raise3D Pro3 series. Superior quality and consistency for industrial applications.",
+          "properties": {
+            "industrialGrade": "Industrial grade",
+            "highAccuracy": "High dimensional accuracy",
+            "excellentAdhesion": "Excellent layer adhesion",
+            "professionalFinish": "Professional finish"
+          },
+          "applications": {
+            "industrialPrototypes": "Industrial prototypes",
+            "manufacturingAids": "Manufacturing aids",
+            "professionalModels": "Professional models",
+            "productionParts": "Production parts"
+          },
+          "colors": {
+            "plaWhite": "PLA White",
+            "plaBlack": "PLA Black",
+            "plaBlue": "PLA Blue",
+            "plaRed": "PLA Red",
+            "plaOrange": "PLA Orange",
+            "absWhite": "ABS White",
+            "absBlack": "ABS Black",
+            "absGrey": "ABS Grey",
+            "pcWhite": "PC White",
+            "tpuWhite": "TPU White"
+          }
+        }
+      },
+      "sla": {
+        "prusament": {
+          "description": "High-quality SLA resins from Prusa Research offering exceptional detail, various properties, and multiple color options. Including standard model resins, flexible variants, and eco-friendly bio-based options.",
+          "properties": {
+            "highDetail": "High detail",
+            "multipleVariants": "Multiple variants",
+            "professionalQuality": "Professional quality",
+            "wideColorRange": "Wide color range"
+          },
+          "applications": {
+            "detailedPrototypes": "Detailed prototypes",
+            "flexibleParts": "Flexible parts",
+            "displayModels": "Display models",
+            "functionalPrints": "Functional prints"
+          },
+          "colors": {
+            "modelTransparentClear": "Model Transparent Clear",
+            "modelTransparentGreen": "Model Transparent Green",
+            "modelTransparentRed": "Model Transparent Red",
+            "modelAnthraciteGrey": "Model Anthracite Grey",
+            "modelBrickRed": "Model Brick Red",
+            "modelClassicRed": "Model Classic Red",
+            "modelPrusaOrange": "Model Prusa Orange",
+            "modelTerraBrown": "Model Terra Brown",
+            "modelSandstone": "Model Sandstone",
+            "modelBrightYellow": "Model Bright Yellow",
+            "modelGrassGreen": "Model Grass Green",
+            "flex80TransparentClear": "Flex80 Transparent Clear",
+            "flex80Black": "Flex80 Black",
+            "bioBased60NaturalYellow": "BioBased60 Natural Yellow",
+            "bioBased60HerbalGreen": "BioBased60 Herbal Green",
+            "bioBased60MagmaRed": "BioBased60 Magma Red"
+          }
+        },
+        "phrozen": {
+          "description": "Professional-grade SLA resins from Phrozen, optimized for high-resolution 3D printing. Features specialized formulations for jewelry casting and water-washable options.",
+          "properties": {
+            "highResolution": "High resolution",
+            "specializedFormulas": "Specialized formulas",
+            "waterWashable": "Water-washable options",
+            "castingCapable": "Casting capable"
+          },
+          "applications": {
+            "jewelryCasting": "Jewelry casting",
+            "detailedModels": "Detailed models",
+            "professionalPrints": "Professional prints",
+            "specialtyApplications": "Specialty applications"
+          },
+          "colors": {
+            "aquaBlue": "Aqua Blue",
+            "aquaGreen": "Aqua Green",
+            "aquaGray": "Aqua Gray",
+            "castableGreenW20": "Castable Green W20",
+            "castableOrangeW40": "Castable Orange W40",
+            "castableViolet": "Castable Violet"
+          }
+        },
+        "formlabs": {
+          "description": "Professional-grade engineering resins from Formlabs, offering unmatched quality and precision. Industry-leading materials for demanding applications.",
+          "properties": {
+            "engineeringGrade": "Engineering grade",
+            "industryCertified": "Industry certified",
+            "highestPrecision": "Highest precision",
+            "professionalQuality": "Professional quality"
+          },
+          "applications": {
+            "engineeringParts": "Engineering parts",
+            "medicalDevices": "Medical devices",
+            "dentalApplications": "Dental applications",
+            "industrialPrototypes": "Industrial prototypes"
+          },
+          "colors": {
+            "clearV4": "Clear v4",
+            "whiteV4": "White v4",
+            "greyV4": "Grey v4",
+            "blackV4": "Black v4",
+            "colorKit": "Color Kit",
+            "colorBase": "Color Base",
+            "castableWax40": "Castable Wax 40"
+          }
+        }
       }
     },
     "equipment": {

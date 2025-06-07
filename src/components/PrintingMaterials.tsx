@@ -26,270 +26,279 @@ const initialMaterials: Material[] = [
     id: 'prusament-pla',
     name: 'PRUSAMENT PLA',
     type: 'FDM',
-    description: 'Biodegradable thermoplastic with excellent print quality and ease of use.',
-    properties: ['Biodegradable', 'Easy to print', 'Good surface finish', 'Rigid'],
-    applications: ['Prototypes', 'Display models', 'Low-wear parts'],
+    description: '3dPrinting.materials.fdm.prusament.description',
+    properties: [
+      '3dPrinting.materials.fdm.prusament.properties.biodegradable',
+      '3dPrinting.materials.fdm.prusament.properties.easyToPrint',
+      '3dPrinting.materials.fdm.prusament.properties.goodSurfaceFinish',
+      '3dPrinting.materials.fdm.prusament.properties.rigid'
+    ],
+    applications: [
+      '3dPrinting.materials.fdm.prusament.applications.prototypes',
+      '3dPrinting.materials.fdm.prusament.applications.displayModels',
+      '3dPrinting.materials.fdm.prusament.applications.lowWearParts'
+    ],
     imageUrl: '/3dprinters/PrusaPLA/Prusament PLA Blend Ms. Pink.avif',
     colors: [
       { 
-        name: 'Ms. Pink', 
+        name: '3dPrinting.materials.fdm.prusament.colors.msPink', 
         imageUrl: '/3dprinters/PrusaPLA/Prusament PLA Blend Ms. Pink.avif',
         color: 'linear-gradient(135deg, #FF8EC7, #FF69B4)'
       },
       { 
-        name: 'Vanilla White', 
+        name: '3dPrinting.materials.fdm.prusament.colors.vanillaWhite', 
         imageUrl: '/3dprinters/PrusaPLA/Prusament PLA Vanilla White.avif',
         color: '#F8F8F0',
         needsBorder: true
       },
       { 
-        name: 'Jet Black', 
+        name: '3dPrinting.materials.fdm.prusament.colors.jetBlack', 
         imageUrl: '/3dprinters/PrusaPLA/Prusament PLA Jet Black.avif',
         color: '#1A1A1A'
       },
       { 
-        name: 'Pearl Mouse', 
+        name: '3dPrinting.materials.fdm.prusament.colors.pearlMouse', 
         imageUrl: '/3dprinters/PrusaPLA/Prusament PLA Pearl Mouse.avif',
         color: 'linear-gradient(135deg, #B8B8B8, #D0D0D0)'
       },
       { 
-        name: 'Oh My Gold', 
+        name: '3dPrinting.materials.fdm.prusament.colors.ohMyGold', 
         imageUrl: '/3dprinters/PrusaPLA/Prusament PLA Blend Oh My Gold.avif',
         color: 'linear-gradient(135deg, #FFD700, #FDB931)'
       },
       { 
-        name: 'Galaxy Silver', 
+        name: '3dPrinting.materials.fdm.prusament.colors.galaxySilver', 
         imageUrl: '/3dprinters/PrusaPLA/Prusament PLA Galaxy Silver.avif',
         color: 'linear-gradient(135deg, #C0C0C0, #E8E8E8)',
         needsBorder: true
       },
       {
-        name: 'Prusa Orange',
+        name: '3dPrinting.materials.fdm.prusament.colors.prusaOrange',
         imageUrl: '/3dprinters/PrusaPLA/Prusament PLA Prusa Orange.avif',
         color: '#FF6B18'
       },
       {
-        name: 'Mystic Brown',
+        name: '3dPrinting.materials.fdm.prusament.colors.mysticBrown',
         imageUrl: '/3dprinters/PrusaPLA/Premium Mystic Brown.png',
         color: '#8B4513'
       },
       {
-        name: 'Army Green',
+        name: '3dPrinting.materials.fdm.prusament.colors.armyGreen',
         imageUrl: '/3dprinters/PrusaPLA/Prusament PLA Army Green.avif',
         color: '#4B5320'
       },
       {
-        name: 'Royal Blue',
+        name: '3dPrinting.materials.fdm.prusament.colors.royalBlue',
         imageUrl: '/3dprinters/PrusaPLA/Prusament PLA Blend Royal Blue.avif',
         color: 'linear-gradient(135deg, #4169E1, #1E90FF)'
       },
       {
-        name: 'Opal Green',
+        name: '3dPrinting.materials.fdm.prusament.colors.opalGreen',
         imageUrl: '/3dprinters/PrusaPLA/Prusament PLA Opal Green.avif',
         color: 'linear-gradient(135deg, #50C878, #40E0D0)'
       },
       {
-        name: 'My Silverness',
+        name: '3dPrinting.materials.fdm.prusament.colors.mySilverness',
         imageUrl: '/3dprinters/PrusaPLA/Prusament PLA Blend My Silverness.avif',
         color: 'linear-gradient(135deg, #C0C0C0, #D3D3D3)',
         needsBorder: true
       },
       {
-        name: 'Lime Green',
+        name: '3dPrinting.materials.fdm.prusament.colors.limeGreen',
         imageUrl: '/3dprinters/PrusaPLA/Prusament PLA Blend Lime Green.avif',
         color: '#32CD32'
       },
       {
-        name: 'Simply Green',
+        name: '3dPrinting.materials.fdm.prusament.colors.simplyGreen',
         imageUrl: '/3dprinters/PrusaPLA/Prusament PLA Simply Green.avif',
         color: '#008000'
       },
       {
-        name: 'Gravity Grey',
+        name: '3dPrinting.materials.fdm.prusament.colors.gravityGrey',
         imageUrl: '/3dprinters/PrusaPLA/Prusament PLA Gravity Grey.avif',
         color: '#808080'
       },
       {
-        name: 'Pearl Blue',
+        name: '3dPrinting.materials.fdm.prusament.colors.pearlBlue',
         imageUrl: '/3dprinters/PrusaPLA/Prusament PLA Pearl Blue.avif',
         color: 'linear-gradient(135deg, #4169E1, #87CEEB)'
       },
       {
-        name: 'Yellow',
+        name: '3dPrinting.materials.fdm.prusament.colors.yellow',
         imageUrl: '/3dprinters/PrusaPLA/Prusament PLA Yellow.webp',
         color: '#FFD700'
       },
       {
-        name: 'Pineapple Yellow',
+        name: '3dPrinting.materials.fdm.prusament.colors.pineappleYellow',
         imageUrl: '/3dprinters/PrusaPLA/Prusament PLA Pineapple Yellow.avif',
         color: '#FFE135'
       },
       {
-        name: 'Lila',
+        name: '3dPrinting.materials.fdm.prusament.colors.lila',
         imageUrl: '/3dprinters/PrusaPLA/Prusament PLA Lila.avif',
         color: '#C8A2C8'
       }
     ],
-    selectedColor: 'Ms. Pink'
+    selectedColor: '3dPrinting.materials.fdm.prusament.colors.msPink'
   },
   {
     id: 'filamentum-pla',
     name: 'FILAMENTUM PLA',
     type: 'FDM',
-    description: 'Premium quality PLA filament known for its exceptional quality and unique color palette. Made in Czech Republic with precise diameter tolerance.',
+    description: '3dPrinting.materials.fdm.filamentum.description',
     properties: [
-      'High quality materials',
-      'Precise diameter',
-      'Excellent printability',
-      'Unique color palette'
+      '3dPrinting.materials.fdm.filamentum.properties.highQuality',
+      '3dPrinting.materials.fdm.filamentum.properties.preciseDiameter',
+      '3dPrinting.materials.fdm.filamentum.properties.excellentPrintability',
+      '3dPrinting.materials.fdm.filamentum.properties.uniqueColors'
     ],
     applications: [
-      'Decorative prints',
-      'Architectural models',
-      'Design prototypes',
-      'Art projects'
+      '3dPrinting.materials.fdm.filamentum.applications.decorative',
+      '3dPrinting.materials.fdm.filamentum.applications.architectural',
+      '3dPrinting.materials.fdm.filamentum.applications.designPrototypes',
+      '3dPrinting.materials.fdm.filamentum.applications.artProjects'
     ],
     imageUrl: '/3dprinters/FIlamentumPLA/PLA_Fillamentum__Gold_happens_1KG_540x.webp',
     colors: [
       {
-        name: 'Gold Happens',
+        name: '3dPrinting.materials.fdm.filamentum.colors.goldHappens',
         imageUrl: '/3dprinters/FIlamentumPLA/PLA_Fillamentum__Gold_happens_1KG_540x.webp',
         color: 'linear-gradient(135deg, #FFD700, #DAA520)'
       },
       {
-        name: 'Electric Grey',
+        name: '3dPrinting.materials.fdm.filamentum.colors.electricGrey',
         imageUrl: '/3dprinters/FIlamentumPLA/PLA_Fillamentum_Eletric_Grey_1KG_540x.webp',
         color: '#A9A9A9'
       },
       {
-        name: 'Rapunzel Silver',
+        name: '3dPrinting.materials.fdm.filamentum.colors.rapunzelSilver',
         imageUrl: '/3dprinters/FIlamentumPLA/PLA_Fillamentum__Rapunzel_Silver_1KG_540x.webp',
         color: 'linear-gradient(135deg, #C0C0C0, #E8E8E8)',
         needsBorder: true
       },
       {
-        name: 'Pure White',
+        name: '3dPrinting.materials.fdm.filamentum.colors.pureWhite',
         imageUrl: '/3dprinters/FIlamentumPLA/PLA_Fillamentum_White_1KG__1_540x.webp',
         color: '#FFFFFF',
         needsBorder: true
       },
       {
-        name: 'Metallic Grey',
+        name: '3dPrinting.materials.fdm.filamentum.colors.metallicGrey',
         imageUrl: '/3dprinters/FIlamentumPLA/PLA Extrafill Metallic Grey.avif',
         color: 'linear-gradient(135deg, #808080, #A8A8A8)'
       },
       {
-        name: 'Melon Yellow',
+        name: '3dPrinting.materials.fdm.filamentum.colors.melonYellow',
         imageUrl: '/3dprinters/FIlamentumPLA/PLA_Extrafill_Melon_Yellow_1_75_540x.webp',
         color: '#FFCC33'
       },
       {
-        name: 'Purple Red',
+        name: '3dPrinting.materials.fdm.filamentum.colors.purpleRed',
         imageUrl: '/3dprinters/FIlamentumPLA/PLA_Fillamentum_Purple_Red_1KG_540x.webp',
         color: '#9B2D30'
       },
       {
-        name: 'Chocolate Brown',
+        name: '3dPrinting.materials.fdm.filamentum.colors.chocolateBrown',
         imageUrl: '/3dprinters/FIlamentumPLA/PLA_Fillamentum__Chocolate_brown_1KG_540x.webp',
         color: '#654321'
       },
       {
-        name: 'Crystal Clear Iceland Blue',
+        name: '3dPrinting.materials.fdm.filamentum.colors.crystalClearIcelandBlue',
         imageUrl: '/3dprinters/FIlamentumPLA/PLA_Extrafill_Crystal_Clear_Iceland_Blue_1_75_540x.webp',
         color: 'linear-gradient(135deg, #87CEEB, #B0E0E6)'
       },
       {
-        name: 'Luminous Green',
+        name: '3dPrinting.materials.fdm.filamentum.colors.luminousGreen',
         imageUrl: '/3dprinters/FIlamentumPLA/PLA_Extrafill_Luminous_Green_1_75_540x.webp',
         color: '#90EE90'
       },
       {
-        name: 'Noble Blue',
+        name: '3dPrinting.materials.fdm.filamentum.colors.nobleBlue',
         imageUrl: '/3dprinters/FIlamentumPLA/PLA_Extrafill_Noble_Blue_1_75_540x.webp',
         color: '#000080'
       }
     ],
-    selectedColor: 'Gold Happens'
+    selectedColor: '3dPrinting.materials.fdm.filamentum.colors.goldHappens'
   },
   {
     id: 'raise-premium',
     name: 'RAISE3D Premium Materials',
     type: 'FDM',
-    description: 'Professional-grade materials optimized for the Raise3D Pro3 series. Superior quality and consistency for industrial applications.',
+    description: '3dPrinting.materials.fdm.raise3d.description',
     properties: [
-      'Industrial grade',
-      'High dimensional accuracy',
-      'Excellent layer adhesion',
-      'Professional finish'
+      '3dPrinting.materials.fdm.raise3d.properties.industrialGrade',
+      '3dPrinting.materials.fdm.raise3d.properties.highAccuracy',
+      '3dPrinting.materials.fdm.raise3d.properties.excellentAdhesion',
+      '3dPrinting.materials.fdm.raise3d.properties.professionalFinish'
     ],
     applications: [
-      'Industrial prototypes',
-      'Manufacturing aids',
-      'Professional models',
-      'Production parts'
+      '3dPrinting.materials.fdm.raise3d.applications.industrialPrototypes',
+      '3dPrinting.materials.fdm.raise3d.applications.manufacturingAids',
+      '3dPrinting.materials.fdm.raise3d.applications.professionalModels',
+      '3dPrinting.materials.fdm.raise3d.applications.productionParts'
     ],
     imageUrl: '/3dprinters/RAISE/Raise3DPremiumPLAWhite-2CardboardSpool_600x600.webp',
     colors: [
       // PLA Colors
       {
-        name: 'PLA White',
+        name: '3dPrinting.materials.fdm.raise3d.colors.plaWhite',
         imageUrl: '/3dprinters/RAISE/Raise3DPremiumPLAWhite-2CardboardSpool_600x600.webp',
         color: '#FFFFFF',
         needsBorder: true
       },
       {
-        name: 'PLA Black',
+        name: '3dPrinting.materials.fdm.raise3d.colors.plaBlack',
         imageUrl: '/3dprinters/RAISE/Raise3DPremiumPLABlack-2CardboardSpool_600x600.webp',
         color: '#1A1A1A'
       },
       {
-        name: 'PLA Blue',
+        name: '3dPrinting.materials.fdm.raise3d.colors.plaBlue',
         imageUrl: '/3dprinters/RAISE/Raise3DPremiumPLABlue-2CardboardSpool_600x600.webp',
         color: '#0047AB'
       },
       {
-        name: 'PLA Red',
+        name: '3dPrinting.materials.fdm.raise3d.colors.plaRed',
         imageUrl: '/3dprinters/RAISE/Raise3DPremiumPLARed-2CardboardSpool_600x600.webp',
         color: '#CC0000'
       },
       {
-        name: 'PLA Orange',
+        name: '3dPrinting.materials.fdm.raise3d.colors.plaOrange',
         imageUrl: '/3dprinters/RAISE/Raise3DPremiumPLAOrange-2CardboardSpool_600x600.webp',
         color: '#FFA500'
       },
       // ABS Colors
       {
-        name: 'ABS White',
+        name: '3dPrinting.materials.fdm.raise3d.colors.absWhite',
         imageUrl: '/3dprinters/RAISE/Raise3DPremiumABSWhite-2CardboardSpool_600x600.webp',
         color: '#FFFFFF',
         needsBorder: true
       },
       {
-        name: 'ABS Black',
+        name: '3dPrinting.materials.fdm.raise3d.colors.absBlack',
         imageUrl: '/3dprinters/RAISE/Raise3D Black Premium ABS Filament.webp',
         color: '#1A1A1A'
       },
       {
-        name: 'ABS Grey',
+        name: '3dPrinting.materials.fdm.raise3d.colors.absGrey',
         imageUrl: '/3dprinters/RAISE/Raise3D Grey Premium ABS Filament.webp',
         color: '#808080'
       },
       // PC Color
       {
-        name: 'PC White',
+        name: '3dPrinting.materials.fdm.raise3d.colors.pcWhite',
         imageUrl: '/3dprinters/RAISE/Raise3DPremiumPCWhite-2CardboardSpool_600x600.webp',
         color: '#FFFFFF',
         needsBorder: true
       },
       // TPU Color
       {
-        name: 'TPU White',
+        name: '3dPrinting.materials.fdm.raise3d.colors.tpuWhite',
         imageUrl: '/3dprinters/RAISE/Raise3DPremiumTPU-95AWhite-2CardboardSpool_600x600.webp',
         color: '#FFFFFF',
         needsBorder: true
       }
     ],
-    selectedColor: 'PLA White',
+    selectedColor: '3dPrinting.materials.fdm.raise3d.colors.plaWhite',
     isPremium: true
   },
   // SLA Materials
@@ -297,225 +306,224 @@ const initialMaterials: Material[] = [
     id: 'prusament-resin',
     name: 'PRUSAMENT Resin',
     type: 'SLA',
-    description: 'High-quality SLA resins from Prusa Research offering exceptional detail, various properties, and multiple color options. Including standard model resins, flexible variants, and eco-friendly bio-based options.',
+    description: '3dPrinting.materials.sla.prusament.description',
     properties: [
-      'High detail',
-      'Multiple variants',
-      'Professional quality',
-      'Wide color range'
+      '3dPrinting.materials.sla.prusament.properties.highDetail',
+      '3dPrinting.materials.sla.prusament.properties.multipleVariants',
+      '3dPrinting.materials.sla.prusament.properties.professionalQuality',
+      '3dPrinting.materials.sla.prusament.properties.wideColorRange'
     ],
     applications: [
-      'Detailed prototypes',
-      'Flexible parts',
-      'Display models',
-      'Functional prints'
+      '3dPrinting.materials.sla.prusament.applications.detailedPrototypes',
+      '3dPrinting.materials.sla.prusament.applications.flexibleParts',
+      '3dPrinting.materials.sla.prusament.applications.displayModels',
+      '3dPrinting.materials.sla.prusament.applications.functionalPrints'
     ],
     imageUrl: '/3dprinters/PrusaSLAResin/Prusament Resin Model Transparent Clear.avif',
     colors: [
       // Model Resin Colors
       {
-        name: 'Model Transparent Clear',
+        name: '3dPrinting.materials.sla.prusament.colors.modelTransparentClear',
         imageUrl: '/3dprinters/PrusaSLAResin/Prusament Resin Model Transparent Clear.avif',
         color: 'linear-gradient(135deg, #FFFFFF80, #FFFFFF40)',
         needsBorder: true
       },
       {
-        name: 'Model Transparent Green',
+        name: '3dPrinting.materials.sla.prusament.colors.modelTransparentGreen',
         imageUrl: '/3dprinters/PrusaSLAResin/Prusament Resin Model Transparent Green.avif',
         color: 'linear-gradient(135deg, #00FF0080, #00FF0040)',
         needsBorder: true
       },
       {
-        name: 'Model Transparent Red',
+        name: '3dPrinting.materials.sla.prusament.colors.modelTransparentRed',
         imageUrl: '/3dprinters/PrusaSLAResin/Prusament Resin Model Transparent Red.avif',
         color: 'linear-gradient(135deg, #FF000080, #FF000040)',
         needsBorder: true
       },
       {
-        name: 'Model Anthracite Grey',
+        name: '3dPrinting.materials.sla.prusament.colors.modelAnthraciteGrey',
         imageUrl: '/3dprinters/PrusaSLAResin/Prusament Resin Model Anthracite Grey.avif',
         color: '#2F4F4F'
       },
       {
-        name: 'Model Brick Red',
+        name: '3dPrinting.materials.sla.prusament.colors.modelBrickRed',
         imageUrl: '/3dprinters/PrusaSLAResin/Prusament Resin Model Brick Red.avif',
         color: '#8B0000'
       },
       {
-        name: 'Model Classic Red',
+        name: '3dPrinting.materials.sla.prusament.colors.modelClassicRed',
         imageUrl: '/3dprinters/PrusaSLAResin/Prusament Resin Model Classic Red.avif',
         color: '#DC143C'
       },
       {
-        name: 'Model Prusa Orange',
+        name: '3dPrinting.materials.sla.prusament.colors.modelPrusaOrange',
         imageUrl: '/3dprinters/PrusaSLAResin/Prusament Resin Model Prusa Orange 1kg.avif',
         color: '#FF6B18'
       },
       {
-        name: 'Model Terra Brown',
+        name: '3dPrinting.materials.sla.prusament.colors.modelTerraBrown',
         imageUrl: '/3dprinters/PrusaSLAResin/Prusament Resin Model Terra Brown.avif',
         color: '#8B4513'
       },
       {
-        name: 'Model Sandstone',
+        name: '3dPrinting.materials.sla.prusament.colors.modelSandstone',
         imageUrl: '/3dprinters/PrusaSLAResin/Prusament Resin Model Sandstone.avif',
         color: '#DEB887'
       },
       {
-        name: 'Model Bright Yellow',
+        name: '3dPrinting.materials.sla.prusament.colors.modelBrightYellow',
         imageUrl: '/3dprinters/PrusaSLAResin/Prusament Resin Model Bright Yellow.avif',
         color: '#FFD700'
       },
       {
-        name: 'Model Grass Green',
+        name: '3dPrinting.materials.sla.prusament.colors.modelGrassGreen',
         imageUrl: '/3dprinters/PrusaSLAResin/Prusament Resin Model Grass Green.avif',
         color: '#228B22'
       },
       // Flex80 Colors
       {
-        name: 'Flex80 Transparent Clear',
+        name: '3dPrinting.materials.sla.prusament.colors.flex80TransparentClear',
         imageUrl: '/3dprinters/PrusaSLAResin/Prusament Resin Flex80 Transparent Clear.avif',
         color: 'linear-gradient(135deg, #FFFFFF80, #FFFFFF40)',
         needsBorder: true
       },
       {
-        name: 'Flex80 Black',
+        name: '3dPrinting.materials.sla.prusament.colors.flex80Black',
         imageUrl: '/3dprinters/PrusaSLAResin/Prusament Resin Flex80 Black.avif',
         color: '#000000'
       },
       // BioBased60 Colors
       {
-        name: 'BioBased60 Natural Yellow',
+        name: '3dPrinting.materials.sla.prusament.colors.bioBased60NaturalYellow',
         imageUrl: '/3dprinters/PrusaSLAResin/Prusament Resin BioBased60 Natural Yellow.avif',
         color: '#F0E68C'
       },
       {
-        name: 'BioBased60 Herbal Green',
+        name: '3dPrinting.materials.sla.prusament.colors.bioBased60HerbalGreen',
         imageUrl: '/3dprinters/PrusaSLAResin/Prusament Resin BioBased60 Herbal Green.avif',
         color: '#2E8B57'
       },
       {
-        name: 'BioBased60 Magma Red',
+        name: '3dPrinting.materials.sla.prusament.colors.bioBased60MagmaRed',
         imageUrl: '/3dprinters/PrusaSLAResin/Prusament Resin BioBased60 Magma Red.avif',
         color: '#8B0000'
       }
     ],
-    selectedColor: 'Model Transparent Clear'
+    selectedColor: '3dPrinting.materials.sla.prusament.colors.modelTransparentClear'
   },
   {
     id: 'phrozen-resin',
     name: 'PHROZEN Resin',
     type: 'SLA',
-    description: 'Professional-grade SLA resins from Phrozen, optimized for high-resolution 3D printing. Features specialized formulations for jewelry casting and water-washable options.',
+    description: '3dPrinting.materials.sla.phrozen.description',
     properties: [
-      'High resolution',
-      'Specialized formulas',
-      'Water-washable options',
-      'Casting capable'
+      '3dPrinting.materials.sla.phrozen.properties.highResolution',
+      '3dPrinting.materials.sla.phrozen.properties.specializedFormulas',
+      '3dPrinting.materials.sla.phrozen.properties.waterWashable',
+      '3dPrinting.materials.sla.phrozen.properties.castingCapable'
     ],
     applications: [
-      'Jewelry casting',
-      'Detailed models',
-      'Professional prints',
-      'Specialty applications'
+      '3dPrinting.materials.sla.phrozen.applications.jewelryCasting',
+      '3dPrinting.materials.sla.phrozen.applications.detailedModels',
+      '3dPrinting.materials.sla.phrozen.applications.professionalPrints',
+      '3dPrinting.materials.sla.phrozen.applications.specialtyApplications'
     ],
     imageUrl: '/3dprinters/PhrozenSLAResin/AquaBlue_1400x1600_1.webp',
     colors: [
       {
-        name: 'Aqua Blue',
+        name: '3dPrinting.materials.sla.phrozen.colors.aquaBlue',
         imageUrl: '/3dprinters/PhrozenSLAResin/AquaBlue_1400x1600_1.webp',
         color: '#00CED1',
         needsBorder: true
       },
       {
-        name: 'Aqua Green',
+        name: '3dPrinting.materials.sla.phrozen.colors.aquaGreen',
         imageUrl: '/3dprinters/PhrozenSLAResin/Phrozen Aqua 3D Printing Resin Green.webp',
         color: '#2E8B57',
         needsBorder: true
       },
       {
-        name: 'Aqua Gray',
+        name: '3dPrinting.materials.sla.phrozen.colors.aquaGray',
         imageUrl: '/3dprinters/PhrozenSLAResin/Aqua-Gray8K_1400x1600_4.webp',
         color: '#808080'
       },
       {
-        name: 'Castable Green W20',
+        name: '3dPrinting.materials.sla.phrozen.colors.castableGreenW20',
         imageUrl: '/3dprinters/PhrozenSLAResin/Phrozen Castable Resin W20 Green.webp',
         color: '#228B22'
       },
       {
-        name: 'Castable Orange W40',
+        name: '3dPrinting.materials.sla.phrozen.colors.castableOrangeW40',
         imageUrl: '/3dprinters/PhrozenSLAResin/Phrozen Castable Resin W40 Orange.webp',
         color: '#FFA500'
       },
       {
-        name: 'Castable Violet',
+        name: '3dPrinting.materials.sla.phrozen.colors.castableViolet',
         imageUrl: '/3dprinters/PhrozenSLAResin/violet - Phrozen Castable Jewelry 3D Printing Resin.webp',
         color: '#8A2BE2'
       }
     ],
-    selectedColor: 'Aqua Blue'
+    selectedColor: '3dPrinting.materials.sla.phrozen.colors.aquaBlue'
   },
   {
     id: 'formlabs-resin',
     name: 'FORMLABS Resin',
     type: 'SLA',
-    description: 'Professional-grade engineering resins from Formlabs, offering unmatched quality and precision. Industry-leading materials for demanding applications.',
+    description: '3dPrinting.materials.sla.formlabs.description',
     properties: [
-      'Engineering grade',
-      'Industry certified',
-      'Highest precision',
-      'Professional quality'
+      '3dPrinting.materials.sla.formlabs.properties.engineeringGrade',
+      '3dPrinting.materials.sla.formlabs.properties.industryCertified',
+      '3dPrinting.materials.sla.formlabs.properties.highestPrecision',
+      '3dPrinting.materials.sla.formlabs.properties.professionalQuality'
     ],
     applications: [
-      'Engineering parts',
-      'Medical devices',
-      'Dental applications',
-      'Industrial prototypes'
+      '3dPrinting.materials.sla.formlabs.applications.engineeringParts',
+      '3dPrinting.materials.sla.formlabs.applications.medicalDevices',
+      '3dPrinting.materials.sla.formlabs.applications.dentalApplications',
+      '3dPrinting.materials.sla.formlabs.applications.industrialPrototypes'
     ],
     imageUrl: '/3dprinters/FormlabsSLAResin/Formlabs Clear v4 Resin.jpg',
     colors: [
       {
-        name: 'Clear v4',
+        name: '3dPrinting.materials.sla.formlabs.colors.clearV4',
         imageUrl: '/3dprinters/FormlabsSLAResin/Formlabs Clear v4 Resin.jpg',
         color: 'linear-gradient(135deg, #FFFFFF80, #FFFFFF40)',
         needsBorder: true
       },
       {
-        name: 'White v4',
+        name: '3dPrinting.materials.sla.formlabs.colors.whiteV4',
         imageUrl: '/3dprinters/FormlabsSLAResin/Formlabs White v4 Resin.jpg',
         color: '#FFFFFF',
         needsBorder: true
       },
       {
-        name: 'Grey v4',
+        name: '3dPrinting.materials.sla.formlabs.colors.greyV4',
         imageUrl: '/3dprinters/FormlabsSLAResin/Formlabs Grey v4 Resin.jpg',
-        color: '#808080',
-        needsBorder: true
+        color: '#808080'
       },
       {
-        name: 'Black v4',
+        name: '3dPrinting.materials.sla.formlabs.colors.blackV4',
         imageUrl: '/3dprinters/FormlabsSLAResin/Formlabs Black v4 Resin.jpg',
         color: '#000000'
       },
       {
-        name: 'Color Kit',
+        name: '3dPrinting.materials.sla.formlabs.colors.colorKit',
         imageUrl: '/3dprinters/FormlabsSLAResin/Formlabs Color Kit.jpg',
         color: 'linear-gradient(135deg, #FF0000, #00FF00, #0000FF)'
       },
       {
-        name: 'Color Base',
+        name: '3dPrinting.materials.sla.formlabs.colors.colorBase',
         imageUrl: '/3dprinters/FormlabsSLAResin/Color Base Resin.webp',
         color: '#F5F5F5',
         needsBorder: true
       },
       {
-        name: 'Castable Wax 40',
+        name: '3dPrinting.materials.sla.formlabs.colors.castableWax40',
         imageUrl: '/3dprinters/FormlabsSLAResin/Formlabs Castable Wax 40 Resin Cartridge.png',
         color: '#DAA520'
       }
     ],
-    selectedColor: 'Clear v4',
+    selectedColor: '3dPrinting.materials.sla.formlabs.colors.clearV4',
     isPremium: true
   }
 ];
@@ -531,7 +539,7 @@ const PrintingMaterials = () => {
   const filteredMaterials = materials.filter(material => {
     const matchesType = selectedType === 'ALL' || material.type === selectedType;
     const matchesSearch = material.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         material.description.toLowerCase().includes(searchQuery.toLowerCase());
+                         t(material.description).toLowerCase().includes(searchQuery.toLowerCase());
     return matchesType && matchesSearch;
   });
 
@@ -561,35 +569,6 @@ const PrintingMaterials = () => {
           : material
       )
     );
-  };
-
-  const renderPaginationButtons = () => {
-    const buttons = [];
-    const maxVisibleButtons = 5;
-    let startPage = Math.max(1, currentPage - Math.floor(maxVisibleButtons / 2));
-    let endPage = Math.min(totalPages, startPage + maxVisibleButtons - 1);
-
-    if (endPage - startPage + 1 < maxVisibleButtons) {
-      startPage = Math.max(1, endPage - maxVisibleButtons + 1);
-    }
-
-    for (let i = startPage; i <= endPage; i++) {
-      buttons.push(
-        <button
-          key={i}
-          onClick={() => handlePageChange(i)}
-          className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${
-            currentPage === i
-              ? 'bg-[#329db7] text-white'
-              : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-          }`}
-        >
-          {i}
-        </button>
-      );
-    }
-
-    return buttons;
   };
 
   return (
@@ -637,15 +616,14 @@ const PrintingMaterials = () => {
               {t('3dPrinting.materials.filters.sla')}
             </button>
           </div>
-          <div className="w-full md:w-auto">
-            <input
-              type="text"
-              placeholder={t('3dPrinting.materials.search.placeholder')}
-              className="w-full md:w-[300px] px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#329db7] focus:border-transparent"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-          </div>
+          
+          <input
+            type="text"
+            placeholder={t('3dPrinting.materials.search.placeholder')}
+            className="w-full md:w-[300px] px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#329db7] focus:border-transparent"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -663,7 +641,7 @@ const PrintingMaterials = () => {
                 <div className="absolute top-4 right-4 flex flex-col gap-2">
                   {material.isPremium && (
                     <span className="px-3 py-1 bg-gradient-to-r from-amber-500 to-yellow-500 text-white rounded-full text-sm font-medium shadow-md">
-                      Premium
+                      {t('3dPrinting.materials.premium')}
                     </span>
                   )}
                   <span className="px-3 py-1 bg-white/90 rounded-full text-sm font-medium text-[#329db7]">
@@ -674,7 +652,7 @@ const PrintingMaterials = () => {
               
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-3">{material.name}</h3>
-                <p className="text-gray-600 mb-4">{material.description}</p>
+                <p className="text-gray-600 mb-4">{t(material.description)}</p>
                 
                 {material.colors && (
                   <div className="mb-6">
@@ -694,10 +672,10 @@ const PrintingMaterials = () => {
                             style={{
                               background: color.color
                             }}
-                            aria-label={color.name}
+                            aria-label={t(color.name)}
                           />
                           <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-gray-900 text-white text-xs rounded-md whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
-                            {color.name}
+                            {t(color.name)}
                             <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-900 transform rotate-45"></div>
                           </div>
                         </div>
@@ -709,7 +687,7 @@ const PrintingMaterials = () => {
                 {material.colors && material.selectedColor && (
                   <div className="mb-6">
                     <p className="text-sm text-gray-600">
-                      {t('3dPrinting.materials.colors.selected')}: <span className="font-medium text-gray-900">{material.selectedColor}</span>
+                      {t('3dPrinting.materials.colors.selected')}: <span className="font-medium text-gray-900">{t(material.selectedColor)}</span>
                     </p>
                   </div>
                 )}
@@ -723,7 +701,7 @@ const PrintingMaterials = () => {
                           key={index}
                           className="px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-600"
                         >
-                          {property}
+                          {t(property)}
                         </span>
                       ))}
                     </div>
@@ -737,7 +715,7 @@ const PrintingMaterials = () => {
                           key={index}
                           className="px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-600"
                         >
-                          {application}
+                          {t(application)}
                         </span>
                       ))}
                     </div>
@@ -748,44 +726,45 @@ const PrintingMaterials = () => {
           ))}
         </div>
 
-        {filteredMaterials.length > materialsPerPage && (
-          <div className="mt-12 flex flex-col items-center gap-4">
-            <div className="flex items-center gap-2">
+        {totalPages > 1 && (
+          <div className="flex justify-center mt-12 gap-2">
+            <button
+              onClick={() => handlePageChange(currentPage - 1)}
+              disabled={currentPage === 1}
+              className={`p-2 rounded-full ${
+                currentPage === 1
+                  ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
+                  : 'bg-[#329db7] text-white hover:bg-[#2a8ba0]'
+              } transition-colors`}
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+            
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
               <button
-                onClick={() => handlePageChange(currentPage - 1)}
-                disabled={currentPage === 1}
-                className={`w-10 h-10 rounded-full flex items-center justify-center ${
-                  currentPage === 1
-                    ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
+                key={page}
+                onClick={() => handlePageChange(page)}
+                className={`w-10 h-10 rounded-full ${
+                  currentPage === page
+                    ? 'bg-[#329db7] text-white'
                     : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                }`}
+                } transition-colors`}
               >
-                <ChevronLeft className="w-5 h-5" />
+                {page}
               </button>
-
-              {renderPaginationButtons()}
-
-              <button
-                onClick={() => handlePageChange(currentPage + 1)}
-                disabled={currentPage === totalPages}
-                className={`w-10 h-10 rounded-full flex items-center justify-center ${
-                  currentPage === totalPages
-                    ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                }`}
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
-            </div>
-            <div className="text-sm text-gray-500">
-              Showing {indexOfFirstMaterial + 1}-{Math.min(indexOfLastMaterial, filteredMaterials.length)} of {filteredMaterials.length} materials
-            </div>
-          </div>
-        )}
-
-        {filteredMaterials.length === 0 && (
-          <div className="text-center py-12">
-            <p className="text-gray-600">No materials found matching your criteria.</p>
+            ))}
+            
+            <button
+              onClick={() => handlePageChange(currentPage + 1)}
+              disabled={currentPage === totalPages}
+              className={`p-2 rounded-full ${
+                currentPage === totalPages
+                  ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
+                  : 'bg-[#329db7] text-white hover:bg-[#2a8ba0]'
+              } transition-colors`}
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
           </div>
         )}
       </div>

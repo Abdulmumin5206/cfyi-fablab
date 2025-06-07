@@ -607,22 +607,22 @@
         "form3": {
           "title": "Formlabs Form 3+",
           "subtitle": "Professional SLA",
-          "description": "Ajoyib detallar va sirt sifatini ta'minlovchi Low Force Stereolithography (LFS) texnologiyasi."
+          "description": "Ajoyib detallar va silliq sirt uchun ilg'or Low Force Stereolithography (LFS) texnologiyasi."
         },
         "phrozenMini": {
           "title": "Phrozen Sonic Mini 8K",
           "subtitle": "Yuqori aniqlik",
-          "description": "22µm XY aniqlikdagi ajoyib detalli chop etish uchun 8K ultra yuqori aniqlik."
+          "description": "22µm XY aniqlikda nihoyatda detalli chop etish uchun ultra yuqori 8K aniqlik."
         },
         "phrozenMega": {
           "title": "PHROZEN Sonic MEGA 8K MSLA",
           "subtitle": "Katta format",
-          "description": "Katta loyihalar uchun sifatni yo'qotmasdan 4K aniqlikdagi katta chop etish hajmi."
+          "description": "Katta loyihalar uchun sifatdan voz kechmasdan 4K aniqlikda katta chop etish hajmi."
         },
         "prusa": {
           "title": "Prusa SL1S",
           "subtitle": "Tezlik va aniqlik",
-          "description": "5.5\" mono LCD va integratsiyalangan keyingi ishlov berish yechimi bilan tezkor MSLA texnologiyasi."
+          "description": "5.5\" mono LCD va integratsiyalashgan post-protsessing yechimi bilan tezkor MSLA texnologiyasi."
         }
       }
     },
@@ -853,30 +853,32 @@
         }
       },
       "sla": {
-        "title": "SLA 3D chop etish uskunalari",
-        "items": {
-          "form3": {
-            "title": "FormLabs Form 3",
-            "description": "Keng materiallar kutubxonasi bilan yuqori sifatli, funksional prototiplar va yakuniy qismlarni ishlab chiqarish"
-          },
-          "phrozenMega": {
-            "title": "PHROZEN Sonic MEGA 8K MSLA",
-            "description": "Katta hajmdagi qismlarni ishlab chiqarishni boshqarish, ishlab chiqarish hajmini oshirish va eng katta g'oyalaringizni hayotga tatbiq etish"
-          },
-          "phrozenMini": {
-            "title": "PHROZEN Sonic Mini 8K MSLA",
-            "description": "Naylon 3D chop etishni ishlab chiqarishga arzon, ixcham selektiv lazer sintirlash (SLS) platformasi bilan stolingizga olib keling"
-          },
-          "prusa": {
-            "title": "Original Prusa SL1S Complete",
-            "description": "Ishonchli, ko'p qirrali prototiplash va ishlab chiqarish uchun ishonchli FDM 3D printer"
-          }
+        "title": "Professional SLA 3D printerlar",
+        "form3": {
+          "title": "Formlabs Form 3+",
+          "subtitle": "Professional SLA",
+          "description": "Ajoyib detallar va silliq sirt uchun ilg'or Low Force Stereolithography (LFS) texnologiyasi."
+        },
+        "phrozenMini": {
+          "title": "Phrozen Sonic Mini 8K",
+          "subtitle": "Yuqori aniqlik",
+          "description": "22µm XY aniqlikda nihoyatda detalli chop etish uchun ultra yuqori 8K aniqlik."
+        },
+        "phrozenMega": {
+          "title": "PHROZEN Sonic MEGA 8K MSLA",
+          "subtitle": "Katta format",
+          "description": "Katta loyihalar uchun sifatdan voz kechmasdan 4K aniqlikda katta chop etish hajmi."
+        },
+        "prusa": {
+          "title": "Prusa SL1S",
+          "subtitle": "Tezlik va aniqlik",
+          "description": "5.5\" mono LCD va integratsiyalashgan post-protsessing yechimi bilan tezkor MSLA texnologiyasi."
         }
       }
     },
     "materials": {
       "title": "3D bosib chiqarish materiallari",
-      "subtitle": "FDM va SLA bosib chiqarish texnologiyalari uchun yuqori sifatli materiallarning keng assortimentini kashf eting, ularning har biri aniq qo'llash talablarini qondirish uchun diqqat bilan tanlangan.",
+      "subtitle": "FDM va SLA bosib chiqarish texnologiyalari uchun yuqori sifatli materiallarimizning keng assortimentini kashf eting.",
       "filters": {
         "all": "Barcha materiallar",
         "fdm": "FDM materiallari",
@@ -885,122 +887,190 @@
       "search": {
         "placeholder": "Materiallarni qidirish..."
       },
+      "premium": "Premium",
       "colors": {
-        "title": "Ranglar",
-        "selected": "Tanlangan"
+        "title": "Mavjud ranglar",
+        "selected": "Tanlangan rang"
       },
       "properties": {
         "title": "Xususiyatlar"
       },
       "applications": {
-        "title": "Qo'llanma"
-      },
-      "sla": {
-        "title": "SLA Materiallar",
-        "subtitle": "Turli ilovalar uchun yuqori sifatli smolalar"
+        "title": "Qo'llanilishi"
       },
       "fdm": {
-        "title": "FDM Materiallar",
-        "subtitle": "Turli ilovalar uchun keng ko'lamli filamentlar"
+        "prusament": {
+          "description": "Ajoyib bosib chiqarish sifatiga va oson ishlatilishiga ega biologik parchalanishi mumkin bo'lgan termoplastik.",
+          "properties": {
+            "biodegradable": "Biologik parchalanishi mumkin",
+            "easyToPrint": "Bosib chiqarish oson",
+            "goodSurfaceFinish": "Yaxshi sirt sifati",
+            "rigid": "Qattiq"
+          },
+          "applications": {
+            "prototypes": "Prototiplar",
+            "displayModels": "Namoyish modellari",
+            "lowWearParts": "Past aşınma qismlari"
+          },
+          "colors": {
+            "msPink": "Pushti",
+            "vanillaWhite": "Vanil oq",
+            "jetBlack": "Qora",
+            "pearlMouse": "Marvarid kulrang",
+            "ohMyGold": "Oltin",
+            "galaxySilver": "Galaktika kumush",
+            "prusaOrange": "Prusa to'q sariq",
+            "mysticBrown": "Mistik jigarrang",
+            "armyGreen": "Armiya yashil",
+            "royalBlue": "Qirol ko'k",
+            "opalGreen": "Opal yashil",
+            "mySilverness": "Mening kumushim",
+            "limeGreen": "Limon yashil",
+            "simplyGreen": "Oddiy yashil",
+            "gravityGrey": "Gravitatsiya kulrang",
+            "pearlBlue": "Marvarid ko'k",
+            "yellow": "Sariq",
+            "pineappleYellow": "Ananas sariq",
+            "lila": "Lila"
+          }
+        },
+        "filamentum": {
+          "description": "Ajoyib sifat va noyob rang palitrasiga ega premium PLA filament. Chexiyada aniq diametrli ravishda ishlab chiqarilgan.",
+          "properties": {
+            "highQuality": "Yuqori sifatli materiallar",
+            "preciseDiameter": "Aniq diametr",
+            "excellentPrintability": "Ajoyib bosib chiqarish",
+            "uniqueColors": "Noyob rang palitrasi"
+          },
+          "applications": {
+            "decorative": "Dekorativ buyumlar",
+            "architectural": "Arxitektura modellari",
+            "designPrototypes": "Dizayn prototiplari",
+            "artProjects": "San'at loyihalari"
+          },
+          "colors": {
+            "goldHappens": "Oltin",
+            "electricGrey": "Elektrik kulrang",
+            "rapunzelSilver": "Rapunzel kumush",
+            "pureWhite": "Toza oq",
+            "metallicGrey": "Metall kulrang",
+            "melonYellow": "Qovun sariq",
+            "purpleRed": "Binafsha qizil",
+            "chocolateBrown": "Shokolad jigarrang",
+            "crystalClearIcelandBlue": "Kristal toza Islandiya ko'k",
+            "luminousGreen": "Yorug' yashil",
+            "nobleBlue": "Noble ko'k"
+          }
+        },
+        "raise3d": {
+          "description": "Raise3D Pro3 seriyasi uchun optimallashtirilgan professional materiallar. Sanoat qo'llanilishi uchun ajoyib sifat va barqarorlik.",
+          "properties": {
+            "industrialGrade": "Sanoat darajasi",
+            "highAccuracy": "Yuqori o'lchov aniqligi",
+            "excellentAdhesion": "Ajoyib qatlam yopishishi",
+            "professionalFinish": "Professional yakunlash"
+          },
+          "applications": {
+            "industrialPrototypes": "Sanoat prototiplari",
+            "manufacturingAids": "Ishlab chiqarish yordamchilari",
+            "professionalModels": "Professional modellar",
+            "productionParts": "Ishlab chiqarish qismlari"
+          },
+          "colors": {
+            "plaWhite": "PLA oq",
+            "plaBlack": "PLA qora",
+            "plaBlue": "PLA ko'k",
+            "plaRed": "PLA qizil",
+            "plaOrange": "PLA to'q sariq",
+            "absWhite": "ABS oq",
+            "absBlack": "ABS qora",
+            "absGrey": "ABS kulrang",
+            "pcWhite": "PC oq",
+            "tpuWhite": "TPU oq"
+          }
+        }
       },
-      "premium": "Premium",
-      "formlabsPremium": "Formlabs Premium",
-      "types": {
-        "generalPurpose": "Umumiy maqsad",
-        "tough": "Mustahkam",
-        "rigid": "Qattiq",
-        "flameRetardant": "Yong'inga chidamli",
-        "silicone": "Silikon",
-        "elastic": "Elastik",
-        "biocompatible": "Biomuvofiqlashtirilgan",
-        "polyurethane": "Poliuretan",
-        "ceramic": "Keramika",
-        "openMaterialMode": "Ochiq material rejimi"
-      },
-      "requestSample": "NAMUNA QISMNI SO'RASH",
-      "tackleAnyProblem": "Bizning ilg'or materiallarimiz yoki ochiq material rejimidan foydalanish orqali har qanday muammoni hal qiling.",
-      "behindScenes": {
-        "title": "Sahna ortida",
-        "description": "Bizning sayohatimizni kuzating va zamonaviy 3D-bosib chiqarish texnologiyalari orqali qanday qilib sizning g'oyalaringizni hayotga tatbiq etayotganimizni bilib oling.",
-        "instagramButton": "Instagramda kuzating",
-        "telegramButton": "Telegramda kuzating"
-      }
-    },
-    "manufacturing": {
-      "title": "Ishlab chiqarish ehtiyojlaringizni o'z biznesingizni bilganingiz kabi biling.",
-      "description": "Tezkor prototiplashdan yakuniy qismlargacha, bizning ilg'or 3D chop etish yechimlarimiz sizning o'ziga xos talablaringizga moslashtirilgan aniq muhandislik natijalarini ta'minlaydi. Biz sizning g'oyalaringizni haqiqatga aylantirish uchun zamonaviy texnologiyani chuqur bilim bilan birlashtiramiz, har bir loyiha sifat va aniqlikning eng yuqori standartlariga javob beradi.",
-      "cta": "Bugundan boshlang"
-    },
-    "behindScenes": {
-      "title": "Sahna ortida",
-      "description": "Bizning sayohatimizni kuzating va zamonaviy 3D-bosib chiqarish texnologiyalari orqali qanday qilib sizning g'oyalaringizni hayotga tatbiq etayotganimizni bilib oling.",
-      "instagramButton": "Instagramda kuzating",
-      "telegramButton": "Telegramda kuzating"
-    },
-    "sla": {
-      "title": "Ko'rinmas narsalarni ko'ring, imkonsiz narsalarni chop eting",
-      "description": "Bizning SLA texnologiyamiz bilan mikroskopik aniqlikni bilib oling. 25 mikron qatlam qalinligi bilan biz inson sochidan ham maydaroq detallarni amalga oshiramiz, loyihalaringizga benzeri yo'q aniqlikni ta'minlaymiz. Nozik zargarlik buyumlaridan aniq muhandislik komponentlarigacha - ishlab chiqarishning kelajagini kuzating.",
-      "features": {
-        "layerHeight": "25 mikron qatlam qalinligi (inson sochining 1/3 qalinligi)",
-        "surfaceFinish": "Quyma sirtga o'xshash ultratekis sirt",
-        "applications": "Zargarlik buyumlari, stomatologiya va miniatyuralar uchun mukammal"
-      },
-      "cta": "SLA imkoniyatlarini o'rganing",
-      "equipment": {
-        "title": "Professional SLA 3D Printerlar",
+      "sla": {
+        "prusament": {
+          "description": "Prusa Research-dan yuqori sifatli SLA smolalari, ajoyib detallar, turli xususiyatlar va ko'p rangli variantlarni taklif qiladi. Standart model smolalari, egiluvchan variantlar va ekologik toza biologik asosli variantlarni o'z ichiga oladi.",
+          "properties": {
+            "highDetail": "Yuqori detallar",
+            "multipleVariants": "Ko'p variantlar",
+            "professionalQuality": "Professional sifat",
+            "wideColorRange": "Keng rang diapazoni"
+          },
+          "applications": {
+            "detailedPrototypes": "Batafsil prototiplar",
+            "flexibleParts": "Egiluvchan qismlar",
+            "displayModels": "Namoyish modellari",
+            "functionalPrints": "Funksional bosib chiqarishlar"
+          },
+          "colors": {
+            "modelTransparentClear": "Model shaffof",
+            "modelTransparentGreen": "Model shaffof yashil",
+            "modelTransparentRed": "Model shaffof qizil",
+            "modelAnthraciteGrey": "Model antracit kulrang",
+            "modelBrickRed": "Model g'isht qizil",
+            "modelClassicRed": "Model klassik qizil",
+            "modelPrusaOrange": "Model Prusa to'q sariq",
+            "modelTerraBrown": "Model terra jigarrang",
+            "modelSandstone": "Model qumtosh",
+            "modelBrightYellow": "Model yorug' sariq",
+            "modelGrassGreen": "Model o't yashil",
+            "flex80TransparentClear": "Flex80 shaffof",
+            "flex80Black": "Flex80 qora",
+            "bioBased60NaturalYellow": "BioBased60 tabiiy sariq",
+            "bioBased60HerbalGreen": "BioBased60 o'simlik yashil",
+            "bioBased60MagmaRed": "BioBased60 magma qizil"
+          }
+        },
+        "phrozen": {
+          "description": "Yuqori aniqlikdagi 3D bosib chiqarish uchun optimallashtirilgan Phrozen-dan professional SLA smolalari. Zargarlik buyumlarini quyish uchun maxsus formulalar va suv bilan yuviladigan variantlar.",
+          "properties": {
+            "highResolution": "Yuqori aniqlik",
+            "specializedFormulas": "Maxsus formulalar",
+            "waterWashable": "Suv bilan yuviladigan variantlar",
+            "castingCapable": "Quyishga yaroqli"
+          },
+          "applications": {
+            "jewelryCasting": "Zargarlik buyumlarini quyish",
+            "detailedModels": "Batafsil modellar",
+            "professionalPrints": "Professional bosib chiqarishlar",
+            "specialtyApplications": "Maxsus qo'llanmalar"
+          },
+          "colors": {
+            "aquaBlue": "Akva ko'k",
+            "aquaGreen": "Akva yashil",
+            "aquaGray": "Akva kulrang",
+            "castableGreenW20": "Quyiladigan yashil W20",
+            "castableOrangeW40": "Quyiladigan to'q sariq W40",
+            "castableViolet": "Quyiladigan binafsha"
+          }
+        },
         "formlabs": {
-          "title": "Formlabs Form 3+",
-          "subtitle": "Professional SLA",
-          "description": "Ajoyib detallar va sirt sifati uchun ilg'or Low Force Stereolithography (LFS) texnologiyasi."
-        },
-        "phrozenMini": {
-          "title": "Phrozen Sonic Mini 8K",
-          "subtitle": "Yuqori aniqlik",
-          "description": "22µm XY aniqlik bilan ajoyib detalli chop etish uchun ultra yuqori 8K aniqlik."
-        },
-        "phrozenMighty": {
-          "title": "PHROZEN Sonic MEGA 8K MSLA",
-          "subtitle": "Katta format",
-          "description": "Sifatdan voz kechmasdan katta loyihalar uchun 4K aniqlik bilan katta ishlab chiqarish hajmi."
-        },
-        "prusa": {
-          "title": "Prusa SL1S",
-          "subtitle": "Tezlik va aniqlik",
-          "description": "5.5\" mono LCD va integratsiyalangan keyingi ishlov berish yechimi bilan tez MSLA texnologiyasi."
+          "description": "Formlabs-dan professional muhandislik smolalari, tengsiz sifat va aniqligni taklif qiladi. Talabchan qo'llanmalar uchun sanoatda yetakchi materiallar.",
+          "properties": {
+            "engineeringGrade": "Muhandislik darajasi",
+            "industryCertified": "Sanoat uchun sertifikatlangan",
+            "highestPrecision": "Eng yuqori aniqlik",
+            "professionalQuality": "Professional sifat"
+          },
+          "applications": {
+            "engineeringParts": "Muhandislik qismlari",
+            "medicalDevices": "Tibbiy qurilmalar",
+            "dentalApplications": "Stomatologiya qo'llanmalari",
+            "industrialPrototypes": "Sanoat prototiplari"
+          },
+          "colors": {
+            "clearV4": "Shaffof v4",
+            "whiteV4": "Oq v4",
+            "greyV4": "Kulrang v4",
+            "blackV4": "Qora v4",
+            "colorKit": "Rang to'plami",
+            "colorBase": "Rang asosi",
+            "castableWax40": "Quyiladigan mum 40"
+          }
         }
-      }
-    },
-    "course": {
-      "badge": "3D Chop etishni o'rganing",
-      "title": "G'oyalaringizni haqiqatga aylantiring",
-      "description": "Bizning keng qamrovli 3D chop etish kursimizga qo'shiling va soha mutaxassislaridan o'rganing. Asoslardan tortib ilg'or texnikalargacha, biz sizni har bir qadamda yo'naltiramiz.",
-      "features": {
-        "handsOn": {
-          "title": "Amaliy tajriba",
-          "description": "Professional darajadagi uskunalar bilan ishlang va amaliy loyihalar orqali o'rganing"
-        },
-        "expert": {
-          "title": "Mutaxassislardan o'rganish",
-          "description": "Sohada ko'p yillik tajribaga ega sertifikatlangan mutaxassislardan o'rganing"
-        },
-        "certification": {
-          "title": "Sertifikat",
-          "description": "Kursni yakunlaganingizda sohada tan olingan sertifikat oling"
-        }
-      },
-      "stats": {
-        "format": {
-          "label": "Kurs formati",
-          "value": "Amaliy o'rganish"
-        },
-        "duration": {
-          "label": "Davomiyligi",
-          "value": "3-8 hafta"
-        }
-      },
-      "buttons": {
-        "enroll": "Hoziroq ro'yxatdan o'ting",
-        "syllabus": "Dasturni yuklab oling"
       }
     }
   },

@@ -362,7 +362,7 @@ const Header = () => {
 
                 {/* Language Switcher */}
                 <div className={`flex items-center ml-2 ${isLaptopScreen ? 'md:ml-1' : 'md:ml-3 lg:ml-4 xl:ml-6'}`}>
-                  <LanguageSwitcher useBlackTheme={shouldUseBlackTheme} isScrolled={isScrolled} />
+                  <LanguageSwitcher useBlackTheme={shouldUseBlackTheme} isScrolled={isScrolled} isLaptopScreen={isLaptopScreen} />
                 </div>
 
                 {/* Hamburger / close */}
@@ -389,7 +389,7 @@ const Header = () => {
             {/* Mobile toggle with proper background handling */}
             <div className="md:hidden flex items-center space-x-4 pr-4 sm:pr-6">
               {/* Mobile Language Switcher */}
-              <LanguageSwitcher useBlackTheme={false} isScrolled={isScrolled} />
+              <LanguageSwitcher useBlackTheme={false} isScrolled={isScrolled} isLaptopScreen={isLaptopScreen} />
               
               <button
                 className="flex items-center justify-center"

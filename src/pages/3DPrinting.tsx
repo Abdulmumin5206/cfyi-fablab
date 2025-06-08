@@ -62,7 +62,7 @@ const ThreeDPrintingPage = () => {
       
       <main className="flex-grow">
         {/* Hero section with video */}
-        <section className="relative w-full h-screen">
+        <section className="relative w-full h-screen bg-white">
           <img 
             src="/3dprinters/hero.webp" 
             alt="3D Printing Hero" 
@@ -88,7 +88,7 @@ const ThreeDPrintingPage = () => {
         </section>
 
         {/* Minimalist Content Section */}
-        <section className="py-16 md:py-24 bg-white">
+        <section className="py-16 md:py-24 bg-[#f7f7f7]">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col lg:flex-row items-start gap-12">
               {/* Left side content */}
@@ -137,7 +137,7 @@ const ThreeDPrintingPage = () => {
         </section>
 
         {/* New Section: Transform Your Vision */}
-        <section className="py-16 md:py-24 bg-[#f7f7f7]">
+        <section className="py-16 md:py-24 bg-white">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col lg:flex-row items-start gap-12">
               {/* Left side with main image and floating elements */}
@@ -147,33 +147,33 @@ const ThreeDPrintingPage = () => {
                   <img 
                     src="/3dprinters/FDM.webp" 
                     alt="Complex 3D Printing" 
-                    className="w-full h-[600px] object-cover"
+                    className="w-full h-[500px] object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
                 </div>
 
                 {/* Floating stats cards */}
-                <div className="absolute -bottom-8 -left-8 bg-white rounded-2xl shadow-xl p-6 max-w-[280px]">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="w-12 h-12 rounded-full bg-[#329db7]/10 flex items-center justify-center">
-                      <svg className="w-6 h-6 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="absolute -bottom-8 -left-8 bg-white rounded-2xl shadow-xl p-4 max-w-[240px]">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 rounded-full bg-[#329db7]/10 flex items-center justify-center">
+                      <svg className="w-5 h-5 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
                       </svg>
                     </div>
                     <div>
-                      <p className="text-sm text-gray-600">{t("3dPrinting.fdm.highlights.colors")}</p>
-                      <p className="text-lg font-bold text-gray-900">{t("3dPrinting.fdm.highlights.multiMaterial")}</p>
+                      <p className="text-xs text-gray-600">{t("3dPrinting.fdm.highlights.colors")}</p>
+                      <p className="text-base font-bold text-gray-900">{t("3dPrinting.fdm.highlights.multiMaterial")}</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full bg-[#329db7]/10 flex items-center justify-center">
-                      <svg className="w-6 h-6 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-[#329db7]/10 flex items-center justify-center">
+                      <svg className="w-5 h-5 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
                       </svg>
                     </div>
                     <div>
-                      <p className="text-sm text-gray-600">{t("3dPrinting.fdm.highlights.buildArea")}</p>
-                      <p className="text-lg font-bold text-gray-900">{t("3dPrinting.fdm.highlights.extraLarge")}</p>
+                      <p className="text-xs text-gray-600">{t("3dPrinting.fdm.highlights.buildArea")}</p>
+                      <p className="text-base font-bold text-gray-900">{t("3dPrinting.fdm.highlights.extraLarge")}</p>
                     </div>
                   </div>
                 </div>
@@ -364,7 +364,7 @@ const ThreeDPrintingPage = () => {
                   <img 
                     src="/3dprinters/slahigh.webp" 
                     alt="Full SLA Print" 
-                    className="w-full h-[600px] object-cover"
+                    className="w-full h-[500px] object-cover"
                     width={800}
                     height={600}
                   />
@@ -372,7 +372,7 @@ const ThreeDPrintingPage = () => {
                 </div>
 
                 {/* Circular detail overlay */}
-                <div className="absolute z-10 w-[250px] h-[250px] md:w-[300px] md:h-[300px] -right-16 -bottom-12 group">
+                <div className="absolute z-10 w-[180px] h-[180px] md:w-[220px] md:h-[220px] -right-16 -bottom-12 group">
                   {/* Simple white circle container */}
                   <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white shadow-[0_8px_32px_rgba(0,0,0,0.2)] group-hover:shadow-[0_16px_48px_rgba(0,0,0,0.3)] transition-all duration-300">
                     <img 
@@ -393,7 +393,7 @@ const ThreeDPrintingPage = () => {
         </section>
 
         {/* SLA 3D Printing Equipment Section */}
-        <section className="py-16 md:py-24 bg-white">
+        <section className="py-16 md:py-24 bg-[#f7f7f7]">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-black font-['Magistral'] text-center">
               {t("3dPrinting.equipment.sla.title")}
@@ -606,9 +606,6 @@ const ThreeDPrintingPage = () => {
                   <button className="px-8 py-4 bg-[#329db7] text-white rounded-xl font-semibold hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 font-['Magistral']">
                     {t("3dPrinting.course.buttons.enroll")}
                   </button>
-                  <button className="px-8 py-4 border-2 border-gray-200 text-gray-700 rounded-xl font-semibold hover:border-[#329db7] hover:text-[#329db7] transition-all duration-300 font-['Magistral']">
-                    {t("3dPrinting.course.buttons.syllabus")}
-                  </button>
                 </div>
               </div>
 
@@ -645,34 +642,6 @@ const ThreeDPrintingPage = () => {
                         alt="Professional Equipment" 
                         className="w-full h-48 object-cover"
                       />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Floating stats card */}
-                <div className="absolute z-10 -right-8 -bottom-8 bg-white rounded-xl shadow-lg p-6 transform hover:-translate-y-1 transition-transform duration-300">
-                  <div className="space-y-4">
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-full bg-[#329db7]/10 flex items-center justify-center">
-                        <svg className="w-6 h-6 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                        </svg>
-                      </div>
-                      <div>
-                        <p className="text-sm text-gray-600">{t("3dPrinting.course.stats.format.label")}</p>
-                        <p className="text-lg font-bold text-gray-900">{t("3dPrinting.course.stats.format.value")}</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-full bg-[#329db7]/10 flex items-center justify-center">
-                        <svg className="w-6 h-6 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                      </div>
-                      <div>
-                        <p className="text-sm text-gray-600">{t("3dPrinting.course.stats.duration.label")}</p>
-                        <p className="text-lg font-bold text-gray-900">{t("3dPrinting.course.stats.duration.value")}</p>
-                      </div>
                     </div>
                   </div>
                 </div>

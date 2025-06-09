@@ -1484,7 +1484,7 @@
       "digitalFabrication": {
         "title": "Digital Fabrication Workshop",
         "description": "Explore the intersection of digital design and physical manufacturing in this intensive workshop.",
-        "duration": "2 Days",
+        "duration": "90 min",
         "skills": {
           "skill1": "UV printer setup, operation, and material compatibility",
           "skill2": "Vinyl cutter operation and design preparation",
@@ -1498,7 +1498,16 @@
       "scanning": {
         "title": "3D Scanning Workshop",
         "description": "Learn to capture real-world objects and convert them into digital 3D models using advanced scanning technology.",
-        "duration": "1 Day"
+        "duration": "60 min",
+        "level": "Intermediate",
+        "skills": {
+          "skill1": "Working with 3D scanner and calibration",
+          "skill2": "Processing and optimizing scan data",
+          "skill3": "Converting point cloud to mesh",
+          "skill4": "Scan cleaning and repair techniques",
+          "skill5": "Reverse engineering workflows",
+          "skill6": "Quality control and measurements"
+        }
       },
       "buttons": {
         "enroll": "Register Now"

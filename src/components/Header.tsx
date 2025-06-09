@@ -314,6 +314,13 @@ const Header = () => {
                         >
                           {t('serviceCategories.3dScanning.title')}
                         </Link>
+                        <Link
+                          to="/courses"
+                          style={textStyle}
+                          className={`flex items-center ${isScrolled ? 'text-black' : 'text-white'} hover:text-white ${isScrolled ? 'bg-white hover:bg-[#329db7]' : 'bg-transparent hover:bg-[#329db7]'} transition-all duration-300 text-sm lg:text-base p-4 w-full border-b ${isScrolled ? 'border-black' : 'border-white'} last:border-b-0`}
+                        >
+                          {t('navigation.courses')}
+                        </Link>
                       </div>
                     </div>
                   </div>

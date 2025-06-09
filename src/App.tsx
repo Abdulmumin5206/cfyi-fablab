@@ -11,6 +11,7 @@ import MouldPage from "./pages/Mould";
 import EngineeringPage from "./pages/Engineering";
 import DigitalFabricationPage from "./pages/DigitalFabrication";
 import ThreeDScanningPage from "./pages/ThreeDScanning";
+import CoursesPage from "./pages/Courses";
 import BlogIndex from "./pages/blog/Index";
 import BlogPost from "./pages/blog/BlogPost";
 import SplashScreen from "./components/SplashScreen";
@@ -62,6 +63,7 @@ const App = () => {
                 <Route path="/engineering" element={<EngineeringPage />} />
                 <Route path="/digital-fabrication" element={<DigitalFabricationPage />} />
                 <Route path="/3d-scanning" element={<ThreeDScanningPage />} />
+                <Route path="/courses" element={<CoursesPage />} />
                 <Route path="/blog" element={<BlogIndex />} />
                 <Route path="/blog/:slug" element={<BlogPost />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

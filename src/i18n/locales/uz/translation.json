@@ -231,6 +231,11 @@
           "title": "Academia 50",
           "category": "Ta'lim Darajasi",
           "description": "Ta'lim va tadqiqot dasturlari uchun mo'ljallangan yuqori aniqlikdagi 3D skaner."
+        },
+        "autoscanInspec": {
+          "title": "3D SKANER AUTOSCAN-INSPEC",
+          "category": "Sanoat darajasi",
+          "description": "Aniq tekshiruv va sifat nazorati uchun ilg'or sanoat darajasidagi 3D skaner."
         }
       },
       "guide": {
@@ -1339,6 +1344,11 @@
         "title": "Academia 50",
         "category": "Ta'lim Darajasi",
         "description": "Ta'lim va tadqiqot dasturlari uchun mo'ljallangan yuqori aniqlikdagi 3D skaner."
+      },
+      "autoscanInspec": {
+        "title": "3D SKANER AUTOSCAN-INSPEC",
+        "category": "Sanoat darajasi",
+        "description": "Aniq tekshiruv va sifat nazorati uchun ilg'or sanoat darajasidagi 3D skaner."
       }
     }
   }

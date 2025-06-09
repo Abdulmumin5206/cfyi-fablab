@@ -20,32 +20,6 @@ const ThreeDScanningPage = () => {
       <Header />
       
       <main className="flex-grow">
-        {/* Hero section */}
-        <section className="relative w-full h-screen">
-          <img 
-            src="/3d-scanning/hero.webp" 
-            alt="3D Scanning Hero" 
-            className="w-full h-full object-cover"
-          />
-          {/* Scroll Down Icon */}
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
-            <svg 
-              className="w-6 h-6 text-white" 
-              fill="none" 
-              stroke="currentColor" 
-              viewBox="0 0 24 24" 
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path 
-                strokeLinecap="round" 
-                strokeLinejoin="round" 
-                strokeWidth={2} 
-                d="M19 14l-7 7m0 0l-7-7m7 7V3" 
-              />
-            </svg>
-          </div>
-        </section>
-
         {/* High-Resolution 3D Scanning Section */}
         <section className="py-16 md:py-24 bg-white">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
@@ -200,40 +174,52 @@ const ThreeDScanningPage = () => {
         <section className="py-16 md:py-24 bg-[#f7f7f7]">
           <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl md:text-4xl font-bold mb-10 md:mb-16 text-center">{t('serviceCategories.3dScanning.equipment.title')}</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-[1000px] mx-auto">
               {/* EinScan SP V2 Scanner */}
               <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
-                <div className="w-full h-96 bg-white overflow-hidden">
+                <div className="w-full h-[400px] bg-white overflow-hidden">
                   <img src="/3d-scanning/3D SCANNER EINSCAN SP V2.webp" alt={t('serviceCategories.3dScanning.equipment.einScanSPV2.title')} className="w-full h-full object-cover object-center" loading="lazy" />
                 </div>
-                <div className="flex flex-col items-center justify-center px-8 pt-4 pb-4 w-full text-center">
+                <div className="flex flex-col items-center justify-center px-6 pt-4 pb-4 w-full text-center">
                   <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center">{t('serviceCategories.3dScanning.equipment.einScanSPV2.category')}</div>
-                  <h3 className="text-2xl font-bold mb-2 text-center">{t('serviceCategories.3dScanning.equipment.einScanSPV2.title')}</h3>
-                  <p className="text-gray-700 text-center text-base">{t('serviceCategories.3dScanning.equipment.einScanSPV2.description')}</p>
+                  <h3 className="text-xl font-bold mb-2 text-center">{t('serviceCategories.3dScanning.equipment.einScanSPV2.title')}</h3>
+                  <p className="text-gray-700 text-center text-sm">{t('serviceCategories.3dScanning.equipment.einScanSPV2.description')}</p>
+                </div>
+              </div>
+
+              {/* Autoscan Inspec Scanner */}
+              <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
+                <div className="w-full h-[400px] bg-white overflow-hidden">
+                  <img src="/3d-scanning/3D SCANNER AUTOSCAN-INSPEC.webp" alt={t('serviceCategories.3dScanning.equipment.autoscanInspec.title')} className="w-full h-full object-cover object-center" loading="lazy" />
+                </div>
+                <div className="flex flex-col items-center justify-center px-6 pt-4 pb-4 w-full text-center">
+                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center">{t('serviceCategories.3dScanning.equipment.autoscanInspec.category')}</div>
+                  <h3 className="text-xl font-bold mb-2 text-center">{t('serviceCategories.3dScanning.equipment.autoscanInspec.title')}</h3>
+                  <p className="text-gray-700 text-center text-sm">{t('serviceCategories.3dScanning.equipment.autoscanInspec.description')}</p>
                 </div>
               </div>
 
               {/* EinScan H Scanner */}
               <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
-                <div className="w-full h-96 bg-white overflow-hidden">
+                <div className="w-full h-[400px] bg-white overflow-hidden">
                   <img src="/3d-scanning/3D SCANNER EINSCAN H.webp" alt={t('serviceCategories.3dScanning.equipment.einScanH.title')} className="w-full h-full object-cover object-center" loading="lazy" />
                 </div>
-                <div className="flex flex-col items-center justify-center px-8 pt-4 pb-4 w-full text-center">
+                <div className="flex flex-col items-center justify-center px-6 pt-4 pb-4 w-full text-center">
                   <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center">{t('serviceCategories.3dScanning.equipment.einScanH.category')}</div>
-                  <h3 className="text-2xl font-bold mb-2 text-center">{t('serviceCategories.3dScanning.equipment.einScanH.title')}</h3>
-                  <p className="text-gray-700 text-center text-base">{t('serviceCategories.3dScanning.equipment.einScanH.description')}</p>
+                  <h3 className="text-xl font-bold mb-2 text-center">{t('serviceCategories.3dScanning.equipment.einScanH.title')}</h3>
+                  <p className="text-gray-700 text-center text-sm">{t('serviceCategories.3dScanning.equipment.einScanH.description')}</p>
                 </div>
               </div>
 
               {/* Academia 50 Scanner */}
               <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
-                <div className="w-full h-96 bg-white overflow-hidden">
+                <div className="w-full h-[400px] bg-white overflow-hidden">
                   <img src="/3d-scanning/SYS-ACA-SC50P1 ACADEMIA 50.webp" alt={t('serviceCategories.3dScanning.equipment.academia50.title')} className="w-full h-full object-cover object-center" loading="lazy" />
                 </div>
-                <div className="flex flex-col items-center justify-center px-8 pt-4 pb-4 w-full text-center">
+                <div className="flex flex-col items-center justify-center px-6 pt-4 pb-4 w-full text-center">
                   <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center">{t('serviceCategories.3dScanning.equipment.academia50.category')}</div>
-                  <h3 className="text-2xl font-bold mb-2 text-center">{t('serviceCategories.3dScanning.equipment.academia50.title')}</h3>
-                  <p className="text-gray-700 text-center text-base">{t('serviceCategories.3dScanning.equipment.academia50.description')}</p>
+                  <h3 className="text-xl font-bold mb-2 text-center">{t('serviceCategories.3dScanning.equipment.academia50.title')}</h3>
+                  <p className="text-gray-700 text-center text-sm">{t('serviceCategories.3dScanning.equipment.academia50.description')}</p>
                 </div>
               </div>
             </div>

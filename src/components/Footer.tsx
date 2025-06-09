@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { Facebook, Instagram, Linkedin, Youtube, Send } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Youtube, Send, ArrowRight } from "lucide-react";
 
 interface FooterProps {
   bgClass?: string;
@@ -120,34 +120,43 @@ const Footer = ({ bgClass = "bg-black", textClass = "text-white" }: FooterProps)
           <div>
             <h3 className="text-lg font-semibold mb-4">{t('footer.services')}</h3>
             <ul className="space-y-3">
-              <li>
-                <Link to="/3d-printing" className={`text-sm ${linkHoverColor} transition-colors duration-200`}>
-                  {t('header.3dPrinting')}
-                </Link>
-              </li>
-              <li>
-                <Link to="/mould" className={`text-sm ${linkHoverColor} transition-colors duration-200`}>
-                  {t('header.mould')}
-                </Link>
-              </li>
-              <li>
-                <Link to="/custom-fabrication" className={`text-sm ${linkHoverColor} transition-colors duration-200`}>
-                  {t('header.customFabrication')}
-                </Link>
-              </li>
-              <li>
-                <button 
-                  onClick={scrollToMembership}
-                  className={`text-sm ${linkHoverColor} transition-colors duration-200 cursor-pointer`}
-                >
-                  Membership
-                </button>
-              </li>
-              <li>
-                <Link to="/" className={`text-sm ${linkHoverColor} transition-colors duration-200`}>
-                  {t('header.aboutFablab')}
-                </Link>
-              </li>
+              {[
+                {
+                  id: "3d-printing",
+                  titleKey: "serviceCategories.3dPrinting.title",
+                  link: "/3d-printing"
+                },
+                {
+                  id: "molding",
+                  titleKey: "serviceCategories.molding.title",
+                  link: "/mould"
+                },
+                {
+                  id: "digital-fabrication",
+                  titleKey: "serviceCategories.digitalFabrication.title",
+                  link: "/digital-fabrication"
+                },
+                {
+                  id: "precision-manufacturing",
+                  titleKey: "serviceCategories.precisionManufacturing.title",
+                  link: "/digital-fabrication#precision-manufacturing"
+                },
+                {
+                  id: "3d-scanning",
+                  titleKey: "serviceCategories.3dScanning.title",
+                  link: "/3d-scanning"
+                }
+              ].map((service) => (
+                <li key={service.id}>
+                  <Link 
+                    to={service.link} 
+                    className={`text-sm text-white ${linkHoverColor} transition-colors duration-200 flex items-center gap-2`}
+                  >
+                    <span>{t(service.titleKey)}</span>
+                    <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
           
@@ -156,21 +165,39 @@ const Footer = ({ bgClass = "bg-black", textClass = "text-white" }: FooterProps)
             <h3 className="text-lg font-semibold mb-4">{t('footer.about')}</h3>
             <ul className="space-y-3">
               <li>
-                <Link to="/blog" className={`text-sm ${linkHoverColor} transition-colors duration-200`}>
-                  {t('header.projects')}
+                <button 
+                  onClick={scrollToMembership}
+                  className={`text-sm text-white ${linkHoverColor} transition-colors duration-200 cursor-pointer flex items-center gap-2`}
+                >
+                  <span>Membership</span>
+                  <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                </button>
+              </li>
+              <li>
+                <Link to="/" className={`text-sm text-white ${linkHoverColor} transition-colors duration-200 flex items-center gap-2`}>
+                  <span>{t('header.aboutFablab')}</span>
+                  <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
                 </Link>
               </li>
               <li>
-                <Link to="/blog" className={`text-sm ${linkHoverColor} transition-colors duration-200`}>
-                  Blog
+                <Link to="/blog" className={`text-sm text-white ${linkHoverColor} transition-colors duration-200 flex items-center gap-2`}>
+                  <span>{t('header.projects')}</span>
+                  <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                </Link>
+              </li>
+              <li>
+                <Link to="/blog" className={`text-sm text-white ${linkHoverColor} transition-colors duration-200 flex items-center gap-2`}>
+                  <span>Blog</span>
+                  <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
                 </Link>
               </li>
               <li>
                 <button 
                   onClick={scrollToContact}
-                  className={`text-sm ${linkHoverColor} transition-colors duration-200 cursor-pointer`}
+                  className={`text-sm text-white ${linkHoverColor} transition-colors duration-200 cursor-pointer flex items-center gap-2`}
                 >
-                  {t('footer.contact')}
+                  <span>{t('footer.contact')}</span>
+                  <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
                 </button>
               </li>
             </ul>

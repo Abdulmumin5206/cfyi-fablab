@@ -35,7 +35,7 @@ const CoursesPage = () => {
       
       <main className="flex-grow bg-white">
         {/* 3D Printing FDM Course Section */}
-        <section className="py-16 md:py-24 bg-white">
+        <section className="pt-40 pb-24 md:pt-48 md:pb-32 bg-white">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side content */}
@@ -635,18 +635,18 @@ const CoursesPage = () => {
       <WorkshopModal
         isOpen={selectedWorkshop === 'scanning'}
         onClose={handleCloseWorkshopModal}
-        title="3D Scanning Workshop"
-        subtitle="Master the art of 3D scanning and digitization"
+        title={t("courses.workshops.scanning.title")}
+        subtitle={t("courses.workshops.scanning.description")}
         skills={[
-          "3D scanner operation and calibration",
-          "Scan data processing and optimization",
-          "Point cloud to mesh conversion",
-          "Scan cleanup and repair techniques",
-          "Reverse engineering workflows",
-          "Quality control and measurement"
+          t("courses.workshops.scanning.skills.skill1"),
+          t("courses.workshops.scanning.skills.skill2"),
+          t("courses.workshops.scanning.skills.skill3"),
+          t("courses.workshops.scanning.skills.skill4"),
+          t("courses.workshops.scanning.skills.skill5"),
+          t("courses.workshops.scanning.skills.skill6")
         ]}
-        duration="2 hours intensive"
-        level="Intermediate"
+        duration={t("courses.workshops.scanning.duration")}
+        level={t("courses.workshops.scanning.level")}
       />
     </div>
   );

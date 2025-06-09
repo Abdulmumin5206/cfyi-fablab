@@ -1515,6 +1515,7 @@
     "workshops": {
       "title": "Maxsus Ustaxonalar",
       "duration": "Davomiyligi",
+      "skillsTitle": "O'rganasiz Asosiy Ko'nikmalar",
       "digitalFabrication": {
         "title": "Raqamli Ishlab Chiqarish Ustaxonasi",
         "description": "Bu intensiv ustaxonada raqamli dizayn va jismoniy ishlab chiqarishning kesishishini o'rganing.",
@@ -1531,11 +1532,11 @@
       },
       "scanning": {
         "title": "3D Skanerlash Ustaxonasi",
-        "description": "Ilg'or skanerlash texnologiyasi yordamida haqiqiy ob'ektlarni raqamlashtirish va ularni raqamli 3D modellarga aylantirishni o'rganing.",
+        "description": "3D skanerlash va raqamlashtirish san'atini o'rganing",
         "duration": "2 soat intensiv",
         "level": "O'rta daraja",
         "skills": {
-          "skill1": "3D skaner operatsiyalari va kalibrlash",
+          "skill1": "3D skaner bilan ishlash va kalibrlash",
           "skill2": "Skanerlash ma'lumotlarini qayta ishlash va optimallashtirish",
           "skill3": "Nuqta bulutini meshga aylantirish",
           "skill4": "Skanerni tozalash va ta'mirlash texnikalari",

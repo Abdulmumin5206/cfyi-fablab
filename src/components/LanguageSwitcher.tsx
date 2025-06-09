@@ -6,9 +6,15 @@ interface LanguageSwitcherProps {
   useBlackTheme?: boolean;
   isScrolled?: boolean;
   isLaptopScreen?: boolean;
+  shouldUseBlackText?: boolean;
 }
 
-const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ useBlackTheme = false, isScrolled = false, isLaptopScreen = false }) => {
+const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ 
+  useBlackTheme = false, 
+  isScrolled = false, 
+  isLaptopScreen = false,
+  shouldUseBlackText = false 
+}) => {
   const { i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   
@@ -48,6 +54,20 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ useBlackTheme = fal
     };
   }, [isOpen]);
 
+  const getTextColor = () => {
+    if (isScrolled) return "text-black";
+    if (shouldUseBlackText) return "text-black";
+    if (useBlackTheme) return "text-white";
+    return "text-white";
+  };
+
+  const getBorderColor = () => {
+    if (isScrolled) return "border-black";
+    if (shouldUseBlackText) return "border-black";
+    if (useBlackTheme) return "border-black";
+    return "border-white";
+  };
+
   return (
     <div className="relative">
       <button
@@ -55,19 +75,15 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ useBlackTheme = fal
           e.stopPropagation();
           setIsOpen(!isOpen);
         }}
-        className={`flex items-center border hover:text-[#329db7] transition-opacity px-2 sm:px-3 py-1.5 sm:py-2 h-[38px] sm:h-[42px] ${isLaptopScreen ? 'md:h-[38px]' : 'lg:h-[42px] xl:h-[46px]'} ${
-          isScrolled 
-            ? "border-black bg-transparent text-black"
-            : "border-white bg-transparent text-white"
-        }`}
+        className={`flex items-center border hover:text-[#329db7] transition-opacity px-2 sm:px-3 py-1.5 sm:py-2 h-[38px] sm:h-[42px] ${isLaptopScreen ? 'md:h-[38px]' : 'lg:h-[42px] xl:h-[46px]'} ${getBorderColor()} bg-transparent ${getTextColor()}`}
         aria-label="Change language"
       >
-        <Globe className={`mr-1 h-4 w-4 ${isScrolled ? "text-black" : "text-white"}`} />
+        <Globe className={`mr-1 h-4 w-4 ${getTextColor()}`} />
         <span className="text-xs sm:text-sm font-medium uppercase">{currentLanguage.code}</span>
       </button>
       
       {isOpen && (
-        <div className={`absolute right-0 mt-2 ${isScrolled ? 'bg-white' : 'bg-transparent'} shadow-lg overflow-hidden z-50 w-32 border ${isScrolled ? 'border-gray-100' : 'border-white'}`}>
+        <div className={`absolute right-0 mt-2 ${isScrolled || shouldUseBlackText ? 'bg-white' : 'bg-transparent'} shadow-lg overflow-hidden z-50 w-32 border ${isScrolled || shouldUseBlackText ? 'border-gray-100' : 'border-white'}`}>
           {languages.map(language => (
             <button
               key={language.code}
@@ -76,15 +92,15 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ useBlackTheme = fal
                 changeLanguage(language.code);
               }}
               className={`w-full text-left px-3 py-2.5 flex items-center justify-between ${
-                isScrolled ? 'text-gray-800' : 'text-white'
+                isScrolled || shouldUseBlackText ? 'text-gray-800' : 'text-white'
               } ${
                 language.code === i18n.language 
-                  ? (isScrolled ? 'bg-gray-100' : 'bg-white/10') 
-                  : (isScrolled ? 'hover:bg-gray-50' : 'hover:bg-white/5')
+                  ? (isScrolled || shouldUseBlackText ? 'bg-gray-100' : 'bg-white/10') 
+                  : (isScrolled || shouldUseBlackText ? 'hover:bg-gray-50' : 'hover:bg-white/5')
               } transition-colors duration-150`}
             >
               <span className="text-sm">{language.name}</span>
-              <span className={`text-xs uppercase ${isScrolled ? 'text-gray-500' : 'text-white/70'}`}>{language.code}</span>
+              <span className={`text-xs uppercase ${isScrolled || shouldUseBlackText ? 'text-gray-500' : 'text-white/70'}`}>{language.code}</span>
             </button>
           ))}
         </div>

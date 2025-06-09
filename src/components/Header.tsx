@@ -19,8 +19,10 @@ const Header = () => {
   const is3DPrintingPage = location.pathname === "/3d-printing";
   const is3DPrintingBlogPost = location.pathname === "/blog/3d-printing-innovations";
   const isBlogPage = location.pathname === "/blog" || location.pathname.startsWith("/blog/");
+  const isCoursesPage = location.pathname === "/courses";
   const shouldUseBlackTheme = is3DPrintingBlogPost || isBlogPage;
   const shouldUseWhiteText = is3DPrintingPage && !isScrolled;
+  const shouldUseBlackText = isCoursesPage && !isScrolled;
   
   // Track window width for responsive design
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -250,12 +252,12 @@ const Header = () => {
                 <div className="relative" onMouseEnter={handleServicesMouseEnter} onMouseLeave={handleServicesMouseLeave}>
                   <span
                     style={buttonStyle}
-                    className={`flex items-center space-x-1 border px-2 sm:px-3 py-1.5 sm:py-2 h-[38px] sm:h-[42px] ${isLaptopScreen ? 'md:h-[38px]' : 'lg:h-[42px] xl:h-[46px]'} text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} ${isScrolled ? "border-black bg-transparent text-black" : (shouldUseBlackTheme && !isMobileScreen ? "border-black bg-black text-white" : shouldUseWhiteText ? "border-white bg-transparent text-white" : "border-white bg-transparent text-white")}`}
+                    className={`flex items-center space-x-1 border px-2 sm:px-3 py-1.5 sm:py-2 h-[38px] sm:h-[42px] ${isLaptopScreen ? 'md:h-[38px]' : 'lg:h-[42px] xl:h-[46px]'} text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} ${isScrolled ? "border-black bg-transparent text-black" : (shouldUseBlackTheme && !isMobileScreen ? "border-black bg-black text-white" : shouldUseWhiteText ? "border-white bg-transparent text-white" : shouldUseBlackText ? "border-black bg-transparent text-black" : "border-white bg-transparent text-white")}`}
                   >
                     <button
                       ref={servicesButtonRef}
                       style={textStyle}
-                      className={`flex items-center h-full ${isScrolled ? "text-black" : shouldUseWhiteText ? "text-white" : "text-white"} hover:text-[#329db7] transition-colors duration-300 text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} px-1 sm:px-2 bg-transparent`}
+                      className={`flex items-center h-full ${isScrolled ? "text-black" : shouldUseWhiteText ? "text-white" : shouldUseBlackText ? "text-black" : "text-white"} hover:text-[#329db7] transition-colors duration-300 text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} px-1 sm:px-2 bg-transparent`}
                       onClick={toggleServicesMenu}
                     >
                       {t('header.services')}
@@ -274,7 +276,7 @@ const Header = () => {
                       left: 0
                     }}
                   >
-                    <div className={`${isScrolled ? 'bg-white' : 'bg-transparent'} shadow-lg w-full transform transition-transform duration-300 ease-out origin-top border-b ${isScrolled ? 'border-b-black' : 'border-b-white'}`}
+                    <div className={`${isScrolled || shouldUseBlackText ? 'bg-white' : 'bg-transparent'} shadow-lg w-full transform transition-transform duration-300 ease-out origin-top border-b ${isScrolled || shouldUseBlackText ? 'border-b-black' : 'border-b-white'}`}
                          style={{ 
                            transform: servicesMenuOpen ? 'translateY(0)' : 'translateY(-100%)'
                          }}>
@@ -282,42 +284,42 @@ const Header = () => {
                         <Link
                           to="/mould"
                           style={textStyle}
-                          className={`flex items-center ${isScrolled ? 'text-black' : 'text-white'} hover:text-white ${isScrolled ? 'bg-white hover:bg-[#0e9a48]' : 'bg-transparent hover:bg-[#0e9a48]'} transition-all duration-300 text-sm lg:text-base p-4 w-full border-b ${isScrolled ? 'border-black' : 'border-white'} last:border-b-0`}
+                          className={`flex items-center ${isScrolled || shouldUseBlackText ? 'text-black' : 'text-white'} hover:text-white ${isScrolled || shouldUseBlackText ? 'bg-white hover:bg-[#0e9a48]' : 'bg-transparent hover:bg-[#0e9a48]'} transition-all duration-300 text-sm lg:text-base p-4 w-full border-b ${isScrolled || shouldUseBlackText ? 'border-black' : 'border-white'} last:border-b-0`}
                         >
                           {t('serviceCategories.molding.title')}
                         </Link>
                         <Link
                           to="/3d-printing"
                           style={textStyle}
-                          className={`flex items-center ${isScrolled ? 'text-black' : 'text-white'} hover:text-white ${isScrolled ? 'bg-white hover:bg-[#cb2026]' : 'bg-transparent hover:bg-[#cb2026]'} transition-all duration-300 text-sm lg:text-base p-4 w-full border-b ${isScrolled ? 'border-black' : 'border-white'} last:border-b-0`}
+                          className={`flex items-center ${isScrolled || shouldUseBlackText ? 'text-black' : 'text-white'} hover:text-white ${isScrolled || shouldUseBlackText ? 'bg-white hover:bg-[#cb2026]' : 'bg-transparent hover:bg-[#cb2026]'} transition-all duration-300 text-sm lg:text-base p-4 w-full border-b ${isScrolled || shouldUseBlackText ? 'border-black' : 'border-white'} last:border-b-0`}
                         >
                           {t('serviceCategories.3dPrinting.title')}
                         </Link>
                         <Link
                           to="/digital-fabrication"
                           style={textStyle}
-                          className={`flex items-center ${isScrolled ? 'text-black' : 'text-white'} hover:text-white ${isScrolled ? 'bg-white hover:bg-[#35469d]' : 'bg-transparent hover:bg-[#35469d]'} transition-all duration-300 text-sm lg:text-base p-4 w-full border-b ${isScrolled ? 'border-black' : 'border-white'} last:border-b-0`}
+                          className={`flex items-center ${isScrolled || shouldUseBlackText ? 'text-black' : 'text-white'} hover:text-white ${isScrolled || shouldUseBlackText ? 'bg-white hover:bg-[#35469d]' : 'bg-transparent hover:bg-[#35469d]'} transition-all duration-300 text-sm lg:text-base p-4 w-full border-b ${isScrolled || shouldUseBlackText ? 'border-black' : 'border-white'} last:border-b-0`}
                         >
                           {t('serviceCategories.digitalFabrication.title')}
                         </Link>
                         <Link
                           to="/digital-fabrication#precision-manufacturing"
                           style={textStyle}
-                          className={`flex items-center ${isScrolled ? 'text-black' : 'text-white'} hover:text-white ${isScrolled ? 'bg-white hover:bg-[#8a2be2]' : 'bg-transparent hover:bg-[#8a2be2]'} transition-all duration-300 text-sm lg:text-base p-4 w-full border-b ${isScrolled ? 'border-black' : 'border-white'} last:border-b-0`}
+                          className={`flex items-center ${isScrolled || shouldUseBlackText ? 'text-black' : 'text-white'} hover:text-white ${isScrolled || shouldUseBlackText ? 'bg-white hover:bg-[#8a2be2]' : 'bg-transparent hover:bg-[#8a2be2]'} transition-all duration-300 text-sm lg:text-base p-4 w-full border-b ${isScrolled || shouldUseBlackText ? 'border-black' : 'border-white'} last:border-b-0`}
                         >
                           {t('serviceCategories.precisionManufacturing.title')}
                         </Link>
                         <Link
                           to="/3d-scanning"
                           style={textStyle}
-                          className={`flex items-center ${isScrolled ? 'text-black' : 'text-white'} hover:text-white ${isScrolled ? 'bg-white hover:bg-[#ff6b6b]' : 'bg-transparent hover:bg-[#ff6b6b]'} transition-all duration-300 text-sm lg:text-base p-4 w-full border-b ${isScrolled ? 'border-black' : 'border-white'} last:border-b-0`}
+                          className={`flex items-center ${isScrolled || shouldUseBlackText ? 'text-black' : 'text-white'} hover:text-white ${isScrolled || shouldUseBlackText ? 'bg-white hover:bg-[#ff6b6b]' : 'bg-transparent hover:bg-[#ff6b6b]'} transition-all duration-300 text-sm lg:text-base p-4 w-full border-b ${isScrolled || shouldUseBlackText ? 'border-black' : 'border-white'} last:border-b-0`}
                         >
                           {t('serviceCategories.3dScanning.title')}
                         </Link>
                         <Link
                           to="/courses"
                           style={textStyle}
-                          className={`flex items-center ${isScrolled ? 'text-black' : 'text-white'} hover:text-white ${isScrolled ? 'bg-white hover:bg-[#329db7]' : 'bg-transparent hover:bg-[#329db7]'} transition-all duration-300 text-sm lg:text-base p-4 w-full border-b ${isScrolled ? 'border-black' : 'border-white'} last:border-b-0`}
+                          className={`flex items-center ${isScrolled || shouldUseBlackText ? 'text-black' : 'text-white'} hover:text-white ${isScrolled || shouldUseBlackText ? 'bg-white hover:bg-[#329db7]' : 'bg-transparent hover:bg-[#329db7]'} transition-all duration-300 text-sm lg:text-base p-4 w-full border-b ${isScrolled || shouldUseBlackText ? 'border-black' : 'border-white'} last:border-b-0`}
                         >
                           {t('navigation.courses')}
                         </Link>
@@ -330,14 +332,14 @@ const Header = () => {
                 {/* Wrap About Fablab link in a styled span */}
                 <span
                   style={{...textStyle, ...buttonStyle}}
-                  className={`flex items-center space-x-1 border px-2 sm:px-3 py-1.5 sm:py-2 h-[38px] sm:h-[42px] ${isLaptopScreen ? 'md:h-[38px]' : 'lg:h-[42px] xl:h-[46px]'} text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} ${isScrolled ? "border-black bg-transparent text-black" : (shouldUseBlackTheme && !isMobileScreen ? "border-black bg-black text-white" : shouldUseWhiteText ? "border-white bg-transparent text-white" : "border-white bg-transparent text-white")}`}
+                  className={`flex items-center space-x-1 border px-2 sm:px-3 py-1.5 sm:py-2 h-[38px] sm:h-[42px] ${isLaptopScreen ? 'md:h-[38px]' : 'lg:h-[42px] xl:h-[46px]'} text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} ${isScrolled ? "border-black bg-transparent text-black" : (shouldUseBlackTheme && !isMobileScreen ? "border-black bg-black text-white" : shouldUseWhiteText ? "border-white bg-transparent text-white" : shouldUseBlackText ? "border-black bg-transparent text-black" : "border-white bg-transparent text-white")}`}
                 >
                   <a
                     href="https://cfyi.uz/fablab"
                     target="_blank"
                     rel="noopener noreferrer"
                     style={textStyle}
-                    className={`${isScrolled ? "text-black" : shouldUseWhiteText ? "text-white" : "text-white"} hover:text-[#329db7] transition-colors duration-300 text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} px-1 sm:px-2 bg-transparent`}
+                    className={`${isScrolled ? "text-black" : shouldUseWhiteText ? "text-white" : shouldUseBlackText ? "text-black" : "text-white"} hover:text-[#329db7] transition-colors duration-300 text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} px-1 sm:px-2 bg-transparent`}
                   >
                     {t('header.aboutFablab')}
                   </a>
@@ -346,12 +348,12 @@ const Header = () => {
                 {/* Wrap Projects link in a styled span */}
                 <span
                   style={{...textStyle, ...buttonStyle}}
-                  className={`flex items-center space-x-1 border px-2 sm:px-3 py-1.5 sm:py-2 h-[38px] sm:h-[42px] ${isLaptopScreen ? 'md:h-[38px]' : 'lg:h-[42px] xl:h-[46px]'} text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} ${isScrolled ? "border-black bg-transparent text-black" : (shouldUseBlackTheme && !isMobileScreen ? "border-black bg-black text-white" : shouldUseWhiteText ? "border-white bg-transparent text-white" : "border-white bg-transparent text-white")}`}
+                  className={`flex items-center space-x-1 border px-2 sm:px-3 py-1.5 sm:py-2 h-[38px] sm:h-[42px] ${isLaptopScreen ? 'md:h-[38px]' : 'lg:h-[42px] xl:h-[46px]'} text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} ${isScrolled ? "border-black bg-transparent text-black" : (shouldUseBlackTheme && !isMobileScreen ? "border-black bg-black text-white" : shouldUseWhiteText ? "border-white bg-transparent text-white" : shouldUseBlackText ? "border-black bg-transparent text-black" : "border-white bg-transparent text-white")}`}
                 >
                   <Link
                     to="/blog"
                     style={textStyle}
-                    className={`${isScrolled ? "text-black" : shouldUseWhiteText ? "text-white" : "text-white"} hover:text-[#329db7] transition-colors duration-300 text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} px-1 sm:px-2 bg-transparent`}
+                    className={`${isScrolled ? "text-black" : shouldUseWhiteText ? "text-white" : shouldUseBlackText ? "text-black" : "text-white"} hover:text-[#329db7] transition-colors duration-300 text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} px-1 sm:px-2 bg-transparent`}
                   >
                     {t('header.projects')}
                   </Link>
@@ -362,14 +364,14 @@ const Header = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{...textStyle, ...buttonStyle}}
-                  className={`flex items-center space-x-1 px-2 sm:px-3 py-1.5 sm:py-2 h-[38px] sm:h-[42px] ${isLaptopScreen ? 'md:h-[38px]' : 'lg:h-[42px] xl:h-[46px]'} text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} hover:text-[#329db7] transition-opacity transition-colors duration-300 ${isScrolled ? "border border-black bg-transparent text-black" : (shouldUseBlackTheme && !isMobileScreen ? "border border-black bg-black text-white" : shouldUseWhiteText ? "border border-white bg-transparent text-white" : "border border-white bg-transparent text-white")}`}
+                  className={`flex items-center space-x-1 px-2 sm:px-3 py-1.5 sm:py-2 h-[38px] sm:h-[42px] ${isLaptopScreen ? 'md:h-[38px]' : 'lg:h-[42px] xl:h-[46px]'} text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} hover:text-[#329db7] transition-opacity transition-colors duration-300 ${isScrolled ? "border border-black bg-transparent text-black" : (shouldUseBlackTheme && !isMobileScreen ? "border border-black bg-black text-white" : shouldUseWhiteText ? "border border-white bg-transparent text-white" : shouldUseBlackText ? "border border-black bg-transparent text-black" : "border border-white bg-transparent text-white")}`}
                 >
                   {t('header.bookSession')}
                 </a>
 
                 {/* Language Switcher */}
                 <div className={`flex items-center ml-2 ${isLaptopScreen ? 'md:ml-1' : 'md:ml-3 lg:ml-4 xl:ml-6'}`}>
-                  <LanguageSwitcher useBlackTheme={shouldUseBlackTheme} isScrolled={isScrolled} isLaptopScreen={isLaptopScreen} />
+                  <LanguageSwitcher useBlackTheme={shouldUseBlackTheme} isScrolled={isScrolled} isLaptopScreen={isLaptopScreen} shouldUseBlackText={shouldUseBlackText} />
                 </div>
 
                 {/* Hamburger / close */}
@@ -379,7 +381,7 @@ const Header = () => {
                 >
                   <span
                     style={buttonStyle}
-                    className={`flex items-center space-x-1 border px-2 sm:px-3 py-1.5 sm:py-2 h-[38px] sm:h-[42px] ${isLaptopScreen ? 'md:h-[38px]' : 'lg:h-[42px] xl:h-[46px]'} text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} ${isScrolled ? "border-black bg-transparent text-black" : (shouldUseBlackTheme ? "border-black bg-black text-white" : shouldUseWhiteText ? "border-white bg-transparent text-white" : "border-white bg-transparent text-white")}`}
+                    className={`flex items-center space-x-1 border px-2 sm:px-3 py-1.5 sm:py-2 h-[38px] sm:h-[42px] ${isLaptopScreen ? 'md:h-[38px]' : 'lg:h-[42px] xl:h-[46px]'} text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} ${isScrolled ? "border-black bg-transparent text-black" : (shouldUseBlackTheme ? "border-black bg-black text-white" : shouldUseWhiteText ? "border-white bg-transparent text-white" : shouldUseBlackText ? "border-black bg-transparent text-black" : "border-white bg-transparent text-white")}`}
                   >
                     {isMobileMenuOpen ? 
                       <X size={isLaptopScreen ? 16 : 18} className={`${isLaptopScreen ? 'md:w-4 md:h-4' : 'lg:w-5 lg:h-5 xl:w-6 xl:h-6'}`} /> : 
@@ -396,7 +398,7 @@ const Header = () => {
             {/* Mobile toggle with proper background handling */}
             <div className="md:hidden flex items-center space-x-4 pr-4 sm:pr-6">
               {/* Mobile Language Switcher */}
-              <LanguageSwitcher useBlackTheme={false} isScrolled={isScrolled} isLaptopScreen={isLaptopScreen} />
+              <LanguageSwitcher useBlackTheme={false} isScrolled={isScrolled} isLaptopScreen={isLaptopScreen} shouldUseBlackText={shouldUseBlackText} />
               
               <button
                 className="flex items-center justify-center"

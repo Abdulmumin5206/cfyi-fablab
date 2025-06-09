@@ -53,7 +53,7 @@ const WorkshopModal: React.FC<WorkshopModalProps> = ({
             {/* Skills Section */}
             <div className="mb-6">
               <h3 className="text-xl font-semibold text-gray-900 mb-4 font-['Magistral']">
-                {t("workshops.skillsTitle")}
+                {t("courses.workshops.skillsTitle")}
               </h3>
               <ul className="space-y-3">
                 {skills.map((skill, index) => (

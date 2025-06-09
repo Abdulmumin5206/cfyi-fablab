@@ -1324,7 +1324,8 @@
     "anotherViewLeftside": "Another View (Leftside View)"
   },
   "common": {
-    "learnMore": "Learn More"
+    "learnMore": "Learn More",
+    "close": "Close"
   },
   "digitalFabrication": {
     "behindTheScenes": {
@@ -1483,7 +1484,16 @@
       "digitalFabrication": {
         "title": "Digital Fabrication Workshop",
         "description": "Explore the intersection of digital design and physical manufacturing in this intensive workshop.",
-        "duration": "2 Days"
+        "duration": "2 Days",
+        "skills": {
+          "skill1": "UV printer setup, operation, and material compatibility",
+          "skill2": "Vinyl cutter operation and design preparation",
+          "skill3": "Print quality optimization and color management",
+          "skill4": "Vector graphics creation and cut path optimization",
+          "skill5": "Material selection (substrates, vinyl types, adhesives)",
+          "skill6": "Production workflows and cost calculation"
+        },
+        "level": "Beginner to Intermediate"
       },
       "scanning": {
         "title": "3D Scanning Workshop",
@@ -1492,7 +1502,8 @@
       },
       "buttons": {
         "enroll": "Register Now"
-      }
+      },
+      "skillsTitle": "Key Skills You Will Learn"
     },
     "viewDetails": "View Details",
     "enrollNow": "Enroll Now"
@@ -1504,5 +1515,8 @@
     "blog": "Blog",
     "contact": "Contact",
     "courses": "Courses"
+  },
+  "workshops": {
+    "skillsTitle": "Key Skills You Will Learn"
   }
 } 

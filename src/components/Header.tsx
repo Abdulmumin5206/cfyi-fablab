@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import MobileMenu from "./MobileMenu";
 import LanguageSwitcher from "./LanguageSwitcher";
@@ -16,6 +16,7 @@ const Header = () => {
   const servicesMenuRef = useRef<HTMLDivElement>(null);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const is3DPrintingPage = location.pathname === "/3d-printing";
   const is3DPrintingBlogPost = location.pathname === "/blog/3d-printing-innovations";
   const isBlogPage = location.pathname === "/blog" || location.pathname.startsWith("/blog/");
@@ -206,6 +207,36 @@ const Header = () => {
     top: getDropdownPosition()
   };
 
+  // Add scroll handler for membership section
+  const handleMembershipClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    
+    // If we're not on the main page, navigate to it first
+    if (location.pathname !== '/') {
+      navigate('/');
+      // Store the intent to scroll to membership in sessionStorage
+      sessionStorage.setItem('scrollToMembership', 'true');
+    } else {
+      // If we're already on the main page, just scroll
+      const membershipSection = document.getElementById('membership-section');
+      if (membershipSection) {
+        membershipSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
+  // Add effect to handle scrolling after navigation
+  useEffect(() => {
+    if (location.pathname === '/' && sessionStorage.getItem('scrollToMembership') === 'true') {
+      const membershipSection = document.getElementById('membership-section');
+      if (membershipSection) {
+        membershipSection.scrollIntoView({ behavior: 'smooth' });
+      }
+      // Clear the scroll intent
+      sessionStorage.removeItem('scrollToMembership');
+    }
+  }, [location.pathname]);
+
   return (
     <>
       {/* Main header */}
@@ -284,44 +315,37 @@ const Header = () => {
                         <Link
                           to="/mould"
                           style={textStyle}
-                          className={`flex items-center ${isScrolled || shouldUseBlackText ? 'text-black' : 'text-white'} hover:text-white ${isScrolled || shouldUseBlackText ? 'bg-white hover:bg-[#0e9a48]' : 'bg-transparent hover:bg-[#0e9a48]'} transition-all duration-300 text-sm lg:text-base p-4 w-full border-b ${isScrolled || shouldUseBlackText ? 'border-black' : 'border-white'} last:border-b-0`}
+                          className={`flex items-center ${isScrolled || shouldUseBlackText ? 'text-black' : 'text-white'} hover:text-white ${isScrolled || shouldUseBlackText ? 'bg-white hover:bg-[#0e9a48]' : 'bg-transparent hover:bg-[#0e9a48]'} transition-all duration-300 ${i18n.language === 'ru' || i18n.language === 'uz' ? 'text-xs lg:text-sm' : 'text-sm lg:text-base'} p-4 w-full border-b ${isScrolled || shouldUseBlackText ? 'border-black' : 'border-white'} last:border-b-0`}
                         >
                           {t('serviceCategories.molding.title')}
                         </Link>
                         <Link
                           to="/3d-printing"
                           style={textStyle}
-                          className={`flex items-center ${isScrolled || shouldUseBlackText ? 'text-black' : 'text-white'} hover:text-white ${isScrolled || shouldUseBlackText ? 'bg-white hover:bg-[#cb2026]' : 'bg-transparent hover:bg-[#cb2026]'} transition-all duration-300 text-sm lg:text-base p-4 w-full border-b ${isScrolled || shouldUseBlackText ? 'border-black' : 'border-white'} last:border-b-0`}
+                          className={`flex items-center ${isScrolled || shouldUseBlackText ? 'text-black' : 'text-white'} hover:text-white ${isScrolled || shouldUseBlackText ? 'bg-white hover:bg-[#cb2026]' : 'bg-transparent hover:bg-[#cb2026]'} transition-all duration-300 ${i18n.language === 'ru' || i18n.language === 'uz' ? 'text-xs lg:text-sm' : 'text-sm lg:text-base'} p-4 w-full border-b ${isScrolled || shouldUseBlackText ? 'border-black' : 'border-white'} last:border-b-0`}
                         >
                           {t('serviceCategories.3dPrinting.title')}
                         </Link>
                         <Link
                           to="/digital-fabrication"
                           style={textStyle}
-                          className={`flex items-center ${isScrolled || shouldUseBlackText ? 'text-black' : 'text-white'} hover:text-white ${isScrolled || shouldUseBlackText ? 'bg-white hover:bg-[#35469d]' : 'bg-transparent hover:bg-[#35469d]'} transition-all duration-300 text-sm lg:text-base p-4 w-full border-b ${isScrolled || shouldUseBlackText ? 'border-black' : 'border-white'} last:border-b-0`}
+                          className={`flex items-center ${isScrolled || shouldUseBlackText ? 'text-black' : 'text-white'} hover:text-white ${isScrolled || shouldUseBlackText ? 'bg-white hover:bg-[#35469d]' : 'bg-transparent hover:bg-[#35469d]'} transition-all duration-300 ${i18n.language === 'ru' || i18n.language === 'uz' ? 'text-xs lg:text-sm' : 'text-sm lg:text-base'} p-4 w-full border-b ${isScrolled || shouldUseBlackText ? 'border-black' : 'border-white'} last:border-b-0`}
                         >
                           {t('serviceCategories.digitalFabrication.title')}
                         </Link>
                         <Link
                           to="/digital-fabrication#precision-manufacturing"
                           style={textStyle}
-                          className={`flex items-center ${isScrolled || shouldUseBlackText ? 'text-black' : 'text-white'} hover:text-white ${isScrolled || shouldUseBlackText ? 'bg-white hover:bg-[#8a2be2]' : 'bg-transparent hover:bg-[#8a2be2]'} transition-all duration-300 text-sm lg:text-base p-4 w-full border-b ${isScrolled || shouldUseBlackText ? 'border-black' : 'border-white'} last:border-b-0`}
+                          className={`flex items-center ${isScrolled || shouldUseBlackText ? 'text-black' : 'text-white'} hover:text-white ${isScrolled || shouldUseBlackText ? 'bg-white hover:bg-[#8a2be2]' : 'bg-transparent hover:bg-[#8a2be2]'} transition-all duration-300 ${i18n.language === 'ru' || i18n.language === 'uz' ? 'text-xs lg:text-sm' : 'text-sm lg:text-base'} p-4 w-full border-b ${isScrolled || shouldUseBlackText ? 'border-black' : 'border-white'} last:border-b-0`}
                         >
                           {t('serviceCategories.precisionManufacturing.title')}
                         </Link>
                         <Link
                           to="/3d-scanning"
                           style={textStyle}
-                          className={`flex items-center ${isScrolled || shouldUseBlackText ? 'text-black' : 'text-white'} hover:text-white ${isScrolled || shouldUseBlackText ? 'bg-white hover:bg-[#ff6b6b]' : 'bg-transparent hover:bg-[#ff6b6b]'} transition-all duration-300 text-sm lg:text-base p-4 w-full border-b ${isScrolled || shouldUseBlackText ? 'border-black' : 'border-white'} last:border-b-0`}
+                          className={`flex items-center ${isScrolled || shouldUseBlackText ? 'text-black' : 'text-white'} hover:text-white ${isScrolled || shouldUseBlackText ? 'bg-white hover:bg-[#ff6b6b]' : 'bg-transparent hover:bg-[#ff6b6b]'} transition-all duration-300 ${i18n.language === 'ru' || i18n.language === 'uz' ? 'text-xs lg:text-sm' : 'text-sm lg:text-base'} p-4 w-full border-b ${isScrolled || shouldUseBlackText ? 'border-black' : 'border-white'} last:border-b-0`}
                         >
                           {t('serviceCategories.3dScanning.title')}
-                        </Link>
-                        <Link
-                          to="/courses"
-                          style={textStyle}
-                          className={`flex items-center ${isScrolled || shouldUseBlackText ? 'text-black' : 'text-white'} hover:text-white ${isScrolled || shouldUseBlackText ? 'bg-white hover:bg-[#329db7]' : 'bg-transparent hover:bg-[#329db7]'} transition-all duration-300 text-sm lg:text-base p-4 w-full border-b ${isScrolled || shouldUseBlackText ? 'border-black' : 'border-white'} last:border-b-0`}
-                        >
-                          {t('navigation.courses')}
                         </Link>
                       </div>
                     </div>
@@ -359,15 +383,24 @@ const Header = () => {
                   </Link>
                 </span>
 
-                <a
-                  href="https://t.me/+998770884977"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                {/* Membership link */}
+                <Link
+                  to="/#membership"
+                  onClick={handleMembershipClick}
                   style={{...textStyle, ...buttonStyle}}
                   className={`flex items-center space-x-1 px-2 sm:px-3 py-1.5 sm:py-2 h-[38px] sm:h-[42px] ${isLaptopScreen ? 'md:h-[38px]' : 'lg:h-[42px] xl:h-[46px]'} text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} hover:text-[#329db7] transition-opacity transition-colors duration-300 ${isScrolled ? "border border-black bg-transparent text-black" : (shouldUseBlackTheme && !isMobileScreen ? "border border-black bg-black text-white" : shouldUseWhiteText ? "border border-white bg-transparent text-white" : shouldUseBlackText ? "border border-black bg-transparent text-black" : "border border-white bg-transparent text-white")}`}
                 >
-                  {t('header.bookSession')}
-                </a>
+                  {t('navigation.membership')}
+                </Link>
+
+                {/* Courses link */}
+                <Link
+                  to="/courses"
+                  style={{...textStyle, ...buttonStyle}}
+                  className={`flex items-center space-x-1 px-2 sm:px-3 py-1.5 sm:py-2 h-[38px] sm:h-[42px] ${isLaptopScreen ? 'md:h-[38px]' : 'lg:h-[42px] xl:h-[46px]'} text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} hover:text-[#329db7] transition-opacity transition-colors duration-300 ${isScrolled ? "border border-black bg-transparent text-black" : (shouldUseBlackTheme && !isMobileScreen ? "border border-black bg-black text-white" : shouldUseWhiteText ? "border border-white bg-transparent text-white" : shouldUseBlackText ? "border border-black bg-transparent text-black" : "border border-white bg-transparent text-white")}`}
+                >
+                  {t('navigation.courses')}
+                </Link>
 
                 {/* Language Switcher */}
                 <div className={`flex items-center ml-2 ${isLaptopScreen ? 'md:ml-1' : 'md:ml-3 lg:ml-4 xl:ml-6'}`}>

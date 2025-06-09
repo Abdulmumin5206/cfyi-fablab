@@ -12,6 +12,10 @@
     "customFabrication": "Maxsus ishlab chiqarish",
     "blog": "Blog"
   },
+  "navigation": {
+    "courses": "Kurslar",
+    "membership": "A'zolik"
+  },
   "hero": {
     "slide1": {
       "title": "FabLabga xush kelibsiz",

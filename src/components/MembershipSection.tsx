@@ -151,10 +151,6 @@ const MembershipSection = () => {
           height={176}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/40 transition-opacity duration-500" />
-        <div className="absolute bottom-0 right-0 bg-[#309eb7] text-white px-3 sm:px-4 py-1.5 sm:py-2 transition-transform duration-500 group-hover:translate-y-[-5px]">
-          <span className="text-xs sm:text-sm font-medium block">{t('membership.planCard.startingFrom')}</span>
-          <div className="text-base sm:text-lg font-bold">{plan.price} UZS</div>
-        </div>
         {plan.popular && (
           <div className="absolute top-0 left-0 bg-[#309eb7] text-white px-2 sm:px-3 py-1 sm:py-1.5 text-xs transition-transform duration-500 group-hover:translate-y-[5px]">
             <Star className="inline-block mr-1" size={12} />

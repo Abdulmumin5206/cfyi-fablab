@@ -12,6 +12,10 @@
     "customFabrication": "Индивидуальное изготовление",
     "blog": "Блог"
   },
+  "navigation": {
+    "courses": "Курсы",
+    "membership": "Членство"
+  },
   "hero": {
     "slide1": {
       "title": "Добро пожаловать в ФабЛаб",
@@ -405,7 +409,7 @@
   },
   "footer": {
     "services": "Услуги",
-    "about": "О FabLab",
+    "about": "Про FabLab",
     "aboutUs": "О нас",
     "projects": "Проекты",
     "blog": "Блог",

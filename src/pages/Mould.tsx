@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight, Info, ChevronDown, ChevronUp } from "lucide-reac
 import styles from "@/styles/Slider.module.css";
 import "@/styles/Carousel.css"; // Import the carousel CSS
 import { useTranslation } from "react-i18next";
+import { useNavigate } from 'react-router-dom';
 
 interface Features {
   capabilities: string[];
@@ -12,6 +13,7 @@ interface Features {
 
 const MouldPage = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const videoRef = useRef<HTMLVideoElement>(null);
   const marketsRef = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState(false);
@@ -116,6 +118,17 @@ const MouldPage = () => {
     }
   };
 
+  const handleMaterialsClick = () => {
+    navigate('/3d-printing');
+    // Wait for the page to load before scrolling
+    setTimeout(() => {
+      const materialsSection = document.getElementById('materials-section');
+      if (materialsSection) {
+        materialsSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
+
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
@@ -133,7 +146,7 @@ const MouldPage = () => {
             onError={handleVideoError}
             onLoadedData={handleVideoLoad}
           >
-            <source src="/mould/im21_multiplus_webheader-compressed.mp4" type="video/mp4" />
+            <source src="/mould/clearcast_loop_240903_720p_1mbps_h264.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
           {/* Overlay */}
@@ -151,19 +164,21 @@ const MouldPage = () => {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <a 
-                    href="#contact" 
+                    href="https://t.me/+998770884977"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center space-x-2 bg-[#329db7] text-white px-6 py-3 text-base sm:text-lg font-medium hover:bg-[#2b86a0] transition-colors duration-300"
                   >
                     <span>{t('mould.hero.buttons.consultation')}</span>
                     <ArrowRight size={20} />
                   </a>
-                  <a 
-                    href="/3d-printing#materials" 
+                  <button 
+                    onClick={handleMaterialsClick}
                     className="inline-flex items-center space-x-2 bg-transparent text-white px-6 py-3 text-base sm:text-lg font-medium border border-white hover:bg-white/10 transition-colors duration-300"
                   >
                     <span>{t('mould.hero.buttons.materials')}</span>
                     <ArrowRight size={20} />
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>
@@ -426,9 +441,14 @@ const MouldPage = () => {
                     {t('mould.precisionMoulding.description')}
                   </p>
 
-                  <button className="inline-flex items-center px-6 py-3 bg-[#329db7] text-white rounded-lg hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
+                  <a 
+                    href="https://t.me/+998770884977"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-6 py-3 bg-[#329db7] text-white rounded-lg hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
+                  >
                     {t('mould.precisionMoulding.requestQuote')}
-                  </button>
+                  </a>
                 </div>
               </div>
 
@@ -657,7 +677,12 @@ const MouldPage = () => {
                 </div>
                 
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <a href="#" className="inline-flex items-center px-6 py-3 bg-[#329db7] text-white font-medium rounded-lg hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
+                  <a 
+                    href="https://t.me/+998770884977"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-6 py-3 bg-[#329db7] text-white font-medium rounded-lg hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
+                  >
                     {t('mould.spareParts.cta')}
                   </a>
                 </div>

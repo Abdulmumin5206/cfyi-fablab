@@ -102,9 +102,19 @@ const ThreeDPrintingPage = () => {
                     {t("3dPrinting.manufacturing.description")}
                   </p>
 
-                  <button className="inline-flex items-center px-6 py-3 bg-[#329db7] text-white rounded-lg hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
+                  <a 
+                    href="#fdm"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const element = document.getElementById('fdm');
+                      if (element) {
+                        element.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }}
+                    className="inline-flex items-center px-6 py-3 bg-[#329db7] text-white rounded-lg hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
+                  >
                     {t("3dPrinting.manufacturing.cta")}
-                  </button>
+                  </a>
                 </div>
               </div>
 
@@ -137,7 +147,7 @@ const ThreeDPrintingPage = () => {
         </section>
 
         {/* New Section: Transform Your Vision */}
-        <section className="py-16 md:py-24 bg-white">
+        <section id="fdm" className="py-16 md:py-24 bg-white">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col lg:flex-row items-start gap-12">
               {/* Left side with main image and floating elements */}
@@ -223,9 +233,16 @@ const ThreeDPrintingPage = () => {
                     </div>
                   </div>
 
-                  <button className="inline-flex items-center px-6 py-3 bg-[#329db7] text-white rounded-lg hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
+                  <a 
+                    href="#fdm-equipment"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      document.getElementById('fdm-equipment')?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className="inline-flex items-center px-6 py-3 bg-[#329db7] text-white rounded-lg hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
+                  >
                     {t("3dPrinting.fdm.cta")}
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -351,9 +368,16 @@ const ThreeDPrintingPage = () => {
                     </div>
                   </div>
 
-                  <button className="inline-flex items-center px-6 py-3 bg-[#329db7] text-white rounded-lg hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
+                  <a 
+                    href="#sla-equipment"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      document.getElementById('sla-equipment')?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className="inline-flex items-center px-6 py-3 bg-[#329db7] text-white rounded-lg hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
+                  >
                     {t("3dPrinting.sla.cta")}
-                  </button>
+                  </a>
                 </div>
               </div>
 
@@ -393,7 +417,7 @@ const ThreeDPrintingPage = () => {
         </section>
 
         {/* SLA 3D Printing Equipment Section */}
-        <section className="py-16 md:py-24 bg-[#f7f7f7]">
+        <section id="sla-equipment" className="py-16 md:py-24 bg-[#f7f7f7]">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-black font-['Magistral'] text-center">
               {t("3dPrinting.equipment.sla.title")}
@@ -467,7 +491,7 @@ const ThreeDPrintingPage = () => {
         </section>
 
         {/* FDM 3D Printing Equipment Section */}
-        <section className="py-16 md:py-24 bg-white">
+        <section id="fdm-equipment" className="py-16 md:py-24 bg-white">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-black font-['Magistral'] text-center">
               {t("3dPrinting.equipment.fdm.title")}
@@ -603,9 +627,14 @@ const ThreeDPrintingPage = () => {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4 pt-6">
-                  <button className="px-8 py-4 bg-[#329db7] text-white rounded-xl font-semibold hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 font-['Magistral']">
+                  <a 
+                    href="https://t.me/+998770884977"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-8 py-4 bg-[#329db7] text-white rounded-xl font-semibold hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 font-['Magistral']"
+                  >
                     {t("3dPrinting.course.buttons.enroll")}
-                  </button>
+                  </a>
                 </div>
               </div>
 

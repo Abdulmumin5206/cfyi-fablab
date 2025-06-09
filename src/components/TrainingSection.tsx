@@ -84,9 +84,13 @@ const TrainingSection = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-6">
-              <button className="px-8 py-4 bg-[#329db7] text-white rounded-xl font-semibold hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 font-['Magistral']">
-                {t('training.exploreCourses')}
-              </button>
+              <Link 
+                to="/courses" 
+                className="inline-flex items-center px-8 py-4 bg-[#329db7] text-white rounded-xl font-semibold hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 font-['Magistral']"
+              >
+                <span>{t('training.exploreCourses')}</span>
+                <ArrowRight className="ml-2" />
+              </Link>
             </div>
           </div>
 

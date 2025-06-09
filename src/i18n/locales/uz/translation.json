@@ -1519,7 +1519,7 @@
       "digitalFabrication": {
         "title": "Raqamli Ishlab Chiqarish Ustaxonasi",
         "description": "Bu intensiv ustaxonada raqamli dizayn va jismoniy ishlab chiqarishning kesishishini o'rganing.",
-        "duration": "1.5 soat intensiv",
+        "duration": "90 daqiqa intensiv",
         "level": "Boshlang'ich - O'rta daraja",
         "skills": {
           "skill1": "UV printerini sozlash, ishlatish va materiallar mosligi",
@@ -1533,7 +1533,7 @@
       "scanning": {
         "title": "3D Skanerlash Ustaxonasi",
         "description": "3D skanerlash va raqamlashtirish san'atini o'rganing",
-        "duration": "2 soat intensiv",
+        "duration": "60 daqiqa intensiv",
         "level": "O'rta daraja",
         "skills": {
           "skill1": "3D skaner bilan ishlash va kalibrlash",

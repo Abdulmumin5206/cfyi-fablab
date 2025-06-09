@@ -9,6 +9,7 @@ interface WorkshopModalProps {
   skills: string[];
   duration: string;
   level: string;
+  currentLang: string;
 }
 
 const WorkshopModal: React.FC<WorkshopModalProps> = ({
@@ -19,6 +20,7 @@ const WorkshopModal: React.FC<WorkshopModalProps> = ({
   skills,
   duration,
   level,
+  currentLang,
 }) => {
   const { t } = useTranslation();
 
@@ -68,7 +70,7 @@ const WorkshopModal: React.FC<WorkshopModalProps> = ({
             </div>
 
             {/* Duration and Level */}
-            <div className="bg-gray-50 rounded-xl p-4">
+            <div className="bg-gray-50 rounded-xl p-4 mb-6">
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
                   <svg className="h-5 w-5 text-[#329db7] mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -83,6 +85,15 @@ const WorkshopModal: React.FC<WorkshopModalProps> = ({
                   <span className="text-gray-700 font-['Magistral']">{level}</span>
                 </div>
               </div>
+            </div>
+
+            {/* Language Availability Notice */}
+            <div className="mt-4 p-4 bg-blue-50 rounded-lg mb-6">
+              <p className="text-sm text-blue-800">
+                {currentLang === 'en' && "This workshop is available in English, Uzbek, and Russian languages."}
+                {currentLang === 'uz' && "Bu workshop ingliz, o'zbek va rus tillarida mavjud."}
+                {currentLang === 'ru' && "Этот мастер-класс доступен на английском, узбекском и русском языках."}
+              </p>
             </div>
           </div>
 

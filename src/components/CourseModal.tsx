@@ -71,6 +71,7 @@ interface CourseModalProps {
     industryApplications?: string;
     softwareCovered?: string;
   };
+  currentLang: string;
 }
 
 const CourseModal: React.FC<CourseModalProps> = ({
@@ -94,6 +95,7 @@ const CourseModal: React.FC<CourseModalProps> = ({
   softwareCovered,
   details,
   labels,
+  currentLang,
 }) => {
   useEffect(() => {
     if (isOpen) {
@@ -300,6 +302,15 @@ const CourseModal: React.FC<CourseModalProps> = ({
                   <p className="mt-2 text-gray-700">{bonusModule.items.join(', ')}</p>
                 </div>
               )}
+
+              {/* Language Availability Notice */}
+              <div className="mt-4 p-4 bg-blue-50 rounded-lg">
+                <p className="text-sm text-blue-800">
+                  {currentLang === 'en' && "This course is available in English and Uzbek languages."}
+                  {currentLang === 'uz' && "Bu kurs ingliz va o'zbek tillarida mavjud."}
+                  {currentLang === 'ru' && "Этот курс доступен на английском и узбекском языках."}
+                </p>
+              </div>
             </div>
 
             {/* Course Details */}

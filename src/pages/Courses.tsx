@@ -200,6 +200,7 @@ const CoursesPage = () => {
           bonusModule={fdmCourses.hobbyistEssentials[currentLang].bonusModule}
           details={fdmCourses.hobbyistEssentials[currentLang].details}
           labels={fdmCourses.labels[currentLang]}
+          currentLang={currentLang}
         />
 
         <CourseModal
@@ -211,6 +212,7 @@ const CoursesPage = () => {
           advancedTopics={fdmCourses.comprehensivePro[currentLang].advancedTopics}
           details={fdmCourses.comprehensivePro[currentLang].details}
           labels={fdmCourses.labels[currentLang]}
+          currentLang={currentLang}
         />
 
         <CourseModal
@@ -223,6 +225,7 @@ const CoursesPage = () => {
           handsOnExperience={courseDetails.slaCourses.completeMastery[currentLang].handsOnExperience}
           details={courseDetails.slaCourses.completeMastery[currentLang].details}
           labels={courseDetails.slaCourses.labels[currentLang]}
+          currentLang={currentLang}
         />
 
         <CourseModal
@@ -238,6 +241,7 @@ const CoursesPage = () => {
           softwareCovered={courseDetails.cadcamCourses.professionalMastery[currentLang].softwareCovered}
           details={courseDetails.cadcamCourses.professionalMastery[currentLang].details}
           labels={courseDetails.cadcamCourses.labels[currentLang]}
+          currentLang={currentLang}
         />
 
         {/* 3D Printing SLA Course Section */}
@@ -630,6 +634,7 @@ const CoursesPage = () => {
         ]}
         duration={t("courses.workshops.digitalFabrication.duration")}
         level={t("courses.workshops.digitalFabrication.level")}
+        currentLang={currentLang}
       />
 
       <WorkshopModal
@@ -647,6 +652,7 @@ const CoursesPage = () => {
         ]}
         duration={t("courses.workshops.scanning.duration")}
         level={t("courses.workshops.scanning.level")}
+        currentLang={currentLang}
       />
     </div>
   );

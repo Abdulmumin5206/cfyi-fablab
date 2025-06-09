@@ -110,7 +110,14 @@ const DigitalFabricationPage = () => {
                   </div>
 
                   <a 
-                    href="#contact" 
+                    href="#equipment" 
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const equipmentSection = document.getElementById('equipment');
+                      if (equipmentSection) {
+                        equipmentSection.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }}
                     className="inline-flex items-center space-x-2 bg-[#329db7] text-white px-6 py-3 text-base sm:text-lg font-medium hover:bg-[#2b86a0] transition-colors duration-300 hover:shadow-lg hover:-translate-y-0.5"
                   >
                     <span>{t("serviceCategories.digitalFabrication.uvPrinting.cta")}</span>
@@ -182,7 +189,9 @@ const DigitalFabricationPage = () => {
                   </div>
 
                   <a 
-                    href="#contact" 
+                    href="https://t.me/+998770884977"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center space-x-2 bg-[#329db7] text-white px-6 py-3 text-base sm:text-lg font-medium hover:bg-[#2b86a0] transition-colors duration-300 hover:shadow-lg hover:-translate-y-0.5"
                   >
                     <span>{t('serviceCategories.digitalFabrication.stickerProduction.cta')}</span>
@@ -207,7 +216,7 @@ const DigitalFabricationPage = () => {
         </section>
 
         {/* Equipment Showcase Section */}
-        <section className="py-16 md:py-24 bg-white">
+        <section id="equipment" className="py-16 md:py-24 bg-white">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-10 md:mb-16 text-center text-gray-900 font-['Magistral']">
               {t('serviceCategories.digitalFabrication.equipment.title')}
@@ -291,7 +300,14 @@ const DigitalFabricationPage = () => {
                   </div>
 
                   <a 
-                    href="#contact" 
+                    href="#precision-equipment"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const precisionSection = document.getElementById('precision-equipment');
+                      if (precisionSection) {
+                        precisionSection.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }}
                     className="inline-flex items-center space-x-2 bg-[#329db7] text-white px-6 py-3 text-base sm:text-lg font-medium hover:bg-[#2b86a0] transition-colors duration-300 hover:shadow-lg hover:-translate-y-0.5"
                   >
                     <span>{t('serviceCategories.digitalFabrication.laserCutting.cta')}</span>
@@ -366,7 +382,14 @@ const DigitalFabricationPage = () => {
                   </div>
 
                   <a 
-                    href="#contact" 
+                    href="#precision-equipment"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const precisionSection = document.getElementById('precision-equipment');
+                      if (precisionSection) {
+                        precisionSection.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }}
                     className="inline-flex items-center space-x-2 bg-[#329db7] text-white px-6 py-3 text-base sm:text-lg font-medium hover:bg-[#2b86a0] transition-colors duration-300 hover:shadow-lg hover:-translate-y-0.5"
                   >
                     <span>{t('serviceCategories.digitalFabrication.cncMachining.cta')}</span>
@@ -391,7 +414,7 @@ const DigitalFabricationPage = () => {
         </section>
 
         {/* Precision Manufacturing Equipment Showcase Section */}
-        <section className="py-16 md:py-24 bg-white">
+        <section id="precision-equipment" className="py-16 md:py-24 bg-white">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-10 md:mb-16 text-center text-gray-900 font-['Magistral']">
               {t('serviceCategories.digitalFabrication.precisionManufacturingEquipment.title')}
@@ -544,7 +567,9 @@ const DigitalFabricationPage = () => {
                 </p>
 
                 <a 
-                  href="#contact" 
+                  href="https://t.me/+998770884977"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center space-x-2 bg-[#329db7] text-white px-6 py-3 text-base sm:text-lg font-medium hover:bg-[#2b86a0] transition-colors duration-300 hover:shadow-lg hover:-translate-y-0.5 font-['Magistral']"
                 >
                   <span>{t('digitalFabrication.contactSection.cta')}</span>

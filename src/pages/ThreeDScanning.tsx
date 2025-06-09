@@ -71,7 +71,14 @@ const ThreeDScanningPage = () => {
                   </div>
 
                   <a 
-                    href="#contact" 
+                    href="#equipment"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const equipmentSection = document.getElementById('equipment');
+                      if (equipmentSection) {
+                        equipmentSection.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }}
                     className="inline-flex items-center space-x-2 bg-[#329db7] text-white px-6 py-3 text-base sm:text-lg font-medium hover:bg-[#2b86a0] transition-colors duration-300 hover:shadow-lg hover:-translate-y-0.5"
                   >
                     <span>{t("serviceCategories.3dScanning.highResolution.cta")}</span>
@@ -146,7 +153,14 @@ const ThreeDScanningPage = () => {
                   </div>
 
                   <a 
-                    href="#contact" 
+                    href="#guide"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const guideSection = document.getElementById('guide');
+                      if (guideSection) {
+                        guideSection.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }}
                     className="inline-flex items-center space-x-2 bg-[#329db7] text-white px-6 py-3 text-base sm:text-lg font-medium hover:bg-[#2b86a0] transition-colors duration-300 hover:shadow-lg hover:-translate-y-0.5"
                   >
                     <span>{t("serviceCategories.3dScanning.applications.cta")}</span>
@@ -171,7 +185,7 @@ const ThreeDScanningPage = () => {
         </section>
 
         {/* Equipment Showcase Section */}
-        <section className="py-16 md:py-24 bg-[#f7f7f7]">
+        <section id="equipment" className="py-16 md:py-24 bg-[#f7f7f7]">
           <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl md:text-4xl font-bold mb-10 md:mb-16 text-center">{t('serviceCategories.3dScanning.equipment.title')}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-[1000px] mx-auto">
@@ -227,7 +241,7 @@ const ThreeDScanningPage = () => {
         </section>
 
         {/* EinScan SP V2 Guide Section */}
-        <section className="py-16 md:py-24 bg-white">
+        <section id="guide" className="py-16 md:py-24 bg-white">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
             <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side with image */}
@@ -254,7 +268,14 @@ const ThreeDScanningPage = () => {
                   </p>
 
                   <a 
-                    href="#contact" 
+                    href="#guide"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const guideSection = document.getElementById('guide');
+                      if (guideSection) {
+                        guideSection.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }}
                     className="inline-flex items-center space-x-2 bg-[#329db7] text-white px-6 py-3 text-base sm:text-lg font-medium hover:bg-[#2b86a0] transition-colors duration-300 hover:shadow-lg hover:-translate-y-0.5"
                   >
                     <span>{t('serviceCategories.3dScanning.guide.einScanSPV2.cta')}</span>
@@ -287,8 +308,10 @@ const ThreeDScanningPage = () => {
                 </p>
 
                 <a 
-                  href="#contact" 
-                  className="inline-flex items-center space-x-2 bg-[#329db7] text-white px-6 py-3 text-base sm:text-lg font-medium hover:bg-[#2b86a0] transition-colors duration-300 hover:shadow-lg hover:-translate-y-0.5"
+                  href="https://t.me/+998770884977"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center space-x-2 bg-[#329db7] text-white px-6 py-3 text-base sm:text-lg font-medium hover:bg-[#2b86a0] transition-colors duration-300 hover:shadow-lg hover:-translate-y-0.5 font-['Magistral']"
                 >
                   <span>{t('serviceCategories.3dScanning.contactSection.cta')}</span>
                   <ArrowRight size={20} />

@@ -21,9 +21,10 @@ const Header = () => {
   const is3DPrintingBlogPost = location.pathname === "/blog/3d-printing-innovations";
   const isBlogPage = location.pathname === "/blog" || location.pathname.startsWith("/blog/");
   const isCoursesPage = location.pathname === "/courses";
+  const is3DScanningPage = location.pathname === "/3d-scanning";
   const shouldUseBlackTheme = is3DPrintingBlogPost || isBlogPage;
   const shouldUseWhiteText = is3DPrintingPage && !isScrolled;
-  const shouldUseBlackText = isCoursesPage && !isScrolled;
+  const shouldUseBlackText = (isCoursesPage || is3DScanningPage) && !isScrolled;
   
   // Track window width for responsive design
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);

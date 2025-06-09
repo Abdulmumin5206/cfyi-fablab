@@ -295,7 +295,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
               <div className={`flex items-center ${isLargeScreen ? 'p-8' : 'p-6'}`}>
                 <div className="flex flex-row max-w-4xl mx-auto w-full">
                   {/* Navigation Links - improved spacing */}
-                  <div className="flex-1">
+                  <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-x-8">
                     <div className="space-y-6 md:space-y-5">
                       {/* Direct navigation links */}
                       <Link 
@@ -325,6 +325,26 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       >
                         {t('serviceCategories.digitalFabrication.title')}
                       </Link>
+                      <Link 
+                        to="/digital-fabrication#precision-manufacturing"
+                        onClick={onClose}
+                        className={`block ${isLargeScreen ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'} text-white hover:text-[#8a2be2] transition-colors duration-300 ${
+                          isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+                        }`}
+                      >
+                        {t('serviceCategories.precisionManufacturing.title')}
+                      </Link>
+                      <Link 
+                        to="/3d-scanning"
+                        onClick={onClose}
+                        className={`block ${isLargeScreen ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'} text-white hover:text-[#ff6b6b] transition-colors duration-300 ${
+                          isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+                        }`}
+                      >
+                        {t('serviceCategories.3dScanning.title')}
+                      </Link>
+                    </div>
+                    <div className="space-y-6 md:space-y-5 mt-6 md:mt-0">
                       <Link 
                         to="/blog"
                         onClick={onClose}

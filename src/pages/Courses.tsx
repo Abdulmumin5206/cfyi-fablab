@@ -23,7 +23,7 @@ const CoursesPage = () => {
     <div className="flex min-h-screen flex-col">
       <Header />
       
-      <main className="flex-grow">
+      <main className="flex-grow bg-white">
         {/* 3D Printing FDM Course Section */}
         <section className="py-16 md:py-24 bg-white">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -142,11 +142,14 @@ const CoursesPage = () => {
                   >
                     {t("courses.viewDetails")}
                   </button>
-                  <button
-                    className="px-6 py-2 bg-[#329db7] text-white rounded-xl font-semibold hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
+                  <a
+                    href="https://t.me/+998770884977"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-6 py-2 bg-[#329db7] text-white rounded-xl font-semibold hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 text-center"
                   >
                     {t("courses.enrollNow")}
-                  </button>
+                  </a>
                 </div>
               </div>
               {/* Course 2: FDM Comprehensive Pro */}
@@ -162,11 +165,14 @@ const CoursesPage = () => {
                   >
                     {t("courses.viewDetails")}
                   </button>
-                  <button
-                    className="px-6 py-2 bg-[#329db7] text-white rounded-xl font-semibold hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
+                  <a
+                    href="https://t.me/+998770884977"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-6 py-2 bg-[#329db7] text-white rounded-xl font-semibold hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 text-center"
                   >
                     {t("courses.enrollNow")}
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -335,12 +341,22 @@ const CoursesPage = () => {
                   <span className="text-gray-600">{courseDetails.slaCourses.labels[currentLang].course1}</span> {courseDetails.slaCourses.completeMastery[currentLang].title}
                 </h3>
                 <p className="text-gray-700 mb-4">{courseDetails.slaCourses.completeMastery[currentLang].subtitle}</p>
-                <button
-                  onClick={() => handleOpenModal('sla')}
-                  className="px-6 py-2 bg-[#329db7] text-white rounded-xl font-semibold hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
-                >
-                  {t("courses.viewDetails")}
-                </button>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <button
+                    onClick={() => handleOpenModal('sla')}
+                    className="px-6 py-2 bg-[#329db7] text-white rounded-xl font-semibold hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
+                  >
+                    {t("courses.viewDetails")}
+                  </button>
+                  <a
+                    href="https://t.me/+998770884977"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-6 py-2 bg-[#329db7] text-white rounded-xl font-semibold hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 text-center"
+                  >
+                    {t("courses.enrollNow")}
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -404,12 +420,6 @@ const CoursesPage = () => {
                     </div>
                   </div>
                 </div>
-
-                <div className="flex flex-col sm:flex-row gap-4 pt-6">
-                  <button className="px-8 py-4 bg-[#329db7] text-white rounded-xl font-semibold hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 font-['Magistral']">
-                    {t("courses.precision.buttons.enroll")}
-                  </button>
-                </div>
               </div>
 
               {/* Right side image grid */}
@@ -451,26 +461,36 @@ const CoursesPage = () => {
               </div>
             </div>
           </div>
+        </section>
 
-          {/* CAD/CAM Course Details Section */}
-          <div className="max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-8 mt-8">
-            <div className="flex justify-center">
-              {/* CAD/CAM Professional Mastery Course */}
-              <div className="w-full max-w-[540px] bg-white rounded-2xl p-6 md:p-8 shadow">
-                <h3 className="text-2xl font-bold text-[#329db7] mb-2">
-                  <span className="text-gray-600">{courseDetails.cadcamCourses.labels[currentLang].course1}</span> {courseDetails.cadcamCourses.professionalMastery[currentLang].title}
-                </h3>
-                <p className="text-gray-700 mb-4">{courseDetails.cadcamCourses.professionalMastery[currentLang].subtitle}</p>
+        {/* CAD/CAM Course Details Section */}
+        <div className="max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-8 mt-8">
+          <div className="flex justify-center">
+            {/* CAD/CAM Professional Mastery Course */}
+            <div className="w-full max-w-[540px] bg-white rounded-2xl p-6 md:p-8 shadow">
+              <h3 className="text-2xl font-bold text-[#329db7] mb-2">
+                <span className="text-gray-600">{courseDetails.cadcamCourses.labels[currentLang].course1}</span> {courseDetails.cadcamCourses.professionalMastery[currentLang].title}
+              </h3>
+              <p className="text-gray-700 mb-4">{courseDetails.cadcamCourses.professionalMastery[currentLang].subtitle}</p>
+              <div className="flex flex-col sm:flex-row gap-4">
                 <button
                   onClick={() => handleOpenModal('cadcam')}
                   className="px-6 py-2 bg-[#329db7] text-white rounded-xl font-semibold hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
                 >
                   {t("courses.viewDetails")}
                 </button>
+                <a
+                  href="https://t.me/+998770884977"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-6 py-2 bg-[#329db7] text-white rounded-xl font-semibold hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 text-center"
+                >
+                  {t("courses.enrollNow")}
+                </a>
               </div>
             </div>
           </div>
-        </section>
+        </div>
 
         {/* Workshops Section */}
         <section className="py-16 md:py-24 bg-white">

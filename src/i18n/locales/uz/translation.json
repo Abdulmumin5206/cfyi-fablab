@@ -438,7 +438,7 @@
     },
     "4": {
       "title": "SLA bosma innovatsiyasi",
-      "excerpt": "Bizning SLA bosma texnologiyamizdan foydalangan holda ajoyib sirt yuzasi bilan murakkab, yuqori aniqlikdagi qismlarni ishlab chiqarish.",
+      "excerpt": "Bizning SLA bosma texnologiyasidan foydalanib, ajoyib sirt yuzasi bilan murakkab, yuqori aniqlikdagi qismlarni ishlab chiqarish.",
       "category": "SLA Bosma"
     }
   },
@@ -1491,6 +1491,25 @@
       }
     },
     "viewDetails": "Batafsil",
-    "enrollNow": "Ro'yxatdan o'tish"
+    "enrollNow": "Ro'yxatdan o'tish",
+    "precision": {
+      "badge": "Aniq Ishlab Chiqarish",
+      "title": "Aniq Ishlab Chiqarishni O'rganing",
+      "description": "Zamonaviy vositalar va texnikalar bilan aniq ishlab chiqarish san'atini o'rganing. CNC ishlov berishdan ilg'or pardozlash jarayonlarigacha, yuqori sifatli ishlab chiqarish uchun zarur bo'lgan ko'nikmalarni egallang.",
+      "features": {
+        "handsOn": {
+          "title": "Amaliy Tajriba",
+          "description": "Professional ishlab chiqarish uskunalari bilan ishlang va amaliy loyihalar orqali o'rganing"
+        },
+        "expert": {
+          "title": "Mutaxassis O'qitishi",
+          "description": "Sanoatda ko'p yillik tajribaga ega sertifikatlangan mutaxassislardan o'rganing"
+        },
+        "certification": {
+          "title": "Sertifikat",
+          "description": "Kursni yakunlaganingizda sanoatda tan olingan sertifikat oling"
+        }
+      }
+    }
   }
-} 
+}

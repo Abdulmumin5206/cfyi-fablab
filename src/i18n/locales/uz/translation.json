@@ -1156,80 +1156,58 @@
         "title": "Talaba",
         "description": "Talabalar, yangi bitiruvchilar va o'rganishni yaxshi ko'ruvchilar uchun ideal",
         "features": [
-          "Oylik 10 soatlik kirish",
-          "Bepul asosiy o'qitish (8 soatlik dastur)",
-          "Jamiyat ustaxonasiga kirish (oyiga 2 marta)",
-          "Talaba loyihalari uchun saqlash joyi (1m³)",
-          "Elektron pochta orqali texnik yordam",
+          "Oyiga 20 soat mashina vaqtidan foydalanish (2,5 soat/sessiya, 8 kungacha)",
+          "Ish vaqti tashqarisida kirish (9:00–14:00)",
+          "Asosiy 2 soatlik o'quv dasturi",
+          "Prusa MK3+ 3D printeriga kirish (bitta birlik)",
+          "UV printer va stiker mashinasiga kirish",
+          "CNC desktop mashinasidan foydalanish",
+          "Materiallarga 30% chegirma",
           "Asosiy materiallar kiritilgan",
-          "Ta'lim chegirmalari (30% chegirma)",
-          "O'quv guruhlariga kirish"
+          "Talaba loyihalari uchun saqlash joyi",
+          "Kompyuterga kirish kiritilgan"
         ],
         "restrictions": [
-          "Faqat ish vaqti tashqarisida (9:00-17:00)",
-          "Tijoriy maqsadlarda foydalanish taqiqlanadi"
-        ],
-        "popularFeatures": [
-          "Universitet loyihalari uchun ideal",
-          "O'z tezoringizda o'rganing",
-          "Boshqa talabalar bilan tanishing"
+          "Yosh: 16–25 yosh",
+          "Amaldagi talaba guvohnomasi talab qilinadi",
+          "Bir vaqtning o'zida maksimal 2 loyiha"
         ]
       },
       "maker": {
-        "title": "Yaratuvchi",
-        "description": "Xobbi uchun, frilanserlar va ijodiy tadbirkorlar uchun eng yaxshi tanlov",
+        "title": "Maker",
+        "description": "Xobbi, frilanserlar va ijodiy tadbirkorlar uchun eng yaxshi tanlov",
         "features": [
-          "Oylik 25 soatlik kirish",
-          "Ilg'or o'qitish ustaxonasi",
-          "Birinchi navbatda band qilish tizimi",
-          "Loyiha maslahati (oyiga 30 daqiqa)",
-          "Kengaytirilgan saqlash joyi (2m³)",
-          "Telefon va elektron pochta orqali yordam",
-          "Materiallar uchun chegirmalar (20% chegirma)",
-          "Dam olish kunlarida kirish kiritilgan",
-          "Oylik 2 ta mehmon chiptasi"
+          "Oyiga 30 soat mashina vaqtidan foydalanish (2,5 soat/sessiya, 12 kungacha)",
+          "Moslashuvchan kirish",
+          "Asosiy 3,5 soatlik o'quv dasturi",
+          "MMU bilan Prusa MK3S+ 3D printeriga kirish",
+          "SLA Prusa 3D printeriga kirish",
+          "UV printer va stiker mashinasiga kirish",
+          "CNC desktop mashinasidan foydalanish",
+          "Lazerli kesishga kirish",
+          "Qo'shimcha materiallarga 15% chegirma",
+          "Bepul asosiy materiallar (oylik limit)",
+          "Loyiha saqlash joyi (2 m³)",
+          "Kompyuterga kirish kiritilgan"
         ],
-        "perfectFor": [
-          "Dam olish kunlari ustalari",
-          "Etsy do'konlari egalari",
-          "Prototip ishlab chiqish"
-        ]
-      },
-      "professional": {
-        "title": "Professional",
-        "description": "Tadbirkorlar, kichik biznes va jiddiy yaratuvchilar uchun ideal",
-        "features": [
-          "Cheklanmagan kirish",
-          "Maxsus saqlash joyi (5m³)",
-          "Ish vaqtida birinchi navbatda",
-          "Texnik maslahat (oyiga 2 soat)",
-          "Shoshilinch ishlar uchun birinchi navbatda",
-          "Marketing hamkorligi",
-          "Opta materiallar uchun chegirmalar (30% chegirma)",
-          "Tijoriy litsenziya",
-          "Ilg'or dasturiy ta'minotga kirish",
-          "Biznes tarmoq tadbirlari"
-        ],
-        "businessBenefits": [
-          "Ishlab chiqarishni kengaytiring",
-          "Professional obro'",
-          "Tadbirkorlar bilan tanishing"
+        "restrictions": [
+          "Yosh: 18+ yosh",
+          "Asosiy xavfsizlik o'qitishi talab qilinadi",
+          "Bir vaqtning o'zida maksimal 4 loyiha"
         ]
       },
       "startup": {
         "title": "Startap",
-        "description": "Boshlang'ich startaplar va o'sib borayotgan biznes uchun mo'ljallangan",
+        "description": "Boshlang'ich startaplar va rivojlanayotgan bizneslar uchun mo'ljallangan",
         "features": [
-          "Oylik 40 soatlik kirish",
-          "Biznes ustaxonasi",
-          "Maxsus ish vaqti",
-          "Loyiha maslahati (oyiga 1 soat)",
-          "Startaplar uchun saqlash joyi (3m³)",
-          "Birinchi navbatda texnik yordam",
-          "Materiallar uchun chegirmalar (25% chegirma)",
-          "Tijoriy litsenziya",
-          "4 ta jamoa a'zosi uchun kirish",
-          "Tarmoq tadbirlariga kirish"
+          "Cheklanmagan mashina va ustaxona kirishi",
+          "Xususiy ish vaqti tashqarisida kirish va dam olish zoni",
+          "Haftalik maslahat sessiyasi (2 soat/hafta)",
+          "Maxsus texnik rahbar yordami",
+          "Qo'shimcha materiallarga 30% chegirma",
+          "Bepul premium materiallar (maksimal limit)",
+          "Birinchi navbatda saqlash (10 m³)",
+          "Kompyuterga kirish kiritilgan"
         ],
         "startupPerks": [
           "Jamoa ishlash joyi",
@@ -1277,9 +1255,11 @@
       "startingFrom": "Boshlang'ich narx",
       "mostPopular": "Eng mashhur",
       "perfectForLearning": "O'rganish uchun ideal",
-      "businessReady": "Biznes uchun tayyor",
+      "businessReady": "Biznesga tayyor",
       "growthPackage": "O'sish paketi"
-    }
+    },
+    "restrictions": "Cheklovlar",
+    "businessBenefits": "Biznes imkoniyatlari"
   },
   "training": {
     "ourCourses": "Bizning Kurslarimiz",

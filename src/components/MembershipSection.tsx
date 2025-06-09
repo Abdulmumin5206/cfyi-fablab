@@ -12,43 +12,31 @@ const MembershipSection = () => {
   const membershipFeatures = useMemo(() => [
     {
       title: t('membership.types.student.title'),
-      price: "500,000",
+      price: "1,000,000",
       description: t('membership.types.student.description'),
       features: t('membership.types.student.features', { returnObjects: true }) as string[],
       restrictions: t('membership.types.student.restrictions', { returnObjects: true }) as string[],
       color: "bg-[#309eb7]",
       image: "/main/membership/students.webp",
-      badge: "Perfect for Learning",
-      popularFeatures: t('membership.types.student.popularFeatures', { returnObjects: true }) as string[]
+      badge: "Perfect for Learning"
     },
     {
       title: t('membership.types.maker.title'),
-      price: "1,000,000",
+      price: "2,000,000",
       description: t('membership.types.maker.description'),
       features: t('membership.types.maker.features', { returnObjects: true }) as string[],
       color: "bg-[#309eb7]",
       image: "/main/membership/maker.webp",
       badge: "Most Popular",
-      popular: true,
-      perfectFor: t('membership.types.maker.perfectFor', { returnObjects: true }) as string[]
-    },
-    {
-      title: t('membership.types.professional.title'),
-      price: "2,000,000",
-      description: t('membership.types.professional.description'),
-      features: t('membership.types.professional.features', { returnObjects: true }) as string[],
-      color: "bg-[#309eb7]",
-      image: "/main/membership/professional.webp",
-      badge: "Business Ready",
-      businessBenefits: t('membership.types.professional.businessBenefits', { returnObjects: true }) as string[]
+      popular: true
     },
     {
       title: t('membership.types.startup.title'),
-      price: "1,500,000",
+      price: "5,000,000",
       description: t('membership.types.startup.description'),
       features: t('membership.types.startup.features', { returnObjects: true }) as string[],
       color: "bg-[#309eb7]",
-      image: "/main/membership/startup.webp",
+      image: "/main/membership/professional.webp",
       badge: "Growth Package",
       startupPerks: t('membership.types.startup.startupPerks', { returnObjects: true }) as string[]
     }
@@ -203,15 +191,11 @@ const MembershipSection = () => {
             </ul>
           </div>
         )}
-        {(plan.popularFeatures || plan.perfectFor || plan.businessBenefits) && (
+        {plan.startupPerks && (
           <div className="mb-3 sm:mb-4 bg-gray-50 p-2 sm:p-3 transition-all duration-500 hover:bg-gray-100">
-            <h4 className="font-semibold mb-1 text-xs sm:text-sm text-gray-500">
-              {plan.popularFeatures ? t('membership.popularFeatures') : 
-               plan.perfectFor ? t('membership.perfectFor') : 
-               t('membership.businessBenefits')}
-            </h4>
+            <h4 className="font-semibold mb-1 text-xs sm:text-sm text-gray-500">{t('membership.businessBenefits')}</h4>
             <ul className="space-y-0.5 sm:space-y-1">
-              {(plan.popularFeatures || plan.perfectFor || plan.businessBenefits)?.map((item, idx) => (
+              {plan.startupPerks.map((item, idx) => (
                 <li key={idx} className="text-gray-500 text-xs sm:text-sm transition-colors duration-500">• {item}</li>
               ))}
             </ul>
@@ -234,20 +218,20 @@ const MembershipSection = () => {
 
   return (
     <section id="membership-section" className="py-8 sm:py-12 lg:py-16 bg-gray-200 relative overflow-hidden">
-      <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
+      <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1400px]">
         {/* Header */}
         <div className="max-w-[1400px] mx-auto px-3 sm:px-4 lg:px-6">
-          <div className="text-left mb-6 sm:mb-8 lg:mb-10">
+          <div className="text-center mb-6 sm:mb-8 lg:mb-10">
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-black">
               {t('membership.title')}
             </h2>
-            <p className="text-left text-gray-700 text-sm sm:text-base lg:text-lg mb-4 sm:mb-6 lg:mb-8 max-w-3xl">
+            <p className="text-center text-gray-700 text-sm sm:text-base lg:text-lg mb-4 sm:mb-6 lg:mb-8 max-w-3xl mx-auto">
               {t('membership.subtitle')}
             </p>
           </div>
 
           {/* Membership Tiers */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 mb-4 sm:mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 mb-4 sm:mb-6 max-w-[1200px] mx-auto">
             {membershipFeatures.map((plan, index) => (
               <PlanCard key={index} plan={plan} />
             ))}

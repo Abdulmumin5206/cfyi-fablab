@@ -1164,85 +1164,68 @@
         "title": "Student",
         "description": "Perfect for students, recent graduates, and learning enthusiasts",
         "features": [
-          "10 hours monthly access",
-          "Free basic training (8-hour program)",
-          "Access to community workshops (2/month)",
-          "Student project storage (1m³)",
-          "Email support",
+          "20 hours of machine access per month (2.5 hours/session, up to 8 days)",
+          "Access during off-peak hours (9:00–14:00)",
+          "Basic 2-hour training program",
+          "Access to Prusa MK3+ 3D printer (one unit)",
+          "Access to UV printer and sticker machine",
+          "Use of CNC desktop machine",
+          "30% discount on materials",
           "Basic materials included",
-          "Educational discounts (30% off)",
-          "Access to study groups"
+          "Student project storage",
+          "PC access included"
         ],
         "restrictions": [
-          "Off-hours only (9:00-17:00)",
-          "No commercial use"
-        ],
-        "popularFeatures": [
-          "Perfect for university projects",
-          "Learn at your own pace",
-          "Connect with other students"
+          "Age: 16–25 years old",
+          "Valid student ID required",
+          "Maximum 2 projects at a time"
         ]
       },
       "maker": {
         "title": "Maker",
         "description": "Best choice for hobbyists, freelancers, and creative entrepreneurs",
         "features": [
-          "25 hours monthly access",
-          "Advanced training workshops",
-          "Priority booking system",
-          "Project consultations (30min/month)",
-          "Extended storage (2m³)",
-          "Phone and email support",
-          "Material discounts (20% off)",
-          "Weekend access included",
-          "2 guest passes/month"
+          "30 hours of machine access per month (2.5 hours/session, up to 12 days)",
+          "Flexible access",
+          "Basic 3.5-hour training program",
+          "Access to Prusa MK3S+ 3D printer with MMU",
+          "Access to SLA Prusa 3D printer",
+          "Access to UV printer and sticker machine",
+          "Use of CNC desktop machine",
+          "Laser cutting access",
+          "15% discount on extra materials",
+          "Free basic materials (monthly allowance)",
+          "Project storage (2 m³)",
+          "PC access included"
         ],
-        "perfectFor": [
-          "Weekend makers",
-          "Etsy shop owners",
-          "Prototype development"
-        ]
-      },
-      "professional": {
-        "title": "Professional",
-        "description": "Ideal for entrepreneurs, small businesses, and serious makers",
-        "features": [
-          "Unlimited access",
-          "Dedicated storage (5m³)",
-          "Priority during business hours",
-          "Technical consultations (2h/month)",
-          "Priority urgent work",
-          "Marketing collaboration",
-          "Bulk material discounts (30% off)",
-          "Commercial license",
-          "Access to advanced software",
-          "Business networking events"
-        ],
-        "businessBenefits": [
-          "Scale your production",
-          "Professional reputation",
-          "Connect with entrepreneurs"
+        "restrictions": [
+          "Age: 18+ years old",
+          "Basic safety training required",
+          "Maximum 4 projects at a time"
         ]
       },
       "startup": {
         "title": "Startup",
         "description": "Designed for early-stage startups and growing businesses",
         "features": [
-          "40 hours monthly access",
-          "Business workshops",
-          "Dedicated workspace hours",
-          "Project consultations (1h/month)",
-          "Startup storage (3m³)",
-          "Priority technical support",
-          "Material discounts (25% off)",
-          "Commercial license",
-          "Access for 4 team members",
-          "Access to networking events"
+          "Unlimited machine and workshop access",
+          "Private after-hours access and lounge area",
+          "Weekly consulting session (2 hours/week)",
+          "Dedicated technical lead support",
+          "30% discount on extra materials",
+          "Free premium materials (highest tier allowance)",
+          "Priority storage (10 m³)",
+          "PC access included"
         ],
         "startupPerks": [
           "Team workspace",
           "Business mentorship",
           "Access to startup community"
+        ],
+        "restrictions": [
+          "Age: 18+ years old",
+          "Full safety certification required",
+          "Registered business entity required"
         ]
       }
     },

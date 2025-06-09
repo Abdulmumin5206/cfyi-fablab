@@ -241,7 +241,7 @@ const DigitalFabricationPage = () => {
         </section>
 
         {/* Precision Laser Cutting Section */}
-        <section className="py-16 md:py-24 bg-white">
+        <section id="precision-manufacturing" className="py-16 md:py-24 bg-white">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
             <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side content */}

@@ -60,7 +60,17 @@
     "explorePrefix": "Ko'rish",
     "3dPrinting": {
       "title": "3D Chop etish va Qo'shimcha Ishlab chiqarish",
-      "description": "Tezkor prototiplayash va ishlab chiqarish uchun zamonaviy qo'shimcha ishlab chiqarish yechimlari"
+      "description": "Tezkor prototiplayash va ishlab chiqarish uchun zamonaviy qo'shimcha ishlab chiqarish yechimlari",
+      "sla": {
+        "title": "Ko'rinmasni ko'ring, imkonsizni chop eting",
+        "description": "Bizning SLA texnologiyamiz bilan mikroskopik aniqlikni bilib oling. 25 mikron qatlam qalinligi bilan biz inson sochidan ham mayda detallarni amalga oshiramiz, loyihalaringizga benuqson aniqlikni ta'minlaymiz. Nozik zargarlik buyumlaridan aniq muhandislik komponentlarigacha - ishlab chiqarishning kelajagini kuzating.",
+        "features": {
+          "layerHeight": "25 mikron qatlam qalinligi (inson sochining 1/3 qalinligi)",
+          "surfaceFinish": "In'ektsion quyma kabi ultra-silliq sirt",
+          "applications": "Zargarlik buyumlari, stomatologik ishlar va miniatyuralar uchun mukammal"
+        },
+        "cta": "SLA imkoniyatlarini o'rganish"
+      }
     },
     "molding": {
       "title": "Qoliplash va Ishlab chiqarish Xizmatlari",
@@ -799,17 +809,50 @@
   },
   "3dPrinting": {
     "hero": {
-      "subtitle": "STEREOLITOGRAFIYA (SLA) TEXNOLOGIYASI",
-      "title": "Yuqori aniqlikdagi SLA 3D chop etish xizmatlari",
+      "subtitle": "PROFESSIONAL 3D CHOP ETISH YECHIMLARI",
+      "title": "Professional 3D chop etish xizmatlari",
       "features": {
-        "precision": "25 mikron aniqlikdagi ultra silliq sirt",
-        "materials": "Keng ko'lamli muhandislik va stomatologik smolalar",
-        "applications": "Batafsil prototiplar, tibbiy modellar va ishlab chiqarish qismlari uchun ideal"
+        "precision": "Yuqori aniqlikdagi chop etish, ajoyib detallar va aniqlik bilan",
+        "materials": "Turli xil qo'llanmalar uchun keng materiallar tanlamasi",
+        "applications": "Prototiplar, ishlab chiqarish va maxsus qismlar uchun mos"
       },
       "buttons": {
         "quote": "Narxni olish",
-        "samples": "Namuna qismlarni so'rash"
+        "samples": "Namunalarni so'rash"
       }
+    },
+    "course": {
+      "badge": "O'qitish",
+      "title": "3D Chop Etishni O'rganing",
+      "subtitle": "G'oyalaringizni Haqiqatga Aylantiring",
+      "description": "Bizning keng qamrovli 3D chop etish kursimizga qo'shiling va soha mutaxassislaridan o'rganing. Asoslardan ilg'or texnikagacha - biz sizni bu yo'lda har bir qadamda yo'naltiramiz.",
+      "features": {
+        "handsOn": {
+          "title": "Amaliy tajriba",
+          "description": "Professional darajadagi uskunalar bilan ishlang va amaliy loyihalar orqali o'rganing"
+        },
+        "expert": {
+          "title": "Mutaxassis o'qitishi",
+          "description": "Sohada ko'p yillik tajribaga ega sertifikatlangan mutaxassislardan o'rganing"
+        },
+        "certification": {
+          "title": "Sertifikat",
+          "description": "Kursni muvaffaqiyatli yakunlaganingizda sohada tan olingan sertifikat oling"
+        }
+      },
+      "buttons": {
+        "enroll": "Hoziroq Ro'yxatdan O'ting"
+      }
+    },
+    "sla": {
+      "title": "Ko'rinmasni ko'ring, imkonsizni chop eting",
+      "description": "Bizning SLA texnologiyamiz bilan mikroskopik aniqlikni bilib oling. 25 mikron qatlam qalinligi bilan biz inson sochidan ham mayda detallarni amalga oshiramiz, loyihalaringizga benuqson aniqlikni ta'minlaymiz. Nozik zargarlik buyumlaridan aniq muhandislik komponentlarigacha - ishlab chiqarishning kelajagini kuzating.",
+      "features": {
+        "layerHeight": "25 mikron qatlam qalinligi (inson sochining 1/3 qalinligi)",
+        "surfaceFinish": "In'ektsion quyma kabi ultra-silliq sirt",
+        "applications": "Zargarlik buyumlari, stomatologik ishlar va miniatyuralar uchun mukammal"
+      },
+      "cta": "SLA imkoniyatlarini o'rganish"
     },
     "fdm": {
       "title": "O'z Vizyoningizni Haqiqatga Aylantiring",
@@ -1072,6 +1115,11 @@
           }
         }
       }
+    },
+    "manufacturing": {
+      "title": "Biznesingizni bilganingiz kabi, ishlab chiqarish ehtiyojlaringizni biling.",
+      "description": "Tezkor prototiplayashdan yakuniy qismlargacha, bizning zamonaviy 3D bosib chiqarish yechimlarimiz sizning o'ziga xos talablaringizga moslashtirilgan aniq natijalarni ta'minlaydi. Biz sizning g'oyalaringizni haqiqatga aylantirish uchun chuqur tajriba bilan zamonaviy texnologiyalarni birlashtiramiz, har bir loyiha eng yuqori sifat va aniqlik standartlariga javob berishini ta'minlaymiz.",
+      "cta": "Bugundan Boshlang"
     }
   },
   "aboutUs": {

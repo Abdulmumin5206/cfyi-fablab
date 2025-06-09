@@ -26,160 +26,106 @@ const TrainingSection = () => {
 
   return (
     <section className="py-16 md:py-24 bg-[#f7f7f7]">
-      <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
-        <div className="flex flex-col lg:flex-row items-start gap-8 sm:gap-12">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col lg:flex-row items-center gap-12">
           {/* Left side content */}
-          <div className="w-full lg:w-1/2">
-            <div className="max-w-xl mx-auto text-center lg:text-left flex flex-col items-center lg:items-start">
-              <div className="inline-block mb-4">
-                <span className="bg-[#329db7]/10 text-[#329db7] text-xs sm:text-sm font-semibold px-3 sm:px-4 py-1.5 sm:py-2 rounded-full">
-                  {t('training.ourCourses')}
-                </span>
-              </div>
-              
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 sm:mb-8 leading-tight text-gray-900">
-                {t('training.masterManufacturing')}
-              </h2>
-              
-              <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8">
-                {t('training.description')}
-              </p>
+          <div className="w-full lg:w-1/2 space-y-8">
+            <div className="inline-block">
+              <span className="bg-[#329db7]/10 text-[#329db7] text-sm font-semibold px-4 py-2 rounded-full font-['Magistral']">
+                {t('training.ourCourses')}
+              </span>
+            </div>
+            
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight font-['Magistral']">
+              {t('training.masterManufacturing')}
+            </h2>
+            
+            <p className="text-gray-700 text-base sm:text-lg mb-3 sm:mb-4 font-['Magistral']">
+              {t('training.description')}
+            </p>
 
-              <div className="space-y-4 sm:space-y-5 w-full">
-                {features.map((feature, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="flex items-start gap-3 sm:gap-4 bg-white p-4 sm:p-5 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300"
-                  >
-                    <div className="flex-shrink-0 mt-1">
-                      <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-[#329db7]/10 flex items-center justify-center">
-                        {feature.icon}
-                      </div>
-                    </div>
-                    <div>
-                      <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-1">
-                        {feature.title}
-                      </h3>
-                      <p className="text-sm sm:text-base text-gray-600">
-                        {feature.description}
-                      </p>
-                    </div>
-                  </motion.div>
-                ))}
+            {/* Course Features */}
+            <div className="space-y-6">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-[#329db7]/10 flex items-center justify-center">
+                  <svg className="w-6 h-6 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-900 font-['Magistral']">{t('training.diverseSelection.title')}</h3>
+                  <p className="text-gray-600 font-['Magistral']">{t('training.diverseSelection.description')}</p>
+                </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-6 sm:mt-8">
-                <Link
-                  to="/courses"
-                  className="inline-flex items-center justify-center px-4 sm:px-6 py-2 sm:py-3 bg-[#329db7] text-white rounded-lg hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 text-sm sm:text-base"
-                >
-                  {t('training.exploreCourses')}
-                  <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
-                </Link>
-                <button className="inline-flex items-center justify-center px-4 sm:px-6 py-2 sm:py-3 border-2 border-gray-200 text-gray-700 rounded-lg hover:border-[#329db7] hover:text-[#329db7] transition-all duration-300 text-sm sm:text-base">
-                  {t('training.downloadBrochure')}
-                  <Download className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
-                </button>
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-[#329db7]/10 flex items-center justify-center">
+                  <svg className="w-6 h-6 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6V4m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-900 font-['Magistral']">{t('training.expertInstructors.title')}</h3>
+                  <p className="text-gray-600 font-['Magistral']">{t('training.expertInstructors.description')}</p>
+                </div>
               </div>
+
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-[#329db7]/10 flex items-center justify-center">
+                  <svg className="w-6 h-6 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-900 font-['Magistral']">{t('training.handsOnProjects.title')}</h3>
+                  <p className="text-gray-600 font-['Magistral']">{t('training.handsOnProjects.description')}</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 pt-6">
+              <button className="px-8 py-4 bg-[#329db7] text-white rounded-xl font-semibold hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 font-['Magistral']">
+                {t('training.exploreCourses')}
+              </button>
             </div>
           </div>
 
           {/* Right side image grid */}
-          <div className="w-full lg:w-1/2 relative">
-            <div className="grid grid-cols-2 gap-3 sm:gap-4">
-              <div className="space-y-3 sm:space-y-4">
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
-                  className="rounded-xl overflow-hidden shadow-lg transform hover:-translate-y-1 transition-transform duration-300"
-                >
+          <div className="w-full lg:w-1/2">
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-4">
+                <div className="rounded-2xl overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
                   <img 
-                    src="/main/training/training.webp" 
-                    alt="3D Printing Course" 
-                    className="w-full h-48 sm:h-56 object-cover"
+                    src="/3dprinters/course1.webp" 
+                    alt="3D Printing Basics" 
+                    className="w-full h-48 object-cover"
                   />
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                  className="rounded-xl overflow-hidden shadow-lg transform hover:-translate-y-1 transition-transform duration-300"
-                >
+                </div>
+                <div className="rounded-2xl overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
                   <img 
-                    src="/main/training/training2.webp" 
-                    alt="Laser Cutting Workshop" 
-                    className="w-full h-64 sm:h-72 object-cover"
+                    src="/3dprinters/course2.webp" 
+                    alt="Advanced Techniques" 
+                    className="w-full h-64 object-cover"
                   />
-                </motion.div>
+                </div>
               </div>
-              <div className="space-y-3 sm:space-y-4 pt-6 sm:pt-8">
-                <motion.div
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.1 }}
-                  className="rounded-xl overflow-hidden shadow-lg transform hover:-translate-y-1 transition-transform duration-300"
-                >
+              <div className="space-y-4 pt-8">
+                <div className="rounded-2xl overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
                   <img 
-                    src="/main/training/training3.webp" 
-                    alt="CNC Machining Class" 
-                    className="w-full h-64 sm:h-72 object-cover"
+                    src="/3dprinters/course3.webp" 
+                    alt="Project Work" 
+                    className="w-full h-64 object-cover"
                   />
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.3 }}
-                  className="rounded-xl overflow-hidden shadow-lg transform hover:-translate-y-1 transition-transform duration-300"
-                >
+                </div>
+                <div className="rounded-2xl overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
                   <img 
-                    src="/main/training/training4.webp" 
-                    alt="Digital Fabrication Lab" 
-                    className="w-full h-48 sm:h-56 object-cover"
+                    src="/3dprinters/course4.webp" 
+                    alt="Professional Equipment" 
+                    className="w-full h-48 object-cover"
                   />
-                </motion.div>
+                </div>
               </div>
             </div>
-
-            {/* Floating stats card */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="absolute -bottom-4 sm:-bottom-6 -right-4 sm:-right-6 bg-white p-4 sm:p-5 rounded-xl shadow-lg"
-            >
-              <div className="flex items-center gap-3 sm:gap-4">
-                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#329db7]/10 flex items-center justify-center">
-                  <svg className="w-4 h-4 sm:w-5 sm:h-5 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                  </svg>
-                </div>
-                <div>
-                  <p className="text-xs sm:text-sm text-gray-600">{t('training.courseFormat')}</p>
-                  <p className="text-sm sm:text-base font-bold text-gray-900">{t('training.handsOnLearning')}</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-3 sm:gap-4 mt-3 sm:mt-4">
-                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#329db7]/10 flex items-center justify-center">
-                  <svg className="w-4 h-4 sm:w-5 sm:h-5 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <div>
-                  <p className="text-xs sm:text-sm text-gray-600">{t('training.duration')}</p>
-                  <p className="text-sm sm:text-base font-bold text-gray-900">{t('training.durationTime')}</p>
-                </div>
-              </div>
-            </motion.div>
           </div>
         </div>
       </div>

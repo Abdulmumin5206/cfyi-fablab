@@ -1493,7 +1493,9 @@
       "buttons": {
         "enroll": "Register Now"
       }
-    }
+    },
+    "viewDetails": "View Details",
+    "enrollNow": "Enroll Now"
   },
   "navigation": {
     "home": "Home",

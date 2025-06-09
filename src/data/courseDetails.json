@@ -1,0 +1,625 @@
+{
+  "fdmCourses": {
+    "labels": {
+      "en": {
+        "bonusModule": "Bonus Module:",
+        "duration": "Duration:",
+        "level": "Level:",
+        "prerequisites": "Prerequisites:",
+        "course1": "Course 1:",
+        "course2": "Course 2:"
+      },
+      "uz": {
+        "bonusModule": "Bonus modul:",
+        "duration": "Davomiyligi:",
+        "level": "Daraja:",
+        "prerequisites": "Talablar:",
+        "course1": "Kurs 1:",
+        "course2": "Kurs 2:"
+      },
+      "ru": {
+        "bonusModule": "Бонусный модуль:",
+        "duration": "Продолжительность:",
+        "level": "Уровень:",
+        "prerequisites": "Требования:",
+        "course1": "Курс 1:",
+        "course2": "Курс 2:"
+      }
+    },
+    "hobbyistEssentials": {
+      "en": {
+        "title": "FDM Hobbyist Essentials",
+        "subtitle": "Perfect for beginners who want to start printing immediately",
+        "whatYouLearn": {
+          "title": "What You'll Learn:",
+          "items": [
+            "Master popular slicing software (Cura, PrusaSlicer, Bambu Studio)",
+            "Understanding STL files and where to find quality models",
+            "Printer setup, calibration, and maintenance basics",
+            "Filament types and properties (PLA, PETG, ABS, TPU)",
+            "Print settings optimization for different materials",
+            "Troubleshooting common printing issues",
+            "Post-processing techniques for professional results"
+          ]
+        },
+        "whatYouGet": {
+          "title": "What You'll Get:",
+          "items": [
+            "Hands-on experience with real printing projects",
+            "Curated collection of beginner-friendly STL files",
+            "Filament selection guide and supplier recommendations",
+            "Quick reference troubleshooting checklist"
+          ]
+        },
+        "bonusModule": "Introduction to CAD concepts - understand why custom design matters and explore basic modeling tools for future learning.",
+        "details": {
+          "duration": "4 weeks",
+          "level": "Beginner",
+          "prerequisites": "None"
+        },
+        "enrollButton": "Enroll Now"
+      },
+      "uz": {
+        "title": "FDM Hobbyist Essentials",
+        "subtitle": "Boshlang'ichlar uchun darhol chop etishni boshlash uchun mukammal",
+        "whatYouLearn": {
+          "title": "Nimalarni o'rganasiz:",
+          "items": [
+            "Mashhur slicing dasturlarini o'rganish (Cura, PrusaSlicer, Bambu Studio)",
+            "STL fayllarini tushunish va sifatli modellarni qayerdan topish",
+            "Printer sozlash, kalibrlash va asosiy texnik xizmat",
+            "Filament turlari va xususiyatlari (PLA, PETG, ABS, TPU)",
+            "Turli materiallar uchun chop etish sozlamalarini optimallashtirish",
+            "Umumiy chop etish muammolarini hal qilish",
+            "Professional natijalar uchun post-processing texnikasi"
+          ]
+        },
+        "whatYouGet": {
+          "title": "Nimalarni olasiz:",
+          "items": [
+            "Haqiqiy chop etish loyihalari bilan amaliy tajriba",
+            "Boshlang'ichlar uchun tanlangan STL fayllar to'plami",
+            "Filament tanlash bo'yicha qo'llanma va yetkazib beruvchilar tavsiyalari",
+            "Tezkor muammolarni hal qilish uchun tezkor ma'lumotnoma"
+          ]
+        },
+        "bonusModule": "CAD tushunchalariga kirish - maxsus dizaynning ahamiyatini tushunish va kelajakdagi o'rganish uchun asosiy model dasturlarini o'rganish.",
+        "details": {
+          "duration": "4 hafta",
+          "level": "Boshlang'ich",
+          "prerequisites": "Yo'q"
+        },
+        "enrollButton": "Ro'yxatdan o'tish"
+      },
+      "ru": {
+        "title": "FDM Hobbyist Essentials",
+        "subtitle": "Идеально подходит для начинающих, которые хотят начать печатать немедленно",
+        "whatYouLearn": {
+          "title": "Чему вы научитесь:",
+          "items": [
+            "Освоение популярного ПО для слайсинга (Cura, PrusaSlicer, Bambu Studio)",
+            "Понимание STL файлов и где найти качественные модели",
+            "Настройка принтера, калибровка и базовое обслуживание",
+            "Типы филаментов и их свойства (PLA, PETG, ABS, TPU)",
+            "Оптимизация настроек печати для разных материалов",
+            "Устранение типичных проблем печати",
+            "Техники постобработки для профессиональных результатов"
+          ]
+        },
+        "whatYouGet": {
+          "title": "Что вы получите:",
+          "items": [
+            "Практический опыт с реальными проектами печати",
+            "Подобранная коллекция STL файлов для начинающих",
+            "Руководство по выбору филамента и рекомендации поставщиков",
+            "Быстрая справочная таблица по устранению неполадок"
+          ]
+        },
+        "bonusModule": "Введение в концепции CAD - понимание важности индивидуального дизайна и изучение базовых инструментов моделирования для будущего обучения.",
+        "details": {
+          "duration": "4 недели",
+          "level": "Начинающий",
+          "prerequisites": "Нет"
+        },
+        "enrollButton": "Записаться"
+      }
+    },
+    "comprehensivePro": {
+      "en": {
+        "title": "FDM Comprehensive Pro",
+        "subtitle": "Complete mastery from design to production",
+        "whatYouMaster": {
+          "title": "What You'll Master:",
+          "items": [
+            "Advanced CAD design using professional software",
+            "Engineering-focused modeling techniques",
+            "Material science and mechanical properties",
+            "Advanced slicing strategies and custom profiles",
+            "Multi-material and multi-color printing",
+            "Industrial applications and production workflows",
+            "Quality control and dimensional accuracy",
+            "Cost analysis and production planning"
+          ]
+        },
+        "advancedTopics": {
+          "title": "Advanced Topics:",
+          "items": [
+            "Parametric design and design for manufacturing (DFM)",
+            "Stress analysis and print orientation optimization",
+            "Custom support generation and removal",
+            "Post-processing for functional parts",
+            "Integration with CAM workflows"
+          ]
+        },
+        "details": {
+          "duration": "8 weeks",
+          "level": "Intermediate to Advanced",
+          "prerequisites": "Basic 3D understanding or Hobbyist course completion"
+        },
+        "enrollButton": "Enroll Now"
+      },
+      "uz": {
+        "title": "FDM Comprehensive Pro",
+        "subtitle": "Dizayndan ishlab chiqarishgacha to'liq o'zlashtirish",
+        "whatYouMaster": {
+          "title": "Nimalarni o'zlashtirasiz:",
+          "items": [
+            "Professional dasturlar yordamida ilg'or CAD dizayn",
+            "Muhandislikka yo'naltirilgan model texnikasi",
+            "Materiallar haqidagi fan va mexanik xususiyatlar",
+            "Ilg'or slicing strategiyalari va maxsus profillar",
+            "Ko'p materialli va ko'p rangli chop etish",
+            "Sanoat qo'llanmalari va ishlab chiqarish jarayonlari",
+            "Sifat nazorati va o'lchov aniqligi",
+            "Xarajatlar tahlili va ishlab chiqarish rejalashtirish"
+          ]
+        },
+        "advancedTopics": {
+          "title": "Ilg'or mavzular:",
+          "items": [
+            "Parametrik dizayn va ishlab chiqarish uchun dizayn (DFM)",
+            "Stress tahlili va chop etish yo'nalishini optimallashtirish",
+            "Maxsus support generatsiyasi va olib tashlash",
+            "Funksional qismlar uchun post-processing",
+            "CAM jarayonlari bilan integratsiya"
+          ]
+        },
+        "details": {
+          "duration": "8 hafta",
+          "level": "O'rta va yuqori daraja",
+          "prerequisites": "3D bo'yicha asosiy tushuncha yoki Hobbyist kursini yakunlash"
+        },
+        "enrollButton": "Ro'yxatdan o'tish"
+      },
+      "ru": {
+        "title": "FDM Comprehensive Pro",
+        "subtitle": "Полное мастерство от дизайна до производства",
+        "whatYouMaster": {
+          "title": "Что вы освоите:",
+          "items": [
+            "Продвинутый CAD дизайн с использованием профессионального ПО",
+            "Техники моделирования с инженерным уклоном",
+            "Наука о материалах и механические свойства",
+            "Продвинутые стратегии слайсинга и пользовательские профили",
+            "Многоматериальная и многоцветная печать",
+            "Промышленные применения и производственные процессы",
+            "Контроль качества и точность размеров",
+            "Анализ затрат и планирование производства"
+          ]
+        },
+        "advancedTopics": {
+          "title": "Продвинутые темы:",
+          "items": [
+            "Параметрический дизайн и дизайн для производства (DFM)",
+            "Анализ напряжений и оптимизация ориентации печати",
+            "Генерация и удаление пользовательских поддержек",
+            "Постобработка функциональных деталей",
+            "Интеграция с CAM процессами"
+          ]
+        },
+        "details": {
+          "duration": "8 недель",
+          "level": "Средний и Продвинутый",
+          "prerequisites": "Базовое понимание 3D или завершение курса Hobbyist"
+        },
+        "enrollButton": "Записаться"
+      }
+    }
+  },
+  "slaCourses": {
+    "labels": {
+      "en": {
+        "coreCurriculum": "Core Curriculum:",
+        "postProcessing": "Post-Processing Excellence:",
+        "handsOnExperience": "Hands-On Experience:",
+        "duration": "Duration:",
+        "level": "Level:",
+        "prerequisites": "Prerequisites:",
+        "course1": "Course 1:"
+      },
+      "uz": {
+        "coreCurriculum": "Asosiy dastur:",
+        "postProcessing": "Post-processing mukammalligi:",
+        "handsOnExperience": "Amaliy tajriba:",
+        "duration": "Davomiyligi:",
+        "level": "Daraja:",
+        "prerequisites": "Talablar:",
+        "course1": "Kurs 1:"
+      },
+      "ru": {
+        "coreCurriculum": "Основная программа:",
+        "postProcessing": "Совершенство постобработки:",
+        "handsOnExperience": "Практический опыт:",
+        "duration": "Продолжительность:",
+        "level": "Уровень:",
+        "prerequisites": "Требования:",
+        "course1": "Курс 1:"
+      }
+    },
+    "completeMastery": {
+      "en": {
+        "title": "SLA Complete Mastery",
+        "subtitle": "Master high-precision resin printing from start to finish",
+        "coreCurriculum": {
+          "items": [
+            "SLA printer setup, calibration, and maintenance",
+            "Resin types and applications (standard, tough, flexible, castable)",
+            "Advanced slicing techniques for resin printing",
+            "Support structure design and optimization",
+            "Layer exposure settings and print quality control"
+          ]
+        },
+        "postProcessing": {
+          "items": [
+            "Professional washing techniques and equipment",
+            "UV curing protocols for different resins",
+            "Surface finishing and post-curing optimization",
+            "Safety protocols and workspace setup",
+            "Disposal and environmental considerations"
+          ]
+        },
+        "handsOnExperience": {
+          "items": [
+            "Print quality comparison across different settings",
+            "Material testing and property evaluation",
+            "Professional finishing techniques",
+            "Troubleshooting failed prints and quality issues"
+          ]
+        },
+        "details": {
+          "duration": "6 weeks",
+          "level": "Beginner to Intermediate",
+          "prerequisites": "None"
+        },
+        "enrollButton": "Enroll Now"
+      },
+      "uz": {
+        "title": "SLA To'liq o'zlashtirish",
+        "subtitle": "Yuqori aniqlikdagi rezinli chop etishni boshlang'ichdan yakunigacha o'zlashtirish",
+        "coreCurriculum": {
+          "items": [
+            "SLA printer sozlash, kalibrlash va texnik xizmat",
+            "Rezin turlari va qo'llanmalari (standart, mustahkam, moslashuvchan, quyish uchun)",
+            "Rezinli chop etish uchun ilg'or slicing texnikasi",
+            "Support strukturasini loyihalash va optimallashtirish",
+            "Qatlam ekspozitsiyasi sozlamalari va chop etish sifatini nazorat qilish"
+          ]
+        },
+        "postProcessing": {
+          "items": [
+            "Professional yuvish texnikasi va uskunalar",
+            "Turli rezinlar uchun UV quritish protokollari",
+            "Sirtni yakunlash va post-quritish optimizatsiyasi",
+            "Xavfsizlik protokollari va ish joyini sozlash",
+            "Utilizatsiya va ekologik ko'rsatmalar"
+          ]
+        },
+        "handsOnExperience": {
+          "items": [
+            "Turli sozlamalarda chop etish sifatini taqqoslash",
+            "Materiallarni sinab ko'rish va xususiyatlarni baholash",
+            "Professional yakunlash texnikasi",
+            "Muvaffaqiyatsiz chop etish va sifat muammolarini hal qilish"
+          ]
+        },
+        "details": {
+          "duration": "6 hafta",
+          "level": "Boshlang'ichdan O'rtacha darajagacha",
+          "prerequisites": "Yo'q"
+        },
+        "enrollButton": "Ro'yxatdan o'tish"
+      },
+      "ru": {
+        "title": "SLA Полное мастерство",
+        "subtitle": "Освойте высокоточную печать смолой от начала до конца",
+        "coreCurriculum": {
+          "items": [
+            "Настройка, калибровка и обслуживание SLA принтера",
+            "Типы смол и их применение (стандартная, прочная, гибкая, литейная)",
+            "Продвинутые техники слайсинга для печати смолой",
+            "Проектирование и оптимизация поддерживающих структур",
+            "Настройки экспозиции слоев и контроль качества печати"
+          ]
+        },
+        "postProcessing": {
+          "items": [
+            "Профессиональные техники промывки и оборудование",
+            "Протоколы УФ-отверждения для разных смол",
+            "Финишная обработка поверхности и оптимизация пост-отверждения",
+            "Протоколы безопасности и организация рабочего пространства",
+            "Утилизация и экологические соображения"
+          ]
+        },
+        "handsOnExperience": {
+          "items": [
+            "Сравнение качества печати при разных настройках",
+            "Тестирование материалов и оценка свойств",
+            "Профессиональные техники финишной обработки",
+            "Устранение неполадок печати и проблем с качеством"
+          ]
+        },
+        "details": {
+          "duration": "6 недель",
+          "level": "От начинающего до среднего",
+          "prerequisites": "Нет"
+        },
+        "enrollButton": "Записаться"
+      }
+    }
+  },
+  "cadcamCourses": {
+    "labels": {
+      "en": {
+        "cadFundamentals": "CAD Fundamentals:",
+        "advancedDesign": "Advanced Design:",
+        "camIntegration": "CAM Integration:",
+        "manufacturingProcesses": "Manufacturing Processes:",
+        "industryApplications": "Industry Applications:",
+        "softwareCovered": "Software Covered:",
+        "duration": "Duration:",
+        "level": "Level:",
+        "prerequisites": "Prerequisites:",
+        "course1": "Course 1:"
+      },
+      "uz": {
+        "cadFundamentals": "CAD asoslari:",
+        "advancedDesign": "Ilg'or dizayn:",
+        "camIntegration": "CAM integratsiyasi:",
+        "manufacturingProcesses": "Ishlab chiqarish jarayonlari:",
+        "industryApplications": "Sanoat qo'llanmalari:",
+        "softwareCovered": "Qo'llaniladigan dasturlar:",
+        "duration": "Davomiyligi:",
+        "level": "Daraja:",
+        "prerequisites": "Talablar:",
+        "course1": "Kurs 1:"
+      },
+      "ru": {
+        "cadFundamentals": "Основы CAD:",
+        "advancedDesign": "Продвинутый дизайн:",
+        "camIntegration": "Интеграция CAM:",
+        "manufacturingProcesses": "Производственные процессы:",
+        "industryApplications": "Промышленные применения:",
+        "softwareCovered": "Используемое ПО:",
+        "duration": "Продолжительность:",
+        "level": "Уровень:",
+        "prerequisites": "Требования:",
+        "course1": "Курс 1:"
+      }
+    },
+    "professionalMastery": {
+      "en": {
+        "title": "Professional CAD/CAM Mastery",
+        "subtitle": "Complete digital design and manufacturing workflow",
+        "cadFundamentals": {
+          "title": "CAD Design Fundamentals:",
+          "items": [
+            "Parametric modeling principles and best practices",
+            "Sketch-based design and constraint management",
+            "3D modeling techniques (extrude, revolve, sweep, loft)",
+            "Assembly design and motion simulation",
+            "Technical drawing and documentation"
+          ]
+        },
+        "advancedDesign": {
+          "title": "Advanced Design Skills:",
+          "items": [
+            "Surface modeling for complex geometries",
+            "Design for additive manufacturing (DfAM)",
+            "Design for laser cutting and CNC machining",
+            "Topology optimization and generative design",
+            "Reverse engineering and 3D scanning integration",
+            "Design validation and simulation basics"
+          ]
+        },
+        "camIntegration": {
+          "title": "CAM Integration:",
+          "items": [
+            "Toolpath generation for 3D printing",
+            "CNC machining strategies and toolpath optimization",
+            "Laser cutting parameters and material settings",
+            "Multi-axis machining fundamentals",
+            "Material removal strategies",
+            "Quality control and inspection",
+            "Production workflow optimization"
+          ]
+        },
+        "manufacturingProcesses": {
+          "title": "Manufacturing Processes Covered:",
+          "items": [
+            "3D printing preparation and slicing",
+            "CNC milling and turning operations",
+            "Laser cutting and engraving techniques",
+            "Manufacturing process selection and optimization"
+          ]
+        },
+        "industryApplications": {
+          "title": "Industry Applications:",
+          "items": [
+            "Product development lifecycle",
+            "Rapid prototyping strategies",
+            "Custom manufacturing solutions",
+            "Design iteration and validation"
+          ]
+        },
+        "softwareCovered": {
+          "title": "Software Covered:",
+          "items": [
+            "Fusion 360 CAD/CAM (primary focus)",
+            "Professional CAD platforms (SolidWorks, or equivalent)",
+            "Fusion 360 CAM for CNC machining",
+            "Laser cutting software integration",
+            "Simulation and analysis tools",
+            "File format management and compatibility"
+          ]
+        },
+        "details": {
+          "duration": "10 weeks",
+          "level": "Intermediate to Advanced",
+          "prerequisites": "Basic computer skills and technical aptitude"
+        }
+      },
+      "uz": {
+        "title": "Professional CAD/CAM Mastery",
+        "subtitle": "To'liq raqamli dizayn va ishlab chiqarish jarayoni",
+        "cadFundamentals": {
+          "title": "CAD dizayn asoslari:",
+          "items": [
+            "Parametrik model asoslari va eng yaxshi amaliyotlar",
+            "Sketch asosidagi dizayn va cheklovlar boshqaruvi",
+            "3D model texnikasi (extrude, revolve, sweep, loft)",
+            "Assambleya dizayni va harakat simulyatsiyasi",
+            "Texnik chizma va hujjatlashtirish"
+          ]
+        },
+        "advancedDesign": {
+          "title": "Ilg'or dizayn ko'nikmalari:",
+          "items": [
+            "Murakkab geometriyalar uchun sirt modeli",
+            "Additiv ishlab chiqarish uchun dizayn (DfAM)",
+            "Lazerli kesish va CNC ishlov berish uchun dizayn",
+            "Topologiya optimizatsiyasi va generativ dizayn",
+            "Teskari muhandislik va 3D skanerlash integratsiyasi",
+            "Dizayn tekshiruvi va simulyatsiya asoslari"
+          ]
+        },
+        "camIntegration": {
+          "title": "CAM integratsiyasi:",
+          "items": [
+            "3D chop etish uchun toolpath generatsiyasi",
+            "CNC ishlov berish strategiyalari va toolpath optimizatsiyasi",
+            "Lazerli kesish parametrlari va material sozlamalari",
+            "Ko'p o'qli ishlov berish asoslari",
+            "Material olib tashlash strategiyalari",
+            "Sifat nazorati va tekshiruv",
+            "Ishlab chiqarish jarayonini optimallashtirish"
+          ]
+        },
+        "manufacturingProcesses": {
+          "title": "Qo'llaniladigan ishlab chiqarish jarayonlari:",
+          "items": [
+            "3D chop etish tayyorgarligi va slicing",
+            "CNC frezalash va tokarlash operatsiyalari",
+            "Lazerli kesish va o'yish texnikasi",
+            "Ishlab chiqarish jarayonini tanlash va optimallashtirish"
+          ]
+        },
+        "industryApplications": {
+          "title": "Sanoat qo'llanmalari:",
+          "items": [
+            "Mahsulot ishlab chiqish hayotiy sikli",
+            "Tezkor prototiplar strategiyasi",
+            "Maxsus ishlab chiqarish yechimlari",
+            "Dizayn iteratsiyasi va tekshiruv"
+          ]
+        },
+        "softwareCovered": {
+          "title": "Qo'llaniladigan dasturlar:",
+          "items": [
+            "Fusion 360 CAD/CAM (asosiy e'tibor)",
+            "Professional CAD platformalari (SolidWorks yoki ekvivalent)",
+            "CNC ishlov berish uchun Fusion 360 CAM",
+            "Lazerli kesish dasturi integratsiyasi",
+            "Simulyatsiya va tahlil vositalari",
+            "Fayl formatlari boshqaruvi va moslik"
+          ]
+        },
+        "details": {
+          "duration": "10 hafta",
+          "level": "O'rta va yuqori daraja",
+          "prerequisites": "Asosiy kompyuter ko'nikmalari va texnik qobiliyat"
+        }
+      },
+      "ru": {
+        "title": "Professional CAD/CAM Mastery",
+        "subtitle": "Полный цифровой дизайн и производственный процесс",
+        "cadFundamentals": {
+          "title": "Основы CAD дизайна:",
+          "items": [
+            "Принципы параметрического моделирования и лучшие практики",
+            "Проектирование на основе эскизов и управление ограничениями",
+            "Техники 3D моделирования (выдавливание, вращение, протяжка, лофт)",
+            "Проектирование сборок и симуляция движения",
+            "Технический чертеж и документация"
+          ]
+        },
+        "advancedDesign": {
+          "title": "Продвинутые навыки дизайна:",
+          "items": [
+            "Поверхностное моделирование для сложных геометрий",
+            "Дизайн для аддитивного производства (DfAM)",
+            "Дизайн для лазерной резки и ЧПУ обработки",
+            "Топологическая оптимизация и генеративный дизайн",
+            "Обратное проектирование и интеграция 3D сканирования",
+            "Валидация дизайна и основы симуляции"
+          ]
+        },
+        "camIntegration": {
+          "title": "Интеграция CAM:",
+          "items": [
+            "Генерация траекторий для 3D печати",
+            "Стратегии ЧПУ обработки и оптимизация траекторий",
+            "Параметры лазерной резки и настройки материалов",
+            "Основы многоосевой обработки",
+            "Стратегии удаления материала",
+            "Контроль качества и инспекция",
+            "Оптимизация производственного процесса"
+          ]
+        },
+        "manufacturingProcesses": {
+          "title": "Охватываемые производственные процессы:",
+          "items": [
+            "Подготовка и слайсинг для 3D печати",
+            "Операции фрезерования и токарной обработки на ЧПУ",
+            "Техники лазерной резки и гравировки",
+            "Выбор и оптимизация производственных процессов"
+          ]
+        },
+        "industryApplications": {
+          "title": "Промышленные применения:",
+          "items": [
+            "Жизненный цикл разработки продукта",
+            "Стратегии быстрого прототипирования",
+            "Пользовательские производственные решения",
+            "Итерация и валидация дизайна"
+          ]
+        },
+        "softwareCovered": {
+          "title": "Используемое ПО:",
+          "items": [
+            "Fusion 360 CAD/CAM (основной фокус)",
+            "Профессиональные CAD платформы (SolidWorks или эквивалент)",
+            "Fusion 360 CAM для ЧПУ обработки",
+            "Интеграция ПО для лазерной резки",
+            "Инструменты симуляции и анализа",
+            "Управление форматами файлов и совместимость"
+          ]
+        },
+        "details": {
+          "duration": "10 недель",
+          "level": "Средний и Продвинутый",
+          "prerequisites": "Базовые компьютерные навыки и технические способности"
+        }
+      }
+    }
+  }
+} 

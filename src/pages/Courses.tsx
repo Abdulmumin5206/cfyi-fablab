@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import CourseModal from '../components/CourseModal';
+import WorkshopModal from '../components/WorkshopModal';
 import courseDetails from '../data/courseDetails.json';
 
 const CoursesPage = () => {
@@ -10,6 +11,7 @@ const CoursesPage = () => {
   const currentLang = i18n.language;
   const fdmCourses = courseDetails.fdmCourses;
   const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
+  const [selectedWorkshop, setSelectedWorkshop] = useState<string | null>(null);
 
   const handleOpenModal = (courseId: string) => {
     setSelectedCourse(courseId);
@@ -17,6 +19,14 @@ const CoursesPage = () => {
 
   const handleCloseModal = () => {
     setSelectedCourse(null);
+  };
+
+  const handleOpenWorkshopModal = (workshopId: string) => {
+    setSelectedWorkshop(workshopId);
+  };
+
+  const handleCloseWorkshopModal = () => {
+    setSelectedWorkshop(null);
   };
 
   return (
@@ -530,9 +540,22 @@ const CoursesPage = () => {
                       <p className="font-semibold text-gray-900">{t("courses.workshops.digitalFabrication.duration")}</p>
                     </div>
                   </div>
-                  <button className="w-full px-6 py-3 bg-[#329db7] text-white rounded-xl font-semibold hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 font-['Magistral']">
-                    {t("courses.workshops.buttons.enroll")}
-                  </button>
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <button 
+                      onClick={() => handleOpenWorkshopModal('digitalFabrication')}
+                      className="w-full px-6 py-3 bg-[#329db7] text-white rounded-xl font-semibold hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 font-['Magistral']"
+                    >
+                      {t("courses.viewDetails")}
+                    </button>
+                    <a
+                      href="https://t.me/+998770884977"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full px-6 py-3 bg-[#329db7] text-white rounded-xl font-semibold hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 font-['Magistral'] text-center"
+                    >
+                      {t("courses.workshops.buttons.enroll")}
+                    </a>
+                  </div>
                 </div>
               </div>
 
@@ -566,9 +589,22 @@ const CoursesPage = () => {
                       <p className="font-semibold text-gray-900">{t("courses.workshops.scanning.duration")}</p>
                     </div>
                   </div>
-                  <button className="w-full px-6 py-3 bg-[#329db7] text-white rounded-xl font-semibold hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 font-['Magistral']">
-                    {t("courses.workshops.buttons.enroll")}
-                  </button>
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <button 
+                      onClick={() => handleOpenWorkshopModal('scanning')}
+                      className="w-full px-6 py-3 bg-[#329db7] text-white rounded-xl font-semibold hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 font-['Magistral']"
+                    >
+                      {t("courses.viewDetails")}
+                    </button>
+                    <a
+                      href="https://t.me/+998770884977"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full px-6 py-3 bg-[#329db7] text-white rounded-xl font-semibold hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 font-['Magistral'] text-center"
+                    >
+                      {t("courses.workshops.buttons.enroll")}
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -577,6 +613,41 @@ const CoursesPage = () => {
         
         <Footer bgClass="bg-black" textClass="text-white" />
       </main>
+
+      {/* Workshop Modals */}
+      <WorkshopModal
+        isOpen={selectedWorkshop === 'digitalFabrication'}
+        onClose={handleCloseWorkshopModal}
+        title={t("courses.workshops.digitalFabrication.title")}
+        subtitle={t("courses.workshops.digitalFabrication.description")}
+        skills={[
+          t("courses.workshops.digitalFabrication.skills.skill1"),
+          t("courses.workshops.digitalFabrication.skills.skill2"),
+          t("courses.workshops.digitalFabrication.skills.skill3"),
+          t("courses.workshops.digitalFabrication.skills.skill4"),
+          t("courses.workshops.digitalFabrication.skills.skill5"),
+          t("courses.workshops.digitalFabrication.skills.skill6")
+        ]}
+        duration={t("courses.workshops.digitalFabrication.duration")}
+        level={t("courses.workshops.digitalFabrication.level")}
+      />
+
+      <WorkshopModal
+        isOpen={selectedWorkshop === 'scanning'}
+        onClose={handleCloseWorkshopModal}
+        title="3D Scanning Workshop"
+        subtitle="Master the art of 3D scanning and digitization"
+        skills={[
+          "3D scanner operation and calibration",
+          "Scan data processing and optimization",
+          "Point cloud to mesh conversion",
+          "Scan cleanup and repair techniques",
+          "Reverse engineering workflows",
+          "Quality control and measurement"
+        ]}
+        duration="2 hours intensive"
+        level="Intermediate"
+      />
     </div>
   );
 };

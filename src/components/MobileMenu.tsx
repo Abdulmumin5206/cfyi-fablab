@@ -133,7 +133,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
     {
       title: t('serviceCategories.molding.title'),
       description: t('serviceCategories.molding.description'),
-      path: "/molding",
+      path: "/mould",
       image: "/mould/imhero.webp",
       color: "bg-[#0e9a48]"
     },
@@ -148,7 +148,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
 
   // Main services categories matching desktop dropdown
   const mainServices = [
-    { name: t('serviceCategories.molding.title'), path: "/molding", color: "hover:text-[#0e9a48]" },
+    { name: t('serviceCategories.molding.title'), path: "/mould", color: "hover:text-[#0e9a48]" },
     { name: t('serviceCategories.3dPrinting.title'), path: "/3d-printing", color: "hover:text-[#cb2026]" },
     { name: t('serviceCategories.digitalFabrication.title'), path: "/digital-fabrication", color: "hover:text-[#35469d]" },
     { name: t('serviceCategories.precisionManufacturing.title'), path: "/digital-fabrication#precision-manufacturing", color: "hover:text-[#8a2be2]" },
@@ -321,7 +321,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                         {t('header.3dPrinting')}
                       </Link>
                       <Link 
-                        to="/molding"
+                        to="/mould"
                         onClick={onClose}
                         className={`block ${isLargeScreen ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'} text-white hover:text-[#0e9a48] transition-colors duration-300 ${
                           isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"

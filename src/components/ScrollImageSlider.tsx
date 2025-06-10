@@ -102,9 +102,9 @@ const ScrollImageSlider = () => {
         })}
 
         {/* Main message */}
-        <div className="absolute inset-0 flex items-center">
-          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px] relative z-10">
-            <p className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold text-white leading-relaxed max-w-2xl" style={{ transform: 'translateZ(0)' }}>
+        <div className="absolute inset-0 flex items-center justify-start">
+          <div className="relative z-10 pl-20">
+            <p className="text-2xl sm:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-white leading-relaxed max-w-2xl text-left" style={{ transform: 'translateZ(0)' }}>
               {t("slider.mainMessage")}
             </p>
           </div>
@@ -130,7 +130,7 @@ const ScrollImageSlider = () => {
             return (
               <motion.div
                 key={`quote-${i}`}
-                className="absolute inset-0 flex justify-center lg:justify-end items-center px-3 sm:px-4 lg:px-6 xl:px-8"
+                className="absolute inset-0 flex justify-center lg:justify-end items-center px-3 sm:px-4 lg:px-16 xl:px-20"
                 style={{
                   opacity,
                   zIndex: 20 + i,

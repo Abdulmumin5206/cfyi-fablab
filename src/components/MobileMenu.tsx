@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { X, ChevronDown, ChevronUp, ArrowRight, Facebook, Instagram, Linkedin, Twitter, Mail, Phone, Youtube, MessageCircle } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
@@ -10,6 +10,7 @@ interface MobileMenuProps {
 
 const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const [expandedMenu, setExpandedMenu] = useState<string | null>(null);
   const [activeSlide, setActiveSlide] = useState(0);
   const totalSlides = 4; // Blog + 3 services
@@ -29,6 +30,18 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
         contactSection.scrollIntoView({ behavior: 'smooth' });
       }
     }, 300);
+  };
+
+  // Function to scroll to membership section and close menu
+  const scrollToMembership = () => {
+    onClose(); // Close the mobile menu first
+    navigate('/');
+    setTimeout(() => {
+      const membershipSection = document.getElementById('membership-section');
+      if (membershipSection) {
+        membershipSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
   };
 
   // Lock body scroll when menu is open
@@ -295,9 +308,9 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
               <div className={`flex items-center ${isLargeScreen ? 'p-8' : 'p-6'}`}>
                 <div className="flex flex-row max-w-4xl mx-auto w-full">
                   {/* Navigation Links - improved spacing */}
-                  <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-x-8">
+                  <div className="flex-1 grid grid-cols-2 gap-x-8">
+                    {/* First Column */}
                     <div className="space-y-6 md:space-y-5">
-                      {/* Direct navigation links */}
                       <Link 
                         to="/3d-printing"
                         onClick={onClose}
@@ -344,7 +357,9 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                         {t('serviceCategories.3dScanning.title')}
                       </Link>
                     </div>
-                    <div className="space-y-6 md:space-y-5 mt-6 md:mt-0">
+                    
+                    {/* Second Column */}
+                    <div className="space-y-6 md:space-y-5">
                       <Link 
                         to="/blog"
                         onClick={onClose}
@@ -374,25 +389,23 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       >
                         {t('header.blog')}
                       </Link>
-                      <button
-                        onClick={scrollToContact}
-                        className={`block ${isLargeScreen ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'} text-white hover:text-[#E6DB00] transition-colors duration-300 text-left ${
-                          isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-                        }`}
-                      >
-                        {t('mobileMenu.contactUs')}
-                      </button>
-                      <a
-                        href="https://t.me/+998770884977"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                      <Link
+                        to="/courses"
                         onClick={onClose}
                         className={`block ${isLargeScreen ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'} text-white hover:text-[#E6DB00] transition-colors duration-300 ${
                           isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
                         }`}
                       >
-                        {t('header.bookSession')}
-                      </a>
+                        {t('navigation.courses')}
+                      </Link>
+                      <button
+                        onClick={scrollToMembership}
+                        className={`block w-full text-left ${isLargeScreen ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'} text-white hover:text-[#E6DB00] transition-colors duration-300 ${
+                          isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+                        }`}
+                      >
+                        {t('navigation.membership')}
+                      </button>
                     </div>
                   </div>
                 </div>

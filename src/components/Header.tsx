@@ -176,11 +176,11 @@ const Header = () => {
 
   // Dynamic styling for laptop screens
   const headerStyle = isLaptopScreen ? {
-    height: windowWidth < 768 ? '50px' : windowWidth < 1024 ? '60px' : '65px'
+    height: windowWidth < 768 ? '70px' : windowWidth < 1024 ? '75px' : '80px'
   } : {};
 
   const logoStyle = isLaptopScreen ? {
-    maxHeight: windowWidth < 768 ? '35px' : windowWidth < 1024 ? '40px' : '45px'
+    maxHeight: windowWidth < 768 ? '55px' : windowWidth < 1024 ? '60px' : '65px'
   } : {};
 
   const textStyle = isLaptopScreen ? {
@@ -269,7 +269,7 @@ const Header = () => {
                   style={logoStyle}
                   src="/fablab/logo.png"
                   alt="FabLab Logo"
-                  className={`h-full w-auto max-h-7 sm:max-h-8 ${isLaptopScreen ? 'md:max-h-9' : 'md:max-h-12 lg:max-h-16'} object-contain`}
+                  className={`h-full w-auto max-h-14 sm:max-h-16 ${isLaptopScreen ? 'md:max-h-9' : 'md:max-h-12 lg:max-h-16'} object-contain`}
                 />
               </Link>
             </div>

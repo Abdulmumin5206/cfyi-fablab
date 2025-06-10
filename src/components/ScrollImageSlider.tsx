@@ -102,9 +102,9 @@ const ScrollImageSlider = () => {
         })}
 
         {/* Main message */}
-        <div className="absolute inset-0 flex items-center justify-start">
-          <div className="relative z-10 pl-20">
-            <p className="text-2xl sm:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-white leading-relaxed max-w-2xl text-left" style={{ transform: 'translateZ(0)' }}>
+        <div className="absolute inset-0 flex items-center justify-start hidden sm:flex">
+          <div className="relative z-10 pl-32">
+            <p className="text-xl sm:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl text-white leading-relaxed max-w-2xl text-left" style={{ transform: 'translateZ(0)' }}>
               {t("slider.mainMessage")}
             </p>
           </div>
@@ -130,7 +130,7 @@ const ScrollImageSlider = () => {
             return (
               <motion.div
                 key={`quote-${i}`}
-                className="absolute inset-0 flex justify-center lg:justify-end items-center px-3 sm:px-4 lg:px-16 xl:px-20"
+                className="absolute inset-0 flex justify-center lg:justify-end items-center px-3 sm:px-4 lg:px-32 xl:px-40"
                 style={{
                   opacity,
                   zIndex: 20 + i,
@@ -140,7 +140,7 @@ const ScrollImageSlider = () => {
                 transition={{ duration: 0.5, ease: "easeInOut" }}
               >
                 <motion.div
-                  className="bg-white p-3 sm:p-4 lg:p-5 xl:p-6 flex flex-col text-gray-800 border border-gray-200 shadow-lg w-full max-w-[280px] sm:max-w-[320px] lg:max-w-[380px] xl:max-w-[440px] h-[280px] sm:h-[320px] lg:h-[360px] xl:h-[400px] text-left"
+                  className="bg-white p-8 sm:p-10 lg:p-12 xl:p-14 flex flex-col justify-center text-gray-800 border border-gray-200 shadow-lg w-full max-w-[340px] sm:max-w-[400px] lg:max-w-[480px] xl:max-w-[560px] h-[340px] sm:h-[400px] lg:h-[480px] xl:h-[540px] text-left relative"
                   style={{
                     y: yPosition,
                     willChange: 'transform',
@@ -148,11 +148,12 @@ const ScrollImageSlider = () => {
                   }}
                   transition={{ duration: 0.5, ease: "easeInOut" }}
                 >
+                  <div className="absolute top-0 right-0 w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 bg-yellow-400 z-10"></div>
                   <h3 className="text-base sm:text-lg lg:text-xl xl:text-2xl font-bold mb-2 sm:mb-3 lg:mb-4">
                     {quote.title}
                   </h3>
                   <div className="mb-2 sm:mb-3 lg:mb-4">
-                    <span className="block text-lg sm:text-xl lg:text-2xl xl:text-3xl font-extrabold leading-tight text-gray-900">
+                    <span className="block text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-extrabold leading-tight text-gray-900">
                       {quote.achievement}
                     </span>
                   </div>

@@ -102,9 +102,9 @@ const ScrollImageSlider = () => {
         })}
 
         {/* Main message */}
-        <div className="absolute inset-0 flex items-center justify-start hidden sm:flex">
-          <div className="relative z-10 pl-32">
-            <p className="text-xl sm:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl text-white leading-relaxed max-w-2xl text-left" style={{ transform: 'translateZ(0)' }}>
+        <div className="absolute inset-0 flex items-center justify-start hidden xl:flex">
+          <div className="relative z-10 pl-8 sm:pl-12 md:pl-16 lg:pl-24 xl:pl-32">
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl text-white leading-relaxed max-w-2xl text-left" style={{ transform: 'translateZ(0)' }}>
               {t("slider.mainMessage")}
             </p>
           </div>

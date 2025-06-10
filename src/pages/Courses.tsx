@@ -35,11 +35,11 @@ const CoursesPage = () => {
       
       <main className="flex-grow bg-white">
         {/* 3D Printing FDM Course Section */}
-        <section className="pt-40 pb-24 md:pt-48 md:pb-32 bg-white">
+        <section className="pt-20 sm:pt-24 md:pt-32 lg:pt-40 pb-16 sm:pb-20 md:pb-24 lg:pb-32 bg-white">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col lg:flex-row items-center gap-12">
+            <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
               {/* Left side content */}
-              <div className="w-full lg:w-1/2 space-y-8">
+              <div className="w-full lg:w-1/2 space-y-6 lg:space-y-8">
                 <div className="inline-block">
                   <span className="bg-[#329db7]/10 text-[#329db7] text-sm font-semibold px-4 py-2 rounded-full font-['Magistral']">
                     {t("courses.fdm.badge")}
@@ -96,7 +96,7 @@ const CoursesPage = () => {
 
               {/* Right side image grid */}
               <div className="w-full lg:w-1/2">
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-4">
                     <div className="rounded-2xl overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
                       <img 
@@ -138,7 +138,7 @@ const CoursesPage = () => {
         {/* FDM Course Details Section */}
         <section className="py-8 bg-white">
           <div className="max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col md:flex-row gap-8">
+            <div className="flex flex-col md:flex-row gap-6 lg:gap-8">
               {/* Course 1: FDM Hobbyist Essentials */}
               <div className="flex-1 bg-gray-50 rounded-2xl p-6 md:p-8 shadow">
                 <h3 className="text-2xl font-bold text-[#329db7] mb-2">

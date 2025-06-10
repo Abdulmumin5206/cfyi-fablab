@@ -28,10 +28,10 @@ const Header = () => {
   
   // Track window width for responsive design
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  // More aggressive laptop detection (covers most laptop screens)
-  const isLaptopScreen = windowWidth < 1440;
+  // More flexible laptop detection
+  const isLaptopScreen = windowWidth < 1280; // xl breakpoint
   const isMobileScreen = windowWidth < 768; // md breakpoint
-  const isTabletScreen = windowWidth <= 1024; // lg breakpoint, include 1024px
+  const isTabletScreen = windowWidth <= 1024; // lg breakpoint
 
   // ref + state for measuring the main nav width
   const navRef = useRef<HTMLDivElement>(null);
@@ -176,19 +176,19 @@ const Header = () => {
 
   // Dynamic styling for laptop screens
   const headerStyle = isLaptopScreen ? {
-    height: windowWidth < 768 ? '70px' : windowWidth < 1024 ? '75px' : '80px'
+    height: windowWidth < 768 ? '65px' : windowWidth < 1024 ? '70px' : '75px'
   } : {};
 
   const logoStyle = isLaptopScreen ? {
-    maxHeight: windowWidth < 768 ? '55px' : windowWidth < 1024 ? '60px' : '65px'
+    maxHeight: windowWidth < 768 ? '50px' : windowWidth < 1024 ? '55px' : '60px'
   } : {};
 
   const textStyle = isLaptopScreen ? {
-    fontSize: windowWidth < 768 ? '0.8125rem' : windowWidth < 1024 ? '0.875rem' : '0.9375rem'
+    fontSize: windowWidth < 768 ? '0.875rem' : windowWidth < 1024 ? '0.9375rem' : '1rem'
   } : {};
 
   const buttonStyle = isLaptopScreen ? {
-    padding: windowWidth < 768 ? '0.25rem 0.5rem' : windowWidth < 1024 ? '0.3125rem 0.625rem' : '0.375rem 0.75rem'
+    padding: windowWidth < 768 ? '0.375rem 0.75rem' : windowWidth < 1024 ? '0.4375rem 0.875rem' : '0.5rem 1rem'
   } : {};
   
   // Position dropdown based on header height

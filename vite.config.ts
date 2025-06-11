@@ -7,6 +7,12 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
+    proxy: {
+      '/digital-fabrication': {
+        target: '/',
+        rewrite: (path) => path.replace(/^\/digital-fabrication/, '')
+      }
+    }
   },
   plugins: [
     react(),

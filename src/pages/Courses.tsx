@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -9,9 +9,18 @@ import courseDetails from '../data/courseDetails.json';
 const CoursesPage = () => {
   const { t, i18n } = useTranslation();
   const currentLang = i18n.language;
-  const fdmCourses = courseDetails.fdmCourses;
+  const [fdmCourses, setFdmCourses] = useState(courseDetails.fdmCourses);
   const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
   const [selectedWorkshop, setSelectedWorkshop] = useState<string | null>(null);
+
+  useEffect(() => {
+    // Ensure course details are loaded
+    if (!courseDetails || !courseDetails.fdmCourses) {
+      console.error('Course details not loaded correctly');
+      return;
+    }
+    setFdmCourses(courseDetails.fdmCourses);
+  }, []);
 
   const handleOpenModal = (courseId: string) => {
     setSelectedCourse(courseId);

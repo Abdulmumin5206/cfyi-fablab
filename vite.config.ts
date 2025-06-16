@@ -5,6 +5,7 @@ import { imagetools } from 'vite-imagetools';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  base: mode === 'production' ? '/' : '/',
   server: {
     host: "::",
     port: 8080,
@@ -38,12 +39,7 @@ export default defineConfig(({ mode }) => ({
     },
     assetsInlineLimit: 4096, // 4kb
     cssCodeSplit: true,
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true
-      }
-    }
+    minify: 'esbuild',
+    sourcemap: true
   }
 }));

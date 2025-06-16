@@ -151,7 +151,7 @@ const BlogPost = () => {
           {/* White header bar for 3D printing post */}
           {is3DPrintingPost && (
             <div className="w-full bg-white py-4">
-              <div className="container mx-auto px-4">
+              <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
                 <Link to="/blog" className="inline-flex items-center text-black hover:text-gray-600 transition-colors text-sm font-medium">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 mr-2">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
@@ -162,7 +162,7 @@ const BlogPost = () => {
             </div>
           )}
 
-          <div className="container mx-auto px-4 py-6 md:py-10">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px] py-6 md:py-10">
             {is3DPrintingPost ? (
               <div className="flex flex-col md:flex-row">
                 {/* Left sidebar with table of contents */}
@@ -189,7 +189,7 @@ const BlogPost = () => {
 
                 {/* Main content */}
                 <div className="w-full md:w-3/4">
-                  <div className="prose prose-lg max-w-none">
+                  <div className="prose prose-lg max-w-3xl">
                     <h1 className="text-3xl md:text-4xl font-bold mb-4">{t(post.titleKey)}</h1>
                     <div className="flex items-center text-gray-600 mb-8">
                       <span className="mr-4">{t(post.dateKey)}</span>
@@ -200,7 +200,7 @@ const BlogPost = () => {
                       <img 
                         src={post.image} 
                         alt={t(post.titleKey)}
-                        className="w-full h-auto rounded-lg"
+                        className="max-w-3xl h-auto rounded-lg"
                       />
                     </div>
                     <div className="mb-8">
@@ -214,35 +214,35 @@ const BlogPost = () => {
                           <img 
                             src="/blog_images/2.webp" 
                             alt="SLA Printing Setup" 
-                            className="w-full h-auto rounded-lg my-6"
+                            className="max-w-3xl h-auto rounded-lg my-6"
                           />
                         )}
                         {section.id === "design-process" && (
                           <img 
                             src="/blog_images/3.webp" 
                             alt="Material Testing Process" 
-                            className="w-full h-auto rounded-lg my-6"
+                            className="max-w-3xl h-auto rounded-lg my-6"
                           />
                         )}
                         {section.id === "optimization" && (
                           <img 
                             src="/blog_images/4.webp" 
                             alt="Production Optimization" 
-                            className="w-full h-auto rounded-lg my-6"
+                            className="max-w-3xl h-auto rounded-lg my-6"
                           />
                         )}
                         {section.id === "production" && (
                           <img 
                             src="/blog_images/5.webp" 
                             alt="Production Process" 
-                            className="w-full h-auto rounded-lg my-6"
+                            className="max-w-3xl h-auto rounded-lg my-6"
                           />
                         )}
                         {section.id === "results" && (
                           <img 
                             src="/blog_images/blog1.webp" 
                             alt="Final Results" 
-                            className="w-full h-auto rounded-lg my-6"
+                            className="max-w-3xl h-auto rounded-lg my-6"
                           />
                         )}
                       </section>

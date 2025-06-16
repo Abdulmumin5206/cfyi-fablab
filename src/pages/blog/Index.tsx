@@ -85,7 +85,7 @@ const Pagination = ({
           onClick={() => onPageChange(number)}
           className={`px-3 py-1 rounded-md ${
             currentPage === number 
-              ? 'bg-brand-red text-white' 
+              ? 'bg-[#329db7] text-white' 
               : 'hover:bg-gray-100'
           }`}
         >
@@ -500,68 +500,11 @@ const BlogIndex = () => {
             </div>
           </div>
         </section>
-        <div className="bg-white py-16 md:py-24 mt-20 md:mt-24 lg:mt-28 border-b border-gray-100">
-          <div className="container mx-auto px-4">
-            <div className="text-left mb-3 sm:mb-4 md:mb-6 lg:mb-8">
-              <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-black font-['Magistral']">{t('blog.title')}</h1>
-              <p className="text-gray-700 text-base sm:text-lg mb-3 sm:mb-4 font-['Magistral']">{t('blog.subtitle')}</p>
-            </div>
+        <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px] pt-12 md:pt-16 bg-white">
+          <div className="text-left mb-3 sm:mb-4 md:mb-6 lg:mb-8">
+            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-black font-['Magistral']">{t('blog.title')}</h1>
+            <p className="text-gray-700 text-base sm:text-lg mb-3 sm:mb-4 font-['Magistral']">{t('blog.subtitle')}</p>
           </div>
-        </div>
-
-        <div className="container mx-auto px-4 py-12 md:py-16 bg-white">
-          {/* Search and Filter Bar */}
-          <div className="mb-10 space-y-6">
-            {/* Search Bar */}
-            <div className="max-w-2xl">
-              <form onSubmit={handleSearch} className="relative">
-                <input
-                  type="text"
-                  placeholder={t('blog.searchPlaceholder')}
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full px-4 py-3 pr-10 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-red focus:border-transparent"
-                />
-                {searchQuery ? (
-                  <button 
-                    type="button" 
-                    onClick={clearSearch}
-                    className="absolute right-12 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                  </button>
-                ) : null}
-                <button 
-                  type="submit" 
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                  </svg>
-                </button>
-              </form>
-            </div>
-            
-            {/* Category Filter */}
-            <div className="flex flex-wrap items-center gap-3">
-              {allCategories.map(category => (
-                <button
-                  key={category}
-                  onClick={() => setSelectedCategory(category)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                    selectedCategory === category
-                      ? 'bg-brand-red text-white'
-                      : 'bg-white text-gray-700 hover:bg-gray-100'
-                  }`}
-                >
-                  {category === "All" ? t('blog.categories.all') : t(`blog.categories.${category.toLowerCase().replace(/\s+/g, '')}`)}
-                </button>
-              ))}
-            </div>
-          </div>
-
           {/* Blog Posts Grid */}
           {filteredPosts.length > 0 ? (
             <>
@@ -573,7 +516,7 @@ const BlogIndex = () => {
                         className="absolute inset-0 bg-cover bg-center"
                         style={{ backgroundImage: `url(${post.image})` }}
                       />
-                      <div className="absolute bottom-0 left-0 bg-brand-red py-2 px-4 z-20">
+                      <div className="absolute bottom-0 left-0 bg-[#329db7] py-2 px-4 z-20">
                         <p className="text-white font-medium">
                           {t(`blog.categories.${post.category.toLowerCase().replace(/\s+/g, '')}`)}
                         </p>
@@ -581,16 +524,13 @@ const BlogIndex = () => {
                     </div>
                     <div className="p-4">
                       <h2 className="text-xl font-bold mb-4 text-gray-900">
-                        <Link to={`/blog/${post.slug}`} className="hover:text-brand-red transition-colors">
+                        <Link to={`/blog/${post.slug}`} className="hover:text-[#329db7] transition-colors">
                           {t(`blog.posts.${post.slug}.title`)}
                         </Link>
                       </h2>
-                      <p className="text-sm mb-5 text-gray-700 leading-relaxed">
-                        {t(`blog.posts.${post.slug}.description`)}
-                      </p>
                       <Link 
                         to={`/blog/${post.slug}`}
-                        className="inline-flex items-center bg-brand-red text-white py-1.5 px-3 hover:opacity-90 transition-opacity text-sm"
+                        className="inline-flex items-center bg-[#329db7] text-white py-1.5 px-3 hover:bg-[#2b86a0] transition-opacity text-sm"
                       >
                         {t('blog.readMore')}
                         <ArrowRight className="ml-1.5 w-4 h-4" />
@@ -599,7 +539,6 @@ const BlogIndex = () => {
                   </article>
                 ))}
               </div>
-              
               {/* Pagination */}
               <Pagination 
                 currentPage={currentPage} 
@@ -610,60 +549,41 @@ const BlogIndex = () => {
           ) : (
             <div className="text-center py-16">
               <h3 className="text-xl font-medium text-gray-600">{t('blog.noPostsFound')}</h3>
-              <div className="mt-4 space-x-4">
-                {searchQuery && (
-                  <button 
-                    onClick={clearSearch} 
-                    className="text-brand-red hover:text-brand-darkred font-medium"
-                  >
-                    {t('blog.clearSearch')}
-                  </button>
-                )}
-                {selectedCategory !== "All" && (
-                  <button 
-                    onClick={() => setSelectedCategory("All")} 
-                    className="text-brand-red hover:text-brand-darkred font-medium"
-                  >
-                    {t('blog.viewAllCategories')}
-                  </button>
-                )}
-              </div>
             </div>
           )}
-
-          {/* Newsletter Subscription Section */}
-          <div className="mt-16 py-12 px-4 sm:px-8 bg-white">
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">{t('blog.newsletter.title')}</h2>
-              <p className="text-lg text-gray-600 mb-8">
-                {t('blog.newsletter.description')}
-              </p>
-              {subscribed ? (
-                <div className="bg-green-50 text-green-800 rounded-lg p-4 mb-4 flex items-center justify-center">
-                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  <span>{t('blog.newsletter.thankYou')}</span>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder={t('blog.newsletter.emailPlaceholder')}
-                    required
-                    className="flex-grow px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-red focus:border-transparent"
-                  />
-                  <button type="submit" className="bg-brand-red hover:bg-brand-darkred text-white font-medium py-3 px-6 rounded-lg transition-colors whitespace-nowrap">
-                    {t('blog.newsletter.subscribe')}
-                  </button>
-                </form>
-              )}
-              <p className="text-sm text-gray-500 mt-4">
-                {t('blog.newsletter.privacyNotice')}
-              </p>
-            </div>
+        </div>
+        {/* Newsletter Subscription Section */}
+        <div className="mt-16 py-12 px-4 sm:px-8 bg-white">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">{t('blog.newsletter.title')}</h2>
+            <p className="text-lg text-gray-600 mb-8">
+              {t('blog.newsletter.description')}
+            </p>
+            {subscribed ? (
+              <div className="bg-green-50 text-green-800 rounded-lg p-4 mb-4 flex items-center justify-center">
+                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>{t('blog.newsletter.thankYou')}</span>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder={t('blog.newsletter.emailPlaceholder')}
+                  required
+                  className="flex-grow px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#329db7] focus:border-transparent"
+                />
+                <button type="submit" className="bg-[#329db7] hover:bg-[#2b86a0] text-white font-medium py-3 px-6 rounded-lg transition-colors whitespace-nowrap">
+                  {t('blog.newsletter.subscribe')}
+                </button>
+              </form>
+            )}
+            <p className="text-sm text-gray-500 mt-4">
+              {t('blog.newsletter.privacyNotice')}
+            </p>
           </div>
         </div>
       </main>

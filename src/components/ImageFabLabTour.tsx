@@ -113,7 +113,7 @@ const ImageFabLabTour = () => {
       y: 40, // 40% from top
       title: t('fablabTour.cnc'),
       description: '',
-      image: "/main/tour/CNCVOLTER.jpg",
+      image: "/main/tour/CNCVOLTER.webp",
       view: "backside"
     },
     {

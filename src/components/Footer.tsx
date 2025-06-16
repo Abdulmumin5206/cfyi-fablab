@@ -37,8 +37,8 @@ const Footer = ({ bgClass = "bg-black", textClass = "text-white" }: FooterProps)
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 py-12">
           {/* Logo and Description */}
           <div className="space-y-6">
-            <div className="flex flex-col md:flex-row items-center gap-6">
-              <div className="w-32 h-20 flex items-center justify-center">
+            <div className="flex flex-row md:flex-row items-center gap-6">
+              <div className="w-40 h-24 flex items-center justify-center">
                 <img 
                   src="/fablab/cfyi.svg" 
                   alt="CFYI Logo" 

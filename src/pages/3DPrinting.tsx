@@ -93,7 +93,7 @@ const ThreeDPrintingPage = () => {
             <div className="flex flex-col lg:flex-row items-start gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
-                <div className="max-w-xl mx-auto text-center lg:text-left flex flex-col items-center lg:items-start">
+                <div className="max-w-xl mx-auto text-left lg:text-left flex flex-col items-start lg:items-start">
                   <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-black font-['Magistral']">
                     {t("3dPrinting.manufacturing.title")}
                   </h2>
@@ -163,7 +163,7 @@ const ThreeDPrintingPage = () => {
                 </div>
 
                 {/* Floating stats cards */}
-                <div className="absolute -bottom-8 -left-8 bg-white rounded-2xl shadow-xl p-4 max-w-[240px]">
+                <div className="hidden sm:block absolute bottom-4 left-4 sm:bottom-8 sm:left-8 lg:-bottom-8 lg:-left-8 bg-white rounded-2xl shadow-xl p-4 max-w-[240px]">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="w-10 h-10 rounded-full bg-[#329db7]/10 flex items-center justify-center">
                       <svg className="w-5 h-5 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -191,7 +191,7 @@ const ThreeDPrintingPage = () => {
 
               {/* Right side content */}
               <div className="w-full lg:w-1/2">
-                <div className="max-w-xl mx-auto text-center lg:text-left flex flex-col items-center lg:items-start">
+                <div className="max-w-xl mx-auto text-left lg:text-left flex flex-col items-start">
                   <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-black font-['Magistral']">
                     {t("3dPrinting.fdm.title")}
                   </h2>
@@ -326,7 +326,7 @@ const ThreeDPrintingPage = () => {
             <div className="flex flex-col lg:flex-row items-start gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
-                <div className="max-w-xl mx-auto text-center lg:text-left flex flex-col items-center lg:items-start">
+                <div className="max-w-xl mx-auto text-left lg:text-left flex flex-col items-start">
                   <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-black font-['Magistral']">
                     {t("3dPrinting.sla.title")}
                   </h2>

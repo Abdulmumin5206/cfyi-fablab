@@ -442,7 +442,7 @@ const Header = () => {
                 onClick={toggleMenu}
               >
                 <span className={`flex items-center space-x-1 border px-2 py-1.5 h-[38px] sm:h-[42px] ${
-                  isScrolled ? 'border-black text-black bg-transparent' : 'border-white text-white bg-transparent'
+                  isScrolled ? 'border-black text-black bg-transparent' : (shouldUseBlackText ? 'border-black text-black bg-transparent' : 'border-white text-white bg-transparent')
                 }`}>
                   {isMobileMenuOpen ? <X size={16} /> : <Menu size={16} />}
                   <span className="text-xs sm:text-sm">{t('header.menu')}</span>

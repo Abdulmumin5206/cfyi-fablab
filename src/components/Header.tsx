@@ -22,9 +22,12 @@ const Header = () => {
   const isBlogPage = location.pathname === "/blog" || location.pathname.startsWith("/blog/");
   const isCoursesPage = location.pathname === "/courses";
   const is3DScanningPage = location.pathname === "/3d-scanning";
-  const shouldUseBlackTheme = is3DPrintingBlogPost || isBlogPage;
+  // const shouldUseBlackTheme = is3DPrintingBlogPost || isBlogPage;
+  // Blog pages should use the same theme as 3D scanning (white background, black text)
+  const shouldUseBlackTheme = false; // force black theme off for all pages
+  // Blog and 3D scanning pages: white background, black text
   const shouldUseWhiteText = is3DPrintingPage && !isScrolled;
-  const shouldUseBlackText = (isCoursesPage || is3DScanningPage) && !isScrolled;
+  const shouldUseBlackText = (isCoursesPage || is3DScanningPage || isBlogPage) && !isScrolled;
   
   // Track window width for responsive design
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);

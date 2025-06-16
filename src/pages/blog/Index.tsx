@@ -194,7 +194,7 @@ const BlogIndex = () => {
         {/* Projects Headline */}
         <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px] pt-48">
           <div className="text-left mb-3 sm:mb-4 md:mb-6 lg:mb-8">
-            <h1 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-black font-['Magistral']">
+            <h1 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-[#329db7] font-['Magistral']">
               {tBlog('projectsHeadline')}
             </h1>
             <p className="text-lg sm:text-lg mb-3 sm:mb-4 font-['Magistral'] text-gray-700">
@@ -208,7 +208,7 @@ const BlogIndex = () => {
             <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
-                <div className="max-w-xl mx-auto text-left lg:text-left flex flex-col items-start lg:items-start">
+                <div className="max-w-full text-left lg:max-w-xl flex flex-col items-start lg:items-start">
                   <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 leading-tight text-gray-900 font-['Magistral']">
                     {tBlog("biomimeticArm.title")}
                   </h2>
@@ -270,7 +270,7 @@ const BlogIndex = () => {
             <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
-                <div className="max-w-xl mx-auto text-left lg:text-left flex flex-col items-start lg:items-start">
+                <div className="max-w-full text-left lg:max-w-xl flex flex-col items-start lg:items-start">
                   <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 leading-tight text-gray-900 font-['Magistral']">
                     {tBlog("droneProject.title")}
                   </h2>
@@ -337,12 +337,12 @@ const BlogIndex = () => {
           </div>
         </section>
         {/* High-Resolution 3D Scanning Section (Duplicate) */}
-        <section className="pt-32 md:pt-40 pb-8 md:pb-12 bg-white">
+        <section className="pt-8 md:pt-12 pb-8 md:pb-12 bg-white">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
             <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
-                <div className="max-w-xl mx-auto text-left lg:text-left flex flex-col items-start lg:items-start">
+                <div className="max-w-full text-left lg:max-w-xl flex flex-col items-start lg:items-start">
                   <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 leading-tight text-gray-900 font-['Magistral']">
                     {tBlog("rrrArm.title")}
                   </h2>
@@ -424,7 +424,7 @@ const BlogIndex = () => {
             <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
-                <div className="max-w-xl mx-auto text-center lg:text-left flex flex-col items-start lg:items-start">
+                <div className="max-w-full text-left lg:max-w-xl flex flex-col items-start lg:items-start">
                   <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 leading-tight text-gray-900 font-['Magistral']">
                     {tBlog("surveillanceCar.title")}
                   </h2>
@@ -502,7 +502,7 @@ const BlogIndex = () => {
         </section>
         <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px] pt-12 md:pt-16 bg-white">
           <div className="text-left mb-3 sm:mb-4 md:mb-6 lg:mb-8">
-            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-black font-['Magistral']">{t('blog.title')}</h1>
+            <h1 className="text-3xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-[#329db7] font-['Magistral']">{t('blog.title')}</h1>
             <p className="text-gray-700 text-base sm:text-lg mb-3 sm:mb-4 font-['Magistral']">{t('blog.subtitle')}</p>
           </div>
           {/* Blog Posts Grid */}

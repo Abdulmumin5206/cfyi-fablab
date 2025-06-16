@@ -192,13 +192,18 @@ const BlogIndex = () => {
       <Header />
       <main className="flex-grow bg-white">
         {/* Projects Headline */}
-        <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px] pt-24">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-8 text-center font-['Magistral']">
-            {t('blog.projectsHeadline')}
-          </h1>
+        <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px] pt-48">
+          <div className="text-left mb-3 sm:mb-4 md:mb-6 lg:mb-8">
+            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-black font-['Magistral']">
+              {tBlog('projectsHeadline')}
+            </h1>
+            <p className="text-gray-700 text-base sm:text-lg mb-3 sm:mb-4 font-['Magistral']">
+              {tBlog('projectsSubtitle')}
+            </p>
+          </div>
         </div>
         {/* High-Resolution 3D Scanning Section */}
-        <section className="pt-32 md:pt-40 pb-8 md:pb-12 bg-white">
+        <section className="pt-12 md:pt-16 pb-8 md:pb-12 bg-white">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
             <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side content */}
@@ -497,10 +502,10 @@ const BlogIndex = () => {
         </section>
         <div className="bg-white py-16 md:py-24 mt-20 md:mt-24 lg:mt-28 border-b border-gray-100">
           <div className="container mx-auto px-4">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">{t('blog.title')}</h1>
-            <p className="text-xl text-gray-600 max-w-3xl">
-              {t('blog.subtitle')}
-            </p>
+            <div className="text-left mb-3 sm:mb-4 md:mb-6 lg:mb-8">
+              <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-black font-['Magistral']">{t('blog.title')}</h1>
+              <p className="text-gray-700 text-base sm:text-lg mb-3 sm:mb-4 font-['Magistral']">{t('blog.subtitle')}</p>
+            </div>
           </div>
         </div>
 

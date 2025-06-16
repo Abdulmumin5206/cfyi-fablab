@@ -44,7 +44,8 @@
         "chassis": "3D bosib chiqarilgan shassi va buriluvchi baza"
       },
       "technology": "Texnologiya: 3D bosib chiqarish, o‘rnatilgan tizimlar va kompyuter ko‘rish texnologiyalarini birlashtiradi."
-    }
-  },
-  "projectsHeadline": "FabLab loyihalari"
+    },
+    "projectsHeadline": "FabLab loyihalari",
+    "projectsSubtitle": "So‘nggi innovatsion muhandislik va ishlab chiqarish loyihalarimiz bilan tanishing."
+  }
 } 

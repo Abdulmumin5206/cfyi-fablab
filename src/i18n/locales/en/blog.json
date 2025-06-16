@@ -44,7 +44,8 @@
         "chassis": "3D printed chassis and rotating base"
       },
       "technology": "Technology: Combines 3D printing with embedded systems and computer vision."
-    }
-  },
-  "projectsHeadline": "FabLab Projects"
+    },
+    "projectsHeadline": "FabLab Projects",
+    "projectsSubtitle": "Explore our latest innovative engineering and fabrication projects."
+  }
 } 

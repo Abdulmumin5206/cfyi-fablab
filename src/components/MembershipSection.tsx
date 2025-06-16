@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, Check, Star, Users, Target, BookOpen, Phone, Gift, Box } from "lucide-react";
 import { useTranslation } from "react-i18next";
@@ -7,6 +7,15 @@ import { useMemo, useCallback, useRef } from "react";
 const MembershipSection = () => {
   const { t } = useTranslation();
   const scrollRef = useRef(null); // Ref for the scrollable container
+
+  const headerRef = useRef(null);
+  const isHeaderInView = useInView(headerRef, { once: true, amount: 0.5 });
+
+  const tiersRef = useRef(null);
+  const isTiersInView = useInView(tiersRef, { once: true, amount: 0.3 });
+
+  const benefitsRef = useRef(null);
+  const isBenefitsInView = useInView(benefitsRef, { once: true, amount: 0.3 });
 
   // Memoize all data to prevent unnecessary re-renders
   const membershipFeatures = useMemo(() => [
@@ -132,10 +141,6 @@ const MembershipSection = () => {
   // Memoized plan card component
   const PlanCard = useCallback(({ plan }: { plan: typeof membershipFeatures[0] }) => (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
       className={`group relative bg-white shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 flex flex-col ${
         plan.popular ? 'ring-2 ring-[#309eb7] transform scale-105' : ''
       }`}
@@ -212,11 +217,40 @@ const MembershipSection = () => {
     </motion.div>
   ), [t]);
 
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  };
+
+  const staggerVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+        staggerChildren: 0.2, // Stagger children animation
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
     <section id="membership-section" className="py-8 sm:py-12 lg:py-16 bg-gray-200 relative overflow-hidden">
       <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1400px]">
         {/* Header */}
-        <div className="max-w-[1400px] mx-auto px-3 sm:px-4 lg:px-6">
+        <motion.div
+          ref={headerRef}
+          initial="hidden"
+          animate={isHeaderInView ? "visible" : "hidden"}
+          variants={sectionVariants}
+          className="max-w-[1400px] mx-auto px-3 sm:px-4 lg:px-6"
+        >
           <div className="text-center mb-6 sm:mb-8 lg:mb-10">
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-black">
               {t('membership.title')}
@@ -225,74 +259,90 @@ const MembershipSection = () => {
               {t('membership.subtitle')}
             </p>
           </div>
+        </motion.div>
 
-          {/* Membership Tiers */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 mb-4 sm:mb-6 max-w-[1200px] mx-auto">
-            {membershipFeatures.map((plan, index) => (
-              <PlanCard key={index} plan={plan} />
-            ))}
-          </div>
-        </div>
-
-        {/* Universal Benefits with optimized animation */}
-        <div className="w-full">
-          {/* First Row - Moving Left */}
-          <div className="relative overflow-hidden">
-            <motion.div 
-              className="flex space-x-4 will-change-transform"
-              animate={{ x: [`0px`, `-${firstRowSetWidth + GAP_WIDTH}px`] }}
-              transition={{
-                x: {
-                  repeat: Infinity,
-                  repeatType: "loop",
-                  duration: 20,
-                  ease: "linear",
-                },
-              }}
-              style={{ width: 'fit-content' }}
-            >
-              {duplicatedFirstRow.map((benefit, index) => (
-                <div
-                  key={`first-${index}`}
-                  className="flex-shrink-0 w-[260px] bg-white p-4 sm:p-5 transition-transform duration-200 hover:scale-[1.02]"
-                >
-                  <div className="text-[#309eb7] mb-3">{benefit.icon}</div>
-                  <h3 className="text-sm sm:text-base font-semibold mb-2">{benefit.title}</h3>
-                  <p className="text-gray-600 text-xs sm:text-sm">{benefit.description}</p>
-                </div>
-              ))}
+        {/* Membership Tiers */}
+        <motion.div
+          ref={tiersRef}
+          initial="hidden"
+          animate={isTiersInView ? "visible" : "hidden"}
+          variants={staggerVariants}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 mb-4 sm:mb-6 max-w-[1200px] mx-auto"
+        >
+          {membershipFeatures.map((plan, index) => (
+            <motion.div key={index} variants={itemVariants}>
+              <PlanCard plan={plan} />
             </motion.div>
-          </div>
-
-          {/* Second Row - Moving Right */}
-          <div className="relative overflow-hidden mt-4">
-            <motion.div 
-              className="flex space-x-4 will-change-transform"
-              animate={{ x: [`-${secondRowSetWidth + GAP_WIDTH}px`, `0px`] }}
-              transition={{
-                x: {
-                  repeat: Infinity,
-                  repeatType: "loop",
-                  duration: 20,
-                  ease: "linear",
-                },
-              }}
-              style={{ width: 'fit-content' }}
-            >
-              {duplicatedSecondRow.map((benefit, index) => (
-                <div
-                  key={`second-${index}`}
-                  className="flex-shrink-0 w-[260px] bg-white p-4 sm:p-5 transition-transform duration-200 hover:scale-[1.02]"
-                >
-                  <div className="text-[#309eb7] mb-3">{benefit.icon}</div>
-                  <h3 className="text-sm sm:text-base font-semibold mb-2">{benefit.title}</h3>
-                  <p className="text-gray-600 text-xs sm:text-sm">{benefit.description}</p>
-                </div>
-              ))}
-            </motion.div>
-          </div>
-        </div>
+          ))}
+        </motion.div>
       </div>
+
+      {/* Universal Benefits with full width sliding cards */}
+      <motion.div
+        ref={benefitsRef}
+        initial="hidden"
+        animate={isBenefitsInView ? "visible" : "hidden"}
+        variants={sectionVariants}
+        className="w-full"
+      >
+        {/* First Row - Moving Left */}
+        <div className="relative overflow-hidden w-full">
+          <motion.div
+            className="flex space-x-4 will-change-transform"
+            animate={{ x: [`0px`, `-${firstRowSetWidth + GAP_WIDTH}px`] }}
+            transition={{
+              x: {
+                repeat: Infinity,
+                repeatType: "loop",
+                duration: 20,
+                ease: "linear",
+              },
+            }}
+            style={{ width: 'fit-content' }}
+          >
+            {duplicatedFirstRow.map((benefit, index) => (
+              <motion.div key={index} variants={itemVariants}>
+                <div className="flex flex-col items-center p-4 sm:p-5 lg:p-6 bg-white shadow-md rounded-lg min-w-[260px] max-w-[260px] h-[200px] transition-transform duration-500 hover:scale-105">
+                  <div className="mb-3 text-[#309eb7]">
+                    {benefit.icon}
+                  </div>
+                  <h4 className="text-base sm:text-lg font-semibold text-center mb-1 text-black">{benefit.title}</h4>
+                  <p className="text-gray-600 text-center text-xs sm:text-sm flex-grow">{benefit.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+
+        {/* Second Row - Moving Right */}
+        <div className="relative overflow-hidden w-full mt-4">
+          <motion.div 
+            className="flex space-x-4 will-change-transform"
+            animate={{ x: [`-${secondRowSetWidth + GAP_WIDTH}px`, `0px`] }}
+            transition={{
+              x: {
+                repeat: Infinity,
+                repeatType: "loop",
+                duration: 20,
+                ease: "linear",
+              },
+            }}
+            style={{ width: 'fit-content' }}
+          >
+            {duplicatedSecondRow.map((benefit, index) => (
+              <motion.div key={index} variants={itemVariants}>
+                <div className="flex flex-col items-center p-4 sm:p-5 lg:p-6 bg-white shadow-md rounded-lg min-w-[260px] max-w-[260px] h-[200px] transition-transform duration-500 hover:scale-105">
+                  <div className="mb-3 text-[#309eb7]">
+                    {benefit.icon}
+                  </div>
+                  <h4 className="text-base sm:text-lg font-semibold text-center mb-1 text-black">{benefit.title}</h4>
+                  <p className="text-gray-600 text-center text-xs sm:text-sm flex-grow">{benefit.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </motion.div>
     </section>
   );
 };

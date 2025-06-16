@@ -39,26 +39,30 @@ const Footer = ({ bgClass = "bg-black", textClass = "text-white" }: FooterProps)
           <div className="space-y-6">
             <div className="flex flex-row md:flex-row items-center gap-6">
               <div className="w-40 h-24 flex items-center justify-center">
-                <img 
-                  src="/fablab/cfyi.svg" 
-                  alt="CFYI Logo" 
-                  className="w-full h-full object-contain"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.src = "https://placehold.co/200x100/gray/white?text=CFYI";
-                  }}
-                />
+                <a href="https://cfyi.uz/" target="_blank" rel="noopener noreferrer">
+                  <img 
+                    src="/fablab/cfyi.svg" 
+                    alt="CFYI Logo" 
+                    className="w-full h-full object-contain"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.src = "https://placehold.co/200x100/gray/white?text=CFYI";
+                    }}
+                  />
+                </a>
               </div>
               <div className="w-32 h-20 flex items-center justify-center">
-                <img 
-                  src={bgClass.includes("white") ? "/fablab/logo.png" : "/fablab/logowhite.png"} 
-                  alt="FabLab Logo" 
-                  className="w-[85%] h-[85%] object-contain"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.src = "https://placehold.co/200x100/gray/white?text=FabLab";
-                  }}
-                />
+                <a href="https://fablab-cfyi.uz/" target="_blank" rel="noopener noreferrer">
+                  <img 
+                    src={bgClass.includes("white") ? "/fablab/logo.png" : "/fablab/logowhite.png"} 
+                    alt="FabLab Logo" 
+                    className="w-[85%] h-[85%] object-contain"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.src = "https://placehold.co/200x100/gray/white?text=FabLab";
+                    }}
+                  />
+                </a>
               </div>
             </div>
             

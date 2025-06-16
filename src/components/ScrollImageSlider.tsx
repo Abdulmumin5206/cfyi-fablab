@@ -104,7 +104,7 @@ const ScrollImageSlider = () => {
         {/* Main message */}
         <div className="absolute inset-0 flex items-center justify-start hidden xl:flex">
           <div className="relative z-10 pl-8 sm:pl-12 md:pl-16 lg:pl-24 xl:pl-32">
-            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl text-white leading-relaxed max-w-2xl text-left" style={{ transform: 'translateZ(0)' }}>
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl text-white leading-relaxed max-w-md text-left" style={{ transform: 'translateZ(0)' }}>
               {t("slider.mainMessage")}
             </p>
           </div>
@@ -130,7 +130,7 @@ const ScrollImageSlider = () => {
             return (
               <motion.div
                 key={`quote-${i}`}
-                className="absolute inset-0 flex justify-center lg:justify-end items-center px-3 sm:px-4 lg:px-32 xl:px-40"
+                className="absolute inset-0 flex justify-center lg:justify-end items-center px-3 sm:px-4 lg:px-32 xl:px-24"
                 style={{
                   opacity,
                   zIndex: 20 + i,
@@ -140,7 +140,7 @@ const ScrollImageSlider = () => {
                 transition={{ duration: 0.5, ease: "easeInOut" }}
               >
                 <motion.div
-                  className="bg-white p-8 sm:p-10 lg:p-12 xl:p-14 flex flex-col justify-center text-gray-800 border border-gray-200 shadow-lg w-full max-w-[340px] sm:max-w-[400px] lg:max-w-[480px] xl:max-w-[560px] h-[340px] sm:h-[400px] lg:h-[480px] xl:h-[540px] text-left relative"
+                  className="bg-white p-8 sm:p-10 lg:p-12 xl:p-14 flex flex-col justify-center text-gray-800 border border-gray-200 shadow-lg w-full max-w-[340px] sm:max-w-[400px] lg:max-w-[480px] xl:max-w-[500px] h-[340px] sm:h-[400px] lg:h-[480px] xl:h-[480px] text-left relative"
                   style={{
                     y: yPosition,
                     willChange: 'transform',

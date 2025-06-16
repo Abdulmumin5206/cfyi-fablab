@@ -1,0 +1,50 @@
+{
+  "blog": {
+    "biomimeticArm": {
+      "title": "Biomimetic Human Arm Robot",
+      "description": "A fully functional robotic arm that replicates human arm movement and dexterity, entirely manufactured through 3D printing.",
+      "features": {
+        "accuracy": "Anatomically accurate joint structure",
+        "movement": "Multi-degree freedom movement",
+        "manipulation": "Precision grip and manipulation capabilities"
+      },
+      "technology": "Technology: Bio-inspired design with advanced 3D printing and servo control systems."
+    },
+    "droneProject": {
+      "title": "3D Printed Quadcopter Drone",
+      "description": "A complete quadcopter drone manufactured entirely through 3D printing technology, demonstrating the potential of additive manufacturing in aerospace applications.",
+      "features": {
+        "frame": "Lightweight yet durable frame design",
+        "motorMounts": "Custom motor mounts and propeller guards",
+        "modular": "Modular component system for easy maintenance",
+        "aerodynamics": "Optimized aerodynamic structure"
+      },
+      "technology": "Technology: Advanced PLA/PETG printing with precision engineering for flight-ready components."
+    },
+    "rrrArm": {
+      "title": "RRR Robotic Arm with Tool Holder",
+      "description": "Overview: A professional-grade RRR (Revolute-Revolute-Revolute) configuration robotic arm featuring interchangeable end-effectors and precision control.",
+      "features": {
+        "joints": "Three-joint revolute configuration",
+        "toolHolder": "Interchangeable tool holder system",
+        "gears": "Precision gear mechanisms",
+        "accuracy": "Industrial-grade movement accuracy",
+        "modular": "Modular end-effector design"
+      },
+      "technology": "Technology: Engineering-grade 3D printing with precision mechanical components and servo control."
+    },
+    "surveillanceCar": {
+      "title": "360° Rotatable Surveillance Car",
+      "description": "Overview: An intelligent mobile platform featuring full 360-degree rotation capability, powered by Raspberry Pi and equipped with real-time camera monitoring.",
+      "features": {
+        "rotation": "Complete 360-degree rotation mechanism",
+        "raspberryPi": "Raspberry Pi-controlled navigation system",
+        "camera": "HD camera integration for remote monitoring",
+        "wireless": "Wireless control and live video streaming",
+        "chassis": "3D printed chassis and rotating base"
+      },
+      "technology": "Technology: Combines 3D printing with embedded systems and computer vision."
+    }
+  },
+  "projectsHeadline": "FabLab Projects"
+} 

@@ -123,6 +123,7 @@ const Pagination = ({
 };
 
 const BlogIndex = () => {
+  const { t: tBlog } = useTranslation('blog');
   const { t } = useTranslation();
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
@@ -190,6 +191,310 @@ const BlogIndex = () => {
     <div className="min-h-screen flex flex-col bg-white">
       <Header />
       <main className="flex-grow bg-white">
+        {/* Projects Headline */}
+        <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px] pt-24">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-8 text-center font-['Magistral']">
+            {t('blog.projectsHeadline')}
+          </h1>
+        </div>
+        {/* High-Resolution 3D Scanning Section */}
+        <section className="pt-32 md:pt-40 pb-8 md:pb-12 bg-white">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
+            <div className="flex flex-col lg:flex-row items-center gap-12">
+              {/* Left side content */}
+              <div className="w-full lg:w-1/2">
+                <div className="max-w-xl mx-auto text-center lg:text-left flex flex-col items-center lg:items-start">
+                  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 leading-tight text-gray-900 font-['Magistral']">
+                    {tBlog("biomimeticArm.title")}
+                  </h2>
+                  <p className="text-base sm:text-lg text-gray-600 mb-8 font-['Magistral']">
+                    {tBlog("biomimeticArm.description")}
+                  </p>
+                  <div className="space-y-4 mb-8">
+                    <div className="flex items-start gap-3">
+                      <div className="flex-shrink-0 mt-1">
+                        <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
+                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                        </div>
+                      </div>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{tBlog("biomimeticArm.features.accuracy")}</p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="flex-shrink-0 mt-1">
+                        <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
+                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                        </div>
+                      </div>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{tBlog("biomimeticArm.features.movement")}</p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="flex-shrink-0 mt-1">
+                        <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
+                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                        </div>
+                      </div>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{tBlog("biomimeticArm.features.manipulation")}</p>
+                    </div>
+                  </div>
+                  <p className="text-base sm:text-lg text-gray-700 font-['Magistral'] mt-4">{tBlog("biomimeticArm.technology")}</p>
+                </div>
+              </div>
+              {/* Right side with image */}
+              <div className="w-full lg:w-1/2 relative">
+                <div className="relative rounded-xl overflow-hidden shadow-xl bg-white">
+                  <img 
+                    src="/blog_images/arm.webp" 
+                    alt="3D Scanning Technology" 
+                    className="w-full h-[500px] object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        {/* Versatile Applications Section */}
+        <section className="py-8 md:py-12 bg-white">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
+            <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
+              {/* Left side content */}
+              <div className="w-full lg:w-1/2">
+                <div className="max-w-xl mx-auto text-center lg:text-left flex flex-col items-center lg:items-start">
+                  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 leading-tight text-gray-900 font-['Magistral']">
+                    {tBlog("droneProject.title")}
+                  </h2>
+                  <p className="text-base sm:text-lg text-gray-600 mb-8 font-['Magistral']">
+                    {tBlog("droneProject.description")}
+                  </p>
+                  <div className="space-y-4 mb-8">
+                    <div className="flex items-start gap-3">
+                      <div className="flex-shrink-0 mt-1">
+                        <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
+                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                        </div>
+                      </div>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{tBlog("droneProject.features.frame")}</p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="flex-shrink-0 mt-1">
+                        <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
+                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                        </div>
+                      </div>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{tBlog("droneProject.features.motorMounts")}</p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="flex-shrink-0 mt-1">
+                        <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
+                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                        </div>
+                      </div>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{tBlog("droneProject.features.modular")}</p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="flex-shrink-0 mt-1">
+                        <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
+                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                        </div>
+                      </div>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{tBlog("droneProject.features.aerodynamics")}</p>
+                    </div>
+                  </div>
+                  <p className="text-base sm:text-lg text-gray-700 font-['Magistral'] mt-4">{tBlog("droneProject.technology")}</p>
+                </div>
+              </div>
+              {/* Right side with image */}
+              <div className="w-full lg:w-1/2 relative">
+                <div className="relative rounded-xl overflow-hidden shadow-xl bg-white">
+                  <img 
+                    src="/blog_images/dron.webp" 
+                    alt="3D Scanning Applications" 
+                    className="w-full h-[500px] object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        {/* High-Resolution 3D Scanning Section (Duplicate) */}
+        <section className="pt-32 md:pt-40 pb-8 md:pb-12 bg-white">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
+            <div className="flex flex-col lg:flex-row items-center gap-12">
+              {/* Left side content */}
+              <div className="w-full lg:w-1/2">
+                <div className="max-w-xl mx-auto text-center lg:text-left flex flex-col items-center lg:items-start">
+                  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 leading-tight text-gray-900 font-['Magistral']">
+                    {tBlog("rrrArm.title")}
+                  </h2>
+                  <p className="text-base sm:text-lg text-gray-600 mb-8 font-['Magistral']">
+                    {tBlog("rrrArm.description")}
+                  </p>
+                  <div className="space-y-4 mb-8">
+                    <div className="flex items-start gap-3">
+                      <div className="flex-shrink-0 mt-1">
+                        <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
+                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                        </div>
+                      </div>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{tBlog("rrrArm.features.joints")}</p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="flex-shrink-0 mt-1">
+                        <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
+                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                        </div>
+                      </div>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{tBlog("rrrArm.features.toolHolder")}</p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="flex-shrink-0 mt-1">
+                        <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
+                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                        </div>
+                      </div>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{tBlog("rrrArm.features.gears")}</p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="flex-shrink-0 mt-1">
+                        <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
+                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                        </div>
+                      </div>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{tBlog("rrrArm.features.accuracy")}</p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="flex-shrink-0 mt-1">
+                        <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
+                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                        </div>
+                      </div>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{tBlog("rrrArm.features.modular")}</p>
+                    </div>
+                  </div>
+                  <p className="text-base sm:text-lg text-gray-700 font-['Magistral'] mt-4">{tBlog("rrrArm.technology")}</p>
+                </div>
+              </div>
+              {/* Right side with image */}
+              <div className="w-full lg:w-1/2 relative">
+                <div className="relative rounded-xl overflow-hidden shadow-xl bg-white">
+                  <img 
+                    src="/blog_images/3rrr.webp" 
+                    alt="3D Scanning Technology" 
+                    className="w-full h-[500px] object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        {/* Versatile Applications Section (Duplicate) */}
+        <section className="py-8 md:py-12 bg-white">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
+            <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
+              {/* Left side content */}
+              <div className="w-full lg:w-1/2">
+                <div className="max-w-xl mx-auto text-center lg:text-left flex flex-col items-center lg:items-start">
+                  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 leading-tight text-gray-900 font-['Magistral']">
+                    {tBlog("surveillanceCar.title")}
+                  </h2>
+                  <p className="text-base sm:text-lg text-gray-600 mb-8 font-['Magistral']">
+                    {tBlog("surveillanceCar.description")}
+                  </p>
+                  <div className="space-y-4 mb-8">
+                    <div className="flex items-start gap-3">
+                      <div className="flex-shrink-0 mt-1">
+                        <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
+                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                        </div>
+                      </div>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{tBlog("surveillanceCar.features.rotation")}</p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="flex-shrink-0 mt-1">
+                        <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
+                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                        </div>
+                      </div>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{tBlog("surveillanceCar.features.raspberryPi")}</p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="flex-shrink-0 mt-1">
+                        <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
+                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                        </div>
+                      </div>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{tBlog("surveillanceCar.features.camera")}</p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="flex-shrink-0 mt-1">
+                        <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
+                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                        </div>
+                      </div>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{tBlog("surveillanceCar.features.wireless")}</p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <div className="flex-shrink-0 mt-1">
+                        <div className="w-5 h-5 rounded-full bg-[#329db7] flex items-center justify-center">
+                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                          </svg>
+                        </div>
+                      </div>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{tBlog("surveillanceCar.features.chassis")}</p>
+                    </div>
+                  </div>
+                  <p className="text-base sm:text-lg text-gray-700 font-['Magistral'] mt-4">{tBlog("surveillanceCar.technology")}</p>
+                </div>
+              </div>
+              {/* Right side with image */}
+              <div className="w-full lg:w-1/2 relative">
+                <div className="relative rounded-xl overflow-hidden shadow-xl bg-white">
+                  <img 
+                    src="/blog_images/car.webp" 
+                    alt="3D Scanning Applications" 
+                    className="w-full h-[500px] object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
         <div className="bg-white py-16 md:py-24 mt-20 md:mt-24 lg:mt-28 border-b border-gray-100">
           <div className="container mx-auto px-4">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">{t('blog.title')}</h1>

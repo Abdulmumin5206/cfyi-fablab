@@ -5,6 +5,9 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import enTranslation from './locales/en/translation.json';
 import ruTranslation from './locales/ru/translation.json';
 import uzTranslation from './locales/uz/translation.json';
+import enBlog from './locales/en/blog.json';
+import ruBlog from './locales/ru/blog.json';
+import uzBlog from './locales/uz/blog.json';
 
 // the translations
 const resources = {
@@ -37,5 +40,10 @@ i18n
       caches: ['localStorage']
     }
   });
+
+// Add blog-specific translations
+i18n.addResourceBundle('en', 'blog', enBlog.blog, true, true);
+i18n.addResourceBundle('ru', 'blog', ruBlog.blog, true, true);
+i18n.addResourceBundle('uz', 'blog', uzBlog.blog, true, true);
 
 export default i18n; 

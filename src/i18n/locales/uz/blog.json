@@ -1,0 +1,50 @@
+{
+  "blog": {
+    "biomimeticArm": {
+      "title": "Biomimetik Inson Qo‘li Roboti",
+      "description": "To‘liq funksional robot qo‘l, inson qo‘lining harakati va chaqqonligini takrorlaydi, butunlay 3D bosib chiqarish orqali ishlab chiqarilgan.",
+      "features": {
+        "accuracy": "Anatomik jihatdan to‘g‘ri bo‘g‘im tuzilmasi",
+        "movement": "Ko‘p darajali erkin harakat",
+        "manipulation": "Aniq ushlash va manipulyatsiya imkoniyatlari"
+      },
+      "technology": "Texnologiya: Ilhomlantirilgan dizayn, ilg‘or 3D bosib chiqarish va servo boshqaruv tizimlari bilan."
+    },
+    "droneProject": {
+      "title": "3D bosib chiqarilgan kvadrokopter droni",
+      "description": "To‘liq 3D bosib chiqarish texnologiyasi yordamida ishlab chiqarilgan kvadrokopter droni, aerokosmik sohada qo‘shimcha ishlab chiqarish imkoniyatlarini namoyish etadi.",
+      "features": {
+        "frame": "Yengil, ammo mustahkam ramka dizayni",
+        "motorMounts": "Moslashtirilgan motor o‘rnatgichlari va propeller himoyalari",
+        "modular": "Oson xizmat ko‘rsatish uchun modulli komponent tizimi",
+        "aerodynamics": "Optimallashtirilgan aerodinamik tuzilma"
+      },
+      "technology": "Texnologiya: Parvozga tayyor komponentlar uchun ilg‘or PLA/PETG bosib chiqarish va aniq muhandislik."
+    },
+    "rrrArm": {
+      "title": "RRR robotlashtirilgan qo‘l va asbob ushlagich",
+      "description": "Umumiy ma’lumot: Professional darajadagi RRR (Revolute-Revolute-Revolute) konfiguratsiyali robot qo‘l, almashtiriladigan ishchi uchlari va aniq boshqaruvga ega.",
+      "features": {
+        "joints": "Uch bo‘g‘imli revolyutiv konfiguratsiya",
+        "toolHolder": "Almashtiriladigan asbob ushlagich tizimi",
+        "gears": "Aniq tishli mexanizmlar",
+        "accuracy": "Sanoat darajasidagi harakat aniqligi",
+        "modular": "Modulli ishchi uchi dizayni"
+      },
+      "technology": "Texnologiya: Aniqlikdagi mexanik komponentlar va servo boshqaruv bilan muhandislik darajasidagi 3D bosib chiqarish."
+    },
+    "surveillanceCar": {
+      "title": "360° buriluvchi kuzatuv mashinasi",
+      "description": "Umumiy ma’lumot: To‘liq 360 daraja burilish imkoniyatiga ega, Raspberry Pi asosida ishlaydigan va real vaqtli kamera monitoringiga ega aqlli mobil platforma.",
+      "features": {
+        "rotation": "To‘liq 360 daraja burilish mexanizmi",
+        "raspberryPi": "Raspberry Pi boshqaruvidagi navigatsiya tizimi",
+        "camera": "Masofadan monitoring uchun HD kamera integratsiyasi",
+        "wireless": "Simsiz boshqaruv va jonli video uzatish",
+        "chassis": "3D bosib chiqarilgan shassi va buriluvchi baza"
+      },
+      "technology": "Texnologiya: 3D bosib chiqarish, o‘rnatilgan tizimlar va kompyuter ko‘rish texnologiyalarini birlashtiradi."
+    }
+  },
+  "projectsHeadline": "FabLab loyihalari"
+} 

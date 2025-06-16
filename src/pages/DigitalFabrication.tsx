@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useTranslation } from "react-i18next";
@@ -9,6 +9,7 @@ import { ArrowRight } from "lucide-react";
 const DigitalFabricationPage = () => {
   const { t } = useTranslation();
   const location = useLocation();
+  const [isImageLoading, setIsImageLoading] = useState(true);
 
   useEffect(() => {
     // Scroll to top when component mounts
@@ -35,10 +36,16 @@ const DigitalFabricationPage = () => {
       <main className="flex-grow">
         {/* Hero section */}
         <section className="relative w-full h-screen">
+          {isImageLoading && (
+            <div className="absolute inset-0 flex items-center justify-center bg-black z-20">
+              <div className="w-8 h-8 md:w-12 md:h-12 border-4 border-blue-500/20 border-t-blue-500 rounded-full animate-spin"></div>
+            </div>
+          )}
           <img 
             src="/digital-fabrication/hero.webp" 
             alt="Digital Fabrication Hero" 
             className="w-full h-full object-cover"
+            onLoad={() => setIsImageLoading(false)}
           />
           {/* Scroll Down Icon */}
           <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
@@ -139,7 +146,7 @@ const DigitalFabricationPage = () => {
         </section>
 
         {/* Sticker Machine Section */}
-        <section className="py-16 md:py-24 bg-white">
+        <section className="py-16 md:py-24 bg-gray-100">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
             <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
               {/* Left side content */}
@@ -250,7 +257,7 @@ const DigitalFabricationPage = () => {
         </section>
 
         {/* Precision Laser Cutting Section */}
-        <section id="precision-manufacturing" className="py-16 md:py-24 bg-white">
+        <section id="precision-manufacturing" className="py-16 md:py-24 bg-gray-100">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
             <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side content */}
@@ -414,7 +421,7 @@ const DigitalFabricationPage = () => {
         </section>
 
         {/* Precision Manufacturing Equipment Showcase Section */}
-        <section id="precision-equipment" className="py-16 md:py-24 bg-white">
+        <section id="precision-equipment" className="py-16 md:py-24 bg-gray-100">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-10 md:mb-16 text-center text-gray-900 font-['Magistral']">
               {t('serviceCategories.digitalFabrication.precisionManufacturingEquipment.title')}
@@ -547,7 +554,7 @@ const DigitalFabricationPage = () => {
         </section>
 
         {/* Contact Section */}
-        <section className="py-16 md:py-24 bg-white">
+        <section className="py-16 md:py-24 bg-gray-100">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
             <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side content */}

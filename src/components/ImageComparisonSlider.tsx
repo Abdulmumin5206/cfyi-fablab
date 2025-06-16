@@ -99,7 +99,7 @@ const ImageComparisonSlider = ({ beforeImage, afterImage, alt }: ImageComparison
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth={2}
-                d="M8 9l4-4 4 4m0 6l-4 4-4-4"
+                d="M14 7L19 12L14 17M10 7L5 12L10 17"
               />
             </svg>
           </div>

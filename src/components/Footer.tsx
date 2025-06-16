@@ -56,7 +56,7 @@ const Footer = ({ bgClass = "bg-black", textClass = "text-white" }: FooterProps)
                   <img 
                     src={bgClass.includes("white") ? "/fablab/logo.png" : "/fablab/logowhite.png"} 
                     alt="FabLab Logo" 
-                    className="w-[85%] h-[85%] object-contain"
+                    className="w-[70%] h-[70%] object-contain"
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
                       target.src = "https://placehold.co/200x100/gray/white?text=FabLab";
@@ -178,14 +178,19 @@ const Footer = ({ bgClass = "bg-black", textClass = "text-white" }: FooterProps)
                 </button>
               </li>
               <li>
-                <Link to="/" className={`text-sm text-white ${linkHoverColor} transition-colors duration-200 flex items-center gap-2`}>
+                <a 
+                  href="https://cfyi.uz/fablab" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className={`text-sm text-white ${linkHoverColor} transition-colors duration-200 flex items-center gap-2`}
+                >
                   <span>{t('header.aboutFablab')}</span>
                   <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
-                </Link>
+                </a>
               </li>
               <li>
-                <Link to="/blog" className={`text-sm text-white ${linkHoverColor} transition-colors duration-200 flex items-center gap-2`}>
-                  <span>{t('header.projects')}</span>
+                <Link to="/courses" className={`text-sm text-white ${linkHoverColor} transition-colors duration-200 flex items-center gap-2`}>
+                  <span>{t('header.courses')}</span>
                   <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
                 </Link>
               </li>
@@ -245,22 +250,10 @@ const Footer = ({ bgClass = "bg-black", textClass = "text-white" }: FooterProps)
         
         {/* Bottom Bar */}
         <div className={`border-t ${borderColor} py-6`}>
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="flex justify-center items-center">
             <p className={`text-sm ${secondaryTextColor}`}>
               © 2025 Center for Youth Initiatives FabLab. All rights reserved.
             </p>
-            
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link to="/" className={`text-sm ${linkHoverColor} transition-colors duration-200`}>
-                {t('footer.privacy')}
-              </Link>
-              <Link to="/" className={`text-sm ${linkHoverColor} transition-colors duration-200`}>
-                {t('footer.terms')}
-              </Link>
-              <Link to="/" className={`text-sm ${linkHoverColor} transition-colors duration-200`}>
-                Cookie Policy
-              </Link>
-            </div>
           </div>
         </div>
       </div>

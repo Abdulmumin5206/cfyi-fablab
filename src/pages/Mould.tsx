@@ -19,6 +19,7 @@ const MouldPage = () => {
   const [isPaused, setIsPaused] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [expandedFaq, setExpandedFaq] = useState<number | null>(0);
+  const [isVideoLoading, setIsVideoLoading] = useState(true);
   
   // Image comparison slider references and state
   const sliderRef = useRef<HTMLDivElement>(null);
@@ -100,10 +101,12 @@ const MouldPage = () => {
   const handleVideoError = (e: React.SyntheticEvent<HTMLVideoElement, Event>) => {
     console.error("Video failed to load", e);
     console.log("Video source path:", videoRef.current?.querySelector('source')?.getAttribute('src'));
+    setIsVideoLoading(false);
   };
 
   const handleVideoLoad = () => {
     console.log("Video loaded successfully");
+    setIsVideoLoading(false);
   };
 
   const scrollMarketLeft = () => {
@@ -136,6 +139,11 @@ const MouldPage = () => {
       <main className="flex-grow">
         {/* Hero section */}
         <section className="relative w-full h-screen">
+          {isVideoLoading && (
+            <div className="absolute inset-0 flex items-center justify-center bg-black z-20">
+              <div className="w-8 h-8 md:w-12 md:h-12 border-4 border-blue-500/20 border-t-blue-500 rounded-full animate-spin"></div>
+            </div>
+          )}
           <video
             ref={videoRef}
             className="w-full h-full object-cover"
@@ -185,7 +193,7 @@ const MouldPage = () => {
           </div>
           
           {/* Scroll Down Icon */}
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
+          <div className="absolute bottom-8 left-0 right-0 z-20 animate-bounce flex justify-center">
             <a href="#premium-quality" className="flex flex-col items-center text-white">
               <span className="mb-2 text-sm sm:text-base">{t('mould.hero.scrollDown')}</span>
               <svg 

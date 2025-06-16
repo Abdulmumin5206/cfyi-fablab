@@ -409,8 +409,9 @@
   },
   "footer": {
     "services": "Услуги",
-    "about": "Про FabLab",
+    "about": "О ФабЛабе",
     "aboutUs": "О нас",
+    "membership": "Членство",
     "projects": "Проекты",
     "blog": "Блог",
     "contact": "Контакты",

@@ -169,7 +169,7 @@ const Footer = ({ bgClass = "bg-black", textClass = "text-white" }: FooterProps)
                   onClick={scrollToMembership}
                   className={`text-sm text-white ${linkHoverColor} transition-colors duration-200 cursor-pointer flex items-center gap-2`}
                 >
-                  <span>Membership</span>
+                  <span>{t('footer.membership')}</span>
                   <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
                 </button>
               </li>
@@ -187,7 +187,7 @@ const Footer = ({ bgClass = "bg-black", textClass = "text-white" }: FooterProps)
               </li>
               <li>
                 <Link to="/blog" className={`text-sm text-white ${linkHoverColor} transition-colors duration-200 flex items-center gap-2`}>
-                  <span>Blog</span>
+                  <span>{t('footer.blog')}</span>
                   <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
                 </Link>
               </li>

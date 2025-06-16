@@ -432,7 +432,7 @@ const MouldPage = () => {
             <div className="flex flex-col lg:flex-row items-start gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
-                <div className="max-w-xl mx-auto text-center lg:text-left flex flex-col items-center lg:items-start">
+                <div className="max-w-xl mx-auto text-left lg:text-left flex flex-col items-start lg:items-start">
                   <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 leading-tight text-gray-900 font-['Magistral']">
                     {t('mould.precisionMoulding.title')}
                   </h2>
@@ -517,7 +517,7 @@ const MouldPage = () => {
               {/* Benefit 3 */}
               <div className="flex flex-col items-center text-center">
                 <div className="mb-3 w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center">
-                  <img src="/mould/design_freedom.webp" alt={t('mould.whyChoosePlasticMoulding.benefits.designFreedom.title')} className="w-full h-full object-contain" />
+                  <img src="/mould/clean_workflow.webp" alt={t('mould.whyChoosePlasticMoulding.benefits.designFreedom.title')} className="w-full h-full object-contain" />
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold mb-2 font-['Magistral']">
                   {t('mould.whyChoosePlasticMoulding.benefits.designFreedom.title')}

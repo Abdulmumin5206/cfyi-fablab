@@ -26,7 +26,7 @@ const ThreeDScanningPage = () => {
             <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
-                <div className="max-w-xl mx-auto text-center lg:text-left flex flex-col items-center lg:items-start">
+                <div className="max-w-xl mx-auto text-left lg:text-left flex flex-col items-start lg:items-start">
                   <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 leading-tight text-gray-900 font-['Magistral']">
                     {t("serviceCategories.3dScanning.highResolution.title")}
                   </h2>
@@ -108,7 +108,7 @@ const ThreeDScanningPage = () => {
             <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
-                <div className="max-w-xl mx-auto text-center lg:text-left flex flex-col items-center lg:items-start">
+                <div className="max-w-xl mx-auto text-left lg:text-left flex flex-col items-start lg:items-start">
                   <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 leading-tight text-gray-900 font-['Magistral']">
                     {t("serviceCategories.3dScanning.applications.title")}
                   </h2>
@@ -258,7 +258,7 @@ const ThreeDScanningPage = () => {
 
               {/* Right side content */}
               <div className="w-full lg:w-1/2">
-                <div className="max-w-xl mx-auto text-center lg:text-left flex flex-col items-center lg:items-start">
+                <div className="max-w-xl mx-auto text-left lg:text-left flex flex-col items-start lg:items-start">
                   <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 leading-tight text-gray-900 font-['Magistral']">
                     {t('serviceCategories.3dScanning.guide.einScanSPV2.title')}
                   </h2>

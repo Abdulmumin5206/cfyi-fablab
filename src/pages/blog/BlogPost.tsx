@@ -200,7 +200,7 @@ const BlogPost = () => {
                       <img 
                         src={post.image} 
                         alt={t(post.titleKey)}
-                        className="max-w-3xl h-auto rounded-lg"
+                        className="w-full h-auto rounded-lg"
                       />
                     </div>
                     <div className="mb-8">
@@ -214,35 +214,35 @@ const BlogPost = () => {
                           <img 
                             src="/blog_images/2.webp" 
                             alt="SLA Printing Setup" 
-                            className="max-w-3xl h-auto rounded-lg my-6"
+                            className="w-full h-auto rounded-lg my-6"
                           />
                         )}
                         {section.id === "design-process" && (
                           <img 
                             src="/blog_images/3.webp" 
                             alt="Material Testing Process" 
-                            className="max-w-3xl h-auto rounded-lg my-6"
+                            className="w-full h-auto rounded-lg my-6"
                           />
                         )}
                         {section.id === "optimization" && (
                           <img 
                             src="/blog_images/4.webp" 
                             alt="Production Optimization" 
-                            className="max-w-3xl h-auto rounded-lg my-6"
+                            className="w-full h-auto rounded-lg my-6"
                           />
                         )}
                         {section.id === "production" && (
                           <img 
                             src="/blog_images/5.webp" 
                             alt="Production Process" 
-                            className="max-w-3xl h-auto rounded-lg my-6"
+                            className="w-full h-auto rounded-lg my-6"
                           />
                         )}
                         {section.id === "results" && (
                           <img 
                             src="/blog_images/blog1.webp" 
                             alt="Final Results" 
-                            className="max-w-3xl h-auto rounded-lg my-6"
+                            className="w-full h-auto rounded-lg my-6"
                           />
                         )}
                       </section>

@@ -396,7 +396,7 @@ const ThreeDPrintingPage = () => {
                 </div>
 
                 {/* Circular detail overlay */}
-                <div className="absolute z-10 w-[180px] h-[180px] md:w-[220px] md:h-[220px] -right-16 -bottom-12 group">
+                <div className="absolute z-10 w-[180px] h-[180px] md:w-[220px] md:h-[220px] right-8 bottom-8 md:-right-16 md:-bottom-12 group">
                   {/* Simple white circle container */}
                   <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white shadow-[0_8px_32px_rgba(0,0,0,0.2)] group-hover:shadow-[0_16px_48px_rgba(0,0,0,0.3)] transition-all duration-300">
                     <img 

@@ -230,16 +230,16 @@
     "labels": {
       "en": {
         "coreCurriculum": "Core Curriculum:",
-        "postProcessing": "Post-Processing Excellence:",
-        "handsOnExperience": "Hands-On Experience:",
+        "postProcessing": "Post-Processing:",
+        "handsOnExperience": "Hands-on Experience:",
         "duration": "Duration:",
         "level": "Level:",
         "prerequisites": "Prerequisites:",
         "course1": "Course 1:"
       },
       "uz": {
-        "coreCurriculum": "Asosiy dastur:",
-        "postProcessing": "Post-processing mukammalligi:",
+        "coreCurriculum": "Asosiy o'quv dasturi:",
+        "postProcessing": "Post-processing:",
         "handsOnExperience": "Amaliy tajriba:",
         "duration": "Davomiyligi:",
         "level": "Daraja:",
@@ -248,7 +248,7 @@
       },
       "ru": {
         "coreCurriculum": "Основная программа:",
-        "postProcessing": "Совершенство постобработки:",
+        "postProcessing": "Пост-обработка:",
         "handsOnExperience": "Практический опыт:",
         "duration": "Продолжительность:",
         "level": "Уровень:",

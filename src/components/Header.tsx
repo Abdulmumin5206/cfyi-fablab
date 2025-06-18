@@ -9,7 +9,7 @@ const Header = () => {
   const { t, i18n } = useTranslation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
-  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const prevScrollPosRef = useRef(0);
   const [isScrolled, setIsScrolled] = useState(false);
   const [servicesMenuOpen, setServicesMenuOpen] = useState(false);
   const servicesButtonRef = useRef<HTMLButtonElement>(null);
@@ -87,13 +87,17 @@ const Header = () => {
   useEffect(() => {
     const handleScroll = () => {
       const y = window.scrollY;
-      setIsVisible(prevScrollPos > y || y < 10);
+      setIsVisible(prevScrollPosRef.current > y || y < 10);
       setIsScrolled(y > 10);
-      setPrevScrollPos(y);
+      prevScrollPosRef.current = y;
     };
+
+    // Run once on mount to set correct state after refresh
+    handleScroll();
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [prevScrollPos]);
+  }, []);
 
   // Detect touch device
   useEffect(() => {

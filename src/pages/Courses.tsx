@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -9,7 +9,40 @@ import courseDetails from '../data/courseDetails.json';
 const CoursesPage = () => {
   const { t, i18n } = useTranslation();
   const currentLang = i18n.language;
+  
+  // Determine the language to use for displaying course details
+  const displayLang = courseDetails.fdmCourses.labels && courseDetails.fdmCourses.labels[currentLang] 
+    ? currentLang 
+    : (courseDetails.fdmCourses.labels && courseDetails.fdmCourses.labels['en'] ? 'en' : Object.keys(courseDetails.fdmCourses.labels || {})[0]);
+
+  // Add error handling and debugging
+  console.log('Current language:', currentLang);
+  console.log('Display language:', displayLang);
+  console.log('Course details:', courseDetails);
+  console.log('FDM Courses:', courseDetails.fdmCourses);
+  console.log('FDM Course Labels for displayLang:', courseDetails.fdmCourses.labels ? courseDetails.fdmCourses.labels[displayLang] : 'No labels available');
+  
+  // Check if courseDetails and fdmCourses exist
+  if (!courseDetails || !courseDetails.fdmCourses) {
+    console.error('Course details or FDM courses not found');
+    return <div>Loading...</div>;
+  }
+  
   const fdmCourses = courseDetails.fdmCourses;
+  
+  // Check if labels exist for current language
+  if (!fdmCourses.labels || !fdmCourses.labels[currentLang]) {
+    console.error('Labels not found for language:', currentLang);
+    console.log('Available languages in labels:', fdmCourses.labels ? Object.keys(fdmCourses.labels) : 'No labels found');
+    
+    // Fallback to default language (assuming 'en' exists)
+    const fallbackLang = fdmCourses.labels && fdmCourses.labels['en'] ? 'en' : Object.keys(fdmCourses.labels || {})[0];
+    if (!fallbackLang) {
+      return <div>Error: No language data available</div>;
+    }
+    console.log('Using fallback language:', fallbackLang);
+  }
+  
   const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
   const [selectedWorkshop, setSelectedWorkshop] = useState<string | null>(null);
 
@@ -27,6 +60,25 @@ const CoursesPage = () => {
 
   const handleCloseWorkshopModal = () => {
     setSelectedWorkshop(null);
+  };
+
+  // Safe access function
+  const safeAccess = (obj: any, path: string[], fallback: string = 'Loading...') => {
+    try {
+      let current = obj;
+      for (const key of path) {
+        if (current && typeof current === 'object' && key in current) {
+          current = current[key];
+        } else {
+          console.warn(`Path not found: ${path.join('.')} at ${key}`);
+          return fallback;
+        }
+      }
+      return current || fallback;
+    } catch (error) {
+      console.error('Error accessing path:', path, error);
+      return fallback;
+    }
   };
 
   return (
@@ -142,9 +194,9 @@ const CoursesPage = () => {
               {/* Course 1: FDM Hobbyist Essentials */}
               <div className="flex-1 bg-gray-50 rounded-2xl p-6 md:p-8 shadow">
                 <h3 className="text-2xl font-bold text-[#329db7] mb-2">
-                  <span className="text-gray-600">{fdmCourses.labels[currentLang].course1}</span> {fdmCourses.hobbyistEssentials[currentLang].title}
+                  <span className="text-gray-600">{safeAccess(fdmCourses, ['labels', displayLang, 'course1'])}</span> {safeAccess(fdmCourses, ['hobbyistEssentials', displayLang, 'title'])}
                 </h3>
-                <p className="text-gray-700 mb-4">{fdmCourses.hobbyistEssentials[currentLang].subtitle}</p>
+                <p className="text-gray-700 mb-4">{safeAccess(fdmCourses, ['hobbyistEssentials', displayLang, 'subtitle'])}</p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <button
                     onClick={() => handleOpenModal('hobbyist')}
@@ -165,9 +217,9 @@ const CoursesPage = () => {
               {/* Course 2: FDM Comprehensive Pro */}
               <div className="flex-1 bg-gray-50 rounded-2xl p-6 md:p-8 shadow">
                 <h3 className="text-2xl font-bold text-[#329db7] mb-2">
-                  <span className="text-gray-600">{fdmCourses.labels[currentLang].course2}</span> {fdmCourses.comprehensivePro[currentLang].title}
+                  <span className="text-gray-600">{safeAccess(fdmCourses, ['labels', displayLang, 'course2'])}</span> {safeAccess(fdmCourses, ['comprehensivePro', displayLang, 'title'])}
                 </h3>
-                <p className="text-gray-700 mb-4">{fdmCourses.comprehensivePro[currentLang].subtitle}</p>
+                <p className="text-gray-700 mb-4">{safeAccess(fdmCourses, ['comprehensivePro', displayLang, 'subtitle'])}</p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <button
                     onClick={() => handleOpenModal('comprehensive')}
@@ -193,54 +245,54 @@ const CoursesPage = () => {
         <CourseModal
           isOpen={selectedCourse === 'hobbyist'}
           onClose={handleCloseModal}
-          title={fdmCourses.hobbyistEssentials[currentLang].title}
-          subtitle={fdmCourses.hobbyistEssentials[currentLang].subtitle}
-          whatYouLearn={fdmCourses.hobbyistEssentials[currentLang].whatYouLearn}
-          whatYouGet={fdmCourses.hobbyistEssentials[currentLang].whatYouGet}
-          bonusModule={fdmCourses.hobbyistEssentials[currentLang].bonusModule}
-          details={fdmCourses.hobbyistEssentials[currentLang].details}
-          labels={fdmCourses.labels[currentLang]}
+          title={safeAccess(fdmCourses, ['hobbyistEssentials', displayLang, 'title'])}
+          subtitle={safeAccess(fdmCourses, ['hobbyistEssentials', displayLang, 'subtitle'])}
+          whatYouLearn={safeAccess(fdmCourses, ['hobbyistEssentials', displayLang, 'whatYouLearn'])}
+          whatYouGet={safeAccess(fdmCourses, ['hobbyistEssentials', displayLang, 'whatYouGet'])}
+          bonusModule={safeAccess(fdmCourses, ['hobbyistEssentials', displayLang, 'bonusModule'])}
+          details={safeAccess(fdmCourses, ['hobbyistEssentials', displayLang, 'details'])}
+          labels={safeAccess(fdmCourses, ['labels', displayLang])}
           currentLang={currentLang}
         />
 
         <CourseModal
           isOpen={selectedCourse === 'comprehensive'}
           onClose={handleCloseModal}
-          title={fdmCourses.comprehensivePro[currentLang].title}
-          subtitle={fdmCourses.comprehensivePro[currentLang].subtitle}
-          whatYouMaster={fdmCourses.comprehensivePro[currentLang].whatYouMaster}
-          advancedTopics={fdmCourses.comprehensivePro[currentLang].advancedTopics}
-          details={fdmCourses.comprehensivePro[currentLang].details}
-          labels={fdmCourses.labels[currentLang]}
+          title={safeAccess(fdmCourses, ['comprehensivePro', displayLang, 'title'])}
+          subtitle={safeAccess(fdmCourses, ['comprehensivePro', displayLang, 'subtitle'])}
+          whatYouMaster={safeAccess(fdmCourses, ['comprehensivePro', displayLang, 'whatYouMaster'])}
+          advancedTopics={safeAccess(fdmCourses, ['comprehensivePro', displayLang, 'advancedTopics'])}
+          details={safeAccess(fdmCourses, ['comprehensivePro', displayLang, 'details'])}
+          labels={safeAccess(fdmCourses, ['labels', displayLang])}
           currentLang={currentLang}
         />
 
         <CourseModal
           isOpen={selectedCourse === 'sla'}
           onClose={handleCloseModal}
-          title={courseDetails.slaCourses.completeMastery[currentLang].title}
-          subtitle={courseDetails.slaCourses.completeMastery[currentLang].subtitle}
-          coreCurriculum={courseDetails.slaCourses.completeMastery[currentLang].coreCurriculum}
-          postProcessing={courseDetails.slaCourses.completeMastery[currentLang].postProcessing}
-          handsOnExperience={courseDetails.slaCourses.completeMastery[currentLang].handsOnExperience}
-          details={courseDetails.slaCourses.completeMastery[currentLang].details}
-          labels={courseDetails.slaCourses.labels[currentLang]}
+          title={safeAccess(courseDetails.slaCourses, [displayLang, 'title'])}
+          subtitle={safeAccess(courseDetails.slaCourses, [displayLang, 'subtitle'])}
+          coreCurriculum={safeAccess(courseDetails.slaCourses, [displayLang, 'coreCurriculum'])}
+          postProcessing={safeAccess(courseDetails.slaCourses, [displayLang, 'postProcessing'])}
+          handsOnExperience={safeAccess(courseDetails.slaCourses, [displayLang, 'handsOnExperience'])}
+          details={safeAccess(courseDetails.slaCourses, [displayLang, 'details'])}
+          labels={safeAccess(courseDetails.slaCourses, ['labels', displayLang])}
           currentLang={currentLang}
         />
 
         <CourseModal
           isOpen={selectedCourse === 'cadcam'}
           onClose={handleCloseModal}
-          title={courseDetails.cadcamCourses.professionalMastery[currentLang].title}
-          subtitle={courseDetails.cadcamCourses.professionalMastery[currentLang].subtitle}
-          cadFundamentals={courseDetails.cadcamCourses.professionalMastery[currentLang].cadFundamentals}
-          advancedDesign={courseDetails.cadcamCourses.professionalMastery[currentLang].advancedDesign}
-          camIntegration={courseDetails.cadcamCourses.professionalMastery[currentLang].camIntegration}
-          manufacturingProcesses={courseDetails.cadcamCourses.professionalMastery[currentLang].manufacturingProcesses}
-          industryApplications={courseDetails.cadcamCourses.professionalMastery[currentLang].industryApplications}
-          softwareCovered={courseDetails.cadcamCourses.professionalMastery[currentLang].softwareCovered}
-          details={courseDetails.cadcamCourses.professionalMastery[currentLang].details}
-          labels={courseDetails.cadcamCourses.labels[currentLang]}
+          title={safeAccess(courseDetails.cadcamCourses.professionalMastery, [displayLang, 'title'])}
+          subtitle={safeAccess(courseDetails.cadcamCourses.professionalMastery, [displayLang, 'subtitle'])}
+          cadFundamentals={safeAccess(courseDetails.cadcamCourses.professionalMastery, [displayLang, 'cadFundamentals'])}
+          advancedDesign={safeAccess(courseDetails.cadcamCourses.professionalMastery, [displayLang, 'advancedDesign'])}
+          camIntegration={safeAccess(courseDetails.cadcamCourses.professionalMastery, [displayLang, 'camIntegration'])}
+          manufacturingProcesses={safeAccess(courseDetails.cadcamCourses.professionalMastery, [displayLang, 'manufacturingProcesses'])}
+          industryApplications={safeAccess(courseDetails.cadcamCourses.professionalMastery, [displayLang, 'industryApplications'])}
+          softwareCovered={safeAccess(courseDetails.cadcamCourses.professionalMastery, [displayLang, 'softwareCovered'])}
+          details={safeAccess(courseDetails.cadcamCourses.professionalMastery, [displayLang, 'details'])}
+          labels={safeAccess(courseDetails.cadcamCourses, ['labels', displayLang])}
           currentLang={currentLang}
         />
 
@@ -352,9 +404,10 @@ const CoursesPage = () => {
               {/* SLA Complete Mastery Course */}
               <div className="w-full max-w-[540px] bg-white rounded-2xl p-6 md:p-8 shadow">
                 <h3 className="text-2xl font-bold text-[#329db7] mb-2">
-                  <span className="text-gray-600">{courseDetails.slaCourses.labels[currentLang].course1}</span> {courseDetails.slaCourses.completeMastery[currentLang].title}
+                  <span className="text-gray-600">{safeAccess(courseDetails.slaCourses, ['labels', displayLang, 'course1'])}</span> {safeAccess(courseDetails.slaCourses, ['completeMastery', displayLang, 'title'])}
                 </h3>
-                <p className="text-gray-700 mb-4">{courseDetails.slaCourses.completeMastery[currentLang].subtitle}</p>
+                <p className="text-gray-700 mb-4">{safeAccess(courseDetails.slaCourses, ['completeMastery', displayLang, 'subtitle'])}
+                </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <button
                     onClick={() => handleOpenModal('sla')}
@@ -483,9 +536,10 @@ const CoursesPage = () => {
             {/* CAD/CAM Professional Mastery Course */}
             <div className="w-full max-w-[540px] bg-white rounded-2xl p-6 md:p-8 shadow">
               <h3 className="text-2xl font-bold text-[#329db7] mb-2">
-                <span className="text-gray-600">{courseDetails.cadcamCourses.labels[currentLang].course1}</span> {courseDetails.cadcamCourses.professionalMastery[currentLang].title}
+                {safeAccess(courseDetails.cadcamCourses.professionalMastery, [displayLang, 'title'])}
               </h3>
-              <p className="text-gray-700 mb-4">{courseDetails.cadcamCourses.professionalMastery[currentLang].subtitle}</p>
+              <p className="text-gray-700 mb-4">{safeAccess(courseDetails.cadcamCourses.professionalMastery, [displayLang, 'subtitle'])}
+              </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <button
                   onClick={() => handleOpenModal('cadcam')}

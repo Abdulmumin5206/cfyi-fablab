@@ -28,27 +28,25 @@
     <meta name="twitter:image" content="/main/scrolling1.jpeg" />
 
     <style>
-      /* Add font-face declaration at the top of styles */
       @font-face {
         font-family: 'Magistral';
         src: url('/fonts/Magistral-Medium.ttf') format('truetype');
         font-weight: normal;
         font-style: normal;
-        font-display: block; /* Changed from swap to block to prevent flash of unstyled text */
+        font-display: block;
       }
 
-      /* Just prevent horizontal scrolling only */
       @media screen and (max-width: 768px) {
         body {
           overflow-x: hidden;
         }
       }
     </style>
-    <link rel="stylesheet" href="/assets/index-CVLCM65x.css">
   </head>
 
   <body>
     <div id="root"></div>
+
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

@@ -11,6 +11,7 @@ const ThreeDPrintingPage = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const marketsRef = useRef<HTMLDivElement>(null);
   const [currentPrinterIndex, setCurrentPrinterIndex] = useState(0);
+  const [isImageLoading, setIsImageLoading] = useState(true);
 
   const materialTypeKeys = [
     'generalPurpose',
@@ -63,10 +64,16 @@ const ThreeDPrintingPage = () => {
       <main className="flex-grow">
         {/* Hero section with video */}
         <section className="relative w-full h-screen bg-white">
+          {isImageLoading && (
+            <div className="absolute inset-0 flex items-center justify-center bg-white z-20">
+              <div className="w-8 h-8 md:w-12 md:h-12 border-4 border-[#329db7]/20 border-t-[#329db7] rounded-full animate-spin"></div>
+            </div>
+          )}
           <img 
             src="/3dprinters/hero.webp" 
             alt="3D Printing Hero" 
             className="w-full h-full object-cover"
+            onLoad={() => setIsImageLoading(false)}
           />
           {/* Scroll Down Icon */}
           <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">

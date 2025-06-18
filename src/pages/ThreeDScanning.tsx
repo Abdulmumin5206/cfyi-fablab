@@ -21,7 +21,7 @@ const ThreeDScanningPage = () => {
       
       <main className="flex-grow">
         {/* High-Resolution 3D Scanning Section */}
-        <section className="pt-40 md:pt-48 pb-16 md:pb-24 bg-white">
+        <section className="pt-40 md:pt-48 pb-16 md:pb-24 bg-[#f7f7f7]">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
             <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side content */}
@@ -241,7 +241,7 @@ const ThreeDScanningPage = () => {
         </section>
 
         {/* EinScan SP V2 Guide Section */}
-        <section id="guide" className="py-16 md:py-24 bg-white">
+        <section className="py-16 md:py-24 bg-white">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
             <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side with image */}
@@ -288,7 +288,7 @@ const ThreeDScanningPage = () => {
         </section>
 
         {/* Contact Section */}
-        <section className="py-16 md:py-24 bg-white">
+        <section className="py-16 md:py-24 bg-[#f7f7f7]">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
             <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side content */}

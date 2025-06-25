@@ -17,11 +17,30 @@ const Header = () => {
   const [isTouchDevice, setIsTouchDevice] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  const is3DPrintingPage = location.pathname === "/3d-printing";
-  const is3DPrintingBlogPost = location.pathname === "/blog/3d-printing-innovations";
-  const isBlogPage = location.pathname === "/blog" || location.pathname.startsWith("/blog/");
-  const isCoursesPage = location.pathname === "/courses";
-  const is3DScanningPage = location.pathname === "/3d-scanning";
+  
+  // Helper function to normalize paths (handles both with and without trailing slashes)
+  const normalizePath = (path: string) => {
+    // Special handling for root path
+    if (path === "/" && (location.pathname === "/" || location.pathname === "")) {
+      return true;
+    }
+    
+    const currentPath = location.pathname;
+    return currentPath === path || currentPath === `${path}/`;
+  };
+  
+  // Check if path starts with a certain prefix
+  const pathStartsWith = (prefix: string) => {
+    return location.pathname.startsWith(prefix);
+  };
+  
+  const is3DPrintingPage = normalizePath("/3d-printing");
+  const is3DPrintingBlogPost = normalizePath("/blog/3d-printing-innovations");
+  const isBlogPage = normalizePath("/blog") || pathStartsWith("/blog/");
+  const isCoursesPage = normalizePath("/courses");
+  const is3DScanningPage = normalizePath("/3d-scanning");
+  const isHomePage = normalizePath("/");
+  
   // const shouldUseBlackTheme = is3DPrintingBlogPost || isBlogPage;
   // Blog pages should use the same theme as 3D scanning (white background, black text)
   const shouldUseBlackTheme = false; // force black theme off for all pages

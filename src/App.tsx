@@ -8,7 +8,6 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import ThreeDPrintingPage from "./pages/3DPrinting";
 import MouldPage from "./pages/Mould";
-import EngineeringPage from "./pages/Engineering";
 import DigitalFabricationPage from "./pages/DigitalFabrication";
 import ThreeDScanningPage from "./pages/ThreeDScanning";
 import CoursesPage from "./pages/Courses";
@@ -60,7 +59,6 @@ const App = () => {
                 <Route path="/" element={<Index />} />
                 <Route path="/3d-printing" element={<ThreeDPrintingPage />} />
                 <Route path="/mould" element={<MouldPage />} />
-                <Route path="/engineering" element={<EngineeringPage />} />
                 <Route path="/digital-fabrication" element={<DigitalFabricationPage />} />
                 <Route path="/3d-scanning" element={<ThreeDScanningPage />} />
                 <Route path="/courses" element={<CoursesPage />} />

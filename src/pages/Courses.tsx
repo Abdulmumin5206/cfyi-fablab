@@ -119,12 +119,36 @@ const CoursesPage = () => {
                   <div className="flex items-start gap-4">
                     <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-[#329db7]/10 flex items-center justify-center">
                       <svg className="w-6 h-6 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 font-['Magistral']">{t("courses.fdm.features.handsOn.title")}</h3>
+                      <p className="text-gray-600 font-['Magistral']">{t("courses.fdm.features.handsOn.description")}</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-[#329db7]/10 flex items-center justify-center">
+                      <svg className="w-6 h-6 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6V4m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                       </svg>
                     </div>
                     <div>
                       <h3 className="text-xl font-semibold text-gray-900 font-['Magistral']">{t("courses.fdm.features.expert.title")}</h3>
                       <p className="text-gray-600 font-['Magistral']">{t("courses.fdm.features.expert.description")}</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-[#329db7]/10 flex items-center justify-center">
+                      <svg className="w-6 h-6 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-900 font-['Magistral']">{t("courses.fdm.features.certification.title")}</h3>
+                      <p className="text-gray-600 font-['Magistral']">{t("courses.fdm.features.certification.description")}</p>
                     </div>
                   </div>
                 </div>
@@ -255,12 +279,12 @@ const CoursesPage = () => {
         <CourseModal
           isOpen={selectedCourse === 'sla'}
           onClose={handleCloseModal}
-          title={safeAccess(courseDetails.slaCourses, [displayLang, 'title'])}
-          subtitle={safeAccess(courseDetails.slaCourses, [displayLang, 'subtitle'])}
-          coreCurriculum={safeAccess(courseDetails.slaCourses, [displayLang, 'coreCurriculum'])}
-          postProcessing={safeAccess(courseDetails.slaCourses, [displayLang, 'postProcessing'])}
-          handsOnExperience={safeAccess(courseDetails.slaCourses, [displayLang, 'handsOnExperience'])}
-          details={safeAccess(courseDetails.slaCourses, [displayLang, 'details'])}
+          title={safeAccess(courseDetails.slaCourses, ['completeMastery', displayLang, 'title'])}
+          subtitle={safeAccess(courseDetails.slaCourses, ['completeMastery', displayLang, 'subtitle'])}
+          coreCurriculum={safeAccess(courseDetails.slaCourses, ['completeMastery', displayLang, 'coreCurriculum'])}
+          postProcessing={safeAccess(courseDetails.slaCourses, ['completeMastery', displayLang, 'postProcessing'])}
+          handsOnExperience={safeAccess(courseDetails.slaCourses, ['completeMastery', displayLang, 'handsOnExperience'])}
+          details={safeAccess(courseDetails.slaCourses, ['completeMastery', displayLang, 'details'])}
           labels={safeAccess(courseDetails.slaCourses, ['labels', displayLang])}
           currentLang={currentLang}
         />
@@ -654,6 +678,43 @@ const CoursesPage = () => {
           </div>
         </section>
         
+        {/* Workshop Modals */}
+        <WorkshopModal
+          isOpen={selectedWorkshop === 'digitalFabrication'}
+          onClose={handleCloseWorkshopModal}
+          title={t("courses.workshops.digitalFabrication.title")}
+          subtitle={t("courses.workshops.digitalFabrication.description")}
+          skills={[
+            t("courses.workshops.digitalFabrication.skills.skill1"),
+            t("courses.workshops.digitalFabrication.skills.skill2"),
+            t("courses.workshops.digitalFabrication.skills.skill3"),
+            t("courses.workshops.digitalFabrication.skills.skill4"),
+            t("courses.workshops.digitalFabrication.skills.skill5"),
+            t("courses.workshops.digitalFabrication.skills.skill6")
+          ]}
+          duration={t("courses.workshops.digitalFabrication.duration")}
+          level={t("courses.workshops.digitalFabrication.level")}
+          currentLang={currentLang}
+        />
+
+        <WorkshopModal
+          isOpen={selectedWorkshop === 'scanning'}
+          onClose={handleCloseWorkshopModal}
+          title={t("courses.workshops.scanning.title")}
+          subtitle={t("courses.workshops.scanning.description")}
+          skills={[
+            t("courses.workshops.scanning.skills.skill1"),
+            t("courses.workshops.scanning.skills.skill2"),
+            t("courses.workshops.scanning.skills.skill3"),
+            t("courses.workshops.scanning.skills.skill4"),
+            t("courses.workshops.scanning.skills.skill5"),
+            t("courses.workshops.scanning.skills.skill6")
+          ]}
+          duration={t("courses.workshops.scanning.duration")}
+          level={t("courses.workshops.scanning.level")}
+          currentLang={currentLang}
+        />
+
         <Footer bgClass="bg-black" textClass="text-white" />
       </main>
     </div>

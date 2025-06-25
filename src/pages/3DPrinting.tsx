@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import styles from "@/styles/Slider.module.css";
 import { useTranslation } from "react-i18next";
 import PrintingMaterials from "@/components/PrintingMaterials";
+import SEOHelmet from "@/components/SEOHelmet";
 
 const ThreeDPrintingPage = () => {
   const { t } = useTranslation();
@@ -12,6 +13,24 @@ const ThreeDPrintingPage = () => {
   const marketsRef = useRef<HTMLDivElement>(null);
   const [currentPrinterIndex, setCurrentPrinterIndex] = useState(0);
   const [isImageLoading, setIsImageLoading] = useState(true);
+
+  // Define JSON-LD schema for 3D Printing page
+  const printingSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "3D Printing Services",
+    "provider": {
+      "@type": "Organization",
+      "name": "FabLab CFYI",
+      "url": "https://fablab-cfyi.uz"
+    },
+    "serviceType": "3D Printing",
+    "description": "Professional 3D printing services including FDM and SLA technologies with a wide range of materials and applications.",
+    "offers": {
+      "@type": "Offer",
+      "description": "Professional 3D printing services"
+    }
+  };
 
   const materialTypeKeys = [
     'generalPurpose',
@@ -59,6 +78,14 @@ const ThreeDPrintingPage = () => {
 
   return (
     <div className="flex min-h-screen flex-col">
+      <SEOHelmet
+        title="3D Printing Services"
+        description="Professional 3D printing services in Uzbekistan. From FDM to SLA, we offer high-quality 3D printing with various materials for prototyping, manufacturing and engineering solutions."
+        keywords="3D printing, FDM, SLA, Uzbekistan, prototyping, manufacturing, engineering, Prusa, Formlabs, industrial 3D printing, multicolor printing"
+        image="/3dprinters/hero.webp"
+        schema={printingSchema}
+        canonicalPath="/3d-printing"
+      />
       <Header />
       
       <main className="flex-grow">

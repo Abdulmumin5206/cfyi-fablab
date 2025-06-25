@@ -6,53 +6,98 @@ import CourseModal from '../components/CourseModal';
 import WorkshopModal from '../components/WorkshopModal';
 import courseDetails from '../data/courseDetails.json';
 
+interface CourseItemList {
+  items: string[];
+}
+
+interface CourseBasicInfo {
+  duration: string;
+  level: string;
+  prerequisites: string;
+}
+
+interface CourseDetails extends CourseBasicInfo {
+  whatYouLearn?: string;
+  whatYouGet?: string;
+  whatYouMaster?: string;
+  advancedTopics?: string;
+  bonusModule?: string;
+  coreCurriculum?: string;
+  practicalProjects?: string;
+  certification?: string;
+  careerOpportunities?: string;
+  industryApplications?: string;
+  softwareCovered?: string;
+}
+
+interface CourseSection {
+  introduction: CourseItemList;
+  highlights: CourseItemList;
+  equipment: CourseItemList;
+  basicInfo: CourseBasicInfo;
+  details: CourseDetails;
+}
+
+interface CourseLabels {
+  [key: string]: {
+    [key: string]: string;
+  };
+}
+
+interface CourseData {
+  labels: CourseLabels;
+  hobbyistEssentials: CourseSection;
+  comprehensivePro: CourseSection;
+  masterClass: CourseSection;
+  [key: string]: unknown;
+}
+
 const CoursesPage = () => {
   const { t, i18n } = useTranslation();
   const currentLang = i18n.language;
+  const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
+  const [selectedWorkshop, setSelectedWorkshop] = useState<string | null>(null);
   
   // Determine the language to use for displaying course details
   const displayLang = courseDetails.fdmCourses.labels && courseDetails.fdmCourses.labels[currentLang] 
     ? currentLang 
     : (courseDetails.fdmCourses.labels && courseDetails.fdmCourses.labels['en'] ? 'en' : Object.keys(courseDetails.fdmCourses.labels || {})[0]);
 
-  // Add error handling and debugging
-  console.log('Current language:', currentLang);
-  console.log('Display language:', displayLang);
-  console.log('Course details:', courseDetails);
-  console.log('FDM Courses:', courseDetails.fdmCourses);
-  console.log('FDM Course Labels for displayLang:', courseDetails.fdmCourses.labels ? courseDetails.fdmCourses.labels[displayLang] : 'No labels available');
-  
-  // Check if courseDetails and fdmCourses exist
+  useEffect(() => {
+    // Add error handling and debugging
+    console.log('Current language:', currentLang);
+    console.log('Display language:', displayLang);
+    console.log('Course details:', courseDetails);
+    console.log('FDM Courses:', courseDetails.fdmCourses);
+    console.log('FDM Course Labels for displayLang:', courseDetails.fdmCourses.labels ? courseDetails.fdmCourses.labels[displayLang] : 'No labels available');
+    
+    // Ensure course details are loaded
+    if (!courseDetails || !courseDetails.fdmCourses) {
+      console.error('Course details or FDM courses not found');
+      return;
+    }
+
+    // Check if labels exist for current language
+    if (!courseDetails.fdmCourses.labels || !courseDetails.fdmCourses.labels[currentLang]) {
+      console.error('Labels not found for language:', currentLang);
+      console.log('Available languages in labels:', courseDetails.fdmCourses.labels ? Object.keys(courseDetails.fdmCourses.labels) : 'No labels found');
+    }
+  }, [currentLang, displayLang]);
+
   if (!courseDetails || !courseDetails.fdmCourses) {
-    console.error('Course details or FDM courses not found');
     return <div>Loading...</div>;
   }
+
+  const fdmCourses = courseDetails.fdmCourses as unknown as CourseData;
   
-  const fdmCourses = courseDetails.fdmCourses;
-  
-  // Check if labels exist for current language
+  // Check if labels exist for current language and get fallback language if needed
   if (!fdmCourses.labels || !fdmCourses.labels[currentLang]) {
-    console.error('Labels not found for language:', currentLang);
-    console.log('Available languages in labels:', fdmCourses.labels ? Object.keys(fdmCourses.labels) : 'No labels found');
-    
-    // Fallback to default language (assuming 'en' exists)
     const fallbackLang = fdmCourses.labels && fdmCourses.labels['en'] ? 'en' : Object.keys(fdmCourses.labels || {})[0];
     if (!fallbackLang) {
       return <div>Error: No language data available</div>;
     }
     console.log('Using fallback language:', fallbackLang);
   }
-  
-  const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
-  const [selectedWorkshop, setSelectedWorkshop] = useState<string | null>(null);
-
-  useEffect(() => {
-    // Ensure course details are loaded
-    if (!courseDetails) {
-      console.error('Course details not loaded correctly');
-      return;
-    }
-  }, []);
 
   const handleOpenModal = (courseId: string) => {
     setSelectedCourse(courseId);
@@ -71,18 +116,18 @@ const CoursesPage = () => {
   };
 
   // Safe access function
-  const safeAccess = (obj: any, path: string[], fallback: string = 'Loading...') => {
+  const safeAccess = (obj: Record<string, unknown>, path: string[], fallback: string = 'Loading...') => {
     try {
-      let current = obj;
+      let current: unknown = obj;
       for (const key of path) {
         if (current && typeof current === 'object' && key in current) {
-          current = current[key];
+          current = (current as Record<string, unknown>)[key];
         } else {
           console.warn(`Path not found: ${path.join('.')} at ${key}`);
           return fallback;
         }
       }
-      return current || fallback;
+      return (current as string) || fallback;
     } catch (error) {
       console.error('Error accessing path:', path, error);
       return fallback;

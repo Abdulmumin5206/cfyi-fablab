@@ -5,19 +5,35 @@ import { useTranslation } from "react-i18next";
 import ImageComparisonSlider from "@/components/ImageComparisonSlider";
 import { useLocation } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import SEOHelmet from "@/components/SEOHelmet";
 
 const DigitalFabricationPage = () => {
   const { t } = useTranslation();
   const location = useLocation();
   const [isImageLoading, setIsImageLoading] = useState(true);
 
+  // Define JSON-LD schema for Digital Fabrication page
+  const fabricationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Digital Fabrication Services",
+    "provider": {
+      "@type": "Organization",
+      "name": "FabLab CFYI",
+      "url": "https://fablab-cfyi.uz"
+    },
+    "serviceType": "Digital Fabrication",
+    "description": "Professional digital fabrication services including CNC machining, laser cutting, precision manufacturing, and rapid prototyping for industrial and commercial applications.",
+    "offers": {
+      "@type": "Offer",
+      "description": "CNC machining, laser cutting, digital manufacturing services"
+    }
+  };
+
   useEffect(() => {
     // Scroll to top when component mounts
     window.scrollTo(0, 0);
     
-    // Update document title
-    document.title = "Digital Fabrication Services | Modern Glide Design";
-
     // Handle hash navigation
     if (location.hash === '#precision-manufacturing') {
       const precisionSection = document.getElementById('precision-manufacturing');
@@ -31,6 +47,14 @@ const DigitalFabricationPage = () => {
 
   return (
     <div className="flex min-h-screen flex-col">
+      <SEOHelmet
+        title="Digital Fabrication Services"
+        description="Professional digital fabrication services in Uzbekistan. CNC machining, laser cutting, precision manufacturing, and rapid prototyping for industrial applications. Advanced manufacturing solutions."
+        keywords="изготовление деталей Ташкент, detal tayyorlash Toshkent, фрезерование ЧПУ, CNC ishlov berish, лазерная резка Узбекистан, lazer kesish, производство на заказ, buyurtma bo'yicha ishlab chiqarish, UV печать, стикеры Ташкент, stiker ishlab chiqarish, прецизионное производство"
+        image="/digital-fabrication/hero.webp"
+        schema={fabricationSchema}
+        canonicalPath="/digital-fabrication"
+      />
       <Header />
       
       <main className="flex-grow">

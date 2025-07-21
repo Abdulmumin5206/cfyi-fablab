@@ -6,6 +6,7 @@ import styles from "@/styles/Slider.module.css";
 import "@/styles/Carousel.css"; // Import the carousel CSS
 import { useTranslation } from "react-i18next";
 import { useNavigate } from 'react-router-dom';
+import SEOHelmet from "@/components/SEOHelmet";
 
 interface Features {
   capabilities: string[];
@@ -27,12 +28,27 @@ const MouldPage = () => {
   const [sliderPosition, setSliderPosition] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
 
+  // Define JSON-LD schema for Mould page
+  const mouldSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Molding & Production Services",
+    "provider": {
+      "@type": "Organization",
+      "name": "FabLab CFYI",
+      "url": "https://fablab-cfyi.uz"
+    },
+    "serviceType": "Manufacturing",
+    "description": "Professional molding and production services including injection molding, silicone molding, and mass production capabilities for industrial applications.",
+    "offers": {
+      "@type": "Offer",
+      "description": "Injection molding, silicone molding, production services"
+    }
+  };
+
   useEffect(() => {
     // Scroll to top when component mounts
     window.scrollTo(0, 0);
-    
-    // Update document title
-    document.title = "Molding & Production Services | Modern Glide Design";
     
     console.log("Mould page mounted");
   }, []);
@@ -134,6 +150,14 @@ const MouldPage = () => {
 
   return (
     <div className="flex min-h-screen flex-col">
+      <SEOHelmet
+        title="Molding & Production Services"
+        description="Professional molding and production services in Uzbekistan. Injection molding, silicone molding, and mass production capabilities for industrial applications and manufacturing."
+        keywords="литье под давлением Ташкент, qolipga quyish Toshkent, силиконовое литье, silikon qolipga quyish, производство Узбекистан, ishlab chiqarish, массовое производство, ommaviy ishlab chiqarish, изготовление форм, qolip tayyorlash, промышленное производство Ташкент, sanoat ishlab chiqarish, инженерные услуги, muhandislik xizmatlari"
+        image="/mould/hero.webp"
+        schema={mouldSchema}
+        canonicalPath="/mould"
+      />
       <Header />
       
       <main className="flex-grow">

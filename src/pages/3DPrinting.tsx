@@ -50,7 +50,7 @@ const ThreeDPrintingPage = () => {
     window.scrollTo(0, 0);
     
     // Update document title
-    document.title = "3D Printing Services | Modern Glide Design";
+    document.title = "3D Printing Services | Fablab Uzbekistan";
     
     console.log("3D Printing page mounted");
   }, []);
@@ -81,7 +81,7 @@ const ThreeDPrintingPage = () => {
       <SEOHelmet
         title="3D Printing Services"
         description="Professional 3D printing services in Uzbekistan. From FDM to SLA, we offer high-quality 3D printing with various materials for prototyping, manufacturing and engineering solutions."
-        keywords="3D printing, FDM, SLA, Uzbekistan, prototyping, manufacturing, engineering, Prusa, Formlabs, industrial 3D printing, multicolor printing"
+        keywords="3D печать Ташкент, 3D bosib chiqarish Toshkent, 3D принтинг услуги, 3D print xizmatlari, печать пластиком Узбекистан, plastik bosib chiqarish, изготовление прототипов, prototip tayyorlash, 3D моделирование, 3D modellashtirish, FDM печать, SLA печать, промышленная 3D печать"
         image="/3dprinters/hero.webp"
         schema={printingSchema}
         canonicalPath="/3d-printing"

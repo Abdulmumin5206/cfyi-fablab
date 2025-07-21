@@ -3,9 +3,28 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useTranslation } from "react-i18next";
 import { ArrowRight } from "lucide-react";
+import SEOHelmet from "@/components/SEOHelmet";
 
 const ThreeDScanningPage = () => {
   const { t } = useTranslation();
+
+  // Define JSON-LD schema for 3D Scanning page
+  const scanningSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "3D Scanning Services",
+    "provider": {
+      "@type": "Organization",
+      "name": "FabLab CFYI",
+      "url": "https://fablab-cfyi.uz"
+    },
+    "serviceType": "3D Scanning",
+    "description": "Professional 3D scanning services with high precision scanners for reverse engineering, quality control, and digital archiving.",
+    "offers": {
+      "@type": "Offer",
+      "description": "High-precision 3D scanning services"
+    }
+  };
 
   useEffect(() => {
     // Scroll to top when component mounts
@@ -17,6 +36,14 @@ const ThreeDScanningPage = () => {
 
   return (
     <div className="flex min-h-screen flex-col">
+      <SEOHelmet
+        title="3D Scanning Services"
+        description="Professional 3D scanning services in Uzbekistan. High-precision 3D scanning for reverse engineering, quality control, prototyping, and digital archiving with advanced scanning technology."
+        keywords="3D сканирование Ташкент, 3D skanerlash Toshkent, услуги 3D сканирования, 3D skanerlash xizmatlari, 3D сканер Узбекистан, сканирование объектов Ташкент, obyekt skanerlash, высокоточное сканирование, reverse engineering, quality control, prototyping"
+        image="/3dscanning/hero.webp"
+        schema={scanningSchema}
+        canonicalPath="/3d-scanning"
+      />
       <Header />
       
       <main className="flex-grow">

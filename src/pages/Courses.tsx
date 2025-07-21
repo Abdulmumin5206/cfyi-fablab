@@ -5,6 +5,7 @@ import Footer from '../components/Footer';
 import CourseModal from '../components/CourseModal';
 import WorkshopModal from '../components/WorkshopModal';
 import courseDetails from '../data/courseDetails.json';
+import SEOHelmet from '../components/SEOHelmet';
 
 interface CourseItemList {
   items: string[];
@@ -57,6 +58,24 @@ const CoursesPage = () => {
   const currentLang = i18n.language;
   const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
   const [selectedWorkshop, setSelectedWorkshop] = useState<string | null>(null);
+  
+  // Define JSON-LD schema for Courses page
+  const coursesSchema = {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "3D Printing and Digital Fabrication Courses",
+    "provider": {
+      "@type": "Organization",
+      "name": "FabLab CFYI",
+      "url": "https://fablab-cfyi.uz"
+    },
+    "description": "Comprehensive 3D printing and digital fabrication courses including FDM, SLA, and advanced manufacturing techniques with hands-on training and certification.",
+    "courseMode": "onsite",
+    "offers": {
+      "@type": "Offer",
+      "description": "Professional training courses in 3D printing and digital fabrication"
+    }
+  };
   
   // Determine the language to use for displaying course details
   const displayLang = courseDetails.fdmCourses.labels && courseDetails.fdmCourses.labels[currentLang] 
@@ -136,6 +155,14 @@ const CoursesPage = () => {
 
   return (
     <div className="flex min-h-screen flex-col">
+      <SEOHelmet
+        title="3D Printing Courses & Training"
+        description="Professional 3D printing and digital fabrication courses in Uzbekistan. Learn FDM, SLA, and advanced manufacturing with hands-on training and certification at FabLab CFYI."
+        keywords="курсы 3D печати Ташкент, 3D bosib chiqarish kurslari Toshkent, обучение 3D печати, 3D print ta'limi, курсы FDM, FDM kurslari, обучение SLA, SLA o'rganish, цифровое производство курсы, raqamli ishlab chiqarish kurslari, профессиональное обучение Узбекистан, professional ta'lim, сертификация 3D печати, 3D print sertifikatlashtirish, мастер-классы Ташкент, master klass Toshkent"
+        image="/courses/hero.webp"
+        schema={coursesSchema}
+        canonicalPath="/courses"
+      />
       <Header />
       
       <main className="flex-grow bg-white">

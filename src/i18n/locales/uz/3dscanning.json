@@ -1,0 +1,68 @@
+{
+  "highResolution": {
+    "title": "Yuqori Aniqlikdagi 3D Skanerlash",
+    "description": "Bizning zamonaviy 3D skanerlash texnologiyamiz yordamida jismoniy ob'ektlarning aniq raqamli nusxalarini yarating. Teskari muhandislik, sifat nazorati va raqamli saqlash uchun mukammal.",
+    "features": {
+      "accuracy": "Submillimetrli aniqlik",
+      "textureMapping": "To'liq rangli tekstura xaritalash",
+      "fileFormats": "Turli xil fayl formatlarini qo'llab-quvvatlash"
+    },
+    "cta": "3D Skanerlashni O'rganish"
+  },
+  "applications": {
+    "title": "Ko'p Qirrali Qo'llanmalar",
+    "description": "Mahsulotlarni ishlab chiqishdan madaniy merosni saqlashgacha, bizning 3D skanerlash xizmatlarimiz benuqson aniqlik va batafsillik bilan keng qamrovli qo'llanmalarni qo'llab-quvvatlaydi.",
+    "features": {
+      "reverseEngineering": "Teskari muhandislik",
+      "qualityControl": "Sifat nazorati va tekshirish",
+      "digitalArchiving": "Raqamli arxivlash va saqlash"
+    },
+    "cta": "Qo'llanmalarni Ko'rish"
+  },
+  "equipment": {
+    "title": "Bizning Uskunalarimiz",
+    "einScanSPV2": {
+      "title": "EinScan SP V2",
+      "category": "Yuqori Aniqlik",
+      "description": "0,05 mm aniqlikdagi sirtni batafsil qayta ishlash uchun professional strukturali yorug'lik skaneri."
+    },
+    "einScanH": {
+      "title": "EinScan H",
+      "category": "Qo'lda Ishlash",
+      "description": "Turli xil ob'ektlarni moslashuvchan skanerlash uchun 0,1 mm aniqlikdagi portativ qo'lda skaner."
+    },
+    "academia50": {
+      "title": "Academia 50",
+      "category": "Ta'lim Darajasi",
+      "description": "Ta'lim va tadqiqot dasturlari uchun mo'ljallangan yuqori aniqlikdagi 3D skaner."
+    },
+    "autoscanInspec": {
+      "title": "3D SKANER AUTOSCAN-INSPEC",
+      "category": "Sanoat darajasi",
+      "description": "Aniq tekshiruv va sifat nazorati uchun ilg'or sanoat darajasidagi 3D skaner."
+    }
+  },
+  "guide": {
+    "einScanSPV2": {
+      "title": "EinScan SP V2 Skannerini Ishlatish Bo'yicha Ko'rsatma",
+      "description": "EinScan SP V2 skaneri yordamida yuqori sifatli skanerlashni qanday amalga oshirishni o'rganing. Bu keng qamrovli ko'rsatma sozlash, kalibrlash, skanerlash texnikasi va optimal natijalar uchun eng yaxshi amaliyotlarni o'z ichiga oladi.",
+      "cta": "To'liq Ko'rsatmani O'qish",
+      "imageAlt": "EinScan SP V2 Skanneri Ko'rsatmasi"
+    }
+  },
+  "serviceCategories": {
+    "3dScanning": {
+      "guide": {
+        "einScanSPV2": {
+          "imageAlt": "EinScan SP V2 Skanneri Ko'rsatmasi"
+        }
+      }
+    }
+  },
+  "contactSection": {
+    "badge": "Bugundan Boshlang",
+    "title": "Obyektlaringizni Raqamlashtirishga Tayyormisiz?",
+    "description": "3D skanerlash ehtiyojlaringizni muhokama qilish uchun bugun biz bilan bog'laning. Bizning mutaxassislar jamoamiz sizning obyektlaringizning aniq raqamli nusxalarini yaratishda yordam berishga tayyor.",
+    "cta": "Biz bilan Bog'lanish"
+  }
+}

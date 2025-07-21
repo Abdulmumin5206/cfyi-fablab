@@ -8,7 +8,7 @@ import PrintingMaterials from "@/components/PrintingMaterials";
 import SEOHelmet from "@/components/SEOHelmet";
 
 const ThreeDPrintingPage = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('3dprinting');
   const videoRef = useRef<HTMLVideoElement>(null);
   const marketsRef = useRef<HTMLDivElement>(null);
   const [currentPrinterIndex, setCurrentPrinterIndex] = useState(0);
@@ -129,11 +129,11 @@ const ThreeDPrintingPage = () => {
               <div className="w-full lg:w-1/2">
                 <div className="max-w-xl mx-auto text-left lg:text-left flex flex-col items-start lg:items-start">
                   <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-black font-['Magistral']">
-                    {t("3dPrinting.manufacturing.title")}
+                    {t("manufacturing.title")}
                   </h2>
                   
                   <p className="text-gray-700 text-base sm:text-lg mb-3 sm:mb-4 font-['Magistral']">
-                    {t("3dPrinting.manufacturing.description")}
+                    {t("manufacturing.description")}
                   </p>
 
                   <a 
@@ -147,7 +147,7 @@ const ThreeDPrintingPage = () => {
                     }}
                     className="inline-flex items-center px-6 py-3 bg-[#329db7] text-white rounded-lg hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
                   >
-                    {t("3dPrinting.manufacturing.cta")}
+                    {t("manufacturing.cta")}
                   </a>
                 </div>
               </div>
@@ -205,8 +205,8 @@ const ThreeDPrintingPage = () => {
                       </svg>
                     </div>
                     <div>
-                      <p className="text-xs text-gray-600">{t("3dPrinting.fdm.highlights.colors")}</p>
-                      <p className="text-base font-bold text-gray-900">{t("3dPrinting.fdm.highlights.multiMaterial")}</p>
+                      <p className="text-xs text-gray-600">{t("fdm.highlights.colors")}</p>
+                      <p className="text-base font-bold text-gray-900">{t("fdm.highlights.multiMaterial")}</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
@@ -216,8 +216,8 @@ const ThreeDPrintingPage = () => {
                       </svg>
                     </div>
                     <div>
-                      <p className="text-xs text-gray-600">{t("3dPrinting.fdm.highlights.buildArea")}</p>
-                      <p className="text-base font-bold text-gray-900">{t("3dPrinting.fdm.highlights.extraLarge")}</p>
+                      <p className="text-xs text-gray-600">{t("fdm.highlights.buildArea")}</p>
+                      <p className="text-base font-bold text-gray-900">{t("fdm.highlights.extraLarge")}</p>
                     </div>
                   </div>
                 </div>
@@ -227,11 +227,11 @@ const ThreeDPrintingPage = () => {
               <div className="w-full lg:w-1/2">
                 <div className="max-w-xl mx-auto text-left lg:text-left flex flex-col items-start">
                   <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-black font-['Magistral']">
-                    {t("3dPrinting.fdm.title")}
+                    {t("fdm.title")}
                   </h2>
                   
                   <p className="text-gray-700 text-base sm:text-lg mb-3 sm:mb-4 font-['Magistral']">
-                    {t("3dPrinting.fdm.description")}
+                    {t("fdm.description")}
                   </p>
 
                   <div className="space-y-4 mb-8">
@@ -243,7 +243,7 @@ const ThreeDPrintingPage = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-gray-700 text-base sm:text-lg font-['Magistral']">{t("3dPrinting.fdm.features.multiMaterial")}</p>
+                      <p className="text-gray-700 text-base sm:text-lg font-['Magistral']">{t("fdm.features.multiMaterial")}</p>
                     </div>
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
@@ -253,7 +253,7 @@ const ThreeDPrintingPage = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-gray-700 text-base sm:text-lg font-['Magistral']">{t("3dPrinting.fdm.features.engineeringGrade")}</p>
+                      <p className="text-gray-700 text-base sm:text-lg font-['Magistral']">{t("fdm.features.engineeringGrade")}</p>
                     </div>
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
@@ -263,7 +263,7 @@ const ThreeDPrintingPage = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-gray-700 text-base sm:text-lg font-['Magistral']">{t("3dPrinting.fdm.features.advancedFeatures")}</p>
+                      <p className="text-gray-700 text-base sm:text-lg font-['Magistral']">{t("fdm.features.advancedFeatures")}</p>
                     </div>
                   </div>
 
@@ -275,7 +275,7 @@ const ThreeDPrintingPage = () => {
                     }}
                     className="inline-flex items-center px-6 py-3 bg-[#329db7] text-white rounded-lg hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
                   >
-                    {t("3dPrinting.fdm.cta")}
+                    {t("fdm.cta")}
                   </a>
                 </div>
               </div>
@@ -362,11 +362,11 @@ const ThreeDPrintingPage = () => {
               <div className="w-full lg:w-1/2">
                 <div className="max-w-xl mx-auto text-left lg:text-left flex flex-col items-start">
                   <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-black font-['Magistral']">
-                    {t("3dPrinting.sla.title")}
+                    {t("sla.title")}
                   </h2>
                   
                   <p className="text-gray-700 text-base sm:text-lg mb-3 sm:mb-4 font-['Magistral']">
-                    {t("3dPrinting.sla.description")}
+                    {t("sla.description")}
                   </p>
 
                   <div className="space-y-4 mb-8">
@@ -378,7 +378,7 @@ const ThreeDPrintingPage = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-gray-700 text-base sm:text-lg font-['Magistral']">{t("3dPrinting.sla.features.layerHeight")}</p>
+                      <p className="text-gray-700 text-base sm:text-lg font-['Magistral']">{t("sla.features.layerHeight")}</p>
                     </div>
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
@@ -388,7 +388,7 @@ const ThreeDPrintingPage = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-gray-700 text-base sm:text-lg font-['Magistral']">{t("3dPrinting.sla.features.surfaceFinish")}</p>
+                      <p className="text-gray-700 text-base sm:text-lg font-['Magistral']">{t("sla.features.surfaceFinish")}</p>
                     </div>
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
@@ -398,7 +398,7 @@ const ThreeDPrintingPage = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-gray-700 text-base sm:text-lg font-['Magistral']">{t("3dPrinting.sla.features.applications")}</p>
+                      <p className="text-gray-700 text-base sm:text-lg font-['Magistral']">{t("sla.features.applications")}</p>
                     </div>
                   </div>
 

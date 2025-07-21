@@ -1,0 +1,372 @@
+{
+  "manufacturing": {
+    "title": "Know your manufacturing needs, like you know your business.",
+    "description": "From rapid prototyping to end-use parts, our advanced 3D printing solutions deliver precision-engineered results that adapt to your specific requirements. We combine cutting-edge technology with deep expertise to transform your ideas into reality, ensuring each project meets the highest standards of quality and accuracy.",
+    "cta": "Get Started Today"
+  },
+  "fdm": {
+    "title": "Transform Your Vision Into Reality",
+    "description": "Our advanced FDM technology brings industrial-grade precision to your desktop. With multi-material capabilities and a wide range of engineering-grade filaments, we enable you to create functional prototypes and end-use parts that meet the highest standards.",
+    "features": {
+      "multiMaterial": "Multi-material printing with up to 5 materials",
+      "engineeringGrade": "Engineering-grade materials for functional parts",
+      "advancedFeatures": "Advanced features like soluble supports and composite materials"
+    },
+    "cta": "Explore FDM Capabilities",
+    "highlights": {
+      "colors": "Colors",
+      "multiMaterial": "Multi-Material",
+      "buildArea": "Build Area",
+      "extraLarge": "Extra Large Space"
+    }
+  },
+  "sla": {
+    "title": "See the Invisible, Print the Impossible",
+    "description": "Experience microscopic precision with our SLA technology. At 25 microns, we achieve details smaller than a human hair, bringing unprecedented accuracy to your projects. From intricate jewelry to precise engineering components, witness the future of manufacturing.",
+    "features": {
+      "layerHeight": "25 micron layer height (1/3 the width of a human hair)",
+      "surfaceFinish": "Ultra-smooth surface finish that feels like injection molded",
+      "applications": "Perfect for jewelry, dental work, and miniatures"
+    },
+    "cta": "Explore SLA Capabilities"
+  },
+  "digitalFabrication": {
+    "behindTheScenes": {
+      "title": "Behind the Scenes",
+      "description": "Follow our journey and discover how we bring your ideas to life through cutting-edge 3D printing technology.",
+      "instagramCta": "Follow Us on Instagram",
+      "telegramCta": "Follow Us on Telegram"
+    }
+  },
+  "3dPrinting": {
+    "hero": {
+      "subtitle": "ADVANCED 3D PRINTING SOLUTIONS",
+      "title": "Professional 3D Printing Services",
+      "features": {
+        "precision": "High-precision printing with exceptional detail and accuracy",
+        "materials": "Wide range of materials for various applications",
+        "applications": "Suitable for prototyping, production, and custom parts"
+      },
+      "buttons": {
+        "quote": "Get a Quote",
+        "samples": "Request Samples"
+      }
+    },
+    "fdm": {
+      "title": "Transform Your Vision Into Reality",
+      "description": "Our advanced FDM technology brings industrial-grade precision to your desktop. With multi-material capabilities and a wide range of engineering-grade filaments, we enable you to create functional prototypes and end-use parts that meet the highest standards.",
+      "features": {
+        "multiMaterial": "Multi-material printing with up to 5 materials",
+        "engineeringGrade": "Engineering-grade materials for functional parts",
+        "advancedFeatures": "Advanced features like soluble supports and composite materials"
+      },
+      "cta": "Explore FDM Capabilities",
+      "highlights": {
+        "colors": "Colors",
+        "multiMaterial": "Multi-Material",
+        "buildArea": "Build Area",
+        "extraLarge": "Extra Large Space"
+      }
+    },
+    "materials": {
+      "title": "3D Printing Materials",
+      "subtitle": "Explore our wide range of high-quality materials for both FDM and SLA printing technologies.",
+      "filters": {
+        "all": "All Materials",
+        "fdm": "FDM Materials",
+        "sla": "SLA Materials"
+      },
+      "search": {
+        "placeholder": "Search materials..."
+      },
+      "premium": "Premium",
+      "colors": {
+        "title": "Available Colors",
+        "selected": "Selected Color"
+      },
+      "properties": {
+        "title": "Properties"
+      },
+      "applications": {
+        "title": "Applications"
+      },
+      "fdm": {
+        "prusament": {
+          "description": "Biodegradable thermoplastic with excellent print quality and ease of use.",
+          "properties": {
+            "biodegradable": "Biodegradable",
+            "easyToPrint": "Easy to print",
+            "goodSurfaceFinish": "Good surface finish",
+            "rigid": "Rigid"
+          },
+          "applications": {
+            "prototypes": "Prototypes",
+            "displayModels": "Display models",
+            "lowWearParts": "Low-wear parts"
+          },
+          "colors": {
+            "msPink": "Ms. Pink",
+            "vanillaWhite": "Vanilla White",
+            "jetBlack": "Jet Black",
+            "pearlMouse": "Pearl Mouse",
+            "ohMyGold": "Oh My Gold",
+            "galaxySilver": "Galaxy Silver",
+            "prusaOrange": "Prusa Orange",
+            "mysticBrown": "Mystic Brown",
+            "armyGreen": "Army Green",
+            "royalBlue": "Royal Blue",
+            "opalGreen": "Opal Green",
+            "mySilverness": "My Silverness",
+            "limeGreen": "Lime Green",
+            "simplyGreen": "Simply Green",
+            "gravityGrey": "Gravity Grey",
+            "pearlBlue": "Pearl Blue",
+            "yellow": "Yellow",
+            "pineappleYellow": "Pineapple Yellow",
+            "lila": "Lila"
+          }
+        },
+        "filamentum": {
+          "description": "Premium quality PLA filament known for its exceptional quality and unique color palette. Made in Czech Republic with precise diameter tolerance.",
+          "properties": {
+            "highQuality": "High quality materials",
+            "preciseDiameter": "Precise diameter",
+            "excellentPrintability": "Excellent printability",
+            "uniqueColors": "Unique color palette"
+          },
+          "applications": {
+            "decorative": "Decorative prints",
+            "architectural": "Architectural models",
+            "designPrototypes": "Design prototypes",
+            "artProjects": "Art projects"
+          },
+          "colors": {
+            "goldHappens": "Gold Happens",
+            "electricGrey": "Electric Grey",
+            "rapunzelSilver": "Rapunzel Silver",
+            "pureWhite": "Pure White",
+            "metallicGrey": "Metallic Grey",
+            "melonYellow": "Melon Yellow",
+            "purpleRed": "Purple Red",
+            "chocolateBrown": "Chocolate Brown",
+            "crystalClearIcelandBlue": "Crystal Clear Iceland Blue",
+            "luminousGreen": "Luminous Green",
+            "nobleBlue": "Noble Blue"
+          }
+        },
+        "raise3d": {
+          "description": "Professional-grade materials optimized for the Raise3D Pro3 series. Superior quality and consistency for industrial applications.",
+          "properties": {
+            "industrialGrade": "Industrial grade",
+            "highAccuracy": "High dimensional accuracy",
+            "excellentAdhesion": "Excellent layer adhesion",
+            "professionalFinish": "Professional finish"
+          },
+          "applications": {
+            "industrialPrototypes": "Industrial prototypes",
+            "manufacturingAids": "Manufacturing aids",
+            "professionalModels": "Professional models",
+            "productionParts": "Production parts"
+          },
+          "colors": {
+            "plaWhite": "PLA White",
+            "plaBlack": "PLA Black",
+            "plaBlue": "PLA Blue",
+            "plaRed": "PLA Red",
+            "plaOrange": "PLA Orange",
+            "absWhite": "ABS White",
+            "absBlack": "ABS Black",
+            "absGrey": "ABS Grey",
+            "pcWhite": "PC White",
+            "tpuWhite": "TPU White"
+          }
+        }
+      },
+      "sla": {
+        "prusament": {
+          "description": "High-quality SLA resins from Prusa Research offering exceptional detail, various properties, and multiple color options. Including standard model resins, flexible variants, and eco-friendly bio-based options.",
+          "properties": {
+            "highDetail": "High detail",
+            "multipleVariants": "Multiple variants",
+            "professionalQuality": "Professional quality",
+            "wideColorRange": "Wide color range"
+          },
+          "applications": {
+            "detailedPrototypes": "Detailed prototypes",
+            "flexibleParts": "Flexible parts",
+            "displayModels": "Display models",
+            "functionalPrints": "Functional prints"
+          },
+          "colors": {
+            "modelTransparentClear": "Model Transparent Clear",
+            "modelTransparentGreen": "Model Transparent Green",
+            "modelTransparentRed": "Model Transparent Red",
+            "modelAnthraciteGrey": "Model Anthracite Grey",
+            "modelBrickRed": "Model Brick Red",
+            "modelClassicRed": "Model Classic Red",
+            "modelPrusaOrange": "Model Prusa Orange",
+            "modelTerraBrown": "Model Terra Brown",
+            "modelSandstone": "Model Sandstone",
+            "modelBrightYellow": "Model Bright Yellow",
+            "modelGrassGreen": "Model Grass Green",
+            "flex80TransparentClear": "Flex80 Transparent Clear",
+            "flex80Black": "Flex80 Black",
+            "bioBased60NaturalYellow": "BioBased60 Natural Yellow",
+            "bioBased60HerbalGreen": "BioBased60 Herbal Green",
+            "bioBased60MagmaRed": "BioBased60 Magma Red"
+          }
+        },
+        "phrozen": {
+          "description": "Professional-grade SLA resins from Phrozen, optimized for high-resolution 3D printing. Features specialized formulations for jewelry casting and water-washable options.",
+          "properties": {
+            "highResolution": "High resolution",
+            "specializedFormulas": "Specialized formulas",
+            "waterWashable": "Water-washable options",
+            "castingCapable": "Casting capable"
+          },
+          "applications": {
+            "jewelryCasting": "Jewelry casting",
+            "detailedModels": "Detailed models",
+            "professionalPrints": "Professional prints",
+            "specialtyApplications": "Specialty applications"
+          },
+          "colors": {
+            "aquaBlue": "Aqua Blue",
+            "aquaGreen": "Aqua Green",
+            "aquaGray": "Aqua Gray",
+            "castableGreenW20": "Castable Green W20",
+            "castableOrangeW40": "Castable Orange W40",
+            "castableViolet": "Castable Violet"
+          }
+        },
+        "formlabs": {
+          "description": "Professional-grade engineering resins from Formlabs, offering unmatched quality and precision. Industry-leading materials for demanding applications.",
+          "properties": {
+            "engineeringGrade": "Engineering grade",
+            "industryCertified": "Industry certified",
+            "highestPrecision": "Highest precision",
+            "professionalQuality": "Professional quality"
+          },
+          "applications": {
+            "engineeringParts": "Engineering parts",
+            "medicalDevices": "Medical devices",
+            "dentalApplications": "Dental applications",
+            "industrialPrototypes": "Industrial prototypes"
+          },
+          "colors": {
+            "clearV4": "Clear v4",
+            "whiteV4": "White v4",
+            "greyV4": "Grey v4",
+            "blackV4": "Black v4",
+            "colorKit": "Color Kit",
+            "colorBase": "Color Base",
+            "castableWax40": "Castable Wax 40"
+          }
+        }
+      }
+    },
+    "equipment": {
+      "title": "Our 3D Printing Equipment",
+      "fdm": {
+        "title": "Professional FDM 3D Printers",
+        "prusa": {
+          "title": "Prusa i3 MK3S+",
+          "subtitle": "Professional FDM",
+          "description": "Reliable workhorse for rapid prototyping and functional parts with wide material compatibility."
+        },
+        "prusaMMU": {
+          "title": "Prusa i3 MK3S+ MMU2S",
+          "subtitle": "Multi-Material",
+          "description": "Multi-material printing capabilities with up to 5 different materials in a single print."
+        },
+        "skrinter": {
+          "title": "Skrinter",
+          "subtitle": "Large Format",
+          "description": "Large build volume printer for bigger projects and production runs."
+        },
+        "raise3d": {
+          "title": "Raise3D Pro3",
+          "subtitle": "Industrial Grade",
+          "description": "Industrial-grade FDM printer for professional production and engineering applications."
+        }
+      },
+      "sla": {
+        "title": "Professional SLA 3D Printers",
+        "form3": {
+          "title": "Formlabs Form 3+",
+          "subtitle": "Professional SLA",
+          "description": "Advanced Low Force Stereolithography (LFS) technology for exceptional detail and surface finish."
+        },
+        "phrozenMini": {
+          "title": "Phrozen Sonic Mini 8K",
+          "subtitle": "High Resolution",
+          "description": "Ultra-high 8K resolution for incredibly detailed prints with 22µm XY precision."
+        },
+        "phrozenMega": {
+          "title": "PHROZEN Sonic MEGA 8K MSLA",
+          "subtitle": "Large Format",
+          "description": "Large build volume with 4K resolution for bigger projects without compromising quality."
+        },
+        "prusa": {
+          "title": "Prusa SL1S",
+          "subtitle": "Speed & Precision",
+          "description": "Fast MSLA technology with 5.5\" mono LCD and integrated post-processing solution."
+        }
+      }
+    },
+    "manufacturing": {
+      "title": "Know your manufacturing needs, like you know your business.",
+      "description": "From rapid prototyping to end-use parts, our advanced 3D printing solutions deliver precision-engineered results that adapt to your specific requirements. We combine cutting-edge technology with deep expertise to transform your ideas into reality, ensuring each project meets the highest standards of quality and accuracy.",
+      "cta": "Get Started Today"
+    },
+    "behindScenes": {
+      "title": "Behind the Scenes",
+      "description": "Follow our journey and discover how we bring your ideas to life through cutting-edge 3D printing technology.",
+      "instagramButton": "Follow Us on Instagram",
+      "telegramButton": "Follow Us on Telegram"
+    },
+    "sla": {
+      "title": "See the Invisible, Print the Impossible",
+      "description": "Experience microscopic precision with our SLA technology. At 25 microns, we achieve details smaller than a human hair, bringing unprecedented accuracy to your projects. From intricate jewelry to precise engineering components, witness the future of manufacturing.",
+      "features": {
+        "layerHeight": "25 micron layer height (1/3 the width of a human hair)",
+        "surfaceFinish": "Ultra-smooth surface finish that feels like injection molded",
+        "applications": "Perfect for jewelry, dental work, and miniatures"
+      },
+      "cta": "Explore SLA Capabilities"
+    },
+    "course": {
+      "badge": "Master 3D Printing",
+      "title": "Transform Your Ideas Into Reality",
+      "description": "Join our comprehensive 3D printing course and learn from industry experts. From basics to advanced techniques, we'll guide you through every step of the journey.",
+      "features": {
+        "handsOn": {
+          "title": "Hands-on Experience",
+          "description": "Work with professional-grade equipment and learn through practical projects"
+        },
+        "expert": {
+          "title": "Expert Instruction",
+          "description": "Learn from certified professionals with years of industry experience"
+        },
+        "certification": {
+          "title": "Certification",
+          "description": "Receive an industry-recognized certificate upon completion"
+        }
+      },
+      "stats": {
+        "format": {
+          "label": "Course Format",
+          "value": "Hands-on Learning"
+        },
+        "duration": {
+          "label": "Duration",
+          "value": "3-8 Weeks"
+        }
+      },
+      "buttons": {
+        "enroll": "Enroll Now",
+        "syllabus": "Download Syllabus"
+      }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "highResolution": {
+    "title": "High-Resolution 3D Scanning",
+    "description": "Capture precise digital replicas of physical objects with our advanced 3D scanning technology. Perfect for reverse engineering, quality control, and digital preservation.",
+    "features": {
+      "accuracy": "Sub-millimeter accuracy",
+      "textureMapping": "Full-color texture mapping",
+      "fileFormats": "Multiple file format support"
+    },
+    "cta": "Explore 3D Scanning"
+  },
+  "applications": {
+    "title": "Versatile Applications",
+    "description": "From product development to cultural preservation, our 3D scanning services support a wide range of applications with unmatched precision and detail.",
+    "features": {
+      "reverseEngineering": "Reverse engineering",
+      "qualityControl": "Quality control and inspection",
+      "digitalArchiving": "Digital archiving and preservation"
+    },
+    "cta": "View Applications"
+  },
+  "equipment": {
+    "title": "Our Equipment",
+    "einScanSPV2": {
+      "title": "EinScan SP V2",
+      "category": "High Precision",
+      "description": "Professional-grade structured light scanner with 0.05mm accuracy for detailed surface capture."
+    },
+    "einScanH": {
+      "title": "EinScan H",
+      "category": "Handheld Solution",
+      "description": "Portable handheld scanner with 0.1mm accuracy for flexible scanning of various objects."
+    },
+    "academia50": {
+      "title": "Academia 50",
+      "category": "Educational Grade",
+      "description": "High-resolution 3D scanner designed for educational and research applications."
+    },
+    "autoscanInspec": {
+      "title": "3D SCANNER AUTOSCAN-INSPEC",
+      "category": "Industrial Grade",
+      "description": "Advanced industrial-grade 3D scanner for precise inspection and quality control applications."
+    }
+  },
+  "guide": {
+    "einScanSPV2": {
+      "title": "Guide to Using the EinScan SP V2",
+      "description": "Learn how to achieve high-quality scans with the EinScan SP V2 scanner. This comprehensive guide covers setup, calibration, scanning techniques, and best practices for optimal results.",
+      "cta": "Read the Full Guide",
+      "imageAlt": "EinScan SP V2 Scanner Guide"
+    }
+  },
+  "serviceCategories": {
+    "3dScanning": {
+      "guide": {
+        "einScanSPV2": {
+          "imageAlt": "EinScan SP V2 Scanner Guide"
+        }
+      }
+    }
+  },
+  "contactSection": {
+    "badge": "Get Started Today",
+    "title": "Ready to Digitize Your Objects?",
+    "description": "Contact us today to discuss your 3D scanning needs. Our team of experts is ready to help you capture precise digital replicas of your objects.",
+    "cta": "Contact Us"
+  }
+}

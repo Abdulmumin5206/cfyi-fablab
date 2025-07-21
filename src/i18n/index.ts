@@ -8,6 +8,12 @@ import uzTranslation from './locales/uz/translation.json';
 import enBlog from './locales/en/blog.json';
 import ruBlog from './locales/ru/blog.json';
 import uzBlog from './locales/uz/blog.json';
+import en3dPrinting from './locales/en/3dprinting.json';
+import ru3dPrinting from './locales/ru/3dprinting.json';
+import uz3dPrinting from './locales/uz/3dprinting.json';
+import en3dScanning from './locales/en/3dscanning.json';
+import ru3dScanning from './locales/ru/3dscanning.json';
+import uz3dScanning from './locales/uz/3dscanning.json';
 
 // the translations
 const resources = {
@@ -45,5 +51,15 @@ i18n
 i18n.addResourceBundle('en', 'blog', enBlog.blog, true, true);
 i18n.addResourceBundle('ru', 'blog', ruBlog.blog, true, true);
 i18n.addResourceBundle('uz', 'blog', uzBlog.blog, true, true);
+
+// Add 3D printing-specific translations
+i18n.addResourceBundle('en', '3dprinting', en3dPrinting, true, true);
+i18n.addResourceBundle('ru', '3dprinting', ru3dPrinting, true, true);
+i18n.addResourceBundle('uz', '3dprinting', uz3dPrinting, true, true);
+
+// Add 3D scanning-specific translations
+i18n.addResourceBundle('en', '3dscanning', en3dScanning, true, true);
+i18n.addResourceBundle('ru', '3dscanning', ru3dScanning, true, true);
+i18n.addResourceBundle('uz', '3dscanning', uz3dScanning, true, true);
 
 export default i18n; 

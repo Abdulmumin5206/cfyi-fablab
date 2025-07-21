@@ -13,7 +13,7 @@ interface Features {
 }
 
 const MouldPage = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('mould');
   const navigate = useNavigate();
   const videoRef = useRef<HTMLVideoElement>(null);
   const marketsRef = useRef<HTMLDivElement>(null);

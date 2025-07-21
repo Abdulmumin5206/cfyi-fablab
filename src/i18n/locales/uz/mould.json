@@ -1,0 +1,277 @@
+{
+  "industries": {
+    "engineering": {
+      "capabilities": [
+        "Funksional prototiplar",
+        "Yakuniy qismlar"
+      ]
+    },
+    "textile": {
+      "capabilities": [
+        "Maxsus moslamalar",
+        "Ishlab chiqarish yordamchilari"
+      ]
+    },
+    "medical": {
+      "capabilities": [
+        "Laboratoriya uskunalari",
+        "Maxsus korpuslar"
+      ]
+    },
+    "furniture": {
+      "capabilities": [
+        "Prototiplash",
+        "Maxsus birikmalar"
+      ]
+    },
+    "automotive": {
+      "capabilities": [
+        "Almashtirish qismlari",
+        "Tezkor prototiplash"
+      ]
+    },
+    "education": {
+      "capabilities": [
+        "O'qitish vositalari",
+        "STEM loyihalari"
+      ]
+    },
+    "manufacturing": {
+      "capabilities": [
+        "Asbob-uskunalar yechimlari",
+        "Kichik seriyalar"
+      ]
+    },
+    "jewelry": {
+      "capabilities": [
+        "Mum quyma modellari",
+        "Dizayn prototiplari"
+      ]
+    }
+  },
+  "hero": {
+    "subtitle": "PROFESSIONAL QOLIY YECHIMLARI",
+    "title": "Maxsus qoliylar va quyma xizmatlari",
+    "features": {
+      "costEffective": "Kichik seriyalar uchun metall qoliylarga qaraganda arzonroq alternativa",
+      "highPrecision": "Master modellar va to'g'ridan-to'g'ri qismlarni ishlab chiqarish uchun yuqori aniqlikdagi SLA chop etish",
+      "specialized": "Zaxira qismlar va kichik seriyali ishlab chiqarishda ixtisoslashgan"
+    },
+    "buttons": {
+      "consultation": "Maslahat so'rash",
+      "materials": "Materiallar haqida batafsil"
+    },
+    "scrollDown": "Pastga aylantirish"
+  },
+  "premiumQuality": {
+    "title": "Yuqori Sifat",
+    "subtitle": "har bir qoliplash va quyma loyihasi uchun",
+    "materials": {
+      "rigid": "Qattiq",
+      "flexible": "Moslashuvchan",
+      "transparent": "Shaffof",
+      "foodSafe": "Oziq-ovqat uchun xavfsiz",
+      "highTemp": "Yuqori harorat",
+      "multiColor": "Ko'p rangli"
+    }
+  },
+  "precisionMoulding": {
+    "title": "Kichik Seriyalar uchun Aniq Plastik Qoliplash",
+    "description": "Ehtiyot qismlar va kichik hajmdagi ishlab chiqarish ehtiyojlaringizni bizning maxsus plastik qoliplash yechimlarimiz bilan o'zgartiring. Eski uskunalar uchun almashtirish qismlari yoki kichik seriyali ishlab chiqarish kerak bo'lsa ham, bizning ilg'or qoliplash texnologiyalarimiz barqaror sifat va aniq o'lchamlarni ta'minlaydi. 1 dan 1000 donagacha bo'lgan miqdorlar uchun ishonchli, arzon yechimlar talab qiluvchi ishlab chiqaruvchilar, texnik xizmat guruhlari va korxonalar uchun ideal.",
+    "requestQuote": "Narxni So'rash"
+  },
+  "whyDigital": {
+    "title": "Nima uchun raqamli texnologiyalarni tanlash kerak?",
+    "benefits": {
+      "lowerCosts": {
+        "title": "Past xarajatlar",
+        "description": "Yuqori boshlang'ich asbob-uskunalar investitsiyalaridan qoching va mehnat xarajatlarini kamaytiring."
+      },
+      "fasterTime": {
+        "title": "Tezroq muddat",
+        "description": "24 soat ichida yuqori sifatli namunalar ishlab chiqarish."
+      },
+      "designFreedom": {
+        "title": "Dizayn erkinligi",
+        "description": "An'anaviy quyish usuli bilan erishish qiyin bo'lgan murakkab shakllarni yarating."
+      }
+    }
+  },
+  "spareParts": {
+    "title": "Zaxira qismlar va maxsus komponentlar",
+    "description": "Bizning ilg'or SLA chop etish va quyma imkoniyatlarimiz an'anaviy ishlab chiqarish usullariga qaraganda aniqroq va arzonroq narxlarda ishlab chiqarilmaydigan yoki topish qiyin bo'lgan qismlarni qayta ishlab chiqarishga imkon beradi.",
+    "features": {
+      "replication": "Ishlab chiqarilmaydigan qismlarni an'anaviy usullarga qaraganda tezroq va arzonroq qayta ishlab chiqarish",
+      "customParts": "Yuqori aniqlikda sizning maxsus talablaringizga mos keladigan maxsus qismlarni yaratish",
+      "rapidPrototyping": "Qimmatbaho asbob-uskunalar xarajatlarisiz tezkor prototiplar va kichik seriyalar"
+    },
+    "cta": "Maslahat so'rash"
+  },
+  "equipment": {
+    "title": "Qoliplash va ehtiyot qismlar uchun bizning uskunalarimiz",
+    "items": {
+      "form3": {
+        "title": "Form 3 SLA Printer",
+        "description": "Aniq master modellar uchun ajoyib detallar bilan yuqori aniqlikdagi SLA chop etish"
+      },
+      "phrozenMega": {
+        "title": "Phrozen Sonic Mega 8K",
+        "description": "Ajoyib detallar bilan bir nechta qismlarni ishlab chiqarish uchun katta formatdagi 8K aniqlik"
+      },
+      "raise3d": {
+        "title": "Raise3D Pro3",
+        "description": "Kuchli funksional qismlar va maxsus materiallar uchun professional FDM printer"
+      },
+      "phrozenMini": {
+        "title": "Phrozen Mini 8K",
+        "description": "Kichik qismlar uchun ajoyib detallarni ta'minlaydigan ixcham stol usti 8K smola printeri"
+      },
+      "prusa": {
+        "title": "Prusa i3 MK3S+",
+        "description": "Keng material moslashuvi bilan tezkor prototiplash va funksional qismlar uchun ishonchli ishchi"
+      }
+    }
+  },
+  "materials": {
+    "title": "Materiallar",
+    "subtitle": "3D Chop Etish Materiallari",
+    "viewAll": "Barcha materiallarni ko'rish"
+  },
+  "faq": {
+    "title": "Ko'p so'raladigan savollar",
+    "questions": {
+      "spareParts": {
+        "question": "Ishlab chiqarishdan chiqarilgan mahsulotlar uchun ehtiyot qismlarni yaratishingiz mumkinmi?",
+        "answer": "Ha, biz endi ishlab chiqarilmayotgan yoki original almashtirishlar haddan tashqari qimmat bo'lgan mahsulotlar uchun ehtiyot qismlarni ishlab chiqarishda ixtisoslashganmiz. Bizning ilg'or SLA-chop etish va quyish texnikalarimizdan foydalangan holda, biz namunalardan, texnik chizmalardan yoki hatto sizning spetsifikatsiyalaringizga asoslanib yangi dizaynlarni yaratish orqali yuqori aniqlikda qismlarni qayta ishlab chiqarishimiz mumkin."
+      },
+      "slaComparison": {
+        "question": "SLA-chop etish an'anaviy metall qoliplar bilan qanday taqqoslanadi?",
+        "answer": "SLA-chop etish kichik va o'rta hajmdagi ishlab chiqarish uchun tezroq muddat va pastroq xarajatlarni taklif qiladi. An'anaviy metall qoliplar ommaviy ishlab chiqarish uchun yaxshiroq bo'lsa-da, bizning SLA texnologiyamiz yuqori boshlang'ich asbob-uskunalar xarajatlarisiz ajoyib detallar va aniqlikni ta'minlaydi."
+      },
+      "productionTime": {
+        "question": "Ishlab chiqarish jarayoni qancha vaqt oladi?",
+        "answer": "Muddat loyihaning murakkabligiga bog'liq. Oddiy qismlar 1-2 kunda bajarilishi mumkin, murakkab loyihalar esa 1 hafta vaqt olishi mumkin. SLA-chop etish an'anaviy usullarga qaraganda muddatlarni sezilarli darajada qisqartiradi, bu tez iteratsiyalar va tezroq bozorga chiqish imkonini beradi."
+      },
+      "limitations": {
+        "question": "Qismlar uchun SLA-chop etishning cheklovlari qanday?",
+        "answer": "SLA-chop etish ajoyib detallar va sifatni taklif qilsa-da, u material xususiyatlari va ishlab chiqarish hajmi bo'yicha cheklovlarga ega. Biz sizning o'ziga xos talablaringiz va maqsadlaringizga asoslanib, SLA sizning loyihangiz uchun mos kelishi yoki alternativ usullar yaxshiroq bo'lishini aniqlashda yordam beramiz."
+      }
+    }
+  },
+  "professions": {
+    "title": "Bizning Kasblarimiz",
+    "subtitle": "Innovatsiya ishlab chiqarish bilan uchrashadigan joy - har bir loyihada mukammallikni ta'minlash",
+    "categories": {
+      "engineering": {
+        "title": "Muhandislik",
+        "description": "Aniq qismlar va tezkor prototiplash.",
+        "features": [
+          "Funksional prototiplar",
+          "Yakuniy qismlar"
+        ]
+      },
+      "textile": {
+        "title": "To'qimachilik",
+        "description": "To'qimachilik ishlab chiqarish uchun maxsus asboblar.",
+        "features": [
+          "Maxsus moslamalar",
+          "Ishlab chiqarish yordamchilari"
+        ]
+      },
+      "medical": {
+        "title": "Tibbiyot",
+        "description": "Tibbiy qurilmalar uchun ishonchli qismlar.",
+        "features": [
+          "Laboratoriya uskunalari",
+          "Maxsus korpuslar"
+        ]
+      },
+      "furniture": {
+        "title": "Mebel",
+        "description": "Mebel ishlab chiqaruvchilari uchun maxsus o'rnatishlar.",
+        "features": [
+          "Prototiplash",
+          "Maxsus birikmalar"
+        ]
+      },
+      "automotive": {
+        "title": "Avtomobilsozlik",
+        "description": "Ehtiyot qismlar va maxsus yechimlar.",
+        "features": [
+          "Almashtirish qismlari",
+          "Tezkor prototiplash"
+        ]
+      },
+      "education": {
+        "title": "Ta'lim",
+        "description": "Maktablar uchun amaliy modellar.",
+        "features": [
+          "O'qitish vositalari",
+          "STEM loyihalari"
+        ]
+      },
+      "manufacturing": {
+        "title": "Ishlab chiqarish",
+        "description": "Ishlab chiqarish liniyalari uchun samarali qismlar.",
+        "features": [
+          "Asbob-uskunalar yechimlari",
+          "Kichik seriyalar"
+        ]
+      },
+      "jewelry": {
+        "title": "Zargarlik",
+        "description": "Zargarlik dizayni uchun batafsil modellar.",
+        "features": [
+          "Mum quyma modellari",
+          "Dizayn prototiplari"
+        ]
+      }
+    }
+  },
+  "whyChoosePlasticMoulding": {
+    "title": "Nima uchun plastik qoliplashni tanlash kerak?",
+    "benefits": {
+      "lowerCosts": {
+        "title": "Past narxlar",
+        "description": "Yuqori boshlang'ich asbob-uskunalar investitsiyalaridan qoching va mehnat xarajatlarini kamaytiring."
+      },
+      "fasterTime": {
+        "title": "Tezroq vaqt",
+        "description": "24 soat ichida yuqori sifatli modellarni ishlab chiqaring."
+      },
+      "designFreedom": {
+        "title": "Dizayn erkinligi",
+        "description": "An'anaviy quyma bilan erishish qiyin bo'lgan murakkab shakllarni yarating."
+      }
+    },
+    "video": {
+      "title": "Plastik qoliplashni amalda ko'ring",
+      "description": "Formlabs'ning zamonaviy qoliplash texnologiyasi xom ashyoni qanday qilib ajoyib detallar va izchillik bilan aniq, yuqori sifatli qismlarga aylantirishini tomosha qiling."
+    },
+    "formlabsSolutions": {
+      "title": "Formlabs In'ektsion Qoliplash Yechimlari haqida o'qing",
+      "caseStudy1": {
+        "category": "ISHLAB CHIQARISH BO'YICHA QO'LLANMA",
+        "title": "Kichik hajmdagi in'ektsion qoliplash bo'yicha qo'llanma",
+        "description": "Prototiplash va kichik hajmdagi ishlab chiqarish uchun yuqori sifatli qismlarni ishlab chiqarishda 3D chop etilgan in'ektsion qoliplardan qanday foydalanishni o'rganing.",
+        "learnMore": "Batafsil ma'lumot"
+      },
+      "caseStudy2": {
+        "category": "ISHLAB CHIQARISH TAXLILLARI",
+        "title": "Qachon in'ektsion qoliplashni 3D chop etish bilan almashtirish kerak?",
+        "description": "Ishlab chiqarish ehtiyojlaringiz uchun an'anaviy in'ektsion qoliplash o'rniga 3D chop etishdan qachon foydalanishni bilib oling.",
+        "learnMore": "Batafsil ma'lumot"
+      }
+    }
+  },
+  "sparePartProjects": {
+    "title": "Ehtiyot qismlar loyihalari",
+    "blogPost": {
+      "imageAlt": "3D bosib chiqarish innovatsiyalari",
+      "category": "3D BOSIB CHIQARISH",
+      "title": "SLA smola bosib chiqarish: Ehtiyot qismlar uchun kichik seriyali ishlab chiqarishda inqilob",
+      "description": "O'zbek texnologiya startapi uchun ilg'or 3D bosib chiqarish texnikalari yordamida to'liq ishlaydigan prototip yaratildi.",
+      "readMore": "Batafsil"
+    }
+  }
+}

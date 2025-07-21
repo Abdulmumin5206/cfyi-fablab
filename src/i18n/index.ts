@@ -14,6 +14,9 @@ import uz3dPrinting from './locales/uz/3dprinting.json';
 import en3dScanning from './locales/en/3dscanning.json';
 import ru3dScanning from './locales/ru/3dscanning.json';
 import uz3dScanning from './locales/uz/3dscanning.json';
+import enMould from './locales/en/mould.json';
+import ruMould from './locales/ru/mould.json';
+import uzMould from './locales/uz/mould.json';
 
 // the translations
 const resources = {
@@ -61,5 +64,10 @@ i18n.addResourceBundle('uz', '3dprinting', uz3dPrinting, true, true);
 i18n.addResourceBundle('en', '3dscanning', en3dScanning, true, true);
 i18n.addResourceBundle('ru', '3dscanning', ru3dScanning, true, true);
 i18n.addResourceBundle('uz', '3dscanning', uz3dScanning, true, true);
+
+// Add mould-specific translations
+i18n.addResourceBundle('en', 'mould', enMould, true, true);
+i18n.addResourceBundle('ru', 'mould', ruMould, true, true);
+i18n.addResourceBundle('uz', 'mould', uzMould, true, true);
 
 export default i18n; 

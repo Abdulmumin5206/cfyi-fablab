@@ -1,0 +1,277 @@
+{
+  "industries": {
+    "engineering": {
+      "capabilities": [
+        "Functional prototypes",
+        "End-use parts"
+      ]
+    },
+    "textile": {
+      "capabilities": [
+        "Specialized fixtures",
+        "Production aids"
+      ]
+    },
+    "medical": {
+      "capabilities": [
+        "Lab equipment",
+        "Custom enclosures"
+      ]
+    },
+    "furniture": {
+      "capabilities": [
+        "Prototyping",
+        "Custom joints"
+      ]
+    },
+    "automotive": {
+      "capabilities": [
+        "Replacement parts",
+        "Rapid prototyping"
+      ]
+    },
+    "education": {
+      "capabilities": [
+        "Teaching aids",
+        "STEM projects"
+      ]
+    },
+    "manufacturing": {
+      "capabilities": [
+        "Tooling solutions",
+        "Small-batch runs"
+      ]
+    },
+    "jewelry": {
+      "capabilities": [
+        "Wax casting models",
+        "Design prototypes"
+      ]
+    }
+  },
+  "hero": {
+    "subtitle": "PROFESSIONAL MOULDING SOLUTIONS",
+    "title": "Custom Mould and Casting Services",
+    "features": {
+      "costEffective": "Cost-effective alternative to metal molds for small series",
+      "highPrecision": "High-precision SLA printing for master patterns and direct part production",
+      "specialized": "Specialized in spare parts production and small series manufacturing"
+    },
+    "buttons": {
+      "consultation": "Request a Consultation",
+      "materials": "Learn About Materials"
+    },
+    "scrollDown": "Scroll Down"
+  },
+  "premiumQuality": {
+    "title": "Premium Quality",
+    "subtitle": "for every mould and casting project",
+    "materials": {
+      "rigid": "Rigid",
+      "flexible": "Flexible",
+      "transparent": "Transparent",
+      "foodSafe": "Food Safe",
+      "highTemp": "High Temperature",
+      "multiColor": "Multi-Color"
+    }
+  },
+  "precisionMoulding": {
+    "title": "Precision Plastic Moulding for Small-Batch Excellence",
+    "description": "Transform your spare parts and small-volume production needs with our specialized plastic moulding solutions. Whether you need replacement parts for legacy equipment or small-batch production runs, our advanced moulding technologies deliver consistent quality and precise tolerances. Perfect for manufacturers, maintenance teams, and businesses requiring reliable, cost-effective solutions for quantities from 1 to 1000 units.",
+    "requestQuote": "Request a Quote"
+  },
+  "whyDigital": {
+    "title": "Why Choose Digital Technology?",
+    "benefits": {
+      "lowerCosts": {
+        "title": "Lower Costs",
+        "description": "Avoid high upfront tooling investments and reduce labor costs."
+      },
+      "fasterTime": {
+        "title": "Faster Time",
+        "description": "Produce high-quality models within 24 hours."
+      },
+      "designFreedom": {
+        "title": "Design Freedom",
+        "description": "Create complex shapes that are difficult to achieve with traditional casting."
+      }
+    }
+  },
+  "spareParts": {
+    "title": "Spare Parts and Custom Components",
+    "description": "Our advanced SLA printing and casting capabilities allow us to reproduce discontinued or hard-to-find parts with precision and accuracy at a fraction of the cost of traditional manufacturing methods.",
+    "features": {
+      "replication": "Replicate discontinued parts faster and cheaper than traditional methods",
+      "customParts": "Create custom parts that match your specific requirements with high precision",
+      "rapidPrototyping": "Rapid prototyping and small series without expensive tooling costs"
+    },
+    "cta": "Request a Consultation"
+  },
+  "equipment": {
+    "title": "Our Equipment for Moulding & Spare Parts",
+    "items": {
+      "form3": {
+        "title": "Form 3 SLA Printer",
+        "description": "High-precision SLA printing with exceptional detail for accurate master patterns"
+      },
+      "phrozenMega": {
+        "title": "Phrozen Sonic Mega 8K",
+        "description": "Large format 8K resolution for producing multiple parts with incredible detail"
+      },
+      "raise3d": {
+        "title": "Raise3D Pro3",
+        "description": "Professional FDM printer for strong functional parts and specialized materials"
+      },
+      "phrozenMini": {
+        "title": "Phrozen Mini 8K",
+        "description": "Compact desktop 8K resin printer delivering exceptional detail for small parts"
+      },
+      "prusa": {
+        "title": "Prusa i3 MK3S+",
+        "description": "Reliable workhorse for rapid prototyping and functional parts with wide material compatibility"
+      }
+    }
+  },
+  "materials": {
+    "title": "Materials",
+    "subtitle": "3D Printing Materials",
+    "viewAll": "View All Materials"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "questions": {
+      "spareParts": {
+        "question": "Can you create spare parts for discontinued products?",
+        "answer": "Yes, we specialize in producing spare parts for products that are no longer manufactured or where original replacements are prohibitively expensive. Using our advanced SLA printing and casting techniques, we can recreate parts with high precision from samples, technical drawings, or even create new designs based on your specifications."
+      },
+      "slaComparison": {
+        "question": "How does SLA printing compare to traditional metallic molds?",
+        "answer": "SLA printing offers faster turnaround times and lower costs for small to medium production runs. While traditional metallic molds are better for mass production, our SLA technology provides exceptional detail and precision without the high upfront tooling costs."
+      },
+      "productionTime": {
+        "question": "How long does the production process take?",
+        "answer": "The timeline depends on project complexity. Simple parts can be completed in 1-2 days, while complex projects may take 1 week. SLA printing significantly reduces lead times compared to traditional methods, allowing for rapid iterations and faster time-to-market."
+      },
+      "limitations": {
+        "question": "What are the limitations of SLA printing for parts?",
+        "answer": "While SLA printing offers exceptional detail and quality, it has limitations in terms of material properties and production volume. We'll help you determine if SLA is right for your project or if alternative methods would be more suitable based on your specific requirements and goals."
+      }
+    }
+  },
+  "professions": {
+    "title": "Our Professions",
+    "subtitle": "Where innovation meets fabrication - delivering excellence in every project",
+    "categories": {
+      "engineering": {
+        "title": "Engineering",
+        "description": "Precision parts and rapid prototyping.",
+        "features": [
+          "Functional prototypes",
+          "End-use parts"
+        ]
+      },
+      "textile": {
+        "title": "Textile",
+        "description": "Custom tools for textile production.",
+        "features": [
+          "Specialized fixtures",
+          "Production aids"
+        ]
+      },
+      "medical": {
+        "title": "Medical",
+        "description": "Reliable parts for medical devices.",
+        "features": [
+          "Lab equipment",
+          "Custom enclosures"
+        ]
+      },
+      "furniture": {
+        "title": "Furniture",
+        "description": "Custom fittings for furniture makers.",
+        "features": [
+          "Prototyping",
+          "Custom joints"
+        ]
+      },
+      "automotive": {
+        "title": "Automotive",
+        "description": "Spare parts and custom solutions.",
+        "features": [
+          "Replacement parts",
+          "Rapid prototyping"
+        ]
+      },
+      "education": {
+        "title": "Education",
+        "description": "Hands-on models for schools.",
+        "features": [
+          "Teaching aids",
+          "STEM projects"
+        ]
+      },
+      "manufacturing": {
+        "title": "Manufacturing",
+        "description": "Efficient parts for production lines.",
+        "features": [
+          "Tooling solutions",
+          "Small-batch runs"
+        ]
+      },
+      "jewelry": {
+        "title": "Jewelry",
+        "description": "Detailed models for jewelry design.",
+        "features": [
+          "Wax casting models",
+          "Design prototypes"
+        ]
+      }
+    }
+  },
+  "whyChoosePlasticMoulding": {
+    "title": "Why Choose Plastic Moulding?",
+    "benefits": {
+      "lowerCosts": {
+        "title": "Lower Costs",
+        "description": "Avoid high upfront tooling investments and reduce labor costs."
+      },
+      "fasterTime": {
+        "title": "Faster Time",
+        "description": "Produce high-quality models within 24 hours."
+      },
+      "designFreedom": {
+        "title": "Design Freedom",
+        "description": "Create complex shapes that are difficult to achieve with traditional casting."
+      }
+    },
+    "video": {
+      "title": "See Plastic Moulding in Action",
+      "description": "Watch how Formlabs' advanced moulding technology transforms raw materials into precise, high-quality parts with exceptional detail and consistency."
+    },
+    "formlabsSolutions": {
+      "title": "Read Formlabs Injection Molding Solutions",
+      "caseStudy1": {
+        "category": "MANUFACTURING GUIDE",
+        "title": "Guide to Low-Volume Injection Molding",
+        "description": "Learn how to use 3D printed injection molds to produce high-quality parts for prototyping and low-volume production.",
+        "learnMore": "Learn More"
+      },
+      "caseStudy2": {
+        "category": "MANUFACTURING INSIGHTS",
+        "title": "When to Replace Injection Molding With 3D Printing?",
+        "description": "Discover when to use 3D printing as an alternative to traditional injection molding for your manufacturing needs.",
+        "learnMore": "Learn More"
+      }
+    }
+  },
+  "sparePartProjects": {
+    "title": "Spare Part Projects",
+    "blogPost": {
+      "imageAlt": "3D Printing Innovations",
+      "category": "3D PRINTING",
+      "title": "SLA Resin Printing: Revolutionizing Small-Batch Production for Spare Parts",
+      "description": "Created a fully functional prototype using advanced 3D printing techniques for an Uzbek tech startup.",
+      "readMore": "Read More"
+    }
+  }
+}

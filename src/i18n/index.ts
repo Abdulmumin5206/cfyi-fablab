@@ -18,56 +18,46 @@ import enMould from './locales/en/mould.json';
 import ruMould from './locales/ru/mould.json';
 import uzMould from './locales/uz/mould.json';
 
-// the translations
 const resources = {
   en: {
-    translation: enTranslation
+    translation: enTranslation,
+    blog: enBlog,
+    '3dprinting': en3dPrinting,
+    '3dscanning': en3dScanning,
+    mould: enMould
   },
   ru: {
-    translation: ruTranslation
+    translation: ruTranslation,
+    blog: ruBlog,
+    '3dprinting': ru3dPrinting,
+    '3dscanning': ru3dScanning,
+    mould: ruMould
   },
   uz: {
-    translation: uzTranslation
+    translation: uzTranslation,
+    blog: uzBlog,
+    '3dprinting': uz3dPrinting,
+    '3dscanning': uz3dScanning,
+    mould: uzMould
   }
 };
 
 i18n
-  // detect user language
   .use(LanguageDetector)
-  // pass the i18n instance to react-i18next
   .use(initReactI18next)
-  // init i18n
   .init({
     resources,
     fallbackLng: 'en',
+    ns: ['translation', 'blog', '3dprinting', '3dscanning', 'mould'],
+    defaultNS: 'translation',
     debug: process.env.NODE_ENV === 'development',
     interpolation: {
-      escapeValue: false // not needed for react as it escapes by default
+      escapeValue: false
     },
     detection: {
       order: ['localStorage', 'navigator'],
       caches: ['localStorage']
     }
   });
-
-// Add blog-specific translations
-i18n.addResourceBundle('en', 'blog', enBlog.blog, true, true);
-i18n.addResourceBundle('ru', 'blog', ruBlog.blog, true, true);
-i18n.addResourceBundle('uz', 'blog', uzBlog.blog, true, true);
-
-// Add 3D printing-specific translations
-i18n.addResourceBundle('en', '3dprinting', en3dPrinting, true, true);
-i18n.addResourceBundle('ru', '3dprinting', ru3dPrinting, true, true);
-i18n.addResourceBundle('uz', '3dprinting', uz3dPrinting, true, true);
-
-// Add 3D scanning-specific translations
-i18n.addResourceBundle('en', '3dscanning', en3dScanning, true, true);
-i18n.addResourceBundle('ru', '3dscanning', ru3dScanning, true, true);
-i18n.addResourceBundle('uz', '3dscanning', uz3dScanning, true, true);
-
-// Add mould-specific translations
-i18n.addResourceBundle('en', 'mould', enMould, true, true);
-i18n.addResourceBundle('ru', 'mould', ruMould, true, true);
-i18n.addResourceBundle('uz', 'mould', uzMould, true, true);
 
 export default i18n; 

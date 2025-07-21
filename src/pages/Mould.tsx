@@ -13,7 +13,7 @@ interface Features {
 }
 
 const MouldPage = () => {
-  const { t } = useTranslation('mould');
+  const { t, i18n } = useTranslation('mould');
   const navigate = useNavigate();
   const videoRef = useRef<HTMLVideoElement>(null);
   const marketsRef = useRef<HTMLDivElement>(null);
@@ -52,6 +52,13 @@ const MouldPage = () => {
     
     console.log("Mould page mounted");
   }, []);
+
+  useEffect(() => {
+    // Force reload translations if they're not loaded
+    if (!i18n.hasResourceBundle(i18n.language, 'mould')) {
+      i18n.reloadResources();
+    }
+  }, [i18n]);
 
   // Initialize image comparison slider
   useEffect(() => {
@@ -189,10 +196,10 @@ const MouldPage = () => {
             <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
               <div className="max-w-2xl">
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 font-['Magistral']">
-                  {t('mould.hero.title')}
+                  {t('hero.title')}
                 </h1>
                 <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-6 sm:mb-8 font-['Magistral']">
-                  {t('mould.hero.subtitle')}
+                  {t('hero.subtitle')}
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <a 
@@ -201,14 +208,14 @@ const MouldPage = () => {
                     rel="noopener noreferrer"
                     className="inline-flex items-center space-x-2 bg-[#329db7] text-white px-6 py-3 text-base sm:text-lg font-medium hover:bg-[#2b86a0] transition-colors duration-300"
                   >
-                    <span>{t('mould.hero.buttons.consultation')}</span>
+                    <span>{t('hero.buttons.consultation')}</span>
                     <ArrowRight size={20} />
                   </a>
                   <button 
                     onClick={handleMaterialsClick}
                     className="inline-flex items-center space-x-2 bg-transparent text-white px-6 py-3 text-base sm:text-lg font-medium border border-white hover:bg-white/10 transition-colors duration-300"
                   >
-                    <span>{t('mould.hero.buttons.materials')}</span>
+                    <span>{t('hero.buttons.materials')}</span>
                     <ArrowRight size={20} />
                   </button>
                 </div>
@@ -219,7 +226,7 @@ const MouldPage = () => {
           {/* Scroll Down Icon */}
           <div className="absolute bottom-8 left-0 right-0 z-20 animate-bounce flex justify-center">
             <a href="#premium-quality" className="flex flex-col items-center text-white">
-              <span className="mb-2 text-sm sm:text-base">{t('mould.hero.scrollDown')}</span>
+              <span className="mb-2 text-sm sm:text-base">{t('hero.scrollDown')}</span>
               <svg 
                 className="w-6 h-6" 
                 fill="none" 
@@ -242,8 +249,8 @@ const MouldPage = () => {
         <section className="py-16 md:py-24 bg-white">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{t('mould.professions.title')}</h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">{t('mould.professions.subtitle')}</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{t('professions.title')}</h2>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">{t('professions.subtitle')}</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -252,14 +259,14 @@ const MouldPage = () => {
                 <div className="relative h-64 overflow-hidden">
                   <img 
                     src="/mould/popups/engineering.webp" 
-                    alt={t('mould.professions.categories.engineering.title')} 
+                    alt={t('professions.categories.engineering.title')} 
                     className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 </div>
                 <div className="p-4 flex flex-col gap-2">
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">{t('mould.professions.categories.engineering.title')}</h3>
-                  <p className="text-gray-600 text-sm">{t('mould.professions.categories.engineering.description')}</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-1">{t('professions.categories.engineering.title')}</h3>
+                  <p className="text-gray-600 text-sm">{t('professions.categories.engineering.description')}</p>
                   <ul className="mt-1 space-y-1">
                     {(t('industries.engineering.capabilities', { returnObjects: true }) as string[]).map((feature: string, index: number) => (
                       <li key={index} className="flex items-center text-sm text-gray-700">
@@ -278,14 +285,14 @@ const MouldPage = () => {
                 <div className="relative h-64 overflow-hidden">
                   <img 
                     src="/mould/popups/textile.webp" 
-                    alt={t('mould.professions.categories.textile.title')} 
+                    alt={t('professions.categories.textile.title')} 
                     className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 </div>
                 <div className="p-4 flex flex-col gap-2">
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">{t('mould.professions.categories.textile.title')}</h3>
-                  <p className="text-gray-600 text-sm">{t('mould.professions.categories.textile.description')}</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-1">{t('professions.categories.textile.title')}</h3>
+                  <p className="text-gray-600 text-sm">{t('professions.categories.textile.description')}</p>
                   <ul className="mt-1 space-y-1">
                     {(t('industries.textile.capabilities', { returnObjects: true }) as string[]).map((feature: string, index: number) => (
                       <li key={index} className="flex items-center text-sm text-gray-700">
@@ -304,14 +311,14 @@ const MouldPage = () => {
                 <div className="relative h-64 overflow-hidden">
                   <img 
                     src="/mould/popups/medical.webp" 
-                    alt={t('mould.professions.categories.medical.title')} 
+                    alt={t('professions.categories.medical.title')} 
                     className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 </div>
                 <div className="p-4 flex flex-col gap-2">
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">{t('mould.professions.categories.medical.title')}</h3>
-                  <p className="text-gray-600 text-sm">{t('mould.professions.categories.medical.description')}</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-1">{t('professions.categories.medical.title')}</h3>
+                  <p className="text-gray-600 text-sm">{t('professions.categories.medical.description')}</p>
                   <ul className="mt-1 space-y-1">
                     {(t('industries.medical.capabilities', { returnObjects: true }) as string[]).map((feature: string, index: number) => (
                       <li key={index} className="flex items-center text-sm text-gray-700">
@@ -330,14 +337,14 @@ const MouldPage = () => {
                 <div className="relative h-64 overflow-hidden">
                   <img 
                     src="/mould/popups/furniture.webp" 
-                    alt={t('mould.professions.categories.furniture.title')} 
+                    alt={t('professions.categories.furniture.title')} 
                     className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 </div>
                 <div className="p-4 flex flex-col gap-2">
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">{t('mould.professions.categories.furniture.title')}</h3>
-                  <p className="text-gray-600 text-sm">{t('mould.professions.categories.furniture.description')}</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-1">{t('professions.categories.furniture.title')}</h3>
+                  <p className="text-gray-600 text-sm">{t('professions.categories.furniture.description')}</p>
                   <ul className="mt-1 space-y-1">
                     {(t('industries.furniture.capabilities', { returnObjects: true }) as string[]).map((feature: string, index: number) => (
                       <li key={index} className="flex items-center text-sm text-gray-700">
@@ -356,14 +363,14 @@ const MouldPage = () => {
                 <div className="relative h-64 overflow-hidden">
                   <img 
                     src="/mould/popups/automotive.jpg" 
-                    alt={t('mould.professions.categories.automotive.title')} 
+                    alt={t('professions.categories.automotive.title')} 
                     className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 </div>
                 <div className="p-4 flex flex-col gap-2">
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">{t('mould.professions.categories.automotive.title')}</h3>
-                  <p className="text-gray-600 text-sm">{t('mould.professions.categories.automotive.description')}</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-1">{t('professions.categories.automotive.title')}</h3>
+                  <p className="text-gray-600 text-sm">{t('professions.categories.automotive.description')}</p>
                   <ul className="mt-1 space-y-1">
                     {(t('industries.automotive.capabilities', { returnObjects: true }) as string[]).map((feature: string, index: number) => (
                       <li key={index} className="flex items-center text-sm text-gray-700">
@@ -382,14 +389,14 @@ const MouldPage = () => {
                 <div className="relative h-64 overflow-hidden">
                   <img 
                     src="/mould/popups/education.webp" 
-                    alt={t('mould.professions.categories.education.title')} 
+                    alt={t('professions.categories.education.title')} 
                     className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 </div>
                 <div className="p-4 flex flex-col gap-2">
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">{t('mould.professions.categories.education.title')}</h3>
-                  <p className="text-gray-600 text-sm">{t('mould.professions.categories.education.description')}</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-1">{t('professions.categories.education.title')}</h3>
+                  <p className="text-gray-600 text-sm">{t('professions.categories.education.description')}</p>
                   <ul className="mt-1 space-y-1">
                     {(t('industries.education.capabilities', { returnObjects: true }) as string[]).map((feature: string, index: number) => (
                       <li key={index} className="flex items-center text-sm text-gray-700">
@@ -408,14 +415,14 @@ const MouldPage = () => {
                 <div className="relative h-64 overflow-hidden">
                   <img 
                     src="/mould/popups/manufacturing.png" 
-                    alt={t('mould.professions.categories.manufacturing.title')} 
+                    alt={t('professions.categories.manufacturing.title')} 
                     className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 </div>
                 <div className="p-4 flex flex-col gap-2">
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">{t('mould.professions.categories.manufacturing.title')}</h3>
-                  <p className="text-gray-600 text-sm">{t('mould.professions.categories.manufacturing.description')}</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-1">{t('professions.categories.manufacturing.title')}</h3>
+                  <p className="text-gray-600 text-sm">{t('professions.categories.manufacturing.description')}</p>
                   <ul className="mt-1 space-y-1">
                     {(t('industries.manufacturing.capabilities', { returnObjects: true }) as string[]).map((feature: string, index: number) => (
                       <li key={index} className="flex items-center text-sm text-gray-700">
@@ -434,14 +441,14 @@ const MouldPage = () => {
                 <div className="relative h-64 overflow-hidden">
                   <img 
                     src="/mould/popups/jewelry.jpg" 
-                    alt={t('mould.professions.categories.jewelry.title')} 
+                    alt={t('professions.categories.jewelry.title')} 
                     className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 </div>
                 <div className="p-4 flex flex-col gap-2">
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">{t('mould.professions.categories.jewelry.title')}</h3>
-                  <p className="text-gray-600 text-sm">{t('mould.professions.categories.jewelry.description')}</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-1">{t('professions.categories.jewelry.title')}</h3>
+                  <p className="text-gray-600 text-sm">{t('professions.categories.jewelry.description')}</p>
                   <ul className="mt-1 space-y-1">
                     {(t('industries.jewelry.capabilities', { returnObjects: true }) as string[]).map((feature: string, index: number) => (
                       <li key={index} className="flex items-center text-sm text-gray-700">
@@ -466,11 +473,11 @@ const MouldPage = () => {
               <div className="w-full lg:w-1/2">
                 <div className="max-w-xl mx-auto text-left lg:text-left flex flex-col items-start lg:items-start">
                   <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 leading-tight text-gray-900 font-['Magistral']">
-                    {t('mould.precisionMoulding.title')}
+                    {t('precisionMoulding.title')}
                   </h2>
                   
                   <p className="text-base sm:text-lg text-gray-600 mb-8 font-['Magistral']">
-                    {t('mould.precisionMoulding.description')}
+                    {t('precisionMoulding.description')}
                   </p>
 
                   <a 
@@ -479,7 +486,7 @@ const MouldPage = () => {
                     rel="noopener noreferrer"
                     className="inline-flex items-center px-6 py-3 bg-[#329db7] text-white rounded-lg hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
                   >
-                    {t('mould.precisionMoulding.requestQuote')}
+                    {t('precisionMoulding.requestQuote')}
                   </a>
                 </div>
               </div>
@@ -516,46 +523,46 @@ const MouldPage = () => {
         <section className="py-16 md:py-24 bg-white">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 leading-tight text-gray-900 text-center font-['Magistral']">
-              {t('mould.whyChoosePlasticMoulding.title')}
+              {t('whyChoosePlasticMoulding.title')}
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 md:gap-12 mb-8">
               {/* Benefit 1 */}
               <div className="flex flex-col items-center text-center">
                 <div className="mb-3 w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center">
-                  <img src="/mould/lower_costs.webp" alt={t('mould.whyChoosePlasticMoulding.benefits.lowerCosts.title')} className="w-full h-full object-contain" />
+                  <img src="/mould/lower_costs.webp" alt={t('whyChoosePlasticMoulding.benefits.lowerCosts.title')} className="w-full h-full object-contain" />
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold mb-2 font-['Magistral']">
-                  {t('mould.whyChoosePlasticMoulding.benefits.lowerCosts.title')}
+                  {t('whyChoosePlasticMoulding.benefits.lowerCosts.title')}
                 </h3>
                 <p className="text-sm sm:text-base text-gray-600 font-['Magistral']">
-                  {t('mould.whyChoosePlasticMoulding.benefits.lowerCosts.description')}
+                  {t('whyChoosePlasticMoulding.benefits.lowerCosts.description')}
                 </p>
               </div>
               
               {/* Benefit 2 */}
               <div className="flex flex-col items-center text-center">
                 <div className="mb-3 w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center">
-                  <img src="/mould/faster_time.webp" alt={t('mould.whyChoosePlasticMoulding.benefits.fasterTime.title')} className="w-full h-full object-contain" />
+                  <img src="/mould/faster_time.webp" alt={t('whyChoosePlasticMoulding.benefits.fasterTime.title')} className="w-full h-full object-contain" />
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold mb-2 font-['Magistral']">
-                  {t('mould.whyChoosePlasticMoulding.benefits.fasterTime.title')}
+                  {t('whyChoosePlasticMoulding.benefits.fasterTime.title')}
                 </h3>
                 <p className="text-sm sm:text-base text-gray-600 font-['Magistral']">
-                  {t('mould.whyChoosePlasticMoulding.benefits.fasterTime.description')}
+                  {t('whyChoosePlasticMoulding.benefits.fasterTime.description')}
                 </p>
               </div>
               
               {/* Benefit 3 */}
               <div className="flex flex-col items-center text-center">
                 <div className="mb-3 w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center">
-                  <img src="/mould/clean_workflow.webp" alt={t('mould.whyChoosePlasticMoulding.benefits.designFreedom.title')} className="w-full h-full object-contain" />
+                  <img src="/mould/clean_workflow.webp" alt={t('whyChoosePlasticMoulding.benefits.designFreedom.title')} className="w-full h-full object-contain" />
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold mb-2 font-['Magistral']">
-                  {t('mould.whyChoosePlasticMoulding.benefits.designFreedom.title')}
+                  {t('whyChoosePlasticMoulding.benefits.designFreedom.title')}
                 </h3>
                 <p className="text-sm sm:text-base text-gray-600 font-['Magistral']">
-                  {t('mould.whyChoosePlasticMoulding.benefits.designFreedom.description')}
+                  {t('whyChoosePlasticMoulding.benefits.designFreedom.description')}
                 </p>
               </div>
             </div>
@@ -578,10 +585,10 @@ const MouldPage = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 hidden md:block">
                   <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">
-                    {t('mould.whyChoosePlasticMoulding.video.title')}
+                    {t('whyChoosePlasticMoulding.video.title')}
                   </h3>
                   <p className="text-white/90 text-lg">
-                    {t('mould.whyChoosePlasticMoulding.video.description')}
+                    {t('whyChoosePlasticMoulding.video.description')}
                   </p>
                 </div>
               </div>
@@ -590,7 +597,7 @@ const MouldPage = () => {
             {/* Formlabs Solutions */}
             <div className="mt-12">
               <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-6">
-                {t('mould.whyChoosePlasticMoulding.formlabsSolutions.title')}
+                {t('whyChoosePlasticMoulding.formlabsSolutions.title')}
               </h2>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
@@ -599,22 +606,22 @@ const MouldPage = () => {
                   <div className="md:w-2/5 h-40 sm:h-48 md:h-auto overflow-hidden">
                     <img 
                       src="/mould/Screenshot_7.jpg" 
-                      alt={t('mould.whyChoosePlasticMoulding.formlabsSolutions.caseStudy1.title')}
+                      alt={t('whyChoosePlasticMoulding.formlabsSolutions.caseStudy1.title')}
                       className="w-full h-full object-cover"
                     />
                   </div>
                   <div className="md:w-3/5 p-4 sm:p-6">
                     <div className="text-[#329db7] text-xs sm:text-sm font-semibold mb-2">
-                      {t('mould.whyChoosePlasticMoulding.formlabsSolutions.caseStudy1.category')}
+                      {t('whyChoosePlasticMoulding.formlabsSolutions.caseStudy1.category')}
                     </div>
                     <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">
-                      {t('mould.whyChoosePlasticMoulding.formlabsSolutions.caseStudy1.title')}
+                      {t('whyChoosePlasticMoulding.formlabsSolutions.caseStudy1.title')}
                     </h3>
                     <p className="text-gray-600 mb-4">
-                      {t('mould.whyChoosePlasticMoulding.formlabsSolutions.caseStudy1.description')}
+                      {t('whyChoosePlasticMoulding.formlabsSolutions.caseStudy1.description')}
                     </p>
                     <a href="https://formlabs.com/global/blog/low-volume-injection-molding/" target="_blank" rel="noopener noreferrer" className="text-[#329db7] flex items-center gap-2 font-medium hover:text-[#2b86a0] transition-colors text-sm sm:text-base">
-                      {t('mould.whyChoosePlasticMoulding.formlabsSolutions.caseStudy1.learnMore')}
+                      {t('whyChoosePlasticMoulding.formlabsSolutions.caseStudy1.learnMore')}
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 sm:h-4 sm:w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                       </svg>
@@ -627,22 +634,22 @@ const MouldPage = () => {
                   <div className="md:w-2/5 h-40 sm:h-48 md:h-auto overflow-hidden">
                     <img 
                       src="/mould/optimized_for_web_jpeg-07202023_rigid_10k_sample_card_2_189d-sh-standard-square.webp" 
-                      alt={t('mould.whyChoosePlasticMoulding.formlabsSolutions.caseStudy2.title')}
+                      alt={t('whyChoosePlasticMoulding.formlabsSolutions.caseStudy2.title')}
                       className="w-full h-full object-cover"
                     />
                   </div>
                   <div className="md:w-3/5 p-4 sm:p-6">
                     <div className="text-[#329db7] text-xs sm:text-sm font-semibold mb-2">
-                      {t('mould.whyChoosePlasticMoulding.formlabsSolutions.caseStudy2.category')}
+                      {t('whyChoosePlasticMoulding.formlabsSolutions.caseStudy2.category')}
                     </div>
                     <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">
-                      {t('mould.whyChoosePlasticMoulding.formlabsSolutions.caseStudy2.title')}
+                      {t('whyChoosePlasticMoulding.formlabsSolutions.caseStudy2.title')}
                     </h3>
                     <p className="text-gray-600 mb-4">
-                      {t('mould.whyChoosePlasticMoulding.formlabsSolutions.caseStudy2.description')}
+                      {t('whyChoosePlasticMoulding.formlabsSolutions.caseStudy2.description')}
                     </p>
                     <a href="https://formlabs.com/global/applications/injection-molding/" target="_blank" rel="noopener noreferrer" className="text-[#329db7] flex items-center gap-2 font-medium hover:text-[#2b86a0] transition-colors text-sm sm:text-base">
-                      {t('mould.whyChoosePlasticMoulding.formlabsSolutions.caseStudy2.learnMore')}
+                      {t('whyChoosePlasticMoulding.formlabsSolutions.caseStudy2.learnMore')}
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 sm:h-4 sm:w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                       </svg>
@@ -661,10 +668,10 @@ const MouldPage = () => {
               {/* Left side content */}
               <div className="w-full lg:w-1/2 mb-12 lg:mb-0 pr-0 lg:pr-10">
                 <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-6 font-['Magistral']">
-                  {t('mould.spareParts.title')}
+                  {t('spareParts.title')}
                 </h2>
                 <p className="text-base sm:text-lg text-gray-700 mb-6 font-['Magistral']">
-                  {t('mould.spareParts.description')}
+                  {t('spareParts.description')}
                 </p>
                 
                 <div className="space-y-4 mb-8">
@@ -677,7 +684,7 @@ const MouldPage = () => {
                       </div>
                     </div>
                     <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">
-                      {t('mould.spareParts.features.replication')}
+                      {t('spareParts.features.replication')}
                     </p>
                   </div>
                   
@@ -690,7 +697,7 @@ const MouldPage = () => {
                       </div>
                     </div>
                     <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">
-                      {t('mould.spareParts.features.customParts')}
+                      {t('spareParts.features.customParts')}
                     </p>
                   </div>
                   
@@ -703,7 +710,7 @@ const MouldPage = () => {
                       </div>
                     </div>
                     <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">
-                      {t('mould.spareParts.features.rapidPrototyping')}
+                      {t('spareParts.features.rapidPrototyping')}
                     </p>
                   </div>
                 </div>
@@ -715,7 +722,7 @@ const MouldPage = () => {
                     rel="noopener noreferrer"
                     className="inline-flex items-center px-6 py-3 bg-[#329db7] text-white font-medium rounded-lg hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
                   >
-                    {t('mould.spareParts.cta')}
+                    {t('spareParts.cta')}
                   </a>
                 </div>
               </div>
@@ -737,7 +744,7 @@ const MouldPage = () => {
         {/* Blog Section */}
         <section className="py-16 md:py-24 bg-gray-100 text-gray-900">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 font-['Magistral']">{t('mould.sparePartProjects.title')}</h2>
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 font-['Magistral']">{t('sparePartProjects.title')}</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               {/* Blog Post */}
@@ -745,16 +752,16 @@ const MouldPage = () => {
                 <div className="md:w-2/5 h-48 md:h-auto overflow-hidden">
                   <img 
                     src="/blog_images/blog1.webp" 
-                    alt={t('mould.sparePartProjects.blogPost.imageAlt')} 
+                    alt={t('sparePartProjects.blogPost.imageAlt')} 
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="md:w-3/5 p-6">
-                  <div className="text-[#329db7] text-xs sm:text-sm font-semibold mb-2 font-['Magistral']">{t('mould.sparePartProjects.blogPost.category')}</div>
-                  <h3 className="text-lg sm:text-xl font-bold mb-4 font-['Magistral']">{t('mould.sparePartProjects.blogPost.title')}</h3>
-                  <p className="text-base sm:text-lg text-gray-600 mb-4 font-['Magistral']">{t('mould.sparePartProjects.blogPost.description')}</p>
+                  <div className="text-[#329db7] text-xs sm:text-sm font-semibold mb-2 font-['Magistral']">{t('sparePartProjects.blogPost.category')}</div>
+                  <h3 className="text-lg sm:text-xl font-bold mb-4 font-['Magistral']">{t('sparePartProjects.blogPost.title')}</h3>
+                  <p className="text-base sm:text-lg text-gray-600 mb-4 font-['Magistral']">{t('sparePartProjects.blogPost.description')}</p>
                   <a href="/blog/3d-printing-innovations" className="text-[#329db7] flex items-center gap-2 font-medium hover:text-[#2b86a0] transition-colors font-['Magistral']">
-                    {t('mould.sparePartProjects.blogPost.readMore')}
+                    {t('sparePartProjects.blogPost.readMore')}
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
@@ -768,7 +775,7 @@ const MouldPage = () => {
         {/* FAQ Section */}
         <section className="py-20 bg-gray-50">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-12">{t('mould.faq.title')}</h2>
+            <h2 className="text-3xl font-bold text-center mb-12">{t('faq.title')}</h2>
             <div className="max-w-3xl mx-auto space-y-4">
               {/* FAQ Item 1 */}
               <div 
@@ -776,7 +783,7 @@ const MouldPage = () => {
                 onClick={() => setExpandedFaq(expandedFaq === 0 ? null : 0)}
               >
                 <div className="p-6 cursor-pointer flex justify-between items-center">
-                  <h3 className="text-xl font-semibold">{t('mould.faq.questions.spareParts.question')}</h3>
+                  <h3 className="text-xl font-semibold">{t('faq.questions.spareParts.question')}</h3>
                   {expandedFaq === 0 ? (
                     <ChevronUp className="w-6 h-6 text-gray-500 flex-shrink-0" />
                   ) : (
@@ -789,7 +796,7 @@ const MouldPage = () => {
                   }`}
                 >
                   <div className="px-6 pb-6">
-                    <p className="text-gray-600 leading-relaxed">{t('mould.faq.questions.spareParts.answer')}</p>
+                    <p className="text-gray-600 leading-relaxed">{t('faq.questions.spareParts.answer')}</p>
                   </div>
                 </div>
               </div>
@@ -800,7 +807,7 @@ const MouldPage = () => {
                 onClick={() => setExpandedFaq(expandedFaq === 1 ? null : 1)}
               >
                 <div className="p-6 cursor-pointer flex justify-between items-center">
-                  <h3 className="text-xl font-semibold">{t('mould.faq.questions.slaComparison.question')}</h3>
+                  <h3 className="text-xl font-semibold">{t('faq.questions.slaComparison.question')}</h3>
                   {expandedFaq === 1 ? (
                     <ChevronUp className="w-6 h-6 text-gray-500 flex-shrink-0" />
                   ) : (
@@ -813,7 +820,7 @@ const MouldPage = () => {
                   }`}
                 >
                   <div className="px-6 pb-6">
-                    <p className="text-gray-600 leading-relaxed">{t('mould.faq.questions.slaComparison.answer')}</p>
+                    <p className="text-gray-600 leading-relaxed">{t('faq.questions.slaComparison.answer')}</p>
                   </div>
                 </div>
               </div>
@@ -824,7 +831,7 @@ const MouldPage = () => {
                 onClick={() => setExpandedFaq(expandedFaq === 2 ? null : 2)}
               >
                 <div className="p-6 cursor-pointer flex justify-between items-center">
-                  <h3 className="text-xl font-semibold">{t('mould.faq.questions.productionTime.question')}</h3>
+                  <h3 className="text-xl font-semibold">{t('faq.questions.productionTime.question')}</h3>
                   {expandedFaq === 2 ? (
                     <ChevronUp className="w-6 h-6 text-gray-500 flex-shrink-0" />
                   ) : (
@@ -837,7 +844,7 @@ const MouldPage = () => {
                   }`}
                 >
                   <div className="px-6 pb-6">
-                    <p className="text-gray-600 leading-relaxed">{t('mould.faq.questions.productionTime.answer')}</p>
+                    <p className="text-gray-600 leading-relaxed">{t('faq.questions.productionTime.answer')}</p>
                   </div>
                 </div>
               </div>
@@ -848,7 +855,7 @@ const MouldPage = () => {
                 onClick={() => setExpandedFaq(expandedFaq === 3 ? null : 3)}
               >
                 <div className="p-6 cursor-pointer flex justify-between items-center">
-                  <h3 className="text-xl font-semibold">{t('mould.faq.questions.limitations.question')}</h3>
+                  <h3 className="text-xl font-semibold">{t('faq.questions.limitations.question')}</h3>
                   {expandedFaq === 3 ? (
                     <ChevronUp className="w-6 h-6 text-gray-500 flex-shrink-0" />
                   ) : (
@@ -861,7 +868,7 @@ const MouldPage = () => {
                   }`}
                 >
                   <div className="px-6 pb-6">
-                    <p className="text-gray-600 leading-relaxed">{t('mould.faq.questions.limitations.answer')}</p>
+                    <p className="text-gray-600 leading-relaxed">{t('faq.questions.limitations.answer')}</p>
                   </div>
                 </div>
               </div>

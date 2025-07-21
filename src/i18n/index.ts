@@ -17,6 +17,9 @@ import uz3dScanning from './locales/uz/3dscanning.json';
 import enMould from './locales/en/mould.json';
 import ruMould from './locales/ru/mould.json';
 import uzMould from './locales/uz/mould.json';
+import enDigitalFabrication from './locales/en/digitalfabrication.json';
+import ruDigitalFabrication from './locales/ru/digitalfabrication.json';
+import uzDigitalFabrication from './locales/uz/digitalfabrication.json';
 
 const resources = {
   en: {
@@ -24,21 +27,24 @@ const resources = {
     blog: enBlog,
     '3dprinting': en3dPrinting,
     '3dscanning': en3dScanning,
-    mould: enMould
+    mould: enMould,
+    digitalfabrication: enDigitalFabrication
   },
   ru: {
     translation: ruTranslation,
     blog: ruBlog,
     '3dprinting': ru3dPrinting,
     '3dscanning': ru3dScanning,
-    mould: ruMould
+    mould: ruMould,
+    digitalfabrication: ruDigitalFabrication
   },
   uz: {
     translation: uzTranslation,
     blog: uzBlog,
     '3dprinting': uz3dPrinting,
     '3dscanning': uz3dScanning,
-    mould: uzMould
+    mould: uzMould,
+    digitalfabrication: uzDigitalFabrication
   }
 };
 
@@ -48,7 +54,7 @@ i18n
   .init({
     resources,
     fallbackLng: 'en',
-    ns: ['translation', 'blog', '3dprinting', '3dscanning', 'mould'],
+    ns: ['translation', 'blog', '3dprinting', '3dscanning', 'mould', 'digitalfabrication'],
     defaultNS: 'translation',
     debug: process.env.NODE_ENV === 'development',
     interpolation: {

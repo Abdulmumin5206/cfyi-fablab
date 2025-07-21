@@ -8,7 +8,7 @@ import { ArrowRight } from "lucide-react";
 import SEOHelmet from "@/components/SEOHelmet";
 
 const DigitalFabricationPage = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['digitalfabrication', 'translation']);
   const location = useLocation();
   const [isImageLoading, setIsImageLoading] = useState(true);
 
@@ -98,11 +98,11 @@ const DigitalFabricationPage = () => {
               <div className="w-full lg:w-1/2">
                 <div className="max-w-xl mx-auto text-left lg:text-left flex flex-col items-start lg:items-start">
                   <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 leading-tight text-gray-900 font-['Magistral']">
-                    {t("serviceCategories.digitalFabrication.uvPrinting.title")}
+                    {t("uvPrinting.title", { ns: 'digitalfabrication' })}
                   </h2>
                   
                   <p className="text-base sm:text-lg text-gray-600 mb-8 font-['Magistral']">
-                    {t("serviceCategories.digitalFabrication.uvPrinting.description")}
+                    {t("uvPrinting.description", { ns: 'digitalfabrication' })}
                   </p>
 
                   <div className="space-y-4 mb-8">
@@ -114,7 +114,7 @@ const DigitalFabricationPage = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{t("serviceCategories.digitalFabrication.uvPrinting.features.instantCuring")}</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{t("uvPrinting.features.instantCuring", { ns: 'digitalfabrication' })}</p>
                     </div>
                     
                     <div className="flex items-start gap-3">
@@ -125,7 +125,7 @@ const DigitalFabricationPage = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{t("serviceCategories.digitalFabrication.uvPrinting.features.vibrantColors")}</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{t("uvPrinting.features.vibrantColors", { ns: 'digitalfabrication' })}</p>
                     </div>
                     
                     <div className="flex items-start gap-3">
@@ -136,7 +136,7 @@ const DigitalFabricationPage = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{t("serviceCategories.digitalFabrication.uvPrinting.features.anyMaterial")}</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{t("uvPrinting.features.anyMaterial", { ns: 'digitalfabrication' })}</p>
                     </div>
                   </div>
 
@@ -151,7 +151,7 @@ const DigitalFabricationPage = () => {
                     }}
                     className="inline-flex items-center space-x-2 bg-[#329db7] text-white px-6 py-3 text-base sm:text-lg font-medium hover:bg-[#2b86a0] transition-colors duration-300 hover:shadow-lg hover:-translate-y-0.5"
                   >
-                    <span>{t("serviceCategories.digitalFabrication.uvPrinting.cta")}</span>
+                    <span>{t("uvPrinting.cta", { ns: 'digitalfabrication' })}</span>
                     <ArrowRight size={20} />
                   </a>
                 </div>
@@ -177,11 +177,11 @@ const DigitalFabricationPage = () => {
               <div className="w-full lg:w-1/2">
                 <div className="max-w-xl mx-auto text-left lg:text-left flex flex-col items-start lg:items-start">
                   <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 leading-tight text-gray-900 font-['Magistral']">
-                    {t('serviceCategories.digitalFabrication.stickerProduction.title')}
+                    {t('stickerProduction.title', { ns: 'digitalfabrication' })}
                   </h2>
                   
                   <p className="text-base sm:text-lg text-gray-600 mb-8 font-['Magistral']">
-                    {t('serviceCategories.digitalFabrication.stickerProduction.description')}
+                    {t('stickerProduction.description', { ns: 'digitalfabrication' })}
                   </p>
 
                   <div className="space-y-4 mb-8 w-full">
@@ -193,7 +193,7 @@ const DigitalFabricationPage = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{t('serviceCategories.digitalFabrication.stickerProduction.features.preciseCutting')}</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{t('stickerProduction.features.preciseCutting', { ns: 'digitalfabrication' })}</p>
                     </div>
                     
                     <div className="flex items-start gap-3">
@@ -204,7 +204,7 @@ const DigitalFabricationPage = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{t('serviceCategories.digitalFabrication.stickerProduction.features.highResolution')}</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{t('stickerProduction.features.highResolution', { ns: 'digitalfabrication' })}</p>
                     </div>
                     
                     <div className="flex items-start gap-3">
@@ -215,7 +215,7 @@ const DigitalFabricationPage = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{t('serviceCategories.digitalFabrication.stickerProduction.features.materialOptions')}</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{t('stickerProduction.features.materialOptions', { ns: 'digitalfabrication' })}</p>
                     </div>
                   </div>
 
@@ -225,7 +225,7 @@ const DigitalFabricationPage = () => {
                     rel="noopener noreferrer"
                     className="inline-flex items-center space-x-2 bg-[#329db7] text-white px-6 py-3 text-base sm:text-lg font-medium hover:bg-[#2b86a0] transition-colors duration-300 hover:shadow-lg hover:-translate-y-0.5"
                   >
-                    <span>{t('serviceCategories.digitalFabrication.stickerProduction.cta')}</span>
+                    <span>{t('stickerProduction.cta', { ns: 'digitalfabrication' })}</span>
                     <ArrowRight size={20} />
                   </a>
                 </div>
@@ -250,30 +250,30 @@ const DigitalFabricationPage = () => {
         <section id="equipment" className="py-16 md:py-24 bg-white">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-10 md:mb-16 text-center text-gray-900 font-['Magistral']">
-              {t('serviceCategories.digitalFabrication.equipment.title')}
+              {t('equipment.title', { ns: 'digitalfabrication' })}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* UV Printer */}
               <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
                 <div className="w-full h-40 md:h-48 bg-white relative pt-6">
-                  <img src="/digital-fabrication/UV.jpg" alt={t('serviceCategories.digitalFabrication.equipment.uvPrinter.alt')} className="absolute inset-0 w-full h-full object-contain object-center" />
+                  <img src="/digital-fabrication/UV.jpg" alt={t('equipment.uvPrinter.alt', { ns: 'digitalfabrication' })} className="absolute inset-0 w-full h-full object-contain object-center" />
                 </div>
                 <div className="flex flex-col items-center justify-center px-8 pt-4 pb-4 w-full text-center">
-                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center font-['Magistral']">{t('serviceCategories.digitalFabrication.equipment.uvPrinter.category')}</div>
-                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 text-center text-gray-900 font-['Magistral']">{t('serviceCategories.digitalFabrication.equipment.uvPrinter.title')}</h3>
-                  <p className="text-base sm:text-lg text-gray-700 text-center font-['Magistral']">{t('serviceCategories.digitalFabrication.equipment.uvPrinter.description')}</p>
+                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center font-['Magistral']">{t('equipment.uvPrinter.category', { ns: 'digitalfabrication' })}</div>
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 text-center text-gray-900 font-['Magistral']">{t('equipment.uvPrinter.title', { ns: 'digitalfabrication' })}</h3>
+                  <p className="text-base sm:text-lg text-gray-700 text-center font-['Magistral']">{t('equipment.uvPrinter.description', { ns: 'digitalfabrication' })}</p>
                 </div>
               </div>
 
               {/* Sticker Machine */}
               <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
                 <div className="w-full h-40 md:h-48 bg-white relative pt-6">
-                  <img src="/digital-fabrication/Stickerr.jpg" alt={t('serviceCategories.digitalFabrication.equipment.stickerCutter.alt')} className="absolute inset-0 w-full h-full object-contain object-center" />
+                  <img src="/digital-fabrication/Stickerr.jpg" alt={t('equipment.stickerCutter.alt', { ns: 'digitalfabrication' })} className="absolute inset-0 w-full h-full object-contain object-center" />
                 </div>
                 <div className="flex flex-col items-center justify-center px-8 pt-4 pb-4 w-full text-center">
-                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center font-['Magistral']">{t('serviceCategories.digitalFabrication.equipment.stickerCutter.category')}</div>
-                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 text-center text-gray-900 font-['Magistral']">{t('serviceCategories.digitalFabrication.equipment.stickerCutter.title')}</h3>
-                  <p className="text-base sm:text-lg text-gray-700 text-center font-['Magistral']">{t('serviceCategories.digitalFabrication.equipment.stickerCutter.description')}</p>
+                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center font-['Magistral']">{t('equipment.stickerCutter.category', { ns: 'digitalfabrication' })}</div>
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 text-center text-gray-900 font-['Magistral']">{t('equipment.stickerCutter.title', { ns: 'digitalfabrication' })}</h3>
+                  <p className="text-base sm:text-lg text-gray-700 text-center font-['Magistral']">{t('equipment.stickerCutter.description', { ns: 'digitalfabrication' })}</p>
                 </div>
               </div>
             </div>
@@ -288,11 +288,11 @@ const DigitalFabricationPage = () => {
               <div className="w-full lg:w-1/2">
                 <div className="max-w-xl mx-auto text-left lg:text-left flex flex-col items-start lg:items-start">
                   <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 leading-tight text-gray-900 font-['Magistral']">
-                    {t('serviceCategories.digitalFabrication.laserCutting.title')}
+                    {t('laserCutting.title', { ns: 'digitalfabrication' })}
                   </h2>
                   
                   <p className="text-base sm:text-lg text-gray-600 mb-8 font-['Magistral']">
-                    {t('serviceCategories.digitalFabrication.laserCutting.description')}
+                    {t('laserCutting.description', { ns: 'digitalfabrication' })}
                   </p>
 
                   <div className="space-y-4 mb-8 w-full">
@@ -304,7 +304,7 @@ const DigitalFabricationPage = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{t('serviceCategories.digitalFabrication.laserCutting.features.highPrecision')}</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{t('laserCutting.features.highPrecision', { ns: 'digitalfabrication' })}</p>
                     </div>
                     
                     <div className="flex items-start gap-3">
@@ -315,7 +315,7 @@ const DigitalFabricationPage = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{t('serviceCategories.digitalFabrication.laserCutting.features.cleanEdges')}</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{t('laserCutting.features.cleanEdges', { ns: 'digitalfabrication' })}</p>
                     </div>
                     
                     <div className="flex items-start gap-3">
@@ -326,7 +326,7 @@ const DigitalFabricationPage = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{t('serviceCategories.digitalFabrication.laserCutting.features.materialCompatibility')}</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{t('laserCutting.features.materialCompatibility', { ns: 'digitalfabrication' })}</p>
                     </div>
                   </div>
 
@@ -341,7 +341,7 @@ const DigitalFabricationPage = () => {
                     }}
                     className="inline-flex items-center space-x-2 bg-[#329db7] text-white px-6 py-3 text-base sm:text-lg font-medium hover:bg-[#2b86a0] transition-colors duration-300 hover:shadow-lg hover:-translate-y-0.5"
                   >
-                    <span>{t('serviceCategories.digitalFabrication.laserCutting.cta')}</span>
+                    <span>{t('laserCutting.cta', { ns: 'digitalfabrication' })}</span>
                     <ArrowRight size={20} />
                   </a>
                 </div>
@@ -370,11 +370,11 @@ const DigitalFabricationPage = () => {
               <div className="w-full lg:w-1/2">
                 <div className="max-w-xl mx-auto text-left lg:text-left flex flex-col items-start lg:items-start">
                   <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 leading-tight text-gray-900 font-['Magistral']">
-                    {t('serviceCategories.digitalFabrication.cncMachining.title')}
+                    {t('cncMachining.title', { ns: 'digitalfabrication' })}
                   </h2>
                   
                   <p className="text-base sm:text-lg text-gray-600 mb-8 font-['Magistral']">
-                    {t('serviceCategories.digitalFabrication.cncMachining.description')}
+                    {t('cncMachining.description', { ns: 'digitalfabrication' })}
                   </p>
 
                   <div className="space-y-4 mb-8 w-full">
@@ -386,7 +386,7 @@ const DigitalFabricationPage = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{t('serviceCategories.digitalFabrication.cncMachining.features.carvingRelief')}</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{t('cncMachining.features.carvingRelief', { ns: 'digitalfabrication' })}</p>
                     </div>
                     
                     <div className="flex items-start gap-3">
@@ -397,7 +397,7 @@ const DigitalFabricationPage = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{t('serviceCategories.digitalFabrication.cncMachining.features.preciseJoinery')}</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{t('cncMachining.features.preciseJoinery', { ns: 'digitalfabrication' })}</p>
                     </div>
                     
                     <div className="flex items-start gap-3">
@@ -408,7 +408,7 @@ const DigitalFabricationPage = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{t('serviceCategories.digitalFabrication.cncMachining.features.customComponents')}</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{t('cncMachining.features.customComponents', { ns: 'digitalfabrication' })}</p>
                     </div>
                   </div>
 
@@ -423,7 +423,7 @@ const DigitalFabricationPage = () => {
                     }}
                     className="inline-flex items-center space-x-2 bg-[#329db7] text-white px-6 py-3 text-base sm:text-lg font-medium hover:bg-[#2b86a0] transition-colors duration-300 hover:shadow-lg hover:-translate-y-0.5"
                   >
-                    <span>{t('serviceCategories.digitalFabrication.cncMachining.cta')}</span>
+                    <span>{t('cncMachining.cta', { ns: 'digitalfabrication' })}</span>
                     <ArrowRight size={20} />
                   </a>
                 </div>
@@ -448,42 +448,42 @@ const DigitalFabricationPage = () => {
         <section id="precision-equipment" className="py-16 md:py-24 bg-gray-100">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-10 md:mb-16 text-center text-gray-900 font-['Magistral']">
-              {t('serviceCategories.digitalFabrication.precisionManufacturingEquipment.title')}
+              {t('precisionManufacturingEquipment.title', { ns: 'digitalfabrication' })}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* Roland DG Shape */}
               <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
                 <div className="w-full h-40 md:h-48 bg-white relative pt-6">
-                  <img src="/precision-manufacturing/roland-dgshape-1.jpg" alt={t('serviceCategories.digitalFabrication.precisionManufacturingEquipment.rolandDGShape.alt')} className="absolute inset-0 w-full h-full object-contain object-center" />
+                  <img src="/precision-manufacturing/roland-dgshape-1.jpg" alt={t('precisionManufacturingEquipment.rolandDGShape.alt', { ns: 'digitalfabrication' })} className="absolute inset-0 w-full h-full object-contain object-center" />
                 </div>
                 <div className="flex flex-col items-center justify-center px-8 pt-4 pb-4 w-full text-center">
-                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center font-['Magistral']">{t('serviceCategories.digitalFabrication.precisionManufacturingEquipment.rolandDGShape.category')}</div>
-                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 text-center text-gray-900 font-['Magistral']">{t('serviceCategories.digitalFabrication.precisionManufacturingEquipment.rolandDGShape.title')}</h3>
-                  <p className="text-base sm:text-lg text-gray-700 text-center font-['Magistral']">{t('serviceCategories.digitalFabrication.precisionManufacturingEquipment.rolandDGShape.description')}</p>
+                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center font-['Magistral']">{t('precisionManufacturingEquipment.rolandDGShape.category', { ns: 'digitalfabrication' })}</div>
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 text-center text-gray-900 font-['Magistral']">{t('precisionManufacturingEquipment.rolandDGShape.title', { ns: 'digitalfabrication' })}</h3>
+                  <p className="text-base sm:text-lg text-gray-700 text-center font-['Magistral']">{t('precisionManufacturingEquipment.rolandDGShape.description', { ns: 'digitalfabrication' })}</p>
                 </div>
               </div>
 
               {/* SRM-20 */}
               <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
                 <div className="w-full h-40 md:h-48 bg-white relative pt-6">
-                  <img src="/precision-manufacturing/srm-20.jpg" alt={t('serviceCategories.digitalFabrication.precisionManufacturingEquipment.srm20.alt')} className="absolute inset-0 w-full h-full object-contain object-center" />
+                  <img src="/precision-manufacturing/srm-20.jpg" alt={t('precisionManufacturingEquipment.srm20.alt', { ns: 'digitalfabrication' })} className="absolute inset-0 w-full h-full object-contain object-center" />
                 </div>
                 <div className="flex flex-col items-center justify-center px-8 pt-4 pb-4 w-full text-center">
-                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center font-['Magistral']">{t('serviceCategories.digitalFabrication.precisionManufacturingEquipment.srm20.category')}</div>
-                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 text-center text-gray-900 font-['Magistral']">{t('serviceCategories.digitalFabrication.precisionManufacturingEquipment.srm20.title')}</h3>
-                  <p className="text-base sm:text-lg text-gray-700 text-center font-['Magistral']">{t('serviceCategories.digitalFabrication.precisionManufacturingEquipment.srm20.description')}</p>
+                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center font-['Magistral']">{t('precisionManufacturingEquipment.srm20.category', { ns: 'digitalfabrication' })}</div>
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 text-center text-gray-900 font-['Magistral']">{t('precisionManufacturingEquipment.srm20.title', { ns: 'digitalfabrication' })}</h3>
+                  <p className="text-base sm:text-lg text-gray-700 text-center font-['Magistral']">{t('precisionManufacturingEquipment.srm20.description', { ns: 'digitalfabrication' })}</p>
                 </div>
               </div>
 
               {/* Photon IM */}
               <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
                 <div className="w-full h-40 md:h-48 bg-white relative pt-6">
-                  <img src="/precision-manufacturing/photonim-1.jpg" alt={t('serviceCategories.digitalFabrication.precisionManufacturingEquipment.photonIM.alt')} className="absolute inset-0 w-full h-full object-contain object-center" />
+                  <img src="/precision-manufacturing/photonim-1.jpg" alt={t('precisionManufacturingEquipment.photonIM.alt', { ns: 'digitalfabrication' })} className="absolute inset-0 w-full h-full object-contain object-center" />
                 </div>
                 <div className="flex flex-col items-center justify-center px-8 pt-4 pb-4 w-full text-center">
-                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center font-['Magistral']">{t('serviceCategories.digitalFabrication.precisionManufacturingEquipment.photonIM.category')}</div>
-                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 text-center text-gray-900 font-['Magistral']">{t('serviceCategories.digitalFabrication.precisionManufacturingEquipment.photonIM.title')}</h3>
-                  <p className="text-base sm:text-lg text-gray-700 text-center font-['Magistral']">{t('serviceCategories.digitalFabrication.precisionManufacturingEquipment.photonIM.description')}</p>
+                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center font-['Magistral']">{t('precisionManufacturingEquipment.photonIM.category', { ns: 'digitalfabrication' })}</div>
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 text-center text-gray-900 font-['Magistral']">{t('precisionManufacturingEquipment.photonIM.title', { ns: 'digitalfabrication' })}</h3>
+                  <p className="text-base sm:text-lg text-gray-700 text-center font-['Magistral']">{t('precisionManufacturingEquipment.photonIM.description', { ns: 'digitalfabrication' })}</p>
                 </div>
               </div>
             </div>
@@ -494,24 +494,24 @@ const DigitalFabricationPage = () => {
                 {/* Volters */}
                 <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
                   <div className="w-full h-40 md:h-48 bg-white relative pt-6">
-                    <img src="/precision-manufacturing/volters.jpg" alt={t('serviceCategories.digitalFabrication.precisionManufacturingEquipment.volterS.alt')} className="absolute inset-0 w-full h-full object-contain object-center" />
+                    <img src="/precision-manufacturing/volters.jpg" alt={t('precisionManufacturingEquipment.volterS.alt', { ns: 'digitalfabrication' })} className="absolute inset-0 w-full h-full object-contain object-center" />
                   </div>
                   <div className="flex flex-col items-center justify-center px-8 pt-4 pb-4 w-full text-center">
-                    <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center font-['Magistral']">{t('serviceCategories.digitalFabrication.precisionManufacturingEquipment.volterS.category')}</div>
-                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 text-center text-gray-900 font-['Magistral']">{t('serviceCategories.digitalFabrication.precisionManufacturingEquipment.volterS.title')}</h3>
-                    <p className="text-base sm:text-lg text-gray-700 text-center font-['Magistral']">{t('serviceCategories.digitalFabrication.precisionManufacturingEquipment.volterS.description')}</p>
+                    <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center font-['Magistral']">{t('precisionManufacturingEquipment.volterS.category', { ns: 'digitalfabrication' })}</div>
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 text-center text-gray-900 font-['Magistral']">{t('precisionManufacturingEquipment.volterS.title', { ns: 'digitalfabrication' })}</h3>
+                    <p className="text-base sm:text-lg text-gray-700 text-center font-['Magistral']">{t('precisionManufacturingEquipment.volterS.description', { ns: 'digitalfabrication' })}</p>
                   </div>
                 </div>
 
                 {/* MDX-50 */}
                 <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
                   <div className="w-full h-40 md:h-48 bg-white relative pt-6">
-                    <img src="/precision-manufacturing/mdx-50.jpg" alt={t('serviceCategories.digitalFabrication.precisionManufacturingEquipment.mdx50.alt')} className="absolute inset-0 w-full h-full object-contain object-center" />
+                    <img src="/precision-manufacturing/mdx-50.jpg" alt={t('precisionManufacturingEquipment.mdx50.alt', { ns: 'digitalfabrication' })} className="absolute inset-0 w-full h-full object-contain object-center" />
                   </div>
                   <div className="flex flex-col items-center justify-center px-8 pt-4 pb-4 w-full text-center">
-                    <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center font-['Magistral']">{t('serviceCategories.digitalFabrication.precisionManufacturingEquipment.mdx50.category')}</div>
-                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 text-center text-gray-900 font-['Magistral']">{t('serviceCategories.digitalFabrication.precisionManufacturingEquipment.mdx50.title')}</h3>
-                    <p className="text-base sm:text-lg text-gray-700 text-center font-['Magistral']">{t('serviceCategories.digitalFabrication.precisionManufacturingEquipment.mdx50.description')}</p>
+                    <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center font-['Magistral']">{t('precisionManufacturingEquipment.mdx50.category', { ns: 'digitalfabrication' })}</div>
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 text-center text-gray-900 font-['Magistral']">{t('precisionManufacturingEquipment.mdx50.title', { ns: 'digitalfabrication' })}</h3>
+                    <p className="text-base sm:text-lg text-gray-700 text-center font-['Magistral']">{t('precisionManufacturingEquipment.mdx50.description', { ns: 'digitalfabrication' })}</p>
                   </div>
                 </div>
               </div>
@@ -524,10 +524,10 @@ const DigitalFabricationPage = () => {
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
             <div className="flex flex-col items-center justify-center gap-8 max-w-3xl mx-auto">
               <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 text-center font-['Magistral']">
-                {t('digitalFabrication.behindTheScenes.title')}
+                {t('behindTheScenes.title', { ns: 'digitalfabrication' })}
               </h2>
               <p className="text-base sm:text-lg text-gray-600 text-center font-['Magistral']">
-                {t('digitalFabrication.behindTheScenes.description')}
+                {t('behindTheScenes.description', { ns: 'digitalfabrication' })}
               </p>
               <div className="w-full max-w-[350px] aspect-[9/16] rounded-xl overflow-hidden shadow-xl">
                 <video 
@@ -536,7 +536,7 @@ const DigitalFabricationPage = () => {
                   poster="/digital-fabrication/UV.jpg"
                 >
                   <source src="/digital-fabrication/uvlaser.mp4" type="video/mp4" />
-                  {t('digitalFabrication.behindTheScenes.videoSupportText')}
+                  {t('behindTheScenes.videoSupportText', { ns: 'digitalfabrication' })}
                 </video>
               </div>
               <div className="flex flex-col sm:flex-row items-center gap-4">
@@ -554,7 +554,7 @@ const DigitalFabricationPage = () => {
                   >
                     <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                   </svg>
-                  {t('digitalFabrication.behindTheScenes.instagramCta')}
+                  {t('behindTheScenes.instagramCta', { ns: 'digitalfabrication' })}
                 </a>
                 <a 
                   href="https://t.me/CenterForYouthInitiatives"
@@ -570,7 +570,7 @@ const DigitalFabricationPage = () => {
                   >
                     <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
                   </svg>
-                  {t('digitalFabrication.behindTheScenes.telegramCta')}
+                  {t('behindTheScenes.telegramCta', { ns: 'digitalfabrication' })}
                 </a>
               </div>
             </div>
@@ -585,16 +585,16 @@ const DigitalFabricationPage = () => {
               <div className="w-full lg:w-1/2 space-y-8">
                 <div className="inline-block">
                   <span className="bg-[#329db7]/10 text-[#329db7] text-sm font-semibold px-4 py-2 rounded-full font-['Magistral']">
-                    {t('digitalFabrication.contactSection.badge')}
+                    {t('contactSection.badge', { ns: 'digitalfabrication' })}
                   </span>
                 </div>
                 
                 <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight font-['Magistral']">
-                  {t('digitalFabrication.contactSection.title')}
+                  {t('contactSection.title', { ns: 'digitalfabrication' })}
                 </h2>
                 
                 <p className="text-base sm:text-lg text-gray-600 font-['Magistral']">
-                  {t('digitalFabrication.contactSection.description')}
+                  {t('contactSection.description', { ns: 'digitalfabrication' })}
                 </p>
 
                 <a 
@@ -603,7 +603,7 @@ const DigitalFabricationPage = () => {
                   rel="noopener noreferrer"
                   className="inline-flex items-center space-x-2 bg-[#329db7] text-white px-6 py-3 text-base sm:text-lg font-medium hover:bg-[#2b86a0] transition-colors duration-300 hover:shadow-lg hover:-translate-y-0.5 font-['Magistral']"
                 >
-                  <span>{t('digitalFabrication.contactSection.cta')}</span>
+                  <span>{t('contactSection.cta', { ns: 'digitalfabrication' })}</span>
                   <ArrowRight size={20} />
                 </a>
               </div>
@@ -613,7 +613,7 @@ const DigitalFabricationPage = () => {
                 <div className="relative rounded-xl overflow-hidden shadow-xl">
                   <img 
                     src="/digital-fabrication/contact.webp" 
-                    alt={t('digitalFabrication.contactSection.imageAlt')} 
+                    alt={t('contactSection.imageAlt', { ns: 'digitalfabrication' })} 
                     className="w-full h-[400px] object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>

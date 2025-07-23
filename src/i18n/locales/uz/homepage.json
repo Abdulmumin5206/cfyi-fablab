@@ -1,0 +1,44 @@
+{
+  "hero": {
+    "slide1": {
+      "title": "FabLabga xush kelibsiz",
+      "subtitle": "Innovatsiya va yaratish uchun ijodiy makon",
+      "buttonText": "Makonimizni ko'ring"
+    },
+    "slide2": {
+      "title": "Zamonaviy jihozlar",
+      "subtitle": "Eng ilg'or uskunalar va texnologiyalar",
+      "buttonText": "Jihozlarni ko'rish"
+    },
+    "slide3": {
+      "title": "Ijodiy hamjamiyat",
+      "subtitle": "Yaratuvchilar va innovatorlar hamjamiyatiga qo'shiling",
+      "buttonText": "Bizga qo'shiling"
+    },
+    "slide4": {
+      "title": "Ustaxona maydoni",
+      "subtitle": "G'oyalarni hayotga tatbiq etish uchun mukammal muhit",
+      "buttonText": "Sessiyani band qilish"
+    }
+  },
+  "slider": {
+    "mainMessage": "Innovatsiya orqali texnologiyalar. G'oyalarni haqiqatga aylantirishda yordam beramiz.",
+    "showcaseImage": "Ko'rsatma tasvir {{number}}",
+    "scrollHint": "Pastga aylantiring",
+    "fablabRoom": {
+      "title": "FabLab Xonasi",
+      "achievement": "Zamonaviy Uskunalar",
+      "text": "Bizning zamonaviy FabLab raqamli ishlab chiqarish vositalari va uskunalari bilan jihozlangan bo'lib, innovatsiya va ijod uchun mukammal muhit yaratadi. 3D printerlardan CNC stanoklarga, lazer kesuvchilardan elektronika ish stansiyalarigacha - biz g'oyalarni haqiqatga aylantirish uchun keng qamrovli resurslarni taklif qilamiz."
+    },
+    "fabLearn": {
+      "title": "FabLearn Dasturi",
+      "achievement": "O'rganing va Yarating",
+      "text": "Raqamli ishlab chiqarish ko'nikmalarini o'rganish va o'z g'oyalaringizni amaliy tajriba va mutaxassislar ko'rsatmasi bilan hayotga tatbiq etish uchun bizning ta'lim dasturlarimizga qo'shiling. Bizning o'quv dasturimiz nazariy bilimlarni amaliy qo'llash bilan birlashtiradi, talabalarni muhandislik va texnologiya sohasidagi kelajakdagi martaba uchun tayyorlaydi."
+    },
+    "cfyi": {
+      "title": "Yoshlar Tashabbuslari Markazi",
+      "achievement": "Innovatsion Texnologik Markaz",
+      "text": "O'zbekiston va MDH mintaqasida ilg'or muhandislik ta'limi va ixtirochilik ijodiyoti uchun yetakchi markaz. FabLabs, CDIO™ va STEM kabi dunyo standartlaridagi metodologiyalarni integratsiya qilish orqali kelajakdagi muhandislik mutaxassislarini rivojlantirish, STEM sohasida gender tengligini targ'ib qilish va maktabgacha yoshdan universitetgacha bo'lgan innovatorlarni tayyorlash."
+    }
+  }
+}

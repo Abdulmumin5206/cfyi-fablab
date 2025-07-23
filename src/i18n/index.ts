@@ -5,6 +5,9 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import enTranslation from './locales/en/translation.json';
 import ruTranslation from './locales/ru/translation.json';
 import uzTranslation from './locales/uz/translation.json';
+import enHomepage from './locales/en/homepage.json';
+import ruHomepage from './locales/ru/homepage.json';
+import uzHomepage from './locales/uz/homepage.json';
 import enBlog from './locales/en/blog.json';
 import ruBlog from './locales/ru/blog.json';
 import uzBlog from './locales/uz/blog.json';
@@ -27,6 +30,7 @@ import uzCourses from './locales/uz/courses.json';
 const resources = {
   en: {
     translation: enTranslation,
+    homepage: enHomepage,
     blog: enBlog,
     '3dprinting': en3dPrinting,
     '3dscanning': en3dScanning,
@@ -36,6 +40,7 @@ const resources = {
   },
   ru: {
     translation: ruTranslation,
+    homepage: ruHomepage,
     blog: ruBlog,
     '3dprinting': ru3dPrinting,
     '3dscanning': ru3dScanning,
@@ -45,6 +50,7 @@ const resources = {
   },
   uz: {
     translation: uzTranslation,
+    homepage: uzHomepage,
     blog: uzBlog,
     '3dprinting': uz3dPrinting,
     '3dscanning': uz3dScanning,
@@ -60,7 +66,7 @@ i18n
   .init({
     resources,
     fallbackLng: 'en',
-    ns: ['translation', 'blog', '3dprinting', '3dscanning', 'mould', 'digitalfabrication', 'courses'],
+    ns: ['translation', 'homepage', 'blog', '3dprinting', '3dscanning', 'mould', 'digitalfabrication', 'courses'],
     defaultNS: 'translation',
     debug: process.env.NODE_ENV === 'development',
     interpolation: {

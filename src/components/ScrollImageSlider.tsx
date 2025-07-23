@@ -4,7 +4,7 @@ import { ChevronDown } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 const ScrollImageSlider = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('homepage');
   const containerRef = useRef<HTMLDivElement>(null);
 
   // Pre-scaled images (WebP format)

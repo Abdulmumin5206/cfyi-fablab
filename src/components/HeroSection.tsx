@@ -12,7 +12,8 @@ interface HeroSlide {
 }
 
 const HeroSection = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('homepage');
+  const { t: tMain } = useTranslation();
   const [activeIndex, setActiveIndex] = useState(0);
   const [direction, setDirection] = useState("right");
   const [isDragging, setIsDragging] = useState(false);
@@ -187,9 +188,10 @@ const HeroSection = () => {
   return (
     <section 
       ref={sectionRef}
-      className="relative h-[100vh] w-full bg-black md:h-[90vh] lg:h-screen"
+      className="relative h-[100vh] w-full bg-black md:h-[90vh] lg:h-screen overflow-hidden"
     >
-      <div className="w-full h-full">
+      {/* Video Background */}
+      <div className="absolute inset-0 w-full h-full">
         {isVideoLoading && (
           <div className="absolute inset-0 flex items-center justify-center bg-black z-20">
             <div className="w-8 h-8 md:w-12 md:h-12 border-4 border-blue-500/20 border-t-blue-500 rounded-full animate-spin"></div>
@@ -218,9 +220,81 @@ const HeroSection = () => {
           }}
         >
           <source src="/video/FabLab video horizontal.mp4" type="video/mp4" />
-          {t('video.fallbackText')}
+          {tMain('video.fallbackText')}
         </video>
         <div className="absolute inset-0 bg-black/50 z-10"></div>
+      </div>
+
+      {/* Slide Content */}
+      <div 
+        ref={containerRef}
+        className="relative z-20 h-full w-full flex items-center justify-center"
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUp}
+        onMouseLeave={handleMouseLeave}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
+        {renderSlides().map((slide, index) => {
+          const isActive = slide.position === "center";
+          const translateX = slide.position === "before" ? "-100%" : 
+                           slide.position === "after" ? "100%" : "0%";
+          
+          return (
+            <div
+              key={`${slide.id}-${index}`}
+              className={`absolute inset-0 flex items-center justify-center transition-transform duration-700 ease-in-out ${
+                isActive ? "opacity-100" : "opacity-0"
+              }`}
+              style={{
+                transform: `translateX(${translateX})`,
+              }}
+            >
+              <div className="text-center text-white px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
+                  {t(slide.titleKey)}
+                </h1>
+                <p className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 text-gray-200 leading-relaxed">
+                  {t(slide.subtitleKey)}
+                </p>
+                <a
+                  href={slide.buttonLink}
+                  onClick={(e) => {
+                    if (slide.buttonLink.startsWith('#')) {
+                      handleScrollToSection(e, slide.buttonLink.substring(1));
+                    }
+                  }}
+                  className="inline-flex items-center space-x-2 bg-[#329db7] text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium hover:bg-[#2b86a0] transition-colors duration-300 hover:shadow-lg hover:-translate-y-0.5"
+                >
+                  <span>{t(slide.buttonTextKey)}</span>
+                  <ArrowRight size={20} />
+                </a>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Slide Indicators */}
+      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-30">
+        <div className="flex space-x-2">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => {
+                setDirection(index > activeIndex ? "right" : "left");
+                setActiveIndex(index);
+              }}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                index === activeIndex
+                  ? "bg-white scale-110"
+                  : "bg-white/50 hover:bg-white/75"
+              }`}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -1,0 +1,47 @@
+{
+  "hero": {
+    "slide1": {
+      "title": "Welcome to FabLab",
+      "subtitle": "Your creative space for innovation and making",
+      "buttonText": "Explore our services"
+    },
+    "slide2": {
+      "title": "State-of-the-Art Equipment",
+      "subtitle": "Access to cutting-edge tools and technology",
+      "buttonText": "Our Professions"
+    },
+    "slide3": {
+      "title": "Creative Community",
+      "subtitle": "Join a community of makers and innovators",
+      "buttonText": "Contact Us"
+    },
+    "slide4": {
+      "title": "Workshop Space",
+      "subtitle": "Perfect environment for bringing ideas to life",
+      "buttonText": "Book a Session"
+    }
+  },
+  "slider": {
+    "mainMessage": "Empowering innovation through accessible fabrication technology. We provide the tools, space, and expertise to turn ideas into reality.",
+    "showcaseImage": "Showcase image {{number}}",
+    "scrollHint": "Scroll down",
+    "image0": "FabLab Room",
+    "image1": "FabLearn Program",
+    "image2": "CFYI Center",
+    "fablabRoom": {
+      "title": "FabLab Space",
+      "achievement": "State-of-the-Art Facility",
+      "text": "Our modern FabLab is equipped with cutting-edge digital fabrication tools and equipment, providing a perfect environment for innovation and creation. From 3D printers to CNC machines, laser cutters to electronics workstations, we offer comprehensive resources for turning ideas into reality."
+    },
+    "fabLearn": {
+      "title": "FabLearn Program",
+      "achievement": "Learn & Create",
+      "text": "Join our educational programs to learn digital fabrication skills and bring your ideas to life with hands-on experience and expert guidance. Our curriculum combines theoretical knowledge with practical applications, preparing students for future careers in engineering and technology."
+    },
+    "cfyi": {
+      "title": "Center for Youth Initiatives",
+      "achievement": "Innovative Technological Hub",
+      "text": "A pioneering center in Uzbekistan and the CIS region for advanced engineering education and inventive creativity. Integrates world-class methodologies like FabLabs, CDIO™, and STEM to develop future engineering professionals, promote gender equality in STEM, and prepare innovators from pre-school to university."
+    }
+  }
+}

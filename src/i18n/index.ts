@@ -73,8 +73,13 @@ i18n
       escapeValue: false
     },
     detection: {
-      order: ['localStorage', 'navigator'],
-      caches: ['localStorage']
+      order: ['navigator', 'querystring', 'cookie', 'localStorage', 'sessionStorage', 'htmlTag'],
+      lookupQuerystring: 'lng',
+      lookupCookie: 'i18next',
+      lookupLocalStorage: 'i18nextLng',
+      caches: ['localStorage'],
+      // Convert language codes like 'ru-RU' to 'ru'
+      convertDetectedLanguage: (lng) => lng.split('-')[0]
     }
   });
 

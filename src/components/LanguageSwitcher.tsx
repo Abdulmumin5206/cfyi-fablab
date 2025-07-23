@@ -17,6 +17,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
 }) => {
   const { i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
+  const [showDebug, setShowDebug] = useState(false);
   
   const languages = [
     { code: 'en', name: 'English' },
@@ -24,7 +25,19 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
     { code: 'uz', name: 'O\'zbekcha' }
   ];
 
-  const currentLanguage = languages.find(lang => lang.code === i18n.language) || languages[0];
+  // Get the actual current language from i18n
+  const currentLanguageCode = i18n.language.split('-')[0]; // Handle cases like 'ru-RU' -> 'ru'
+  const currentLanguage = languages.find(lang => lang.code === currentLanguageCode) || languages[0];
+
+  useEffect(() => {
+    // Log language information in development mode
+    if (process.env.NODE_ENV === 'development') {
+      console.log('Current i18n language:', i18n.language);
+      console.log('Normalized language code:', currentLanguageCode);
+      console.log('Navigator language:', navigator.language);
+      console.log('Navigator languages:', navigator.languages);
+    }
+  }, [i18n.language, currentLanguageCode]);
 
   const changeLanguage = (langCode: string) => {
     if (langCode !== i18n.language) {
@@ -68,6 +81,17 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
     return "border-white";
   };
 
+  // Toggle debug info in development mode
+  const toggleDebug = (e: React.MouseEvent) => {
+    if (process.env.NODE_ENV === 'development') {
+      e.preventDefault();
+      e.stopPropagation();
+      if (e.shiftKey && e.altKey) {
+        setShowDebug(!showDebug);
+      }
+    }
+  };
+
   return (
     <div className="relative">
       <button
@@ -75,6 +99,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
           e.stopPropagation();
           setIsOpen(!isOpen);
         }}
+        onContextMenu={toggleDebug}
         className={`flex items-center border hover:text-[#329db7] transition-opacity px-2 sm:px-3 py-1.5 sm:py-2 h-[38px] sm:h-[42px] ${isLaptopScreen ? 'md:h-[38px]' : 'lg:h-[42px] xl:h-[46px]'} ${getBorderColor()} bg-transparent ${getTextColor()}`}
         aria-label="Change language"
       >
@@ -94,7 +119,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
               className={`w-full text-left px-3 py-2.5 flex items-center justify-between ${
                 isScrolled || shouldUseBlackText ? 'text-gray-800' : 'text-white'
               } ${
-                language.code === i18n.language 
+                language.code === currentLanguageCode 
                   ? (isScrolled || shouldUseBlackText ? 'bg-gray-100' : 'bg-white/10') 
                   : (isScrolled || shouldUseBlackText ? 'hover:bg-gray-50' : 'hover:bg-white/5')
               } transition-colors duration-150`}
@@ -103,6 +128,18 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
               <span className={`text-xs uppercase ${isScrolled || shouldUseBlackText ? 'text-gray-500' : 'text-white/70'}`}>{language.code}</span>
             </button>
           ))}
+        </div>
+      )}
+      
+      {/* Debug panel - only visible in development when activated */}
+      {showDebug && process.env.NODE_ENV === 'development' && (
+        <div className="absolute right-0 mt-2 bg-white shadow-lg overflow-hidden z-50 w-64 border border-gray-200 p-3 text-black text-xs">
+          <h4 className="font-bold mb-1">Language Debug Info:</h4>
+          <p>i18n.language: {i18n.language}</p>
+          <p>currentLanguageCode: {currentLanguageCode}</p>
+          <p>navigator.language: {navigator.language}</p>
+          <p>navigator.languages: {navigator.languages?.join(', ')}</p>
+          <p>localStorage: {localStorage.getItem('i18nextLng')}</p>
         </div>
       )}
     </div>

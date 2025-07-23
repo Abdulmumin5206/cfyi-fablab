@@ -22,7 +22,7 @@ const WorkshopModal: React.FC<WorkshopModalProps> = ({
   level,
   currentLang,
 }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(['courses', 'translation']);
 
   if (!isOpen) return null;
 

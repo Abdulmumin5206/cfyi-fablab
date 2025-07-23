@@ -1,0 +1,130 @@
+{
+  "courses": {
+    "fdm": {
+      "badge": "FDM 3D Printing",
+      "title": "Master FDM 3D Printing",
+      "description": "Learn the fundamentals and advanced techniques of FDM 3D printing. From basic setup to complex multi-material printing, become proficient in the most widely used 3D printing technology.",
+      "features": {
+        "handsOn": {
+          "title": "Hands-on Experience",
+          "description": "Work with professional FDM printers and learn through practical projects"
+        },
+        "expert": {
+          "title": "Expert Instruction",
+          "description": "Learn from certified professionals with years of industry experience"
+        },
+        "certification": {
+          "title": "Certification",
+          "description": "Receive an industry-recognized certificate upon completion"
+        }
+      },
+      "buttons": {
+        "enroll": "Enroll Now"
+      }
+    },
+    "sla": {
+      "badge": "SLA 3D Printing",
+      "title": "Master SLA 3D Printing",
+      "description": "Discover the world of high-precision SLA 3D printing. Learn to create detailed, smooth-surface prints for professional applications and rapid prototyping.",
+      "features": {
+        "handsOn": {
+          "title": "Hands-on Experience",
+          "description": "Work with industrial-grade SLA printers and learn through practical projects"
+        },
+        "expert": {
+          "title": "Expert Instruction",
+          "description": "Learn from certified professionals with years of industry experience"
+        },
+        "certification": {
+          "title": "Certification",
+          "description": "Receive an industry-recognized certificate upon completion"
+        }
+      },
+      "buttons": {
+        "enroll": "Enroll Now"
+      }
+    },
+    "precision": {
+      "badge": "Precision Manufacturing",
+      "title": "Master Precision Manufacturing",
+      "description": "Learn the art of precision manufacturing with modern tools and techniques. From CNC machining to advanced finishing processes, master the skills needed for high-quality production.",
+      "features": {
+        "handsOn": {
+          "title": "Hands-on Experience",
+          "description": "Work with professional manufacturing equipment and learn through practical projects"
+        },
+        "expert": {
+          "title": "Expert Instruction",
+          "description": "Learn from certified professionals with years of industry experience"
+        },
+        "certification": {
+          "title": "Certification",
+          "description": "Receive an industry-recognized certificate upon completion"
+        }
+      },
+      "buttons": {
+        "enroll": "Enroll Now"
+      }
+    },
+    "cad": {
+      "badge": "CAD Design",
+      "title": "Master CAD Design with Fusion360",
+      "description": "Become proficient in CAD design using Autodesk Fusion360. Learn to create complex 3D models, assemblies, and prepare designs for manufacturing.",
+      "features": {
+        "handsOn": {
+          "title": "Hands-on Experience",
+          "description": "Work on real-world projects using Fusion360 software"
+        },
+        "expert": {
+          "title": "Expert Instruction",
+          "description": "Learn from certified professionals with years of industry experience"
+        },
+        "certification": {
+          "title": "Certification",
+          "description": "Receive an industry-recognized certificate upon completion"
+        }
+      },
+      "buttons": {
+        "enroll": "Enroll Now"
+      }
+    },
+    "workshops": {
+      "title": "Specialized Workshops",
+      "duration": "Duration",
+      "digitalFabrication": {
+        "title": "Digital Fabrication Workshop",
+        "description": "Explore the intersection of digital design and physical manufacturing in this intensive workshop.",
+        "duration": "90 min",
+        "skills": {
+          "skill1": "UV printer setup, operation, and material compatibility",
+          "skill2": "Vinyl cutter operation and design preparation",
+          "skill3": "Print quality optimization and color management",
+          "skill4": "Vector graphics creation and cut path optimization",
+          "skill5": "Material selection (substrates, vinyl types, adhesives)",
+          "skill6": "Production workflows and cost calculation"
+        },
+        "level": "Beginner to Intermediate"
+      },
+      "scanning": {
+        "title": "3D Scanning Workshop",
+        "description": "Learn to capture real-world objects and convert them into digital 3D models using advanced scanning technology.",
+        "duration": "60 min",
+        "level": "Intermediate",
+        "skills": {
+          "skill1": "Working with 3D scanner and calibration",
+          "skill2": "Processing and optimizing scan data",
+          "skill3": "Converting point cloud to mesh",
+          "skill4": "Scan cleaning and repair techniques",
+          "skill5": "Reverse engineering workflows",
+          "skill6": "Quality control and measurements"
+        }
+      },
+      "buttons": {
+        "enroll": "Register Now"
+      },
+      "skillsTitle": "Key Skills You Will Learn"
+    },
+    "viewDetails": "View Details",
+    "enrollNow": "Enroll Now"
+  }
+}

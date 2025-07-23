@@ -54,7 +54,7 @@ interface CourseData {
 }
 
 const CoursesPage = () => {
-  const { t, i18n } = useTranslation();
+  const { t, i18n } = useTranslation('courses');
   const currentLang = i18n.language;
   const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
   const [selectedWorkshop, setSelectedWorkshop] = useState<string | null>(null);

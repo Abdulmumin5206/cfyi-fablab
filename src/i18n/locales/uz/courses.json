@@ -1,0 +1,199 @@
+{
+  "courses": {
+    "hero": {
+      "title": "Bizning Kurslarimiz",
+      "subtitle": "Zamonaviy ishlab chiqarish texnologiyalarini o'rganing",
+      "description": "Asosiy ko'nikmalardan professional mahoratgacha - bizning kurslarimiz sizga zamonaviy ishlab chiqarish texnologiyalarini o'rganishda yordam beradi"
+    },
+    "fdm": {
+      "badge": "FDM 3D Chop etish",
+      "title": "FDM 3D Chop etishni o'rganing",
+      "description": "FDM chop etish texnologiyasi yordamida yuqori sifatli 3D modellarni yaratishni o'rganing",
+      "features": {
+        "handsOn": {
+          "title": "Amaliy mashg'ulotlar",
+          "description": "Haqiqiy uskunalar bilan ishlang va o'z loyihalaringizni yarating"
+        },
+        "expert": {
+          "title": "Mutaxassis ko'rsatmasi",
+          "description": "Ko'p yillik tajribaga ega mutaxassislardan o'rganing"
+        },
+        "certification": {
+          "title": "Sertifikat",
+          "description": "Ko'nikmalaringizni tasdiqlovchi sertifikat oling"
+        }
+      },
+      "hobbyist": {
+        "title": "FDM Boshlang'ich Kursi",
+        "description": "Darhol chop etishni boshlashni xohlovchi boshlang'ichlar uchun mukammal",
+        "outcomes": [
+          "Mashhur dasturlar bilan ishlash (Cura, PrusaSlicer, Bambu Studio)",
+          "STL fayllarini tushunish va sifatli modellarni topish",
+          "Printer sozlash, kalibrlash va asosiy texnik xizmat",
+          "Filament turlari va ularning xususiyatlari (PLA, PETG, ABS, TPU)",
+          "Turli materiallar uchun chop etish sozlamalarini optimallashtirish",
+          "Tipik chop etish muammolarini hal qilish",
+          "Professional natijalar uchun keyingi ishlov berish texnikasi"
+        ],
+        "includes": [
+          "Haqiqiy chop etish loyihalari bilan amaliy tajriba",
+          "Boshlang'ichlar uchun STL fayllar to'plami",
+          "Filament tanlash bo'yicha qo'llanma va yetkazib beruvchilar tavsiyalari",
+          "Muammolarni hal qilish uchun tezkor ma'lumotnoma"
+        ],
+        "bonus": "Bonus modul: CAD tushunchalariga kirish - individual dizaynning muhimligini tushunish va kelajakdagi o'rganish uchun asosiy model yaratish vositalarini o'rganish",
+        "details": {
+          "duration": "4 hafta",
+          "level": "Boshlang'ich",
+          "prerequisites": "Yo'q"
+        }
+      },
+      "professional": {
+        "title": "FDM Professional",
+        "description": "Dizayndan ishlab chiqarishgacha to'liq mahorat",
+        "mastery": [
+          "Professional dasturlar yordamida ilg'or CAD dizayn",
+          "Muhandislik yondashuvi bilan model yaratish texnikasi",
+          "Materiallar haqidagi fan va mexanik xususiyatlar",
+          "Ilg'or kesish strategiyalari va foydalanuvchi profillari",
+          "Ko'p rangli va ko'p materialli chop etish",
+          "Sanoat qo'llanmalari va ishlab chiqarish jarayonlari",
+          "Sifat nazorati va o'lchamlar aniqligi",
+          "Xarajatlar tahlili va ishlab chiqarishni rejalashtirish"
+        ],
+        "advanced": [
+          "Parametrik dizayn va ishlab chiqarish uchun loyihalash (DFM)",
+          "Kuchlanish tahlili va chop etish yo'nalishini optimallashtirish",
+          "Foydalanuvchi qo'llab-quvvatlovchi tuzilmalarni yaratish va olib tashlash",
+          "Funksional qismlar uchun keyingi ishlov berish",
+          "CAM jarayonlari bilan integratsiya"
+        ],
+        "details": {
+          "duration": "8 hafta",
+          "level": "O'rta darajadan yuqori darajagacha",
+          "prerequisites": "3D haqida asosiy tushuncha yoki boshlang'ich kursni yakunlash"
+        }
+      }
+    },
+    "sla": {
+      "badge": "SLA 3D Chop etish",
+      "title": "SLA 3D Chop etishni o'rganing",
+      "description": "SLA chop etish texnologiyasi yordamida yuqori aniqlikdagi modellarni yaratishni o'rganing",
+      "features": {
+        "handsOn": {
+          "title": "Amaliy mashg'ulotlar",
+          "description": "Professional uskunalar bilan ishlang va murakkab loyihalarni yarating"
+        },
+        "expert": {
+          "title": "Mutaxassis ko'rsatmasi",
+          "description": "SLA chop etish bo'yicha chuqur bilimga ega mutaxassislardan o'rganing"
+        },
+        "certification": {
+          "title": "Sertifikat",
+          "description": "Ko'nikmalaringizni tasdiqlovchi professional sertifikat oling"
+        }
+      },
+      "curriculum": {
+        "title": "Asosiy dastur",
+        "items": [
+          "SLA printer sozlash va kalibrlash",
+          "Smola turlari va ularning xususiyatlari",
+          "Ilg'or kesish texnikasi",
+          "Qo'llab-quvvatlovchi tuzilmalarni loyihalash",
+          "Chop etish sifatini nazorat qilish"
+        ]
+      },
+      "postProcessing": {
+        "title": "Keyingi ishlov berish",
+        "items": [
+          "Professional yuvish texnikasi",
+          "UV qotish protokollari",
+          "Sirtni yakuniy ishlash",
+          "Xavfsizlik protokollari",
+          "Materiallarni qayta ishlash"
+        ]
+      },
+      "applications": {
+        "title": "Maxsus qo'llanmalar",
+        "items": [
+          "Zargarlik buyumlarini chop etish",
+          "Stomatologik qo'llanmalar",
+          "Muhandislik prototiplari",
+          "Qoliplash uchun modellar"
+        ]
+      },
+      "experience": {
+        "title": "Amaliy tajriba",
+        "items": [
+          "Chop etish sifatini taqqoslash",
+          "Materiallarni sinab ko'rish",
+          "Professional yakuniy ishlash texnikasi",
+          "Muammolarni hal qilish"
+        ]
+      },
+      "details": {
+        "duration": "6 hafta",
+        "level": "Boshlang'ichdan o'rta darajagacha",
+        "prerequisites": "Yo'q"
+      }
+    },
+    "viewDetails": "Batafsil",
+    "enrollNow": "Ro'yxatdan o'tish",
+    "precision": {
+      "badge": "Aniq Ishlab Chiqarish",
+      "title": "Aniq Ishlab Chiqarishni O'rganing",
+      "description": "Zamonaviy vositalar va texnikalar bilan aniq ishlab chiqarish san'atini o'rganing. CNC ishlov berishdan ilg'or pardozlash jarayonlarigacha, yuqori sifatli ishlab chiqarish uchun zarur bo'lgan ko'nikmalarni egallang.",
+      "features": {
+        "handsOn": {
+          "title": "Amaliy Tajriba",
+          "description": "Professional ishlab chiqarish uskunalari bilan ishlang va amaliy loyihalar orqali o'rganing"
+        },
+        "expert": {
+          "title": "Mutaxassis O'qitishi",
+          "description": "Sanoatda ko'p yillik tajribaga ega sertifikatlangan mutaxassislardan o'rganing"
+        },
+        "certification": {
+          "title": "Sertifikat",
+          "description": "Kursni yakunlaganingizda sanoatda tan olingan sertifikat oling"
+        }
+      }
+    },
+    "workshops": {
+      "title": "Maxsus Ustaxonalar",
+      "duration": "Davomiyligi",
+      "skillsTitle": "O'rganasiz Asosiy Ko'nikmalar",
+      "digitalFabrication": {
+        "title": "Raqamli Ishlab Chiqarish Ustaxonasi",
+        "description": "Bu intensiv ustaxonada raqamli dizayn va jismoniy ishlab chiqarishning kesishishini o'rganing.",
+        "duration": "90 daqiqa intensiv",
+        "level": "Boshlang'ich - O'rta daraja",
+        "skills": {
+          "skill1": "UV printerini sozlash, ishlatish va materiallar mosligi",
+          "skill2": "Vinil kesish mashinasini ishlatish va dizayn tayyorlash",
+          "skill3": "Chop etish sifatini optimallashtirish va ranglarni boshqarish",
+          "skill4": "Vektor grafikalarini yaratish va kesish yo'lini optimallashtirish",
+          "skill5": "Material tanlash (substratlar, vinil turlari, yopishtiruvchi moddalar)",
+          "skill6": "Ishlab chiqarish jarayonlari va xarajatlarni hisoblash"
+        }
+      },
+      "scanning": {
+        "title": "3D Skanerlash Ustaxonasi",
+        "description": "3D skanerlash va raqamlashtirish san'atini o'rganing",
+        "duration": "60 daqiqa intensiv",
+        "level": "O'rta daraja",
+        "skills": {
+          "skill1": "3D skaner bilan ishlash va kalibrlash",
+          "skill2": "Skanerlash ma'lumotlarini qayta ishlash va optimallashtirish",
+          "skill3": "Nuqta bulutini meshga aylantirish",
+          "skill4": "Skanerni tozalash va ta'mirlash texnikalari",
+          "skill5": "Teskari muhandislik jarayonlari",
+          "skill6": "Sifat nazorati va o'lchash"
+        }
+      },
+      "buttons": {
+        "enroll": "Ro'yxatdan o'tish",
+        "viewDetails": "Batafsil"
+      }
+    }
+  }
+}

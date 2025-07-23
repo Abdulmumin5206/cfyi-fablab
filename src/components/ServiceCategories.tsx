@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import ShinyText from "./ShinyText";
 
 interface ServiceCategory {
   id: string;
@@ -154,9 +155,11 @@ const ServiceCategories = () => {
     >
       <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px] relative z-10">
         <div className="text-left mb-3 sm:mb-4 md:mb-6 lg:mb-8">
-          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-black font-['Magistral']">
-            {t('serviceCategories.title')}
-          </h2>
+          <ShinyText 
+            text={t('serviceCategories.title')}
+            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 font-['Magistral']" 
+            speed={3}
+          />
           <p className="text-gray-700 text-base sm:text-lg mb-3 sm:mb-4 font-['Magistral']">
             {t('serviceCategories.subtitle')}
           </p>

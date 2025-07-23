@@ -195,10 +195,10 @@ const BlogIndex = () => {
         <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px] pt-48 bg-white">
           <div className="text-left mb-3 sm:mb-4 md:mb-6 lg:mb-8">
             <h1 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-[#329db7] font-['Magistral']">
-              {tBlog('projectsHeadline')}
+              {tBlog('blog.projectsHeadline')}
             </h1>
             <p className="text-lg sm:text-lg mb-3 sm:mb-4 font-['Magistral'] text-gray-700">
-              {tBlog('projectsSubtitle')}
+              {tBlog('blog.projectsSubtitle')}
             </p>
           </div>
         </div>
@@ -210,10 +210,10 @@ const BlogIndex = () => {
               <div className="w-full lg:w-1/2">
                 <div className="max-w-full text-left lg:max-w-xl flex flex-col items-start lg:items-start">
                   <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 leading-tight text-gray-900 font-['Magistral']">
-                    {tBlog("biomimeticArm.title")}
+                    {tBlog("blog.biomimeticArm.title")}
                   </h2>
                   <p className="text-base sm:text-lg text-gray-600 mb-8 font-['Magistral']">
-                    {tBlog("biomimeticArm.description")}
+                    {tBlog("blog.biomimeticArm.description")}
                   </p>
                   <div className="space-y-4 mb-8">
                     <div className="flex items-start gap-3">
@@ -224,7 +224,7 @@ const BlogIndex = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{tBlog("biomimeticArm.features.accuracy")}</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{tBlog("blog.biomimeticArm.features.accuracy")}</p>
                     </div>
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
@@ -234,7 +234,7 @@ const BlogIndex = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{tBlog("biomimeticArm.features.movement")}</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{tBlog("blog.biomimeticArm.features.movement")}</p>
                     </div>
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
@@ -244,10 +244,10 @@ const BlogIndex = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{tBlog("biomimeticArm.features.manipulation")}</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{tBlog("blog.biomimeticArm.features.manipulation")}</p>
                     </div>
                   </div>
-                  <p className="text-base sm:text-lg text-gray-700 font-['Magistral'] mt-4">{tBlog("biomimeticArm.technology")}</p>
+                  <p className="text-base sm:text-lg text-gray-700 font-['Magistral'] mt-4">{tBlog("blog.biomimeticArm.technology")}</p>
                 </div>
               </div>
               {/* Right side with image */}
@@ -272,10 +272,10 @@ const BlogIndex = () => {
               <div className="w-full lg:w-1/2">
                 <div className="max-w-full text-left lg:max-w-xl flex flex-col items-start lg:items-start">
                   <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 leading-tight text-gray-900 font-['Magistral']">
-                    {tBlog("droneProject.title")}
+                    {tBlog("blog.droneProject.title")}
                   </h2>
                   <p className="text-base sm:text-lg text-gray-600 mb-8 font-['Magistral']">
-                    {tBlog("droneProject.description")}
+                    {tBlog("blog.droneProject.description")}
                   </p>
                   <div className="space-y-4 mb-8">
                     <div className="flex items-start gap-3">
@@ -286,7 +286,7 @@ const BlogIndex = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{tBlog("droneProject.features.frame")}</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{tBlog("blog.droneProject.features.frame")}</p>
                     </div>
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
@@ -296,7 +296,7 @@ const BlogIndex = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{tBlog("droneProject.features.motorMounts")}</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{tBlog("blog.droneProject.features.motorMounts")}</p>
                     </div>
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
@@ -306,7 +306,7 @@ const BlogIndex = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{tBlog("droneProject.features.modular")}</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{tBlog("blog.droneProject.features.modular")}</p>
                     </div>
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
@@ -316,10 +316,10 @@ const BlogIndex = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{tBlog("droneProject.features.aerodynamics")}</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{tBlog("blog.droneProject.features.aerodynamics")}</p>
                     </div>
                   </div>
-                  <p className="text-base sm:text-lg text-gray-700 font-['Magistral'] mt-4">{tBlog("droneProject.technology")}</p>
+                  <p className="text-base sm:text-lg text-gray-700 font-['Magistral'] mt-4">{tBlog("blog.droneProject.technology")}</p>
                 </div>
               </div>
               {/* Right side with image */}
@@ -344,10 +344,10 @@ const BlogIndex = () => {
               <div className="w-full lg:w-1/2">
                 <div className="max-w-full text-left lg:max-w-xl flex flex-col items-start lg:items-start">
                   <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 leading-tight text-gray-900 font-['Magistral']">
-                    {tBlog("rrrArm.title")}
+                    {tBlog("blog.rrrArm.title")}
                   </h2>
                   <p className="text-base sm:text-lg text-gray-600 mb-8 font-['Magistral']">
-                    {tBlog("rrrArm.description")}
+                    {tBlog("blog.rrrArm.description")}
                   </p>
                   <div className="space-y-4 mb-8">
                     <div className="flex items-start gap-3">
@@ -358,7 +358,7 @@ const BlogIndex = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{tBlog("rrrArm.features.joints")}</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{tBlog("blog.rrrArm.features.joints")}</p>
                     </div>
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
@@ -368,7 +368,7 @@ const BlogIndex = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{tBlog("rrrArm.features.toolHolder")}</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{tBlog("blog.rrrArm.features.toolHolder")}</p>
                     </div>
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
@@ -378,7 +378,7 @@ const BlogIndex = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{tBlog("rrrArm.features.gears")}</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{tBlog("blog.rrrArm.features.gears")}</p>
                     </div>
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
@@ -388,7 +388,7 @@ const BlogIndex = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{tBlog("rrrArm.features.accuracy")}</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{tBlog("blog.rrrArm.features.accuracy")}</p>
                     </div>
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
@@ -398,10 +398,10 @@ const BlogIndex = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{tBlog("rrrArm.features.modular")}</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{tBlog("blog.rrrArm.features.modular")}</p>
                     </div>
                   </div>
-                  <p className="text-base sm:text-lg text-gray-700 font-['Magistral'] mt-4">{tBlog("rrrArm.technology")}</p>
+                  <p className="text-base sm:text-lg text-gray-700 font-['Magistral'] mt-4">{tBlog("blog.rrrArm.technology")}</p>
                 </div>
               </div>
               {/* Right side with image */}
@@ -426,10 +426,10 @@ const BlogIndex = () => {
               <div className="w-full lg:w-1/2">
                 <div className="max-w-full text-left lg:max-w-xl flex flex-col items-start lg:items-start">
                   <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 leading-tight text-gray-900 font-['Magistral']">
-                    {tBlog("surveillanceCar.title")}
+                    {tBlog("blog.surveillanceCar.title")}
                   </h2>
                   <p className="text-base sm:text-lg text-gray-600 mb-8 font-['Magistral']">
-                    {tBlog("surveillanceCar.description")}
+                    {tBlog("blog.surveillanceCar.description")}
                   </p>
                   <div className="space-y-4 mb-8">
                     <div className="flex items-start gap-3">
@@ -440,7 +440,7 @@ const BlogIndex = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{tBlog("surveillanceCar.features.rotation")}</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{tBlog("blog.surveillanceCar.features.rotation")}</p>
                     </div>
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
@@ -450,7 +450,7 @@ const BlogIndex = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{tBlog("surveillanceCar.features.raspberryPi")}</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{tBlog("blog.surveillanceCar.features.raspberryPi")}</p>
                     </div>
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
@@ -460,7 +460,7 @@ const BlogIndex = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{tBlog("surveillanceCar.features.camera")}</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{tBlog("blog.surveillanceCar.features.camera")}</p>
                     </div>
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
@@ -470,7 +470,7 @@ const BlogIndex = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{tBlog("surveillanceCar.features.wireless")}</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{tBlog("blog.surveillanceCar.features.wireless")}</p>
                     </div>
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
@@ -480,10 +480,10 @@ const BlogIndex = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{tBlog("surveillanceCar.features.chassis")}</p>
+                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{tBlog("blog.surveillanceCar.features.chassis")}</p>
                     </div>
                   </div>
-                  <p className="text-base sm:text-lg text-gray-700 font-['Magistral'] mt-4">{tBlog("surveillanceCar.technology")}</p>
+                  <p className="text-base sm:text-lg text-gray-700 font-['Magistral'] mt-4">{tBlog("blog.surveillanceCar.technology")}</p>
                 </div>
               </div>
               {/* Right side with image */}

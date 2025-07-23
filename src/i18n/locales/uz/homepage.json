@@ -1,26 +1,4 @@
 {
-  "hero": {
-    "slide1": {
-      "title": "FabLabga xush kelibsiz",
-      "subtitle": "Innovatsiya va yaratish uchun ijodiy makon",
-      "buttonText": "Makonimizni ko'ring"
-    },
-    "slide2": {
-      "title": "Zamonaviy jihozlar",
-      "subtitle": "Eng ilg'or uskunalar va texnologiyalar",
-      "buttonText": "Jihozlarni ko'rish"
-    },
-    "slide3": {
-      "title": "Ijodiy hamjamiyat",
-      "subtitle": "Yaratuvchilar va innovatorlar hamjamiyatiga qo'shiling",
-      "buttonText": "Bizga qo'shiling"
-    },
-    "slide4": {
-      "title": "Ustaxona maydoni",
-      "subtitle": "G'oyalarni hayotga tatbiq etish uchun mukammal muhit",
-      "buttonText": "Sessiyani band qilish"
-    }
-  },
   "slider": {
     "mainMessage": "Innovatsiya orqali texnologiyalar. G'oyalarni haqiqatga aylantirishda yordam beramiz.",
     "showcaseImage": "Ko'rsatma tasvir {{number}}",

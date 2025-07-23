@@ -276,13 +276,6 @@ const ServiceCategories = () => {
                       style={{ backgroundColor: hoveredIndex === index ? '#329db7' : '#fff' }}
                     >
                       <div>
-                        <span className={`block text-gray-500 mb-2 transition-colors duration-300 font-['Magistral'] ${
-                          i18n.language === 'en' 
-                            ? 'text-sm sm:text-base'
-                            : 'text-xs sm:text-sm'
-                        }`}>
-                          {t(category.logoText) || t(category.titleKey)}
-                        </span>
                         <h3 className={`font-bold mb-2 transition-colors duration-300 font-['Magistral'] ${
                           i18n.language === 'en'
                             ? 'text-lg sm:text-xl lg:text-2xl'

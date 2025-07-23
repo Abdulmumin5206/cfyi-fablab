@@ -1,26 +1,4 @@
 {
-  "hero": {
-    "slide1": {
-      "title": "Welcome to FabLab",
-      "subtitle": "Your creative space for innovation and making",
-      "buttonText": "Explore our services"
-    },
-    "slide2": {
-      "title": "State-of-the-Art Equipment",
-      "subtitle": "Access to cutting-edge tools and technology",
-      "buttonText": "Our Professions"
-    },
-    "slide3": {
-      "title": "Creative Community",
-      "subtitle": "Join a community of makers and innovators",
-      "buttonText": "Contact Us"
-    },
-    "slide4": {
-      "title": "Workshop Space",
-      "subtitle": "Perfect environment for bringing ideas to life",
-      "buttonText": "Book a Session"
-    }
-  },
   "slider": {
     "mainMessage": "Empowering innovation through accessible fabrication technology. We provide the tools, space, and expertise to turn ideas into reality.",
     "showcaseImage": "Showcase image {{number}}",

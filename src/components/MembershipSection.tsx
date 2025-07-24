@@ -1,14 +1,10 @@
-import { motion, useScroll, useTransform, useInView } from "framer-motion";
-import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import { ArrowRight, Check, Star, Users, Target, BookOpen, Phone, Gift, Box } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { useMemo, useCallback, useRef } from "react";
+import { useMemo, useCallback } from "react";
 
 const MembershipSection = () => {
   const { t } = useTranslation();
-  const scrollRef = useRef(null); // Ref for the scrollable container
-
-  // Removed animation refs and inView hooks
 
   // Memoize all data to prevent unnecessary re-renders
   const membershipFeatures = useMemo(() => [
@@ -104,31 +100,7 @@ const MembershipSection = () => {
   const firstRowSetWidth = useMemo(() => (CARD_WIDTH * firstRowBenefits.length) + (GAP_WIDTH * (firstRowBenefits.length - 1)), [firstRowBenefits.length]);
   const secondRowSetWidth = useMemo(() => (CARD_WIDTH * secondRowBenefits.length) + (GAP_WIDTH * (secondRowBenefits.length - 1)), [secondRowBenefits.length]);
 
-  // Framer Motion scroll logic
-  // We'll tie the animation to the scroll of the entire window for simplicity,
-  // or you can tie it to a specific ref if you want the animation to start/stop
-  // as the section comes into view. For continuous, looping effect, tying to window scroll
-  // or a sufficiently large scroll area often works best.
 
-  // We are creating a hypothetical scrollable area that covers the entire animation cycle
-  // The scroll progress will then be mapped to the translateX values.
-  const { scrollYProgress } = useScroll();
-
-  // For the first row (right to left): 0% to -100% of its total set width
-  // We map the scroll progress (0 to 1) to a translation range.
-  // The `[-firstRowSetWidth, 0]` means it starts at -`firstRowSetWidth` and moves to `0`.
-  // To make it loop, we need a larger input range and then reset the position.
-  // However, for an infinite carousel, a simpler approach is to use `animate`
-  // directly on the `motion.div` with an infinite loop.
-  // The `useScroll` and `useTransform` are more for scroll-based animations where the animation
-  // starts/stops or changes direction with scroll.
-  // For a truly continuous loop that is independent of specific scroll progress (unless you want it to pause on scroll),
-  // a plain `animate` prop with `repeat: Infinity` is more suitable and performant.
-
-  // Let's refine the solution for continuous loop that is not tied to window scroll directly
-  // but runs independently once the component is mounted.
-  // We can still use useScroll for detecting when the section is in view,
-  // but the looping animation itself will be managed by `animate` property for true infinite loop.
 
 
   // Memoized plan card component

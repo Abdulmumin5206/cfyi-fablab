@@ -45,7 +45,7 @@ const HeroSection = () => {
           loop
           playsInline
           preload="metadata"
-          poster="/fablab/1.jpg.webp"
+          poster="/fablab/1.jpg"
           onLoadedData={() => {
             setIsVideoLoading(false);
             if (videoRef.current) {

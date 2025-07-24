@@ -3,7 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import { useState, useEffect, lazy, Suspense } from "react";
+import { useState, useEffect } from "react";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import ThreeDPrintingPage from "./pages/3DPrinting";
@@ -19,55 +19,110 @@ import SplashScreenReset from "./components/SplashScreenReset";
 
 const queryClient = new QueryClient();
 
-// Improved resource preloading with prioritization and better error handling
-const preloadResources = async () => {
-  // List of critical images to preload - keep this list minimal
+// Real resource preloading with progress tracking
+const preloadResourcesWithProgress = async (onProgress: (progress: number) => void) => {
   const criticalImages = [
     '/fablab/cfyi.svg',
-    '/main/fablabroom.webp'
+    '/fablab/1.jpg', // Fixed: removed .webp extension
+    '/main/fablabroom.webp',
+    '/main/3dprinting1.webp',
+    '/main/scrolling2.webp',
+    '/main/membership/students.webp',
+    '/main/membership/maker.webp',
+    '/main/membership/professional.webp'
   ];
 
-  // Track successful loads for better UX decisions
-  let successCount = 0;
-  const totalToLoad = criticalImages.length;
+  let loadedCount = 0;
+  const totalResources = criticalImages.length + 1; // +1 for video
 
-  // Preload images with timeout to avoid blocking
-  const imagePromises = criticalImages.map(src => {
+  const updateProgress = () => {
+    const progress = (loadedCount / totalResources) * 100;
+    onProgress(progress);
+  };
+
+  // Preload images with real progress updates
+  const imagePromises = criticalImages.map((src) => {
     return new Promise<boolean>((resolve) => {
       const img = new Image();
       
-      // Set a timeout to resolve anyway after 3 seconds
       const timeoutId = setTimeout(() => {
         console.warn(`Image ${src} loading timed out`);
+        loadedCount++;
+        updateProgress();
         resolve(false);
-      }, 3000);
+      }, 5000);
       
       img.onload = () => {
         clearTimeout(timeoutId);
-        successCount++;
+        loadedCount++;
+        updateProgress();
+        console.log(`✅ Loaded: ${src}`);
         resolve(true);
       };
       
       img.onerror = () => {
         clearTimeout(timeoutId);
-        console.error(`Failed to load image: ${src}`);
+        console.error(`❌ Failed: ${src}`);
+        loadedCount++;
+        updateProgress();
         resolve(false);
       };
       
-      // Set importance to high for critical resources
-      img.setAttribute('importance', 'high');
       img.src = src;
     });
   });
 
+  // Preload video metadata
+  const videoPromise = new Promise<boolean>((resolve) => {
+    const video = document.createElement('video');
+    video.preload = 'metadata';
+    video.muted = true;
+    
+    const timeoutId = setTimeout(() => {
+      console.warn('Video metadata loading timed out');
+      loadedCount++;
+      updateProgress();
+      resolve(false);
+    }, 3000);
+    
+    video.onloadedmetadata = () => {
+      clearTimeout(timeoutId);
+      loadedCount++;
+      updateProgress();
+      console.log('✅ Video metadata loaded');
+      resolve(true);
+    };
+    
+    video.onerror = () => {
+      clearTimeout(timeoutId);
+      console.error('❌ Video metadata failed');
+      loadedCount++;
+      updateProgress();
+      resolve(false);
+    };
+    
+    video.src = '/video/FabLab video horizontal.mp4';
+  });
+
   try {
-    // Wait for all images to load or timeout
-    await Promise.all(imagePromises);
-    return { success: true, loadedCount: successCount, totalCount: totalToLoad };
+    // Wait for all critical resources
+    const results = await Promise.all([...imagePromises, videoPromise]);
+    const successCount = results.filter(Boolean).length;
+    
+    return { 
+      success: true, 
+      loadedCount: successCount, 
+      totalCount: totalResources,
+      criticalResourcesReady: successCount >= Math.ceil(totalResources * 0.7)
+    };
   } catch (error) {
-    console.error('Error preloading resources:', error);
-    // Continue anyway but return stats
-    return { success: false, loadedCount: successCount, totalCount: totalToLoad };
+    console.error('Error during resource preloading:', error);
+    return { 
+      success: false, 
+      loadedCount: 0, 
+      totalCount: totalResources,
+      criticalResourcesReady: false
+    };
   }
 };
 
@@ -76,7 +131,6 @@ const RouteHandler = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
   
   useEffect(() => {
-    // Check if we're on the home page
     if (location.pathname === "/") {
       document.body.classList.add("home-page");
     } else {
@@ -94,23 +148,21 @@ const RouteHandler = ({ children }: { children: React.ReactNode }) => {
 const App = () => {
   const [showSplash, setShowSplash] = useState(true);
   const [appReady, setAppReady] = useState(false);
+  const [resourcesReady, setResourcesReady] = useState(false);
+  const [loadingProgress, setLoadingProgress] = useState(0);
 
   useEffect(() => {
-    // Only show splash screen on first visit or if explicitly required
     const hasVisited = localStorage.getItem('hasVisitedBefore');
     const forceShowSplash = localStorage.getItem('forceShowSplash') === 'true';
     
     if (hasVisited && !forceShowSplash) {
-      // If not first visit, don't show splash screen
+      // Skip splash for returning visitors
       setShowSplash(false);
       setAppReady(true);
-      
-      // Still preload resources in background
-      preloadResources().then(() => {
-        console.log('Resources preloaded in background');
-      });
+      setResourcesReady(true);
+      setLoadingProgress(100);
     } else {
-      // For first visit, show splash and preload
+      // Show splash and load resources for first-time visitors
       if (!hasVisited) {
         localStorage.setItem('hasVisitedBefore', 'true');
       }
@@ -119,15 +171,40 @@ const App = () => {
       }
       
       setShowSplash(true);
-      
-      // Start preloading resources in the background
-      preloadResources().then((result) => {
-        console.log(`Resource preloading completed: ${result.loadedCount}/${result.totalCount} loaded`);
-        // Mark the app as ready once resources are loaded
-        setAppReady(true);
-      });
+      startResourceLoading();
     }
   }, []);
+
+  const startResourceLoading = async () => {
+    try {
+      console.log('🚀 Starting resource preloading...');
+      
+      const result = await preloadResourcesWithProgress((progress) => {
+        console.log(`📊 Loading progress: ${progress.toFixed(1)}%`);
+        setLoadingProgress(progress);
+      });
+      
+      console.log(`🎉 Preloading completed: ${result.loadedCount}/${result.totalCount} loaded`);
+      
+      // Mark resources as ready
+      setResourcesReady(true);
+      setLoadingProgress(100);
+      
+      // Mark app as ready
+      if (result.criticalResourcesReady) {
+        setAppReady(true);
+      } else {
+        console.warn('⚠️ Some critical resources failed, proceeding anyway');
+        setAppReady(true);
+      }
+    } catch (error) {
+      console.error('💥 Resource loading error:', error);
+      // Proceed anyway
+      setResourcesReady(true);
+      setAppReady(true);
+      setLoadingProgress(100);
+    }
+  };
 
   const handleSplashFinished = () => {
     setShowSplash(false);
@@ -138,7 +215,13 @@ const App = () => {
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        {showSplash && <SplashScreen onFinished={handleSplashFinished} />}
+        {showSplash && (
+          <SplashScreen 
+            onFinished={handleSplashFinished} 
+            loadingProgress={loadingProgress}
+            isResourcesReady={resourcesReady && appReady}
+          />
+        )}
         <div 
           className={`${!appReady ? 'invisible' : ''} ${showSplash ? "opacity-0" : "opacity-100"}`}
           style={{
@@ -158,7 +241,6 @@ const App = () => {
                 <Route path="/courses" element={<CoursesPage />} />
                 <Route path="/blog" element={<BlogIndex />} />
                 <Route path="/blog/:slug" element={<BlogPost />} />
-                {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </RouteHandler>

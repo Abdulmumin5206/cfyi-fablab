@@ -1,71 +1,8 @@
-import React, { useRef, useEffect, useState, useCallback } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 const AboutUsSection = () => {
   const { t } = useTranslation();
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const ticking = useRef(false);
-  const animationFrameId = useRef<number | null>(null);
-  
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      {
-        threshold: 0.1,
-      }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    // Optimized scroll handler using requestAnimationFrame
-    const handleScroll = () => {
-      if (!ticking.current) {
-        // Use requestAnimationFrame for better performance
-        animationFrameId.current = requestAnimationFrame(() => {
-          if (sectionRef.current) {
-            const rect = sectionRef.current.getBoundingClientRect();
-            const sectionTop = rect.top;
-            const windowHeight = window.innerHeight;
-            
-            // Calculate how far through the section we've scrolled (0 to 1)
-            const scrollProgress = 1 - (sectionTop / windowHeight);
-            
-            // Limit the value between 0 and 1
-            const limitedProgress = Math.min(Math.max(scrollProgress, 0), 1);
-            
-            setScrollPosition(limitedProgress);
-          }
-          ticking.current = false;
-        });
-        ticking.current = true;
-      }
-    };
-
-    // Use passive event listener to improve scroll performance
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Initial position
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-      window.removeEventListener('scroll', handleScroll);
-      
-      // Clean up animation frame if component unmounts during animation
-      if (animationFrameId.current !== null) {
-        cancelAnimationFrame(animationFrameId.current);
-      }
-    };
-  }, []);
 
   const cardData = [
     {
@@ -102,35 +39,18 @@ const AboutUsSection = () => {
     }
   ];
 
-  // Memoized calculation to reduce style recalculations
-  const translateY = isVisible ? `${130 - (scrollPosition * 150)}%` : '130%';
-
   return (
     <section 
-      ref={sectionRef}
       className="relative py-6 sm:py-8 md:py-12 lg:py-16 xl:py-20 bg-gray-200 overflow-hidden"
     >
-      {/* Background Logo - optimized render */}
+      {/* Background Logo */}
       <div className="absolute inset-0 hidden lg:flex items-center justify-center">
-        <div 
-          className="w-[100%] h-[100%] relative transition-all duration-1000 ease-out"
-          style={{
-            transform: `translateY(${translateY}) translateZ(0)`,
-            opacity: isVisible ? 0.15 : 0,
-            willChange: 'transform, opacity',
-            backfaceVisibility: 'hidden'
-          }}
-        >
+        <div className="w-[100%] h-[100%] relative opacity-15">
           <img 
             src="/main/FABLAB.webp"
             alt="FabLab Background"
             className="w-full h-full object-contain"
             loading="eager"
-            style={{
-              transform: 'translateZ(0)',
-              willChange: 'transform',
-              backfaceVisibility: 'hidden'
-            }}
           />
         </div>
       </div>
@@ -144,8 +64,7 @@ const AboutUsSection = () => {
           {cardData.map((card, index) => (
             <div 
               key={index}
-              className={`group bg-white/90 backdrop-blur-sm p-3 shadow-md relative flex flex-col justify-between min-h-[250px] transition-all duration-500 ease-in-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-              style={{ transitionDelay: `${index * 100}ms` }}
+              className="group bg-white/90 backdrop-blur-sm p-3 shadow-md relative flex flex-col justify-between min-h-[250px]"
             >
               <div className="absolute top-0 right-0 w-5 h-5 bg-yellow-400"></div>
               
@@ -179,8 +98,7 @@ const AboutUsSection = () => {
           {cardData.map((card, index) => (
             <div 
               key={index}
-              className={`group bg-white/90 backdrop-blur-sm p-3 md:p-4 lg:p-5 shadow-md relative flex flex-col justify-between min-h-[280px] md:min-h-[300px] lg:min-h-[320px] transition-all duration-500 ease-in-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-              style={{ transitionDelay: `${index * 100}ms` }}
+              className="group bg-white/90 backdrop-blur-sm p-3 md:p-4 lg:p-5 shadow-md relative flex flex-col justify-between min-h-[280px] md:min-h-[300px] lg:min-h-[320px]"
             >
               <div className="absolute top-0 right-0 w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 bg-yellow-400"></div>
               

@@ -17,7 +17,7 @@ interface ServiceCategory {
 const ServiceCategories = () => {
   const { t, i18n } = useTranslation();
   const sectionRef = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState<{ [key: string]: number }>({
@@ -96,30 +96,7 @@ const ServiceCategories = () => {
     },
   ];
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      {
-        threshold: 0.2, // Increased from 0.1 to 0.2 to delay animation until more of the section is visible
-        rootMargin: "0px 0px -50px 0px" // Adjusted to trigger animations a bit earlier
-      }
-    );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
 
   const handleScrollLeft = () => {
     if (isTransitioning || currentSlide === 0) return;
@@ -158,36 +135,18 @@ const ServiceCategories = () => {
             <Link
               to={category.buttonLink}
               key={category.id}
-              className={`block w-full transition-all duration-300 ease-in-out cursor-pointer hover:transform hover:scale-[1.02] ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
-              }`}
-              style={{ 
-                transitionDelay: `${Math.min(index * 100, 400)}ms`,
-                willChange: isVisible ? 'transform, opacity' : 'auto'
-              }}
+              className="block w-full transition-all duration-300 ease-in-out cursor-pointer hover:transform hover:scale-[1.02] opacity-100 translate-y-0"
             >
               <div className="relative aspect-[16/12] mb-4 overflow-hidden group bg-white shadow-sm">
-                {category.images.map((image, imgIndex) => (
-                  <div
-                    key={imgIndex}
-                    className={`absolute inset-0 bg-cover bg-center transition-all duration-300 ease-in-out ${
-                      currentImageIndex[category.id] === imgIndex 
-                        ? 'opacity-100 z-10' 
-                        : 'opacity-0 z-0'
-                    }`}
-                    style={{ 
-                      backgroundImage: `url(${image})`,
-                      transform: 'translateZ(0)', 
-                      willChange: 'transform, opacity',
-                      transformOrigin: 'center',
-                      transition: 'transform 300ms ease-in-out, opacity 300ms ease-in-out',
-                    }}
-                    role="img"
-                    aria-label={`${t(category.titleKey)} - Image ${imgIndex + 1}`}
-                  />
-                ))}
+                <div
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{ 
+                    backgroundImage: `url(${category.images[0]})`,
+                    transform: 'translateZ(0)'
+                  }}
+                  role="img"
+                  aria-label={t(category.titleKey)}
+                />
                 
                 {/* Add overlay with hover effect */}
                 <div className="absolute inset-0 bg-black/0 transition-all duration-300 group-hover:bg-black/10"></div>
@@ -248,16 +207,10 @@ const ServiceCategories = () => {
                   <Link
                     to={category.buttonLink}
                     key={category.id}
-                    className={`group transition-all duration-300 flex-shrink-0 cursor-pointer ${
-                      isVisible
-                        ? "opacity-100 translate-y-0"
-                        : "opacity-0 translate-y-10"
-                    }`}
+                    className="group transition-all duration-300 flex-shrink-0 cursor-pointer opacity-100 translate-y-0"
                     style={{ 
-                      transitionDelay: `${Math.min(index * 80, 320)}ms`,
                       flex: '0 0 28%',
                       marginRight: '2%',
-                      willChange: isVisible ? 'transform, opacity' : 'auto',
                       transform: 'translateZ(0)'
                     }}
                     onMouseEnter={() => setHoveredIndex(index)}
@@ -266,26 +219,18 @@ const ServiceCategories = () => {
                     <div className="relative aspect-[16/12] mb-0 overflow-hidden transition-all duration-300 group bg-white shadow-sm">
                       <div className="absolute inset-0 transition-transform duration-300 ease-in-out group-hover:scale-110 z-0"
                            style={{ transformOrigin: 'center', willChange: 'transform' }}>
-                        {category.images.map((image, imgIndex) => (
-                          <div
-                            key={imgIndex}
-                            className={`absolute inset-0 bg-cover bg-center transition-all duration-300 ease-in-out ${
-                              currentImageIndex[category.id] === imgIndex 
-                                ? 'opacity-100 z-10' 
-                                : 'opacity-0 z-0'
-                            }`}
-                            style={{ 
-                              backgroundImage: `url(${image})`,
-                              willChange: 'opacity',
-                              transform: 'translateZ(0)',
-                              transformOrigin: 'center',
-                              height: '100%',
-                              width: '100%'
-                            }}
-                            role="img"
-                            aria-label={`${t(category.titleKey)} - Image ${imgIndex + 1}`}
-                          />
-                        ))}
+                        <div
+                          className="absolute inset-0 bg-cover bg-center"
+                          style={{ 
+                            backgroundImage: `url(${category.images[0]})`,
+                            transform: 'translateZ(0)',
+                            transformOrigin: 'center',
+                            height: '100%',
+                            width: '100%'
+                          }}
+                          role="img"
+                          aria-label={t(category.titleKey)}
+                        />
                       </div>
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 z-10" />
                       {/* Removing the text overlay */}

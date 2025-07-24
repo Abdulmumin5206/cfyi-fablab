@@ -69,13 +69,7 @@ const ContactSection = () => {
     <section id="contact-section" className="py-16 md:py-24 bg-gray-50">
       <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-12 md:mb-16"
-        >
+        <div className="text-center mb-12 md:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             {t('contact.title')}
           </h2>
@@ -83,17 +77,11 @@ const ContactSection = () => {
           <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
             {t('contact.subtitle')}
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
           {/* Contact Info Card */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="lg:col-span-2 bg-white rounded-xl shadow-lg overflow-hidden"
-          >
+          <div className="lg:col-span-2 bg-white rounded-xl shadow-lg overflow-hidden">
             <div className="bg-[#329db7] text-white p-6">
               <h3 className="text-xl font-bold mb-2">{t('contact.title')}</h3>
               <p className="text-white/90">{t('contact.subtitle')}</p>
@@ -170,16 +158,10 @@ const ContactSection = () => {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="lg:col-span-3 bg-white rounded-xl shadow-lg overflow-hidden"
-          >
+          <div className="lg:col-span-3 bg-white rounded-xl shadow-lg overflow-hidden">
             <div className="p-6">
               <h3 className="text-xl font-bold mb-6">{t('contact.sendMessage')}</h3>
               
@@ -274,17 +256,11 @@ const ContactSection = () => {
                 </Button>
               </form>
             </div>
-          </motion.div>
+          </div>
         </div>
         
         {/* Map Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="mt-8 md:mt-12 rounded-xl overflow-hidden shadow-lg"
-        >
+        <div className="mt-8 md:mt-12 rounded-xl overflow-hidden shadow-lg">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2996.6504900120997!2d69.312132!3d41.3205264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38aef5005adfee5b%3A0x40d4ef6aaf3894d6!2sCenter%20For%20Youth%20Initiatives!5e0!3m2!1sen!2suk!4v1719448231018!5m2!1sen!2suk"
             width="100%"
@@ -296,7 +272,7 @@ const ContactSection = () => {
             title="Center for Youth Initiatives Location"
             className="w-full"
           />
-        </motion.div>
+        </div>
       </div>
     </section>
   );

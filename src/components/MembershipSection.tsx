@@ -8,14 +8,7 @@ const MembershipSection = () => {
   const { t } = useTranslation();
   const scrollRef = useRef(null); // Ref for the scrollable container
 
-  const headerRef = useRef(null);
-  const isHeaderInView = useInView(headerRef, { once: true, amount: 0.5 });
-
-  const tiersRef = useRef(null);
-  const isTiersInView = useInView(tiersRef, { once: true, amount: 0.3 });
-
-  const benefitsRef = useRef(null);
-  const isBenefitsInView = useInView(benefitsRef, { once: true, amount: 0.3 });
+  // Removed animation refs and inView hooks
 
   // Memoize all data to prevent unnecessary re-renders
   const membershipFeatures = useMemo(() => [
@@ -141,13 +134,12 @@ const MembershipSection = () => {
   // Memoized plan card component
   const PlanCard = useCallback(({ plan }: { plan: typeof membershipFeatures[0] }) => (
     <motion.div
-      className={`group relative bg-white shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 flex flex-col ${
-        plan.popular ? 'ring-2 ring-[#309eb7] transform scale-105' : ''
-      }`}
+      className={`group relative bg-white shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 flex flex-col ${plan.popular ? 'ring-2 ring-[#309eb7] transform scale-105' : ''
+        }`}
     >
       {/* Image Section */}
       <div className="relative h-36 sm:h-40 lg:h-44 overflow-hidden">
-        <img 
+        <img
           src={plan.image}
           alt={plan.title}
           className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
@@ -217,40 +209,13 @@ const MembershipSection = () => {
     </motion.div>
   ), [t]);
 
-  const sectionVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-  };
-
-  const staggerVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-        staggerChildren: 0.2, // Stagger children animation
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0 },
-  };
+  // Removed animation variants
 
   return (
     <section id="membership-section" className="py-8 sm:py-12 lg:py-16 bg-gray-200 relative overflow-hidden">
       <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1400px]">
         {/* Header */}
-        <motion.div
-          ref={headerRef}
-          initial="hidden"
-          animate={isHeaderInView ? "visible" : "hidden"}
-          variants={sectionVariants}
-          className="max-w-[1400px] mx-auto px-3 sm:px-4 lg:px-6"
-        >
+        <div className="max-w-[1400px] mx-auto px-3 sm:px-4 lg:px-6">
           <div className="text-center mb-6 sm:mb-8 lg:mb-10">
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-black">
               {t('membership.title')}
@@ -259,32 +224,20 @@ const MembershipSection = () => {
               {t('membership.subtitle')}
             </p>
           </div>
-        </motion.div>
+        </div>
 
         {/* Membership Tiers */}
-        <motion.div
-          ref={tiersRef}
-          initial="hidden"
-          animate={isTiersInView ? "visible" : "hidden"}
-          variants={staggerVariants}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 mb-4 sm:mb-6 max-w-[1200px] mx-auto"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 mb-4 sm:mb-6 max-w-[1200px] mx-auto">
           {membershipFeatures.map((plan, index) => (
-            <motion.div key={index} variants={itemVariants}>
+            <div key={index}>
               <PlanCard plan={plan} />
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
 
       {/* Universal Benefits with full width sliding cards */}
-      <motion.div
-        ref={benefitsRef}
-        initial="hidden"
-        animate={isBenefitsInView ? "visible" : "hidden"}
-        variants={sectionVariants}
-        className="w-full"
-      >
+      <div className="w-full">
         {/* First Row - Moving Left */}
         <div className="relative overflow-hidden w-full">
           <motion.div
@@ -301,7 +254,7 @@ const MembershipSection = () => {
             style={{ width: 'fit-content' }}
           >
             {duplicatedFirstRow.map((benefit, index) => (
-              <motion.div key={index} variants={itemVariants}>
+              <div key={index}>
                 <div className="flex flex-col items-center p-4 sm:p-5 lg:p-6 bg-white shadow-md rounded-lg min-w-[260px] max-w-[260px] h-[200px] transition-transform duration-500 hover:scale-105">
                   <div className="mb-3 text-[#309eb7]">
                     {benefit.icon}
@@ -309,14 +262,14 @@ const MembershipSection = () => {
                   <h4 className="text-base sm:text-lg font-semibold text-center mb-1 text-black">{benefit.title}</h4>
                   <p className="text-gray-600 text-center text-xs sm:text-sm flex-grow">{benefit.description}</p>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </motion.div>
         </div>
 
         {/* Second Row - Moving Right */}
         <div className="relative overflow-hidden w-full mt-4">
-          <motion.div 
+          <motion.div
             className="flex space-x-4 will-change-transform"
             animate={{ x: [`-${secondRowSetWidth + GAP_WIDTH}px`, `0px`] }}
             transition={{
@@ -330,7 +283,7 @@ const MembershipSection = () => {
             style={{ width: 'fit-content' }}
           >
             {duplicatedSecondRow.map((benefit, index) => (
-              <motion.div key={index} variants={itemVariants}>
+              <div key={index}>
                 <div className="flex flex-col items-center p-4 sm:p-5 lg:p-6 bg-white shadow-md rounded-lg min-w-[260px] max-w-[260px] h-[200px] transition-transform duration-500 hover:scale-105">
                   <div className="mb-3 text-[#309eb7]">
                     {benefit.icon}
@@ -338,11 +291,11 @@ const MembershipSection = () => {
                   <h4 className="text-base sm:text-lg font-semibold text-center mb-1 text-black">{benefit.title}</h4>
                   <p className="text-gray-600 text-center text-xs sm:text-sm flex-grow">{benefit.description}</p>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </motion.div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 };

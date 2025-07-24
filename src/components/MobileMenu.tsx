@@ -162,19 +162,26 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
       }`}
       style={{ height: 'calc(var(--vh, 1vh) * 100)' }}
     >
-      {/* Background overlay with fade effect */}
+      {/* Background overlay with top-to-bottom animation */}
       <div 
-        className={`absolute inset-0 bg-black transition-opacity duration-700 ease-in-out ${
-          isOpen ? "opacity-100" : "opacity-0"
-        }`}
+        className={`absolute inset-0 bg-black transition-all duration-700 ease-in-out`}
+        style={{
+          height: isOpen ? '100%' : '0',
+          transformOrigin: 'top',
+          transition: 'height 0.7s cubic-bezier(0.16, 1, 0.3, 1)'
+        }}
       />
 
-      {/* Content wrapper with slide effect */}
+      {/* Content wrapper with fade in after background animation */}
       <div 
-        className={`absolute inset-0 transition-all duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] ${
-          isOpen ? "translate-y-0 opacity-100" : "-translate-y-8 opacity-0"
-        }`}
-        style={{ height: isOpen ? '100%' : '0' }}
+        className={`absolute inset-0 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]`}
+        style={{ 
+          height: '100%',
+          opacity: isOpen ? 1 : 0,
+          transform: isOpen ? 'translateY(0)' : 'translateY(-40px)',
+          pointerEvents: isOpen ? 'auto' : 'none',
+          transitionDelay: isOpen ? '0.4s' : '0s'
+        }}
       >
         <div className="h-full w-full flex flex-col md:flex-row">
           {/* Desktop slider (hidden on small screens) */}

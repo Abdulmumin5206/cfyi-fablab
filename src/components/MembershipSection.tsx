@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Check, Star, Users, Target, BookOpen, Phone, Gift, Box } from "lucide-react";
+import { ArrowRight, Check, Star, Users, Target, BookOpen, Phone, Gift, Box, Sparkles } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useMemo, useCallback } from "react";
 

@@ -3,7 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import ThreeDPrintingPage from "./pages/3DPrinting";
@@ -19,31 +19,55 @@ import SplashScreenReset from "./components/SplashScreenReset";
 
 const queryClient = new QueryClient();
 
-// Function to preload critical images
+// Improved resource preloading with prioritization and better error handling
 const preloadResources = async () => {
-  // List of critical images to preload
+  // List of critical images to preload - keep this list minimal
   const criticalImages = [
     '/fablab/cfyi.svg',
-    // Add other important images here
+    '/main/fablabroom.webp'
   ];
 
-  // Preload images
+  // Track successful loads for better UX decisions
+  let successCount = 0;
+  const totalToLoad = criticalImages.length;
+
+  // Preload images with timeout to avoid blocking
   const imagePromises = criticalImages.map(src => {
-    return new Promise((resolve, reject) => {
+    return new Promise<boolean>((resolve) => {
       const img = new Image();
-      img.onload = resolve;
-      img.onerror = reject;
+      
+      // Set a timeout to resolve anyway after 3 seconds
+      const timeoutId = setTimeout(() => {
+        console.warn(`Image ${src} loading timed out`);
+        resolve(false);
+      }, 3000);
+      
+      img.onload = () => {
+        clearTimeout(timeoutId);
+        successCount++;
+        resolve(true);
+      };
+      
+      img.onerror = () => {
+        clearTimeout(timeoutId);
+        console.error(`Failed to load image: ${src}`);
+        resolve(false);
+      };
+      
+      // Set importance to high for critical resources
+      img.setAttribute('importance', 'high');
       img.src = src;
     });
   });
 
   try {
-    // Wait for all images to load
+    // Wait for all images to load or timeout
     await Promise.all(imagePromises);
-    return true;
+    return { success: true, loadedCount: successCount, totalCount: totalToLoad };
   } catch (error) {
     console.error('Error preloading resources:', error);
-    return true; // Continue anyway
+    // Continue anyway but return stats
+    return { success: false, loadedCount: successCount, totalCount: totalToLoad };
   }
 };
 
@@ -72,21 +96,33 @@ const App = () => {
   const [appReady, setAppReady] = useState(false);
 
   useEffect(() => {
-    // Check if this is the first visit
+    // Only show splash screen on first visit or if explicitly required
     const hasVisited = localStorage.getItem('hasVisitedBefore');
+    const forceShowSplash = localStorage.getItem('forceShowSplash') === 'true';
     
-    if (hasVisited) {
+    if (hasVisited && !forceShowSplash) {
       // If not first visit, don't show splash screen
       setShowSplash(false);
       setAppReady(true);
+      
+      // Still preload resources in background
+      preloadResources().then(() => {
+        console.log('Resources preloaded in background');
+      });
     } else {
-      // If first visit, set flag for future visits
-      localStorage.setItem('hasVisitedBefore', 'true');
-      // Show splash screen
+      // For first visit, show splash and preload
+      if (!hasVisited) {
+        localStorage.setItem('hasVisitedBefore', 'true');
+      }
+      if (forceShowSplash) {
+        localStorage.removeItem('forceShowSplash');
+      }
+      
       setShowSplash(true);
       
       // Start preloading resources in the background
-      preloadResources().then(() => {
+      preloadResources().then((result) => {
+        console.log(`Resource preloading completed: ${result.loadedCount}/${result.totalCount} loaded`);
         // Mark the app as ready once resources are loaded
         setAppReady(true);
       });
@@ -103,7 +139,13 @@ const App = () => {
         <Toaster />
         <Sonner />
         {showSplash && <SplashScreen onFinished={handleSplashFinished} />}
-        <div className={`${!appReady ? 'invisible' : ''} ${showSplash ? "opacity-0" : "opacity-100 transition-opacity duration-500"}`}>
+        <div 
+          className={`${!appReady ? 'invisible' : ''} ${showSplash ? "opacity-0" : "opacity-100"}`}
+          style={{
+            transition: 'opacity 400ms ease-out',
+            willChange: showSplash ? 'opacity' : 'auto'
+          }}
+        >
           <BrowserRouter>
             <ScrollToTop />
             <RouteHandler>

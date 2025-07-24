@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
 const AboutUsSection = () => {
@@ -6,7 +6,8 @@ const AboutUsSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
-  
+  const ticking = useRef(false);
+  const animationFrameId = useRef<number | null>(null);
   
 
   useEffect(() => {
@@ -25,23 +26,31 @@ const AboutUsSection = () => {
       observer.observe(sectionRef.current);
     }
 
-    // Handle scroll
+    // Optimized scroll handler using requestAnimationFrame
     const handleScroll = () => {
-      if (sectionRef.current) {
-        const rect = sectionRef.current.getBoundingClientRect();
-        const sectionTop = rect.top;
-        const windowHeight = window.innerHeight;
-        
-        // Calculate how far through the section we've scrolled (0 to 1)
-        const scrollProgress = 1 - (sectionTop / windowHeight);
-        
-        // Limit the value between 0 and 1
-        const limitedProgress = Math.min(Math.max(scrollProgress, 0), 1);
-        
-        setScrollPosition(limitedProgress);
+      if (!ticking.current) {
+        // Use requestAnimationFrame for better performance
+        animationFrameId.current = requestAnimationFrame(() => {
+          if (sectionRef.current) {
+            const rect = sectionRef.current.getBoundingClientRect();
+            const sectionTop = rect.top;
+            const windowHeight = window.innerHeight;
+            
+            // Calculate how far through the section we've scrolled (0 to 1)
+            const scrollProgress = 1 - (sectionTop / windowHeight);
+            
+            // Limit the value between 0 and 1
+            const limitedProgress = Math.min(Math.max(scrollProgress, 0), 1);
+            
+            setScrollPosition(limitedProgress);
+          }
+          ticking.current = false;
+        });
+        ticking.current = true;
       }
     };
 
+    // Use passive event listener to improve scroll performance
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll(); // Initial position
 
@@ -50,6 +59,11 @@ const AboutUsSection = () => {
         observer.unobserve(sectionRef.current);
       }
       window.removeEventListener('scroll', handleScroll);
+      
+      // Clean up animation frame if component unmounts during animation
+      if (animationFrameId.current !== null) {
+        cancelAnimationFrame(animationFrameId.current);
+      }
     };
   }, []);
 
@@ -88,7 +102,7 @@ const AboutUsSection = () => {
     }
   ];
 
-  // Calculate transform based on scroll position
+  // Memoized calculation to reduce style recalculations
   const translateY = isVisible ? `${130 - (scrollPosition * 150)}%` : '130%';
 
   return (
@@ -96,7 +110,7 @@ const AboutUsSection = () => {
       ref={sectionRef}
       className="relative py-6 sm:py-8 md:py-12 lg:py-16 xl:py-20 bg-gray-200 overflow-hidden"
     >
-      {/* Background Logo */}
+      {/* Background Logo - optimized render */}
       <div className="absolute inset-0 hidden lg:flex items-center justify-center">
         <div 
           className="w-[100%] h-[100%] relative transition-all duration-1000 ease-out"
@@ -104,14 +118,14 @@ const AboutUsSection = () => {
             transform: `translateY(${translateY}) translateZ(0)`,
             opacity: isVisible ? 0.15 : 0,
             willChange: 'transform, opacity',
-            backfaceVisibility: 'hidden',
-            perspective: '1000px'
+            backfaceVisibility: 'hidden'
           }}
         >
           <img 
             src="/main/FABLAB.webp"
             alt="FabLab Background"
             className="w-full h-full object-contain"
+            loading="eager"
             style={{
               transform: 'translateZ(0)',
               willChange: 'transform',

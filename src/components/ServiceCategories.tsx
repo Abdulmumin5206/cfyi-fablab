@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from "react";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import ShinyText from "./ShinyText";
 
 interface ServiceCategory {
   id: string;
@@ -37,8 +36,6 @@ const ServiceCategories = () => {
       descriptionKey: "serviceCategories.3dPrinting.description",
       images: [
         "/main/3dprinting1.webp",
-        "/main/3dprinting2.jpg",
-        "/main/3dprinting3.jpg",
       ],
       logoText: "3D Printing",
       buttonTextKey: "serviceCategories.3dPrinting.title",
@@ -51,9 +48,7 @@ const ServiceCategories = () => {
       descriptionKey: "serviceCategories.molding.description",
       images: [
         "/main/spareparts1.jpg",
-        "/main/sparepart2.webp",
-        "/main/molding1.jpg",
-        "/main/molding2.jpg",
+
       ],
       logoText: "Molding & Production",
       buttonTextKey: "serviceCategories.molding.title",
@@ -66,9 +61,7 @@ const ServiceCategories = () => {
       descriptionKey: "serviceCategories.digitalFabrication.description",
       images: [
         "/main/prototyping1.webp",
-        "/fablab/13.jpg",
-        "/fablab/1.jpg",
-        "/fablab/11.jpg"
+
       ],
       logoText: "Digital Fabrication",
       buttonTextKey: "serviceCategories.digitalFabrication.title",
@@ -81,9 +74,7 @@ const ServiceCategories = () => {
       descriptionKey: "serviceCategories.precisionManufacturing.description",
       images: [
         "/main/scrolling2.webp",
-        "/fablab/1.jpg",
-        "/fablab/11.jpg",
-        "/fablab/12.jpg"
+
       ],
       logoText: "Precision Manufacturing",
       buttonTextKey: "serviceCategories.precisionManufacturing.title",
@@ -96,9 +87,7 @@ const ServiceCategories = () => {
       descriptionKey: "serviceCategories.3dScanning.description",
       images: [
         "/main/scanner.webp",
-        "/prototyping/Prototype.webp",
-        "/prototyping/Manufacture.webp",
-        "/prototyping/Design.jpeg"
+
       ],
       logoText: "3D Scanning",
       buttonTextKey: "serviceCategories.3dScanning.title",
@@ -155,11 +144,9 @@ const ServiceCategories = () => {
     >
       <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px] relative z-10">
         <div className="text-left mb-3 sm:mb-4 md:mb-6 lg:mb-8">
-          <ShinyText 
-            text={t('serviceCategories.title')}
-            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 font-['Magistral']" 
-            speed={3}
-          />
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 font-['Magistral']">
+            {t('serviceCategories.title')}
+          </h2>
           <p className="text-gray-700 text-base sm:text-lg mb-3 sm:mb-4 font-['Magistral']">
             {t('serviceCategories.subtitle')}
           </p>

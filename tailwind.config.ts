@@ -97,6 +97,17 @@ export default {
 						opacity: '0'
 					}
 				},
+				float: {
+					"0%, 100%": { transform: "translateY(0)" },
+					"50%": { transform: "translateY(-10px)" }
+				},
+				shine: {
+					"0%": { transform: "translateX(-100%)", opacity: "0" },
+					"20%": { transform: "translateX(-50%)", opacity: "0.3" },
+					"40%": { transform: "translateX(0)", opacity: "0.6" },
+					"60%": { transform: "translateX(50%)", opacity: "0.3" },
+					"80%, 100%": { transform: "translateX(100%)", opacity: "0" }
+				},
 				'fade-in': {
 					"0%": {
 						opacity: "0",
@@ -161,8 +172,12 @@ export default {
 				},
 			},
 			animation: {
-				'accordion-down': 'accordion-down 0.3s ease-out',
-				'accordion-up': 'accordion-up 0.3s ease-out',
+				'accordion-down': 'accordion-down 0.2s ease-out',
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				float: "float 6s ease-in-out infinite",
+				"float-delay": "float 8s ease-in-out 1s infinite",
+				"float-slow": "float 10s ease-in-out 2s infinite",
+				shine: "shine 3s ease-in-out 1s infinite",
 				'fade-in': 'fade-in 0.3s ease-out',
 				'fade-out': 'fade-out 0.3s ease-out',
 				'scale-in': 'scale-in 0.3s ease-out',

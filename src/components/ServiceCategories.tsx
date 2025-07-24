@@ -105,8 +105,8 @@ const ServiceCategories = () => {
         }
       },
       {
-        threshold: 0.1,
-        rootMargin: "0px 0px -100px 0px"
+        threshold: 0.2, // Increased from 0.1 to 0.2 to delay animation until more of the section is visible
+        rootMargin: "0px 0px -50px 0px" // Adjusted to trigger animations a bit earlier
       }
     );
 
@@ -125,14 +125,14 @@ const ServiceCategories = () => {
     if (isTransitioning || currentSlide === 0) return;
     setIsTransitioning(true);
     setCurrentSlide((prev) => prev - 1);
-    setTimeout(() => setIsTransitioning(false), 500);
+    setTimeout(() => setIsTransitioning(false), 300); // Back to 300ms
   };
 
   const handleScrollRight = () => {
     if (isTransitioning || currentSlide >= categories.length - 3) return;
     setIsTransitioning(true);
     setCurrentSlide((prev) => prev + 1);
-    setTimeout(() => setIsTransitioning(false), 500);
+    setTimeout(() => setIsTransitioning(false), 300); // Back to 300ms
   };
 
   return (
@@ -158,27 +158,43 @@ const ServiceCategories = () => {
             <Link
               to={category.buttonLink}
               key={category.id}
-              className={`block w-full transition-all duration-500 ease-in-out cursor-pointer hover:transform hover:scale-[1.02] ${
+              className={`block w-full transition-all duration-300 ease-in-out cursor-pointer hover:transform hover:scale-[1.02] ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-10"
               }`}
-              style={{ transitionDelay: `${index * 150}ms` }}
+              style={{ 
+                transitionDelay: `${Math.min(index * 100, 400)}ms`,
+                willChange: isVisible ? 'transform, opacity' : 'auto'
+              }}
             >
               <div className="relative aspect-[16/12] mb-4 overflow-hidden group bg-white shadow-sm">
                 {category.images.map((image, imgIndex) => (
                   <div
                     key={imgIndex}
-                    className={`absolute inset-0 bg-cover bg-center transition-all duration-500 ease-in-out ${
+                    className={`absolute inset-0 bg-cover bg-center transition-all duration-300 ease-in-out ${
                       currentImageIndex[category.id] === imgIndex 
-                        ? 'opacity-100 group-hover:scale-110 z-10' 
+                        ? 'opacity-100 z-10' 
                         : 'opacity-0 z-0'
                     }`}
-                    style={{ backgroundImage: `url(${image})` }}
+                    style={{ 
+                      backgroundImage: `url(${image})`,
+                      transform: 'translateZ(0)', 
+                      willChange: 'transform, opacity',
+                      transformOrigin: 'center',
+                      transition: 'transform 300ms ease-in-out, opacity 300ms ease-in-out',
+                    }}
                     role="img"
                     aria-label={`${t(category.titleKey)} - Image ${imgIndex + 1}`}
                   />
                 ))}
+                
+                {/* Add overlay with hover effect */}
+                <div className="absolute inset-0 bg-black/0 transition-all duration-300 group-hover:bg-black/10"></div>
+                
+                {/* Add scaling wrapper for consistent scale effect */}
+                <div className="absolute inset-0 transition-transform duration-300 group-hover:scale-110 overflow-hidden" 
+                     style={{ transformOrigin: 'center', willChange: 'transform' }}></div>
                 
                 <div className={`absolute bottom-0 left-0 right-0 ${category.color} py-3 px-4`}>
                   <p className="text-white font-medium text-base font-['Magistral']">
@@ -217,53 +233,70 @@ const ServiceCategories = () => {
             
             <div className="w-full overflow-hidden">
               <div 
-                className="flex transition-transform duration-500 ease-out"
+                className="flex transition-transform duration-300 ease-out"
                 style={{ 
-                  transform: `translateX(calc(-${100/3}% * ${currentSlide}))`
+                  transform: `translateX(calc(-${100/3}% * ${currentSlide}))`,
+                  willChange: 'transform',
+                  backfaceVisibility: 'hidden',
+                  WebkitBackfaceVisibility: 'hidden',
+                  perspective: '1000px',
+                  WebkitPerspective: '1000px',
+                  transformStyle: 'preserve-3d'
                 }}
               >
                 {categories.map((category, index) => (
                   <Link
                     to={category.buttonLink}
                     key={category.id}
-                    className={`group transition-all duration-700 flex-shrink-0 cursor-pointer ${
+                    className={`group transition-all duration-300 flex-shrink-0 cursor-pointer ${
                       isVisible
                         ? "opacity-100 translate-y-0"
                         : "opacity-0 translate-y-10"
                     }`}
                     style={{ 
-                      transitionDelay: `${index * 150}ms`,
+                      transitionDelay: `${Math.min(index * 80, 320)}ms`,
                       flex: '0 0 28%',
-                      marginRight: '2%'
+                      marginRight: '2%',
+                      willChange: isVisible ? 'transform, opacity' : 'auto',
+                      transform: 'translateZ(0)'
                     }}
                     onMouseEnter={() => setHoveredIndex(index)}
                     onMouseLeave={() => setHoveredIndex(null)}
                   >
-                    <div className="relative aspect-[16/12] mb-0 overflow-hidden transition-all duration-500 group bg-white shadow-sm">
-                      {category.images.map((image, imgIndex) => (
-                        <div
-                          key={imgIndex}
-                          className={`absolute inset-0 bg-cover bg-center transition-all duration-500 ease-in-out ${
-                            currentImageIndex[category.id] === imgIndex 
-                              ? 'opacity-100 group-hover:scale-110 z-10' 
-                              : 'opacity-0 z-0'
-                          }`}
-                          style={{ backgroundImage: `url(${image})` }}
-                          role="img"
-                          aria-label={`${t(category.titleKey)} - Image ${imgIndex + 1}`}
-                        />
-                      ))}
-                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300" />
-                      <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-300">
-                        <span className="text-white text-xl sm:text-2xl lg:text-3xl font-bold drop-shadow-lg text-center px-4 select-none font-['Magistral']">
-                          {t(category.titleKey)}
-                        </span>
+                    <div className="relative aspect-[16/12] mb-0 overflow-hidden transition-all duration-300 group bg-white shadow-sm">
+                      <div className="absolute inset-0 transition-transform duration-300 ease-in-out group-hover:scale-110 z-0"
+                           style={{ transformOrigin: 'center', willChange: 'transform' }}>
+                        {category.images.map((image, imgIndex) => (
+                          <div
+                            key={imgIndex}
+                            className={`absolute inset-0 bg-cover bg-center transition-all duration-300 ease-in-out ${
+                              currentImageIndex[category.id] === imgIndex 
+                                ? 'opacity-100 z-10' 
+                                : 'opacity-0 z-0'
+                            }`}
+                            style={{ 
+                              backgroundImage: `url(${image})`,
+                              willChange: 'opacity',
+                              transform: 'translateZ(0)',
+                              transformOrigin: 'center',
+                              height: '100%',
+                              width: '100%'
+                            }}
+                            role="img"
+                            aria-label={`${t(category.titleKey)} - Image ${imgIndex + 1}`}
+                          />
+                        ))}
                       </div>
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 z-10" />
+                      {/* Removing the text overlay */}
                     </div>
                     
                     <div
                       className="bg-white transition-all duration-300 p-4 sm:p-6 lg:p-8 pt-4 sm:pt-5 lg:pt-6 pb-16 h-[240px] sm:h-[260px] lg:h-[280px] flex flex-col items-start justify-between relative overflow-hidden shadow-sm"
-                      style={{ backgroundColor: hoveredIndex === index ? '#329db7' : '#fff' }}
+                      style={{ 
+                        backgroundColor: hoveredIndex === index ? '#329db7' : '#fff',
+                        willChange: 'background-color'
+                      }}
                     >
                       <div>
                         <h3 className={`font-bold mb-2 transition-colors duration-300 font-['Magistral'] ${
@@ -285,7 +318,9 @@ const ServiceCategories = () => {
                         i18n.language === 'en'
                           ? 'text-base lg:text-lg'
                           : 'text-sm lg:text-base'
-                      }`}>
+                      }`}
+                      style={{ willChange: 'transform' }}
+                      >
                         <span>{t('common.learnMore')}</span>
                         <ArrowRight size={i18n.language === 'en' ? 18 : 16} className="ml-2" />
                       </div>

@@ -15,8 +15,37 @@ import BlogIndex from "./pages/blog/Index";
 import BlogPost from "./pages/blog/BlogPost";
 import SplashScreen from "./components/SplashScreen";
 import ScrollToTop from "./components/ScrollToTop";
+import SplashScreenReset from "./components/SplashScreenReset";
 
 const queryClient = new QueryClient();
+
+// Function to preload critical images
+const preloadResources = async () => {
+  // List of critical images to preload
+  const criticalImages = [
+    '/fablab/cfyi.svg',
+    // Add other important images here
+  ];
+
+  // Preload images
+  const imagePromises = criticalImages.map(src => {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      img.onload = resolve;
+      img.onerror = reject;
+      img.src = src;
+    });
+  });
+
+  try {
+    // Wait for all images to load
+    await Promise.all(imagePromises);
+    return true;
+  } catch (error) {
+    console.error('Error preloading resources:', error);
+    return true; // Continue anyway
+  }
+};
 
 // Component to handle body class based on route
 const RouteHandler = ({ children }: { children: React.ReactNode }) => {
@@ -39,7 +68,30 @@ const RouteHandler = ({ children }: { children: React.ReactNode }) => {
 };
 
 const App = () => {
-  const [showSplash, setShowSplash] = useState(false);
+  const [showSplash, setShowSplash] = useState(true);
+  const [appReady, setAppReady] = useState(false);
+
+  useEffect(() => {
+    // Check if this is the first visit
+    const hasVisited = localStorage.getItem('hasVisitedBefore');
+    
+    if (hasVisited) {
+      // If not first visit, don't show splash screen
+      setShowSplash(false);
+      setAppReady(true);
+    } else {
+      // If first visit, set flag for future visits
+      localStorage.setItem('hasVisitedBefore', 'true');
+      // Show splash screen
+      setShowSplash(true);
+      
+      // Start preloading resources in the background
+      preloadResources().then(() => {
+        // Mark the app as ready once resources are loaded
+        setAppReady(true);
+      });
+    }
+  }, []);
 
   const handleSplashFinished = () => {
     setShowSplash(false);
@@ -51,7 +103,7 @@ const App = () => {
         <Toaster />
         <Sonner />
         {showSplash && <SplashScreen onFinished={handleSplashFinished} />}
-        <div className={showSplash ? "opacity-0" : "opacity-100 transition-opacity duration-500"}>
+        <div className={`${!appReady ? 'invisible' : ''} ${showSplash ? "opacity-0" : "opacity-100 transition-opacity duration-500"}`}>
           <BrowserRouter>
             <ScrollToTop />
             <RouteHandler>
@@ -68,6 +120,7 @@ const App = () => {
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </RouteHandler>
+            <SplashScreenReset />
           </BrowserRouter>
         </div>
       </TooltipProvider>

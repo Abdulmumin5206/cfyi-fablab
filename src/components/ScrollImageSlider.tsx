@@ -33,30 +33,38 @@ const ScrollImageSlider = () => {
     }
   ];
 
-  // Optimized scroll handler with smoother transitions
+  // Optimized scroll handler with ultra-smooth transitions
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"]
   });
 
-  // Even simpler transform mapping
+  // Smoother transform mapping with more granular control
   const activeIndex = useTransform(
     scrollYProgress,
-    [0, 0.33, 0.66],
-    [0, 1, 2]
+    [0, 0.33, 0.66, 1],
+    [0, 1, 2, 2]
   );
 
-  // Pre-compute transforms for images - simplified further
+  // Pre-compute transforms for images with smoother transitions
   const imageOpacities = [
-    useTransform(scrollYProgress, [0, 0.33], [1, 0]),
-    useTransform(scrollYProgress, [0, 0.33, 0.66], [0, 1, 0]),
-    useTransform(scrollYProgress, [0.33, 0.66], [0, 1])
+    useTransform(scrollYProgress, [0, 0.25, 0.33], [1, 0.5, 0]),
+    useTransform(scrollYProgress, [0.25, 0.33, 0.58, 0.66], [0, 1, 1, 0]),
+    useTransform(scrollYProgress, [0.58, 0.66, 1], [0, 1, 1])
   ];
 
-  // Pre-compute transforms for quotes - simplified further
+  // Pre-compute transforms for quotes with ultra-smooth easing
   const quoteTransforms = quotes.map((_, i) => ({
-    yPosition: useTransform(activeIndex, [i - 0.5, i, i + 0.5], [500, 0, -500]),
-    opacity: useTransform(activeIndex, [i - 0.4, i, i + 0.4], [0, 1, 0])
+    yPosition: useTransform(
+      activeIndex,
+      [i - 0.6, i - 0.1, i, i + 0.1, i + 0.6],
+      [600, 100, 0, -100, -600]
+    ),
+    opacity: useTransform(
+      activeIndex,
+      [i - 0.5, i - 0.2, i, i + 0.2, i + 0.5],
+      [0, 0.3, 1, 0.3, 0]
+    )
   }));
 
   // Scroll indicator opacity - simplified
@@ -66,38 +74,38 @@ const ScrollImageSlider = () => {
   useEffect(() => {
     let loadedCount = 0;
     const totalImages = images.length;
-    
+
     // Create an array to track which images have loaded
     const imageLoadStatus = Array(totalImages).fill(false);
-    
+
     const imageLoaders = images.map((src, index) => {
       return new Promise<void>((resolve) => {
         const img = new Image();
         img.onload = () => {
           loadedCount++;
           imageLoadStatus[index] = true;
-          
+
           // Only set as loaded when first image is ready (for critical path)
           if (index === 0 || loadedCount === totalImages) {
             setImagesLoaded(true);
           }
           resolve();
         };
-        
+
         img.onerror = () => {
           // Continue even if image fails to load
           loadedCount++;
           resolve();
         };
-        
+
         // Add sizes attribute for better resource prioritization
         img.sizes = "(max-width: 1200px) 100vw, 1200px";
-        
+
         // Actually start loading the image
         img.src = src;
       });
     });
-    
+
     // Start loading all images in parallel but don't block render
     Promise.all(imageLoaders).catch(err => {
       console.error('Error preloading images:', err);
@@ -109,16 +117,17 @@ const ScrollImageSlider = () => {
   return (
     <section ref={containerRef} className="relative h-[400vh]">
       <div className="sticky top-0 h-screen">
-        {/* Background images with smooth transitions */}
+        {/* Background images with ultra-smooth transitions */}
         {images.map((src, i) => (
           <motion.div
             key={i}
             className="absolute inset-0"
             style={{
               opacity: imageOpacities[i],
-              zIndex: i + 1
+              zIndex: i + 1,
+              willChange: 'opacity',
+              transform: 'translateZ(0)' // Force hardware acceleration
             }}
-            transition={{ duration: 0.3, ease: "linear" }}
           >
             <img
               src={src}
@@ -144,7 +153,7 @@ const ScrollImageSlider = () => {
           </div>
         </div>
 
-        {/* Quotes with smooth animations - Only render when images are loaded to prioritize rendering */}
+        {/* Quotes with ultra-smooth animations - Only render when images are loaded to prioritize rendering */}
         {imagesLoaded && (
           <div className="absolute inset-0">
             {quotes.map((quote, i) => (
@@ -153,16 +162,19 @@ const ScrollImageSlider = () => {
                 className="absolute inset-0 flex justify-center lg:justify-end items-center px-3 sm:px-4 lg:px-32 xl:px-24"
                 style={{
                   opacity: quoteTransforms[i].opacity,
-                  zIndex: 20 + i
+                  zIndex: 20 + i,
+                  willChange: 'opacity',
+                  transform: 'translateZ(0)' // Hardware acceleration
                 }}
-                transition={{ duration: 0.3 }}
               >
                 <motion.div
                   className="bg-white p-8 sm:p-10 lg:p-12 xl:p-14 flex flex-col justify-center text-gray-800 border border-gray-200 shadow-lg w-full max-w-[340px] sm:max-w-[400px] lg:max-w-[480px] xl:max-w-[500px] h-[340px] sm:h-[400px] lg:h-[480px] xl:h-[480px] text-left relative"
                   style={{
-                    y: quoteTransforms[i].yPosition
+                    y: quoteTransforms[i].yPosition,
+                    willChange: 'transform',
+                    transform: 'translateZ(0)', // Hardware acceleration
+                    backfaceVisibility: 'hidden' // Prevent flickering
                   }}
-                  transition={{ duration: 0.3, ease: "linear" }}
                 >
                   <div className="absolute top-0 right-0 w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 bg-yellow-400 z-10"></div>
                   <h3 className="text-base sm:text-lg lg:text-xl xl:text-2xl font-bold mb-2 sm:mb-3 lg:mb-4">

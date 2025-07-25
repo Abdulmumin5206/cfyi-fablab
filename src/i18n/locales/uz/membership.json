@@ -1,0 +1,103 @@
+{
+  "membership": {
+    "title": "A'zolik Rejalari",
+    "subtitle": "Ijodiy sayohatingiz uchun mukammal rejani tanlang",
+    "types": {
+      "student": {
+        "title": "Talaba",
+        "subtitle": "O'rganish uchun Mukammal",
+        "description": "Talabalar, yaqinda bitiruvchilar va o'rganishga ishtiyoqli kishilar uchun mukammal",
+        "buttonText": "Talabani Tanlash",
+        "features": {
+          "0": "Oyiga 20 soat mashina kirish huquqi (2,5 soat/sessiya, 8 kungacha)",
+          "1": "Eng kam yuklangan soatlarda kirish (9:00–14:00)",
+          "2": "Asosiy 2 soatlik o'qitish dasturi",
+          "3": "Prusa MK3+ 3D printeriga kirish (bitta blok)",
+          "4": "UV printer va stiker mashinasiga kirish",
+          "5": "CNC ish stoli mashinasidan foydalanish",
+          "6": "Materiallarga 30% chegirma",
+          "7": "Asosiy materiallar kiritilgan",
+          "8": "Talaba loyihalarini saqlash",
+          "9": "Kompyuterga kirish kiritilgan"
+        },
+        "restrictions": {
+          "0": "Yosh: 16–25 yosh",
+          "1": "Haqiqiy talaba guvohnomasi talab qilinadi",
+          "2": "Bir vaqtda maksimal 2 ta loyiha"
+        }
+      },
+      "maker": {
+        "title": "Yaratuvchi",
+        "subtitle": "Eng Mashhur",
+        "description": "Sevimli mashg'ulotchilar, frilanserlar va ijodiy tadbirkorlar uchun eng yaxshi tanlov",
+        "buttonText": "Yaratuvchini Tanlash",
+        "badge": "ENG MASHHUR",
+        "features": {
+          "0": "Oyiga 30 soat mashina kirish huquqi (2,5 soat/sessiya, 12 kungacha)",
+          "1": "Moslashuvchan kirish",
+          "2": "Asosiy 3,5 soatlik o'qitish dasturi",
+          "3": "MMU bilan Prusa MK3S+ 3D printeriga kirish",
+          "4": "SLA Prusa 3D printeriga kirish",
+          "5": "UV printer va stiker mashinasiga kirish",
+          "6": "CNC ish stoli mashinasidan foydalanish",
+          "7": "Lazer kesish imkoniyati",
+          "8": "Qo'shimcha materiallarga 15% chegirma",
+          "9": "Bepul asosiy materiallar (oylik norma)",
+          "10": "Loyiha saqlash (2 m³)",
+          "11": "Kompyuterga kirish kiritilgan"
+        }
+      },
+      "startup": {
+        "title": "Startap",
+        "subtitle": "O'sish Paketi",
+        "description": "Dastlabki bosqichdagi startaplar va o'sib borayotgan bizneslar uchun mo'ljallangan",
+        "buttonText": "Startapni Tanlash",
+        "features": {
+          "0": "Mashina va ustaxonaga cheksiz kirish",
+          "1": "Ish vaqtidan keyingi shaxsiy kirish va dam olish zonasi",
+          "2": "Haftalik maslahat sessiyasi (haftasiga 2 soat)",
+          "3": "Maxsus texnik rahbar yordami",
+          "4": "Qo'shimcha materiallarga 30% chegirma",
+          "5": "Bepul premium materiallar (eng yuqori daraja)",
+          "6": "Ustuvor saqlash (10 m³)",
+          "7": "Kompyuterga kirish kiritilgan"
+        },
+        "businessBenefits": {
+          "0": "Jamoa ish maydoni",
+          "1": "Biznes mentorlik",
+          "2": "Startap hamjamiyatiga kirish"
+        }
+      }
+    },
+    "universalBenefits": {
+      "expertTraining": {
+        "title": "Mutaxassis O'qitish",
+        "description": "Tajribali yaratuvchilardan professional rahbarlik"
+      },
+      "communityAccess": {
+        "title": "Hamjamiyatga Kirish",
+        "description": "Yaratuvchilar va innovatorlarning jonli hamjamiyatiga qo'shiling"
+      },
+      "learningResources": {
+        "title": "O'quv Resurslari",
+        "description": "Keng qamrovli o'quv materiallari va qo'llanmalarga kirish"
+      },
+      "professionalSpace": {
+        "title": "Professional Makon",
+        "description": "Barcha loyihalaringiz uchun zamonaviy, yaxshi jihozlangan ish maydoni"
+      },
+      "technicalSupport": {
+        "title": "Texnik Yordam",
+        "description": "Kerak bo'lganda texnik jamoamizdan yordam oling"
+      },
+      "memberDiscounts": {
+        "title": "A'zo Chegirmalari",
+        "description": "Materiallar va qo'shimcha xizmatlarga maxsus narxlar"
+      },
+      "storageSpace": {
+        "title": "Saqlash Joyi",
+        "description": "Loyihalaringiz va materiallaringiz uchun xavfsiz saqlash"
+      }
+    }
+  }
+}

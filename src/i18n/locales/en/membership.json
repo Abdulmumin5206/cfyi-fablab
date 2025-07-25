@@ -1,0 +1,103 @@
+{
+  "membership": {
+    "title": "Membership Plans",
+    "subtitle": "Choose the perfect plan for your creative journey",
+    "types": {
+      "student": {
+        "title": "Student",
+        "subtitle": "Perfect for Learning",
+        "description": "Perfect for students, recent graduates, and learning enthusiasts",
+        "buttonText": "Choose Student",
+        "features": {
+          "0": "20 hours of machine access per month (2.5 hours/session, up to 8 days)",
+          "1": "Access during off-peak hours (9:00–14:00)",
+          "2": "Basic 2-hour training program",
+          "3": "Access to Prusa MK3+ 3D printer (one unit)",
+          "4": "Access to UV printer and sticker machine",
+          "5": "Use of CNC desktop machine",
+          "6": "30% discount on materials",
+          "7": "Basic materials included",
+          "8": "Student project storage",
+          "9": "PC access included"
+        },
+        "restrictions": {
+          "0": "Age: 16–25 years old",
+          "1": "Valid student ID required",
+          "2": "Maximum 2 projects at a time"
+        }
+      },
+      "maker": {
+        "title": "Maker",
+        "subtitle": "Most Popular",
+        "description": "Best choice for hobbyists, freelancers, and creative entrepreneurs",
+        "buttonText": "Choose Maker",
+        "badge": "MOST POPULAR",
+        "features": {
+          "0": "30 hours of machine access per month (2.5 hours/session, up to 12 days)",
+          "1": "Flexible access",
+          "2": "Basic 3.5-hour training program",
+          "3": "Access to Prusa MK3S+ 3D printer with MMU",
+          "4": "Access to SLA Prusa 3D printer",
+          "5": "Access to UV printer and sticker machine",
+          "6": "Use of CNC desktop machine",
+          "7": "Laser cutting access",
+          "8": "15% discount on extra materials",
+          "9": "Free basic materials (monthly allowance)",
+          "10": "Project storage (2 m³)",
+          "11": "PC access included"
+        }
+      },
+      "startup": {
+        "title": "Startup",
+        "subtitle": "Growth Package",
+        "description": "Designed for early-stage startups and growing businesses",
+        "buttonText": "Choose Startup",
+        "features": {
+          "0": "Unlimited machine and workshop access",
+          "1": "Private after-hours access and lounge area",
+          "2": "Weekly consulting session (2 hours/week)",
+          "3": "Dedicated technical lead support",
+          "4": "30% discount on extra materials",
+          "5": "Free premium materials (highest tier allowance)",
+          "6": "Priority storage (10 m³)",
+          "7": "PC access included"
+        },
+        "businessBenefits": {
+          "0": "Team workspace",
+          "1": "Business mentorship",
+          "2": "Access to startup community"
+        }
+      }
+    },
+    "universalBenefits": {
+      "expertTraining": {
+        "title": "Expert Training",
+        "description": "Professional guidance from experienced makers"
+      },
+      "communityAccess": {
+        "title": "Community Access",
+        "description": "Join a vibrant community of creators and innovators"
+      },
+      "learningResources": {
+        "title": "Learning Resources",
+        "description": "Access to comprehensive learning materials and tutorials"
+      },
+      "professionalSpace": {
+        "title": "Professional Space",
+        "description": "Modern, well-equipped workspace for all your projects"
+      },
+      "technicalSupport": {
+        "title": "Technical Support",
+        "description": "Get help when you need it from our technical team"
+      },
+      "memberDiscounts": {
+        "title": "Member Discounts",
+        "description": "Special pricing on materials and additional services"
+      },
+      "storageSpace": {
+        "title": "Storage Space",
+        "description": "Secure storage for your projects and materials"
+      }
+    }
+  }
+}

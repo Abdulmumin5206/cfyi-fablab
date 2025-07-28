@@ -19,16 +19,29 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
   const isLaptopScreen = windowWidth < 1440;
   const isLargeScreen = windowWidth >= 1920; // For 27" monitors and above
 
+  // State to track closing animation phases
+  const [isClosing, setIsClosing] = useState(false);
+
+  // Custom close handler with staggered animations
+  const handleClose = () => {
+    setIsClosing(true);
+    // After all closing animations complete, call the parent onClose
+    setTimeout(() => {
+      onClose();
+      setIsClosing(false);
+    }, 1200); // Total closing animation duration
+  };
+
   // Function to scroll to membership section and close menu
   const scrollToMembership = () => {
-    onClose(); // Close the mobile menu first
+    handleClose(); // Use custom close handler
     navigate('/');
     setTimeout(() => {
       const membershipSection = document.getElementById('membership-section');
       if (membershipSection) {
         membershipSection.scrollIntoView({ behavior: 'smooth' });
       }
-    }, 100);
+    }, 1300); // Adjusted for new closing duration
   };
 
   // Lock body scroll when menu is open
@@ -133,8 +146,9 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
       <div
         className="absolute inset-0 bg-black transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
         style={{
-          height: isOpen ? '100%' : '0%',
-          transformOrigin: isOpen ? 'top' : 'bottom',
+          height: isOpen && !isClosing ? '100%' : '0%',
+          transformOrigin: isOpen && !isClosing ? 'top' : 'bottom',
+          transitionDelay: isClosing ? '1000ms' : '0ms', // Delay background closing until last
         }}
       >
         {/* Content wrapper with fade in after background animation */}
@@ -152,10 +166,10 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
               {/* Top section - 60% height - Existing slider content */}
               <div className="h-[60%] relative overflow-hidden">
                 <div
-                  className={`absolute inset-0 transition-all duration-1000 ease-out ${isOpen ? "scale-100 opacity-100" : "scale-0 opacity-0"
+                  className={`absolute inset-0 transition-all duration-1000 ease-out ${isOpen && !isClosing ? "scale-100 opacity-100" : "scale-0 opacity-0"
                     }`}
                   style={{
-                    transitionDelay: isOpen ? '0.5s' : '0s',
+                    transitionDelay: isOpen && !isClosing ? '0.5s' : isClosing ? '600ms' : '0s',
                     transformOrigin: 'center center'
                   }}
                 >
@@ -191,7 +205,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                         </p>
                         <Link
                           to="/blog/3d-printing-innovations"
-                          onClick={onClose}
+                          onClick={handleClose}
                           className={`inline-flex items-center ${isLargeScreen ? 'text-lg' : 'text-base'} text-white hover:text-[#E6DB00] transition-all duration-700 delay-600`}
                         >
                           {t('mobileMenu.readArticle')} <ArrowRight className={`ml-2 ${isLargeScreen ? 'h-5 w-5' : 'h-4 w-4'}`} />
@@ -229,7 +243,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                         </p>
                         <Link
                           to={services[activeSlide - 1].path}
-                          onClick={onClose}
+                          onClick={handleClose}
                           className={`inline-flex items-center ${isLargeScreen ? 'text-lg' : 'text-base'} text-white hover:text-[#E6DB00] transition-all duration-700 delay-600`}
                         >
                           {t('mobileMenu.explore')} {services[activeSlide - 1].title} <ArrowRight className={`ml-2 ${isLargeScreen ? 'h-5 w-5' : 'h-4 w-4'}`} />
@@ -253,37 +267,40 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                 </div>
               </div>
 
-              {/* Bottom section - 40% height - Logo and Address */}
+              {/* Bottom section - 40% height - Split Container */}
               <div className="h-[40%] relative overflow-hidden">
-                <div
-                  className={`absolute inset-0 transition-all duration-1000 ease-out ${isOpen ? "scale-100 opacity-100" : "scale-0 opacity-0"
-                    }`}
-                  style={{
-                    transitionDelay: isOpen ? '0.7s' : '0s',
-                    transformOrigin: 'center center'
-                  }}
-                >
-                  <div className="w-full h-full flex items-center justify-between p-8">
-                    {/* Address - Left Side */}
-                    <div className="text-left text-white">
-                      <p className="text-xl font-light mb-3">Center for Youth Initiatives</p>
-                      <p className="text-lg text-white/80 mb-2">Tashkent, Uzbekistan</p>
-                      <p className="text-lg text-white/80 mb-2">Yunusobod district</p>
-                      <p className="text-lg text-white/80">Abdulla Qodiriy Street 51A</p>
+                {/* Split container - 50% left and 50% right with separate animations */}
+                <div className="w-full h-full flex">
+                  {/* Left side - 50% - Address with black background */}
+                  <div className="w-1/2 h-full relative overflow-hidden">
+                    <div
+                      className={`absolute inset-0 bg-black flex items-center justify-center p-6 transition-all duration-1000 ease-out ${isOpen && !isClosing ? "scale-100 opacity-100" : "scale-0 opacity-0"
+                        }`}
+                      style={{
+                        transitionDelay: isOpen && !isClosing ? '0.7s' : isClosing ? '500ms' : '0s',
+                        transformOrigin: 'center center'
+                      }}
+                    >
+                      <div className="text-center text-white">
+                        <p className="text-xl font-light mb-3 text-[#E6DB00]">Center for Youth Initiatives</p>
+                        <p className="text-base text-white/90 mb-1">Tashkent, Uzbekistan</p>
+                        <p className="text-base text-white/90 mb-1">Yunusobod district</p>
+                        <p className="text-base text-white/90">Abdulla Qodiriy Street 51A</p>
+                      </div>
                     </div>
-
-                    {/* CFYI Logo - Right Side */}
-                    <div className="flex-shrink-0">
-                      <img
-                        src="/images/cfyi-logo.png"
-                        alt="Center for Youth Initiatives"
-                        className="h-24 w-auto object-contain"
-                        onError={(e) => {
-                          const imgElement = e.currentTarget;
-                          imgElement.onerror = null;
-                          imgElement.src = "/fablab/cfyi.svg"; // Fallback logo
-                        }}
-                      />
+                  </div>
+                  
+                  {/* Right side - 50% - Blue container */}
+                  <div className="w-1/2 h-full relative overflow-hidden">
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-br from-[#1a1a2e] to-[#16213e] transition-all duration-1000 ease-out ${isOpen && !isClosing ? "scale-100 opacity-100" : "scale-0 opacity-0"
+                        }`}
+                      style={{
+                        transitionDelay: isOpen && !isClosing ? '0.9s' : isClosing ? '300ms' : '0s',
+                        transformOrigin: 'center center'
+                      }}
+                    >
+                      {/* Empty blue container as requested */}
                     </div>
                   </div>
                 </div>
@@ -302,7 +319,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                 {/* Right side nav with close button - always visible */}
                 <div className={`h-full flex items-center px-3 sm:px-4 ${isLaptopScreen ? 'md:px-6' : 'md:px-8 lg:px-12 xl:px-20'}`}>
                   <button
-                    onClick={onClose}
+                    onClick={handleClose}
                     className={`flex items-center justify-center hover:opacity-75 transition-opacity`}
                     aria-label="Close menu"
                   >
@@ -324,60 +341,60 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                     <div className="space-y-12 md:space-y-11">
                       <Link
                         to="/3d-printing"
-                        onClick={onClose}
+                        onClick={handleClose}
                         className={`block ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#cb2026] transition-all duration-300 ease-out`}
                         style={{
-                          transform: isOpen ? 'translateY(0)' : 'translateY(30px)',
-                          opacity: isOpen ? 1 : 0,
-                          transitionDelay: isOpen ? '0.8s' : '0s'
+                          transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
+                          opacity: isOpen && !isClosing ? 1 : 0,
+                          transitionDelay: isOpen && !isClosing ? '0.8s' : isClosing ? '0ms' : '0s'
                         }}
                       >
                         {t('header.3dPrinting')}
                       </Link>
                       <Link
                         to="/mould"
-                        onClick={onClose}
+                        onClick={handleClose}
                         className={`block ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#0e9a48] transition-all duration-300 ease-out`}
                         style={{
-                          transform: isOpen ? 'translateY(0)' : 'translateY(30px)',
-                          opacity: isOpen ? 1 : 0,
-                          transitionDelay: isOpen ? '0.9s' : '0.1s'
+                          transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
+                          opacity: isOpen && !isClosing ? 1 : 0,
+                          transitionDelay: isOpen && !isClosing ? '0.9s' : isClosing ? '50ms' : '0.1s'
                         }}
                       >
                         {t('serviceCategories.molding.title')}
                       </Link>
                       <Link
                         to="/digital-fabrication"
-                        onClick={onClose}
+                        onClick={handleClose}
                         className={`block ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#35469d] transition-all duration-300 ease-out`}
                         style={{
-                          transform: isOpen ? 'translateY(0)' : 'translateY(30px)',
-                          opacity: isOpen ? 1 : 0,
-                          transitionDelay: isOpen ? '1.0s' : '0.2s'
+                          transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
+                          opacity: isOpen && !isClosing ? 1 : 0,
+                          transitionDelay: isOpen && !isClosing ? '1.0s' : isClosing ? '100ms' : '0.2s'
                         }}
                       >
                         {t('serviceCategories.digitalFabrication.title')}
                       </Link>
                       <Link
                         to="/digital-fabrication#precision-manufacturing"
-                        onClick={onClose}
+                        onClick={handleClose}
                         className={`block ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#8a2be2] transition-all duration-300 ease-out`}
                         style={{
-                          transform: isOpen ? 'translateY(0)' : 'translateY(30px)',
-                          opacity: isOpen ? 1 : 0,
-                          transitionDelay: isOpen ? '1.1s' : '0.3s'
+                          transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
+                          opacity: isOpen && !isClosing ? 1 : 0,
+                          transitionDelay: isOpen && !isClosing ? '1.1s' : isClosing ? '150ms' : '0.3s'
                         }}
                       >
                         {t('serviceCategories.precisionManufacturing.title')}
                       </Link>
                       <Link
                         to="/3d-scanning"
-                        onClick={onClose}
+                        onClick={handleClose}
                         className={`block ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#ff6b6b] transition-all duration-300 ease-out`}
                         style={{
-                          transform: isOpen ? 'translateY(0)' : 'translateY(30px)',
-                          opacity: isOpen ? 1 : 0,
-                          transitionDelay: isOpen ? '1.2s' : '0.4s'
+                          transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
+                          opacity: isOpen && !isClosing ? 1 : 0,
+                          transitionDelay: isOpen && !isClosing ? '1.2s' : isClosing ? '200ms' : '0.4s'
                         }}
                       >
                         {t('serviceCategories.3dScanning.title')}
@@ -388,12 +405,12 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                     <div className="space-y-12 md:space-y-11">
                       <Link
                         to="/blog"
-                        onClick={onClose}
+                        onClick={handleClose}
                         className={`block ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#E6DB00] transition-all duration-300 ease-out`}
                         style={{
-                          transform: isOpen ? 'translateY(0)' : 'translateY(30px)',
-                          opacity: isOpen ? 1 : 0,
-                          transitionDelay: isOpen ? '0.85s' : '0.05s'
+                          transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
+                          opacity: isOpen && !isClosing ? 1 : 0,
+                          transitionDelay: isOpen && !isClosing ? '0.85s' : isClosing ? '25ms' : '0.05s'
                         }}
                       >
                         {t('header.projects')}
@@ -402,36 +419,36 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                         href="https://cfyi.uz/fablab"
                         target="_blank"
                         rel="noopener noreferrer"
-                        onClick={onClose}
+                        onClick={handleClose}
                         className={`block ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#E6DB00] transition-all duration-300 ease-out`}
                         style={{
-                          transform: isOpen ? 'translateY(0)' : 'translateY(30px)',
-                          opacity: isOpen ? 1 : 0,
-                          transitionDelay: isOpen ? '0.95s' : '0.15s'
+                          transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
+                          opacity: isOpen && !isClosing ? 1 : 0,
+                          transitionDelay: isOpen && !isClosing ? '0.95s' : isClosing ? '75ms' : '0.15s'
                         }}
                       >
                         {t('header.aboutFablab')}
                       </a>
                       <Link
                         to="/blog"
-                        onClick={onClose}
+                        onClick={handleClose}
                         className={`block ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#E6DB00] transition-all duration-300 ease-out`}
                         style={{
-                          transform: isOpen ? 'translateY(0)' : 'translateY(30px)',
-                          opacity: isOpen ? 1 : 0,
-                          transitionDelay: isOpen ? '1.05s' : '0.25s'
+                          transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
+                          opacity: isOpen && !isClosing ? 1 : 0,
+                          transitionDelay: isOpen && !isClosing ? '1.05s' : isClosing ? '125ms' : '0.25s'
                         }}
                       >
                         {t('header.blog')}
                       </Link>
                       <Link
                         to="/courses"
-                        onClick={onClose}
+                        onClick={handleClose}
                         className={`block ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#E6DB00] transition-all duration-300 ease-out`}
                         style={{
-                          transform: isOpen ? 'translateY(0)' : 'translateY(30px)',
-                          opacity: isOpen ? 1 : 0,
-                          transitionDelay: isOpen ? '1.15s' : '0.35s'
+                          transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
+                          opacity: isOpen && !isClosing ? 1 : 0,
+                          transitionDelay: isOpen && !isClosing ? '1.15s' : isClosing ? '175ms' : '0.35s'
                         }}
                       >
                         {t('navigation.courses')}
@@ -440,9 +457,9 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                         onClick={scrollToMembership}
                         className={`block w-full text-left ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#E6DB00] transition-all duration-300 ease-out`}
                         style={{
-                          transform: isOpen ? 'translateY(0)' : 'translateY(30px)',
-                          opacity: isOpen ? 1 : 0,
-                          transitionDelay: isOpen ? '1.25s' : '0.45s'
+                          transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
+                          opacity: isOpen && !isClosing ? 1 : 0,
+                          transitionDelay: isOpen && !isClosing ? '1.25s' : isClosing ? '225ms' : '0.45s'
                         }}
                       >
                         {t('navigation.membership')}
@@ -477,7 +494,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                         <p className={`text-white/80 mb-3 transition-all duration-700 delay-500 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'} ${isLaptopScreen ? 'hidden md:block' : ''}`}>Discover the latest advancements in 3D printing technology</p>
                         <Link
                           to="/blog/3d-printing-innovations"
-                          onClick={onClose}
+                          onClick={handleClose}
                           className={`inline-flex items-center text-base text-white hover:text-[#E6DB00] transition-all duration-700 delay-600 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
                         >
                           Read Article <ArrowRight className="ml-3 h-5 w-5" />
@@ -507,7 +524,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                           <h2 className={`text-2xl font-light mb-3 text-white transition-all duration-700 delay-400 ${activeSlide === index + 1 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>{service.title}</h2>
                           <Link
                             to={service.path}
-                            onClick={onClose}
+                            onClick={handleClose}
                             className={`inline-flex items-center text-base text-white hover:text-[#E6DB00] transition-all duration-700 delay-600 ${activeSlide === index + 1 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
                           >
                             {t('mobileMenu.explore')} {service.title} <ArrowRight className="ml-3 h-5 w-5" />

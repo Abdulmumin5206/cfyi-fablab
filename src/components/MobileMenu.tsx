@@ -49,7 +49,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
     if (isOpen) {
       // Lock scrolling but ensure the menu itself can scroll internally
       document.body.style.overflow = 'hidden';
-      
+
       // Force scroll to top when opening menu for better experience
       window.scrollTo(0, 0);
     } else {
@@ -58,7 +58,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
         document.body.style.overflow = '';
       }, 500);
     }
-    
+
     return () => {
       document.body.style.overflow = '';
     };
@@ -78,7 +78,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
         setActiveSlide((prev) => (prev + 1) % totalSlides);
       }, 6000); // Change slide every 6 seconds for better reading experience
     }
-    
+
     return () => {
       if (slideInterval.current) {
         clearInterval(slideInterval.current);
@@ -91,7 +91,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
     };
-    
+
     window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("resize", handleResize);
@@ -105,13 +105,13 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
       const vh = window.innerHeight * 0.01;
       document.documentElement.style.setProperty('--vh', `${vh}px`);
     };
-    
+
     // Set initial value
     setVh();
-    
+
     // Update on resize
     window.addEventListener('resize', setVh);
-    
+
     return () => {
       window.removeEventListener('resize', setVh);
     };
@@ -156,14 +156,12 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
   ];
 
   return (
-    <div 
-      className={`fixed inset-0 w-screen h-screen z-[100] ${
-        isOpen ? "" : "pointer-events-none"
-      }`}
+    <div
+      className={`fixed inset-0 w-screen h-screen z-[100] ${isOpen ? "" : "pointer-events-none"}`}
       style={{ height: 'calc(var(--vh, 1vh) * 100)' }}
     >
       {/* Background overlay with top-to-bottom animation */}
-      <div 
+      <div
         className={`absolute inset-0 bg-black transition-all duration-700 ease-in-out`}
         style={{
           height: isOpen ? '100%' : '0',
@@ -173,9 +171,9 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
       />
 
       {/* Content wrapper with fade in after background animation */}
-      <div 
+      <div
         className={`absolute inset-0 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]`}
-        style={{ 
+        style={{
           height: '100%',
           opacity: isOpen ? 1 : 0,
           transform: isOpen ? 'translateY(0)' : 'translateY(-40px)',
@@ -185,105 +183,147 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
       >
         <div className="h-full w-full flex flex-col md:flex-row">
           {/* Desktop slider (hidden on small screens) */}
-          <div className={`hidden md:block ${isLargeScreen ? 'w-[30%]' : 'w-[40%]'} relative overflow-hidden z-20`}>
-            <div 
-              className={`absolute inset-0 transition-all duration-1000 delay-300 ${
-                isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-              }`}
-            >
-              {/* Blog and Service Slides - Only render the active one */}
-              {activeSlide === 0 ? (
-                <div 
-                  className="absolute inset-0 transition-opacity duration-700 ease-in-out bg-black opacity-100 z-10"
-                >
-                  <img 
-                    src="/menu/blog1.png" 
-                    alt="Blog" 
-                    className="w-full h-full object-cover transition-transform duration-700 ease-out scale-110 origin-center"
-                    style={{ 
-                      transform: 'scale(1)', 
-                      willChange: 'transform, opacity' 
-                    }}
-                    onError={(e) => {
-                      const imgElement = e.currentTarget;
-                      imgElement.onerror = null; // Prevent infinite loops
-                      imgElement.src = "/fablab/3.jpg"; // Fallback image
-                    }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/80" />
-                  <div className={`absolute bottom-0 left-0 right-0 ${isLargeScreen ? 'p-8' : 'p-6'}`}> 
-                    <div className={`text-[#E6DB00] uppercase ${isLargeScreen ? 'text-base' : 'text-sm'} font-medium mb-2 transition-all duration-700 delay-300`}>
-                      {t('mobileMenu.latestPost')}
+          <div className="hidden md:block w-[45%] relative overflow-hidden z-20 flex flex-col">
+            {/* Top section - 60% height - Existing slider content */}
+            <div className="h-[60%] relative overflow-hidden">
+              <div
+                className={`absolute inset-0 transition-all duration-1000 ease-out ${isOpen ? "scale-100 opacity-100" : "scale-0 opacity-0"
+                  }`}
+                style={{
+                  transitionDelay: isOpen ? '0.5s' : '0s',
+                  transformOrigin: 'center center'
+                }}
+              >
+                {/* Blog and Service Slides - Only render the active one */}
+                {activeSlide === 0 ? (
+                  <div
+                    className="absolute inset-0 transition-opacity duration-700 ease-in-out bg-black opacity-100 z-10"
+                  >
+                    <img
+                      src="/menu/blog1.png"
+                      alt="Blog"
+                      className="w-full h-full object-cover transition-transform duration-700 ease-out scale-110 origin-center opacity-100"
+                      style={{
+                        transform: 'scale(1)',
+                        willChange: 'transform, opacity'
+                      }}
+                      onError={(e) => {
+                        const imgElement = e.currentTarget;
+                        imgElement.onerror = null; // Prevent infinite loops
+                        imgElement.src = "/fablab/3.jpg"; // Fallback image
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40" />
+                    <div className={`absolute bottom-0 left-0 right-0 ${isLargeScreen ? 'p-8' : 'p-6'}`}>
+                      <div className={`text-[#E6DB00] uppercase ${isLargeScreen ? 'text-base' : 'text-sm'} font-medium mb-2 transition-all duration-700 delay-300`}>
+                        {t('mobileMenu.latestPost')}
+                      </div>
+                      <h2 className={`${isLargeScreen ? 'text-3xl' : 'text-2xl'} font-light mb-2 text-white transition-all duration-700 delay-400`}>
+                        {t('mobileMenu.latestPostTitle')}
+                      </h2>
+                      <p className={`${isLargeScreen ? 'text-lg' : 'text-base'} text-white/80 mb-3 transition-all duration-700 delay-500 ${isLaptopScreen ? 'hidden md:block' : ''}`}>
+                        {t('mobileMenu.latestPostDescription')}
+                      </p>
+                      <Link
+                        to="/blog/3d-printing-innovations"
+                        onClick={onClose}
+                        className={`inline-flex items-center ${isLargeScreen ? 'text-lg' : 'text-base'} text-white hover:text-[#E6DB00] transition-all duration-700 delay-600`}
+                      >
+                        {t('mobileMenu.readArticle')} <ArrowRight className={`ml-2 ${isLargeScreen ? 'h-5 w-5' : 'h-4 w-4'}`} />
+                      </Link>
                     </div>
-                    <h2 className={`${isLargeScreen ? 'text-3xl' : 'text-2xl'} font-light mb-2 text-white transition-all duration-700 delay-400`}>
-                      {t('mobileMenu.latestPostTitle')}
-                    </h2>
-                    <p className={`${isLargeScreen ? 'text-lg' : 'text-base'} text-white/80 mb-3 transition-all duration-700 delay-500 ${isLaptopScreen ? 'hidden md:block' : ''}`}>
-                      {t('mobileMenu.latestPostDescription')}
-                    </p>
-                    <Link 
-                      to="/blog/3d-printing-innovations" 
-                      onClick={onClose}
-                      className={`inline-flex items-center ${isLargeScreen ? 'text-lg' : 'text-base'} text-white hover:text-[#E6DB00] transition-all duration-700 delay-600`}
-                    >
-                      {t('mobileMenu.readArticle')} <ArrowRight className={`ml-2 ${isLargeScreen ? 'h-5 w-5' : 'h-4 w-4'}`} />
-                    </Link>
                   </div>
-                </div>
-              ) : (
-                <div 
-                  className="absolute inset-0 transition-opacity duration-700 ease-in-out bg-black opacity-100 z-10"
-                >
-                  <img 
-                    src={services[activeSlide - 1].image} 
-                    alt={services[activeSlide - 1].title} 
-                    className="w-full h-full object-cover transition-transform duration-700 ease-out scale-110 origin-center"
-                    style={{ 
-                      transform: 'scale(1)', 
-                      willChange: 'transform, opacity' 
-                    }}
-                    onError={(e) => {
-                      const imgElement = e.currentTarget;
-                      imgElement.onerror = null; // Prevent infinite loops
-                      imgElement.src = "/fablab/3.jpg"; // Fallback image
-                    }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/80" />
-                  <div className={`absolute bottom-0 left-0 right-0 ${isLargeScreen ? 'p-8' : 'p-6'}`}> 
-                    <div className={`text-[#E6DB00] uppercase ${isLargeScreen ? 'text-base' : 'text-sm'} font-medium mb-2 transition-all duration-700 delay-300`}>
-                      {t('mobileMenu.ourServices')}
+                ) : (
+                  <div
+                    className="absolute inset-0 transition-opacity duration-700 ease-in-out bg-black opacity-100 z-10"
+                  >
+                    <img
+                      src={services[activeSlide - 1].image}
+                      alt={services[activeSlide - 1].title}
+                      className="w-full h-full object-cover transition-transform duration-700 ease-out scale-110 origin-center"
+                      style={{
+                        transform: 'scale(1)',
+                        willChange: 'transform, opacity'
+                      }}
+                      onError={(e) => {
+                        const imgElement = e.currentTarget;
+                        imgElement.onerror = null; // Prevent infinite loops
+                        imgElement.src = "/fablab/3.jpg"; // Fallback image
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40" />
+                    <div className={`absolute bottom-0 left-0 right-0 ${isLargeScreen ? 'p-8' : 'p-6'}`}>
+                      <div className={`text-[#E6DB00] uppercase ${isLargeScreen ? 'text-base' : 'text-sm'} font-medium mb-2 transition-all duration-700 delay-300`}>
+                        {t('mobileMenu.ourServices')}
+                      </div>
+                      <h2 className={`${isLargeScreen ? 'text-3xl' : 'text-2xl'} font-light mb-2 text-white transition-all duration-700 delay-400`}>
+                        {services[activeSlide - 1].title}
+                      </h2>
+                      <p className={`${isLargeScreen ? 'text-lg' : 'text-base'} text-white/80 mb-3 transition-all duration-700 delay-500 ${isLaptopScreen ? 'hidden md:block' : ''}`}>
+                        {services[activeSlide - 1].description}
+                      </p>
+                      <Link
+                        to={services[activeSlide - 1].path}
+                        onClick={onClose}
+                        className={`inline-flex items-center ${isLargeScreen ? 'text-lg' : 'text-base'} text-white hover:text-[#E6DB00] transition-all duration-700 delay-600`}
+                      >
+                        {t('mobileMenu.explore')} {services[activeSlide - 1].title} <ArrowRight className={`ml-2 ${isLargeScreen ? 'h-5 w-5' : 'h-4 w-4'}`} />
+                      </Link>
                     </div>
-                    <h2 className={`${isLargeScreen ? 'text-3xl' : 'text-2xl'} font-light mb-2 text-white transition-all duration-700 delay-400`}>
-                      {services[activeSlide - 1].title}
-                    </h2>
-                    <p className={`${isLargeScreen ? 'text-lg' : 'text-base'} text-white/80 mb-3 transition-all duration-700 delay-500 ${isLaptopScreen ? 'hidden md:block' : ''}`}>
-                      {services[activeSlide - 1].description}
-                    </p>
-                    <Link 
-                      to={services[activeSlide - 1].path} 
-                      onClick={onClose}
-                      className={`inline-flex items-center ${isLargeScreen ? 'text-lg' : 'text-base'} text-white hover:text-[#E6DB00] transition-all duration-700 delay-600`}
-                    >
-                      {t('mobileMenu.explore')} {services[activeSlide - 1].title} <ArrowRight className={`ml-2 ${isLargeScreen ? 'h-5 w-5' : 'h-4 w-4'}`} />
-                    </Link>
                   </div>
+                )}
+
+                {/* Slide Indicators */}
+                <div className={`absolute ${isLargeScreen ? 'bottom-6' : 'bottom-4'} left-0 right-0 flex justify-center space-x-2`}>
+                  {[...Array(totalSlides)].map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setActiveSlide(index)}
+                      className={`${isLargeScreen ? 'h-2 w-8' : 'h-1.5 w-6'} rounded-full transition-all duration-300 ${activeSlide === index ? "bg-[#E6DB00]" : "bg-white/50 hover:bg-white/80"
+                        }`}
+                      aria-label={`Slide ${index + 1}`}
+                    />
+                  ))}
                 </div>
-              )}
-              
-              {/* Slide Indicators */}
-              <div className={`absolute ${isLargeScreen ? 'bottom-24' : 'bottom-16'} left-0 right-0 flex justify-center space-x-2`}>
-                {[...Array(totalSlides)].map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setActiveSlide(index)}
-                    className={`${isLargeScreen ? 'h-2 w-8' : 'h-1.5 w-6'} rounded-full transition-all duration-300 ${
-                      activeSlide === index ? "bg-[#E6DB00]" : "bg-white/50 hover:bg-white/80"
-                    }`}
-                    aria-label={`Slide ${index + 1}`}
-                  />
-                ))}
               </div>
             </div>
+
+            {/* Bottom section - 40% height - Logo and Address */}
+            <div className="h-[40%] relative overflow-hidden">
+              <div
+                className={`absolute inset-0 transition-all duration-1000 ease-out ${isOpen ? "scale-100 opacity-100" : "scale-0 opacity-0"
+                  }`}
+                style={{
+                  transitionDelay: isOpen ? '0.7s' : '0s',
+                  transformOrigin: 'center center'
+                }}
+              >
+                <div className="w-full h-full flex items-center justify-between p-8">
+                  {/* Address - Left Side */}
+                  <div className="text-left text-white">
+                    <p className="text-xl font-light mb-3">Center for Youth Initiatives</p>
+                    <p className="text-lg text-white/80 mb-2">Tashkent, Uzbekistan</p>
+                    <p className="text-lg text-white/80 mb-2">Yunusobod district</p>
+                    <p className="text-lg text-white/80">Abdulla Qodiriy Street 51A</p>
+                  </div>
+
+                  {/* CFYI Logo - Right Side */}
+                  <div className="flex-shrink-0">
+                    <img
+                      src="/images/cfyi-logo.png"
+                      alt="Center for Youth Initiatives"
+                      className="h-24 w-auto object-contain"
+                      onError={(e) => {
+                        const imgElement = e.currentTarget;
+                        imgElement.onerror = null;
+                        imgElement.src = "/fablab/cfyi.svg"; // Fallback logo
+                      }}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
 
           {/* Menu Content and Mobile Slider */}
@@ -310,250 +350,221 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
             </div>
 
             {/* Scrollable content area */}
-            <div className="flex-1 overflow-y-auto">
-              {/* Navigation with staggered fade-in effect */}
-              <div className={`flex items-center ${isLargeScreen ? 'p-8' : 'p-6'}`}>
-                <div className="flex flex-row max-w-4xl mx-auto w-full">
-                  {/* Navigation Links - improved spacing */}
-                  <div className="flex-1 grid grid-cols-2 gap-x-8">
-                    {/* First Column */}
-                    <div className="space-y-6 md:space-y-5">
-                      <Link 
-                        to="/3d-printing"
-                        onClick={onClose}
-                        className={`block ${isLargeScreen ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'} text-white hover:text-[#cb2026] transition-colors duration-300 ${
-                          isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-                        }`}
-                      >
-                        {t('header.3dPrinting')}
-                      </Link>
-                      <Link 
-                        to="/mould"
-                        onClick={onClose}
-                        className={`block ${isLargeScreen ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'} text-white hover:text-[#0e9a48] transition-colors duration-300 ${
-                          isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-                        }`}
-                      >
-                        {t('serviceCategories.molding.title')}
-                      </Link>
-                      <Link 
-                        to="/digital-fabrication"
-                        onClick={onClose}
-                        className={`block ${isLargeScreen ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'} text-white hover:text-[#35469d] transition-colors duration-300 ${
-                          isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-                        }`}
-                      >
-                        {t('serviceCategories.digitalFabrication.title')}
-                      </Link>
-                      <Link 
-                        to="/digital-fabrication#precision-manufacturing"
-                        onClick={onClose}
-                        className={`block ${isLargeScreen ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'} text-white hover:text-[#8a2be2] transition-colors duration-300 ${
-                          isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-                        }`}
-                      >
-                        {t('serviceCategories.precisionManufacturing.title')}
-                      </Link>
-                      <Link 
-                        to="/3d-scanning"
-                        onClick={onClose}
-                        className={`block ${isLargeScreen ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'} text-white hover:text-[#ff6b6b] transition-colors duration-300 ${
-                          isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-                        }`}
-                      >
-                        {t('serviceCategories.3dScanning.title')}
-                      </Link>
-                    </div>
-                    
-                    {/* Second Column */}
-                    <div className="space-y-6 md:space-y-5">
-                      <Link 
-                        to="/blog"
-                        onClick={onClose}
-                        className={`block ${isLargeScreen ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'} text-white hover:text-[#E6DB00] transition-colors duration-300 ${
-                          isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-                        }`}
-                      >
-                        {t('header.projects')}
-                      </Link>
-                      <a
-                        href="https://cfyi.uz/fablab"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={onClose}
-                        className={`block ${isLargeScreen ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'} text-white hover:text-[#E6DB00] transition-colors duration-300 ${
-                          isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-                        }`}
-                      >
-                        {t('header.aboutFablab')}
-                      </a>
-                      <Link
-                        to="/blog"
-                        onClick={onClose}
-                        className={`block ${isLargeScreen ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'} text-white hover:text-[#E6DB00] transition-colors duration-300 ${
-                          isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-                        }`}
-                      >
-                        {t('header.blog')}
-                      </Link>
-                      <Link
-                        to="/courses"
-                        onClick={onClose}
-                        className={`block ${isLargeScreen ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'} text-white hover:text-[#E6DB00] transition-colors duration-300 ${
-                          isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-                        }`}
-                      >
-                        {t('navigation.courses')}
-                      </Link>
-                      <button
-                        onClick={scrollToMembership}
-                        className={`block w-full text-left ${isLargeScreen ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'} text-white hover:text-[#E6DB00] transition-colors duration-300 ${
-                          isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-                        }`}
-                      >
-                        {t('navigation.membership')}
-                      </button>
-                    </div>
+            <div className="flex-1 overflow-y-auto flex items-center justify-center">
+              {/* Navigation with float-in effect - Centered both horizontally and vertically */}
+              <div className="w-full max-w-4xl">
+                {/* Navigation Links - improved spacing and bigger text */}
+                <div className="grid grid-cols-2 gap-x-12 gap-y-8">
+                  {/* First Column */}
+                  <div className="space-y-12 md:space-y-11">
+                    <Link
+                      to="/3d-printing"
+                      onClick={onClose}
+                      className={`block ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#cb2026] transition-all duration-300 ease-out`}
+                      style={{
+                        transform: isOpen ? 'translateY(0)' : 'translateY(30px)',
+                        opacity: isOpen ? 1 : 0,
+                        transitionDelay: isOpen ? '0.8s' : '0s'
+                      }}
+                    >
+                      {t('header.3dPrinting')}
+                    </Link>
+                    <Link
+                      to="/mould"
+                      onClick={onClose}
+                      className={`block ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#0e9a48] transition-all duration-300 ease-out`}
+                      style={{
+                        transform: isOpen ? 'translateY(0)' : 'translateY(30px)',
+                        opacity: isOpen ? 1 : 0,
+                        transitionDelay: isOpen ? '0.9s' : '0.1s'
+                      }}
+                    >
+                      {t('serviceCategories.molding.title')}
+                    </Link>
+                    <Link
+                      to="/digital-fabrication"
+                      onClick={onClose}
+                      className={`block ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#35469d] transition-all duration-300 ease-out`}
+                      style={{
+                        transform: isOpen ? 'translateY(0)' : 'translateY(30px)',
+                        opacity: isOpen ? 1 : 0,
+                        transitionDelay: isOpen ? '1.0s' : '0.2s'
+                      }}
+                    >
+                      {t('serviceCategories.digitalFabrication.title')}
+                    </Link>
+                    <Link
+                      to="/digital-fabrication#precision-manufacturing"
+                      onClick={onClose}
+                      className={`block ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#8a2be2] transition-all duration-300 ease-out`}
+                      style={{
+                        transform: isOpen ? 'translateY(0)' : 'translateY(30px)',
+                        opacity: isOpen ? 1 : 0,
+                        transitionDelay: isOpen ? '1.1s' : '0.3s'
+                      }}
+                    >
+                      {t('serviceCategories.precisionManufacturing.title')}
+                    </Link>
+                    <Link
+                      to="/3d-scanning"
+                      onClick={onClose}
+                      className={`block ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#ff6b6b] transition-all duration-300 ease-out`}
+                      style={{
+                        transform: isOpen ? 'translateY(0)' : 'translateY(30px)',
+                        opacity: isOpen ? 1 : 0,
+                        transitionDelay: isOpen ? '1.2s' : '0.4s'
+                      }}
+                    >
+                      {t('serviceCategories.3dScanning.title')}
+                    </Link>
                   </div>
-                </div>
-              </div>
-              
-              {/* Mobile slider content */}
-              <div className={`w-full ${isLargeScreen ? 'p-8' : 'p-0'} border-t border-white/10 transition-all duration-700 delay-[800ms] ${isOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-                {/* Mobile slider - Fixed height, always at bottom */}
-                <div className="md:hidden w-full h-[25vh] min-h-[150px] max-h-[200px] flex flex-col justify-end overflow-hidden mt-6">
-                  <div className={`relative w-full h-full transition-all duration-1000 ${isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}> 
-                    {/* Blog Slide */}
-                    <div className={`absolute inset-0 transition-opacity duration-700 ease-in-out bg-black ${activeSlide === 0 ? "opacity-100 z-10" : "opacity-0 z-0"}`}> 
-                      <img 
-                        src="/blog_images/blog1.png" 
-                        alt="Blog" 
-                        className="w-full h-full object-cover object-center transition-transform duration-10000 ease-out scale-110 origin-center" 
-                        style={{ transform: activeSlide === 0 ? 'scale(1)' : 'scale(1.1)' }} 
-                        onError={(e) => { 
-                          const imgElement = e.currentTarget; 
-                          imgElement.onerror = null; 
-                          imgElement.src = "/fablab/3.jpg"; 
-                        }} 
-                      /> 
-                      <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-black/90" /> 
-                      <div className="absolute bottom-0 left-0 right-0 p-6"> 
-                        <div className={`text-[#E6DB00] uppercase text-base font-medium mb-3 transition-all duration-700 delay-300 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>Latest Post</div> 
-                        <h2 className={`text-2xl font-light mb-3 text-white transition-all duration-700 delay-400 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>3D Printing Innovations</h2> 
-                        <p className={`text-white/80 mb-3 transition-all duration-700 delay-500 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'} ${isLaptopScreen ? 'hidden md:block' : ''}`}>Discover the latest advancements in 3D printing technology</p> 
-                        <Link 
-                          to="/blog/3d-printing-innovations" 
-                          onClick={onClose} 
-                          className={`inline-flex items-center text-base text-white hover:text-[#E6DB00] transition-all duration-700 delay-600 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
-                        > 
-                          Read Article <ArrowRight className="ml-3 h-5 w-5" /> 
-                        </Link> 
-                      </div> 
-                    </div>
-                    {/* Service Slides */}
-                    {services.map((service, index) => (
-                      <div 
-                        key={service.title} 
-                        className={`absolute inset-0 transition-opacity duration-700 ease-in-out bg-black ${activeSlide === index + 1 ? "opacity-100 z-10" : "opacity-0 z-0"}`}
-                      > 
-                        <img 
-                          src={service.image} 
-                          alt={service.title} 
-                          className="w-full h-full object-cover object-center transition-transform duration-10000 ease-out scale-110 origin-center" 
-                          style={{ transform: activeSlide === index + 1 ? 'scale(1)' : 'scale(1.1)' }} 
-                          onError={(e) => { 
-                            const imgElement = e.currentTarget; 
-                            imgElement.onerror = null; 
-                            imgElement.src = "/fablab/3.jpg"; 
-                          }} 
-                        /> 
-                        <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-black/90" /> 
-                        <div className="absolute bottom-0 left-0 right-0 p-6"> 
-                          <div className={`text-[#E6DB00] uppercase text-base font-medium mb-3 transition-all duration-700 delay-300 ${activeSlide === index + 1 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>Our Services</div> 
-                          <h2 className={`text-2xl font-light mb-3 text-white transition-all duration-700 delay-400 ${activeSlide === index + 1 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>{service.title}</h2> 
-                          <Link 
-                            to={service.path} 
-                            onClick={onClose} 
-                            className={`inline-flex items-center text-base text-white hover:text-[#E6DB00] transition-all duration-700 delay-600 ${activeSlide === index + 1 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
-                          > 
-                            {t('mobileMenu.explore')} {service.title} <ArrowRight className="ml-3 h-5 w-5" /> 
-                          </Link> 
-                        </div> 
-                      </div>
-                    ))}
-                    {/* Slide Indicators */}
-                    <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2"> 
-                      {[...Array(totalSlides)].map((_, index) => ( 
-                        <button 
-                          key={index} 
-                          onClick={() => setActiveSlide(index)} 
-                          className={`h-2 rounded-full transition-all duration-300 ${activeSlide === index ? "bg-[#E6DB00] w-8" : "bg-white/50 w-2 hover:bg-white/80"}`} 
-                          aria-label={`Slide ${index + 1}`} 
-                        /> 
-                      ))} 
-                    </div> 
-                  </div> 
-                </div>
 
-                {/* Footer content */}
-                <div className="w-full flex flex-col items-center justify-center mt-8 mb-4">
-                  <h3 className="text-lg font-medium text-white mb-2 text-center">
-                    {t('mobileMenu.connectWithUs')}
-                  </h3>
-                  <div className="flex justify-center items-center space-x-4 mb-2">
-                    <a 
-                      href="https://www.facebook.com/centerforyouthinitiatives" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300 text-white"
+                  {/* Second Column */}
+                  <div className="space-y-12 md:space-y-11">
+                    <Link
+                      to="/blog"
+                      onClick={onClose}
+                      className={`block ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#E6DB00] transition-all duration-300 ease-out`}
+                      style={{
+                        transform: isOpen ? 'translateY(0)' : 'translateY(30px)',
+                        opacity: isOpen ? 1 : 0,
+                        transitionDelay: isOpen ? '0.85s' : '0.05s'
+                      }}
                     >
-                      <Facebook size={20} />
-                    </a>
-                    <a 
-                      href="https://www.instagram.com/fablab.cfyi" 
-                      target="_blank" 
+                      {t('header.projects')}
+                    </Link>
+                    <a
+                      href="https://cfyi.uz/fablab"
+                      target="_blank"
                       rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300 text-white"
+                      onClick={onClose}
+                      className={`block ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#E6DB00] transition-all duration-300 ease-out`}
+                      style={{
+                        transform: isOpen ? 'translateY(0)' : 'translateY(30px)',
+                        opacity: isOpen ? 1 : 0,
+                        transitionDelay: isOpen ? '0.95s' : '0.15s'
+                      }}
                     >
-                      <Instagram size={20} />
+                      {t('header.aboutFablab')}
                     </a>
-                    <a 
-                      href="https://www.linkedin.com/company/center-for-youth-initiatives" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300 text-white"
+                    <Link
+                      to="/blog"
+                      onClick={onClose}
+                      className={`block ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#E6DB00] transition-all duration-300 ease-out`}
+                      style={{
+                        transform: isOpen ? 'translateY(0)' : 'translateY(30px)',
+                        opacity: isOpen ? 1 : 0,
+                        transitionDelay: isOpen ? '1.05s' : '0.25s'
+                      }}
                     >
-                      <Linkedin size={20} />
-                    </a>
-                    <a 
-                      href="https://www.youtube.com/@CenterforYouthInitiatives" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300 text-white"
+                      {t('header.blog')}
+                    </Link>
+                    <Link
+                      to="/courses"
+                      onClick={onClose}
+                      className={`block ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#E6DB00] transition-all duration-300 ease-out`}
+                      style={{
+                        transform: isOpen ? 'translateY(0)' : 'translateY(30px)',
+                        opacity: isOpen ? 1 : 0,
+                        transitionDelay: isOpen ? '1.15s' : '0.35s'
+                      }}
                     >
-                      <Youtube size={20} />
-                    </a>
-                    <a 
-                      href="https://t.me/+998770884977" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#E6DB00] hover:text-black transition-all duration-300 text-white"
+                      {t('navigation.courses')}
+                    </Link>
+                    <button
+                      onClick={scrollToMembership}
+                      className={`block w-full text-left ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#E6DB00] transition-all duration-300 ease-out`}
+                      style={{
+                        transform: isOpen ? 'translateY(0)' : 'translateY(30px)',
+                        opacity: isOpen ? 1 : 0,
+                        transitionDelay: isOpen ? '1.25s' : '0.45s'
+                      }}
                     >
-                      <svg 
-                        className="w-5 h-5" 
-                        xmlns="http://www.w3.org/2000/svg" 
-                        fill="currentColor" 
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.96 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
-                      </svg>
-                    </a>
+                      {t('navigation.membership')}
+                    </button>
                   </div>
-                  <p className="text-white/50 text-xs text-center">
-                    © 2025 Center for Youth Initiatives FabLab. All rights reserved.
-                  </p>
                 </div>
               </div>
+            </div>
+
+            {/* Mobile slider content */}
+            <div className={`w-full ${isLargeScreen ? 'p-8' : 'p-0'} transition-all duration-700 delay-[800ms] ${isOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+              {/* Mobile slider - Fixed height, always at bottom */}
+              <div className="md:hidden w-full h-[25vh] min-h-[150px] max-h-[200px] flex flex-col justify-end overflow-hidden mt-6">
+                <div className={`relative w-full h-full transition-all duration-1000 ${isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}>
+                  {/* Blog Slide */}
+                  <div className={`absolute inset-0 transition-opacity duration-700 ease-in-out bg-black ${activeSlide === 0 ? "opacity-100 z-10" : "opacity-0 z-0"}`}>
+                    <img
+                      src="/blog_images/blog1.png"
+                      alt="Blog"
+                      className="w-full h-full object-cover object-center transition-transform duration-10000 ease-out scale-110 origin-center"
+                      style={{ transform: activeSlide === 0 ? 'scale(1)' : 'scale(1.1)' }}
+                      onError={(e) => {
+                        const imgElement = e.currentTarget;
+                        imgElement.onerror = null;
+                        imgElement.src = "/fablab/3.jpg";
+                      }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-black/90" />
+                    <div className="absolute bottom-0 left-0 right-0 p-6">
+                      <div className={`text-[#E6DB00] uppercase text-base font-medium mb-3 transition-all duration-700 delay-300 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>Latest Post</div>
+                      <h2 className={`text-2xl font-light mb-3 text-white transition-all duration-700 delay-400 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>3D Printing Innovations</h2>
+                      <p className={`text-white/80 mb-3 transition-all duration-700 delay-500 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'} ${isLaptopScreen ? 'hidden md:block' : ''}`}>Discover the latest advancements in 3D printing technology</p>
+                      <Link
+                        to="/blog/3d-printing-innovations"
+                        onClick={onClose}
+                        className={`inline-flex items-center text-base text-white hover:text-[#E6DB00] transition-all duration-700 delay-600 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+                      >
+                        Read Article <ArrowRight className="ml-3 h-5 w-5" />
+                      </Link>
+                    </div>
+                  </div>
+                  {/* Service Slides */}
+                  {services.map((service, index) => (
+                    <div
+                      key={service.title}
+                      className={`absolute inset-0 transition-opacity duration-700 ease-in-out bg-black ${activeSlide === index + 1 ? "opacity-100 z-10" : "opacity-0 z-0"}`}
+                    >
+                      <img
+                        src={service.image}
+                        alt={service.title}
+                        className="w-full h-full object-cover object-center transition-transform duration-10000 ease-out scale-110 origin-center"
+                        style={{ transform: activeSlide === index + 1 ? 'scale(1)' : 'scale(1.1)' }}
+                        onError={(e) => {
+                          const imgElement = e.currentTarget;
+                          imgElement.onerror = null;
+                          imgElement.src = "/fablab/3.jpg";
+                        }}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-black/90" />
+                      <div className="absolute bottom-0 left-0 right-0 p-6">
+                        <div className={`text-[#E6DB00] uppercase text-base font-medium mb-3 transition-all duration-700 delay-300 ${activeSlide === index + 1 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>Our Services</div>
+                        <h2 className={`text-2xl font-light mb-3 text-white transition-all duration-700 delay-400 ${activeSlide === index + 1 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>{service.title}</h2>
+                        <Link
+                          to={service.path}
+                          onClick={onClose}
+                          className={`inline-flex items-center text-base text-white hover:text-[#E6DB00] transition-all duration-700 delay-600 ${activeSlide === index + 1 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+                        >
+                          {t('mobileMenu.explore')} {service.title} <ArrowRight className="ml-3 h-5 w-5" />
+                        </Link>
+                      </div>
+                    </div>
+                  ))}
+                  {/* Slide Indicators */}
+                  <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
+                    {[...Array(totalSlides)].map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setActiveSlide(index)}
+                        className={`h-2 rounded-full transition-all duration-300 ${activeSlide === index ? "bg-[#E6DB00] w-8" : "bg-white/50 w-2 hover:bg-white/80"}`}
+                        aria-label={`Slide ${index + 1}`}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+
             </div>
           </div>
         </div>

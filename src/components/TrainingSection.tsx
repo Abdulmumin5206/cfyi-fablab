@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, Check, Download } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import GradientText from "./GradientText";
 
 const TrainingSection = () => {
   const { t } = useTranslation();
@@ -30,10 +31,17 @@ const TrainingSection = () => {
         <div className="flex flex-col lg:flex-row items-center gap-12">
           {/* Left side content */}
           <div className="w-full lg:w-1/2 space-y-8">
-            <div className="inline-block">
-              <span className="bg-[#329db7]/10 text-[#329db7] text-sm font-semibold px-4 py-2 rounded-full font-['Magistral']">
+            <div className="text-left mb-3 sm:mb-4">
+              <GradientText
+                colors={["#329db7", "#f71301", "#6bb934", "#329db7", "#f71301", "#6bb934"]}
+                animationSpeed={4}
+                className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 font-['Magistral']"
+              >
                 {t('training.ourCourses')}
-              </span>
+              </GradientText>
+              <p className="text-gray-700 text-base sm:text-lg font-['Magistral']">
+                {t('training.subtitle')}
+              </p>
             </div>
             
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight font-['Magistral']">

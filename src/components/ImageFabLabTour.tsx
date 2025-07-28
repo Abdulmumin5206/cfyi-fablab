@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Home } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import GradientText from "./GradientText";
 
 interface TourPoint {
   id: number;
@@ -28,7 +29,7 @@ const ImageFabLabTour = () => {
       '/main/tour/leftsideroom.webp',
       '/main/tour/bacsideuvprinting.webp',
       '/main/tour/stickermachine.webp',
-      '/main/tour/anotherside.jpg'
+      '/main/tour/anotherside.webp'
     ];
 
     allImages.forEach(src => {
@@ -101,7 +102,7 @@ const ImageFabLabTour = () => {
       y: 70, // 70% from top
       title: t('fablabTour.mainViewInsideRoom'),
       description: '',
-      image: "/main/tour/anotherside.jpg",
+      image: "/main/tour/anotherside.webp",
       view: "anotherside"
     }
   ];
@@ -186,9 +187,13 @@ const ImageFabLabTour = () => {
             isExpanded ? 'lg:-translate-x-full lg:opacity-0' : 'lg:translate-x-0 lg:opacity-100'
           } z-10 lg:z-0 ${isExpanded ? 'hidden lg:block' : 'block lg:block'} hidden md:hidden`}>
             <div className="space-y-3 sm:space-y-4 lg:space-y-6 pr-0 lg:pr-4 text-center lg:text-left">
-              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#329db7] leading-tight">
+              <GradientText
+                colors={["#329db7", "#f71301", "#6bb934", "#329db7", "#f71301", "#6bb934"]}
+                animationSpeed={4}
+                className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold leading-tight"
+              >
                 {t('innovationHub.title')}
-              </h2>
+              </GradientText>
               <p className="text-sm sm:text-base lg:text-lg text-gray-600 leading-relaxed">
                 {t('innovationHub.description')}
               </p>

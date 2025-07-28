@@ -123,8 +123,8 @@ const ServiceCategories = () => {
       <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px] relative z-10">
         <div className="text-left mb-3 sm:mb-4 md:mb-6 lg:mb-8">
           <GradientText
-            colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
-            animationSpeed={6}
+            colors={["#329db7", "#f71301", "#6bb934", "#329db7", "#f71301", "#6bb934"]}
+            animationSpeed={4}
             className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 font-['Magistral']"
           >
             {t('serviceCategories.title')}
@@ -162,7 +162,9 @@ const ServiceCategories = () => {
 
                 <div className={`absolute bottom-0 left-0 right-0 ${category.color} py-3 px-4`}>
                   <GradientText
-                    colors={["#ffffff", "#e0e0e0", "#ffffff"]}
+                    colors={category.id === '3d-printing' ? 
+                      ["#ff6600", "#e6194b", "#2ecc71"] : 
+                      ["#e6194b", "#3cb44b", "#0082c8"]}
                     animationSpeed={4}
                     className="font-medium text-base font-['Magistral']"
                   >
@@ -254,11 +256,11 @@ const ServiceCategories = () => {
                       <div>
                         <GradientText
                           colors={
-                            category.id === '3d-printing' ? ["#ff6b6b", "#4ecdc4", "#45b7d1"] :
-                              category.id === 'molding' ? ["#96ceb4", "#ffeaa7", "#dda0dd"] :
-                                category.id === 'digital-fabrication' ? ["#74b9ff", "#a29bfe", "#fd79a8"] :
-                                  category.id === 'precision-manufacturing' ? ["#fdcb6e", "#e17055", "#d63031"] :
-                                    ["#00b894", "#00cec9", "#6c5ce7"]
+                            category.id === '3d-printing' ? ["#ff6600", "#e6194b", "#2ecc71"] :
+                              category.id === 'molding' ? ["#4363d8", "#911eb4", "#f032e6"] :
+                                category.id === 'digital-fabrication' ? ["#f58231", "#e6194b", "#3cb44b"] :
+                                  category.id === 'precision-manufacturing' ? ["#911eb4", "#f032e6", "#4363d8"] :
+                                    ["#0082c8", "#e6194b", "#3cb44b"]
                           }
                           animationSpeed={5}
                           className={`font-bold mb-2 transition-colors duration-300 font-['Magistral'] ${i18n.language === 'en'

@@ -144,7 +144,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
     >
       {/* Main background with expand/shrink animation */}
       <div
-        className="absolute inset-0 bg-black transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
+        className="absolute inset-0 bg-[#212121] transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
         style={{
           height: isOpen && !isClosing ? '100%' : '0%',
           transformOrigin: isOpen && !isClosing ? 'top' : 'bottom',
@@ -164,7 +164,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
             {/* Desktop slider (hidden on small screens) */}
             <div className="hidden md:block w-[45%] relative overflow-hidden z-20 flex flex-col">
               {/* Top section - 60% height - Existing slider content */}
-              <div className="h-[60%] relative overflow-hidden">
+              <div className="h-full relative overflow-hidden">
                 <div
                   className={`absolute inset-0 transition-all duration-1000 ease-out ${isOpen && !isClosing ? "scale-100 opacity-100" : "scale-0 opacity-0"
                     }`}
@@ -267,51 +267,12 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                 </div>
               </div>
 
-              {/* Bottom section - 40% height - Split Container */}
-              <div className="h-[40%] relative overflow-hidden">
-                {/* Split container - 50% left and 50% right with separate animations */}
-                <div className="w-full h-full flex">
-                  {/* Left side - 50% - Address with black background */}
-                  <div className="w-1/2 h-full relative overflow-hidden">
-                    <div
-                      className={`absolute inset-0 bg-black flex items-center justify-center p-6 transition-all duration-1000 ease-out ${isOpen && !isClosing ? "scale-100 opacity-100" : "scale-0 opacity-0"
-                        }`}
-                      style={{
-                        transitionDelay: isOpen && !isClosing ? '0.7s' : isClosing ? '500ms' : '0s',
-                        transformOrigin: 'center center'
-                      }}
-                    >
-                      <div className="text-center text-white">
-                        <p className="text-xl font-light mb-3 text-[#E6DB00]">Center for Youth Initiatives</p>
-                        <p className="text-base text-white/90 mb-1">Tashkent, Uzbekistan</p>
-                        <p className="text-base text-white/90 mb-1">Yunusobod district</p>
-                        <p className="text-base text-white/90">Abdulla Qodiriy Street 51A</p>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Right side - 50% - Blue container */}
-                  <div className="w-1/2 h-full relative overflow-hidden">
-                    <div
-                      className={`absolute inset-0 bg-gradient-to-br from-[#1a1a2e] to-[#16213e] transition-all duration-1000 ease-out ${isOpen && !isClosing ? "scale-100 opacity-100" : "scale-0 opacity-0"
-                        }`}
-                      style={{
-                        transitionDelay: isOpen && !isClosing ? '0.9s' : isClosing ? '300ms' : '0s',
-                        transformOrigin: 'center center'
-                      }}
-                    >
-                      {/* Empty blue container as requested */}
-                    </div>
-                  </div>
-                </div>
-              </div>
-
             </div>
 
             {/* Menu Content and Mobile Slider */}
             <div className="flex-1 flex flex-col h-full overflow-hidden">
               {/* Header with fade-down effect - FIXED at top */}
-              <div className={`flex justify-between items-center h-16 sm:h-20 ${isLaptopScreen ? 'md:h-[75px]' : 'md:h-24 lg:h-28'} bg-black`}>
+              <div className={`flex justify-between items-center h-16 sm:h-20 ${isLaptopScreen ? 'md:h-[75px]' : 'md:h-24 lg:h-28'}`}>
                 <div className={`h-full flex items-center pl-4 sm:pl-6 ${isLaptopScreen ? 'md:pl-8' : 'md:pl-10 lg:pl-16 xl:pl-20'}`}>
                   {/* Empty space for alignment */}
                 </div>

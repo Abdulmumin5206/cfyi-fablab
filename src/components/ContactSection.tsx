@@ -5,7 +5,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { MapPin, Phone, Mail, Linkedin, Facebook, Instagram } from "lucide-react";
+import { MapPin, Phone, Mail, Linkedin, Facebook, Instagram, Send, Youtube } from "lucide-react";
+import GradientText from "./GradientText";
 
 const ContactSection = () => {
   const { t } = useTranslation();
@@ -69,12 +70,15 @@ const ContactSection = () => {
     <section id="contact-section" className="py-16 md:py-24 bg-gray-50">
       <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
         {/* Section Header */}
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        <div className="text-left mb-12 md:mb-16">
+          <GradientText
+            colors={["#329db7", "#f71301", "#6bb934", "#329db7", "#f71301", "#6bb934"]}
+            animationSpeed={4}
+            className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4"
+          >
             {t('contact.title')}
-          </h2>
-          <div className="h-1 w-16 bg-[#329db7] mx-auto mb-4"></div>
-          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
+          </GradientText>
+          <p className="text-base sm:text-lg text-gray-600 max-w-2xl">
             {t('contact.subtitle')}
           </p>
         </div>
@@ -153,6 +157,22 @@ const ContactSection = () => {
                       className="bg-gray-100 hover:bg-[#329db7] hover:text-white transition-all duration-300 p-3 rounded-full"
                     >
                       <Facebook className="w-5 h-5" />
+                    </a>
+                    <a 
+                      href="https://t.me/+998770884977" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="bg-gray-100 hover:bg-[#329db7] hover:text-white transition-all duration-300 p-3 rounded-full"
+                    >
+                      <Send className="w-5 h-5" />
+                    </a>
+                    <a 
+                      href="https://www.youtube.com/@centerforyouthinitiatives" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="bg-gray-100 hover:bg-[#329db7] hover:text-white transition-all duration-300 p-3 rounded-full"
+                    >
+                      <Youtube className="w-5 h-5" />
                     </a>
                   </div>
                 </div>

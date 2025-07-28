@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import GradientText from './GradientText';
 
 const AboutUsSection = () => {
   const { t } = useTranslation();
@@ -56,7 +57,15 @@ const AboutUsSection = () => {
       </div>
 
       <div className="container relative z-10 mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
-        <h2 className="text-left text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-black">{t('aboutUs.title')}</h2>
+        <div className="text-left mb-3 sm:mb-4">
+          <GradientText
+            colors={["#329db7", "#f71301", "#6bb934", "#329db7", "#f71301", "#6bb934"]}
+            animationSpeed={4}
+            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2"
+          >
+            {t('aboutUs.title')}
+          </GradientText>
+        </div>
         <p className="text-left text-gray-700 text-base sm:text-lg mb-6 sm:mb-8">{t('aboutUs.subtitle')}</p>
         
         {/* Mobile Layout */}
@@ -66,7 +75,7 @@ const AboutUsSection = () => {
               key={index}
               className="group bg-white/90 backdrop-blur-sm p-3 shadow-md relative flex flex-col justify-between min-h-[250px]"
             >
-              <div className="absolute top-0 right-0 w-5 h-5 bg-yellow-400"></div>
+              <div className="absolute top-0 right-0 w-5 h-5 bg-[#329db7]" style={{ marginTop: "-1px", marginRight: "-1px" }}></div>
               
               {/* Content */}
               <div className="relative z-20">
@@ -100,7 +109,7 @@ const AboutUsSection = () => {
               key={index}
               className="group bg-white/90 backdrop-blur-sm p-3 md:p-4 lg:p-5 shadow-md relative flex flex-col justify-between min-h-[280px] md:min-h-[300px] lg:min-h-[320px]"
             >
-              <div className="absolute top-0 right-0 w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 bg-yellow-400"></div>
+              <div className="absolute top-0 right-0 w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 bg-[#329db7]" style={{ marginTop: "-1px", marginRight: "-1px" }}></div>
               
               {/* Content */}
               <div className="relative z-20">

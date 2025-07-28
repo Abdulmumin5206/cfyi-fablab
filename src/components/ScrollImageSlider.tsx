@@ -2,6 +2,7 @@ import { useRef, useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import GradientText from "./GradientText";
 
 const ScrollImageSlider = () => {
   const { t } = useTranslation('homepage');
@@ -176,14 +177,18 @@ const ScrollImageSlider = () => {
                     backfaceVisibility: 'hidden' // Prevent flickering
                   }}
                 >
-                  <div className="absolute top-0 right-0 w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 bg-yellow-400 z-10"></div>
+                  <div className="absolute top-0 right-0 w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 bg-[#329db7] z-10" style={{ marginTop: "-1px", marginRight: "-1px" }}></div>
                   <h3 className="text-base sm:text-lg lg:text-xl xl:text-2xl font-bold mb-2 sm:mb-3 lg:mb-4">
                     {quote.title}
                   </h3>
                   <div className="mb-2 sm:mb-3 lg:mb-4">
-                    <span className="block text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-extrabold leading-tight text-gray-900">
+                    <GradientText
+                      colors={["#329db7", "#f71301", "#6bb934", "#329db7", "#f71301", "#6bb934"]}
+                      animationSpeed={4}
+                      className="block text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-extrabold leading-tight"
+                    >
                       {quote.achievement}
-                    </span>
+                    </GradientText>
                   </div>
                   <p className="text-xs sm:text-sm lg:text-base text-gray-600 line-clamp-3 sm:line-clamp-4 lg:line-clamp-5">
                     {quote.text}

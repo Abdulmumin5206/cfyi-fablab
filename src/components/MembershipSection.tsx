@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Check, Users, Target, BookOpen, Phone, Gift, Box, User, Briefcase, Building2 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useMemo, useCallback } from "react";
+import GradientText from "./GradientText";
 
 const MembershipSection = () => {
   const { t } = useTranslation();
@@ -179,8 +180,32 @@ const MembershipSection = () => {
 
       {/* Plan Title and Subtitle */}
       <div className="text-center mb-6">
-        <h3 className="text-xl font-bold text-gray-900 mb-1">{plan.title}</h3>
-        <p className="text-gray-600 text-sm">{plan.subtitle}</p>
+        {plan.title === "Maker" ? (
+          <div className="flex justify-center">
+            <GradientText 
+              colors={["#329db7", "#f71301", "#6bb934", "#329db7"]} 
+              animationSpeed={4}
+              className="text-xl font-bold mb-1"
+            >
+              {plan.title}
+            </GradientText>
+          </div>
+        ) : (
+          <h3 className="text-xl font-bold text-gray-900 mb-1">{plan.title}</h3>
+        )}
+        {plan.subtitle === "Most Popular" ? (
+          <div className="flex justify-center">
+            <GradientText 
+              colors={["#329db7", "#f71301", "#6bb934", "#329db7"]} 
+              animationSpeed={4} 
+              className="text-sm"
+            >
+              {plan.subtitle}
+            </GradientText>
+          </div>
+        ) : (
+          <p className="text-gray-600 text-sm">{plan.subtitle}</p>
+        )}
       </div>
 
       {/* Action Button */}
@@ -212,20 +237,24 @@ const MembershipSection = () => {
 
   return (
     <section id="membership-section" className="py-16 sm:py-20 lg:py-24 bg-gray-200 relative overflow-hidden">
-      <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1400px]">
+      <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
         {/* Header */}
-        <div className="text-left mb-6 sm:mb-8 lg:mb-10">
-          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-black">
+        <div className="text-left mb-3 sm:mb-4 md:mb-6 lg:mb-8">
+          <GradientText
+            colors={["#329db7", "#f71301", "#6bb934", "#329db7", "#f71301", "#6bb934"]}
+            animationSpeed={4}
+            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2"
+          >
             {t('membership.title')}
-          </h2>
-          <p className="text-gray-700 text-sm sm:text-base lg:text-lg mb-4 sm:mb-6 lg:mb-8">
+          </GradientText>
+          <p className="text-gray-700 text-sm sm:text-base lg:text-lg mb-3 sm:mb-4">
             {t('membership.subtitle')}
           </p>
         </div>
 
         {/* Membership Tiers */}
         <div className="py-8 sm:py-12 lg:py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 max-w-[1200px] mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
             {membershipFeatures.map((plan, index) => (
               <div key={index}>
                 <PlanCard plan={plan} />

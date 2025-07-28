@@ -336,129 +336,151 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                 {/* Navigation with float-in effect - Centered both horizontally and vertically */}
                 <div className="w-full max-w-6xl mx-auto px-4 md:px-8 lg:px-12">
                   {/* Navigation Links - improved spacing and bigger text */}
-                  <div className="flex justify-center items-start gap-12 sm:gap-20 md:gap-28 lg:gap-36">
-                    {/* First Column */}
-                    <div className="flex flex-col items-start space-y-12 md:space-y-11 flex-1 max-w-sm">
+                  <div className="flex flex-col items-center justify-center gap-8 sm:gap-10 md:gap-12 lg:gap-14 w-full">
+                    {/* Row 1: 3D Printing & Projects */}
+                    <div className="flex w-full px-8 sm:px-10 md:px-12 lg:px-16">
                       <Link
                         to="/3d-printing"
                         onClick={handleClose}
-                        className={`block ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#cb2026] transition-all duration-300 ease-out`}
+                        className={`block w-1/2 ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#cb2026]`}
                         style={{
                           transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
                           opacity: isOpen && !isClosing ? 1 : 0,
+                          transition: 'transform 300ms ease-out, opacity 300ms ease-out',
                           transitionDelay: isOpen && !isClosing ? '0.8s' : isClosing ? '0ms' : '0s'
                         }}
                       >
                         {t('header.3dPrinting')}
                       </Link>
                       <Link
-                        to="/mould"
-                        onClick={handleClose}
-                        className={`block ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#0e9a48] transition-all duration-300 ease-out`}
-                        style={{
-                          transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
-                          opacity: isOpen && !isClosing ? 1 : 0,
-                          transitionDelay: isOpen && !isClosing ? '0.9s' : isClosing ? '50ms' : '0.1s'
-                        }}
-                      >
-                        {t('serviceCategories.molding.title')}
-                      </Link>
-                      <Link
-                        to="/digital-fabrication"
-                        onClick={handleClose}
-                        className={`block ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#35469d] transition-all duration-300 ease-out`}
-                        style={{
-                          transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
-                          opacity: isOpen && !isClosing ? 1 : 0,
-                          transitionDelay: isOpen && !isClosing ? '1.0s' : isClosing ? '100ms' : '0.2s'
-                        }}
-                      >
-                        {t('serviceCategories.digitalFabrication.title')}
-                      </Link>
-                      <Link
-                        to="/digital-fabrication#precision-manufacturing"
-                        onClick={handleClose}
-                        className={`block ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#8a2be2] transition-all duration-300 ease-out`}
-                        style={{
-                          transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
-                          opacity: isOpen && !isClosing ? 1 : 0,
-                          transitionDelay: isOpen && !isClosing ? '1.1s' : isClosing ? '150ms' : '0.3s'
-                        }}
-                      >
-                        {t('serviceCategories.precisionManufacturing.title')}
-                      </Link>
-                      <Link
-                        to="/3d-scanning"
-                        onClick={handleClose}
-                        className={`block ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#ff6b6b] transition-all duration-300 ease-out`}
-                        style={{
-                          transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
-                          opacity: isOpen && !isClosing ? 1 : 0,
-                          transitionDelay: isOpen && !isClosing ? '1.2s' : isClosing ? '200ms' : '0.4s'
-                        }}
-                      >
-                        {t('serviceCategories.3dScanning.title')}
-                      </Link>
-                    </div>
-
-                    {/* Second Column */}
-                    <div className="flex flex-col items-start space-y-12 md:space-y-11 flex-1 max-w-sm">
-                      <Link
                         to="/blog"
                         onClick={handleClose}
-                        className={`block ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#E6DB00] transition-all duration-300 ease-out`}
+                        className={`block w-1/2 pl-10 sm:pl-12 md:pl-16 lg:pl-20 ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#E6DB00]`}
                         style={{
                           transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
                           opacity: isOpen && !isClosing ? 1 : 0,
+                          transition: 'transform 300ms ease-out, opacity 300ms ease-out',
                           transitionDelay: isOpen && !isClosing ? '0.85s' : isClosing ? '25ms' : '0.05s'
                         }}
                       >
                         {t('header.projects')}
+                      </Link>
+                    </div>
+                    
+                    {/* Row 2: Molding & CFYI FabLab */}
+                    <div className="flex w-full px-8 sm:px-10 md:px-12 lg:px-16">
+                      <Link
+                        to="/mould"
+                        onClick={handleClose}
+                        className={`block w-1/2 ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#0e9a48]`}
+                        style={{
+                          transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
+                          opacity: isOpen && !isClosing ? 1 : 0,
+                          transition: 'transform 300ms ease-out, opacity 300ms ease-out',
+                          transitionDelay: isOpen && !isClosing ? '0.9s' : isClosing ? '50ms' : '0.1s'
+                        }}
+                      >
+                        {t('serviceCategories.molding.title')}
                       </Link>
                       <a
                         href="https://cfyi.uz/fablab"
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={handleClose}
-                        className={`block ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#E6DB00] transition-all duration-300 ease-out`}
+                        className={`block w-1/2 pl-10 sm:pl-12 md:pl-16 lg:pl-20 ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#E6DB00]`}
                         style={{
                           transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
                           opacity: isOpen && !isClosing ? 1 : 0,
+                          transition: 'transform 300ms ease-out, opacity 300ms ease-out',
                           transitionDelay: isOpen && !isClosing ? '0.95s' : isClosing ? '75ms' : '0.15s'
                         }}
                       >
                         {t('header.aboutFablab')}
                       </a>
+                    </div>
+                    
+                    {/* Row 3: Digital Fabrication & Blog */}
+                    <div className="flex w-full px-8 sm:px-10 md:px-12 lg:px-16">
                       <Link
-                        to="/blog"
+                        to="/digital-fabrication"
                         onClick={handleClose}
-                        className={`block ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#E6DB00] transition-all duration-300 ease-out`}
+                        className={`block w-1/2 ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#35469d]`}
                         style={{
                           transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
                           opacity: isOpen && !isClosing ? 1 : 0,
+                          transition: 'transform 300ms ease-out, opacity 300ms ease-out',
+                          transitionDelay: isOpen && !isClosing ? '1.0s' : isClosing ? '100ms' : '0.2s'
+                        }}
+                      >
+                        {t('serviceCategories.digitalFabrication.title')}
+                      </Link>
+                      <Link
+                        to="/blog"
+                        onClick={handleClose}
+                        className={`block w-1/2 pl-10 sm:pl-12 md:pl-16 lg:pl-20 ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#E6DB00]`}
+                        style={{
+                          transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
+                          opacity: isOpen && !isClosing ? 1 : 0,
+                          transition: 'transform 300ms ease-out, opacity 300ms ease-out',
                           transitionDelay: isOpen && !isClosing ? '1.05s' : isClosing ? '125ms' : '0.25s'
                         }}
                       >
                         {t('header.blog')}
                       </Link>
+                    </div>
+                    
+                    {/* Row 4: Precision Manufacturing & Courses */}
+                    <div className="flex w-full px-8 sm:px-10 md:px-12 lg:px-16">
                       <Link
-                        to="/courses"
+                        to="/digital-fabrication#precision-manufacturing"
                         onClick={handleClose}
-                        className={`block ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#E6DB00] transition-all duration-300 ease-out`}
+                        className={`block w-1/2 ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#8a2be2]`}
                         style={{
                           transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
                           opacity: isOpen && !isClosing ? 1 : 0,
+                          transition: 'transform 300ms ease-out, opacity 300ms ease-out',
+                          transitionDelay: isOpen && !isClosing ? '1.1s' : isClosing ? '150ms' : '0.3s'
+                        }}
+                      >
+                        {t('serviceCategories.precisionManufacturing.title')}
+                      </Link>
+                      <Link
+                        to="/courses"
+                        onClick={handleClose}
+                        className={`block w-1/2 pl-10 sm:pl-12 md:pl-16 lg:pl-20 ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#E6DB00]`}
+                        style={{
+                          transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
+                          opacity: isOpen && !isClosing ? 1 : 0,
+                          transition: 'transform 300ms ease-out, opacity 300ms ease-out',
                           transitionDelay: isOpen && !isClosing ? '1.15s' : isClosing ? '175ms' : '0.35s'
                         }}
                       >
                         {t('navigation.courses')}
                       </Link>
-                      <button
-                        onClick={scrollToMembership}
-                        className={`block text-left ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#E6DB00] transition-all duration-300 ease-out`}
+                    </div>
+                    
+                    {/* Row 5: 3D Scanning & Membership */}
+                    <div className="flex w-full px-8 sm:px-10 md:px-12 lg:px-16">
+                      <Link
+                        to="/3d-scanning"
+                        onClick={handleClose}
+                        className={`block w-1/2 ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#ff6b6b]`}
                         style={{
                           transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
                           opacity: isOpen && !isClosing ? 1 : 0,
+                          transition: 'transform 300ms ease-out, opacity 300ms ease-out',
+                          transitionDelay: isOpen && !isClosing ? '1.2s' : isClosing ? '200ms' : '0.4s'
+                        }}
+                      >
+                        {t('serviceCategories.3dScanning.title')}
+                      </Link>
+                      <button
+                        onClick={scrollToMembership}
+                        className={`block text-left w-1/2 pl-10 sm:pl-12 md:pl-16 lg:pl-20 ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#E6DB00]`}
+                        style={{
+                          transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
+                          opacity: isOpen && !isClosing ? 1 : 0,
+                          transition: 'transform 300ms ease-out, opacity 300ms ease-out',
                           transitionDelay: isOpen && !isClosing ? '1.25s' : isClosing ? '225ms' : '0.45s'
                         }}
                       >

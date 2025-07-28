@@ -334,11 +334,11 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
               {/* Scrollable content area */}
               <div className="flex-1 overflow-y-auto flex items-center justify-center">
                 {/* Navigation with float-in effect - Centered both horizontally and vertically */}
-                <div className="w-full max-w-4xl">
+                <div className="w-full max-w-6xl mx-auto px-4 md:px-8 lg:px-12">
                   {/* Navigation Links - improved spacing and bigger text */}
-                  <div className="grid grid-cols-2 gap-x-12 gap-y-8">
+                  <div className="flex justify-center items-start gap-12 sm:gap-20 md:gap-28 lg:gap-36">
                     {/* First Column */}
-                    <div className="space-y-12 md:space-y-11">
+                    <div className="flex flex-col items-start space-y-12 md:space-y-11 flex-1 max-w-sm">
                       <Link
                         to="/3d-printing"
                         onClick={handleClose}
@@ -402,7 +402,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                     </div>
 
                     {/* Second Column */}
-                    <div className="space-y-12 md:space-y-11">
+                    <div className="flex flex-col items-start space-y-12 md:space-y-11 flex-1 max-w-sm">
                       <Link
                         to="/blog"
                         onClick={handleClose}
@@ -455,7 +455,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       </Link>
                       <button
                         onClick={scrollToMembership}
-                        className={`block w-full text-left ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#E6DB00] transition-all duration-300 ease-out`}
+                        className={`block text-left ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#E6DB00] transition-all duration-300 ease-out`}
                         style={{
                           transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
                           opacity: isOpen && !isClosing ? 1 : 0,

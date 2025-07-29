@@ -17,12 +17,22 @@ const HorizontalScrollSection = () => {
   const aboutFabLabContent = [
     {
       title: "Our Mission",
-      description: "To equip and empower the youth of the Republic of Uzbekistan with the most advanced world technologies which contribute to the development of the society as a whole and enable to solve practical problems of the real sector of the economy, while ensuring equal participation of female youth.",
-      image: "/main/fablearn.webp",
+      description: "To equip Uzbekistan's youth with cutting-edge technologies that drive societal development and solve real economic challenges, while ensuring equal participation of female youth.",
       highlights: [
         "Democratize access to advanced fabrication tools",
         "Foster innovation and inventive creativity",
         "Ensure inclusive participation regardless of gender or background"
+      ]
+    },
+    {
+      title: "Advanced Equipment",
+      description: "Our FabLab is equipped with some of the most advanced technologies from Canada, Denmark, Japan, Czech Republic and China.",
+      secondParagraph: "It includes 3D printers and scanners, laser cutters and fraser CNC machines, vinyl cutters and various hand tools, which enable users to bring their digital designs into the physical realm.",
+      image: "/main/3dprinting1.webp",
+      highlights: [
+        "3D printers and scanners",
+        "Laser cutters and CNC machines",
+        "Design software and powerful workstations"
       ]
     },
     {
@@ -33,26 +43,6 @@ const HorizontalScrollSection = () => {
         "Become a leading hub for innovation in Central Asia",
         "Foster a community of makers, creators, and innovators",
         "Contribute to sustainable development through technology"
-      ]
-    },
-    {
-      title: "Advanced Equipment",
-      description: "Our FabLab is equipped with some of the most advanced technologies from Canada, Denmark, Japan, Czech Republic and China. It includes 3D printers and scanners, laser cutters and fraser CNC machines, vinyl cutters and various hand tools, which enable users to bring their digital designs into the physical realm.",
-      image: "/main/3dprinting1.webp",
-      highlights: [
-        "3D printers and scanners",
-        "Laser cutters and CNC machines",
-        "Design software and powerful workstations"
-      ]
-    },
-    {
-      title: "Education Through Experience",
-      description: "Education is a cornerstone of the FabLab's mission. By introducing students and the community to STEM through hands-on experience, the lab nurtures interest in these critical fields. Workshops and courses range from basic introductions to technology to advanced classes in computer aided design, virtual prototyping, reverse engineering, robotics, programming, and material science.",
-      image: "/main/scrolling2.webp",
-      highlights: [
-        "Hands-on STEM education",
-        "Workshops and courses for all skill levels",
-        "MIT-developed Fab Academy curriculum"
       ]
     }
   ];
@@ -241,7 +231,7 @@ const HorizontalScrollSection = () => {
         <div 
           ref={contentRef}
           className="flex items-stretch pl-8 md:pl-16 lg:pl-24 will-change-transform"
-          style={{ transition: "transform 0.05s ease-out", gap: "calc(30vw)" }}
+          style={{ transition: "transform 0.05s ease-out", gap: "calc(22vw)" }}
         >
           {/* What is FabLab? - standalone text element */}
           <div className="flex-shrink-0 w-[100vw]">
@@ -254,10 +244,10 @@ const HorizontalScrollSection = () => {
                 
                 <div className="text-gray-800 text-lg md:text-xl lg:text-2xl leading-relaxed space-y-6">
                   <p>
-                    FabLab is a fabrication laboratory that represents a global movement to democratize access to tools for personal and community invention.
+                    Fabrication laboratory that represents a global movement to democratize access to tools for personal and community invention.
                   </p>
                   <p>
-                    Our FabLab at the Center for Youth Initiatives is the first in Uzbekistan to join MIT's global network of over 2,000 laboratories in 120+ countries. We provide cutting-edge equipment, training, and resources for digital fabrication, prototyping, and innovation.
+                    Our FabLab at the Center for Youth Initiatives is the first in Uzbekistan to join MIT's global network of over 2,000 laboratories in 120+ countries.
                   </p>
                 </div>
                 
@@ -321,71 +311,99 @@ const HorizontalScrollSection = () => {
             </div>
           </div>
 
-          {aboutFabLabContent.map((item, index) => (
-            <div 
-              key={index} 
-              className="flex-shrink-0 w-[90vw] max-w-[1000px] bg-white rounded-lg shadow-lg overflow-hidden"
-            >
-              <div className="flex flex-col md:flex-row h-full">
-                {/* Text content - left side on desktop, top on mobile */}
-                <div className="p-4 md:p-6 lg:p-8 flex flex-col md:w-1/2 order-2 md:order-1">
-                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-[#329db7]">{item.title}</h2>
-                  <p className="text-gray-700 mb-6">{item.description}</p>
-                  
-                  {/* Highlights */}
-                  <div className="mt-auto">
-                    <h3 className="font-semibold text-gray-900 mb-2">Key Points:</h3>
-                    <ul className="space-y-2">
-                      {item.highlights.map((highlight, i) => (
-                        <li key={i} className="flex items-start">
-                          <div className="mr-2 mt-1 text-[#329db7]">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                              <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                          </div>
-                          <span>{highlight}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
+          {/* Our Mission - standalone text element similar to What is FabLab? */}
+          <div className="flex-shrink-0 w-[100vw]">
+            <div className="flex flex-col md:flex-row h-full items-center px-4 md:px-8 lg:px-12">
+              {/* Text content - left side */}
+              <div className="p-4 md:p-6 lg:p-8 flex flex-col md:w-1/2">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-[#329db7]">
+                  Our Mission
+                </h2>
                 
-                {/* Image - right side on desktop, bottom on mobile */}
-                <div className="md:w-1/2 h-[180px] md:h-auto overflow-hidden relative order-1 md:order-2">
-                  <img 
-                    src={item.image} 
-                    alt={item.title} 
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      // Fallback to a default image if the specified one fails to load
-                      (e.target as HTMLImageElement).src = "/fablab/logo.png";
-                    }}
-                  />
-                  <div className="absolute top-0 right-0 w-12 h-12 bg-[#329db7]"></div>
+                <div className="text-gray-800 text-lg md:text-xl lg:text-2xl leading-relaxed space-y-6 max-w-xl">
+                  <p>
+                    To equip Uzbekistan's youth with cutting-edge technologies that drive societal development and solve real economic challenges, while ensuring equal participation of female youth.
+                  </p>
+                  <p>
+                    We believe in creating an inclusive environment where innovation thrives and everyone has the opportunity to develop technical skills that shape our future.
+                  </p>
+                </div>
+              </div>
+              
+              {/* Empty right side to maintain layout consistency */}
+              <div className="md:w-3/5 h-[400px] md:h-[500px] lg:h-[600px] overflow-visible relative ml-0 md:ml-8 mt-8 md:mt-0">
+                {/* No image here */}
+              </div>
+            </div>
+          </div>
+
+          {/* Advanced Equipment - standalone text element with exact same structure */}
+          <div className="flex-shrink-0 w-[100vw]" style={{ marginLeft: "-78vw" }}>
+            <div className="flex flex-col md:flex-row h-full items-center px-4 md:px-8 lg:px-12">
+              {/* Image on left side */}
+              <div className="md:w-2/5 h-[400px] md:h-[500px] lg:h-[600px] overflow-visible relative">
+                <img 
+                  src={aboutFabLabContent[1].image}
+                  alt={aboutFabLabContent[1].title}
+                  className="w-full h-full object-cover rounded-lg"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = "/fablab/logo.png";
+                  }}
+                />
+              </div>
+              
+              {/* Text content on right side */}
+              <div className="p-4 md:p-6 lg:p-8 flex flex-col md:w-3/5 ml-0 md:ml-8 mt-8 md:mt-0">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-[#329db7]">
+                  {aboutFabLabContent[1].title}
+                </h2>
+                
+                <div className="text-gray-800 text-lg md:text-xl lg:text-2xl leading-relaxed space-y-6 max-w-xl">
+                  <p>
+                    {aboutFabLabContent[1].description}
+                  </p>
+                  <p>
+                    {aboutFabLabContent[1].secondParagraph}
+                  </p>
                 </div>
               </div>
             </div>
-          ))}
-        </div>
+          </div>
 
-        {/* Scroll indicators - show different indicators based on device and scroll position */}
-        <div className="absolute bottom-8 right-8 flex items-center space-x-2 text-sm text-gray-500">
-          {hasReachedEnd ? (
-            <>
-              <span>Continue</span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="animate-bounce">
-                <path d="M12 5v14M19 12l-7 7-7-7"/>
-              </svg>
-            </>
-          ) : (
-            <>
-              <span className="hidden md:inline">Scroll</span>
-              <span className="md:hidden">Swipe</span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="animate-pulse">
-                <path d="M9 18l6-6-6-6"/>
-              </svg>
-            </>
-          )}
+          {/* New Section - exact same structure as Advanced Equipment */}
+          <div className="flex-shrink-0 w-[100vw]" style={{ marginLeft: "-40vw" }}>
+            <div className="flex flex-col md:flex-row h-full items-center px-4 md:px-8 lg:px-12">
+              {/* Image on left side - same as Advanced Equipment */}
+              <div className="md:w-2/5 h-[400px] md:h-[500px] lg:h-[600px] overflow-visible relative">
+                <img 
+                  src="/main/scrolling1.webp"
+                  alt="Our Vision"
+                  className="w-full h-full object-cover rounded-lg"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = "/main/cfyi.webp";
+                  }}
+                />
+              </div>
+              
+              {/* Text content on right side - same as Advanced Equipment */}
+              <div className="p-4 md:p-6 lg:p-8 flex flex-col md:w-3/5 ml-0 md:ml-8 mt-8 md:mt-0">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-[#329db7]">
+                  Our Vision
+                </h2>
+                
+                <div className="text-gray-800 text-lg md:text-xl lg:text-2xl leading-relaxed space-y-6 max-w-xl">
+                  <p>
+                    To create a makerspace for the youth to learn, create, and innovate, and to contribute to the sustainable development of the Republic of Uzbekistan.
+                  </p>
+                  <p>
+                    We aim to be a beacon of innovation and inventive creativity within Uzbekistan's burgeoning technological landscape.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Remove the map through the remaining sections since it's a duplicate */}
         </div>
 
         {/* Remove progress indicator */}

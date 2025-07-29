@@ -9,6 +9,7 @@ import AboutUsSection from "@/components/AboutUsSection";
 import MembershipSection from "@/components/MembershipSection";
 import TrainingSection from "@/components/TrainingSection";
 import SEOHelmet from "@/components/SEOHelmet";
+import HorizontalScrollSection from "@/components/HorizontalScrollSection";
 import { useTranslation } from "react-i18next";
 
 const Index = () => {
@@ -53,6 +54,7 @@ const Index = () => {
       <main>
         <HeroSection />
         <ServiceCategories />
+        <HorizontalScrollSection />
         <AboutUsSection />
         <ScrollImageSlider />
         <ImageFabLabTour />

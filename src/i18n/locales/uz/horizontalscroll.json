@@ -1,0 +1,37 @@
+{
+  "whatIsFabLab": {
+    "title": "FabLab nima?",
+    "description1": "Shaxsiy va jamoat ixtirochiligi uchun asboblarga kirishni demokratlashtiruvchi global harakatni ifodalovchi ishlab chiqarish laboratoriyasi.",
+    "description2": "Yoshlar tashabbusi markazidagi bizning FabLab Oʻzbekistonda MITning 120+ mamlakatidagi 2000 dan ortiq laboratoriyalardan iborat global tarmogʻiga qoʻshilgan birinchi laboratoriya."
+  },
+  "mission": {
+    "title": "Bizning missiyamiz",
+    "description1": "O'zbekiston yoshlarini jamiyat rivojlanishini ta'minlaydigan va haqiqiy iqtisodiy muammolarni hal qiladigan ilg'or texnologiyalar bilan ta'minlash, ayni paytda ayol yoshlarning teng ishtirokini ta'minlash.",
+    "description2": "Biz innovatsiyalar gullab-yashnagan va har kimda kelajagimizni shakllantiradigan texnik ko'nikmalarni rivojlantirish imkoniyati mavjud bo'lgan inklyuziv muhit yaratishga ishonamiz.",
+    "highlights": [
+      "Ilg'or ishlab chiqarish asboblariga kirishni demokratlashtirish",
+      "Innovatsiya va ixtirochilik ijodkorligini rivojlantirish",
+      "Jins yoki kelib chiqishidan qat'iy nazar inklyuziv ishtirokni ta'minlash"
+    ]
+  },
+  "equipment": {
+    "title": "Ilg'or uskunalar",
+    "description1": "Bizning FabLab Kanada, Daniya, Yaponiya, Chexiya va Xitoydan kelgan eng ilg'or texnologiyalar bilan jihozlangan.",
+    "description2": "U 3D printerlar va skanerlar, lazer kesish mashinalari va frezer CNC mashinalari, vinil kesish mashinalari va turli xil qo'l asboblarini o'z ichiga oladi, bu esa foydalanuvchilarga raqamli dizaynlarini jismoniy olamga olib kelish imkonini beradi.",
+    "highlights": [
+      "3D printerlar va skanerlar",
+      "Lazer kesish mashinalari va CNC stanoklar",
+      "Dizayn dasturlari va kuchli ish stantsiyalari"
+    ]
+  },
+  "vision": {
+    "title": "Bizning vizyonimiz",
+    "description1": "Yoshlar uchun o'rganish, yaratish va innovatsiya qilish uchun makerspace yaratish va O'zbekiston Respublikasining barqaror rivojlanishiga hissa qo'shish.",
+    "description2": "Biz O'zbekistonning rivojlanayotgan texnologik landshaftida innovatsiya va ixtirochilik ijodkorligining mayoqi bo'lishni maqsad qilamiz.",
+    "highlights": [
+      "Markaziy Osiyoda innovatsiyalar uchun yetakchi markaz bo'lish",
+      "Ishlab chiqaruvchilar, yaratuvchilar va innovatorlar hamjamiyatini rivojlantirish",
+      "Texnologiya orqali barqaror rivojlanishga hissa qo'shish"
+    ]
+  }
+} 

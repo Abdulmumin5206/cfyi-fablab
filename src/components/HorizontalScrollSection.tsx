@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import GradientText from "./GradientText";
 
 const HorizontalScrollSection = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation('horizontalscroll');
   const sectionRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -13,39 +13,17 @@ const HorizontalScrollSection = () => {
   const [hasReachedStart, setHasReachedStart] = useState(true);
   const [contentWidth, setContentWidth] = useState(0);
 
-  // Content for the horizontal scrolling section with real FabLab content
-  const aboutFabLabContent = [
-    {
-      title: "Our Mission",
-      description: "To equip Uzbekistan's youth with cutting-edge technologies that drive societal development and solve real economic challenges, while ensuring equal participation of female youth.",
-      highlights: [
-        "Democratize access to advanced fabrication tools",
-        "Foster innovation and inventive creativity",
-        "Ensure inclusive participation regardless of gender or background"
-      ]
-    },
-    {
-      title: "Advanced Equipment",
-      description: "Our FabLab is equipped with some of the most advanced technologies from Canada, Denmark, Japan, Czech Republic and China.",
-      secondParagraph: "It includes 3D printers and scanners, laser cutters and fraser CNC machines, vinyl cutters and various hand tools, which enable users to bring their digital designs into the physical realm.",
-      image: "/main/3dprinting1.webp",
-      highlights: [
-        "3D printers and scanners",
-        "Laser cutters and CNC machines",
-        "Design software and powerful workstations"
-      ]
-    },
-    {
-      title: "Our Vision",
-      description: "To create a makerspace for the youth to learn, create, and innovate, and to contribute to the sustainable development of the Republic of Uzbekistan. We aim to be a beacon of innovation and inventive creativity within Uzbekistan's burgeoning technological landscape.",
-      image: "/main/cfyi.webp",
-      highlights: [
-        "Become a leading hub for innovation in Central Asia",
-        "Foster a community of makers, creators, and innovators",
-        "Contribute to sustainable development through technology"
-      ]
-    }
-  ];
+  // Check if current language is Russian to apply smaller font size
+  const isRussian = i18n.language === 'ru';
+  
+  // Dynamic classes for Russian language
+  const titleClasses = isRussian 
+    ? "text-2xl md:text-3xl lg:text-4xl font-bold mb-8 text-[#329db7]"
+    : "text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-[#329db7]";
+    
+  const textClasses = isRussian
+    ? "text-gray-800 text-base md:text-lg lg:text-xl leading-relaxed space-y-6"
+    : "text-gray-800 text-lg md:text-xl lg:text-2xl leading-relaxed space-y-6";
 
   // Calculate the content width and set up the section
   useEffect(() => {
@@ -238,16 +216,16 @@ const HorizontalScrollSection = () => {
             <div className="flex flex-col md:flex-row h-full items-center px-4 md:px-8 lg:px-12">
               {/* Text content and logos - left side */}
               <div className="p-4 md:p-6 lg:p-8 flex flex-col md:w-1/2">
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-[#329db7]">
-                  What is FabLab?
+                <h2 className={titleClasses}>
+                  {t('whatIsFabLab.title')}
                 </h2>
                 
-                <div className="text-gray-800 text-lg md:text-xl lg:text-2xl leading-relaxed space-y-6">
+                <div className={textClasses}>
                   <p>
-                    Fabrication laboratory that represents a global movement to democratize access to tools for personal and community invention.
+                    {t('whatIsFabLab.description1')}
                   </p>
                   <p>
-                    Our FabLab at the Center for Youth Initiatives is the first in Uzbekistan to join MIT's global network of over 2,000 laboratories in 120+ countries.
+                    {t('whatIsFabLab.description2')}
                   </p>
                 </div>
                 
@@ -316,16 +294,16 @@ const HorizontalScrollSection = () => {
             <div className="flex flex-col md:flex-row h-full items-center px-4 md:px-8 lg:px-12">
               {/* Text content - left side */}
               <div className="p-4 md:p-6 lg:p-8 flex flex-col md:w-1/2">
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-[#329db7]">
-                  Our Mission
+                <h2 className={titleClasses}>
+                  {t('mission.title')}
                 </h2>
                 
-                <div className="text-gray-800 text-lg md:text-xl lg:text-2xl leading-relaxed space-y-6 max-w-xl">
+                <div className={`${textClasses} max-w-xl`}>
                   <p>
-                    To equip Uzbekistan's youth with cutting-edge technologies that drive societal development and solve real economic challenges, while ensuring equal participation of female youth.
+                    {t('mission.description1')}
                   </p>
                   <p>
-                    We believe in creating an inclusive environment where innovation thrives and everyone has the opportunity to develop technical skills that shape our future.
+                    {t('mission.description2')}
                   </p>
                 </div>
               </div>
@@ -343,8 +321,8 @@ const HorizontalScrollSection = () => {
               {/* Image on left side */}
               <div className="md:w-2/5 h-[400px] md:h-[500px] lg:h-[600px] overflow-visible relative">
                 <img 
-                  src={aboutFabLabContent[1].image}
-                  alt={aboutFabLabContent[1].title}
+                  src="/main/3dprinting1.webp"
+                  alt={t('equipment.title')}
                   className="w-full h-full object-cover rounded-lg"
                   onError={(e) => {
                     (e.target as HTMLImageElement).src = "/fablab/logo.png";
@@ -354,16 +332,16 @@ const HorizontalScrollSection = () => {
               
               {/* Text content on right side */}
               <div className="p-4 md:p-6 lg:p-8 flex flex-col md:w-3/5 ml-0 md:ml-8 mt-8 md:mt-0">
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-[#329db7]">
-                  {aboutFabLabContent[1].title}
+                <h2 className={titleClasses}>
+                  {t('equipment.title')}
                 </h2>
                 
-                <div className="text-gray-800 text-lg md:text-xl lg:text-2xl leading-relaxed space-y-6 max-w-xl">
+                <div className={`${textClasses} max-w-xl`}>
                   <p>
-                    {aboutFabLabContent[1].description}
+                    {t('equipment.description1')}
                   </p>
                   <p>
-                    {aboutFabLabContent[1].secondParagraph}
+                    {t('equipment.description2')}
                   </p>
                 </div>
               </div>
@@ -377,7 +355,7 @@ const HorizontalScrollSection = () => {
               <div className="md:w-2/5 h-[400px] md:h-[500px] lg:h-[600px] overflow-visible relative">
                 <img 
                   src="/main/scrolling1.webp"
-                  alt="Our Vision"
+                  alt={t('vision.title')}
                   className="w-full h-full object-cover rounded-lg"
                   onError={(e) => {
                     (e.target as HTMLImageElement).src = "/main/cfyi.webp";
@@ -387,16 +365,16 @@ const HorizontalScrollSection = () => {
               
               {/* Text content on right side - same as Advanced Equipment */}
               <div className="p-4 md:p-6 lg:p-8 flex flex-col md:w-3/5 ml-0 md:ml-8 mt-8 md:mt-0">
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-[#329db7]">
-                  Our Vision
+                <h2 className={titleClasses}>
+                  {t('vision.title')}
                 </h2>
                 
-                <div className="text-gray-800 text-lg md:text-xl lg:text-2xl leading-relaxed space-y-6 max-w-xl">
+                <div className={`${textClasses} max-w-xl`}>
                   <p>
-                    To create a makerspace for the youth to learn, create, and innovate, and to contribute to the sustainable development of the Republic of Uzbekistan.
+                    {t('vision.description1')}
                   </p>
                   <p>
-                    We aim to be a beacon of innovation and inventive creativity within Uzbekistan's burgeoning technological landscape.
+                    {t('vision.description2')}
                   </p>
                 </div>
               </div>

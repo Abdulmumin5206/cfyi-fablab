@@ -29,6 +29,9 @@ import uzCourses from './locales/uz/courses.json';
 import enMembership from './locales/en/membership.json';
 import ruMembership from './locales/ru/membership.json';
 import uzMembership from './locales/uz/membership.json';
+import enHorizontalScroll from './locales/en/horizontalscroll.json';
+import ruHorizontalScroll from './locales/ru/horizontalscroll.json';
+import uzHorizontalScroll from './locales/uz/horizontalscroll.json';
 
 const resources = {
   en: {
@@ -40,7 +43,8 @@ const resources = {
     mould: enMould,
     digitalfabrication: enDigitalFabrication,
     courses: enCourses,
-    membership: enMembership
+    membership: enMembership,
+    horizontalscroll: enHorizontalScroll
   },
   ru: {
     translation: ruTranslation,
@@ -51,7 +55,8 @@ const resources = {
     mould: ruMould,
     digitalfabrication: ruDigitalFabrication,
     courses: ruCourses,
-    membership: ruMembership
+    membership: ruMembership,
+    horizontalscroll: ruHorizontalScroll
   },
   uz: {
     translation: uzTranslation,
@@ -62,7 +67,8 @@ const resources = {
     mould: uzMould,
     digitalfabrication: uzDigitalFabrication,
     courses: uzCourses,
-    membership: uzMembership
+    membership: uzMembership,
+    horizontalscroll: uzHorizontalScroll
   }
 };
 
@@ -72,7 +78,7 @@ i18n
   .init({
     resources,
     fallbackLng: 'en',
-    ns: ['translation', 'homepage', 'blog', '3dprinting', '3dscanning', 'mould', 'digitalfabrication', 'courses', 'membership'],
+    ns: ['translation', 'homepage', 'blog', '3dprinting', '3dscanning', 'mould', 'digitalfabrication', 'courses', 'membership', 'horizontalscroll'],
     defaultNS: 'translation',
     debug: process.env.NODE_ENV === 'development',
     interpolation: {

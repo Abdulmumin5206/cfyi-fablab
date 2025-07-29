@@ -1,0 +1,37 @@
+{
+  "whatIsFabLab": {
+    "title": "What is FabLab?",
+    "description1": "Fabrication laboratory that represents a global movement to democratize access to tools for personal and community invention.",
+    "description2": "Our FabLab at the Center for Youth Initiatives is the first in Uzbekistan to join MIT's global network of over 2,000 laboratories in 120+ countries."
+  },
+  "mission": {
+    "title": "Our Mission",
+    "description1": "To equip Uzbekistan's youth with cutting-edge technologies that drive societal development and solve real economic challenges, while ensuring equal participation of female youth.",
+    "description2": "We believe in creating an inclusive environment where innovation thrives and everyone has the opportunity to develop technical skills that shape our future.",
+    "highlights": [
+      "Democratize access to advanced fabrication tools",
+      "Foster innovation and inventive creativity",
+      "Ensure inclusive participation regardless of gender or background"
+    ]
+  },
+  "equipment": {
+    "title": "Advanced Equipment",
+    "description1": "Our FabLab is equipped with some of the most advanced technologies from Canada, Denmark, Japan, Czech Republic and China.",
+    "description2": "It includes 3D printers and scanners, laser cutters and fraser CNC machines, vinyl cutters and various hand tools, which enable users to bring their digital designs into the physical realm.",
+    "highlights": [
+      "3D printers and scanners",
+      "Laser cutters and CNC machines",
+      "Design software and powerful workstations"
+    ]
+  },
+  "vision": {
+    "title": "Our Vision",
+    "description1": "To create a makerspace for the youth to learn, create, and innovate, and to contribute to the sustainable development of the Republic of Uzbekistan.",
+    "description2": "We aim to be a beacon of innovation and inventive creativity within Uzbekistan's burgeoning technological landscape.",
+    "highlights": [
+      "Become a leading hub for innovation in Central Asia",
+      "Foster a community of makers, creators, and innovators",
+      "Contribute to sustainable development through technology"
+    ]
+  }
+} 

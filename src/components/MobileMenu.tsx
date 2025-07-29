@@ -9,7 +9,7 @@ interface MobileMenuProps {
 }
 
 const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const [activeSlide, setActiveSlide] = useState(0);
   const totalSlides = 4; // Blog + 3 services
@@ -18,6 +18,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const isLaptopScreen = windowWidth < 1440;
   const isLargeScreen = windowWidth >= 1920; // For 27" monitors and above
+  const isRussian = i18n.language === 'ru';
 
   // State to track closing animation phases
   const [isClosing, setIsClosing] = useState(false);
@@ -312,7 +313,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       <Link
                         to="/blog"
                         onClick={handleClose}
-                        className={`block w-1/2 pl-20 sm:pl-24 md:pl-28 lg:pl-32 ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#329db7]`}
+                        className={`block w-1/2 ${isRussian ? 'pl-28 sm:pl-32 md:pl-36 lg:pl-40' : 'pl-20 sm:pl-24 md:pl-28 lg:pl-32'} ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#329db7]`}
                         style={{
                           transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
                           opacity: isOpen && !isClosing ? 1 : 0,
@@ -342,7 +343,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       <Link
                         to="/about-us"
                         onClick={handleClose}
-                        className={`block w-1/2 pl-20 sm:pl-24 md:pl-28 lg:pl-32 ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#329db7]`}
+                        className={`block w-1/2 ${isRussian ? 'pl-28 sm:pl-32 md:pl-36 lg:pl-40' : 'pl-20 sm:pl-24 md:pl-28 lg:pl-32'} ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#329db7]`}
                         style={{
                           transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
                           opacity: isOpen && !isClosing ? 1 : 0,
@@ -372,7 +373,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       <Link
                         to="/blog"
                         onClick={handleClose}
-                        className={`block w-1/2 pl-20 sm:pl-24 md:pl-28 lg:pl-32 ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#329db7]`}
+                        className={`block w-1/2 ${isRussian ? 'pl-28 sm:pl-32 md:pl-36 lg:pl-40' : 'pl-20 sm:pl-24 md:pl-28 lg:pl-32'} ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#329db7]`}
                         style={{
                           transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
                           opacity: isOpen && !isClosing ? 1 : 0,
@@ -402,7 +403,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       <Link
                         to="/courses"
                         onClick={handleClose}
-                        className={`block w-1/2 pl-20 sm:pl-24 md:pl-28 lg:pl-32 ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#329db7]`}
+                        className={`block w-1/2 ${isRussian ? 'pl-28 sm:pl-32 md:pl-36 lg:pl-40' : 'pl-20 sm:pl-24 md:pl-28 lg:pl-32'} ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#329db7]`}
                         style={{
                           transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
                           opacity: isOpen && !isClosing ? 1 : 0,
@@ -431,7 +432,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       </Link>
                       <button
                         onClick={scrollToMembership}
-                        className={`block text-left w-1/2 pl-20 sm:pl-24 md:pl-28 lg:pl-32 ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#329db7]`}
+                        className={`block text-left w-1/2 ${isRussian ? 'pl-28 sm:pl-32 md:pl-36 lg:pl-40' : 'pl-20 sm:pl-24 md:pl-28 lg:pl-32'} ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#329db7]`}
                         style={{
                           transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
                           opacity: isOpen && !isClosing ? 1 : 0,

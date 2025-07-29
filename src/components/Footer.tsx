@@ -7,7 +7,7 @@ interface FooterProps {
   textClass?: string;
 }
 
-const Footer = ({ bgClass = "bg-black", textClass = "text-white" }: FooterProps) => {
+const Footer = ({ bgClass = "bg-[#212121]", textClass = "text-white" }: FooterProps) => {
   const { t } = useTranslation();
   
   // Determine border colors based on background

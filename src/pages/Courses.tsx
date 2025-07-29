@@ -787,7 +787,7 @@ const CoursesPage = () => {
           currentLang={currentLang}
         />
 
-        <Footer bgClass="bg-black" textClass="text-white" />
+        <Footer bgClass="bg-[#212121]" textClass="text-white" />
       </main>
     </div>
   );

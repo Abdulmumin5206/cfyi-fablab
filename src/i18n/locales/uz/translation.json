@@ -79,7 +79,7 @@
       }
     },
     "molding": {
-      "title": "Qoliplash va Ishlab chiqarish Xizmatlari",
+      "title": "Ishlab chiqarish",
       "description": "Turli materiallar va sohalar uchun keng qamrovli qoliplash va ishlab chiqarish xizmatlari"
     },
     "digitalFabrication": {
@@ -199,7 +199,7 @@
       "description": "Murakkab va muhim komponentlar uchun yuqori aniqlikdagi ishlab chiqarish yechimlari"
     },
     "3dScanning": {
-      "title": "3D Skanerlash va Teskari Muhandislik",
+      "title": "3D Skanerlash",
       "description": "Mahsulot ishlab chiqarish uchun ilg'or 3D skanerlash va teskari muhandislik xizmatlari",
       "highResolution": {
         "title": "Yuqori Aniqlikdagi 3D Skanerlash",

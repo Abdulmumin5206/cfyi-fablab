@@ -18,8 +18,8 @@ const HorizontalScrollSection = () => {
   
   // Dynamic classes for Russian language
   const titleClasses = isRussian 
-    ? "text-2xl md:text-3xl lg:text-4xl font-bold mb-8 text-[#329db7]"
-    : "text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-[#329db7]";
+    ? "text-2xl md:text-3xl lg:text-4xl font-bold mb-8"
+    : "text-3xl md:text-4xl lg:text-5xl font-bold mb-8";
     
   const textClasses = isRussian
     ? "text-gray-800 text-base md:text-lg lg:text-xl leading-relaxed space-y-6"
@@ -216,9 +216,9 @@ const HorizontalScrollSection = () => {
             <div className="flex flex-col md:flex-row h-full items-center px-4 md:px-8 lg:px-12">
               {/* Text content and logos - left side */}
               <div className="p-4 md:p-6 lg:p-8 flex flex-col md:w-1/2">
-                <h2 className={titleClasses}>
+                <GradientText className={titleClasses}>
                   {t('whatIsFabLab.title')}
-                </h2>
+                </GradientText>
                 
                 <div className={textClasses}>
                   <p>
@@ -294,9 +294,9 @@ const HorizontalScrollSection = () => {
             <div className="flex flex-col md:flex-row h-full items-center px-4 md:px-8 lg:px-12">
               {/* Text content - left side */}
               <div className="p-4 md:p-6 lg:p-8 flex flex-col md:w-1/2">
-                <h2 className={titleClasses}>
+                <GradientText className={titleClasses}>
                   {t('mission.title')}
-                </h2>
+                </GradientText>
                 
                 <div className={`${textClasses} max-w-xl`}>
                   <p>
@@ -332,9 +332,9 @@ const HorizontalScrollSection = () => {
               
               {/* Text content on right side */}
               <div className="p-4 md:p-6 lg:p-8 flex flex-col md:w-3/5 ml-0 md:ml-8 mt-8 md:mt-0">
-                <h2 className={titleClasses}>
+                <GradientText className={titleClasses}>
                   {t('equipment.title')}
-                </h2>
+                </GradientText>
                 
                 <div className={`${textClasses} max-w-xl`}>
                   <p>
@@ -365,9 +365,9 @@ const HorizontalScrollSection = () => {
               
               {/* Text content on right side - same as Advanced Equipment */}
               <div className="p-4 md:p-6 lg:p-8 flex flex-col md:w-3/5 ml-0 md:ml-8 mt-8 md:mt-0">
-                <h2 className={titleClasses}>
+                <GradientText className={titleClasses}>
                   {t('vision.title')}
-                </h2>
+                </GradientText>
                 
                 <div className={`${textClasses} max-w-xl`}>
                   <p>

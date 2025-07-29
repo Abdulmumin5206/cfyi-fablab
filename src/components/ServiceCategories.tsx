@@ -161,15 +161,9 @@ const ServiceCategories = () => {
                   style={{ transformOrigin: 'center', willChange: 'transform' }}></div>
 
                 <div className={`absolute bottom-0 left-0 right-0 ${category.color} py-3 px-4`}>
-                  <GradientText
-                    colors={category.id === '3d-printing' ? 
-                      ["#ff6600", "#e6194b", "#2ecc71"] : 
-                      ["#e6194b", "#3cb44b", "#0082c8"]}
-                    animationSpeed={4}
-                    className="font-medium text-base font-['Magistral']"
-                  >
+                  <h3 className="font-medium text-base font-['Magistral'] text-white">
                     {t(category.titleKey)}
-                  </GradientText>
+                  </h3>
                 </div>
               </div>
 
@@ -254,22 +248,12 @@ const ServiceCategories = () => {
                       }}
                     >
                       <div>
-                        <GradientText
-                          colors={
-                            category.id === '3d-printing' ? ["#ff6600", "#e6194b", "#2ecc71"] :
-                              category.id === 'molding' ? ["#4363d8", "#911eb4", "#f032e6"] :
-                                category.id === 'digital-fabrication' ? ["#f58231", "#e6194b", "#3cb44b"] :
-                                  category.id === 'precision-manufacturing' ? ["#911eb4", "#f032e6", "#4363d8"] :
-                                    ["#0082c8", "#e6194b", "#3cb44b"]
-                          }
-                          animationSpeed={5}
-                          className={`font-bold mb-2 transition-colors duration-300 font-['Magistral'] ${i18n.language === 'en'
+                        <h3 className={`font-bold mb-2 transition-colors duration-300 font-['Magistral'] text-gray-800 ${i18n.language === 'en'
                             ? 'text-lg sm:text-xl lg:text-2xl'
                             : 'text-base sm:text-lg lg:text-xl'
-                            }`}
-                        >
+                            }`}>
                           {t(category.titleKey)}
-                        </GradientText>
+                        </h3>
                         <p className={`text-gray-700 leading-relaxed transition-colors duration-300 font-['Magistral'] ${i18n.language === 'en'
                           ? 'text-sm sm:text-base'
                           : 'text-xs sm:text-sm'

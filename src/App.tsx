@@ -11,6 +11,7 @@ import MouldPage from "./pages/Mould";
 import DigitalFabricationPage from "./pages/DigitalFabrication";
 import ThreeDScanningPage from "./pages/ThreeDScanning";
 import CoursesPage from "./pages/Courses";
+import AboutUsPage from "./pages/AboutUs";
 import BlogIndex from "./pages/blog/Index";
 import BlogPost from "./pages/blog/BlogPost";
 import SplashScreen from "./components/SplashScreen";
@@ -239,6 +240,7 @@ const App = () => {
                 <Route path="/digital-fabrication" element={<DigitalFabricationPage />} />
                 <Route path="/3d-scanning" element={<ThreeDScanningPage />} />
                 <Route path="/courses" element={<CoursesPage />} />
+                <Route path="/about-us" element={<AboutUsPage />} />
                 <Route path="/blog" element={<BlogIndex />} />
                 <Route path="/blog/:slug" element={<BlogPost />} />
                 <Route path="*" element={<NotFound />} />

@@ -380,20 +380,18 @@ const Header = () => {
                 </div>
 
                 {/* Other top-level links */}
-                {/* Wrap About Fablab link in a styled span */}
+                {/* Wrap About Us link in a styled span */}
                 <span
                   style={{...textStyle, ...buttonStyle}}
                   className={`flex items-center space-x-1 border px-2 sm:px-3 py-1.5 sm:py-2 h-[38px] sm:h-[42px] ${isLaptopScreen ? 'md:h-[38px]' : 'lg:h-[42px] xl:h-[46px]'} text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} ${isScrolled ? "border-black bg-transparent text-black" : (shouldUseBlackTheme && !isMobileScreen ? "border-black bg-black text-white" : shouldUseWhiteText ? "border-white bg-transparent text-white" : shouldUseBlackText ? "border-black bg-transparent text-black" : "border-white bg-transparent text-white")}`}
                 >
-                  <a
-                    href="https://cfyi.uz/fablab"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Link
+                    to="/about-us"
                     style={textStyle}
                     className={`${isScrolled ? "text-black" : shouldUseWhiteText ? "text-white" : shouldUseBlackText ? "text-black" : "text-white"} hover:text-[#329db7] transition-colors duration-300 text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} px-1 sm:px-2 bg-transparent`}
                   >
-                    {t('header.aboutFablab')}
-                  </a>
+                    {t('header.aboutUs')}
+                  </Link>
                 </span>
 
                 {/* Wrap Projects link in a styled span */}

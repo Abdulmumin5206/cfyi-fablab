@@ -55,9 +55,9 @@ const Index = () => {
         <ServiceCategories />
         <AboutUsSection />
         <ScrollImageSlider />
+        <ImageFabLabTour />
         <MembershipSection />
         <TrainingSection />
-        <ImageFabLabTour />
         <ContactSection />
       </main>
       <Footer />

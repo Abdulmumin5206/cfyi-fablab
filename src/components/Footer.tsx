@@ -178,15 +178,13 @@ const Footer = ({ bgClass = "bg-black", textClass = "text-white" }: FooterProps)
                 </button>
               </li>
               <li>
-                <a 
-                  href="https://cfyi.uz/fablab" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                <Link 
+                  to="/about-us" 
                   className={`text-sm text-white ${linkHoverColor} transition-colors duration-200 flex items-center gap-2`}
                 >
-                  <span>{t('header.aboutFablab')}</span>
+                  <span>{t('header.aboutUs')}</span>
                   <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
-                </a>
+                </Link>
               </li>
               <li>
                 <Link to="/courses" className={`text-sm text-white ${linkHoverColor} transition-colors duration-200 flex items-center gap-2`}>

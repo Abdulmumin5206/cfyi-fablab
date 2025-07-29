@@ -328,7 +328,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       </Link>
                     </div>
                     
-                    {/* Row 2: Molding & CFYI FabLab */}
+                    {/* Row 2: Molding & About Us */}
                     <div className="flex w-full px-8 sm:px-10 md:px-12 lg:px-16">
                       <Link
                         to="/mould"
@@ -343,10 +343,8 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       >
                         {t('serviceCategories.molding.title')}
                       </Link>
-                      <a
-                        href="https://cfyi.uz/fablab"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                      <Link
+                        to="/about-us"
                         onClick={handleClose}
                         className={`block w-1/2 pl-10 sm:pl-12 md:pl-16 lg:pl-20 ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#E6DB00]`}
                         style={{
@@ -356,8 +354,8 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                           transitionDelay: isOpen && !isClosing ? '0.95s' : isClosing ? '75ms' : '0.15s'
                         }}
                       >
-                        {t('header.aboutFablab')}
-                      </a>
+                        {t('header.aboutUs')}
+                      </Link>
                     </div>
                     
                     {/* Row 3: Digital Fabrication & Blog */}

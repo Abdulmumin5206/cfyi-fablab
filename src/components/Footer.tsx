@@ -34,7 +34,7 @@ const Footer = ({ bgClass = "bg-black", textClass = "text-white" }: FooterProps)
   return (
     <footer className={`${bgClass} ${textClass}`}>
       <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr] gap-8 lg:gap-12 py-12">
           {/* Logo and Description */}
           <div className="space-y-6">
             <div className="flex flex-row md:flex-row items-center gap-6">
@@ -122,7 +122,7 @@ const Footer = ({ bgClass = "bg-black", textClass = "text-white" }: FooterProps)
           
           {/* Services Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">{t('footer.services')}</h3>
+            <h3 className="text-lg font-semibold mb-4 mt-8">{t('footer.services')}</h3>
             <ul className="space-y-3">
               {[
                 {
@@ -166,7 +166,7 @@ const Footer = ({ bgClass = "bg-black", textClass = "text-white" }: FooterProps)
           
           {/* About Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">{t('footer.about')}</h3>
+            <h3 className="text-lg font-semibold mb-4 mt-8">{t('footer.about')}</h3>
             <ul className="space-y-3">
               <li>
                 <button 
@@ -212,7 +212,7 @@ const Footer = ({ bgClass = "bg-black", textClass = "text-white" }: FooterProps)
           
           {/* Contact Info */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">{t('footer.contact')}</h3>
+            <h3 className="text-lg font-semibold mb-4 mt-8">{t('footer.contact')}</h3>
             <ul className="space-y-3">
               <li className={`text-sm ${secondaryTextColor}`}>
                 17 Olmachi St., Mirzo-Ulugbek,<br />

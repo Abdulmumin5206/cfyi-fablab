@@ -272,11 +272,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
             {/* Menu Content and Mobile Slider */}
             <div className="flex-1 flex flex-col h-full overflow-hidden">
               {/* Header with fade-down effect - FIXED at top */}
-              <div className={`flex justify-between items-center h-16 sm:h-20 ${isLaptopScreen ? 'md:h-[75px]' : 'md:h-24 lg:h-28'}`}>
-                <div className={`h-full flex items-center pl-4 sm:pl-6 ${isLaptopScreen ? 'md:pl-8' : 'md:pl-10 lg:pl-16 xl:pl-20'}`}>
-                  {/* Empty space for alignment */}
-                </div>
-
+              <div className={`flex justify-end items-center h-16 sm:h-20 ${isLaptopScreen ? 'md:h-[75px]' : 'md:h-24 lg:h-28'}`}>
                 {/* Right side nav with close button - always visible */}
                 <div className={`h-full flex items-center px-3 sm:px-4 ${isLaptopScreen ? 'md:px-6' : 'md:px-8 lg:px-12 xl:px-20'}`}>
                   <button
@@ -284,7 +280,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                     className={`flex items-center justify-center hover:opacity-75 transition-opacity`}
                     aria-label="Close menu"
                   >
-                    <span className={`flex items-center space-x-1 border border-white px-2 sm:px-3 py-1.5 sm:py-2 h-[38px] sm:h-[42px] ${isLaptopScreen ? 'md:h-[38px]' : 'lg:h-[42px] xl:h-[46px]'} bg-black text-white`}>
+                    <span className={`flex items-center space-x-1 border border-white px-2 sm:px-3 py-1.5 sm:py-2 h-[38px] sm:h-[42px] ${isLaptopScreen ? 'md:h-[38px]' : 'lg:h-[42px] xl:h-[46px]'} bg-transparent text-white`}>
                       <X size={isLaptopScreen ? 16 : 18} className={`${isLaptopScreen ? 'md:w-4 md:h-4' : 'lg:w-5 lg:h-5 xl:w-6 xl:h-6'}`} />
                       <span className={`text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'}`}>{t('header.menu')}</span>
                     </span>
@@ -293,7 +289,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
               </div>
 
               {/* Scrollable content area */}
-              <div className="flex-1 overflow-y-auto flex items-center justify-center">
+              <div className="flex-1 overflow-y-auto flex items-start justify-center pt-8 md:pt-12 lg:pt-16">
                 {/* Navigation with float-in effect - Centered both horizontally and vertically */}
                 <div className="w-full max-w-6xl mx-auto px-4 md:px-8 lg:px-12">
                   {/* Navigation Links - improved spacing and bigger text */}
@@ -303,7 +299,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       <Link
                         to="/3d-printing"
                         onClick={handleClose}
-                        className={`block w-1/2 ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#cb2026]`}
+                        className={`block w-1/2 ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#329db7]`}
                         style={{
                           transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
                           opacity: isOpen && !isClosing ? 1 : 0,
@@ -316,7 +312,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       <Link
                         to="/blog"
                         onClick={handleClose}
-                        className={`block w-1/2 pl-10 sm:pl-12 md:pl-16 lg:pl-20 ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#E6DB00]`}
+                        className={`block w-1/2 pl-20 sm:pl-24 md:pl-28 lg:pl-32 ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#329db7]`}
                         style={{
                           transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
                           opacity: isOpen && !isClosing ? 1 : 0,
@@ -333,7 +329,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       <Link
                         to="/mould"
                         onClick={handleClose}
-                        className={`block w-1/2 ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#0e9a48]`}
+                        className={`block w-1/2 ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#329db7]`}
                         style={{
                           transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
                           opacity: isOpen && !isClosing ? 1 : 0,
@@ -346,7 +342,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       <Link
                         to="/about-us"
                         onClick={handleClose}
-                        className={`block w-1/2 pl-10 sm:pl-12 md:pl-16 lg:pl-20 ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#E6DB00]`}
+                        className={`block w-1/2 pl-20 sm:pl-24 md:pl-28 lg:pl-32 ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#329db7]`}
                         style={{
                           transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
                           opacity: isOpen && !isClosing ? 1 : 0,
@@ -363,7 +359,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       <Link
                         to="/digital-fabrication"
                         onClick={handleClose}
-                        className={`block w-1/2 ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#35469d]`}
+                        className={`block w-1/2 ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#329db7]`}
                         style={{
                           transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
                           opacity: isOpen && !isClosing ? 1 : 0,
@@ -376,7 +372,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       <Link
                         to="/blog"
                         onClick={handleClose}
-                        className={`block w-1/2 pl-10 sm:pl-12 md:pl-16 lg:pl-20 ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#E6DB00]`}
+                        className={`block w-1/2 pl-20 sm:pl-24 md:pl-28 lg:pl-32 ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#329db7]`}
                         style={{
                           transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
                           opacity: isOpen && !isClosing ? 1 : 0,
@@ -393,7 +389,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       <Link
                         to="/digital-fabrication#precision-manufacturing"
                         onClick={handleClose}
-                        className={`block w-1/2 ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#8a2be2]`}
+                        className={`block w-1/2 whitespace-nowrap ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#329db7]`}
                         style={{
                           transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
                           opacity: isOpen && !isClosing ? 1 : 0,
@@ -406,7 +402,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       <Link
                         to="/courses"
                         onClick={handleClose}
-                        className={`block w-1/2 pl-10 sm:pl-12 md:pl-16 lg:pl-20 ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#E6DB00]`}
+                        className={`block w-1/2 pl-20 sm:pl-24 md:pl-28 lg:pl-32 ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#329db7]`}
                         style={{
                           transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
                           opacity: isOpen && !isClosing ? 1 : 0,
@@ -423,7 +419,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       <Link
                         to="/3d-scanning"
                         onClick={handleClose}
-                        className={`block w-1/2 ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#ff6b6b]`}
+                        className={`block w-1/2 ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#329db7]`}
                         style={{
                           transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
                           opacity: isOpen && !isClosing ? 1 : 0,
@@ -435,7 +431,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       </Link>
                       <button
                         onClick={scrollToMembership}
-                        className={`block text-left w-1/2 pl-10 sm:pl-12 md:pl-16 lg:pl-20 ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#E6DB00]`}
+                        className={`block text-left w-1/2 pl-20 sm:pl-24 md:pl-28 lg:pl-32 ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#329db7]`}
                         style={{
                           transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
                           opacity: isOpen && !isClosing ? 1 : 0,

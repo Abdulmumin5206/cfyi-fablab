@@ -372,35 +372,35 @@ const Header = () => {
                         <Link
                           to="/mould"
                           style={textStyle}
-                          className={`flex items-center ${isScrolled || shouldUseBlackText ? 'text-black' : 'text-white'} hover:text-white ${isScrolled || shouldUseBlackText ? 'bg-white hover:bg-[#0e9a48]' : 'bg-transparent hover:bg-[#0e9a48]'} transition-all duration-300 ${i18n.language === 'ru' || i18n.language === 'uz' ? 'text-xs lg:text-sm' : 'text-sm lg:text-base'} p-4 w-full border-b ${isScrolled || shouldUseBlackText ? 'border-black' : 'border-white'} last:border-b-0`}
+                          className={`flex items-center ${isScrolled || shouldUseBlackText ? 'text-black' : 'text-white'} hover:text-white ${isScrolled || shouldUseBlackText ? 'bg-white hover:bg-[#329db7]' : 'bg-transparent hover:bg-[#329db7]'} transition-all duration-300 ${i18n.language === 'ru' || i18n.language === 'uz' ? 'text-xs lg:text-sm' : 'text-sm lg:text-base'} p-4 w-full border-b ${isScrolled || shouldUseBlackText ? 'border-black' : 'border-white'} last:border-b-0`}
                         >
                           {t('serviceCategories.molding.title')}
                         </Link>
                         <Link
                           to="/3d-printing"
                           style={textStyle}
-                          className={`flex items-center ${isScrolled || shouldUseBlackText ? 'text-black' : 'text-white'} hover:text-white ${isScrolled || shouldUseBlackText ? 'bg-white hover:bg-[#cb2026]' : 'bg-transparent hover:bg-[#cb2026]'} transition-all duration-300 ${i18n.language === 'ru' || i18n.language === 'uz' ? 'text-xs lg:text-sm' : 'text-sm lg:text-base'} p-4 w-full border-b ${isScrolled || shouldUseBlackText ? 'border-black' : 'border-white'} last:border-b-0`}
+                          className={`flex items-center ${isScrolled || shouldUseBlackText ? 'text-black' : 'text-white'} hover:text-white ${isScrolled || shouldUseBlackText ? 'bg-white hover:bg-[#329db7]' : 'bg-transparent hover:bg-[#329db7]'} transition-all duration-300 ${i18n.language === 'ru' || i18n.language === 'uz' ? 'text-xs lg:text-sm' : 'text-sm lg:text-base'} p-4 w-full border-b ${isScrolled || shouldUseBlackText ? 'border-black' : 'border-white'} last:border-b-0`}
                         >
                           {t('serviceCategories.3dPrinting.title')}
                         </Link>
                         <Link
                           to="/digital-fabrication"
                           style={textStyle}
-                          className={`flex items-center ${isScrolled || shouldUseBlackText ? 'text-black' : 'text-white'} hover:text-white ${isScrolled || shouldUseBlackText ? 'bg-white hover:bg-[#35469d]' : 'bg-transparent hover:bg-[#35469d]'} transition-all duration-300 ${i18n.language === 'ru' || i18n.language === 'uz' ? 'text-xs lg:text-sm' : 'text-sm lg:text-base'} p-4 w-full border-b ${isScrolled || shouldUseBlackText ? 'border-black' : 'border-white'} last:border-b-0`}
+                          className={`flex items-center ${isScrolled || shouldUseBlackText ? 'text-black' : 'text-white'} hover:text-white ${isScrolled || shouldUseBlackText ? 'bg-white hover:bg-[#329db7]' : 'bg-transparent hover:bg-[#329db7]'} transition-all duration-300 ${i18n.language === 'ru' || i18n.language === 'uz' ? 'text-xs lg:text-sm' : 'text-sm lg:text-base'} p-4 w-full border-b ${isScrolled || shouldUseBlackText ? 'border-black' : 'border-white'} last:border-b-0`}
                         >
                           {t('serviceCategories.digitalFabrication.title')}
                         </Link>
                         <Link
                           to="/digital-fabrication#precision-manufacturing"
                           style={textStyle}
-                          className={`flex items-center ${isScrolled || shouldUseBlackText ? 'text-black' : 'text-white'} hover:text-white ${isScrolled || shouldUseBlackText ? 'bg-white hover:bg-[#8a2be2]' : 'bg-transparent hover:bg-[#8a2be2]'} transition-all duration-300 ${i18n.language === 'ru' || i18n.language === 'uz' ? 'text-xs lg:text-sm' : 'text-sm lg:text-base'} p-4 w-full border-b ${isScrolled || shouldUseBlackText ? 'border-black' : 'border-white'} last:border-b-0`}
+                          className={`flex items-center ${isScrolled || shouldUseBlackText ? 'text-black' : 'text-white'} hover:text-white ${isScrolled || shouldUseBlackText ? 'bg-white hover:bg-[#329db7]' : 'bg-transparent hover:bg-[#329db7]'} transition-all duration-300 ${i18n.language === 'ru' || i18n.language === 'uz' ? 'text-xs lg:text-sm' : 'text-sm lg:text-base'} p-4 w-full border-b ${isScrolled || shouldUseBlackText ? 'border-black' : 'border-white'} last:border-b-0`}
                         >
                           {t('serviceCategories.precisionManufacturing.title')}
                         </Link>
                         <Link
                           to="/3d-scanning"
                           style={textStyle}
-                          className={`flex items-center ${isScrolled || shouldUseBlackText ? 'text-black' : 'text-white'} hover:text-white ${isScrolled || shouldUseBlackText ? 'bg-white hover:bg-[#ff6b6b]' : 'bg-transparent hover:bg-[#ff6b6b]'} transition-all duration-300 ${i18n.language === 'ru' || i18n.language === 'uz' ? 'text-xs lg:text-sm' : 'text-sm lg:text-base'} p-4 w-full border-b ${isScrolled || shouldUseBlackText ? 'border-black' : 'border-white'} last:border-b-0`}
+                          className={`flex items-center ${isScrolled || shouldUseBlackText ? 'text-black' : 'text-white'} hover:text-white ${isScrolled || shouldUseBlackText ? 'bg-white hover:bg-[#329db7]' : 'bg-transparent hover:bg-[#329db7]'} transition-all duration-300 ${i18n.language === 'ru' || i18n.language === 'uz' ? 'text-xs lg:text-sm' : 'text-sm lg:text-base'} p-4 w-full border-b ${isScrolled || shouldUseBlackText ? 'border-black' : 'border-white'} last:border-b-0`}
                         >
                           {t('serviceCategories.3dScanning.title')}
                         </Link>

@@ -59,6 +59,7 @@ export default {
 					darkred: '#7a1e1a',
 					black: '#111111',
 					gray: '#f1f1f1',
+					offWhite: '#FFFFFF',
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',

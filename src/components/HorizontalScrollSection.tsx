@@ -267,7 +267,7 @@ const HorizontalScrollSection = () => {
     >
       <div 
         ref={containerRef}
-        className="sticky top-0 h-screen w-full overflow-hidden flex items-center bg-white"
+        className="sticky top-0 h-screen w-full overflow-hidden flex items-center bg-off-white"
       >
         {/* Horizontally scrolling content */}
         <div 

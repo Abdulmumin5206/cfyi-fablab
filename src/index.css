@@ -13,7 +13,7 @@
 
 @layer base {
   :root {
-    --background: 0 0% 0%;
+    --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
@@ -107,6 +107,11 @@
   body {
     @apply bg-background text-foreground font-['Magistral'];
   }
+}
+
+/* Custom background color */
+.bg-off-white {
+  background-color: white;
 }
 
 /* Simple horizontal scroll prevention */

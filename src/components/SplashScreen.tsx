@@ -58,7 +58,7 @@ const SplashScreen = ({ onFinished, loadingProgress = 0, isResourcesReady = fals
 
   return (
     <div
-      className="fixed inset-0 w-screen h-screen bg-white z-[9999] flex flex-col justify-center items-center p-5 box-border overflow-hidden"
+      className="fixed inset-0 w-screen h-screen bg-off-white z-[9999] flex flex-col justify-center items-center p-5 box-border overflow-hidden"
       style={{
         transition: 'opacity 800ms cubic-bezier(0.25,0.1,0.25,1)',
         willChange: 'opacity'

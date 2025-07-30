@@ -175,7 +175,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
         >
           <div className="h-full w-full flex flex-col md:flex-row">
             {/* Desktop slider (hidden on small screens) */}
-            <div className="hidden md:block w-[45%] relative overflow-hidden z-20 flex flex-col">
+            <div className="hidden lg:block w-[45%] relative overflow-hidden z-20 flex flex-col">
               {/* Top section - 60% height - Existing slider content */}
               <div className="h-full relative overflow-hidden">
                 <div
@@ -293,26 +293,27 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                     className={`flex items-center justify-center hover:opacity-75 transition-opacity`}
                     aria-label="Close menu"
                   >
-                    <span className={`flex items-center space-x-1 border border-white px-2 sm:px-3 py-1.5 sm:py-2 h-[38px] sm:h-[42px] ${isLaptopScreen ? 'md:h-[38px]' : 'lg:h-[42px] xl:h-[46px]'} bg-transparent text-white`}>
-                      <X size={isLaptopScreen ? 16 : 18} className={`${isLaptopScreen ? 'md:w-4 md:h-4' : 'lg:w-5 lg:h-5 xl:w-6 xl:h-6'}`} />
-                      <span className={`text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'}`}>{t('header.menu')}</span>
+                    <span className={`flex items-center space-x-1 border border-white px-1.5 sm:px-2 md:px-3 py-1 sm:py-1.5 md:py-2 h-[32px] sm:h-[38px] md:h-[42px] ${isLaptopScreen ? 'md:h-[38px]' : 'lg:h-[42px] xl:h-[46px]'} bg-transparent text-white`}>
+                      <X size={14} className={`sm:w-4 sm:h-4 ${isLaptopScreen ? 'md:w-4 md:h-4' : 'lg:w-5 lg:h-5 xl:w-6 xl:h-6'}`} />
+                      <span className={`text-xs sm:text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'}`}>{t('header.menu')}</span>
                     </span>
                   </button>
                 </div>
               </div>
 
               {/* Scrollable content area */}
-              <div className="flex-1 overflow-y-auto flex items-start justify-center pt-8 md:pt-12 lg:pt-16">
+              <div className="flex-1 overflow-y-auto flex items-start justify-center pt-4 sm:pt-8 md:pt-12 lg:pt-16">
                 {/* Navigation with float-in effect - Centered both horizontally and vertically */}
-                <div className="w-full max-w-6xl mx-auto px-4 md:px-8 lg:px-12">
-                  {/* Navigation Links - improved spacing and bigger text */}
-                  <div className="flex flex-col items-center justify-center gap-8 sm:gap-10 md:gap-12 lg:gap-14 w-full">
-                    {/* Row 1: 3D Printing & Projects */}
-                    <div className="flex w-full px-8 sm:px-10 md:px-12 lg:px-16">
+                <div className="w-full max-w-6xl mx-auto px-2 sm:px-4 md:px-8 lg:px-12">
+                  {/* Navigation Links - improved mobile responsiveness */}
+                  <div className="flex flex-col items-center justify-center gap-4 sm:gap-6 md:gap-8 lg:gap-12 w-full">
+                    {/* Mobile and Tablet Grid Layout - 2 columns */}
+                    <div className="grid grid-cols-2 gap-x-20 gap-y-8 w-full max-w-xs mx-auto px-6 lg:hidden justify-items-start">
+                      {/* Row 1 */}
                       <Link
                         to="/3d-printing"
                         onClick={handleClose}
-                        className={`block w-1/2 ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#329db7]`}
+                        className="block text-left text-base md:text-xl font-light text-white hover:text-[#329db7] py-3 leading-tight w-full"
                         style={{
                           transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
                           opacity: isOpen && !isClosing ? 1 : 0,
@@ -325,7 +326,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       <Link
                         to="/blog"
                         onClick={handleClose}
-                        className={`block w-1/2 ${isRussian ? 'pl-28 sm:pl-32 md:pl-36 lg:pl-40' : 'pl-20 sm:pl-24 md:pl-28 lg:pl-32'} ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#329db7]`}
+                        className="block text-left text-base md:text-xl font-light text-white hover:text-[#329db7] py-3 leading-tight w-full"
                         style={{
                           transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
                           opacity: isOpen && !isClosing ? 1 : 0,
@@ -335,14 +336,12 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       >
                         {t('header.projects')}
                       </Link>
-                    </div>
-                    
-                    {/* Row 2: Molding & About Us */}
-                    <div className="flex w-full px-8 sm:px-10 md:px-12 lg:px-16">
+                      
+                      {/* Row 2 */}
                       <Link
                         to="/mould"
                         onClick={handleClose}
-                        className={`block w-1/2 ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#329db7]`}
+                        className="block text-left text-base md:text-xl font-light text-white hover:text-[#329db7] py-3 leading-tight w-full"
                         style={{
                           transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
                           opacity: isOpen && !isClosing ? 1 : 0,
@@ -354,7 +353,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       </Link>
                       <button
                         onClick={scrollToHorizontalSection}
-                        className={`block text-left w-1/2 ${isRussian ? 'pl-28 sm:pl-32 md:pl-36 lg:pl-40' : 'pl-20 sm:pl-24 md:pl-28 lg:pl-32'} ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#329db7]`}
+                        className="block text-left text-base md:text-xl font-light text-white hover:text-[#329db7] py-3 leading-tight w-full"
                         style={{
                           transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
                           opacity: isOpen && !isClosing ? 1 : 0,
@@ -364,14 +363,12 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       >
                         {t('header.aboutUs')}
                       </button>
-                    </div>
-                    
-                    {/* Row 3: Digital Fabrication & Blog */}
-                    <div className="flex w-full px-8 sm:px-10 md:px-12 lg:px-16">
+                      
+                      {/* Row 3 */}
                       <Link
                         to="/digital-fabrication"
                         onClick={handleClose}
-                        className={`block w-1/2 ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#329db7]`}
+                        className="block text-left text-base md:text-xl font-light text-white hover:text-[#329db7] py-3 leading-tight w-full"
                         style={{
                           transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
                           opacity: isOpen && !isClosing ? 1 : 0,
@@ -384,7 +381,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       <Link
                         to="/blog"
                         onClick={handleClose}
-                        className={`block w-1/2 ${isRussian ? 'pl-28 sm:pl-32 md:pl-36 lg:pl-40' : 'pl-20 sm:pl-24 md:pl-28 lg:pl-32'} ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#329db7]`}
+                        className="block text-left text-base md:text-xl font-light text-white hover:text-[#329db7] py-3 leading-tight w-full"
                         style={{
                           transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
                           opacity: isOpen && !isClosing ? 1 : 0,
@@ -394,14 +391,12 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       >
                         {t('header.blog')}
                       </Link>
-                    </div>
-                    
-                    {/* Row 4: Precision Manufacturing & Courses */}
-                    <div className="flex w-full px-8 sm:px-10 md:px-12 lg:px-16">
+                      
+                      {/* Row 4 */}
                       <Link
                         to="/digital-fabrication#precision-manufacturing"
                         onClick={handleClose}
-                        className={`block w-1/2 whitespace-nowrap ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#329db7]`}
+                        className="block text-left text-base md:text-xl font-light text-white hover:text-[#329db7] py-3 leading-tight w-full"
                         style={{
                           transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
                           opacity: isOpen && !isClosing ? 1 : 0,
@@ -414,7 +409,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       <Link
                         to="/courses"
                         onClick={handleClose}
-                        className={`block w-1/2 ${isRussian ? 'pl-28 sm:pl-32 md:pl-36 lg:pl-40' : 'pl-20 sm:pl-24 md:pl-28 lg:pl-32'} ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#329db7]`}
+                        className="block text-left text-base md:text-xl font-light text-white hover:text-[#329db7] py-3 leading-tight w-full"
                         style={{
                           transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
                           opacity: isOpen && !isClosing ? 1 : 0,
@@ -424,14 +419,12 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       >
                         {t('navigation.courses')}
                       </Link>
-                    </div>
-                    
-                    {/* Row 5: 3D Scanning & Membership */}
-                    <div className="flex w-full px-8 sm:px-10 md:px-12 lg:px-16">
+                      
+                      {/* Row 5 */}
                       <Link
                         to="/3d-scanning"
                         onClick={handleClose}
-                        className={`block w-1/2 ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#329db7]`}
+                        className="block text-left text-base md:text-xl font-light text-white hover:text-[#329db7] py-3 leading-tight w-full"
                         style={{
                           transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
                           opacity: isOpen && !isClosing ? 1 : 0,
@@ -443,7 +436,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       </Link>
                       <button
                         onClick={scrollToMembership}
-                        className={`block text-left w-1/2 ${isRussian ? 'pl-28 sm:pl-32 md:pl-36 lg:pl-40' : 'pl-20 sm:pl-24 md:pl-28 lg:pl-32'} ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#329db7]`}
+                        className="block text-left text-base md:text-xl font-light text-white hover:text-[#329db7] py-3 leading-tight w-full"
                         style={{
                           transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
                           opacity: isOpen && !isClosing ? 1 : 0,
@@ -454,14 +447,165 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                         {t('navigation.membership')}
                       </button>
                     </div>
+
+                    {/* Desktop Layout - Keep existing behavior for large screens only */}
+                    <div className="hidden lg:flex flex-col items-center justify-center gap-6 md:gap-8 lg:gap-12 w-full">
+                      {/* Row 1: 3D Printing & Projects */}
+                      <div className="flex flex-row w-full px-4 md:px-8 lg:px-16 gap-0">
+                        <Link
+                          to="/3d-printing"
+                          onClick={handleClose}
+                          className={`block w-1/2 text-left text-xl md:text-2xl ${isLargeScreen ? 'lg:text-3xl xl:text-4xl' : 'lg:text-3xl'} font-light text-white hover:text-[#329db7] py-0`}
+                          style={{
+                            transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
+                            opacity: isOpen && !isClosing ? 1 : 0,
+                            transition: 'transform 300ms ease-out, opacity 300ms ease-out',
+                            transitionDelay: isOpen && !isClosing ? '0.8s' : isClosing ? '0ms' : '0s'
+                          }}
+                        >
+                          {t('header.3dPrinting')}
+                        </Link>
+                        <Link
+                          to="/blog"
+                          onClick={handleClose}
+                          className={`block w-1/2 text-left ${isRussian ? 'pl-16 md:pl-20 lg:pl-28 xl:pl-32' : 'pl-12 md:pl-16 lg:pl-20 xl:pl-24'} text-xl md:text-2xl ${isLargeScreen ? 'lg:text-3xl xl:text-4xl' : 'lg:text-3xl'} font-light text-white hover:text-[#329db7] py-0`}
+                          style={{
+                            transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
+                            opacity: isOpen && !isClosing ? 1 : 0,
+                            transition: 'transform 300ms ease-out, opacity 300ms ease-out',
+                            transitionDelay: isOpen && !isClosing ? '0.85s' : isClosing ? '25ms' : '0.05s'
+                          }}
+                        >
+                          {t('header.projects')}
+                        </Link>
+                      </div>
+                      
+                      {/* Row 2: Molding & About Us */}
+                      <div className="flex flex-row w-full px-4 md:px-8 lg:px-16 gap-0">
+                        <Link
+                          to="/mould"
+                          onClick={handleClose}
+                          className={`block w-1/2 text-left text-xl md:text-2xl ${isLargeScreen ? 'lg:text-3xl xl:text-4xl' : 'lg:text-3xl'} font-light text-white hover:text-[#329db7] py-0`}
+                          style={{
+                            transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
+                            opacity: isOpen && !isClosing ? 1 : 0,
+                            transition: 'transform 300ms ease-out, opacity 300ms ease-out',
+                            transitionDelay: isOpen && !isClosing ? '0.9s' : isClosing ? '50ms' : '0.1s'
+                          }}
+                        >
+                          {t('serviceCategories.molding.title')}
+                        </Link>
+                        <button
+                          onClick={scrollToHorizontalSection}
+                          className={`block text-left w-1/2 ${isRussian ? 'pl-16 md:pl-20 lg:pl-28 xl:pl-32' : 'pl-12 md:pl-16 lg:pl-20 xl:pl-24'} text-xl md:text-2xl ${isLargeScreen ? 'lg:text-3xl xl:text-4xl' : 'lg:text-3xl'} font-light text-white hover:text-[#329db7] py-0`}
+                          style={{
+                            transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
+                            opacity: isOpen && !isClosing ? 1 : 0,
+                            transition: 'transform 300ms ease-out, opacity 300ms ease-out',
+                            transitionDelay: isOpen && !isClosing ? '0.95s' : isClosing ? '75ms' : '0.15s'
+                          }}
+                        >
+                          {t('header.aboutUs')}
+                        </button>
+                      </div>
+                      
+                      {/* Row 3: Digital Fabrication & Blog */}
+                      <div className="flex flex-row w-full px-4 md:px-8 lg:px-16 gap-0">
+                        <Link
+                          to="/digital-fabrication"
+                          onClick={handleClose}
+                          className={`block w-1/2 text-left text-xl md:text-2xl ${isLargeScreen ? 'lg:text-3xl xl:text-4xl' : 'lg:text-3xl'} font-light text-white hover:text-[#329db7] py-0 leading-tight`}
+                          style={{
+                            transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
+                            opacity: isOpen && !isClosing ? 1 : 0,
+                            transition: 'transform 300ms ease-out, opacity 300ms ease-out',
+                            transitionDelay: isOpen && !isClosing ? '1.0s' : isClosing ? '100ms' : '0.2s'
+                          }}
+                        >
+                          {t('serviceCategories.digitalFabrication.title')}
+                        </Link>
+                        <Link
+                          to="/blog"
+                          onClick={handleClose}
+                          className={`block w-1/2 text-left ${isRussian ? 'pl-16 md:pl-20 lg:pl-28 xl:pl-32' : 'pl-12 md:pl-16 lg:pl-20 xl:pl-24'} text-xl md:text-2xl ${isLargeScreen ? 'lg:text-3xl xl:text-4xl' : 'lg:text-3xl'} font-light text-white hover:text-[#329db7] py-0`}
+                          style={{
+                            transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
+                            opacity: isOpen && !isClosing ? 1 : 0,
+                            transition: 'transform 300ms ease-out, opacity 300ms ease-out',
+                            transitionDelay: isOpen && !isClosing ? '1.05s' : isClosing ? '125ms' : '0.25s'
+                          }}
+                        >
+                          {t('header.blog')}
+                        </Link>
+                      </div>
+                      
+                      {/* Row 4: Precision Manufacturing & Courses */}
+                      <div className="flex flex-row w-full px-4 md:px-8 lg:px-16 gap-0">
+                        <Link
+                          to="/digital-fabrication#precision-manufacturing"
+                          onClick={handleClose}
+                          className={`block w-1/2 text-left text-xl md:text-2xl ${isLargeScreen ? 'lg:text-3xl xl:text-4xl' : 'lg:text-3xl'} font-light text-white hover:text-[#329db7] py-0 leading-tight break-words`}
+                          style={{
+                            transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
+                            opacity: isOpen && !isClosing ? 1 : 0,
+                            transition: 'transform 300ms ease-out, opacity 300ms ease-out',
+                            transitionDelay: isOpen && !isClosing ? '1.1s' : isClosing ? '150ms' : '0.3s'
+                          }}
+                        >
+                          {t('serviceCategories.precisionManufacturing.title')}
+                        </Link>
+                        <Link
+                          to="/courses"
+                          onClick={handleClose}
+                          className={`block w-1/2 text-left ${isRussian ? 'pl-16 md:pl-20 lg:pl-28 xl:pl-32' : 'pl-12 md:pl-16 lg:pl-20 xl:pl-24'} text-xl md:text-2xl ${isLargeScreen ? 'lg:text-3xl xl:text-4xl' : 'lg:text-3xl'} font-light text-white hover:text-[#329db7] py-0`}
+                          style={{
+                            transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
+                            opacity: isOpen && !isClosing ? 1 : 0,
+                            transition: 'transform 300ms ease-out, opacity 300ms ease-out',
+                            transitionDelay: isOpen && !isClosing ? '1.15s' : isClosing ? '175ms' : '0.35s'
+                          }}
+                        >
+                          {t('navigation.courses')}
+                        </Link>
+                      </div>
+                      
+                      {/* Row 5: 3D Scanning & Membership */}
+                      <div className="flex flex-row w-full px-4 md:px-8 lg:px-16 gap-0">
+                        <Link
+                          to="/3d-scanning"
+                          onClick={handleClose}
+                          className={`block w-1/2 text-left text-xl md:text-2xl ${isLargeScreen ? 'lg:text-3xl xl:text-4xl' : 'lg:text-3xl'} font-light text-white hover:text-[#329db7] py-0`}
+                          style={{
+                            transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
+                            opacity: isOpen && !isClosing ? 1 : 0,
+                            transition: 'transform 300ms ease-out, opacity 300ms ease-out',
+                            transitionDelay: isOpen && !isClosing ? '1.2s' : isClosing ? '200ms' : '0.4s'
+                          }}
+                        >
+                          {t('serviceCategories.3dScanning.title')}
+                        </Link>
+                        <button
+                          onClick={scrollToMembership}
+                          className={`block text-left w-1/2 ${isRussian ? 'pl-16 md:pl-20 lg:pl-28 xl:pl-32' : 'pl-12 md:pl-16 lg:pl-20 xl:pl-24'} text-xl md:text-2xl ${isLargeScreen ? 'lg:text-3xl xl:text-4xl' : 'lg:text-3xl'} font-light text-white hover:text-[#329db7] py-0`}
+                          style={{
+                            transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
+                            opacity: isOpen && !isClosing ? 1 : 0,
+                            transition: 'transform 300ms ease-out, opacity 300ms ease-out',
+                            transitionDelay: isOpen && !isClosing ? '1.25s' : isClosing ? '225ms' : '0.45s'
+                          }}
+                        >
+                          {t('navigation.membership')}
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
 
               {/* Mobile slider content */}
               <div className={`w-full ${isLargeScreen ? 'p-8' : 'p-0'} transition-all duration-700 delay-[800ms] ${isOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-                {/* Mobile slider - Fixed height, always at bottom */}
-                <div className="md:hidden w-full h-[25vh] min-h-[150px] max-h-[200px] flex flex-col justify-end overflow-hidden mt-6">
+                {/* Mobile and Tablet slider - Fixed height, always at bottom */}
+                <div className="lg:hidden w-full h-[40vh] min-h-[200px] max-h-[400px] flex flex-col justify-end overflow-hidden mt-0">
                   <div className={`relative w-full h-full transition-all duration-1000 ${isOpen ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}>
                     {/* Blog Slide */}
                     <div className={`absolute inset-0 transition-opacity duration-700 ease-in-out bg-black ${activeSlide === 0 ? "opacity-100 z-10" : "opacity-0 z-0"}`}>
@@ -477,16 +621,16 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                         }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-black/90" />
-                      <div className="absolute bottom-0 left-0 right-0 p-6">
-                        <div className={`text-[#E6DB00] uppercase text-base font-medium mb-3 transition-all duration-700 delay-300 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>Latest Post</div>
-                        <h2 className={`text-2xl font-light mb-3 text-white transition-all duration-700 delay-400 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>3D Printing Innovations</h2>
-                        <p className={`text-white/80 mb-3 transition-all duration-700 delay-500 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'} ${isLaptopScreen ? 'hidden md:block' : ''}`}>Discover the latest advancements in 3D printing technology</p>
+                      <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5">
+                        <div className={`text-[#E6DB00] uppercase text-sm sm:text-base font-medium mb-2 sm:mb-3 transition-all duration-700 delay-300 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>Latest Post</div>
+                        <h2 className={`text-lg sm:text-xl font-light mb-2 sm:mb-3 text-white transition-all duration-700 delay-400 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'} leading-tight`}>3D Printing Innovations</h2>
+                        <p className={`text-sm sm:text-base text-white/80 mb-3 transition-all duration-700 delay-500 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'} ${isLaptopScreen ? 'hidden md:block' : ''} leading-tight`}>Discover the latest advancements in 3D printing technology</p>
                         <Link
                           to="/blog/3d-printing-innovations"
                           onClick={handleClose}
-                          className={`inline-flex items-center text-base text-white hover:text-[#E6DB00] transition-all duration-700 delay-600 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+                          className={`inline-flex items-center text-sm sm:text-base text-white hover:text-[#E6DB00] transition-all duration-700 delay-600 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
                         >
-                          Read Article <ArrowRight className="ml-3 h-5 w-5" />
+                          Read Article <ArrowRight className="ml-2 sm:ml-3 h-4 w-4 sm:h-5 sm:w-5" />
                         </Link>
                       </div>
                     </div>
@@ -508,26 +652,26 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                           }}
                         />
                         <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-black/90" />
-                        <div className="absolute bottom-0 left-0 right-0 p-6">
-                          <div className={`text-[#E6DB00] uppercase text-base font-medium mb-3 transition-all duration-700 delay-300 ${activeSlide === index + 1 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>Our Services</div>
-                          <h2 className={`text-2xl font-light mb-3 text-white transition-all duration-700 delay-400 ${activeSlide === index + 1 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>{service.title}</h2>
+                        <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5">
+                          <div className={`text-[#E6DB00] uppercase text-sm sm:text-base font-medium mb-2 sm:mb-3 transition-all duration-700 delay-300 ${activeSlide === index + 1 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>Our Services</div>
+                          <h2 className={`text-lg sm:text-xl font-light mb-2 sm:mb-3 text-white transition-all duration-700 delay-400 ${activeSlide === index + 1 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'} leading-tight`}>{service.title}</h2>
                           <Link
                             to={service.path}
                             onClick={handleClose}
-                            className={`inline-flex items-center text-base text-white hover:text-[#E6DB00] transition-all duration-700 delay-600 ${activeSlide === index + 1 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
+                            className={`inline-flex items-center text-sm sm:text-base text-white hover:text-[#E6DB00] transition-all duration-700 delay-600 ${activeSlide === index + 1 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
                           >
-                            {t('mobileMenu.explore')} {service.title} <ArrowRight className="ml-3 h-5 w-5" />
+                            {t('mobileMenu.explore')} {service.title} <ArrowRight className="ml-2 sm:ml-3 h-4 w-4 sm:h-5 sm:w-5" />
                           </Link>
                         </div>
                       </div>
                     ))}
                     {/* Slide Indicators */}
-                    <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
+                    <div className="absolute bottom-3 sm:bottom-4 left-0 right-0 flex justify-center space-x-2">
                       {[...Array(totalSlides)].map((_, index) => (
                         <button
                           key={index}
                           onClick={() => setActiveSlide(index)}
-                          className={`h-2 rounded-full transition-all duration-300 ${activeSlide === index ? "bg-[#E6DB00] w-8" : "bg-white/50 w-2 hover:bg-white/80"}`}
+                          className={`h-2 sm:h-2.5 rounded-full transition-all duration-300 ${activeSlide === index ? "bg-[#E6DB00] w-8 sm:w-10" : "bg-white/50 w-2 sm:w-2.5 hover:bg-white/80"}`}
                           aria-label={`Slide ${index + 1}`}
                         />
                       ))}

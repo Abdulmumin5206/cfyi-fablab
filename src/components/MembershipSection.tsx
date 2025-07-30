@@ -3,6 +3,7 @@ import { Check, Users, Target, BookOpen, Phone, Gift, Box, User, Briefcase, Buil
 import { useTranslation } from "react-i18next";
 import { useMemo, useCallback } from "react";
 import GradientText from "./GradientText";
+import React from "react"; // Added for React.cloneElement
 
 const MembershipSection = () => {
   const { t } = useTranslation();
@@ -145,8 +146,8 @@ const MembershipSection = () => {
 
   // Determine the width of a single set of cards + gaps for calculation
   // A consistent card width and gap is assumed.
-  const CARD_WIDTH = 220; // Smaller card width
-  const GAP_WIDTH = 12;   // Smaller gap between cards
+  const CARD_WIDTH = 280; // Increased card width
+  const GAP_WIDTH = 20;   // Increased gap between cards
 
   // Calculate the width of one full set of original cards plus their gaps
   // (e.g., 4 cards in first row)
@@ -269,13 +270,13 @@ const MembershipSection = () => {
         {/* First Row - Moving Left */}
         <div className="relative overflow-hidden w-full">
           <motion.div
-            className="flex space-x-3 will-change-transform"
+            className="flex space-x-5 will-change-transform"
             animate={{ x: [`0px`, `-${firstRowSetWidth + GAP_WIDTH}px`] }}
             transition={{
               x: {
                 repeat: Infinity,
                 repeatType: "loop",
-                duration: 25,
+                duration: 30,
                 ease: "linear",
               },
             }}
@@ -283,12 +284,12 @@ const MembershipSection = () => {
           >
             {duplicatedFirstRow.map((benefit, index) => (
               <div key={index}>
-                <div className="flex flex-col items-center p-4 bg-white rounded-xl min-w-[220px] max-w-[220px] h-[180px] border border-gray-100">
-                  <div className="mb-3 text-[#329db7] bg-[#329db7]/10 p-2 rounded-full">
-                    {benefit.icon}
+                <div className="flex flex-col items-center p-6 bg-white rounded-xl min-w-[280px] max-w-[280px] h-[220px] border border-gray-100 shadow-md hover:shadow-lg transition-all duration-300">
+                  <div className="mb-4 text-[#329db7] bg-[#329db7]/10 p-3 rounded-full">
+                    {React.cloneElement(benefit.icon, { className: "w-8 h-8" })}
                   </div>
-                  <h4 className="text-sm font-semibold text-center mb-2 text-gray-900 leading-tight">{benefit.title}</h4>
-                  <p className="text-gray-600 text-center text-xs leading-relaxed flex-grow overflow-hidden">{benefit.description}</p>
+                  <h4 className="text-base font-semibold text-center mb-3 text-gray-900 leading-tight">{benefit.title}</h4>
+                  <p className="text-gray-600 text-center text-sm leading-relaxed flex-grow overflow-hidden">{benefit.description}</p>
                 </div>
               </div>
             ))}
@@ -296,15 +297,15 @@ const MembershipSection = () => {
         </div>
 
         {/* Second Row - Moving Right */}
-        <div className="relative overflow-hidden w-full mt-4">
+        <div className="relative overflow-hidden w-full mt-6">
           <motion.div
-            className="flex space-x-3 will-change-transform"
+            className="flex space-x-5 will-change-transform"
             animate={{ x: [`-${secondRowSetWidth + GAP_WIDTH}px`, `0px`] }}
             transition={{
               x: {
                 repeat: Infinity,
                 repeatType: "loop",
-                duration: 25,
+                duration: 30,
                 ease: "linear",
               },
             }}
@@ -312,12 +313,12 @@ const MembershipSection = () => {
           >
             {duplicatedSecondRow.map((benefit, index) => (
               <div key={index}>
-                <div className="flex flex-col items-center p-4 bg-white rounded-xl min-w-[220px] max-w-[220px] h-[180px] border border-gray-100">
-                  <div className="mb-3 text-[#329db7] bg-[#329db7]/10 p-2 rounded-full">
-                    {benefit.icon}
+                <div className="flex flex-col items-center p-6 bg-white rounded-xl min-w-[280px] max-w-[280px] h-[220px] border border-gray-100 shadow-md hover:shadow-lg transition-all duration-300">
+                  <div className="mb-4 text-[#329db7] bg-[#329db7]/10 p-3 rounded-full">
+                    {React.cloneElement(benefit.icon, { className: "w-8 h-8" })}
                   </div>
-                  <h4 className="text-sm font-semibold text-center mb-2 text-gray-900 leading-tight">{benefit.title}</h4>
-                  <p className="text-gray-600 text-center text-xs leading-relaxed flex-grow overflow-hidden">{benefit.description}</p>
+                  <h4 className="text-base font-semibold text-center mb-3 text-gray-900 leading-tight">{benefit.title}</h4>
+                  <p className="text-gray-600 text-center text-sm leading-relaxed flex-grow overflow-hidden">{benefit.description}</p>
                 </div>
               </div>
             ))}

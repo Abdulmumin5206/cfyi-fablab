@@ -441,7 +441,7 @@ const Header = () => {
 
                 {/* Membership link */}
                 <Link
-                  to="/#membership"
+                  to="/#membership-section"
                   onClick={handleMembershipClick}
                   style={{...textStyle, ...buttonStyle}}
                   className={`flex items-center space-x-1 px-2 sm:px-3 py-1.5 sm:py-2 h-[38px] sm:h-[42px] ${isLaptopScreen ? 'md:h-[38px]' : 'lg:h-[42px] xl:h-[46px]'} text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} hover:text-[#329db7] transition-opacity transition-colors duration-300 ${isScrolled ? "border border-black bg-transparent text-black" : (shouldUseBlackTheme && !isMobileScreen ? "border border-black bg-black text-white" : shouldUseWhiteText ? "border border-white bg-transparent text-white" : shouldUseBlackText ? "border border-black bg-transparent text-black" : "border border-white bg-transparent text-white")}`}

@@ -5,9 +5,12 @@ import { useTranslation } from "react-i18next";
 import GradientText from "./GradientText";
 
 const ScrollImageSlider = () => {
-  const { t } = useTranslation('homepage');
+  const { t, i18n } = useTranslation('homepage');
   const containerRef = useRef<HTMLDivElement>(null);
   const [imagesLoaded, setImagesLoaded] = useState(false);
+  
+  // Check if current language is Russian to apply smaller font size
+  const isRussian = i18n.language === 'ru';
 
   // Pre-scaled images (WebP format)
   const images = [
@@ -115,6 +118,11 @@ const ScrollImageSlider = () => {
     });
   }, [images]);
 
+  // Define gradient text class based on language
+  const gradientTextClass = isRussian
+    ? "block text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-extrabold leading-tight"
+    : "block text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-extrabold leading-tight";
+
   return (
     <section ref={containerRef} className="relative h-[400vh]">
       <div className="sticky top-0 h-screen">
@@ -185,7 +193,7 @@ const ScrollImageSlider = () => {
                     <GradientText
                       colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
                       animationSpeed={4}
-                      className="block text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-extrabold leading-tight"
+                      className={gradientTextClass}
                     >
                       {quote.achievement}
                     </GradientText>

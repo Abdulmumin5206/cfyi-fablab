@@ -72,7 +72,7 @@ const ContactSection = () => {
         {/* Section Header */}
         <div className="text-left mb-12 md:mb-16">
           <GradientText
-            colors={["#329db7", "#f71301", "#6bb934", "#329db7", "#f71301", "#6bb934"]}
+            colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
             animationSpeed={4}
             className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4"
           >

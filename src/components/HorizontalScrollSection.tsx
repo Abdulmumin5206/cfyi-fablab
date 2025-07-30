@@ -12,6 +12,10 @@ const HorizontalScrollSection = () => {
   const [hasReachedEnd, setHasReachedEnd] = useState(false);
   const [hasReachedStart, setHasReachedStart] = useState(true);
   const [contentWidth, setContentWidth] = useState(0);
+  // Add state for smoother transitions
+  const [targetProgress, setTargetProgress] = useState(0);
+  const [isScrolling, setIsScrolling] = useState(false);
+  const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // Check if current language is Russian to apply smaller font size
   const isRussian = i18n.language === 'ru';
@@ -34,18 +38,14 @@ const HorizontalScrollSection = () => {
       
       const containerWidth = window.innerWidth;
       const totalContentWidth = contentRef.current!.scrollWidth;
-      // Since we now start with content visible (padding instead of 100vw offset),
-      // we need to account for this in our scrollable distance calculation
-      const initialPadding = 32; // Approximate padding (pl-8 = 32px on small screens)
+      const initialPadding = 32; // pl-8 padding
       const scrollableDistance = totalContentWidth - containerWidth + initialPadding;
       
-      // Set the content width for other calculations
       setContentWidth(scrollableDistance);
       
-      // Set the section height to create enough scroll space
-      // The multiplier (2) determines how much vertical scrolling is needed
-      // to complete the horizontal section
-      sectionRef.current!.style.height = `${scrollableDistance * 2 + window.innerHeight}px`;
+      // FIXED: Reduce section height to minimize dead space at end
+      // Add a smaller buffer (0.6 viewport height) instead of full viewport height
+      sectionRef.current!.style.height = `${scrollableDistance + window.innerHeight * 0.6}px`;
     };
 
     calculateDimensions();
@@ -61,14 +61,15 @@ const HorizontalScrollSection = () => {
     if (!containerRef.current) return;
 
     const options = {
-      threshold: [0.1, 0.2, 0.8, 0.9],
-      rootMargin: "-10% 0px"
+      threshold: [0.1, 0.3, 0.7, 0.9],
+      rootMargin: "-5% 0px"
     };
 
     const observer = new IntersectionObserver((entries) => {
       const entry = entries[0];
       
-      if (entry.intersectionRatio > 0.2 && entry.intersectionRatio < 0.8) {
+      // More restrictive conditions to prevent early activation
+      if (entry.intersectionRatio > 0.3 && entry.intersectionRatio < 0.7) {
         setHorizontalScrollActive(true);
       } else {
         setHorizontalScrollActive(false);
@@ -86,65 +87,139 @@ const HorizontalScrollSection = () => {
 
   // Handle the scroll event to control horizontal scrolling
   useEffect(() => {
+    let animationFrameId: number;
+    let lastScrollY = window.scrollY;
+    let lastTimestamp = 0;
+    
     const handleScroll = () => {
-      if (!sectionRef.current || !containerRef.current || !contentRef.current) return;
-
-      // Get the section's position relative to the viewport
-      const sectionRect = sectionRef.current.getBoundingClientRect();
-      const containerRect = containerRef.current.getBoundingClientRect();
+      lastScrollY = window.scrollY;
       
-      // Calculate how far we've scrolled into the section
-      const scrolledIntoSection = window.innerHeight - sectionRect.top;
-      const sectionHeight = sectionRef.current.offsetHeight;
+      // Set scrolling state to true
+      setIsScrolling(true);
       
-      // Calculate progress through the section (0 to 1)
-      let progress = Math.max(0, Math.min(1, scrolledIntoSection / (sectionHeight - window.innerHeight)));
-      
-      // Adjust progress to account for the viewport height
-      // This creates a "sticky" effect at the beginning and end
-      if (progress < 0.1) {
-        progress = 0;
-        setHasReachedStart(true);
-      } else if (progress > 0.9) {
-        progress = 1;
-        setHasReachedEnd(true);
-      } else {
-        // Normalize progress to 0-1 for the middle 80% of scrolling
-        progress = (progress - 0.1) / 0.8;
-        setHasReachedStart(false);
-        setHasReachedEnd(false);
+      // Clear any existing timeout
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
       }
       
-      setHorizontalProgress(progress);
+      // Set a timeout to detect when scrolling stops
+      scrollTimeoutRef.current = setTimeout(() => {
+        setIsScrolling(false);
+      }, 100);
+      
+      // Use requestAnimationFrame for smoother scrolling
+      if (!animationFrameId) {
+        lastTimestamp = performance.now();
+        animationFrameId = requestAnimationFrame(updateScrollPosition);
+      }
+    };
+    
+    const updateScrollPosition = (timestamp: number) => {
+      animationFrameId = 0;
+      
+      if (!sectionRef.current || !containerRef.current || !contentRef.current) return;
+
+      const sectionRect = sectionRef.current.getBoundingClientRect();
+      const sectionTop = sectionRect.top;
+      const sectionHeight = sectionRect.height;
+      const viewportHeight = window.innerHeight;
+      
+      // Calculate how much of the section has been scrolled through
+      const maxScroll = sectionHeight - viewportHeight;
+      const currentScroll = Math.max(0, -sectionTop);
+      
+      // Calculate raw progress (0 to 1)
+      let rawProgress = Math.min(1, currentScroll / maxScroll);
+      
+      if (rawProgress < 0.03) {
+        setHasReachedStart(true);
+        setHasReachedEnd(false);
+        setTargetProgress(0);
+      } else if (rawProgress > 0.92) {
+        setHasReachedEnd(true);
+        setHasReachedStart(false);
+        setTargetProgress(1);
+      } else {
+        // Adjusted scrolling range to account for new thresholds
+        const progress = (rawProgress - 0.03) / 0.89;
+        // Ensure progress stays between 0 and 1
+        const clampedProgress = Math.max(0, Math.min(1, progress));
+        setHasReachedStart(false);
+        setHasReachedEnd(false);
+        setTargetProgress(clampedProgress);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    // Initial call
+    updateScrollPosition(performance.now());
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+    };
+  }, [contentWidth]);
+
+  // Separate effect for smooth animation
+  useEffect(() => {
+    let animationFrameId: number;
+    
+    const animate = () => {
+      // Calculate the difference between current and target progress
+      const diff = targetProgress - horizontalProgress;
+      
+      // If difference is very small, just set to target to avoid tiny oscillations
+      if (Math.abs(diff) < 0.001) {
+        setHorizontalProgress(targetProgress);
+        return;
+      }
+      
+      // Adjust easing based on whether user is actively scrolling
+      // Faster easing during active scrolling, slower when scrolling stops
+      const easing = isScrolling ? 0.15 : 0.08;
+      
+      // Apply easing to create smooth motion
+      const newProgress = horizontalProgress + diff * easing;
+      setHorizontalProgress(newProgress);
       
       // Apply the horizontal scroll based on progress
       if (contentRef.current) {
-        const horizontalScroll = progress * contentWidth;
+        const horizontalScroll = newProgress * contentWidth;
         contentRef.current.style.transform = `translateX(-${horizontalScroll}px)`;
       }
       
       // Apply parallax effect to background
-      const backgroundElement = containerRef.current.querySelector('.background-pattern') as HTMLElement;
+      const backgroundElement = containerRef.current?.querySelector('.background-pattern') as HTMLElement;
       if (backgroundElement) {
-        backgroundElement.style.transform = `translateX(${progress * 20}%)`;
+        backgroundElement.style.transform = `translateX(${newProgress * 20}%)`;
+      }
+      
+      // Continue animation
+      animationFrameId = requestAnimationFrame(animate);
+    };
+    
+    // Start animation
+    animationFrameId = requestAnimationFrame(animate);
+    
+    return () => {
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
       }
     };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial call
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [contentWidth]);
+  }, [horizontalProgress, targetProgress, contentWidth, isScrolling]);
 
   // Prevent default scroll behavior when in horizontal scroll mode
   useEffect(() => {
     if (!horizontalScrollActive) return;
 
     const preventDefaultScroll = (e: WheelEvent) => {
-      // Only prevent default if horizontal scrolling is active
-      // and we haven't reached the start or end
+      // FIXED: More precise control over when to prevent scrolling
       if (horizontalScrollActive && !hasReachedStart && !hasReachedEnd) {
         e.preventDefault();
       }
@@ -168,8 +243,6 @@ const HorizontalScrollSection = () => {
     };
     
     const handleTouchMove = (e: TouchEvent) => {
-      // Only prevent default if horizontal scrolling is active
-      // and we haven't reached the start or end
       if (horizontalScrollActive && !hasReachedStart && !hasReachedEnd) {
         e.preventDefault();
       }
@@ -188,6 +261,7 @@ const HorizontalScrollSection = () => {
   return (
     <section 
       ref={sectionRef} 
+      id="horizontal-scroll-section"
       className="relative w-full"
       style={{ minHeight: "100vh" }}
     >
@@ -195,21 +269,11 @@ const HorizontalScrollSection = () => {
         ref={containerRef}
         className="sticky top-0 h-screen w-full overflow-hidden flex items-center bg-white"
       >
-        {/* Background pattern with parallax effect */}
-        <div 
-          className="absolute inset-0 opacity-10 background-pattern"
-        >
-          <div className="w-full h-full bg-repeat" style={{ 
-            backgroundImage: "url('/fablab/pattern.svg')",
-            backgroundSize: "200px"
-          }}></div>
-        </div>
-
         {/* Horizontally scrolling content */}
         <div 
           ref={contentRef}
           className="flex items-stretch pl-8 md:pl-16 lg:pl-24 will-change-transform"
-          style={{ transition: "transform 0.05s ease-out", gap: "calc(22vw)" }}
+          style={{ gap: "3vw" }}
         >
           {/* What is FabLab? - standalone text element */}
           <div className="flex-shrink-0 w-[100vw]">
@@ -290,10 +354,15 @@ const HorizontalScrollSection = () => {
           </div>
 
           {/* Our Mission - standalone text element similar to What is FabLab? */}
-          <div className="flex-shrink-0 w-[100vw]">
+          <div className="flex-shrink-0 w-[100vw]" style={{ marginLeft: "-20vw" }}>
             <div className="flex flex-col md:flex-row h-full items-center px-4 md:px-8 lg:px-12">
-              {/* Text content - left side */}
-              <div className="p-4 md:p-6 lg:p-8 flex flex-col md:w-1/2">
+              {/* Empty left side to avoid overlap with previous image */}
+              <div className="md:w-2/5 h-[400px] md:h-[500px] lg:h-[600px] overflow-visible relative">
+                {/* No content here to avoid overlap */}
+              </div>
+              
+              {/* Text content - right side to avoid overlap */}
+              <div className="p-4 md:p-6 lg:p-8 flex flex-col md:w-3/5 ml-0 md:ml-8 mt-8 md:mt-0">
                 <GradientText className={titleClasses}>
                   {t('mission.title')}
                 </GradientText>
@@ -307,16 +376,11 @@ const HorizontalScrollSection = () => {
                   </p>
                 </div>
               </div>
-              
-              {/* Empty right side to maintain layout consistency */}
-              <div className="md:w-3/5 h-[400px] md:h-[500px] lg:h-[600px] overflow-visible relative ml-0 md:ml-8 mt-8 md:mt-0">
-                {/* No image here */}
-              </div>
             </div>
           </div>
 
           {/* Advanced Equipment - standalone text element with exact same structure */}
-          <div className="flex-shrink-0 w-[100vw]" style={{ marginLeft: "-78vw" }}>
+          <div className="flex-shrink-0 w-[100vw]" style={{ marginLeft: "-25vw" }}>
             <div className="flex flex-col md:flex-row h-full items-center px-4 md:px-8 lg:px-12">
               {/* Image on left side */}
               <div className="md:w-2/5 h-[400px] md:h-[500px] lg:h-[600px] overflow-visible relative">
@@ -348,8 +412,8 @@ const HorizontalScrollSection = () => {
             </div>
           </div>
 
-          {/* New Section - exact same structure as Advanced Equipment */}
-          <div className="flex-shrink-0 w-[100vw]" style={{ marginLeft: "-40vw" }}>
+          {/* Vision Section - exact same structure as Advanced Equipment */}
+          <div className="flex-shrink-0 w-[100vw]" style={{ marginLeft: "-25vw" }}>
             <div className="flex flex-col md:flex-row h-full items-center px-4 md:px-8 lg:px-12">
               {/* Image on left side - same as Advanced Equipment */}
               <div className="md:w-2/5 h-[400px] md:h-[500px] lg:h-[600px] overflow-visible relative">
@@ -380,14 +444,10 @@ const HorizontalScrollSection = () => {
               </div>
             </div>
           </div>
-
-          {/* Remove the map through the remaining sections since it's a duplicate */}
         </div>
-
-        {/* Remove progress indicator */}
       </div>
     </section>
   );
 };
 
-export default HorizontalScrollSection; 
+export default HorizontalScrollSection;

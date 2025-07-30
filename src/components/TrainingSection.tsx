@@ -33,7 +33,7 @@ const TrainingSection = () => {
           <div className="w-full lg:w-1/2 space-y-8">
             <div className="text-left mb-3 sm:mb-4">
               <GradientText
-                colors={["#329db7", "#f71301", "#6bb934", "#329db7", "#f71301", "#6bb934"]}
+                colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
                 animationSpeed={4}
                 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 font-['Magistral']"
               >

@@ -45,6 +45,18 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
     }, 1300); // Adjusted for new closing duration
   };
 
+  // Function to scroll to horizontal scrolling section and close menu
+  const scrollToHorizontalSection = () => {
+    handleClose(); // Use custom close handler
+    navigate('/');
+    setTimeout(() => {
+      const horizontalSection = document.getElementById('horizontal-scroll-section');
+      if (horizontalSection) {
+        horizontalSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 1300); // Adjusted for new closing duration
+  };
+
   // Lock body scroll when menu is open
   useEffect(() => {
     if (isOpen) {
@@ -340,10 +352,9 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       >
                         {t('serviceCategories.molding.title')}
                       </Link>
-                      <Link
-                        to="/about-us"
-                        onClick={handleClose}
-                        className={`block w-1/2 ${isRussian ? 'pl-28 sm:pl-32 md:pl-36 lg:pl-40' : 'pl-20 sm:pl-24 md:pl-28 lg:pl-32'} ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#329db7]`}
+                      <button
+                        onClick={scrollToHorizontalSection}
+                        className={`block text-left w-1/2 ${isRussian ? 'pl-28 sm:pl-32 md:pl-36 lg:pl-40' : 'pl-20 sm:pl-24 md:pl-28 lg:pl-32'} ${isLargeScreen ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-light text-white hover:text-[#329db7]`}
                         style={{
                           transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
                           opacity: isOpen && !isClosing ? 1 : 0,
@@ -352,7 +363,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                         }}
                       >
                         {t('header.aboutUs')}
-                      </Link>
+                      </button>
                     </div>
                     
                     {/* Row 3: Digital Fabrication & Blog */}

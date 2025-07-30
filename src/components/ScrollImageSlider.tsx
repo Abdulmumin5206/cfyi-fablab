@@ -183,7 +183,7 @@ const ScrollImageSlider = () => {
                   </h3>
                   <div className="mb-2 sm:mb-3 lg:mb-4">
                     <GradientText
-                      colors={["#329db7", "#f71301", "#6bb934", "#329db7", "#f71301", "#6bb934"]}
+                      colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
                       animationSpeed={4}
                       className="block text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-extrabold leading-tight"
                     >

@@ -264,6 +264,36 @@ const Header = () => {
     }
   }, [location.pathname]);
 
+  // Add scroll handler for horizontal scrolling section
+  const handleAboutUsClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    
+    // If we're not on the main page, navigate to it first
+    if (location.pathname !== '/') {
+      navigate('/');
+      // Store the intent to scroll to horizontal section in sessionStorage
+      sessionStorage.setItem('scrollToHorizontal', 'true');
+    } else {
+      // If we're already on the main page, just scroll
+      const horizontalSection = document.getElementById('horizontal-scroll-section');
+      if (horizontalSection) {
+        horizontalSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
+  // Add effect to handle scrolling after navigation for horizontal section
+  useEffect(() => {
+    if (location.pathname === '/' && sessionStorage.getItem('scrollToHorizontal') === 'true') {
+      const horizontalSection = document.getElementById('horizontal-scroll-section');
+      if (horizontalSection) {
+        horizontalSection.scrollIntoView({ behavior: 'smooth' });
+      }
+      // Clear the scroll intent
+      sessionStorage.removeItem('scrollToHorizontal');
+    }
+  }, [location.pathname]);
+
   return (
     <>
       {/* Main header */}
@@ -386,7 +416,8 @@ const Header = () => {
                   className={`flex items-center space-x-1 border px-2 sm:px-3 py-1.5 sm:py-2 h-[38px] sm:h-[42px] ${isLaptopScreen ? 'md:h-[38px]' : 'lg:h-[42px] xl:h-[46px]'} text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} ${isScrolled ? "border-black bg-transparent text-black" : (shouldUseBlackTheme && !isMobileScreen ? "border-black bg-black text-white" : shouldUseWhiteText ? "border-white bg-transparent text-white" : shouldUseBlackText ? "border-black bg-transparent text-black" : "border-white bg-transparent text-white")}`}
                 >
                   <Link
-                    to="/about-us"
+                    to="/#about-us"
+                    onClick={handleAboutUsClick}
                     style={textStyle}
                     className={`${isScrolled ? "text-black" : shouldUseWhiteText ? "text-white" : shouldUseBlackText ? "text-black" : "text-white"} hover:text-[#329db7] transition-colors duration-300 text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} px-1 sm:px-2 bg-transparent`}
                   >

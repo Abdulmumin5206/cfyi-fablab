@@ -188,7 +188,7 @@ const ImageFabLabTour = () => {
           } z-10 lg:z-0 ${isExpanded ? 'hidden lg:block' : 'block lg:block'} hidden md:hidden`}>
             <div className="space-y-3 sm:space-y-4 lg:space-y-6 pr-0 lg:pr-4 text-center lg:text-left">
               <GradientText
-                colors={["#329db7", "#f71301", "#6bb934", "#329db7", "#f71301", "#6bb934"]}
+                colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
                 animationSpeed={4}
                 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold leading-tight"
               >

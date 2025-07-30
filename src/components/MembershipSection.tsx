@@ -183,7 +183,7 @@ const MembershipSection = () => {
         {plan.title === "Maker" ? (
           <div className="flex justify-center">
             <GradientText 
-              colors={["#329db7", "#f71301", "#6bb934", "#329db7"]} 
+              colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]} 
               animationSpeed={4}
               className="text-xl font-bold mb-1"
             >
@@ -196,7 +196,7 @@ const MembershipSection = () => {
         {plan.subtitle === "Most Popular" ? (
           <div className="flex justify-center">
             <GradientText 
-              colors={["#329db7", "#f71301", "#6bb934", "#329db7"]} 
+              colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]} 
               animationSpeed={4} 
               className="text-sm"
             >
@@ -241,7 +241,7 @@ const MembershipSection = () => {
         {/* Header */}
         <div className="text-left mb-3 sm:mb-4 md:mb-6 lg:mb-8">
           <GradientText
-            colors={["#329db7", "#f71301", "#6bb934", "#329db7", "#f71301", "#6bb934"]}
+            colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
             animationSpeed={4}
             className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2"
           >

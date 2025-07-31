@@ -122,8 +122,8 @@ const ThreeDPrintingPage = () => {
         </section>
 
         {/* Minimalist Content Section */}
-        <section className="py-16 md:py-24 bg-[#f7f7f7]">
-          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f7f7f7]">
+          <div className="max-w-[1350px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col lg:flex-row items-start gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
@@ -181,8 +181,8 @@ const ThreeDPrintingPage = () => {
         </section>
 
         {/* New Section: Transform Your Vision */}
-        <section id="fdm" className="py-16 md:py-24 bg-white">
-          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="fdm" className="py-8 sm:py-12 md:py-16 lg:py-20 bg-white">
+          <div className="max-w-[1350px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col lg:flex-row items-start gap-12">
               {/* Left side with main image and floating elements */}
               <div className="w-full lg:w-1/2 relative">
@@ -285,7 +285,7 @@ const ThreeDPrintingPage = () => {
 
         {/* Instagram Reels Section */}
         <section className="relative bg-[#f7f7f7] text-gray-900 border-t border-gray-100">
-          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+          <div className="max-w-[1350px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16 lg:py-20">
             <div className="flex flex-col md:flex-row items-center justify-between gap-8">
               {/* Left side content */}
               <div className="w-full md:w-1/2 lg:w-2/5">
@@ -355,8 +355,8 @@ const ThreeDPrintingPage = () => {
         </section>
 
         {/* SLA Detail Showcase Section */}
-        <section className="py-16 md:py-24 bg-white">
-          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-white">
+          <div className="max-w-[1350px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col lg:flex-row items-start gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
@@ -451,8 +451,8 @@ const ThreeDPrintingPage = () => {
         </section>
 
         {/* SLA 3D Printing Equipment Section */}
-        <section id="sla-equipment" className="py-16 md:py-24 bg-[#f7f7f7]">
-          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="sla-equipment" className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f7f7f7]">
+          <div className="max-w-[1350px] mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-black font-['Magistral'] text-center">
               {t("3dPrinting.equipment.sla.title")}
             </h2>
@@ -525,8 +525,8 @@ const ThreeDPrintingPage = () => {
         </section>
 
         {/* FDM 3D Printing Equipment Section */}
-        <section id="fdm-equipment" className="py-16 md:py-24 bg-white">
-          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="fdm-equipment" className="py-8 sm:py-12 md:py-16 lg:py-20 bg-white">
+          <div className="max-w-[1350px] mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-black font-['Magistral'] text-center">
               {t("3dPrinting.equipment.fdm.title")}
             </h2>
@@ -602,8 +602,8 @@ const ThreeDPrintingPage = () => {
         <PrintingMaterials />
         
         {/* 3D Printing Course Section */}
-        <section className="py-16 md:py-24 bg-[#f7f7f7]">
-          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f7f7f7]">
+          <div className="max-w-[1350px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2 space-y-8">

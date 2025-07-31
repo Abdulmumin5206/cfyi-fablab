@@ -51,7 +51,7 @@ const Index = () => {
         canonicalPath="/"
       />
       <Header />
-      <main>
+      <main className="bg-[#f5f5f7]">
         <HeroSection />
         <ServiceCategories />
         <HorizontalScrollSection />

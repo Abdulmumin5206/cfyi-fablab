@@ -91,8 +91,8 @@ const DigitalFabricationPage = () => {
         </section>
 
         {/* UV Printing Excellence Section */}
-        <section className="py-16 md:py-24 bg-[#f5f5f7]">
-          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
+        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
             <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
@@ -170,8 +170,8 @@ const DigitalFabricationPage = () => {
         </section>
 
         {/* Sticker Machine Section */}
-        <section className="py-16 md:py-24 bg-gray-100">
-          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
+        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gray-100">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
             <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
@@ -247,8 +247,8 @@ const DigitalFabricationPage = () => {
         </section>
 
         {/* Equipment Showcase Section */}
-        <section id="equipment" className="py-16 md:py-24 bg-white">
-          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
+        <section id="equipment" className="py-8 sm:py-12 md:py-16 lg:py-20 bg-white">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-10 md:mb-16 text-center text-gray-900 font-['Magistral']">
               {t('equipment.title', { ns: 'digitalfabrication' })}
             </h2>
@@ -281,8 +281,8 @@ const DigitalFabricationPage = () => {
         </section>
 
         {/* Precision Laser Cutting Section */}
-        <section id="precision-manufacturing" className="py-16 md:py-24 bg-gray-100">
-          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
+        <section id="precision-manufacturing" className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gray-100">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
             <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
@@ -363,8 +363,8 @@ const DigitalFabricationPage = () => {
         </section>
 
         {/* CNC Wood Machining Section */}
-        <section className="py-16 md:py-24 bg-white">
-          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
+        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-white">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
             <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
@@ -445,8 +445,8 @@ const DigitalFabricationPage = () => {
         </section>
 
         {/* Precision Manufacturing Equipment Showcase Section */}
-        <section id="precision-equipment" className="py-16 md:py-24 bg-gray-100">
-          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
+        <section id="precision-equipment" className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gray-100">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-10 md:mb-16 text-center text-gray-900 font-['Magistral']">
               {t('precisionManufacturingEquipment.title', { ns: 'digitalfabrication' })}
             </h2>
@@ -520,8 +520,8 @@ const DigitalFabricationPage = () => {
         </section>
 
         {/* Behind the Scenes Section */}
-        <section className="py-16 md:py-24 bg-white">
-          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
+        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-white">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
             <div className="flex flex-col items-center justify-center gap-8 max-w-3xl mx-auto">
               <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 text-center font-['Magistral']">
                 {t('behindTheScenes.title', { ns: 'digitalfabrication' })}
@@ -578,8 +578,8 @@ const DigitalFabricationPage = () => {
         </section>
 
         {/* Contact Section */}
-        <section className="py-16 md:py-24 bg-gray-100">
-          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
+        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gray-100">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
             <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2 space-y-8">

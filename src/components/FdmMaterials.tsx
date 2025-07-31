@@ -5,7 +5,7 @@ export default function FdmMaterials() {
   
   return (
     <section className="relative bg-gray-900 text-white">
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 flex flex-col lg:flex-row items-center">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16 lg:py-20 flex flex-col lg:flex-row items-center">
         {/* Left side content */}
         <div className="w-full lg:w-1/2 mb-12 lg:mb-0 pr-0 lg:pr-10">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">

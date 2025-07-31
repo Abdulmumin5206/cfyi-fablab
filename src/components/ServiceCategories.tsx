@@ -117,21 +117,23 @@ const ServiceCategories = () => {
     <section
       ref={sectionRef}
       id="service-categories"
-      className="py-6 sm:py-8 md:py-12 lg:py-16 xl:py-20 bg-[#f5f5f7] relative overflow-hidden"
+      className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7] relative overflow-hidden"
       aria-label="Our Services"
     >
-      <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px] relative z-10">
+      <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px] relative z-10">
         <div className="text-left mb-3 sm:mb-4 md:mb-6 lg:mb-8">
-          <GradientText
-            colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
-            animationSpeed={4}
-            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 font-['Magistral']"
-          >
-            {t('serviceCategories.title')}
-          </GradientText>
-          <p className="text-gray-700 text-base sm:text-lg mb-3 sm:mb-4 font-['Magistral']">
-            {t('serviceCategories.subtitle')}
-          </p>
+          <div className="flex items-baseline gap-1">
+            <GradientText
+              colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+              animationSpeed={4}
+              className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral']"
+            >
+              {t('serviceCategories.title')}
+            </GradientText>
+            <span className="text-black text-lg sm:text-xl lg:text-2xl font-['Magistral'] ml-2">
+              {t('serviceCategories.subtitle')}
+            </span>
+          </div>
         </div>
 
         {/* Mobile Layout (< 640px) */}

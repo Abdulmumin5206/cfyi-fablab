@@ -237,20 +237,22 @@ const MembershipSection = () => {
   // Removed animation variants
 
   return (
-    <section id="membership-section" className="py-16 sm:py-20 lg:py-24 bg-[#f5f5f7] relative overflow-hidden">
-      <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
+    <section id="membership-section" className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7] relative overflow-hidden">
+      <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
         {/* Header */}
         <div className="text-left mb-3 sm:mb-4 md:mb-6 lg:mb-8">
-          <GradientText
-            colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
-            animationSpeed={4}
-            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2"
-          >
-            {t('membership.title')}
-          </GradientText>
-          <p className="text-gray-700 text-sm sm:text-base lg:text-lg mb-3 sm:mb-4">
-            {t('membership.subtitle')}
-          </p>
+          <div className="flex items-baseline gap-1">
+            <GradientText
+              colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+              animationSpeed={4}
+              className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral']"
+            >
+              {t('membership.title')}
+            </GradientText>
+            <span className="text-black text-lg sm:text-xl lg:text-2xl font-['Magistral'] ml-2">
+              {t('membership.subtitle')}
+            </span>
+          </div>
         </div>
 
         {/* Membership Tiers */}

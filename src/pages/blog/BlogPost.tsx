@@ -151,7 +151,7 @@ const BlogPost = () => {
           {/* White header bar for 3D printing post */}
           {is3DPrintingPost && (
             <div className="w-full bg-white py-4">
-              <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
+              <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
                 <Link to="/projects" className="inline-flex items-center text-black hover:text-gray-600 transition-colors text-sm font-medium">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 mr-2">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
@@ -162,7 +162,7 @@ const BlogPost = () => {
             </div>
           )}
 
-          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px] py-6 md:py-10">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px] py-8 sm:py-12 md:py-16 lg:py-20">
             {is3DPrintingPost ? (
               <div className="flex flex-col md:flex-row">
                 {/* Left sidebar with table of contents */}

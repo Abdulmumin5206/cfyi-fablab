@@ -572,8 +572,8 @@ const PrintingMaterials = () => {
   };
 
   return (
-    <section id="materials-section" className="py-16 md:py-24 bg-white">
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="materials-section" className="py-8 sm:py-12 md:py-16 lg:py-20 bg-white">
+      <div className="max-w-[1350px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-black font-['Magistral']">
             {t('3dPrinting.materials.title')}

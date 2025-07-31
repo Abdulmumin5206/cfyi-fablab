@@ -7,6 +7,7 @@ import CourseModal from '../components/CourseModal';
 import WorkshopModal from '../components/WorkshopModal';
 import courseDetails from '../data/courseDetails.json';
 import SEOHelmet from '../components/SEOHelmet';
+import GradientText from '../components/GradientText';
 
 interface CourseItemList {
   items: string[];
@@ -240,15 +241,52 @@ const CoursesPage = () => {
     answer: string;
   }) => (
     <div 
-      className="bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300 h-full overflow-hidden"
+      className="bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-lg transition-shadow duration-300 h-full overflow-hidden"
     >
-      <div className="p-8 flex flex-col h-full">
-        <h3 className="text-xl font-bold text-gray-900 font-['Magistral'] leading-tight mb-4">
-          {question}
-        </h3>
-        <p className="text-gray-600 font-['Magistral'] text-sm">
-          {answer}
-        </p>
+      <div className="p-8 flex flex-col h-full min-h-[280px]">
+        {/* Question icon */}
+        <div className="flex items-start gap-3 mb-4">
+          <div className="flex-shrink-0 w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-[#329db7] hover:text-white transition-all duration-300">
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 className="text-xl font-bold text-gray-900 font-['Magistral'] leading-tight flex-1">
+            {question}
+          </h3>
+        </div>
+        
+        <div className="flex-1 flex flex-col justify-between">
+          <p className="text-gray-600 font-['Magistral'] text-sm leading-relaxed mb-6">
+            {answer}
+          </p>
+          
+          {/* Action buttons */}
+          <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+            <button className="flex items-center gap-2 text-[#329db7] text-sm font-medium hover:text-[#2b86a0] transition-colors duration-200 font-['Magistral']">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+              Helpful
+            </button>
+            
+            <button 
+              onClick={() => {
+                // Scroll to courses section
+                const coursesSection = document.querySelector('#courses-section');
+                if (coursesSection) {
+                  coursesSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+              className="flex items-center gap-2 text-gray-500 text-sm font-medium hover:text-gray-700 transition-colors duration-200 font-['Magistral']"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+              View Courses
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -357,16 +395,22 @@ const CoursesPage = () => {
       <main className="flex-grow bg-[#f5f5f7]">
         {/* Hero Section with Topic Questions */}
         <section className="pt-20 sm:pt-24 md:pt-32 lg:pt-40 pb-16 bg-[#f5f5f7]">
-          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-[1350px] mx-auto px-4 sm:px-6 lg:px-8">
             {/* Topic Questions Section */}
             <div className="mb-8">
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-xl sm:text-2xl font-bold text-gray-900 font-['Magistral']">
-                  Popular Questions
-                </h2>
-                <a href="#" className="text-[#329db7] text-sm font-medium hover:underline font-['Magistral']">
-                  See More
-                </a>
+              <div className="text-left mb-3 sm:mb-4 md:mb-6 lg:mb-8">
+                <div className="flex items-baseline gap-1">
+                  <GradientText
+                    colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+                    animationSpeed={4}
+                    className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral']"
+                  >
+                    Popular Questions.
+                  </GradientText>
+                  <span className="text-black text-lg sm:text-xl lg:text-2xl font-['Magistral'] ml-2">
+                    Expert Answers.
+                  </span>
+                </div>
               </div>
               
               {/* Desktop Slider with preview cards */}
@@ -448,15 +492,21 @@ const CoursesPage = () => {
         </section>
 
         {/* FDM Courses Section */}
-        <section className="py-12 bg-[#f5f5f7]">
-          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="mb-8">
-              <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 font-['Magistral']">
-                {t("courses.fdm.sectionTitle", "FDM 3D Printing Courses")}
-              </h2>
-              <p className="text-gray-600 text-base font-['Magistral']">
-                {t("courses.fdm.sectionDescription", "Learn Fused Deposition Modeling from basics to professional level")}
-              </p>
+        <section className="py-12 bg-[#f5f5f7]" id="courses-section">
+          <div className="max-w-[1350px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-left mb-3 sm:mb-4 md:mb-6 lg:mb-8">
+              <div className="flex items-baseline gap-1">
+                <GradientText
+                  colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+                  animationSpeed={4}
+                  className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral']"
+                >
+                  FDM Printing.
+                </GradientText>
+                <span className="text-black text-lg sm:text-xl lg:text-2xl font-['Magistral'] ml-2">
+                  Professional Training.
+                </span>
+              </div>
             </div>
             
             <div className="space-y-6">
@@ -489,14 +539,20 @@ const CoursesPage = () => {
 
         {/* SLA Courses Section */}
         <section className="py-12 bg-[#f5f5f7]">
-          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="mb-8">
-              <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 font-['Magistral']">
-                {t("courses.sla.sectionTitle", "SLA Resin Printing Courses")}
-              </h2>
-              <p className="text-gray-600 text-base font-['Magistral']">
-                {t("courses.sla.sectionDescription", "Master high-precision stereolithography printing techniques")}
-              </p>
+          <div className="max-w-[1350px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-left mb-3 sm:mb-4 md:mb-6 lg:mb-8">
+              <div className="flex items-baseline gap-1">
+                <GradientText
+                  colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+                  animationSpeed={4}
+                  className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral']"
+                >
+                  SLA Printing.
+                </GradientText>
+                <span className="text-black text-lg sm:text-xl lg:text-2xl font-['Magistral'] ml-2">
+                  Precision Mastery.
+                </span>
+              </div>
             </div>
             
             <div className="space-y-6">
@@ -517,14 +573,20 @@ const CoursesPage = () => {
 
         {/* CAD/CAM Courses Section */}
         <section className="py-12 bg-[#f5f5f7]">
-          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="mb-8">
-              <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 font-['Magistral']">
-                {t("courses.precision.sectionTitle", "CAD/CAM & Precision Manufacturing")}
-              </h2>
-              <p className="text-gray-600 text-base font-['Magistral']">
-                {t("courses.precision.sectionDescription", "Professional design and manufacturing workflow training")}
-              </p>
+          <div className="max-w-[1350px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-left mb-3 sm:mb-4 md:mb-6 lg:mb-8">
+              <div className="flex items-baseline gap-1">
+                <GradientText
+                  colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+                  animationSpeed={4}
+                  className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral']"
+                >
+                  CAD/CAM Design.
+                </GradientText>
+                <span className="text-black text-lg sm:text-xl lg:text-2xl font-['Magistral'] ml-2">
+                  Manufacturing Flow.
+                </span>
+              </div>
             </div>
             
             <div className="space-y-6">
@@ -545,14 +607,20 @@ const CoursesPage = () => {
 
         {/* Workshops Section */}
         <section className="py-12 bg-[#f5f5f7]">
-          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="mb-8">
-              <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 font-['Magistral']">
-                {t("courses.workshops.title")}
-              </h2>
-              <p className="text-gray-600 text-base font-['Magistral']">
-                {t("courses.workshops.description", "Intensive hands-on workshops for rapid skill development")}
-              </p>
+          <div className="max-w-[1350px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-left mb-3 sm:mb-4 md:mb-6 lg:mb-8">
+              <div className="flex items-baseline gap-1">
+                <GradientText
+                  colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+                  animationSpeed={4}
+                  className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral']"
+                >
+                  Intensive Workshops.
+                </GradientText>
+                <span className="text-black text-lg sm:text-xl lg:text-2xl font-['Magistral'] ml-2">
+                  Rapid Skills.
+                </span>
+              </div>
             </div>
             
             <div className="space-y-6">

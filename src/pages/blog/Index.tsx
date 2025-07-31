@@ -192,7 +192,7 @@ const BlogIndex = () => {
       <Header />
       <main className="flex-grow bg-white">
         {/* Projects Headline */}
-        <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px] pt-48 bg-white">
+        <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px] pt-48 bg-white">
           <div className="text-left mb-3 sm:mb-4 md:mb-6 lg:mb-8">
             <h1 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-[#329db7] font-['Magistral']">
               {tBlog('blog.projectsHeadline')}
@@ -204,7 +204,7 @@ const BlogIndex = () => {
         </div>
         {/* High-Resolution 3D Scanning Section */}
         <section className="pt-12 md:pt-16 pb-8 md:pb-12 bg-white">
-          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
             <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
@@ -265,8 +265,8 @@ const BlogIndex = () => {
           </div>
         </section>
         {/* Versatile Applications Section */}
-        <section className="py-8 md:py-12 bg-[#f7f7f7]">
-          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
+        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f7f7f7]">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
             <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
@@ -338,7 +338,7 @@ const BlogIndex = () => {
         </section>
         {/* High-Resolution 3D Scanning Section (Duplicate) */}
         <section className="pt-8 md:pt-12 pb-8 md:pb-12 bg-white">
-          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
             <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
@@ -419,8 +419,8 @@ const BlogIndex = () => {
           </div>
         </section>
         {/* Versatile Applications Section (Duplicate) */}
-        <section className="py-8 md:py-12 bg-[#f7f7f7]">
-          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
+        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f7f7f7]">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
             <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
@@ -500,7 +500,7 @@ const BlogIndex = () => {
             </div>
           </div>
         </section>
-        <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px] pt-12 md:pt-16 bg-white">
+        <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px] pt-12 md:pt-16 bg-white">
           <div className="text-left mb-3 sm:mb-4 md:mb-6 lg:mb-8">
             <h1 className="text-3xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-[#329db7] font-['Magistral']">{t('blog.title')}</h1>
             <p className="text-gray-700 text-base sm:text-lg mb-3 sm:mb-4 font-['Magistral']">{t('blog.subtitle')}</p>

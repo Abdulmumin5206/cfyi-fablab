@@ -61,8 +61,8 @@
     }
   },
   "serviceCategories": {
-    "title": "Bizning xizmatlar",
-    "subtitle": "Ishlab chiqarish xizmatlarimiz bilan tanishing",
+    "title": "Bizning xizmatlarimiz.",
+    "subtitle": "Sifatli yechimlar.",
     "explorePrefix": "Ko'rish",
     "3dPrinting": {
       "title": "3D Chop etish va Qo'shimcha Ishlab chiqarish",
@@ -386,8 +386,8 @@
     "learnMore": "Ko'proq ma'lumot"
   },
   "contact": {
-    "title": "Biz bilan bog'laning",
-    "subtitle": "Jamoamiz bilan bog'laning",
+    "title": "Biz bilan bog'laning.",
+    "subtitle": "Tezkor javoblar.",
     "name": "Ism *",
     "namePlaceholder": "John Doe",
     "email": "Email *",
@@ -1135,8 +1135,8 @@
     }
   },
   "aboutUs": {
-    "title": "Innovatsiya Ortida",
-    "subtitle": "Zamonaviy yondashuv, ilg'or vositalar bilan FabLab'ga mos keladi.",
+    "title": "Innovatsiya Ortida.",
+    "subtitle": "Zamonaviy Innovatsiya.",
     "cards": {
       "pioneers": {
         "title": "Pionerlar",
@@ -1161,8 +1161,8 @@
     }
   },
   "membership": {
-    "title": "Jamiyatimizga qo'shiling",
-    "subtitle": "A'zo bo'ling va FabLabimizning to'liq imkoniyatlaridan foydalaning",
+    "title": "Jamiyatimizga qo'shiling.",
+    "subtitle": "Imkoniyatlarni ochish.",
     "types": {
       "student": {
         "title": "Talaba",
@@ -1274,8 +1274,8 @@
     "businessBenefits": "Biznes imkoniyatlari"
   },
   "training": {
-    "ourCourses": "Bizning Kurslarimiz",
-    "subtitle": "Zamonaviy ishlab chiqarish texnologiyalari bo'yicha ko'nikmalarni rivojlantiring",
+    "ourCourses": "Bizning Kurslarimiz.",
+    "subtitle": "Zamonaviy Ko'nikmalar.",
     "masterManufacturing": "Zamonaviy Ishlab Chiqarishni O'rganing",
     "description": "3D printerdan lazerli kesishgacha, sizning g'oyalaringizni hayotga tatbiq etish uchun eng so'nggi ishlab chiqarish texnologiyalarini o'rganishga yordam beradigan keng ko'lamli kurslarimizni kashf eting.",
     "diverseSelection": {

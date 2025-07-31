@@ -26,22 +26,24 @@ const TrainingSection = () => {
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-[#f5f5f7]">
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
+      <div className="max-w-[1350px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center gap-12">
           {/* Left side content */}
           <div className="w-full lg:w-1/2 space-y-8">
-            <div className="text-left mb-3 sm:mb-4">
-              <GradientText
-                colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
-                animationSpeed={4}
-                className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 font-['Magistral']"
-              >
-                {t('training.ourCourses')}
-              </GradientText>
-              <p className="text-gray-700 text-base sm:text-lg font-['Magistral']">
-                {t('training.subtitle')}
-              </p>
+            <div className="text-left mb-3 sm:mb-4 md:mb-6 lg:mb-8">
+              <div className="flex items-baseline gap-1">
+                <GradientText
+                  colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+                  animationSpeed={4}
+                  className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral']"
+                >
+                  {t('training.ourCourses')}
+                </GradientText>
+                <span className="text-black text-lg sm:text-xl lg:text-2xl font-['Magistral'] ml-2">
+                  {t('training.subtitle')}
+                </span>
+              </div>
             </div>
             
             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight font-['Magistral']">

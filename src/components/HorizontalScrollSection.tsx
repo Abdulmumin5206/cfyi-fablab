@@ -38,7 +38,7 @@ const HorizontalScrollSection = () => {
       
       const containerWidth = window.innerWidth;
       const totalContentWidth = contentRef.current!.scrollWidth;
-      const initialPadding = 32; // pl-8 padding
+      const initialPadding = 16; // Reduced from 32 to 16 for pl-4 padding
       const scrollableDistance = totalContentWidth - containerWidth + initialPadding;
       
       setContentWidth(scrollableDistance);
@@ -272,12 +272,12 @@ const HorizontalScrollSection = () => {
         {/* Horizontally scrolling content */}
         <div 
           ref={contentRef}
-          className="flex items-stretch pl-8 md:pl-16 lg:pl-24 will-change-transform"
+          className="flex items-stretch pl-2 md:pl-4 lg:pl-6 will-change-transform"
           style={{ gap: "3vw" }}
         >
           {/* What is FabLab? - standalone text element */}
           <div className="flex-shrink-0 w-[100vw]">
-            <div className="flex flex-col md:flex-row h-full items-center px-4 md:px-8 lg:px-12">
+            <div className="flex flex-col md:flex-row h-full items-center px-6 md:px-12 lg:px-16">
               {/* Text content and logos - left side */}
               <div className="p-4 md:p-6 lg:p-8 flex flex-col md:w-1/2 mt-8 md:mt-12">
                 <GradientText className={titleClasses}>

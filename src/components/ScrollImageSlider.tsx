@@ -124,7 +124,7 @@ const ScrollImageSlider = () => {
     : "block text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-extrabold leading-tight";
 
   return (
-    <section ref={containerRef} className="relative h-[400vh]">
+    <section ref={containerRef} className="relative h-[400vh] bg-[#f5f5f7]">
       <div className="sticky top-0 h-screen">
         {/* Background images with ultra-smooth transitions */}
         {images.map((src, i) => (

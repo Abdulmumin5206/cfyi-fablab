@@ -67,9 +67,9 @@ const ScrollAnimationSection = () => {
   ];
 
   return (
-    <section ref={sectionRef} className="py-12 sm:py-16 md:py-20 lg:py-24 bg-black text-white overflow-hidden">
+    <section ref={sectionRef} className="py-8 sm:py-12 md:py-16 lg:py-20 bg-black text-white overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 max-w-7xl">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-8 sm:mb-12 lg:mb-16">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4 md:mb-6 lg:mb-8">
           Innovating Markets
         </h2>
 

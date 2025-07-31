@@ -179,8 +179,8 @@ const ImageFabLabTour = () => {
   };
 
   return (
-    <section className="w-full py-6 sm:py-8 md:py-12 lg:py-16 bg-[#f5f5f7] overflow-hidden">
-      <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
+    <section className="w-full py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7] overflow-hidden">
+      <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
         <div className="relative">
           {/* Text content with slide animation */}
           <div className={`absolute left-0 top-1/2 -translate-y-1/2 w-full lg:w-1/3 transition-all duration-500 ease-in-out transform ${

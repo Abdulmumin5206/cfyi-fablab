@@ -33,7 +33,7 @@ const Footer = ({ bgClass = "bg-[#212121]", textClass = "text-white" }: FooterPr
   
   return (
     <footer className={`${bgClass} ${textClass}`}>
-      <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
+      <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr] gap-8 lg:gap-12 py-12">
           {/* Logo and Description */}
           <div className="space-y-6">

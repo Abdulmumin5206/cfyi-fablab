@@ -42,21 +42,25 @@ const AboutUsSection = () => {
 
   return (
     <section 
-      className="relative py-6 sm:py-8 md:py-12 lg:py-16 xl:py-20 bg-[#f5f5f7] overflow-hidden"
+      className="relative py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7] overflow-hidden"
     >
 
 
-      <div className="container relative z-10 mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
-        <div className="text-left mb-3 sm:mb-4">
-          <GradientText
-            colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
-            animationSpeed={4}
-            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2"
-          >
-            {t('aboutUs.title')}
-          </GradientText>
+      <div className="container relative z-10 mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
+        <div className="text-left mb-3 sm:mb-4 md:mb-6 lg:mb-8">
+          <div className="flex items-baseline gap-1">
+            <GradientText
+              colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+              animationSpeed={4}
+              className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral']"
+            >
+              {t('aboutUs.title')}
+            </GradientText>
+            <span className="text-black text-lg sm:text-xl lg:text-2xl font-['Magistral'] ml-2">
+              {t('aboutUs.subtitle')}
+            </span>
+          </div>
         </div>
-        <p className="text-left text-gray-700 text-base sm:text-lg mb-6 sm:mb-8">{t('aboutUs.subtitle')}</p>
         
         {/* Mobile Layout */}
         <div className="grid grid-cols-1 gap-3 sm:hidden">

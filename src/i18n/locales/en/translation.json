@@ -59,8 +59,8 @@
     }
   },
   "serviceCategories": {
-    "title": "Our Services",
-    "subtitle": "Explore our range of fabrication services",
+    "title": "Our Services.",
+    "subtitle": "Quality Solutions.",
     "explorePrefix": "Explore",
     "3dPrinting": {
       "title": "3D Printing",
@@ -372,8 +372,8 @@
     "learnMore": "Learn More"
   },
   "contact": {
-    "title": "Get in Touch",
-    "subtitle": "We're here to answer any questions you might have",
+    "title": "Get in Touch.",
+    "subtitle": "Quick Answers.",
     "name": "Name *",
     "namePlaceholder": "John Doe",
     "email": "Email *",
@@ -1139,8 +1139,8 @@
     }
   },
   "aboutUs": {
-    "title": "Behind the Innovation",
-    "subtitle": "Feels modern, fitting for a FabLab with cutting-edge tools.",
+    "title": "Behind the Innovation.",
+    "subtitle": "Modern Innovation.",
     "cards": {
       "pioneers": {
         "title": "Pioneers",
@@ -1165,8 +1165,8 @@
     }
   },
   "membership": {
-    "title": "Join Our Community",
-    "subtitle": "Become a member and unlock the full potential of our FabLab",
+    "title": "Join Our Community.",
+    "subtitle": "Unlock Potential",
     "types": {
       "student": {
         "title": "Student",
@@ -1283,8 +1283,8 @@
     }
   },
   "training": {
-    "ourCourses": "Our Courses",
-    "subtitle": "Develop skills for modern manufacturing technologies",
+    "ourCourses": "Our Courses.",
+    "subtitle": "Modern Skills.",
     "masterManufacturing": "Master Modern Manufacturing",
     "description": "From 3D printing to laser cutting, discover our comprehensive range of courses designed to help you master the latest manufacturing technologies and bring your ideas to life.",
     "diverseSelection": {

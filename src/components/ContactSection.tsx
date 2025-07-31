@@ -67,20 +67,22 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact-section" className="py-16 md:py-24 bg-[#f5f5f7]">
-      <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
+    <section id="contact-section" className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
+      <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
         {/* Section Header */}
-        <div className="text-left mb-12 md:mb-16">
-          <GradientText
-            colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
-            animationSpeed={4}
-            className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4"
-          >
-            {t('contact.title')}
-          </GradientText>
-          <p className="text-base sm:text-lg text-gray-600 max-w-2xl">
-            {t('contact.subtitle')}
-          </p>
+        <div className="text-left mb-3 sm:mb-4 md:mb-6 lg:mb-8">
+          <div className="flex items-baseline gap-1">
+            <GradientText
+              colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+              animationSpeed={4}
+              className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral']"
+            >
+              {t('contact.title')}
+            </GradientText>
+            <span className="text-black text-lg sm:text-xl lg:text-2xl font-['Magistral'] ml-2">
+              {t('contact.subtitle')}
+            </span>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">

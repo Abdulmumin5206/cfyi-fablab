@@ -175,7 +175,7 @@ const DigitalFabricationPage = () => {
         </section>
 
         {/* Sticker Machine Section */}
-        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gray-100">
+        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
             <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
               {/* Left side content */}
@@ -256,7 +256,7 @@ const DigitalFabricationPage = () => {
         </section>
 
         {/* Equipment Showcase Section */}
-        <section id="equipment" className="py-8 sm:py-12 md:py-16 lg:py-20 bg-white">
+        <section id="equipment" className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
             <div className="text-center mb-12">
               <div className="flex justify-center">
@@ -298,7 +298,7 @@ const DigitalFabricationPage = () => {
         </section>
 
         {/* Precision Laser Cutting Section */}
-        <section id="precision-manufacturing" className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gray-100">
+        <section id="precision-manufacturing" className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
             <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side content */}
@@ -384,7 +384,7 @@ const DigitalFabricationPage = () => {
         </section>
 
         {/* CNC Wood Machining Section */}
-        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-white">
+        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
             <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
               {/* Left side content */}
@@ -553,7 +553,7 @@ const DigitalFabricationPage = () => {
         </section>
 
         {/* Behind the Scenes Section */}
-        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-white">
+        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
             <div className="flex flex-col items-center justify-center gap-8 max-w-3xl mx-auto">
               <GradientText
@@ -615,7 +615,7 @@ const DigitalFabricationPage = () => {
         </section>
 
         {/* Contact Section */}
-        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gray-100">
+        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
             <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side content */}

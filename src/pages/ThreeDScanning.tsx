@@ -135,7 +135,7 @@ const ThreeDScanningPage = () => {
         </section>
 
         {/* Applications Section */}
-        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-white">
+        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
             <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
               {/* Left side content */}
@@ -221,15 +221,17 @@ const ThreeDScanningPage = () => {
         </section>
 
         {/* Equipment Showcase Section */}
-        <section id="equipment" className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f7f7f7]">
+        <section id="equipment" className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
           <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-            <GradientText
-              colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
-              animationSpeed={4}
-              className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral'] mb-10 md:mb-16 text-center"
-            >
-              {t('equipment.title')}
-            </GradientText>
+            <div className="flex justify-center mb-10 md:mb-16">
+              <GradientText
+                colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+                animationSpeed={4}
+                className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral']"
+              >
+                {t('equipment.title')}
+              </GradientText>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-[1000px] mx-auto">
               {/* EinScan SP V2 Scanner */}
               <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
@@ -283,7 +285,7 @@ const ThreeDScanningPage = () => {
         </section>
 
         {/* EinScan SP V2 Guide Section */}
-        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-white">
+        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
             <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side with image */}
@@ -334,7 +336,7 @@ const ThreeDScanningPage = () => {
         </section>
 
         {/* Contact Section */}
-        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f7f7f7]">
+        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
             <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side content */}

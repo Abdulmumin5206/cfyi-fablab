@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import { useState, useEffect } from "react";
 import { ArrowRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import GradientText from "@/components/GradientText";
 
 // Blog post data - updated to only include the 3D Printed Prototype
 const blogPosts = [
@@ -188,11 +189,11 @@ const BlogIndex = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-white">
+    <div className="min-h-screen flex flex-col bg-[#f5f5f7]">
       <Header />
-      <main className="flex-grow bg-white">
+      <main className="flex-grow bg-[#f5f5f7]">
         {/* Projects Headline */}
-        <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px] pt-48 bg-white">
+        <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px] pt-48 bg-[#f5f5f7]">
           <div className="text-left mb-3 sm:mb-4 md:mb-6 lg:mb-8">
             <h1 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-[#329db7] font-['Magistral']">
               {tBlog('blog.projectsHeadline')}
@@ -203,15 +204,19 @@ const BlogIndex = () => {
           </div>
         </div>
         {/* High-Resolution 3D Scanning Section */}
-        <section className="pt-12 md:pt-16 pb-8 md:pb-12 bg-white">
+        <section className="pt-12 md:pt-16 pb-8 md:pb-12 bg-[#f5f5f7]">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
             <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
                 <div className="max-w-full text-left lg:max-w-xl flex flex-col items-start lg:items-start">
-                  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 leading-tight text-gray-900 font-['Magistral']">
+                  <GradientText
+                    colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+                    animationSpeed={4}
+                    className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral'] mb-8"
+                  >
                     {tBlog("blog.biomimeticArm.title")}
-                  </h2>
+                  </GradientText>
                   <p className="text-base sm:text-lg text-gray-600 mb-8 font-['Magistral']">
                     {tBlog("blog.biomimeticArm.description")}
                   </p>
@@ -265,15 +270,19 @@ const BlogIndex = () => {
           </div>
         </section>
         {/* Versatile Applications Section */}
-        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f7f7f7]">
+        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
             <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
                 <div className="max-w-full text-left lg:max-w-xl flex flex-col items-start lg:items-start">
-                  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 leading-tight text-gray-900 font-['Magistral']">
+                  <GradientText
+                    colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+                    animationSpeed={4}
+                    className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral'] mb-8"
+                  >
                     {tBlog("blog.droneProject.title")}
-                  </h2>
+                  </GradientText>
                   <p className="text-base sm:text-lg text-gray-600 mb-8 font-['Magistral']">
                     {tBlog("blog.droneProject.description")}
                   </p>
@@ -337,15 +346,19 @@ const BlogIndex = () => {
           </div>
         </section>
         {/* High-Resolution 3D Scanning Section (Duplicate) */}
-        <section className="pt-8 md:pt-12 pb-8 md:pb-12 bg-white">
+        <section className="pt-8 md:pt-12 pb-8 md:pb-12 bg-[#f5f5f7]">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
             <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
                 <div className="max-w-full text-left lg:max-w-xl flex flex-col items-start lg:items-start">
-                  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 leading-tight text-gray-900 font-['Magistral']">
+                  <GradientText
+                    colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+                    animationSpeed={4}
+                    className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral'] mb-8"
+                  >
                     {tBlog("blog.rrrArm.title")}
-                  </h2>
+                  </GradientText>
                   <p className="text-base sm:text-lg text-gray-600 mb-8 font-['Magistral']">
                     {tBlog("blog.rrrArm.description")}
                   </p>
@@ -419,15 +432,19 @@ const BlogIndex = () => {
           </div>
         </section>
         {/* Versatile Applications Section (Duplicate) */}
-        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f7f7f7]">
+        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
             <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
                 <div className="max-w-full text-left lg:max-w-xl flex flex-col items-start lg:items-start">
-                  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 leading-tight text-gray-900 font-['Magistral']">
+                  <GradientText
+                    colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+                    animationSpeed={4}
+                    className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral'] mb-8"
+                  >
                     {tBlog("blog.surveillanceCar.title")}
-                  </h2>
+                  </GradientText>
                   <p className="text-base sm:text-lg text-gray-600 mb-8 font-['Magistral']">
                     {tBlog("blog.surveillanceCar.description")}
                   </p>
@@ -500,7 +517,7 @@ const BlogIndex = () => {
             </div>
           </div>
         </section>
-        <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px] pt-12 md:pt-16 bg-white">
+        <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px] pt-12 md:pt-16 bg-[#f5f5f7]">
           <div className="text-left mb-3 sm:mb-4 md:mb-6 lg:mb-8">
             <h1 className="text-3xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-[#329db7] font-['Magistral']">{t('blog.title')}</h1>
             <p className="text-gray-700 text-base sm:text-lg mb-3 sm:mb-4 font-['Magistral']">{t('blog.subtitle')}</p>
@@ -553,7 +570,7 @@ const BlogIndex = () => {
           )}
         </div>
         {/* Newsletter Subscription Section */}
-        <div className="mt-16 py-12 px-4 sm:px-8 bg-white">
+        <div className="mt-16 py-12 px-4 sm:px-8 bg-[#f5f5f7]">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">{t('blog.newsletter.title')}</h2>
             <p className="text-lg text-gray-600 mb-8">

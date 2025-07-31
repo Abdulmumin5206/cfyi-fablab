@@ -35,8 +35,8 @@ const Header = () => {
   };
   
   const is3DPrintingPage = normalizePath("/3d-printing");
-  const is3DPrintingBlogPost = normalizePath("/blog/3d-printing-innovations");
-  const isBlogPage = normalizePath("/blog") || pathStartsWith("/blog/");
+  const is3DPrintingBlogPost = normalizePath("/projects/3d-printing-innovations");
+  const isBlogPage = normalizePath("/projects") || pathStartsWith("/projects/");
   const isCoursesPage = normalizePath("/courses");
   const is3DScanningPage = normalizePath("/3d-scanning");
   const isHomePage = normalizePath("/");
@@ -431,7 +431,7 @@ const Header = () => {
                   className={`flex items-center space-x-1 border px-2 sm:px-3 py-1.5 sm:py-2 h-[38px] sm:h-[42px] ${isLaptopScreen ? 'md:h-[38px]' : 'lg:h-[42px] xl:h-[46px]'} text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} ${isScrolled ? "border-black bg-transparent text-black" : (shouldUseBlackTheme && !isMobileScreen ? "border-black bg-black text-white" : shouldUseWhiteText ? "border-white bg-transparent text-white" : shouldUseBlackText ? "border-black bg-transparent text-black" : "border-white bg-transparent text-white")}`}
                 >
                   <Link
-                    to="/blog"
+                    to="/projects"
                     style={textStyle}
                     className={`${isScrolled ? "text-black" : shouldUseWhiteText ? "text-white" : shouldUseBlackText ? "text-black" : "text-white"} hover:text-[#329db7] transition-colors duration-300 text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} px-1 sm:px-2 bg-transparent`}
                   >

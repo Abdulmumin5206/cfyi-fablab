@@ -26,7 +26,7 @@ const TrainingSection = () => {
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-[#f7f7f7]">
+    <section className="py-16 md:py-24 bg-[#f5f5f7]">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center gap-12">
           {/* Left side content */}

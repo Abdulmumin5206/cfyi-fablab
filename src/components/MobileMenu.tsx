@@ -217,7 +217,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                           {t('mobileMenu.latestPostDescription')}
                         </p>
                         <Link
-                          to="/blog/3d-printing-innovations"
+                          to="/projects/3d-printing-innovations"
                           onClick={handleClose}
                           className={`inline-flex items-center ${isLargeScreen ? 'text-lg' : 'text-base'} text-white hover:text-[#E6DB00] transition-all duration-700 delay-600`}
                         >
@@ -324,7 +324,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                         {t('header.3dPrinting')}
                       </Link>
                       <Link
-                        to="/blog"
+                        to="/projects"
                         onClick={handleClose}
                         className="block text-left text-base md:text-xl font-light text-white hover:text-[#329db7] py-3 leading-tight w-full"
                         style={{
@@ -379,7 +379,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                         {t('serviceCategories.digitalFabrication.title')}
                       </Link>
                       <Link
-                        to="/blog"
+                        to="/projects"
                         onClick={handleClose}
                         className="block text-left text-base md:text-xl font-light text-white hover:text-[#329db7] py-3 leading-tight w-full"
                         style={{
@@ -466,7 +466,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                           {t('header.3dPrinting')}
                         </Link>
                         <Link
-                          to="/blog"
+                          to="/projects"
                           onClick={handleClose}
                           className={`block w-1/2 text-left ${isRussian ? 'pl-16 md:pl-20 lg:pl-28 xl:pl-32' : 'pl-12 md:pl-16 lg:pl-20 xl:pl-24'} text-xl md:text-2xl ${isLargeScreen ? 'lg:text-3xl xl:text-4xl' : 'lg:text-3xl'} font-light text-white hover:text-[#329db7] py-0`}
                           style={{
@@ -525,7 +525,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                           {t('serviceCategories.digitalFabrication.title')}
                         </Link>
                         <Link
-                          to="/blog"
+                          to="/projects"
                           onClick={handleClose}
                           className={`block w-1/2 text-left ${isRussian ? 'pl-16 md:pl-20 lg:pl-28 xl:pl-32' : 'pl-12 md:pl-16 lg:pl-20 xl:pl-24'} text-xl md:text-2xl ${isLargeScreen ? 'lg:text-3xl xl:text-4xl' : 'lg:text-3xl'} font-light text-white hover:text-[#329db7] py-0`}
                           style={{
@@ -626,7 +626,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                         <h2 className={`text-lg sm:text-xl font-light mb-2 sm:mb-3 text-white transition-all duration-700 delay-400 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'} leading-tight`}>3D Printing Innovations</h2>
                         <p className={`text-sm sm:text-base text-white/80 mb-3 transition-all duration-700 delay-500 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'} ${isLaptopScreen ? 'hidden md:block' : ''} leading-tight`}>Discover the latest advancements in 3D printing technology</p>
                         <Link
-                          to="/blog/3d-printing-innovations"
+                          to="/projects/3d-printing-innovations"
                           onClick={handleClose}
                           className={`inline-flex items-center text-sm sm:text-base text-white hover:text-[#E6DB00] transition-all duration-700 delay-600 ${activeSlide === 0 ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
                         >

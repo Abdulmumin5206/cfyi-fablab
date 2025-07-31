@@ -156,18 +156,18 @@ const MouldPage = () => {
   };
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col bg-[#f5f5f7]">
       <SEOHelmet
         title="Molding & Production Services"
-        description="Professional molding and production services in Uzbekistan. Injection molding, silicone molding, and mass production capabilities for industrial applications and manufacturing."
-        keywords="литье под давлением Ташкент, qolipga quyish Toshkent, силиконовое литье, silikon qolipga quyish, производство Узбекистан, ishlab chiqarish, массовое производство, ommaviy ishlab chiqarish, изготовление форм, qolip tayyorlash, промышленное производство Ташкент, sanoat ishlab chiqarish, инженерные услуги, muhandislik xizmatlari"
+        description="Professional molding and production services in Uzbekistan. Injection molding, silicone molding, and mass production capabilities for industrial applications."
+        keywords="литье пластмасс Ташкент, plastmassa quyish Toshkent, силиконовое литье, silikon quyish, производство деталей Узбекистан, detal ishlab chiqarish, промышленное литье, sanoat quyish, массовое производство, ommaviy ishlab chiqarish, изготовление форм, qolip tayyorlash"
         image="/mould/hero.webp"
         schema={mouldSchema}
         canonicalPath="/mould"
       />
       <Header />
       
-      <main className="flex-grow">
+      <main className="flex-grow bg-[#f5f5f7]">
         {/* Hero section */}
         <section className="relative w-full h-screen">
           {isVideoLoading && (
@@ -760,7 +760,7 @@ const MouldPage = () => {
                   <div className="text-[#329db7] text-xs sm:text-sm font-semibold mb-2 font-['Magistral']">{t('sparePartProjects.blogPost.category')}</div>
                   <h3 className="text-lg sm:text-xl font-bold mb-4 font-['Magistral']">{t('sparePartProjects.blogPost.title')}</h3>
                   <p className="text-base sm:text-lg text-gray-600 mb-4 font-['Magistral']">{t('sparePartProjects.blogPost.description')}</p>
-                  <a href="/blog/3d-printing-innovations" className="text-[#329db7] flex items-center gap-2 font-medium hover:text-[#2b86a0] transition-colors font-['Magistral']">
+                  <a href="/projects/3d-printing-innovations" className="text-[#329db7] flex items-center gap-2 font-medium hover:text-[#2b86a0] transition-colors font-['Magistral']">
                     {t('sparePartProjects.blogPost.readMore')}
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />

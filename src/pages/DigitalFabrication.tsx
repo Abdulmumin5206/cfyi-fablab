@@ -46,7 +46,7 @@ const DigitalFabricationPage = () => {
   }, [location]);
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col bg-[#f5f5f7]">
       <SEOHelmet
         title="Digital Fabrication Services"
         description="Professional digital fabrication services in Uzbekistan. CNC machining, laser cutting, precision manufacturing, and rapid prototyping for industrial applications. Advanced manufacturing solutions."
@@ -57,7 +57,7 @@ const DigitalFabricationPage = () => {
       />
       <Header />
       
-      <main className="flex-grow">
+      <main className="flex-grow bg-[#f5f5f7]">
         {/* Hero section */}
         <section className="relative w-full h-screen">
           {isImageLoading && (
@@ -91,7 +91,7 @@ const DigitalFabricationPage = () => {
         </section>
 
         {/* UV Printing Excellence Section */}
-        <section className="py-16 md:py-24 bg-white">
+        <section className="py-16 md:py-24 bg-[#f5f5f7]">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
             <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side content */}

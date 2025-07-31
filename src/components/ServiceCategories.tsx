@@ -117,7 +117,7 @@ const ServiceCategories = () => {
     <section
       ref={sectionRef}
       id="service-categories"
-      className="py-6 sm:py-8 md:py-12 lg:py-16 xl:py-20 bg-gray-100 relative overflow-hidden"
+      className="py-6 sm:py-8 md:py-12 lg:py-16 xl:py-20 bg-[#f5f5f7] relative overflow-hidden"
       aria-label="Our Services"
     >
       <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px] relative z-10">

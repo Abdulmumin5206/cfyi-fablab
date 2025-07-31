@@ -42,7 +42,7 @@ const AboutUsSection = () => {
 
   return (
     <section 
-      className="relative py-6 sm:py-8 md:py-12 lg:py-16 xl:py-20 bg-gray-200 overflow-hidden"
+      className="relative py-6 sm:py-8 md:py-12 lg:py-16 xl:py-20 bg-[#f5f5f7] overflow-hidden"
     >
 
 

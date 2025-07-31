@@ -193,7 +193,7 @@ const Footer = ({ bgClass = "bg-[#212121]", textClass = "text-white" }: FooterPr
                 </Link>
               </li>
               <li>
-                <Link to="/blog" className={`text-sm text-white ${linkHoverColor} transition-colors duration-200 flex items-center gap-2`}>
+                <Link to="/projects" className={`text-sm text-white ${linkHoverColor} transition-colors duration-200 flex items-center gap-2`}>
                   <span>{t('footer.blog')}</span>
                   <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
                 </Link>

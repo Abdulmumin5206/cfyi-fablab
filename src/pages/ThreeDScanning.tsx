@@ -35,7 +35,7 @@ const ThreeDScanningPage = () => {
   }, []);
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col bg-[#f5f5f7]">
       <SEOHelmet
         title="3D Scanning Services"
         description="Professional 3D scanning services in Uzbekistan. High-precision 3D scanning for reverse engineering, quality control, prototyping, and digital archiving with advanced scanning technology."
@@ -46,9 +46,9 @@ const ThreeDScanningPage = () => {
       />
       <Header />
       
-      <main className="flex-grow">
+      <main className="flex-grow bg-[#f5f5f7]">
         {/* High-Resolution 3D Scanning Section */}
-        <section className="pt-40 md:pt-48 pb-16 md:pb-24 bg-[#f7f7f7]">
+        <section className="pt-40 md:pt-48 pb-16 md:pb-24 bg-[#f5f5f7]">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
             <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side content */}

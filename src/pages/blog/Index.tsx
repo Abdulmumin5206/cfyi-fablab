@@ -524,12 +524,12 @@ const BlogIndex = () => {
                     </div>
                     <div className="p-4">
                       <h2 className="text-xl font-bold mb-4 text-gray-900">
-                        <Link to={`/blog/${post.slug}`} className="hover:text-[#329db7] transition-colors">
+                        <Link to={`/projects/${post.slug}`} className="hover:text-[#329db7] transition-colors">
                           {t(`blog.posts.${post.slug}.title`)}
                         </Link>
                       </h2>
                       <Link 
-                        to={`/blog/${post.slug}`}
+                        to={`/projects/${post.slug}`}
                         className="inline-flex items-center bg-[#329db7] text-white py-1.5 px-3 hover:bg-[#2b86a0] transition-opacity text-sm"
                       >
                         {t('blog.readMore')}

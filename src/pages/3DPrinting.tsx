@@ -77,7 +77,7 @@ const ThreeDPrintingPage = () => {
   };
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col bg-[#f5f5f7]">
       <SEOHelmet
         title="3D Printing Services"
         description="Professional 3D printing services in Uzbekistan. From FDM to SLA, we offer high-quality 3D printing with various materials for prototyping, manufacturing and engineering solutions."
@@ -88,9 +88,9 @@ const ThreeDPrintingPage = () => {
       />
       <Header />
       
-      <main className="flex-grow">
+      <main className="flex-grow bg-[#f5f5f7]">
         {/* Hero section with video */}
-        <section className="relative w-full h-screen bg-white">
+        <section className="relative w-full h-screen bg-[#f5f5f7]">
           {isImageLoading && (
             <div className="absolute inset-0 flex items-center justify-center bg-white z-20">
               <div className="w-8 h-8 md:w-12 md:h-12 border-4 border-[#329db7]/20 border-t-[#329db7] rounded-full animate-spin"></div>

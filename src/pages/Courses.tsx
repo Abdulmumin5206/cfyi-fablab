@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import CourseModal from '../components/CourseModal';
@@ -58,6 +59,9 @@ const CoursesPage = () => {
   const currentLang = i18n.language;
   const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
   const [selectedWorkshop, setSelectedWorkshop] = useState<string | null>(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const sliderRef = useRef<HTMLDivElement>(null);
   
   // Define JSON-LD schema for Courses page
   const coursesSchema = {
@@ -81,6 +85,46 @@ const CoursesPage = () => {
   const displayLang = courseDetails.fdmCourses.labels && courseDetails.fdmCourses.labels[currentLang] 
     ? currentLang 
     : (courseDetails.fdmCourses.labels && courseDetails.fdmCourses.labels['en'] ? 'en' : Object.keys(courseDetails.fdmCourses.labels || {})[0]);
+
+  // Popular Questions Data
+  const popularQuestions = [
+    {
+      id: 1,
+      question: "What's the best way to start learning 3D printing?",
+      answer: "Start with our Hobbyist Essentials course to learn the fundamentals, then practice with simple projects before advancing to more complex designs.",
+      color: "bg-[#cb2026]"
+    },
+    {
+      id: 2,
+      question: "How long does it take to master SLA printing?",
+      answer: "Most students achieve proficiency within 4-6 weeks of regular practice, though mastery of advanced techniques may take 3-6 months of dedicated work.",
+      color: "bg-[#0e9a48]"
+    },
+    {
+      id: 3,
+      question: "Which CAD software should I learn first?",
+      answer: "For beginners, we recommend starting with Tinkercad or Fusion 360, as they offer intuitive interfaces while providing powerful design capabilities.",
+      color: "bg-[#35469d]"
+    },
+    {
+      id: 4,
+      question: "What career opportunities are available after certification?",
+      answer: "Graduates find roles in product design, manufacturing, healthcare, architecture, education, and entrepreneurship with their digital fabrication skills.",
+      color: "bg-[#8a2be2]"
+    },
+    {
+      id: 5,
+      question: "How to troubleshoot common 3D printing issues?",
+      answer: "Most problems relate to bed leveling, temperature settings, or filament quality. Our courses cover systematic approaches to identify and fix issues.",
+      color: "bg-[#ff6b6b]"
+    },
+    {
+      id: 6,
+      question: "What materials work best for different applications?",
+      answer: "PLA is ideal for beginners, PETG for durability, ABS for mechanical parts, TPU for flexibility, and specialty filaments for specific requirements.",
+      color: "bg-[#f39c12]"
+    }
+  ];
 
   useEffect(() => {
     // Add error handling and debugging
@@ -134,6 +178,21 @@ const CoursesPage = () => {
     setSelectedWorkshop(null);
   };
 
+  // Slider navigation functions
+  const handleScrollLeft = () => {
+    if (isTransitioning || currentSlide === 0) return;
+    setIsTransitioning(true);
+    setCurrentSlide(prev => Math.max(0, prev - 1));
+    setTimeout(() => setIsTransitioning(false), 300);
+  };
+
+  const handleScrollRight = () => {
+    if (isTransitioning || currentSlide >= popularQuestions.length - 2) return;
+    setIsTransitioning(true);
+    setCurrentSlide(prev => Math.min(popularQuestions.length - 2, prev + 1));
+    setTimeout(() => setIsTransitioning(false), 300);
+  };
+
   // Safe access function
   const safeAccess = (obj: Record<string, unknown>, path: string[], fallback: string = 'Loading...') => {
     try {
@@ -153,11 +212,53 @@ const CoursesPage = () => {
     }
   };
 
-  // Course Card Component
+  // Safe access function for arrays
+  const safeAccessArray = (obj: Record<string, unknown>, path: string[], fallback: string[] = []): string[] => {
+    try {
+      let current: unknown = obj;
+      for (const key of path) {
+        if (current && typeof current === 'object' && key in current) {
+          current = (current as Record<string, unknown>)[key];
+        } else {
+          console.warn(`Path not found: ${path.join('.')} at ${key}`);
+          return fallback;
+        }
+      }
+      return Array.isArray(current) ? (current as string[]) : fallback;
+    } catch (error) {
+      console.error('Error accessing path:', path, error);
+      return fallback;
+    }
+  };
+
+  // Popular Question Card Component
+  const PopularQuestionCard = ({ 
+    question,
+    answer
+  }: {
+    question: string;
+    answer: string;
+  }) => (
+    <div 
+      className="bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300 h-full overflow-hidden"
+    >
+      <div className="p-8 flex flex-col h-full">
+        <h3 className="text-xl font-bold text-gray-900 font-['Magistral'] leading-tight mb-4">
+          {question}
+        </h3>
+        <p className="text-gray-600 font-['Magistral'] text-sm">
+          {answer}
+        </p>
+      </div>
+    </div>
+  );
+
+  // Improved Course Card Component
   const CourseCard = ({ 
     image, 
     title, 
     subtitle, 
+    description,
     duration, 
     level, 
     onViewDetails, 
@@ -167,16 +268,17 @@ const CoursesPage = () => {
     image: string;
     title: string;
     subtitle: string;
+    description: string;
     duration: string;
     level: string;
     onViewDetails: () => void;
     onEnroll: () => void;
     category?: string;
   }) => (
-    <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-      <div className="flex flex-col lg:flex-row h-auto lg:h-64">
+    <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-all duration-300">
+      <div className="flex flex-col lg:flex-row h-auto">
         {/* Image Section */}
-        <div className="relative w-full lg:w-80 h-64 lg:h-full flex-shrink-0">
+        <div className="relative w-full lg:w-72 h-48 lg:h-auto flex-shrink-0">
           <img 
             src={image} 
             alt={title} 
@@ -184,8 +286,8 @@ const CoursesPage = () => {
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/20 to-transparent lg:bg-gradient-to-t"></div>
           {category && (
-            <div className="absolute top-4 left-4">
-              <span className="bg-[#329db7] text-white text-sm font-semibold px-3 py-1 rounded-full font-['Magistral']">
+            <div className="absolute top-3 left-3">
+              <span className="bg-[#329db7] text-white text-xs font-semibold px-2 py-1 rounded-full font-['Magistral']">
                 {category}
               </span>
             </div>
@@ -193,24 +295,27 @@ const CoursesPage = () => {
         </div>
         
         {/* Content Section */}
-        <div className="flex-1 p-6 lg:p-8 flex flex-col justify-between">
+        <div className="flex-1 p-5 lg:p-6 flex flex-col justify-between">
           <div>
-            <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-3 font-['Magistral']">
+            <h3 className="text-lg lg:text-xl font-bold text-gray-900 mb-2 font-['Magistral']">
               {title}
             </h3>
-            <p className="text-gray-600 mb-4 lg:mb-6 text-base lg:text-lg leading-relaxed font-['Magistral']">
+            <p className="text-gray-600 mb-3 text-sm lg:text-base leading-relaxed font-['Magistral']">
               {subtitle}
             </p>
+            <p className="text-gray-500 text-sm mb-4 font-['Magistral']">
+              {description}
+            </p>
             
-            <div className="flex items-center gap-6 mb-6 text-sm text-gray-500">
-              <div className="flex items-center gap-2">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="flex items-center gap-4 mb-4 text-xs text-gray-500">
+              <div className="flex items-center gap-1">
+                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 <span className="font-['Magistral']">{duration}</span>
               </div>
-              <div className="flex items-center gap-2">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="flex items-center gap-1">
+                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                 </svg>
                 <span className="font-['Magistral']">{level}</span>
@@ -218,16 +323,16 @@ const CoursesPage = () => {
             </div>
           </div>
           
-          <div className="flex flex-col sm:flex-row gap-3">
+          <div className="flex flex-col sm:flex-row gap-2">
             <button
               onClick={onViewDetails}
-              className="flex-1 px-6 py-3 bg-gray-100 text-gray-700 rounded-xl font-semibold hover:bg-gray-200 transition-all duration-300 font-['Magistral'] text-center"
+              className="flex-1 px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium hover:bg-gray-200 transition-all duration-300 font-['Magistral'] text-center"
             >
               {t("courses.viewDetails")}
             </button>
             <button
               onClick={onEnroll}
-              className="flex-1 px-6 py-3 bg-[#329db7] text-white rounded-xl font-semibold hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg font-['Magistral']"
+              className="flex-1 px-4 py-2 bg-[#329db7] text-white rounded-lg text-sm font-medium hover:bg-[#2b86a0] transition-all duration-300 font-['Magistral']"
             >
               {t("courses.enrollNow")}
             </button>
@@ -238,7 +343,7 @@ const CoursesPage = () => {
   );
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col bg-[#f5f5f7]">
       <SEOHelmet
         title="3D Printing Courses & Training"
         description="Professional 3D printing and digital fabrication courses in Uzbekistan. Learn FDM, SLA, and advanced manufacturing with hands-on training and certification at FabLab CFYI."
@@ -249,36 +354,117 @@ const CoursesPage = () => {
       />
       <Header />
       
-      <main className="flex-grow bg-gray-50">
-        {/* Hero Section */}
-        <section className="pt-20 sm:pt-24 md:pt-32 lg:pt-40 pb-16 bg-white">
-          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 font-['Magistral']">
-              {t("courses.hero.title", "Professional Training Courses")}
-            </h1>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto mb-8 font-['Magistral']">
-              {t("courses.hero.description", "Master 3D printing, digital fabrication, and advanced manufacturing with hands-on training from industry experts.")}
-            </p>
+      <main className="flex-grow bg-[#f5f5f7]">
+        {/* Hero Section with Topic Questions */}
+        <section className="pt-20 sm:pt-24 md:pt-32 lg:pt-40 pb-16 bg-[#f5f5f7]">
+          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Topic Questions Section */}
+            <div className="mb-8">
+              <div className="flex items-center justify-between mb-6">
+                <h2 className="text-xl sm:text-2xl font-bold text-gray-900 font-['Magistral']">
+                  Popular Questions
+                </h2>
+                <a href="#" className="text-[#329db7] text-sm font-medium hover:underline font-['Magistral']">
+                  See More
+                </a>
+              </div>
+              
+              {/* Desktop Slider with preview cards */}
+              <div className="hidden lg:block relative overflow-hidden px-4">
+                <div className="flex items-center justify-center">
+                  <button
+                    onClick={handleScrollLeft}
+                    className={`absolute left-1 z-10 transition-all duration-300 top-1/2 -translate-y-1/2 ${
+                      currentSlide === 0 ? 'hidden' : 'opacity-100 cursor-pointer'
+                    }`}
+                    aria-label="Scroll left"
+                    disabled={currentSlide === 0}
+                  >
+                    <ChevronLeft className="w-10 h-10 text-gray-500 hover:text-gray-800" />
+                  </button>
+
+                  <div className="w-full overflow-visible">
+                    <div 
+                      className="flex transition-transform duration-300 ease-out"
+                      style={{
+                        transform: `translateX(calc(-${100 / 2.2}% * ${currentSlide}))`,
+                        willChange: 'transform'
+                      }}
+                      ref={sliderRef}
+                    >
+                      {popularQuestions.map((item) => (
+                        <div 
+                          key={item.id} 
+                          className="flex-shrink-0 transition-all duration-300"
+                          style={{
+                            flex: '0 0 40%',
+                            marginRight: '3%',
+                            transform: 'translateZ(0)'
+                          }}
+                        >
+                          <PopularQuestionCard
+                            question={item.question}
+                            answer={item.answer}
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <button
+                    onClick={handleScrollRight}
+                    className={`absolute right-1 z-10 transition-all duration-300 top-1/2 -translate-y-1/2 ${
+                      currentSlide >= popularQuestions.length - 2 ? 'hidden' : 'opacity-100 cursor-pointer'
+                    }`}
+                    aria-label="Scroll right"
+                    disabled={currentSlide >= popularQuestions.length - 2}
+                  >
+                    <ChevronRight className="w-10 h-10 text-gray-500 hover:text-gray-800" />
+                  </button>
+                </div>
+              </div>
+              
+              {/* Mobile Layout */}
+              <div className="lg:hidden">
+                <div className="overflow-x-auto -mx-4 px-4">
+                  <div className="flex gap-4 py-2 pb-6">
+                    {popularQuestions.map((item) => (
+                      <div 
+                        key={item.id} 
+                        className="flex-shrink-0 w-[80vw]"
+                        style={{ transform: 'translateZ(0)' }}
+                      >
+                        <PopularQuestionCard
+                          question={item.question}
+                          answer={item.answer}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
         {/* FDM Courses Section */}
-        <section className="py-16">
+        <section className="py-12 bg-[#f5f5f7]">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="mb-12">
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 font-['Magistral']">
+            <div className="mb-8">
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 font-['Magistral']">
                 {t("courses.fdm.sectionTitle", "FDM 3D Printing Courses")}
               </h2>
-              <p className="text-gray-600 text-lg font-['Magistral']">
+              <p className="text-gray-600 text-base font-['Magistral']">
                 {t("courses.fdm.sectionDescription", "Learn Fused Deposition Modeling from basics to professional level")}
               </p>
             </div>
             
-            <div className="space-y-8">
+            <div className="space-y-6">
               <CourseCard
                 image="/3dprinters/course1.webp"
                 title={safeAccess(fdmCourses, ['hobbyistEssentials', displayLang, 'title'])}
                 subtitle={safeAccess(fdmCourses, ['hobbyistEssentials', displayLang, 'subtitle'])}
+                description="Perfect for beginners who want to understand 3D printing fundamentals and start creating their own projects. Learn safety, maintenance, and basic troubleshooting."
                 duration={safeAccess(fdmCourses, ['hobbyistEssentials', displayLang, 'details', 'duration'])}
                 level={safeAccess(fdmCourses, ['hobbyistEssentials', displayLang, 'details', 'level'])}
                 category={t("courses.fdm.badge")}
@@ -290,6 +476,7 @@ const CoursesPage = () => {
                 image="/3dprinters/course2.webp"
                 title={safeAccess(fdmCourses, ['comprehensivePro', displayLang, 'title'])}
                 subtitle={safeAccess(fdmCourses, ['comprehensivePro', displayLang, 'subtitle'])}
+                description="Advanced course covering professional techniques, optimization strategies, and industry applications. Includes advanced materials and troubleshooting."
                 duration={safeAccess(fdmCourses, ['comprehensivePro', displayLang, 'details', 'duration'])}
                 level={safeAccess(fdmCourses, ['comprehensivePro', displayLang, 'details', 'level'])}
                 category={t("courses.fdm.badge")}
@@ -301,22 +488,23 @@ const CoursesPage = () => {
         </section>
 
         {/* SLA Courses Section */}
-        <section className="py-16 bg-white">
+        <section className="py-12 bg-[#f5f5f7]">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="mb-12">
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 font-['Magistral']">
+            <div className="mb-8">
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 font-['Magistral']">
                 {t("courses.sla.sectionTitle", "SLA Resin Printing Courses")}
               </h2>
-              <p className="text-gray-600 text-lg font-['Magistral']">
+              <p className="text-gray-600 text-base font-['Magistral']">
                 {t("courses.sla.sectionDescription", "Master high-precision stereolithography printing techniques")}
               </p>
             </div>
             
-            <div className="space-y-8">
+            <div className="space-y-6">
               <CourseCard
                 image="/3dprinters/slacourse1.webp"
                 title={safeAccess(courseDetails.slaCourses, ['completeMastery', displayLang, 'title'])}
                 subtitle={safeAccess(courseDetails.slaCourses, ['completeMastery', displayLang, 'subtitle'])}
+                description="Comprehensive SLA training covering resin types, post-processing techniques, and high-detail printing. Perfect for jewelry, dental, and prototyping applications."
                 duration={safeAccess(courseDetails.slaCourses, ['completeMastery', displayLang, 'details', 'duration'])}
                 level={safeAccess(courseDetails.slaCourses, ['completeMastery', displayLang, 'details', 'level'])}
                 category={t("courses.sla.badge")}
@@ -328,22 +516,23 @@ const CoursesPage = () => {
         </section>
 
         {/* CAD/CAM Courses Section */}
-        <section className="py-16">
+        <section className="py-12 bg-[#f5f5f7]">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="mb-12">
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 font-['Magistral']">
+            <div className="mb-8">
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 font-['Magistral']">
                 {t("courses.precision.sectionTitle", "CAD/CAM & Precision Manufacturing")}
               </h2>
-              <p className="text-gray-600 text-lg font-['Magistral']">
+              <p className="text-gray-600 text-base font-['Magistral']">
                 {t("courses.precision.sectionDescription", "Professional design and manufacturing workflow training")}
               </p>
             </div>
             
-            <div className="space-y-8">
+            <div className="space-y-6">
               <CourseCard
                 image="/courses/precision1.webp"
                 title={safeAccess(courseDetails.cadcamCourses.professionalMastery, [displayLang, 'title'])}
                 subtitle={safeAccess(courseDetails.cadcamCourses.professionalMastery, [displayLang, 'subtitle'])}
+                description="Master the complete digital manufacturing workflow from design to production. Learn industry-standard CAD/CAM software and precision manufacturing techniques."
                 duration={safeAccess(courseDetails.cadcamCourses.professionalMastery, [displayLang, 'details', 'duration'])}
                 level={safeAccess(courseDetails.cadcamCourses.professionalMastery, [displayLang, 'details', 'level'])}
                 category={t("courses.precision.badge")}
@@ -355,22 +544,23 @@ const CoursesPage = () => {
         </section>
 
         {/* Workshops Section */}
-        <section className="py-16 bg-white">
+        <section className="py-12 bg-[#f5f5f7]">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="mb-12">
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 font-['Magistral']">
+            <div className="mb-8">
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 font-['Magistral']">
                 {t("courses.workshops.title")}
               </h2>
-              <p className="text-gray-600 text-lg font-['Magistral']">
+              <p className="text-gray-600 text-base font-['Magistral']">
                 {t("courses.workshops.description", "Intensive hands-on workshops for rapid skill development")}
               </p>
             </div>
             
-            <div className="space-y-8">
+            <div className="space-y-6">
               <CourseCard
                 image="/courses/workshop1.webp"
                 title={t("courses.workshops.digitalFabrication.title")}
                 subtitle={t("courses.workshops.digitalFabrication.description")}
+                description="Intensive workshop covering multiple digital fabrication techniques including 3D printing, laser cutting, and CNC machining. Perfect for rapid prototyping skills."
                 duration={t("courses.workshops.digitalFabrication.duration")}
                 level={t("courses.workshops.digitalFabrication.level")}
                 category={t("courses.workshops.badge", "Workshop")}
@@ -382,6 +572,7 @@ const CoursesPage = () => {
                 image="/courses/workshop2.webp"
                 title={t("courses.workshops.scanning.title")}
                 subtitle={t("courses.workshops.scanning.description")}
+                description="Learn 3D scanning techniques for reverse engineering and quality control. Master both hardware and software aspects of 3D scanning technology."
                 duration={t("courses.workshops.scanning.duration")}
                 level={t("courses.workshops.scanning.level")}
                 category={t("courses.workshops.badge", "Workshop")}
@@ -398,11 +589,21 @@ const CoursesPage = () => {
           onClose={handleCloseModal}
           title={safeAccess(fdmCourses, ['hobbyistEssentials', displayLang, 'title'])}
           subtitle={safeAccess(fdmCourses, ['hobbyistEssentials', displayLang, 'subtitle'])}
-          whatYouLearn={safeAccess(fdmCourses, ['hobbyistEssentials', displayLang, 'whatYouLearn'])}
-          whatYouGet={safeAccess(fdmCourses, ['hobbyistEssentials', displayLang, 'whatYouGet'])}
-          bonusModule={safeAccess(fdmCourses, ['hobbyistEssentials', displayLang, 'bonusModule'])}
-          details={safeAccess(fdmCourses, ['hobbyistEssentials', displayLang, 'details'])}
-          labels={safeAccess(fdmCourses, ['labels', displayLang])}
+          whatYouLearn={safeAccess(fdmCourses, ['hobbyistEssentials', displayLang, 'whatYouLearn']) ? { 
+            items: safeAccessArray(fdmCourses, ['hobbyistEssentials', displayLang, 'whatYouLearn', 'items'])
+          } : undefined}
+          whatYouGet={safeAccess(fdmCourses, ['hobbyistEssentials', displayLang, 'whatYouGet']) ? { 
+            items: safeAccessArray(fdmCourses, ['hobbyistEssentials', displayLang, 'whatYouGet', 'items'])
+          } : undefined}
+          bonusModule={safeAccess(fdmCourses, ['hobbyistEssentials', displayLang, 'bonusModule']) ? { 
+            items: [safeAccess(fdmCourses, ['hobbyistEssentials', displayLang, 'bonusModule'])]
+          } : undefined}
+          details={{
+            duration: safeAccess(fdmCourses, ['hobbyistEssentials', displayLang, 'details', 'duration']),
+            level: safeAccess(fdmCourses, ['hobbyistEssentials', displayLang, 'details', 'level']),
+            prerequisites: safeAccess(fdmCourses, ['hobbyistEssentials', displayLang, 'details', 'prerequisites'])
+          }}
+          labels={safeAccess(fdmCourses, ['labels', displayLang]) as any}
           currentLang={currentLang}
         />
 
@@ -411,10 +612,18 @@ const CoursesPage = () => {
           onClose={handleCloseModal}
           title={safeAccess(fdmCourses, ['comprehensivePro', displayLang, 'title'])}
           subtitle={safeAccess(fdmCourses, ['comprehensivePro', displayLang, 'subtitle'])}
-          whatYouMaster={safeAccess(fdmCourses, ['comprehensivePro', displayLang, 'whatYouMaster'])}
-          advancedTopics={safeAccess(fdmCourses, ['comprehensivePro', displayLang, 'advancedTopics'])}
-          details={safeAccess(fdmCourses, ['comprehensivePro', displayLang, 'details'])}
-          labels={safeAccess(fdmCourses, ['labels', displayLang])}
+          whatYouMaster={safeAccess(fdmCourses, ['comprehensivePro', displayLang, 'whatYouMaster']) ? { 
+            items: safeAccessArray(fdmCourses, ['comprehensivePro', displayLang, 'whatYouMaster', 'items'])
+          } : undefined}
+          advancedTopics={safeAccess(fdmCourses, ['comprehensivePro', displayLang, 'advancedTopics']) ? { 
+            items: safeAccessArray(fdmCourses, ['comprehensivePro', displayLang, 'advancedTopics', 'items'])
+          } : undefined}
+          details={{
+            duration: safeAccess(fdmCourses, ['comprehensivePro', displayLang, 'details', 'duration']),
+            level: safeAccess(fdmCourses, ['comprehensivePro', displayLang, 'details', 'level']),
+            prerequisites: safeAccess(fdmCourses, ['comprehensivePro', displayLang, 'details', 'prerequisites'])
+          }}
+          labels={safeAccess(fdmCourses, ['labels', displayLang]) as any}
           currentLang={currentLang}
         />
 
@@ -423,11 +632,21 @@ const CoursesPage = () => {
           onClose={handleCloseModal}
           title={safeAccess(courseDetails.slaCourses, ['completeMastery', displayLang, 'title'])}
           subtitle={safeAccess(courseDetails.slaCourses, ['completeMastery', displayLang, 'subtitle'])}
-          coreCurriculum={safeAccess(courseDetails.slaCourses, ['completeMastery', displayLang, 'coreCurriculum'])}
-          postProcessing={safeAccess(courseDetails.slaCourses, ['completeMastery', displayLang, 'postProcessing'])}
-          handsOnExperience={safeAccess(courseDetails.slaCourses, ['completeMastery', displayLang, 'handsOnExperience'])}
-          details={safeAccess(courseDetails.slaCourses, ['completeMastery', displayLang, 'details'])}
-          labels={safeAccess(courseDetails.slaCourses, ['labels', displayLang])}
+          coreCurriculum={safeAccess(courseDetails.slaCourses, ['completeMastery', displayLang, 'coreCurriculum']) ? { 
+            items: safeAccessArray(courseDetails.slaCourses, ['completeMastery', displayLang, 'coreCurriculum', 'items'])
+          } : undefined}
+          postProcessing={safeAccess(courseDetails.slaCourses, ['completeMastery', displayLang, 'postProcessing']) ? { 
+            items: safeAccessArray(courseDetails.slaCourses, ['completeMastery', displayLang, 'postProcessing', 'items'])
+          } : undefined}
+          handsOnExperience={safeAccess(courseDetails.slaCourses, ['completeMastery', displayLang, 'handsOnExperience']) ? { 
+            items: safeAccessArray(courseDetails.slaCourses, ['completeMastery', displayLang, 'handsOnExperience', 'items'])
+          } : undefined}
+          details={{
+            duration: safeAccess(courseDetails.slaCourses, ['completeMastery', displayLang, 'details', 'duration']),
+            level: safeAccess(courseDetails.slaCourses, ['completeMastery', displayLang, 'details', 'level']),
+            prerequisites: safeAccess(courseDetails.slaCourses, ['completeMastery', displayLang, 'details', 'prerequisites'])
+          }}
+          labels={safeAccess(courseDetails.slaCourses, ['labels', displayLang]) as any}
           currentLang={currentLang}
         />
 
@@ -436,14 +655,30 @@ const CoursesPage = () => {
           onClose={handleCloseModal}
           title={safeAccess(courseDetails.cadcamCourses.professionalMastery, [displayLang, 'title'])}
           subtitle={safeAccess(courseDetails.cadcamCourses.professionalMastery, [displayLang, 'subtitle'])}
-          cadFundamentals={safeAccess(courseDetails.cadcamCourses.professionalMastery, [displayLang, 'cadFundamentals'])}
-          advancedDesign={safeAccess(courseDetails.cadcamCourses.professionalMastery, [displayLang, 'advancedDesign'])}
-          camIntegration={safeAccess(courseDetails.cadcamCourses.professionalMastery, [displayLang, 'camIntegration'])}
-          manufacturingProcesses={safeAccess(courseDetails.cadcamCourses.professionalMastery, [displayLang, 'manufacturingProcesses'])}
-          industryApplications={safeAccess(courseDetails.cadcamCourses.professionalMastery, [displayLang, 'industryApplications'])}
-          softwareCovered={safeAccess(courseDetails.cadcamCourses.professionalMastery, [displayLang, 'softwareCovered'])}
-          details={safeAccess(courseDetails.cadcamCourses.professionalMastery, [displayLang, 'details'])}
-          labels={safeAccess(courseDetails.cadcamCourses, ['labels', displayLang])}
+          cadFundamentals={safeAccess(courseDetails.cadcamCourses.professionalMastery, [displayLang, 'cadFundamentals']) ? { 
+            items: safeAccessArray(courseDetails.cadcamCourses.professionalMastery, [displayLang, 'cadFundamentals', 'items'])
+          } : undefined}
+          advancedDesign={safeAccess(courseDetails.cadcamCourses.professionalMastery, [displayLang, 'advancedDesign']) ? { 
+            items: safeAccessArray(courseDetails.cadcamCourses.professionalMastery, [displayLang, 'advancedDesign', 'items'])
+          } : undefined}
+          camIntegration={safeAccess(courseDetails.cadcamCourses.professionalMastery, [displayLang, 'camIntegration']) ? { 
+            items: safeAccessArray(courseDetails.cadcamCourses.professionalMastery, [displayLang, 'camIntegration', 'items'])
+          } : undefined}
+          manufacturingProcesses={safeAccess(courseDetails.cadcamCourses.professionalMastery, [displayLang, 'manufacturingProcesses']) ? { 
+            items: safeAccessArray(courseDetails.cadcamCourses.professionalMastery, [displayLang, 'manufacturingProcesses', 'items'])
+          } : undefined}
+          industryApplications={safeAccess(courseDetails.cadcamCourses.professionalMastery, [displayLang, 'industryApplications']) ? { 
+            items: safeAccessArray(courseDetails.cadcamCourses.professionalMastery, [displayLang, 'industryApplications', 'items'])
+          } : undefined}
+          softwareCovered={safeAccess(courseDetails.cadcamCourses.professionalMastery, [displayLang, 'softwareCovered']) ? { 
+            items: safeAccessArray(courseDetails.cadcamCourses.professionalMastery, [displayLang, 'softwareCovered', 'items'])
+          } : undefined}
+          details={{
+            duration: safeAccess(courseDetails.cadcamCourses.professionalMastery, [displayLang, 'details', 'duration']),
+            level: safeAccess(courseDetails.cadcamCourses.professionalMastery, [displayLang, 'details', 'level']),
+            prerequisites: safeAccess(courseDetails.cadcamCourses.professionalMastery, [displayLang, 'details', 'prerequisites'])
+          }}
+          labels={safeAccess(courseDetails.cadcamCourses, ['labels', displayLang]) as any}
           currentLang={currentLang}
         />
         

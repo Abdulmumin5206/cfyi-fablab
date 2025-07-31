@@ -152,7 +152,7 @@ const BlogPost = () => {
           {is3DPrintingPost && (
             <div className="w-full bg-white py-4">
               <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
-                <Link to="/blog" className="inline-flex items-center text-black hover:text-gray-600 transition-colors text-sm font-medium">
+                <Link to="/projects" className="inline-flex items-center text-black hover:text-gray-600 transition-colors text-sm font-medium">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 mr-2">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
                   </svg>
@@ -255,7 +255,7 @@ const BlogPost = () => {
                 <h1 className="text-3xl font-bold mb-4">{t('blog.posts.notFound.title')}</h1>
                 <p className="text-gray-600 mb-8">{t('blog.posts.notFound.content')}</p>
                 <Link 
-                  to="/blog"
+                  to="/projects"
                   className="inline-flex items-center text-brand-red hover:text-red-700 font-medium"
                 >
                   {t('blog.backToAllPosts')}

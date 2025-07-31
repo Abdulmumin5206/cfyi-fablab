@@ -239,8 +239,8 @@ const App = () => {
                 <Route path="/digital-fabrication" element={<DigitalFabricationPage />} />
                 <Route path="/3d-scanning" element={<ThreeDScanningPage />} />
                 <Route path="/courses" element={<CoursesPage />} />
-                <Route path="/blog" element={<BlogIndex />} />
-                <Route path="/blog/:slug" element={<BlogPost />} />
+                <Route path="/projects" element={<BlogIndex />} />
+                <Route path="/projects/:slug" element={<BlogPost />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </RouteHandler>

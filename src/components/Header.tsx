@@ -202,11 +202,11 @@ const Header = () => {
 
   // Dynamic styling for laptop screens
   const headerStyle = isLaptopScreen ? {
-    height: windowWidth < 768 ? '65px' : windowWidth < 1024 ? '70px' : '75px'
+    height: windowWidth < 768 ? '60px' : windowWidth < 1024 ? '65px' : '70px'
   } : {};
 
   const logoStyle = isLaptopScreen ? {
-    maxHeight: windowWidth < 768 ? '50px' : windowWidth < 1024 ? '55px' : '60px'
+    maxHeight: windowWidth < 768 ? '45px' : windowWidth < 1024 ? '50px' : '55px'
   } : {};
 
   const textStyle = isLaptopScreen ? {
@@ -220,13 +220,13 @@ const Header = () => {
   // Position dropdown based on header height
   const getDropdownPosition = () => {
     if (windowWidth < 768) {
-      return '50px'; // mobile
+      return '45px'; // mobile
     } else if (windowWidth < 1024) {
-      return '60px'; // tablet
+      return '55px'; // tablet
     } else if (windowWidth < 1440) {
-      return '65px'; // laptop
+      return '60px'; // laptop
     } else {
-      return '70px'; // desktop
+      return '65px'; // desktop
     }
   };
   
@@ -305,7 +305,7 @@ const Header = () => {
         <div className="relative">
           <div
             style={headerStyle}
-            className={`flex justify-between items-center h-12 sm:h-16 ${isLaptopScreen ? 'md:h-[65px]' : 'md:h-20 lg:h-24'} transition-colors duration-300`}
+            className={`flex justify-between items-center h-12 sm:h-16 ${isLaptopScreen ? 'md:h-[60px]' : 'md:h-18 lg:h-20'} transition-colors duration-300`}
           >
             {/* Logo */}
             <div
@@ -325,7 +325,7 @@ const Header = () => {
                   style={logoStyle}
                   src="/fablab/logo.png"
                   alt="FabLab Logo"
-                  className={`h-full w-auto max-h-14 sm:max-h-16 ${isLaptopScreen ? 'md:max-h-9' : 'md:max-h-12 lg:max-h-16'} object-contain`}
+                  className={`h-full w-auto max-h-14 sm:max-h-16 ${isLaptopScreen ? 'md:max-h-8' : 'md:max-h-10 lg:max-h-14'} object-contain`}
                 />
               </Link>
             </div>

@@ -378,7 +378,7 @@
     "namePlaceholder": "John Doe",
     "email": "Email *",
     "emailPlaceholder": "johndoe@example.com",
-    "phone": "Phone (Optional)",
+    "phone": "Phone",
     "phonePlaceholder": "+998 XX XXX XX XX",
     "message": "Message *",
     "messagePlaceholder": "How can we help you?",

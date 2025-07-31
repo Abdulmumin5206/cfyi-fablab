@@ -44,17 +44,7 @@ const AboutUsSection = () => {
     <section 
       className="relative py-6 sm:py-8 md:py-12 lg:py-16 xl:py-20 bg-gray-200 overflow-hidden"
     >
-      {/* Background Logo */}
-      <div className="absolute inset-0 hidden lg:flex items-center justify-center">
-        <div className="w-[100%] h-[100%] relative opacity-15">
-          <img 
-            src="/main/FABLAB.webp"
-            alt="FabLab Background"
-            className="w-full h-full object-contain"
-            loading="eager"
-          />
-        </div>
-      </div>
+
 
       <div className="container relative z-10 mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
         <div className="text-left mb-3 sm:mb-4">

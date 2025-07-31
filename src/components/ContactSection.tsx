@@ -189,7 +189,7 @@ const ContactSection = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                      {t('contact.name')} <span className="text-[#329db7]">*</span>
+                      {t('contact.name')}
                     </label>
                     <Input
                       id="name"
@@ -204,7 +204,7 @@ const ContactSection = () => {
                   
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                      {t('contact.email')} <span className="text-[#329db7]">*</span>
+                      {t('contact.email')}
                     </label>
                     <Input
                       id="email"
@@ -235,7 +235,7 @@ const ContactSection = () => {
                 
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                    {t('contact.message')} <span className="text-[#329db7]">*</span>
+                    {t('contact.message')}
                   </label>
                   <Textarea
                     id="message"

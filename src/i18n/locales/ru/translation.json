@@ -396,7 +396,7 @@
     "namePlaceholder": "John Doe",
     "email": "Email *",
     "emailPlaceholder": "johndoe@example.com",
-    "phone": "Телефон (Необязательно)",
+    "phone": "Телефон",
     "phonePlaceholder": "+998 XX XXX XX XX",
     "message": "Сообщение *",
     "messagePlaceholder": "Как мы можем вам помочь?",

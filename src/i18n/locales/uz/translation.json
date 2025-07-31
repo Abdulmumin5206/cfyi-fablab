@@ -392,7 +392,7 @@
     "namePlaceholder": "John Doe",
     "email": "Email *",
     "emailPlaceholder": "johndoe@example.com",
-    "phone": "Telefon (Ixtiyoriy)",
+    "phone": "Telefon",
     "phonePlaceholder": "+998 XX XXX XX XX",
     "message": "Xabar *",
     "messagePlaceholder": "Sizga qanday yordam bera olamiz?",

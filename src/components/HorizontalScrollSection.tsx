@@ -22,8 +22,8 @@ const HorizontalScrollSection = () => {
   
   // Dynamic classes for Russian language
   const titleClasses = isRussian 
-    ? "text-2xl md:text-3xl lg:text-4xl font-bold mb-8"
-    : "text-3xl md:text-4xl lg:text-5xl font-bold mb-8";
+    ? "text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-8"
+    : "text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8";
     
   const textClasses = isRussian
     ? "text-gray-800 text-base md:text-lg lg:text-xl leading-relaxed space-y-6"
@@ -279,7 +279,7 @@ const HorizontalScrollSection = () => {
           <div className="flex-shrink-0 w-[100vw]">
             <div className="flex flex-col md:flex-row h-full items-center px-4 md:px-8 lg:px-12">
               {/* Text content and logos - left side */}
-              <div className="p-4 md:p-6 lg:p-8 flex flex-col md:w-1/2">
+              <div className="p-4 md:p-6 lg:p-8 flex flex-col md:w-1/2 mt-8 md:mt-12">
                 <GradientText className={titleClasses}>
                   {t('whatIsFabLab.title')}
                 </GradientText>
@@ -334,7 +334,7 @@ const HorizontalScrollSection = () => {
               </div>
               
               {/* FabLab image - right side, wider and panoramic */}
-              <div className="md:w-3/5 h-[400px] md:h-[500px] lg:h-[600px] overflow-visible relative ml-0 md:ml-8 mt-8 md:mt-0">
+              <div className="md:w-3/5 h-[350px] md:h-[420px] lg:h-[480px] overflow-visible relative ml-3 md:ml-12 mt-8 md:mt-0">
                 <div className="w-[150%] h-full relative overflow-hidden rounded-lg shadow-lg">
                   <img 
                     src="/main/fablabroom.webp" 
@@ -354,10 +354,10 @@ const HorizontalScrollSection = () => {
           </div>
 
           {/* Our Mission - standalone text element similar to What is FabLab? */}
-          <div className="flex-shrink-0 w-[100vw]" style={{ marginLeft: "-20vw" }}>
+          <div className="flex-shrink-0 w-[100vw]" style={{ marginLeft: "-21vw" }}>
             <div className="flex flex-col md:flex-row h-full items-center px-4 md:px-8 lg:px-12">
               {/* Empty left side to avoid overlap with previous image */}
-              <div className="md:w-2/5 h-[400px] md:h-[500px] lg:h-[600px] overflow-visible relative">
+              <div className="md:w-2/5 h-[350px] md:h-[420px] lg:h-[480px] overflow-visible relative">
                 {/* No content here to avoid overlap */}
               </div>
               
@@ -367,7 +367,7 @@ const HorizontalScrollSection = () => {
                   {t('mission.title')}
                 </GradientText>
                 
-                <div className={`${textClasses} max-w-xl`}>
+                <div className={`${textClasses} max-w-lg`}>
                   <p>
                     {t('mission.description1')}
                   </p>
@@ -380,10 +380,10 @@ const HorizontalScrollSection = () => {
           </div>
 
           {/* Advanced Equipment - standalone text element with exact same structure */}
-          <div className="flex-shrink-0 w-[100vw]" style={{ marginLeft: "-25vw" }}>
+          <div className="flex-shrink-0 w-[100vw]" style={{ marginLeft: "-21vw" }}>
             <div className="flex flex-col md:flex-row h-full items-center px-4 md:px-8 lg:px-12">
               {/* Image on left side */}
-              <div className="md:w-2/5 h-[400px] md:h-[500px] lg:h-[600px] overflow-visible relative">
+              <div className="md:w-2/5 h-[350px] md:h-[420px] lg:h-[480px] overflow-visible relative">
                 <img 
                   src="/main/3dprinting1.webp"
                   alt={t('equipment.title')}
@@ -400,7 +400,7 @@ const HorizontalScrollSection = () => {
                   {t('equipment.title')}
                 </GradientText>
                 
-                <div className={`${textClasses} max-w-xl`}>
+                <div className={`${textClasses} max-w-lg`}>
                   <p>
                     {t('equipment.description1')}
                   </p>
@@ -413,10 +413,10 @@ const HorizontalScrollSection = () => {
           </div>
 
           {/* Vision Section - exact same structure as Advanced Equipment */}
-          <div className="flex-shrink-0 w-[100vw]" style={{ marginLeft: "-25vw" }}>
+          <div className="flex-shrink-0 w-[100vw]" style={{ marginLeft: "-21vw" }}>
             <div className="flex flex-col md:flex-row h-full items-center px-4 md:px-8 lg:px-12">
               {/* Image on left side - same as Advanced Equipment */}
-              <div className="md:w-2/5 h-[400px] md:h-[500px] lg:h-[600px] overflow-visible relative">
+              <div className="md:w-2/5 h-[350px] md:h-[420px] lg:h-[480px] overflow-visible relative">
                 <img 
                   src="/main/scrolling1.webp"
                   alt={t('vision.title')}
@@ -433,7 +433,7 @@ const HorizontalScrollSection = () => {
                   {t('vision.title')}
                 </GradientText>
                 
-                <div className={`${textClasses} max-w-xl`}>
+                <div className={`${textClasses} max-w-lg`}>
                   <p>
                     {t('vision.description1')}
                   </p>

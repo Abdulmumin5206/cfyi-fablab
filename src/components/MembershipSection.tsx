@@ -3,15 +3,13 @@ import { Check, Users, Target, BookOpen, Phone, Gift, Box, User, Briefcase, Buil
 import { useTranslation } from "react-i18next";
 import { useMemo, useCallback } from "react";
 import GradientText from "./GradientText";
-import React from "react"; // Added for React.cloneElement
+import React from "react";
 
 const MembershipSection = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('membership');
 
   // Function to handle Telegram contact
   const handleTelegramContact = useCallback((planType: string) => {
-    const telegramNumber = "+998712345678"; // FabLab CFYI Telegram contact
-    const message = `Hi! I'm interested in the ${planType} membership plan at FabLab CFYI. Could you please provide more information?`;
     const telegramUrl = "https://t.me/+998770884977"
     window.open(telegramUrl, '_blank');
   }, []);
@@ -97,38 +95,38 @@ const MembershipSection = () => {
   const universalBenefits = useMemo(() => [
     {
       icon: <Target className="w-6 h-6" />,
-      title: t('membership.universalBenefits.expertTraining.title'),
-      description: t('membership.universalBenefits.expertTraining.description')
+      title: t('membership.universalBenefits.expertTraining.title', 'Expert Training'),
+      description: t('membership.universalBenefits.expertTraining.description', 'Professional guidance from experienced makers')
     },
     {
       icon: <Users className="w-6 h-6" />,
-      title: t('membership.universalBenefits.communityAccess.title'),
-      description: t('membership.universalBenefits.communityAccess.description')
+      title: t('membership.universalBenefits.communityAccess.title', 'Community Access'),
+      description: t('membership.universalBenefits.communityAccess.description', 'Join a vibrant community of creators and innovators')
     },
     {
       icon: <BookOpen className="w-6 h-6" />,
-      title: t('membership.universalBenefits.learningResources.title'),
-      description: t('membership.universalBenefits.learningResources.description')
+      title: t('membership.universalBenefits.learningResources.title', 'Learning Resources'),
+      description: t('membership.universalBenefits.learningResources.description', 'Access to comprehensive learning materials and tutorials')
     },
     {
       icon: <Target className="w-6 h-6" />,
-      title: t('membership.universalBenefits.professionalSpace.title'),
-      description: t('membership.universalBenefits.professionalSpace.description')
+      title: t('membership.universalBenefits.professionalSpace.title', 'Professional Space'),
+      description: t('membership.universalBenefits.professionalSpace.description', 'Modern, well-equipped workspace for all your projects')
     },
     {
       icon: <Phone className="w-6 h-6" />,
-      title: t('membership.universalBenefits.technicalSupport.title'),
-      description: t('membership.universalBenefits.technicalSupport.description')
+      title: t('membership.universalBenefits.technicalSupport.title', 'Technical Support'),
+      description: t('membership.universalBenefits.technicalSupport.description', 'Get help when you need it from our technical team')
     },
     {
       icon: <Gift className="w-6 h-6" />,
-      title: t('membership.universalBenefits.memberDiscounts.title'),
-      description: t('membership.universalBenefits.memberDiscounts.description')
+      title: t('membership.universalBenefits.memberDiscounts.title', 'Member Discounts'),
+      description: t('membership.universalBenefits.memberDiscounts.description', 'Special pricing on materials and additional services')
     },
     {
       icon: <Box className="w-6 h-6" />,
-      title: t('membership.universalBenefits.storageSpace.title'),
-      description: t('membership.universalBenefits.storageSpace.description')
+      title: t('membership.universalBenefits.storageSpace.title', 'Storage Space'),
+      description: t('membership.universalBenefits.storageSpace.description', 'Secure storage for your projects and materials')
     }
   ], [t]);
 
@@ -138,30 +136,22 @@ const MembershipSection = () => {
     universalBenefits.slice(4)
   ], [universalBenefits]);
 
-  // Create duplicated arrays for seamless looping (x2 for a full loop)
-  // We duplicate enough times to ensure smooth transition
+  // Create duplicated arrays for seamless looping
   const duplicatedFirstRow = useMemo(() => [...firstRowBenefits, ...firstRowBenefits, ...firstRowBenefits], [firstRowBenefits]);
   const duplicatedSecondRow = useMemo(() => [...secondRowBenefits, ...secondRowBenefits, ...secondRowBenefits], [secondRowBenefits]);
 
-
   // Determine the width of a single set of cards + gaps for calculation
-  // A consistent card width and gap is assumed.
-  const CARD_WIDTH = 280; // Increased card width
-  const GAP_WIDTH = 20;   // Increased gap between cards
+  const CARD_WIDTH = 280;
+  const GAP_WIDTH = 20;
 
   // Calculate the width of one full set of original cards plus their gaps
-  // (e.g., 4 cards in first row)
   const firstRowSetWidth = useMemo(() => (CARD_WIDTH * firstRowBenefits.length) + (GAP_WIDTH * (firstRowBenefits.length - 1)), [firstRowBenefits.length]);
   const secondRowSetWidth = useMemo(() => (CARD_WIDTH * secondRowBenefits.length) + (GAP_WIDTH * (secondRowBenefits.length - 1)), [secondRowBenefits.length]);
-
-
-
 
   // Memoized plan card component
   const PlanCard = useCallback(({ plan }: { plan: typeof membershipFeatures[0] }) => (
     <motion.div
-      className={`relative bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 flex flex-col h-full ${plan.popular ? 'border-2 border-[#329db7] transform scale-105' : 'border border-gray-200'
-        }`}
+      className={`relative bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 flex flex-col h-full ${plan.popular ? 'border-2 border-[#329db7] transform scale-105' : 'border border-gray-200'}`}
     >
       {/* Popular Badge */}
       {plan.popular && plan.badge && (
@@ -181,7 +171,7 @@ const MembershipSection = () => {
 
       {/* Plan Title and Subtitle */}
       <div className="text-center mb-6">
-        {plan.title === "Maker" ? (
+        {plan.popular ? (
           <div className="flex justify-center">
             <GradientText 
               colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]} 
@@ -194,7 +184,7 @@ const MembershipSection = () => {
         ) : (
           <h3 className="text-xl font-bold text-gray-900 mb-1">{plan.title}</h3>
         )}
-        {plan.subtitle === "Most Popular" ? (
+        {plan.popular ? (
           <div className="flex justify-center">
             <GradientText 
               colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]} 
@@ -214,7 +204,6 @@ const MembershipSection = () => {
         <button
           className={`w-full py-3 px-4 rounded-lg font-medium transition-all duration-200 ${plan.buttonStyle}`}
           onClick={() => handleTelegramContact(plan.title)}
-          disabled={plan.buttonText === "Current plan"}
         >
           {plan.buttonText}
         </button>
@@ -234,8 +223,6 @@ const MembershipSection = () => {
     </motion.div>
   ), []);
 
-  // Removed animation variants
-
   return (
     <section id="membership-section" className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7] relative overflow-hidden">
       <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
@@ -247,10 +234,10 @@ const MembershipSection = () => {
               animationSpeed={4}
               className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral']"
             >
-              {t('membership.title')}
+              {t('membership.title', 'Membership Plans')}
             </GradientText>
             <span className="text-black text-lg sm:text-xl lg:text-2xl font-['Magistral'] ml-2">
-              {t('membership.subtitle')}
+              {t('membership.subtitle', 'Choose the perfect plan for your creative journey')}
             </span>
           </div>
         </div>

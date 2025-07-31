@@ -5,6 +5,68 @@
       "subtitle": "Zamonaviy ishlab chiqarish texnologiyalarini o'rganing",
       "description": "Asosiy ko'nikmalardan professional mahoratgacha - bizning kurslarimiz sizga zamonaviy ishlab chiqarish texnologiyalarini o'rganishda yordam beradi"
     },
+    "sections": {
+      "popularQuestions": {
+        "title": "Mashhur Savollar",
+        "subtitle": "Mutaxassis Javoblari"
+      },
+      "fdmPrinting": {
+        "title": "FDM Chop etish",
+        "subtitle": "Professional Ta'lim"
+      },
+      "slaPrinting": {
+        "title": "SLA Chop etish",
+        "subtitle": "Aniqlik Mahorati"
+      },
+      "cadcamDesign": {
+        "title": "CAD/CAM Dizayn",
+        "subtitle": "Ishlab Chiqarish Oqimi"
+      },
+      "intensiveWorkshops": {
+        "title": "Intensiv Master-klasslar",
+        "subtitle": "Tez Ko'nikmalar"
+      }
+    },
+    "popularQuestions": {
+      "q1": {
+        "question": "3D chop etishni o'rganishni qanday boshlash kerak?",
+        "answer": "Asosiy tamoyillarni o'rganish uchun bizning Boshlang'ich Kursimizdan boshlang, keyin murakkab dizaynlarga o'tishdan oldin oddiy loyihalar bilan mashq qiling."
+      },
+      "q2": {
+        "question": "SLA chop etishni o'rganish uchun qancha vaqt kerak?",
+        "answer": "Ko'pchilik talabalar muntazam mashq bilan 4-6 hafta ichida mahoratga erishadi, garchi ilg'or texnikalarini o'rganish 3-6 oylik tirishqoq ishni talab qilishi mumkin."
+      },
+      "q3": {
+        "question": "Qaysi CAD dasturini birinchi o'rganish kerak?",
+        "answer": "Boshlang'ichlar uchun Tinkercad yoki Fusion 360 dan boshlashni tavsiya qilamiz, chunki ular kuchli dizayn imkoniyatlarini taqdim etgan holda intuitiv interfeyslarni taqdim etadi."
+      },
+      "q4": {
+        "question": "Sertifikatdan keyin qanday martaba imkoniyatlari mavjud?",
+        "answer": "Bitiruvchilar raqamli ishlab chiqarish ko'nikmalari bilan mahsulot dizayni, ishlab chiqarish, sog'liqni saqlash, arxitektura, ta'lim va tadbirkorlik sohalarida ish topadi."
+      },
+      "q5": {
+        "question": "3D chop etishning keng tarqalgan muammolarini qanday hal qilish kerak?",
+        "answer": "Ko'pchilik muammolar stolni tekislash, harorat sozlamalari yoki filament sifatiga bog'liq. Bizning kurslar muammolarni aniqlash va hal qilish uchun tizimli yondashuvlarni o'z ichiga oladi."
+      },
+      "q6": {
+        "question": "Turli xil qo'llanmalar uchun qanday materiallar eng yaxshi?",
+        "answer": "PLA boshlang'ichlar uchun ideal, PETG chidamlilik uchun, ABS mexanik qismlar uchun, TPU moslashuvchanlik uchun, va maxsus filamentlar aniq talablar uchun."
+      }
+    },
+    "ui": {
+      "helpful": "Foydali",
+      "viewCourses": "Kurslarni Ko'rish",
+      "loading": "Yuklanmoqda...",
+      "error": "Xato: Til ma'lumotlari mavjud emas"
+    },
+    "descriptions": {
+      "hobbyistEssentials": "3D chop etishning asoslarini tushunishni va o'z loyihalarini yaratishni boshlashni xohlovchi boshlang'ichlar uchun mukammal. Xavfsizlik, texnik xizmat va asosiy muammolarni hal qilishni o'rganing.",
+      "comprehensivePro": "Professional texnikalar, optimallashtirish strategiyalari va sanoat qo'llanmalarini o'z ichiga olgan ilg'or kurs. Ilg'or materiallar va muammolarni hal qilishni o'z ichiga oladi.",
+      "slaCompleteMastery": "Smola turlari, keyingi ishlov berish texnikasi va yuqori aniqlikdagi chop etishni o'z ichiga olgan keng qamrovli SLA o'qitish. Zargarlik, stomatologiya va prototip yaratish uchun mukammal.",
+      "cadcamProfessionalMastery": "Dizayndan ishlab chiqarishgacha bo'lgan to'liq raqamli ishlab chiqarish jarayonini o'rganing. Sanoat standartlaridagi CAD/CAM dasturlari va aniq ishlab chiqarish texnikalarini o'rganing.",
+      "digitalFabricationWorkshop": "3D chop etish, lazer kesish va CNC ishlov berishni o'z ichiga olgan ko'plab raqamli ishlab chiqarish texnikalarini qamrab olgan intensiv master-klass. Tez prototip yaratish ko'nikmalari uchun mukammal.",
+      "scanningWorkshop": "Teskari muhandislik va sifat nazorati uchun 3D skanerlash texnikalarini o'rganing. 3D skanerlash texnologiyasining ham apparat, ham dasturiy ta'minot tomonlarini o'rganing."
+    },
     "fdm": {
       "badge": "FDM 3D Chop etish",
       "title": "FDM 3D Chop etishni o'rganing",

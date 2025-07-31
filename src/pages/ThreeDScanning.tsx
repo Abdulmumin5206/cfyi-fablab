@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import { useTranslation } from "react-i18next";
 import { ArrowRight } from "lucide-react";
 import SEOHelmet from "@/components/SEOHelmet";
+import GradientText from "@/components/GradientText";
 
 const ThreeDScanningPage = () => {
   const { t } = useTranslation('3dscanning');
@@ -54,9 +55,13 @@ const ThreeDScanningPage = () => {
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
                 <div className="max-w-xl mx-auto text-left lg:text-left flex flex-col items-start lg:items-start">
-                  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 leading-tight text-gray-900 font-['Magistral']">
+                  <GradientText
+                    colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+                    animationSpeed={4}
+                    className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral'] mb-8"
+                  >
                     {t("highResolution.title")}
-                  </h2>
+                  </GradientText>
                   
                   <p className="text-base sm:text-lg text-gray-600 mb-8 font-['Magistral']">
                     {t("highResolution.description")}
@@ -136,9 +141,13 @@ const ThreeDScanningPage = () => {
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
                 <div className="max-w-xl mx-auto text-left lg:text-left flex flex-col items-start lg:items-start">
-                  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 leading-tight text-gray-900 font-['Magistral']">
+                  <GradientText
+                    colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+                    animationSpeed={4}
+                    className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral'] mb-8"
+                  >
                     {t("applications.title")}
-                  </h2>
+                  </GradientText>
                   
                   <p className="text-base sm:text-lg text-gray-600 mb-8 font-['Magistral']">
                     {t("applications.description")}
@@ -214,7 +223,13 @@ const ThreeDScanningPage = () => {
         {/* Equipment Showcase Section */}
         <section id="equipment" className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f7f7f7]">
           <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl md:text-4xl font-bold mb-10 md:mb-16 text-center">{t('equipment.title')}</h2>
+            <GradientText
+              colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+              animationSpeed={4}
+              className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral'] mb-10 md:mb-16 text-center"
+            >
+              {t('equipment.title')}
+            </GradientText>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-[1000px] mx-auto">
               {/* EinScan SP V2 Scanner */}
               <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
@@ -286,9 +301,13 @@ const ThreeDScanningPage = () => {
               {/* Right side content */}
               <div className="w-full lg:w-1/2">
                 <div className="max-w-xl mx-auto text-left lg:text-left flex flex-col items-start lg:items-start">
-                  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 leading-tight text-gray-900 font-['Magistral']">
+                  <GradientText
+                    colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+                    animationSpeed={4}
+                    className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral'] mb-8"
+                  >
                     {t('guide.einScanSPV2.title')}
-                  </h2>
+                  </GradientText>
                   
                   <p className="text-base sm:text-lg text-gray-600 mb-8 font-['Magistral']">
                     {t('guide.einScanSPV2.description')}
@@ -326,9 +345,13 @@ const ThreeDScanningPage = () => {
                   </span>
                 </div>
                 
-                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight font-['Magistral']">
+                <GradientText
+                  colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+                  animationSpeed={4}
+                  className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral'] leading-tight"
+                >
                   {t('contactSection.title')}
-                </h2>
+                </GradientText>
                 
                 <p className="text-base sm:text-lg text-gray-600 font-['Magistral']">
                   {t('contactSection.description')}

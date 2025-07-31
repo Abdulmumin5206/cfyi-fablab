@@ -1,5 +1,72 @@
 {
   "courses": {
+    "hero": {
+      "title": "Our Courses",
+      "subtitle": "Master Modern Manufacturing Technologies",
+      "description": "From basic skills to professional mastery - our courses will help you master advanced manufacturing technologies"
+    },
+    "sections": {
+      "popularQuestions": {
+        "title": "Popular Questions",
+        "subtitle": "Expert Answers"
+      },
+      "fdmPrinting": {
+        "title": "FDM Printing",
+        "subtitle": "Professional Training"
+      },
+      "slaPrinting": {
+        "title": "SLA Printing",
+        "subtitle": "Precision Mastery"
+      },
+      "cadcamDesign": {
+        "title": "CAD/CAM Design",
+        "subtitle": "Manufacturing Flow"
+      },
+      "intensiveWorkshops": {
+        "title": "Intensive Workshops",
+        "subtitle": "Rapid Skills"
+      }
+    },
+    "popularQuestions": {
+      "q1": {
+        "question": "What's the best way to start learning 3D printing?",
+        "answer": "Start with our Hobbyist Essentials course to learn the fundamentals, then practice with simple projects before advancing to more complex designs."
+      },
+      "q2": {
+        "question": "How long does it take to master SLA printing?",
+        "answer": "Most students achieve proficiency within 4-6 weeks of regular practice, though mastery of advanced techniques may take 3-6 months of dedicated work."
+      },
+      "q3": {
+        "question": "Which CAD software should I learn first?",
+        "answer": "For beginners, we recommend starting with Tinkercad or Fusion 360, as they offer intuitive interfaces while providing powerful design capabilities."
+      },
+      "q4": {
+        "question": "What career opportunities are available after certification?",
+        "answer": "Graduates find roles in product design, manufacturing, healthcare, architecture, education, and entrepreneurship with their digital fabrication skills."
+      },
+      "q5": {
+        "question": "How to troubleshoot common 3D printing issues?",
+        "answer": "Most problems relate to bed leveling, temperature settings, or filament quality. Our courses cover systematic approaches to identify and fix issues."
+      },
+      "q6": {
+        "question": "What materials work best for different applications?",
+        "answer": "PLA is ideal for beginners, PETG for durability, ABS for mechanical parts, TPU for flexibility, and specialty filaments for specific requirements."
+      }
+    },
+    "ui": {
+      "helpful": "Helpful",
+      "viewCourses": "View Courses",
+      "loading": "Loading...",
+      "error": "Error: No language data available"
+    },
+    "descriptions": {
+      "hobbyistEssentials": "Perfect for beginners who want to understand 3D printing fundamentals and start creating their own projects. Learn safety, maintenance, and basic troubleshooting.",
+      "comprehensivePro": "Advanced course covering professional techniques, optimization strategies, and industry applications. Includes advanced materials and troubleshooting.",
+      "slaCompleteMastery": "Comprehensive SLA training covering resin types, post-processing techniques, and high-detail printing. Perfect for jewelry, dental, and prototyping applications.",
+      "cadcamProfessionalMastery": "Master the complete digital manufacturing workflow from design to production. Learn industry-standard CAD/CAM software and precision manufacturing techniques.",
+      "digitalFabricationWorkshop": "Intensive workshop covering multiple digital fabrication techniques including 3D printing, laser cutting, and CNC machining. Perfect for rapid prototyping skills.",
+      "scanningWorkshop": "Learn 3D scanning techniques for reverse engineering and quality control. Master both hardware and software aspects of 3D scanning technology."
+    },
     "fdm": {
       "badge": "FDM 3D Printing",
       "title": "Master FDM 3D Printing",
@@ -91,6 +158,7 @@
     "workshops": {
       "title": "Specialized Workshops",
       "duration": "Duration",
+      "badge": "Workshop",
       "digitalFabrication": {
         "title": "Digital Fabrication Workshop",
         "description": "Explore the intersection of digital design and physical manufacturing in this intensive workshop.",

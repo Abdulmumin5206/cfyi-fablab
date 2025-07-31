@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 interface WorkshopModalProps {
@@ -23,6 +23,18 @@ const WorkshopModal: React.FC<WorkshopModalProps> = ({
   currentLang,
 }) => {
   const { t } = useTranslation(['courses', 'translation']);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
 
   if (!isOpen) return null;
 

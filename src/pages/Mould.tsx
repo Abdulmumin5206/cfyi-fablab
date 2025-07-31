@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import GradientText from "@/components/GradientText";
 import { ArrowLeft, ArrowRight, Info, ChevronDown, ChevronUp } from "lucide-react";
 import styles from "@/styles/Slider.module.css";
 import "@/styles/Carousel.css"; // Import the carousel CSS
@@ -246,11 +247,21 @@ const MouldPage = () => {
         </section>
         
         {/* Our Professions Section */}
-        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-white">
+        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{t('professions.title')}</h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">{t('professions.subtitle')}</p>
+            <div className="text-left mb-16">
+              <div className="flex items-baseline gap-2 mb-4">
+                <GradientText
+                  colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+                  animationSpeed={4}
+                  className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral']"
+                >
+                  {t('professions.title')}
+                </GradientText>
+                <span className="text-black text-lg sm:text-xl lg:text-2xl font-['Magistral'] ml-2">
+                  {t('professions.subtitle')}
+                </span>
+              </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -466,15 +477,21 @@ const MouldPage = () => {
         </section>
         
         {/* Premium Quality Section */}
-        <section id="premium-quality" className="bg-[#f7f7f7] py-8 sm:py-12 md:py-16 lg:py-20 overflow-visible">
+        <section id="premium-quality" className="bg-[#f5f5f7] py-8 sm:py-12 md:py-16 lg:py-20 overflow-visible">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
             <div className="flex flex-col lg:flex-row items-start gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
                 <div className="max-w-xl mx-auto text-left lg:text-left flex flex-col items-start lg:items-start">
-                  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 leading-tight text-gray-900 font-['Magistral']">
-                    {t('precisionMoulding.title')}
-                  </h2>
+                  <div className="mb-8">
+                    <GradientText
+                      colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+                      animationSpeed={4}
+                      className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral']"
+                    >
+                      {t('precisionMoulding.title')}
+                    </GradientText>
+                  </div>
                   
                   <p className="text-base sm:text-lg text-gray-600 mb-8 font-['Magistral']">
                     {t('precisionMoulding.description')}
@@ -520,11 +537,19 @@ const MouldPage = () => {
         </section>
         
         {/* Why Choose Plastic Moulding Section */}
-        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-white">
+        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 leading-tight text-gray-900 text-center font-['Magistral']">
-              {t('whyChoosePlasticMoulding.title')}
-            </h2>
+            <div className="text-center mb-8">
+              <div className="flex justify-center">
+                <GradientText
+                  colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+                  animationSpeed={4}
+                  className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral']"
+                >
+                  {t('whyChoosePlasticMoulding.title')}
+                </GradientText>
+              </div>
+            </div>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 md:gap-12 mb-8">
               {/* Benefit 1 */}
@@ -596,7 +621,7 @@ const MouldPage = () => {
 
             {/* Formlabs Solutions */}
             <div className="mt-12">
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-6">
+              <h2 className="text-xl sm:text-2xl lg:text-2xl font-bold text-gray-900 mb-6">
                 {t('whyChoosePlasticMoulding.formlabsSolutions.title')}
               </h2>
               
@@ -662,14 +687,20 @@ const MouldPage = () => {
         </section>
         
         {/* Spare Parts Section */}
-        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gray-100 text-gray-900">
+        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7] text-gray-900">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
             <div className="flex flex-col lg:flex-row items-center">
               {/* Left side content */}
               <div className="w-full lg:w-1/2 mb-12 lg:mb-0 pr-0 lg:pr-10">
-                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-6 font-['Magistral']">
-                  {t('spareParts.title')}
-                </h2>
+                <div className="mb-6">
+                  <GradientText
+                    colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+                    animationSpeed={4}
+                    className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral']"
+                  >
+                    {t('spareParts.title')}
+                  </GradientText>
+                </div>
                 <p className="text-base sm:text-lg text-gray-700 mb-6 font-['Magistral']">
                   {t('spareParts.description')}
                 </p>
@@ -742,9 +773,22 @@ const MouldPage = () => {
         </section>
 
         {/* Blog Section */}
-        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gray-100 text-gray-900">
+        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7] text-gray-900">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 font-['Magistral']">{t('sparePartProjects.title')}</h2>
+            <div className="text-left mb-8">
+              <div className="flex items-baseline gap-2">
+                <GradientText
+                  colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+                  animationSpeed={4}
+                  className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral']"
+                >
+                  {t('sparePartProjects.title')}
+                </GradientText>
+                <span className="text-black text-lg sm:text-xl lg:text-2xl font-['Magistral'] ml-2">
+                  {t('sparePartProjects.subtitle')}
+                </span>
+              </div>
+            </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               {/* Blog Post */}
@@ -773,9 +817,19 @@ const MouldPage = () => {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gray-50">
+        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-12">{t('faq.title')}</h2>
+            <div className="text-center mb-12">
+              <div className="flex justify-center">
+                <GradientText
+                  colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+                  animationSpeed={4}
+                  className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral']"
+                >
+                  {t('faq.title')}
+                </GradientText>
+              </div>
+            </div>
             <div className="max-w-3xl mx-auto space-y-4">
               {/* FAQ Item 1 */}
               <div 

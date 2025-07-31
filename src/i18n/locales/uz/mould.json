@@ -159,8 +159,8 @@
     }
   },
   "professions": {
-    "title": "Bizning Kasblarimiz",
-    "subtitle": "Innovatsiya ishlab chiqarish bilan uchrashadigan joy - har bir loyihada mukammallikni ta'minlash",
+    "title": "Bizning Kasblar.",
+    "subtitle": "Innovatsiya ishlab chiqarish bilan uchrashadi.",
     "categories": {
       "engineering": {
         "title": "Muhandislik",
@@ -196,7 +196,7 @@
       },
       "automotive": {
         "title": "Avtomobilsozlik",
-        "description": "Ehtiyot qismlar va maxsus yechimlar.",
+        "description": "Zaxira qismlar va maxsus yechimlar.",
         "features": [
           "Almashtirish qismlari",
           "Tezkor prototiplash"
@@ -230,48 +230,50 @@
   },
   "whyChoosePlasticMoulding": {
     "title": "Nima uchun plastik qoliplashni tanlash kerak?",
+    "subtitle": "Kichik seriyalar uchun arzon yechimlar",
     "benefits": {
       "lowerCosts": {
-        "title": "Past narxlar",
+        "title": "Past xarajatlar",
         "description": "Yuqori boshlang'ich asbob-uskunalar investitsiyalaridan qoching va mehnat xarajatlarini kamaytiring."
       },
       "fasterTime": {
-        "title": "Tezroq vaqt",
-        "description": "24 soat ichida yuqori sifatli modellarni ishlab chiqaring."
+        "title": "Tezroq muddat",
+        "description": "24 soat ichida yuqori sifatli namunalar ishlab chiqarish."
       },
       "designFreedom": {
         "title": "Dizayn erkinligi",
-        "description": "An'anaviy quyma bilan erishish qiyin bo'lgan murakkab shakllarni yarating."
+        "description": "An'anaviy quyish usuli bilan erishish qiyin bo'lgan murakkab shakllarni yarating."
       }
     },
     "video": {
-      "title": "Plastik qoliplashni amalda ko'ring",
-      "description": "Formlabs'ning zamonaviy qoliplash texnologiyasi xom ashyoni qanday qilib ajoyib detallar va izchillik bilan aniq, yuqori sifatli qismlarga aylantirishini tomosha qiling."
+      "title": "Plastik qoliplashni harakatda ko'ring",
+      "description": "Formlabs'ning ilg'or qoliplash texnologiyasi xom materiallarni qanday aniq, yuqori sifatli qismlarga aylantirishini ko'ring."
     },
     "formlabsSolutions": {
-      "title": "Formlabs In'ektsion Qoliplash Yechimlari haqida o'qing",
+      "title": "Formlabs quyma yechimlarini o'qing",
       "caseStudy1": {
-        "category": "ISHLAB CHIQARISH BO'YICHA QO'LLANMA",
-        "title": "Kichik hajmdagi in'ektsion qoliplash bo'yicha qo'llanma",
-        "description": "Prototiplash va kichik hajmdagi ishlab chiqarish uchun yuqori sifatli qismlarni ishlab chiqarishda 3D chop etilgan in'ektsion qoliplardan qanday foydalanishni o'rganing.",
-        "learnMore": "Batafsil ma'lumot"
+        "category": "ISHLAB CHIQARISH BO'YICHA KO'RSATMA",
+        "title": "Kichik hajmdagi quyma bo'yicha ko'rsatma",
+        "description": "Prototiplash va kichik hajmdagi ishlab chiqarish uchun yuqori sifatli qismlarni ishlab chiqarishda 3D chop etilgan quyma formalaridan qanday foydalanishni o'rganing.",
+        "learnMore": "Ko'proq ma'lumot"
       },
       "caseStudy2": {
-        "category": "ISHLAB CHIQARISH TAXLILLARI",
-        "title": "Qachon in'ektsion qoliplashni 3D chop etish bilan almashtirish kerak?",
-        "description": "Ishlab chiqarish ehtiyojlaringiz uchun an'anaviy in'ektsion qoliplash o'rniga 3D chop etishdan qachon foydalanishni bilib oling.",
-        "learnMore": "Batafsil ma'lumot"
+        "category": "ISHLAB CHIQARISH TUSHUNCHALARI",
+        "title": "Qachon quyishni 3D chop etish bilan almashtirish kerak?",
+        "description": "Ishlab chiqarish ehtiyojlaringiz uchun an'anaviy quyish o'rniga 3D chop etishni qachon ishlatish kerakligini bilib oling.",
+        "learnMore": "Ko'proq ma'lumot"
       }
     }
   },
   "sparePartProjects": {
-    "title": "Ehtiyot qismlar loyihalari",
+    "title": "Zaxira qismlar loyihalari.",
+    "subtitle": "Haqiqiy dunyo qo'llanmalari va yechimlari.",
     "blogPost": {
-      "imageAlt": "3D bosib chiqarish innovatsiyalari",
-      "category": "3D BOSIB CHIQARISH",
-      "title": "SLA smola bosib chiqarish: Ehtiyot qismlar uchun kichik seriyali ishlab chiqarishda inqilob",
-      "description": "O'zbek texnologiya startapi uchun ilg'or 3D bosib chiqarish texnikalari yordamida to'liq ishlaydigan prototip yaratildi.",
-      "readMore": "Batafsil"
+      "imageAlt": "3D chop etish innovatsiyalari",
+      "category": "3D CHOP ETISH",
+      "title": "SLA smola chop etish: Zaxira qismlar uchun kichik seriyali ishlab chiqarishda inqilob",
+      "description": "O'zbekiston texnologiya startapi uchun ilg'or 3D chop etish texnikalari yordamida to'liq funksional prototip yaratildi.",
+      "readMore": "Ko'proq o'qing"
     }
   }
 }

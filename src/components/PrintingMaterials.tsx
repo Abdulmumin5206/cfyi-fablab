@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import GradientText from './GradientText';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface Material {
@@ -572,15 +573,21 @@ const PrintingMaterials = () => {
   };
 
   return (
-    <section id="materials-section" className="py-8 sm:py-12 md:py-16 lg:py-20 bg-white">
+    <section id="materials-section" className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
       <div className="max-w-[1350px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-black font-['Magistral']">
-            {t('3dPrinting.materials.title')}
-          </h2>
-          <p className="text-gray-700 text-base sm:text-lg mb-3 sm:mb-4 font-['Magistral'] max-w-3xl mx-auto">
-            {t('3dPrinting.materials.subtitle')}
-          </p>
+          <div className="flex flex-col items-center">
+            <GradientText
+              colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+              animationSpeed={4}
+              className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral'] mb-4"
+            >
+              {t('3dPrinting.materials.title')}
+            </GradientText>
+            <p className="text-gray-700 text-base sm:text-lg font-['Magistral'] max-w-3xl">
+              {t('3dPrinting.materials.subtitle')}
+            </p>
+          </div>
         </div>
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-12">

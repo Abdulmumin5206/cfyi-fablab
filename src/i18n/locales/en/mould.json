@@ -159,8 +159,8 @@
     }
   },
   "professions": {
-    "title": "Our Professions",
-    "subtitle": "Where innovation meets fabrication - delivering excellence in every project",
+    "title": "Our Professions.",
+    "subtitle": "Where innovation meets fabrication.",
     "categories": {
       "engineering": {
         "title": "Engineering",
@@ -230,6 +230,7 @@
   },
   "whyChoosePlasticMoulding": {
     "title": "Why Choose Plastic Moulding?",
+    "subtitle": "Cost-effective solutions for small batches",
     "benefits": {
       "lowerCosts": {
         "title": "Lower Costs",
@@ -265,7 +266,8 @@
     }
   },
   "sparePartProjects": {
-    "title": "Spare Part Projects",
+    "title": "Spare Part Projects.",
+    "subtitle": "Real-world applications and solutions.",
     "blogPost": {
       "imageAlt": "3D Printing Innovations",
       "category": "3D PRINTING",

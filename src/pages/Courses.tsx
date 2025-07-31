@@ -91,38 +91,38 @@ const CoursesPage = () => {
   const popularQuestions = [
     {
       id: 1,
-      question: "What's the best way to start learning 3D printing?",
-      answer: "Start with our Hobbyist Essentials course to learn the fundamentals, then practice with simple projects before advancing to more complex designs.",
+      question: t("courses.popularQuestions.q1.question"),
+      answer: t("courses.popularQuestions.q1.answer"),
       color: "bg-[#cb2026]"
     },
     {
       id: 2,
-      question: "How long does it take to master SLA printing?",
-      answer: "Most students achieve proficiency within 4-6 weeks of regular practice, though mastery of advanced techniques may take 3-6 months of dedicated work.",
+      question: t("courses.popularQuestions.q2.question"),
+      answer: t("courses.popularQuestions.q2.answer"),
       color: "bg-[#0e9a48]"
     },
     {
       id: 3,
-      question: "Which CAD software should I learn first?",
-      answer: "For beginners, we recommend starting with Tinkercad or Fusion 360, as they offer intuitive interfaces while providing powerful design capabilities.",
+      question: t("courses.popularQuestions.q3.question"),
+      answer: t("courses.popularQuestions.q3.answer"),
       color: "bg-[#35469d]"
     },
     {
       id: 4,
-      question: "What career opportunities are available after certification?",
-      answer: "Graduates find roles in product design, manufacturing, healthcare, architecture, education, and entrepreneurship with their digital fabrication skills.",
+      question: t("courses.popularQuestions.q4.question"),
+      answer: t("courses.popularQuestions.q4.answer"),
       color: "bg-[#8a2be2]"
     },
     {
       id: 5,
-      question: "How to troubleshoot common 3D printing issues?",
-      answer: "Most problems relate to bed leveling, temperature settings, or filament quality. Our courses cover systematic approaches to identify and fix issues.",
+      question: t("courses.popularQuestions.q5.question"),
+      answer: t("courses.popularQuestions.q5.answer"),
       color: "bg-[#ff6b6b]"
     },
     {
       id: 6,
-      question: "What materials work best for different applications?",
-      answer: "PLA is ideal for beginners, PETG for durability, ABS for mechanical parts, TPU for flexibility, and specialty filaments for specific requirements.",
+      question: t("courses.popularQuestions.q6.question"),
+      answer: t("courses.popularQuestions.q6.answer"),
       color: "bg-[#f39c12]"
     }
   ];
@@ -149,7 +149,7 @@ const CoursesPage = () => {
   }, [currentLang, displayLang]);
 
   if (!courseDetails || !courseDetails.fdmCourses) {
-    return <div>Loading...</div>;
+    return <div>{t("courses.ui.loading")}</div>;
   }
 
   const fdmCourses = courseDetails.fdmCourses as unknown as CourseData;
@@ -158,7 +158,7 @@ const CoursesPage = () => {
   if (!fdmCourses.labels || !fdmCourses.labels[currentLang]) {
     const fallbackLang = fdmCourses.labels && fdmCourses.labels['en'] ? 'en' : Object.keys(fdmCourses.labels || {})[0];
     if (!fallbackLang) {
-      return <div>Error: No language data available</div>;
+      return <div>{t("courses.ui.error")}</div>;
     }
     console.log('Using fallback language:', fallbackLang);
   }
@@ -267,7 +267,7 @@ const CoursesPage = () => {
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
               </svg>
-              Helpful
+              {t("courses.ui.helpful")}
             </button>
             
             <button 
@@ -283,7 +283,7 @@ const CoursesPage = () => {
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
               </svg>
-              View Courses
+              {t("courses.ui.viewCourses")}
             </button>
           </div>
         </div>
@@ -313,10 +313,10 @@ const CoursesPage = () => {
     onEnroll: () => void;
     category?: string;
   }) => (
-    <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-all duration-300">
+    <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md hover:scale-105 transition-all duration-300 transform">
       <div className="flex flex-col lg:flex-row h-auto">
         {/* Image Section */}
-        <div className="relative w-full lg:w-72 h-48 lg:h-auto flex-shrink-0">
+        <div className="relative w-full lg:w-64 h-40 lg:h-auto flex-shrink-0">
           <img 
             src={image} 
             alt={title} 
@@ -333,19 +333,19 @@ const CoursesPage = () => {
         </div>
         
         {/* Content Section */}
-        <div className="flex-1 p-5 lg:p-6 flex flex-col justify-between">
+        <div className="flex-1 p-4 lg:p-5 flex flex-col justify-between">
           <div>
-            <h3 className="text-lg lg:text-xl font-bold text-gray-900 mb-2 font-['Magistral']">
+            <h3 className="text-lg font-bold text-gray-900 mb-2 font-['Magistral']">
               {title}
             </h3>
-            <p className="text-gray-600 mb-3 text-sm lg:text-base leading-relaxed font-['Magistral']">
+            <p className="text-gray-600 mb-2 text-sm leading-relaxed font-['Magistral']">
               {subtitle}
             </p>
-            <p className="text-gray-500 text-sm mb-4 font-['Magistral']">
+            <p className="text-gray-500 text-sm mb-3 font-['Magistral'] line-clamp-2">
               {description}
             </p>
             
-            <div className="flex items-center gap-4 mb-4 text-xs text-gray-500">
+            <div className="flex items-center gap-4 mb-3 text-xs text-gray-500">
               <div className="flex items-center gap-1">
                 <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -361,16 +361,17 @@ const CoursesPage = () => {
             </div>
           </div>
           
-          <div className="flex flex-col sm:flex-row gap-2">
+          {/* Compact Buttons in Right Corner */}
+          <div className="flex justify-end gap-2">
             <button
               onClick={onViewDetails}
-              className="flex-1 px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium hover:bg-gray-200 transition-all duration-300 font-['Magistral'] text-center"
+              className="px-3 py-1.5 bg-gray-100 text-gray-700 rounded-md text-xs font-medium hover:bg-gray-200 transition-all duration-300 font-['Magistral']"
             >
               {t("courses.viewDetails")}
             </button>
             <button
               onClick={onEnroll}
-              className="flex-1 px-4 py-2 bg-[#329db7] text-white rounded-lg text-sm font-medium hover:bg-[#2b86a0] transition-all duration-300 font-['Magistral']"
+              className="px-3 py-1.5 bg-[#329db7] text-white rounded-md text-xs font-medium hover:bg-[#2b86a0] transition-all duration-300 font-['Magistral']"
             >
               {t("courses.enrollNow")}
             </button>
@@ -405,20 +406,20 @@ const CoursesPage = () => {
                     animationSpeed={4}
                     className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral']"
                   >
-                    Popular Questions.
+                    {t("courses.sections.popularQuestions.title")}.
                   </GradientText>
                   <span className="text-black text-lg sm:text-xl lg:text-2xl font-['Magistral'] ml-2">
-                    Expert Answers.
+                    {t("courses.sections.popularQuestions.subtitle")}.
                   </span>
                 </div>
               </div>
               
               {/* Desktop Slider with preview cards */}
-              <div className="hidden lg:block relative overflow-hidden px-4">
-                <div className="flex items-center justify-center">
+              <div className="hidden lg:block relative overflow-hidden">
+                <div className="flex items-center">
                   <button
                     onClick={handleScrollLeft}
-                    className={`absolute left-1 z-10 transition-all duration-300 top-1/2 -translate-y-1/2 ${
+                    className={`absolute left-4 z-10 transition-all duration-300 top-1/2 -translate-y-1/2 ${
                       currentSlide === 0 ? 'hidden' : 'opacity-100 cursor-pointer'
                     }`}
                     aria-label="Scroll left"
@@ -427,7 +428,7 @@ const CoursesPage = () => {
                     <ChevronLeft className="w-10 h-10 text-gray-500 hover:text-gray-800" />
                   </button>
 
-                  <div className="w-full overflow-visible">
+                  <div className="w-full overflow-hidden">
                     <div 
                       className="flex transition-transform duration-300 ease-out"
                       style={{
@@ -457,7 +458,7 @@ const CoursesPage = () => {
 
                   <button
                     onClick={handleScrollRight}
-                    className={`absolute right-1 z-10 transition-all duration-300 top-1/2 -translate-y-1/2 ${
+                    className={`absolute right-4 z-10 transition-all duration-300 top-1/2 -translate-y-1/2 ${
                       currentSlide >= popularQuestions.length - 2 ? 'hidden' : 'opacity-100 cursor-pointer'
                     }`}
                     aria-label="Scroll right"
@@ -501,10 +502,10 @@ const CoursesPage = () => {
                   animationSpeed={4}
                   className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral']"
                 >
-                  FDM Printing.
+                  {t("courses.sections.fdmPrinting.title")}.
                 </GradientText>
                 <span className="text-black text-lg sm:text-xl lg:text-2xl font-['Magistral'] ml-2">
-                  Professional Training.
+                  {t("courses.sections.fdmPrinting.subtitle")}.
                 </span>
               </div>
             </div>
@@ -513,8 +514,8 @@ const CoursesPage = () => {
               <CourseCard
                 image="/3dprinters/course1.webp"
                 title={safeAccess(fdmCourses, ['hobbyistEssentials', displayLang, 'title'])}
-                subtitle={safeAccess(fdmCourses, ['hobbyistEssentials', displayLang, 'subtitle'])}
-                description="Perfect for beginners who want to understand 3D printing fundamentals and start creating their own projects. Learn safety, maintenance, and basic troubleshooting."
+                subtitle=""
+                description={t("courses.descriptions.hobbyistEssentials")}
                 duration={safeAccess(fdmCourses, ['hobbyistEssentials', displayLang, 'details', 'duration'])}
                 level={safeAccess(fdmCourses, ['hobbyistEssentials', displayLang, 'details', 'level'])}
                 category={t("courses.fdm.badge")}
@@ -525,8 +526,8 @@ const CoursesPage = () => {
               <CourseCard
                 image="/3dprinters/course2.webp"
                 title={safeAccess(fdmCourses, ['comprehensivePro', displayLang, 'title'])}
-                subtitle={safeAccess(fdmCourses, ['comprehensivePro', displayLang, 'subtitle'])}
-                description="Advanced course covering professional techniques, optimization strategies, and industry applications. Includes advanced materials and troubleshooting."
+                subtitle=""
+                description={t("courses.descriptions.comprehensivePro")}
                 duration={safeAccess(fdmCourses, ['comprehensivePro', displayLang, 'details', 'duration'])}
                 level={safeAccess(fdmCourses, ['comprehensivePro', displayLang, 'details', 'level'])}
                 category={t("courses.fdm.badge")}
@@ -547,10 +548,10 @@ const CoursesPage = () => {
                   animationSpeed={4}
                   className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral']"
                 >
-                  SLA Printing.
+                  {t("courses.sections.slaPrinting.title")}.
                 </GradientText>
                 <span className="text-black text-lg sm:text-xl lg:text-2xl font-['Magistral'] ml-2">
-                  Precision Mastery.
+                  {t("courses.sections.slaPrinting.subtitle")}.
                 </span>
               </div>
             </div>
@@ -559,8 +560,8 @@ const CoursesPage = () => {
               <CourseCard
                 image="/3dprinters/slacourse1.webp"
                 title={safeAccess(courseDetails.slaCourses, ['completeMastery', displayLang, 'title'])}
-                subtitle={safeAccess(courseDetails.slaCourses, ['completeMastery', displayLang, 'subtitle'])}
-                description="Comprehensive SLA training covering resin types, post-processing techniques, and high-detail printing. Perfect for jewelry, dental, and prototyping applications."
+                subtitle=""
+                description={t("courses.descriptions.slaCompleteMastery")}
                 duration={safeAccess(courseDetails.slaCourses, ['completeMastery', displayLang, 'details', 'duration'])}
                 level={safeAccess(courseDetails.slaCourses, ['completeMastery', displayLang, 'details', 'level'])}
                 category={t("courses.sla.badge")}
@@ -581,10 +582,10 @@ const CoursesPage = () => {
                   animationSpeed={4}
                   className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral']"
                 >
-                  CAD/CAM Design.
+                  {t("courses.sections.cadcamDesign.title")}.
                 </GradientText>
                 <span className="text-black text-lg sm:text-xl lg:text-2xl font-['Magistral'] ml-2">
-                  Manufacturing Flow.
+                  {t("courses.sections.cadcamDesign.subtitle")}.
                 </span>
               </div>
             </div>
@@ -593,8 +594,8 @@ const CoursesPage = () => {
               <CourseCard
                 image="/courses/precision1.webp"
                 title={safeAccess(courseDetails.cadcamCourses.professionalMastery, [displayLang, 'title'])}
-                subtitle={safeAccess(courseDetails.cadcamCourses.professionalMastery, [displayLang, 'subtitle'])}
-                description="Master the complete digital manufacturing workflow from design to production. Learn industry-standard CAD/CAM software and precision manufacturing techniques."
+                subtitle=""
+                description={t("courses.descriptions.cadcamProfessionalMastery")}
                 duration={safeAccess(courseDetails.cadcamCourses.professionalMastery, [displayLang, 'details', 'duration'])}
                 level={safeAccess(courseDetails.cadcamCourses.professionalMastery, [displayLang, 'details', 'level'])}
                 category={t("courses.precision.badge")}
@@ -615,10 +616,10 @@ const CoursesPage = () => {
                   animationSpeed={4}
                   className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral']"
                 >
-                  Intensive Workshops.
+                  {t("courses.sections.intensiveWorkshops.title")}.
                 </GradientText>
                 <span className="text-black text-lg sm:text-xl lg:text-2xl font-['Magistral'] ml-2">
-                  Rapid Skills.
+                  {t("courses.sections.intensiveWorkshops.subtitle")}.
                 </span>
               </div>
             </div>
@@ -627,11 +628,11 @@ const CoursesPage = () => {
               <CourseCard
                 image="/courses/workshop1.webp"
                 title={t("courses.workshops.digitalFabrication.title")}
-                subtitle={t("courses.workshops.digitalFabrication.description")}
-                description="Intensive workshop covering multiple digital fabrication techniques including 3D printing, laser cutting, and CNC machining. Perfect for rapid prototyping skills."
+                subtitle=""
+                description={t("courses.descriptions.digitalFabricationWorkshop")}
                 duration={t("courses.workshops.digitalFabrication.duration")}
                 level={t("courses.workshops.digitalFabrication.level")}
-                category={t("courses.workshops.badge", "Workshop")}
+                category={t("courses.workshops.badge")}
                 onViewDetails={() => handleOpenWorkshopModal('digitalFabrication')}
                 onEnroll={() => window.open('https://t.me/+998770884977', '_blank')}
               />
@@ -639,11 +640,11 @@ const CoursesPage = () => {
               <CourseCard
                 image="/courses/workshop2.webp"
                 title={t("courses.workshops.scanning.title")}
-                subtitle={t("courses.workshops.scanning.description")}
-                description="Learn 3D scanning techniques for reverse engineering and quality control. Master both hardware and software aspects of 3D scanning technology."
+                subtitle=""
+                description={t("courses.descriptions.scanningWorkshop")}
                 duration={t("courses.workshops.scanning.duration")}
                 level={t("courses.workshops.scanning.level")}
-                category={t("courses.workshops.badge", "Workshop")}
+                category={t("courses.workshops.badge")}
                 onViewDetails={() => handleOpenWorkshopModal('scanning')}
                 onEnroll={() => window.open('https://t.me/+998770884977', '_blank')}
               />

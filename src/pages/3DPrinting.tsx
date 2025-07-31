@@ -6,6 +6,7 @@ import styles from "@/styles/Slider.module.css";
 import { useTranslation } from "react-i18next";
 import PrintingMaterials from "@/components/PrintingMaterials";
 import SEOHelmet from "@/components/SEOHelmet";
+import GradientText from "@/components/GradientText";
 
 const ThreeDPrintingPage = () => {
   const { t } = useTranslation('3dprinting');
@@ -122,15 +123,19 @@ const ThreeDPrintingPage = () => {
         </section>
 
         {/* Minimalist Content Section */}
-        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f7f7f7]">
+        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
           <div className="max-w-[1350px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col lg:flex-row items-start gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
-                <div className="max-w-xl mx-auto text-left lg:text-left flex flex-col items-start lg:items-start">
-                  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-black font-['Magistral']">
+                <div className="max-w-xl mx-auto text-left lg:text-left flex flex-col items-start">
+                  <GradientText
+                    colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+                    animationSpeed={4}
+                    className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral'] mb-2"
+                  >
                     {t("manufacturing.title")}
-                  </h2>
+                  </GradientText>
                   
                   <p className="text-gray-700 text-base sm:text-lg mb-3 sm:mb-4 font-['Magistral']">
                     {t("manufacturing.description")}
@@ -181,7 +186,7 @@ const ThreeDPrintingPage = () => {
         </section>
 
         {/* New Section: Transform Your Vision */}
-        <section id="fdm" className="py-8 sm:py-12 md:py-16 lg:py-20 bg-white">
+        <section id="fdm" className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
           <div className="max-w-[1350px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col lg:flex-row items-start gap-12">
               {/* Left side with main image and floating elements */}
@@ -226,9 +231,13 @@ const ThreeDPrintingPage = () => {
               {/* Right side content */}
               <div className="w-full lg:w-1/2">
                 <div className="max-w-xl mx-auto text-left lg:text-left flex flex-col items-start">
-                  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-black font-['Magistral']">
+                  <GradientText
+                    colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+                    animationSpeed={4}
+                    className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral'] mb-2"
+                  >
                     {t("fdm.title")}
-                  </h2>
+                  </GradientText>
                   
                   <p className="text-gray-700 text-base sm:text-lg mb-3 sm:mb-4 font-['Magistral']">
                     {t("fdm.description")}
@@ -284,14 +293,18 @@ const ThreeDPrintingPage = () => {
         </section>
 
         {/* Instagram Reels Section */}
-        <section className="relative bg-[#f7f7f7] text-gray-900 border-t border-gray-100">
+        <section className="relative bg-[#f5f5f7] text-gray-900 border-t border-gray-100">
           <div className="max-w-[1350px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16 lg:py-20">
             <div className="flex flex-col md:flex-row items-center justify-between gap-8">
               {/* Left side content */}
               <div className="w-full md:w-1/2 lg:w-2/5">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+                <GradientText
+                  colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+                  animationSpeed={4}
+                  className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral'] mb-4"
+                >
                   {t("digitalFabrication.behindTheScenes.title")}
-                </h2>
+                </GradientText>
                 <p className="text-base sm:text-lg text-gray-600 mb-6">
                   {t("digitalFabrication.behindTheScenes.description")}
                 </p>
@@ -355,15 +368,19 @@ const ThreeDPrintingPage = () => {
         </section>
 
         {/* SLA Detail Showcase Section */}
-        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-white">
+        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
           <div className="max-w-[1350px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col lg:flex-row items-start gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
                 <div className="max-w-xl mx-auto text-left lg:text-left flex flex-col items-start">
-                  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-black font-['Magistral']">
+                  <GradientText
+                    colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+                    animationSpeed={4}
+                    className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral'] mb-2"
+                  >
                     {t("sla.title")}
-                  </h2>
+                  </GradientText>
                   
                   <p className="text-gray-700 text-base sm:text-lg mb-3 sm:mb-4 font-['Magistral']">
                     {t("sla.description")}
@@ -451,11 +468,17 @@ const ThreeDPrintingPage = () => {
         </section>
 
         {/* SLA 3D Printing Equipment Section */}
-        <section id="sla-equipment" className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f7f7f7]">
+        <section id="sla-equipment" className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
           <div className="max-w-[1350px] mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-black font-['Magistral'] text-center">
-              {t("3dPrinting.equipment.sla.title")}
-            </h2>
+            <div className="text-center mb-8 flex justify-center">
+              <GradientText
+                colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+                animationSpeed={4}
+                className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral']"
+              >
+                {t("3dPrinting.equipment.sla.title")}
+              </GradientText>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {/* Formlabs Form 3+ */}
               <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
@@ -525,11 +548,17 @@ const ThreeDPrintingPage = () => {
         </section>
 
         {/* FDM 3D Printing Equipment Section */}
-        <section id="fdm-equipment" className="py-8 sm:py-12 md:py-16 lg:py-20 bg-white">
+        <section id="fdm-equipment" className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
           <div className="max-w-[1350px] mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-black font-['Magistral'] text-center">
-              {t("3dPrinting.equipment.fdm.title")}
-            </h2>
+            <div className="text-center mb-8 flex justify-center">
+              <GradientText
+                colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+                animationSpeed={4}
+                className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral']"
+              >
+                {t("3dPrinting.equipment.fdm.title")}
+              </GradientText>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {/* Prusa i3 MK3S+ */}
               <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
@@ -602,7 +631,7 @@ const ThreeDPrintingPage = () => {
         <PrintingMaterials />
         
         {/* 3D Printing Course Section */}
-        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f7f7f7]">
+        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
           <div className="max-w-[1350px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side content */}
@@ -613,9 +642,13 @@ const ThreeDPrintingPage = () => {
                   </span>
                 </div>
                 
-                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight font-['Magistral']">
+                <GradientText
+                  colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+                  animationSpeed={4}
+                  className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral']"
+                >
                   {t("3dPrinting.course.title")}
-                </h2>
+                </GradientText>
                 
                 <p className="text-gray-700 text-base sm:text-lg mb-3 sm:mb-4 font-['Magistral']">
                   {t("3dPrinting.course.description")}

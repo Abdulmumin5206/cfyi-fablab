@@ -63,7 +63,7 @@ const ThreeDScanningPage = () => {
                     {t("highResolution.title")}
                   </GradientText>
                   
-                  <p className="text-base sm:text-lg text-gray-600 mb-8 font-['Magistral']">
+                  <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-8 font-['Magistral']">
                     {t("highResolution.description")}
                   </p>
 
@@ -76,7 +76,7 @@ const ThreeDScanningPage = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{t("highResolution.features.accuracy")}</p>
+                      <p className="text-sm sm:text-base md:text-lg text-gray-700 font-['Magistral']">{t("highResolution.features.accuracy")}</p>
                     </div>
                     
                     <div className="flex items-start gap-3">
@@ -87,7 +87,7 @@ const ThreeDScanningPage = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{t("highResolution.features.textureMapping")}</p>
+                      <p className="text-sm sm:text-base md:text-lg text-gray-700 font-['Magistral']">{t("highResolution.features.textureMapping")}</p>
                     </div>
                     
                     <div className="flex items-start gap-3">
@@ -98,7 +98,7 @@ const ThreeDScanningPage = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{t("highResolution.features.fileFormats")}</p>
+                      <p className="text-sm sm:text-base md:text-lg text-gray-700 font-['Magistral']">{t("highResolution.features.fileFormats")}</p>
                     </div>
                   </div>
 
@@ -149,7 +149,7 @@ const ThreeDScanningPage = () => {
                     {t("applications.title")}
                   </GradientText>
                   
-                  <p className="text-base sm:text-lg text-gray-600 mb-8 font-['Magistral']">
+                  <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-8 font-['Magistral']">
                     {t("applications.description")}
                   </p>
 
@@ -162,7 +162,7 @@ const ThreeDScanningPage = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{t("applications.features.reverseEngineering")}</p>
+                      <p className="text-sm sm:text-base md:text-lg text-gray-700 font-['Magistral']">{t("applications.features.reverseEngineering")}</p>
                     </div>
                     
                     <div className="flex items-start gap-3">
@@ -173,7 +173,7 @@ const ThreeDScanningPage = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{t("applications.features.qualityControl")}</p>
+                      <p className="text-sm sm:text-base md:text-lg text-gray-700 font-['Magistral']">{t("applications.features.qualityControl")}</p>
                     </div>
                     
                     <div className="flex items-start gap-3">
@@ -184,7 +184,7 @@ const ThreeDScanningPage = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">{t("applications.features.digitalArchiving")}</p>
+                      <p className="text-sm sm:text-base md:text-lg text-gray-700 font-['Magistral']">{t("applications.features.digitalArchiving")}</p>
                     </div>
                   </div>
 
@@ -240,8 +240,8 @@ const ThreeDScanningPage = () => {
                 </div>
                 <div className="flex flex-col items-center justify-center px-6 pt-4 pb-4 w-full text-center">
                   <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center">{t('equipment.einScanSPV2.category')}</div>
-                  <h3 className="text-xl font-bold mb-2 text-center">{t('equipment.einScanSPV2.title')}</h3>
-                  <p className="text-gray-700 text-center text-sm">{t('equipment.einScanSPV2.description')}</p>
+                  <h3 className="text-base sm:text-lg md:text-xl font-bold mb-2 text-center">{t('equipment.einScanSPV2.title')}</h3>
+                  <p className="text-gray-700 text-center text-xs sm:text-sm md:text-base">{t('equipment.einScanSPV2.description')}</p>
                 </div>
               </div>
 
@@ -252,8 +252,8 @@ const ThreeDScanningPage = () => {
                 </div>
                 <div className="flex flex-col items-center justify-center px-6 pt-4 pb-4 w-full text-center">
                   <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center">{t('equipment.autoscanInspec.category')}</div>
-                  <h3 className="text-xl font-bold mb-2 text-center">{t('equipment.autoscanInspec.title')}</h3>
-                  <p className="text-gray-700 text-center text-sm">{t('equipment.autoscanInspec.description')}</p>
+                  <h3 className="text-base sm:text-lg md:text-xl font-bold mb-2 text-center">{t('equipment.autoscanInspec.title')}</h3>
+                  <p className="text-gray-700 text-center text-xs sm:text-sm md:text-base">{t('equipment.autoscanInspec.description')}</p>
                 </div>
               </div>
 
@@ -264,8 +264,8 @@ const ThreeDScanningPage = () => {
                 </div>
                 <div className="flex flex-col items-center justify-center px-6 pt-4 pb-4 w-full text-center">
                   <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center">{t('equipment.einScanH.category')}</div>
-                  <h3 className="text-xl font-bold mb-2 text-center">{t('equipment.einScanH.title')}</h3>
-                  <p className="text-gray-700 text-center text-sm">{t('equipment.einScanH.description')}</p>
+                  <h3 className="text-base sm:text-lg md:text-xl font-bold mb-2 text-center">{t('equipment.einScanH.title')}</h3>
+                  <p className="text-gray-700 text-center text-xs sm:text-sm md:text-base">{t('equipment.einScanH.description')}</p>
                 </div>
               </div>
 
@@ -276,8 +276,8 @@ const ThreeDScanningPage = () => {
                 </div>
                 <div className="flex flex-col items-center justify-center px-6 pt-4 pb-4 w-full text-center">
                   <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center">{t('equipment.academia50.category')}</div>
-                  <h3 className="text-xl font-bold mb-2 text-center">{t('equipment.academia50.title')}</h3>
-                  <p className="text-gray-700 text-center text-sm">{t('equipment.academia50.description')}</p>
+                  <h3 className="text-base sm:text-lg md:text-xl font-bold mb-2 text-center">{t('equipment.academia50.title')}</h3>
+                  <p className="text-gray-700 text-center text-xs sm:text-sm md:text-base">{t('equipment.academia50.description')}</p>
                 </div>
               </div>
             </div>
@@ -311,7 +311,7 @@ const ThreeDScanningPage = () => {
                     {t('guide.einScanSPV2.title')}
                   </GradientText>
                   
-                  <p className="text-base sm:text-lg text-gray-600 mb-8 font-['Magistral']">
+                  <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-8 font-['Magistral']">
                     {t('guide.einScanSPV2.description')}
                   </p>
 
@@ -355,7 +355,7 @@ const ThreeDScanningPage = () => {
                   {t('contactSection.title')}
                 </GradientText>
                 
-                <p className="text-base sm:text-lg text-gray-600 font-['Magistral']">
+                <p className="text-sm sm:text-base md:text-lg text-gray-600 font-['Magistral']">
                   {t('contactSection.description')}
                 </p>
 

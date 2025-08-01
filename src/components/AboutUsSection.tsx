@@ -56,7 +56,7 @@ const AboutUsSection = () => {
             >
               {t('aboutUs.title')}
             </GradientText>
-            <span className="text-black text-lg sm:text-xl lg:text-2xl font-['Magistral'] ml-2">
+            <span className="hidden sm:block text-black text-lg sm:text-xl lg:text-2xl font-['Magistral'] ml-2">
               {t('aboutUs.subtitle')}
             </span>
           </div>

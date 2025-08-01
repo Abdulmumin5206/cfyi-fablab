@@ -276,11 +276,11 @@ const MouldPage = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 </div>
                 <div className="p-4 flex flex-col gap-2">
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">{t('professions.categories.engineering.title')}</h3>
-                  <p className="text-gray-600 text-sm">{t('professions.categories.engineering.description')}</p>
+                  <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900 mb-1">{t('professions.categories.engineering.title')}</h3>
+                  <p className="text-gray-600 text-xs sm:text-sm">{t('professions.categories.engineering.description')}</p>
                   <ul className="mt-1 space-y-1">
                     {(t('industries.engineering.capabilities', { returnObjects: true }) as string[]).map((feature: string, index: number) => (
-                      <li key={index} className="flex items-center text-sm text-gray-700">
+                      <li key={index} className="flex items-center text-xs sm:text-sm text-gray-700">
                         <svg className="w-4 h-4 mr-2 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                         </svg>
@@ -302,11 +302,11 @@ const MouldPage = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 </div>
                 <div className="p-4 flex flex-col gap-2">
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">{t('professions.categories.textile.title')}</h3>
-                  <p className="text-gray-600 text-sm">{t('professions.categories.textile.description')}</p>
+                  <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900 mb-1">{t('professions.categories.textile.title')}</h3>
+                  <p className="text-gray-600 text-xs sm:text-sm">{t('professions.categories.textile.description')}</p>
                   <ul className="mt-1 space-y-1">
                     {(t('industries.textile.capabilities', { returnObjects: true }) as string[]).map((feature: string, index: number) => (
-                      <li key={index} className="flex items-center text-sm text-gray-700">
+                      <li key={index} className="flex items-center text-xs sm:text-sm text-gray-700">
                         <svg className="w-4 h-4 mr-2 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                         </svg>
@@ -328,11 +328,11 @@ const MouldPage = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 </div>
                 <div className="p-4 flex flex-col gap-2">
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">{t('professions.categories.medical.title')}</h3>
-                  <p className="text-gray-600 text-sm">{t('professions.categories.medical.description')}</p>
+                  <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900 mb-1">{t('professions.categories.medical.title')}</h3>
+                  <p className="text-gray-600 text-xs sm:text-sm">{t('professions.categories.medical.description')}</p>
                   <ul className="mt-1 space-y-1">
                     {(t('industries.medical.capabilities', { returnObjects: true }) as string[]).map((feature: string, index: number) => (
-                      <li key={index} className="flex items-center text-sm text-gray-700">
+                      <li key={index} className="flex items-center text-xs sm:text-sm text-gray-700">
                         <svg className="w-4 h-4 mr-2 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                         </svg>
@@ -354,11 +354,11 @@ const MouldPage = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 </div>
                 <div className="p-4 flex flex-col gap-2">
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">{t('professions.categories.furniture.title')}</h3>
-                  <p className="text-gray-600 text-sm">{t('professions.categories.furniture.description')}</p>
+                  <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900 mb-1">{t('professions.categories.furniture.title')}</h3>
+                  <p className="text-gray-600 text-xs sm:text-sm">{t('professions.categories.furniture.description')}</p>
                   <ul className="mt-1 space-y-1">
                     {(t('industries.furniture.capabilities', { returnObjects: true }) as string[]).map((feature: string, index: number) => (
-                      <li key={index} className="flex items-center text-sm text-gray-700">
+                      <li key={index} className="flex items-center text-xs sm:text-sm text-gray-700">
                         <svg className="w-4 h-4 mr-2 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                         </svg>
@@ -380,11 +380,11 @@ const MouldPage = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 </div>
                 <div className="p-4 flex flex-col gap-2">
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">{t('professions.categories.automotive.title')}</h3>
-                  <p className="text-gray-600 text-sm">{t('professions.categories.automotive.description')}</p>
+                  <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900 mb-1">{t('professions.categories.automotive.title')}</h3>
+                  <p className="text-gray-600 text-xs sm:text-sm">{t('professions.categories.automotive.description')}</p>
                   <ul className="mt-1 space-y-1">
                     {(t('industries.automotive.capabilities', { returnObjects: true }) as string[]).map((feature: string, index: number) => (
-                      <li key={index} className="flex items-center text-sm text-gray-700">
+                      <li key={index} className="flex items-center text-xs sm:text-sm text-gray-700">
                         <svg className="w-4 h-4 mr-2 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                         </svg>
@@ -406,11 +406,11 @@ const MouldPage = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 </div>
                 <div className="p-4 flex flex-col gap-2">
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">{t('professions.categories.education.title')}</h3>
-                  <p className="text-gray-600 text-sm">{t('professions.categories.education.description')}</p>
+                  <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900 mb-1">{t('professions.categories.education.title')}</h3>
+                  <p className="text-gray-600 text-xs sm:text-sm">{t('professions.categories.education.description')}</p>
                   <ul className="mt-1 space-y-1">
                     {(t('industries.education.capabilities', { returnObjects: true }) as string[]).map((feature: string, index: number) => (
-                      <li key={index} className="flex items-center text-sm text-gray-700">
+                      <li key={index} className="flex items-center text-xs sm:text-sm text-gray-700">
                         <svg className="w-4 h-4 mr-2 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                         </svg>
@@ -432,11 +432,11 @@ const MouldPage = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 </div>
                 <div className="p-4 flex flex-col gap-2">
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">{t('professions.categories.manufacturing.title')}</h3>
-                  <p className="text-gray-600 text-sm">{t('professions.categories.manufacturing.description')}</p>
+                  <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900 mb-1">{t('professions.categories.manufacturing.title')}</h3>
+                  <p className="text-gray-600 text-xs sm:text-sm">{t('professions.categories.manufacturing.description')}</p>
                   <ul className="mt-1 space-y-1">
                     {(t('industries.manufacturing.capabilities', { returnObjects: true }) as string[]).map((feature: string, index: number) => (
-                      <li key={index} className="flex items-center text-sm text-gray-700">
+                      <li key={index} className="flex items-center text-xs sm:text-sm text-gray-700">
                         <svg className="w-4 h-4 mr-2 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                         </svg>
@@ -458,11 +458,11 @@ const MouldPage = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 </div>
                 <div className="p-4 flex flex-col gap-2">
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">{t('professions.categories.jewelry.title')}</h3>
-                  <p className="text-gray-600 text-sm">{t('professions.categories.jewelry.description')}</p>
+                  <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900 mb-1">{t('professions.categories.jewelry.title')}</h3>
+                  <p className="text-gray-600 text-xs sm:text-sm">{t('professions.categories.jewelry.description')}</p>
                   <ul className="mt-1 space-y-1">
                     {(t('industries.jewelry.capabilities', { returnObjects: true }) as string[]).map((feature: string, index: number) => (
-                      <li key={index} className="flex items-center text-sm text-gray-700">
+                      <li key={index} className="flex items-center text-xs sm:text-sm text-gray-700">
                         <svg className="w-4 h-4 mr-2 text-[#329db7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                         </svg>
@@ -493,7 +493,7 @@ const MouldPage = () => {
                     </GradientText>
                   </div>
                   
-                  <p className="text-base sm:text-lg text-gray-600 mb-8 font-['Magistral']">
+                  <p className="text-gray-700 text-sm sm:text-base md:text-lg mb-8 font-['Magistral']">
                     {t('precisionMoulding.description')}
                   </p>
 
@@ -557,10 +557,10 @@ const MouldPage = () => {
                 <div className="mb-3 w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center">
                   <img src="/mould/lower_costs.webp" alt={t('whyChoosePlasticMoulding.benefits.lowerCosts.title')} className="w-full h-full object-contain" />
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold mb-2 font-['Magistral']">
+                <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-2 font-['Magistral']">
                   {t('whyChoosePlasticMoulding.benefits.lowerCosts.title')}
                 </h3>
-                <p className="text-sm sm:text-base text-gray-600 font-['Magistral']">
+                <p className="text-xs sm:text-sm md:text-base text-gray-600 font-['Magistral']">
                   {t('whyChoosePlasticMoulding.benefits.lowerCosts.description')}
                 </p>
               </div>
@@ -570,10 +570,10 @@ const MouldPage = () => {
                 <div className="mb-3 w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center">
                   <img src="/mould/faster_time.webp" alt={t('whyChoosePlasticMoulding.benefits.fasterTime.title')} className="w-full h-full object-contain" />
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold mb-2 font-['Magistral']">
+                <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-2 font-['Magistral']">
                   {t('whyChoosePlasticMoulding.benefits.fasterTime.title')}
                 </h3>
-                <p className="text-sm sm:text-base text-gray-600 font-['Magistral']">
+                <p className="text-xs sm:text-sm md:text-base text-gray-600 font-['Magistral']">
                   {t('whyChoosePlasticMoulding.benefits.fasterTime.description')}
                 </p>
               </div>
@@ -583,10 +583,10 @@ const MouldPage = () => {
                 <div className="mb-3 w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center">
                   <img src="/mould/clean_workflow.webp" alt={t('whyChoosePlasticMoulding.benefits.designFreedom.title')} className="w-full h-full object-contain" />
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold mb-2 font-['Magistral']">
+                <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-2 font-['Magistral']">
                   {t('whyChoosePlasticMoulding.benefits.designFreedom.title')}
                 </h3>
-                <p className="text-sm sm:text-base text-gray-600 font-['Magistral']">
+                <p className="text-xs sm:text-sm md:text-base text-gray-600 font-['Magistral']">
                   {t('whyChoosePlasticMoulding.benefits.designFreedom.description')}
                 </p>
               </div>
@@ -621,7 +621,7 @@ const MouldPage = () => {
 
             {/* Formlabs Solutions */}
             <div className="mt-12">
-              <h2 className="text-xl sm:text-2xl lg:text-2xl font-bold text-gray-900 mb-6">
+              <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-6">
                 {t('whyChoosePlasticMoulding.formlabsSolutions.title')}
               </h2>
               
@@ -639,10 +639,10 @@ const MouldPage = () => {
                     <div className="text-[#329db7] text-xs sm:text-sm font-semibold mb-2">
                       {t('whyChoosePlasticMoulding.formlabsSolutions.caseStudy1.category')}
                     </div>
-                    <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">
+                    <h3 className="text-base sm:text-lg md:text-xl font-bold mb-3 sm:mb-4">
                       {t('whyChoosePlasticMoulding.formlabsSolutions.caseStudy1.title')}
                     </h3>
-                    <p className="text-gray-600 mb-4">
+                    <p className="text-xs sm:text-sm md:text-base text-gray-600 mb-4">
                       {t('whyChoosePlasticMoulding.formlabsSolutions.caseStudy1.description')}
                     </p>
                     <a href="https://formlabs.com/global/blog/low-volume-injection-molding/" target="_blank" rel="noopener noreferrer" className="text-[#329db7] flex items-center gap-2 font-medium hover:text-[#2b86a0] transition-colors text-sm sm:text-base">
@@ -667,10 +667,10 @@ const MouldPage = () => {
                     <div className="text-[#329db7] text-xs sm:text-sm font-semibold mb-2">
                       {t('whyChoosePlasticMoulding.formlabsSolutions.caseStudy2.category')}
                     </div>
-                    <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">
+                    <h3 className="text-base sm:text-lg md:text-xl font-bold mb-3 sm:mb-4">
                       {t('whyChoosePlasticMoulding.formlabsSolutions.caseStudy2.title')}
                     </h3>
-                    <p className="text-gray-600 mb-4">
+                    <p className="text-xs sm:text-sm md:text-base text-gray-600 mb-4">
                       {t('whyChoosePlasticMoulding.formlabsSolutions.caseStudy2.description')}
                     </p>
                     <a href="https://formlabs.com/global/applications/injection-molding/" target="_blank" rel="noopener noreferrer" className="text-[#329db7] flex items-center gap-2 font-medium hover:text-[#2b86a0] transition-colors text-sm sm:text-base">
@@ -701,7 +701,7 @@ const MouldPage = () => {
                     {t('spareParts.title')}
                   </GradientText>
                 </div>
-                <p className="text-base sm:text-lg text-gray-700 mb-6 font-['Magistral']">
+                <p className="text-gray-700 text-sm sm:text-base md:text-lg mb-6 font-['Magistral']">
                   {t('spareParts.description')}
                 </p>
                 
@@ -714,7 +714,7 @@ const MouldPage = () => {
                         </svg>
                       </div>
                     </div>
-                    <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">
+                    <p className="text-gray-700 text-sm sm:text-base md:text-lg font-['Magistral']">
                       {t('spareParts.features.replication')}
                     </p>
                   </div>
@@ -727,7 +727,7 @@ const MouldPage = () => {
                         </svg>
                       </div>
                     </div>
-                    <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">
+                    <p className="text-gray-700 text-sm sm:text-base md:text-lg font-['Magistral']">
                       {t('spareParts.features.customParts')}
                     </p>
                   </div>
@@ -740,7 +740,7 @@ const MouldPage = () => {
                         </svg>
                       </div>
                     </div>
-                    <p className="text-base sm:text-lg text-gray-700 font-['Magistral']">
+                    <p className="text-gray-700 text-sm sm:text-base md:text-lg font-['Magistral']">
                       {t('spareParts.features.rapidPrototyping')}
                     </p>
                   </div>
@@ -802,8 +802,8 @@ const MouldPage = () => {
                 </div>
                 <div className="md:w-3/5 p-6">
                   <div className="text-[#329db7] text-xs sm:text-sm font-semibold mb-2 font-['Magistral']">{t('sparePartProjects.blogPost.category')}</div>
-                  <h3 className="text-lg sm:text-xl font-bold mb-4 font-['Magistral']">{t('sparePartProjects.blogPost.title')}</h3>
-                  <p className="text-base sm:text-lg text-gray-600 mb-4 font-['Magistral']">{t('sparePartProjects.blogPost.description')}</p>
+                  <h3 className="text-base sm:text-lg md:text-xl font-bold mb-4 font-['Magistral']">{t('sparePartProjects.blogPost.title')}</h3>
+                  <p className="text-xs sm:text-sm md:text-base text-gray-600 mb-4 font-['Magistral']">{t('sparePartProjects.blogPost.description')}</p>
                   <a href="/projects/3d-printing-innovations" className="text-[#329db7] flex items-center gap-2 font-medium hover:text-[#2b86a0] transition-colors font-['Magistral']">
                     {t('sparePartProjects.blogPost.readMore')}
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -837,7 +837,7 @@ const MouldPage = () => {
                 onClick={() => setExpandedFaq(expandedFaq === 0 ? null : 0)}
               >
                 <div className="p-6 cursor-pointer flex justify-between items-center">
-                  <h3 className="text-xl font-semibold">{t('faq.questions.spareParts.question')}</h3>
+                  <h3 className="text-base sm:text-lg md:text-xl font-semibold">{t('faq.questions.spareParts.question')}</h3>
                   {expandedFaq === 0 ? (
                     <ChevronUp className="w-6 h-6 text-gray-500 flex-shrink-0" />
                   ) : (
@@ -850,7 +850,7 @@ const MouldPage = () => {
                   }`}
                 >
                   <div className="px-6 pb-6">
-                    <p className="text-gray-600 leading-relaxed">{t('faq.questions.spareParts.answer')}</p>
+                    <p className="text-gray-600 text-sm sm:text-base leading-relaxed">{t('faq.questions.spareParts.answer')}</p>
                   </div>
                 </div>
               </div>
@@ -861,7 +861,7 @@ const MouldPage = () => {
                 onClick={() => setExpandedFaq(expandedFaq === 1 ? null : 1)}
               >
                 <div className="p-6 cursor-pointer flex justify-between items-center">
-                  <h3 className="text-xl font-semibold">{t('faq.questions.slaComparison.question')}</h3>
+                  <h3 className="text-base sm:text-lg md:text-xl font-semibold">{t('faq.questions.slaComparison.question')}</h3>
                   {expandedFaq === 1 ? (
                     <ChevronUp className="w-6 h-6 text-gray-500 flex-shrink-0" />
                   ) : (
@@ -874,7 +874,7 @@ const MouldPage = () => {
                   }`}
                 >
                   <div className="px-6 pb-6">
-                    <p className="text-gray-600 leading-relaxed">{t('faq.questions.slaComparison.answer')}</p>
+                    <p className="text-gray-600 text-sm sm:text-base leading-relaxed">{t('faq.questions.slaComparison.answer')}</p>
                   </div>
                 </div>
               </div>
@@ -885,7 +885,7 @@ const MouldPage = () => {
                 onClick={() => setExpandedFaq(expandedFaq === 2 ? null : 2)}
               >
                 <div className="p-6 cursor-pointer flex justify-between items-center">
-                  <h3 className="text-xl font-semibold">{t('faq.questions.productionTime.question')}</h3>
+                  <h3 className="text-base sm:text-lg md:text-xl font-semibold">{t('faq.questions.productionTime.question')}</h3>
                   {expandedFaq === 2 ? (
                     <ChevronUp className="w-6 h-6 text-gray-500 flex-shrink-0" />
                   ) : (
@@ -898,7 +898,7 @@ const MouldPage = () => {
                   }`}
                 >
                   <div className="px-6 pb-6">
-                    <p className="text-gray-600 leading-relaxed">{t('faq.questions.productionTime.answer')}</p>
+                    <p className="text-gray-600 text-sm sm:text-base leading-relaxed">{t('faq.questions.productionTime.answer')}</p>
                   </div>
                 </div>
               </div>
@@ -909,7 +909,7 @@ const MouldPage = () => {
                 onClick={() => setExpandedFaq(expandedFaq === 3 ? null : 3)}
               >
                 <div className="p-6 cursor-pointer flex justify-between items-center">
-                  <h3 className="text-xl font-semibold">{t('faq.questions.limitations.question')}</h3>
+                  <h3 className="text-base sm:text-lg md:text-xl font-semibold">{t('faq.questions.limitations.question')}</h3>
                   {expandedFaq === 3 ? (
                     <ChevronUp className="w-6 h-6 text-gray-500 flex-shrink-0" />
                   ) : (
@@ -922,7 +922,7 @@ const MouldPage = () => {
                   }`}
                 >
                   <div className="px-6 pb-6">
-                    <p className="text-gray-600 leading-relaxed">{t('faq.questions.limitations.answer')}</p>
+                    <p className="text-gray-600 text-sm sm:text-base leading-relaxed">{t('faq.questions.limitations.answer')}</p>
                   </div>
                 </div>
               </div>

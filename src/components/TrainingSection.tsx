@@ -40,7 +40,7 @@ const TrainingSection = () => {
                 >
                   {t('training.ourCourses')}
                 </GradientText>
-                <span className="text-black text-lg sm:text-xl lg:text-2xl font-['Magistral'] ml-2">
+                <span className="hidden sm:block text-black text-lg sm:text-xl lg:text-2xl font-['Magistral'] ml-2">
                   {t('training.subtitle')}
                 </span>
               </div>
@@ -50,7 +50,7 @@ const TrainingSection = () => {
               {t('training.masterManufacturing')}
             </h2>
             
-            <p className="text-gray-700 text-base sm:text-lg mb-3 sm:mb-4 font-['Magistral']">
+            <p className="text-gray-700 text-sm sm:text-base md:text-lg mb-3 sm:mb-4 font-['Magistral']">
               {t('training.description')}
             </p>
 
@@ -63,8 +63,8 @@ const TrainingSection = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900 font-['Magistral']">{t('training.diverseSelection.title')}</h3>
-                  <p className="text-gray-600 font-['Magistral']">{t('training.diverseSelection.description')}</p>
+                  <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 font-['Magistral']">{t('training.diverseSelection.title')}</h3>
+                  <p className="text-gray-600 text-sm sm:text-base font-['Magistral']">{t('training.diverseSelection.description')}</p>
                 </div>
               </div>
 
@@ -75,8 +75,8 @@ const TrainingSection = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900 font-['Magistral']">{t('training.expertInstructors.title')}</h3>
-                  <p className="text-gray-600 font-['Magistral']">{t('training.expertInstructors.description')}</p>
+                  <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 font-['Magistral']">{t('training.expertInstructors.title')}</h3>
+                  <p className="text-gray-600 text-sm sm:text-base font-['Magistral']">{t('training.expertInstructors.description')}</p>
                 </div>
               </div>
 
@@ -87,8 +87,8 @@ const TrainingSection = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900 font-['Magistral']">{t('training.handsOnProjects.title')}</h3>
-                  <p className="text-gray-600 font-['Magistral']">{t('training.handsOnProjects.description')}</p>
+                  <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 font-['Magistral']">{t('training.handsOnProjects.title')}</h3>
+                  <p className="text-gray-600 text-sm sm:text-base font-['Magistral']">{t('training.handsOnProjects.description')}</p>
                 </div>
               </div>
             </div>

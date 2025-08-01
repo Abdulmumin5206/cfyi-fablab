@@ -584,7 +584,7 @@ const PrintingMaterials = () => {
             >
               {t('3dPrinting.materials.title')}
             </GradientText>
-            <p className="text-gray-700 text-base sm:text-lg font-['Magistral'] max-w-3xl">
+            <p className="text-gray-700 text-sm sm:text-base md:text-lg font-['Magistral'] max-w-3xl">
               {t('3dPrinting.materials.subtitle')}
             </p>
           </div>
@@ -658,12 +658,12 @@ const PrintingMaterials = () => {
               </div>
               
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-3">{material.name}</h3>
-                <p className="text-gray-600 mb-4">{t(material.description)}</p>
+                <h3 className="text-base sm:text-lg md:text-xl font-bold mb-3">{material.name}</h3>
+                <p className="text-gray-600 text-sm sm:text-base mb-4">{t(material.description)}</p>
                 
                 {material.colors && (
                   <div className="mb-6">
-                    <h4 className="text-sm font-semibold text-gray-900 mb-2">{t('3dPrinting.materials.colors.title')}</h4>
+                    <h4 className="text-xs sm:text-sm font-semibold text-gray-900 mb-2">{t('3dPrinting.materials.colors.title')}</h4>
                     <div className="flex flex-wrap gap-3">
                       {material.colors.map((color) => (
                         <div key={color.name} className="relative group">
@@ -693,7 +693,7 @@ const PrintingMaterials = () => {
                 
                 {material.colors && material.selectedColor && (
                   <div className="mb-6">
-                    <p className="text-sm text-gray-600">
+                    <p className="text-xs sm:text-sm text-gray-600">
                       {t('3dPrinting.materials.colors.selected')}: <span className="font-medium text-gray-900">{t(material.selectedColor)}</span>
                     </p>
                   </div>
@@ -701,12 +701,12 @@ const PrintingMaterials = () => {
                 
                 <div className="space-y-4">
                   <div>
-                    <h4 className="text-sm font-semibold text-gray-900 mb-2">{t('3dPrinting.materials.properties.title')}</h4>
+                    <h4 className="text-xs sm:text-sm font-semibold text-gray-900 mb-2">{t('3dPrinting.materials.properties.title')}</h4>
                     <div className="flex flex-wrap gap-2">
                       {material.properties.map((property, index) => (
                         <span
                           key={index}
-                          className="px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-600"
+                          className="px-3 py-1 bg-gray-100 rounded-full text-xs sm:text-sm text-gray-600"
                         >
                           {t(property)}
                         </span>
@@ -715,12 +715,12 @@ const PrintingMaterials = () => {
                   </div>
                   
                   <div>
-                    <h4 className="text-sm font-semibold text-gray-900 mb-2">{t('3dPrinting.materials.applications.title')}</h4>
+                    <h4 className="text-xs sm:text-sm font-semibold text-gray-900 mb-2">{t('3dPrinting.materials.applications.title')}</h4>
                     <div className="flex flex-wrap gap-2">
                       {material.applications.map((application, index) => (
                         <span
                           key={index}
-                          className="px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-600"
+                          className="px-3 py-1 bg-gray-100 rounded-full text-xs sm:text-sm text-gray-600"
                         >
                           {t(application)}
                         </span>

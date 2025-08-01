@@ -250,7 +250,7 @@ const MouldPage = () => {
         <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
             <div className="text-left mb-16">
-              <div className="flex items-baseline gap-2 mb-4">
+              <div className="flex items-baseline gap-2 mb-4 justify-center sm:justify-start">
                 <GradientText
                   colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
                   animationSpeed={4}
@@ -258,7 +258,7 @@ const MouldPage = () => {
                 >
                   {t('professions.title')}
                 </GradientText>
-                <span className="text-black text-lg sm:text-xl lg:text-2xl font-['Magistral'] ml-2">
+                <span className="hidden sm:block text-black text-lg sm:text-xl lg:text-2xl font-['Magistral'] ml-2">
                   {t('professions.subtitle')}
                 </span>
               </div>
@@ -776,7 +776,7 @@ const MouldPage = () => {
         <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7] text-gray-900">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
             <div className="text-left mb-8">
-              <div className="flex items-baseline gap-2">
+              <div className="flex items-baseline gap-2 justify-center sm:justify-start">
                 <GradientText
                   colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
                   animationSpeed={4}
@@ -784,7 +784,7 @@ const MouldPage = () => {
                 >
                   {t('sparePartProjects.title')}
                 </GradientText>
-                <span className="text-black text-lg sm:text-xl lg:text-2xl font-['Magistral'] ml-2">
+                <span className="hidden sm:block text-black text-lg sm:text-xl lg:text-2xl font-['Magistral'] ml-2">
                   {t('sparePartProjects.subtitle')}
                 </span>
               </div>

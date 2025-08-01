@@ -236,7 +236,7 @@ const MembershipSection = () => {
             >
               {t('membership.title', 'Membership Plans')}
             </GradientText>
-            <span className="text-black text-lg sm:text-xl lg:text-2xl font-['Magistral'] ml-2">
+            <span className="hidden sm:block text-black text-lg sm:text-xl lg:text-2xl font-['Magistral'] ml-2">
               {t('membership.subtitle', 'Choose the perfect plan for your creative journey')}
             </span>
           </div>

@@ -120,7 +120,7 @@ const ServiceCategories = () => {
       className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7] relative overflow-hidden"
       aria-label="Our Services"
     >
-      <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px] relative z-10">
+      <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px] relative z-10">
         <div className="text-left mb-3 sm:mb-4 md:mb-6 lg:mb-8">
           <div className="flex items-baseline gap-1">
             <GradientText
@@ -188,7 +188,7 @@ const ServiceCategories = () => {
           <div className="flex items-center justify-center">
             <button
               onClick={handleScrollLeft}
-              className={`absolute left-1 sm:left-2 md:left-4 lg:left-6 z-10 bg-black p-2 sm:p-3 shadow-lg transition-all duration-300 hover:bg-gray-800 top-[40%] -translate-y-1/2 ${currentSlide === 0 ? 'hidden' : 'opacity-100 cursor-pointer'
+              className={`absolute left-0 sm:left-1 md:left-2 lg:left-3 z-10 bg-black p-2 sm:p-3 shadow-lg transition-all duration-300 hover:bg-gray-800 top-[40%] -translate-y-1/2 ${currentSlide === 0 ? 'hidden' : 'opacity-100 cursor-pointer'
                 }`}
               aria-label="Scroll left"
               disabled={currentSlide === 0}
@@ -216,13 +216,13 @@ const ServiceCategories = () => {
                     className="group transition-all duration-300 flex-shrink-0 cursor-pointer opacity-100 translate-y-0"
                     style={{
                       flex: '0 0 28%',
-                      marginRight: '2%',
+                      marginRight: '2.5%',
                       transform: 'translateZ(0)'
                     }}
                     onMouseEnter={() => setHoveredIndex(index)}
                     onMouseLeave={() => setHoveredIndex(null)}
                   >
-                    <div className="relative aspect-[16/12] mb-0 overflow-hidden transition-all duration-300 group bg-white shadow-sm">
+                    <div className="relative aspect-[16/10] mb-0 overflow-hidden transition-all duration-300 group bg-white shadow-sm">
                       <div className="absolute inset-0 transition-transform duration-300 ease-in-out group-hover:scale-110 z-0"
                         style={{ transformOrigin: 'center', willChange: 'transform' }}>
                         <div
@@ -243,7 +243,7 @@ const ServiceCategories = () => {
                     </div>
 
                     <div
-                      className="bg-white transition-all duration-300 p-4 sm:p-6 lg:p-8 pt-4 sm:pt-5 lg:pt-6 pb-16 h-[240px] sm:h-[260px] lg:h-[280px] flex flex-col items-start justify-between relative overflow-hidden shadow-sm"
+                      className="bg-white transition-all duration-300 p-4 sm:p-5 lg:p-6 pt-4 sm:pt-5 lg:pt-6 pb-16 h-[220px] sm:h-[230px] lg:h-[240px] flex flex-col items-start justify-between relative overflow-hidden shadow-sm"
                       style={{
                         backgroundColor: hoveredIndex === index ? '#329db7' : '#fff',
                         willChange: 'background-color'
@@ -251,26 +251,26 @@ const ServiceCategories = () => {
                     >
                       <div>
                         <h3 className={`font-bold mb-2 transition-colors duration-300 font-['Magistral'] text-gray-800 ${i18n.language === 'en'
-                            ? 'text-lg sm:text-xl lg:text-2xl'
-                            : 'text-base sm:text-lg lg:text-xl'
+                            ? 'text-base sm:text-lg lg:text-xl'
+                            : 'text-sm sm:text-base lg:text-lg'
                             }`}>
                           {t(category.titleKey)}
                         </h3>
                         <p className={`text-gray-700 leading-relaxed transition-colors duration-300 font-['Magistral'] ${i18n.language === 'en'
-                          ? 'text-sm sm:text-base'
-                          : 'text-xs sm:text-sm'
+                          ? 'text-xs sm:text-sm'
+                          : 'text-xs sm:text-xs'
                           }`}>
                           {t(category.descriptionKey)}
                         </p>
                       </div>
-                      <div className={`flex items-center absolute left-4 sm:left-6 lg:left-8 bottom-[-64px] group-hover:bottom-6 lg:group-hover:bottom-8 bg-black text-white py-2 sm:py-3 px-6 sm:px-8 transition-all duration-300 font-['Magistral'] ${i18n.language === 'en'
-                        ? 'text-base lg:text-lg'
-                        : 'text-sm lg:text-base'
+                      <div className={`flex items-center absolute left-4 sm:left-5 lg:left-6 bottom-[-64px] group-hover:bottom-6 lg:group-hover:bottom-6 bg-black text-white py-2 sm:py-2 px-5 sm:px-6 transition-all duration-300 font-['Magistral'] ${i18n.language === 'en'
+                        ? 'text-sm lg:text-base'
+                        : 'text-xs lg:text-sm'
                         }`}
                         style={{ willChange: 'transform' }}
                       >
                         <span>{t('common.learnMore')}</span>
-                        <ArrowRight size={i18n.language === 'en' ? 18 : 16} className="ml-2" />
+                        <ArrowRight size={i18n.language === 'en' ? 16 : 14} className="ml-2" />
                       </div>
                     </div>
                   </Link>
@@ -280,7 +280,7 @@ const ServiceCategories = () => {
 
             <button
               onClick={handleScrollRight}
-              className={`absolute right-1 sm:right-2 md:right-4 lg:right-6 z-10 bg-black p-2 sm:p-3 shadow-lg transition-all duration-300 hover:bg-gray-800 top-[40%] -translate-y-1/2 ${currentSlide >= categories.length - 3 ? 'hidden' : 'opacity-100 cursor-pointer'
+              className={`absolute right-0 sm:right-1 md:right-2 lg:right-3 z-10 bg-black p-2 sm:p-3 shadow-lg transition-all duration-300 hover:bg-gray-800 top-[40%] -translate-y-1/2 ${currentSlide >= categories.length - 3 ? 'hidden' : 'opacity-100 cursor-pointer'
                 }`}
               aria-label="Scroll right"
               disabled={currentSlide >= categories.length - 3}

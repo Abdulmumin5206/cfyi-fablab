@@ -248,7 +248,7 @@ const MouldPage = () => {
         
         {/* Our Professions Section */}
         <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
-          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
             <div className="text-left mb-16">
               <div className="flex items-baseline gap-2 mb-4 justify-center sm:justify-start">
                 <GradientText
@@ -478,11 +478,11 @@ const MouldPage = () => {
         
         {/* Premium Quality Section */}
         <section id="premium-quality" className="bg-[#f5f5f7] py-8 sm:py-12 md:py-16 lg:py-20 overflow-visible">
-          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
-            <div className="flex flex-col lg:flex-row items-start gap-12">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
+            <div className="flex flex-col lg:flex-row items-start gap-8">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
-                <div className="max-w-xl mx-auto text-left lg:text-left flex flex-col items-start lg:items-start">
+                <div className="mx-auto text-left lg:text-left flex flex-col items-start lg:items-start">
                   <div className="mb-8">
                     <GradientText
                       colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
@@ -538,7 +538,7 @@ const MouldPage = () => {
         
         {/* Why Choose Plastic Moulding Section */}
         <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
-          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
             <div className="text-center mb-8">
               <div className="flex justify-center">
                 <GradientText
@@ -688,7 +688,7 @@ const MouldPage = () => {
         
         {/* Spare Parts Section */}
         <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7] text-gray-900">
-          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
             <div className="flex flex-col lg:flex-row items-center">
               {/* Left side content */}
               <div className="w-full lg:w-1/2 mb-12 lg:mb-0 pr-0 lg:pr-10">
@@ -774,7 +774,7 @@ const MouldPage = () => {
 
         {/* Blog Section */}
         <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7] text-gray-900">
-          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
             <div className="text-left mb-8">
               <div className="flex items-baseline gap-2 justify-center sm:justify-start">
                 <GradientText
@@ -830,7 +830,7 @@ const MouldPage = () => {
                 </GradientText>
               </div>
             </div>
-            <div className="max-w-3xl mx-auto space-y-4">
+            <div className="max-w-2xl mx-auto space-y-4">
               {/* FAQ Item 1 */}
               <div 
                 className="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300"

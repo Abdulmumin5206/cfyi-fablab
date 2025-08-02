@@ -54,7 +54,7 @@ const ThreeDScanningPage = () => {
             <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
-                <div className="max-w-xl mx-auto text-left lg:text-left flex flex-col items-start lg:items-start">
+                <div className="max-w-[1200px]l mx-auto text-left lg:text-left flex flex-col items-start lg:items-start">
                   <GradientText
                     colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
                     animationSpeed={4}
@@ -140,7 +140,7 @@ const ThreeDScanningPage = () => {
             <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
-                <div className="max-w-xl mx-auto text-left lg:text-left flex flex-col items-start lg:items-start">
+                <div className="max-w-[1200px]l mx-auto text-left lg:text-left flex flex-col items-start lg:items-start">
                   <GradientText
                     colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
                     animationSpeed={4}
@@ -302,7 +302,7 @@ const ThreeDScanningPage = () => {
 
               {/* Right side content */}
               <div className="w-full lg:w-1/2">
-                <div className="max-w-xl mx-auto text-left lg:text-left flex flex-col items-start lg:items-start">
+                <div className="max-w-[1200px]l mx-auto text-left lg:text-left flex flex-col items-start lg:items-start">
                   <GradientText
                     colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
                     animationSpeed={4}

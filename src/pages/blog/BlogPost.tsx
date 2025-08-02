@@ -189,7 +189,7 @@ const BlogPost = () => {
 
                 {/* Main content */}
                 <div className="w-full md:w-3/4">
-                  <div className="prose prose-lg max-w-3xl">
+                  <div className="prose prose-lg max-w-[1200px]xl">
                     <h1 className="text-3xl md:text-4xl font-bold mb-4">{t(post.titleKey)}</h1>
                     <div className="flex items-center text-gray-600 mb-8">
                       <span className="mr-4">{t(post.dateKey)}</span>

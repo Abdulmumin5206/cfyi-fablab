@@ -33,12 +33,12 @@ const Footer = ({ bgClass = "bg-[#212121]", textClass = "text-white" }: FooterPr
   
   return (
     <footer className={`${bgClass} ${textClass}`}>
-      <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr] gap-8 lg:gap-12 py-12">
+      <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr] gap-6 lg:gap-8 py-8 lg:py-10">
           {/* Logo and Description */}
-          <div className="space-y-6">
-            <div className="flex flex-row md:flex-row items-center gap-6">
-              <div className="w-40 h-24 flex items-center justify-center">
+          <div className="space-y-4">
+            <div className="flex flex-row md:flex-row items-center gap-4">
+              <div className="w-36 h-20 flex items-center justify-center">
                 <a href="https://cfyi.uz/" target="_blank" rel="noopener noreferrer">
                   <img 
                     src="/fablab/cfyi.svg" 
@@ -51,7 +51,7 @@ const Footer = ({ bgClass = "bg-[#212121]", textClass = "text-white" }: FooterPr
                   />
                 </a>
               </div>
-              <div className="w-32 h-20 flex items-center justify-center">
+              <div className="w-28 h-16 flex items-center justify-center">
                 <a href="https://fablab-cfyi.uz/" target="_blank" rel="noopener noreferrer">
                   <img 
                     src={bgClass.includes("white") ? "/fablab/logo.png" : "/fablab/logowhite.png"} 
@@ -66,55 +66,55 @@ const Footer = ({ bgClass = "bg-[#212121]", textClass = "text-white" }: FooterPr
               </div>
             </div>
             
-            <p className={`${secondaryTextColor} text-sm leading-relaxed`}>
+            <p className={`${secondaryTextColor} text-xs leading-relaxed`}>
               {t('footer.description')}
             </p>
             
             {/* Social Media Icons */}
-            <div className="flex space-x-4">
+            <div className="flex space-x-3">
               <a 
                 href="https://www.facebook.com/centerforyouthinitiatives" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className={`${secondaryTextColor} ${linkHoverColor} transition-all duration-300 p-2 rounded-full bg-white/5 hover:bg-[#329db7] hover:text-white`}
+                className={`${secondaryTextColor} ${linkHoverColor} transition-all duration-300 p-1.5 rounded-full bg-white/5 hover:bg-[#329db7] hover:text-white`}
               >
-                <Facebook size={20} />
+                <Facebook size={18} />
                 <span className="sr-only">Facebook</span>
               </a>
               <a 
                 href="https://www.instagram.com/cfyi.uz" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className={`${secondaryTextColor} ${linkHoverColor} transition-all duration-300 p-2 rounded-full bg-white/5 hover:bg-[#329db7] hover:text-white`}
+                className={`${secondaryTextColor} ${linkHoverColor} transition-all duration-300 p-1.5 rounded-full bg-white/5 hover:bg-[#329db7] hover:text-white`}
               >
-                <Instagram size={20} />
+                <Instagram size={18} />
                 <span className="sr-only">Instagram</span>
               </a>
               <a 
                 href="https://t.me/+998770884977" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className={`${secondaryTextColor} ${linkHoverColor} transition-all duration-300 p-2 rounded-full bg-white/5 hover:bg-[#329db7] hover:text-white`}
+                className={`${secondaryTextColor} ${linkHoverColor} transition-all duration-300 p-1.5 rounded-full bg-white/5 hover:bg-[#329db7] hover:text-white`}
               >
-                <Send size={20} />
+                <Send size={18} />
                 <span className="sr-only">Telegram</span>
               </a>
               <a 
                 href="https://www.linkedin.com/company/center-for-youth-initiatives" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className={`${secondaryTextColor} ${linkHoverColor} transition-all duration-300 p-2 rounded-full bg-white/5 hover:bg-[#329db7] hover:text-white`}
+                className={`${secondaryTextColor} ${linkHoverColor} transition-all duration-300 p-1.5 rounded-full bg-white/5 hover:bg-[#329db7] hover:text-white`}
               >
-                <Linkedin size={20} />
+                <Linkedin size={18} />
                 <span className="sr-only">LinkedIn</span>
               </a>
               <a 
                 href="https://www.youtube.com/@CenterforYouthInitiatives" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className={`${secondaryTextColor} ${linkHoverColor} transition-all duration-300 p-2 rounded-full bg-white/5 hover:bg-[#329db7] hover:text-white`}
+                className={`${secondaryTextColor} ${linkHoverColor} transition-all duration-300 p-1.5 rounded-full bg-white/5 hover:bg-[#329db7] hover:text-white`}
               >
-                <Youtube size={20} />
+                <Youtube size={18} />
                 <span className="sr-only">YouTube</span>
               </a>
             </div>
@@ -122,8 +122,8 @@ const Footer = ({ bgClass = "bg-[#212121]", textClass = "text-white" }: FooterPr
           
           {/* Services Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 mt-8">{t('footer.services')}</h3>
-            <ul className="space-y-3">
+            <h3 className="text-base font-semibold mb-3 mt-6">{t('footer.services')}</h3>
+            <ul className="space-y-2">
               {[
                 {
                   id: "3d-printing",
@@ -154,10 +154,10 @@ const Footer = ({ bgClass = "bg-[#212121]", textClass = "text-white" }: FooterPr
                 <li key={service.id}>
                   <Link 
                     to={service.link} 
-                    className={`text-sm text-white ${linkHoverColor} transition-colors duration-200 flex items-center gap-2`}
+                    className={`text-xs text-white ${linkHoverColor} transition-colors duration-200 flex items-center gap-1.5`}
                   >
                     <span>{t(service.titleKey)}</span>
-                    <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                    <ArrowRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
                   </Link>
                 </li>
               ))}
@@ -166,45 +166,45 @@ const Footer = ({ bgClass = "bg-[#212121]", textClass = "text-white" }: FooterPr
           
           {/* About Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 mt-8">{t('footer.about')}</h3>
-            <ul className="space-y-3">
+            <h3 className="text-base font-semibold mb-3 mt-6">{t('footer.about')}</h3>
+            <ul className="space-y-2">
               <li>
                 <button 
                   onClick={scrollToMembership}
-                  className={`text-sm text-white ${linkHoverColor} transition-colors duration-200 cursor-pointer flex items-center gap-2`}
+                  className={`text-xs text-white ${linkHoverColor} transition-colors duration-200 cursor-pointer flex items-center gap-1.5`}
                 >
                   <span>{t('footer.membership')}</span>
-                  <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                  <ArrowRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
                 </button>
               </li>
               <li>
                 <Link 
                   to="/about-us" 
-                  className={`text-sm text-white ${linkHoverColor} transition-colors duration-200 flex items-center gap-2`}
+                  className={`text-xs text-white ${linkHoverColor} transition-colors duration-200 flex items-center gap-1.5`}
                 >
                   <span>{t('header.aboutUs')}</span>
-                  <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                  <ArrowRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
                 </Link>
               </li>
               <li>
-                <Link to="/courses" className={`text-sm text-white ${linkHoverColor} transition-colors duration-200 flex items-center gap-2`}>
+                <Link to="/courses" className={`text-xs text-white ${linkHoverColor} transition-colors duration-200 flex items-center gap-1.5`}>
                   <span>{t('header.courses')}</span>
-                  <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                  <ArrowRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
                 </Link>
               </li>
               <li>
-                <Link to="/projects" className={`text-sm text-white ${linkHoverColor} transition-colors duration-200 flex items-center gap-2`}>
+                <Link to="/projects" className={`text-xs text-white ${linkHoverColor} transition-colors duration-200 flex items-center gap-1.5`}>
                   <span>{t('footer.blog')}</span>
-                  <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                  <ArrowRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
                 </Link>
               </li>
               <li>
                 <button 
                   onClick={scrollToContact}
-                  className={`text-sm text-white ${linkHoverColor} transition-colors duration-200 cursor-pointer flex items-center gap-2`}
+                  className={`text-xs text-white ${linkHoverColor} transition-colors duration-200 cursor-pointer flex items-center gap-1.5`}
                 >
                   <span>{t('footer.contact')}</span>
-                  <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                  <ArrowRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
                 </button>
               </li>
             </ul>
@@ -212,16 +212,16 @@ const Footer = ({ bgClass = "bg-[#212121]", textClass = "text-white" }: FooterPr
           
           {/* Contact Info */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 mt-8">{t('footer.contact')}</h3>
-            <ul className="space-y-3">
-              <li className={`text-sm ${secondaryTextColor}`}>
+            <h3 className="text-base font-semibold mb-3 mt-6">{t('footer.contact')}</h3>
+            <ul className="space-y-2">
+              <li className={`text-xs ${secondaryTextColor}`}>
                 17 Olmachi St., Mirzo-Ulugbek,<br />
                 Tashkent, Uzbekistan
               </li>
               <li>
                 <a 
                   href="tel:+998770883977" 
-                  className={`text-sm ${linkHoverColor} transition-colors duration-200`}
+                  className={`text-xs ${linkHoverColor} transition-colors duration-200`}
                 >
                   +998 (77) 088 39 77 (ru/uz)
                 </a>
@@ -229,7 +229,7 @@ const Footer = ({ bgClass = "bg-[#212121]", textClass = "text-white" }: FooterPr
               <li>
                 <a 
                   href="tel:+998770884977" 
-                  className={`text-sm ${linkHoverColor} transition-colors duration-200`}
+                  className={`text-xs ${linkHoverColor} transition-colors duration-200`}
                 >
                   +998 (77) 088 49 77 (ru/en)
                 </a>
@@ -237,7 +237,7 @@ const Footer = ({ bgClass = "bg-[#212121]", textClass = "text-white" }: FooterPr
               <li>
                 <a 
                   href="mailto:info@cfyi.uz" 
-                  className={`text-sm ${linkHoverColor} transition-colors duration-200`}
+                  className={`text-xs ${linkHoverColor} transition-colors duration-200`}
                 >
                   info@cfyi.uz
                 </a>
@@ -247,9 +247,9 @@ const Footer = ({ bgClass = "bg-[#212121]", textClass = "text-white" }: FooterPr
         </div>
         
         {/* Bottom Bar */}
-        <div className={`border-t ${borderColor} py-6`}>
+        <div className={`border-t ${borderColor} py-4`}>
           <div className="flex justify-center items-center">
-            <p className={`text-sm ${secondaryTextColor}`}>
+            <p className={`text-xs ${secondaryTextColor}`}>
               © 2025 Center for Youth Initiatives FabLab. All rights reserved.
             </p>
           </div>

@@ -37,7 +37,7 @@ const MembershipSection = () => {
         t('membership.types.student.restrictions.1', 'Valid student ID required'),
         t('membership.types.student.restrictions.2', 'Maximum 2 projects at a time')
       ],
-      icon: <User className="w-8 h-8" />,
+      icon: <User className="w-7 h-7" />,
       buttonText: t('membership.types.student.buttonText', 'Choose Student'),
       buttonStyle: "bg-[#329db7] hover:bg-[#2a8aa0] text-white",
       popular: false
@@ -60,7 +60,7 @@ const MembershipSection = () => {
         t('membership.types.maker.features.10', 'Project storage (2 m³)'),
         t('membership.types.maker.features.11', 'PC access included')
       ],
-      icon: <Briefcase className="w-8 h-8" />,
+      icon: <Briefcase className="w-7 h-7" />,
       buttonText: t('membership.types.maker.buttonText', 'Choose Maker'),
       buttonStyle: "bg-[#329db7] hover:bg-[#2a8aa0] text-white",
       popular: true,
@@ -85,7 +85,7 @@ const MembershipSection = () => {
         t('membership.types.startup.businessBenefits.1', 'Business mentorship'),
         t('membership.types.startup.businessBenefits.2', 'Access to startup community')
       ],
-      icon: <Building2 className="w-8 h-8" />,
+      icon: <Building2 className="w-7 h-7" />,
       buttonText: t('membership.types.startup.buttonText', 'Choose Startup'),
       buttonStyle: "bg-[#329db7] hover:bg-[#2a8aa0] text-white",
       popular: false
@@ -94,37 +94,37 @@ const MembershipSection = () => {
 
   const universalBenefits = useMemo(() => [
     {
-      icon: <Target className="w-6 h-6" />,
+      icon: <Target className="w-5 h-5" />,
       title: t('membership.universalBenefits.expertTraining.title', 'Expert Training'),
       description: t('membership.universalBenefits.expertTraining.description', 'Professional guidance from experienced makers')
     },
     {
-      icon: <Users className="w-6 h-6" />,
+      icon: <Users className="w-5 h-5" />,
       title: t('membership.universalBenefits.communityAccess.title', 'Community Access'),
       description: t('membership.universalBenefits.communityAccess.description', 'Join a vibrant community of creators and innovators')
     },
     {
-      icon: <BookOpen className="w-6 h-6" />,
+      icon: <BookOpen className="w-5 h-5" />,
       title: t('membership.universalBenefits.learningResources.title', 'Learning Resources'),
       description: t('membership.universalBenefits.learningResources.description', 'Access to comprehensive learning materials and tutorials')
     },
     {
-      icon: <Target className="w-6 h-6" />,
+      icon: <Target className="w-5 h-5" />,
       title: t('membership.universalBenefits.professionalSpace.title', 'Professional Space'),
       description: t('membership.universalBenefits.professionalSpace.description', 'Modern, well-equipped workspace for all your projects')
     },
     {
-      icon: <Phone className="w-6 h-6" />,
+      icon: <Phone className="w-5 h-5" />,
       title: t('membership.universalBenefits.technicalSupport.title', 'Technical Support'),
       description: t('membership.universalBenefits.technicalSupport.description', 'Get help when you need it from our technical team')
     },
     {
-      icon: <Gift className="w-6 h-6" />,
+      icon: <Gift className="w-5 h-5" />,
       title: t('membership.universalBenefits.memberDiscounts.title', 'Member Discounts'),
       description: t('membership.universalBenefits.memberDiscounts.description', 'Special pricing on materials and additional services')
     },
     {
-      icon: <Box className="w-6 h-6" />,
+      icon: <Box className="w-5 h-5" />,
       title: t('membership.universalBenefits.storageSpace.title', 'Storage Space'),
       description: t('membership.universalBenefits.storageSpace.description', 'Secure storage for your projects and materials')
     }
@@ -141,7 +141,7 @@ const MembershipSection = () => {
   const duplicatedSecondRow = useMemo(() => [...secondRowBenefits, ...secondRowBenefits, ...secondRowBenefits], [secondRowBenefits]);
 
   // Determine the width of a single set of cards + gaps for calculation
-  const CARD_WIDTH = 280;
+  const CARD_WIDTH = 260;
   const GAP_WIDTH = 20;
 
   // Calculate the width of one full set of original cards plus their gaps
@@ -151,7 +151,7 @@ const MembershipSection = () => {
   // Memoized plan card component
   const PlanCard = useCallback(({ plan }: { plan: typeof membershipFeatures[0] }) => (
     <motion.div
-      className={`relative bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 flex flex-col h-full ${plan.popular ? 'border-2 border-[#329db7] transform scale-105' : 'border border-gray-200'}`}
+      className={`relative bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-5 flex flex-col h-full ${plan.popular ? 'border-2 border-[#329db7] transform scale-105' : 'border border-gray-200'}`}
     >
       {/* Popular Badge */}
       {plan.popular && plan.badge && (
@@ -163,46 +163,46 @@ const MembershipSection = () => {
       )}
 
       {/* Icon */}
-      <div className="flex justify-center mb-4">
+      <div className="flex justify-center mb-3">
         <div className="text-gray-600">
           {plan.icon}
         </div>
       </div>
 
       {/* Plan Title and Subtitle */}
-      <div className="text-center mb-6">
+      <div className="text-center mb-5">
         {plan.popular ? (
           <div className="flex justify-center">
             <GradientText 
               colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]} 
               animationSpeed={4}
-              className="text-xl font-bold mb-1"
+              className="text-lg font-bold mb-1"
             >
               {plan.title}
             </GradientText>
           </div>
         ) : (
-          <h3 className="text-xl font-bold text-gray-900 mb-1">{plan.title}</h3>
+          <h3 className="text-lg font-bold text-gray-900 mb-1">{plan.title}</h3>
         )}
         {plan.popular ? (
           <div className="flex justify-center">
             <GradientText 
               colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]} 
               animationSpeed={4} 
-              className="text-sm"
+              className="text-xs"
             >
               {plan.subtitle}
             </GradientText>
           </div>
         ) : (
-          <p className="text-gray-600 text-sm">{plan.subtitle}</p>
+          <p className="text-gray-600 text-xs">{plan.subtitle}</p>
         )}
       </div>
 
       {/* Action Button */}
-      <div className="mb-6">
+      <div className="mb-5">
         <button
-          className={`w-full py-3 px-4 rounded-lg font-medium transition-all duration-200 ${plan.buttonStyle}`}
+          className={`w-full py-2.5 px-4 rounded-lg font-medium transition-all duration-200 ${plan.buttonStyle}`}
           onClick={() => handleTelegramContact(plan.title)}
         >
           {plan.buttonText}
@@ -210,13 +210,13 @@ const MembershipSection = () => {
       </div>
 
       {/* Features List */}
-      <ul className="space-y-3 flex-grow">
+      <ul className="space-y-2.5 flex-grow">
         {plan.features.map((feature, idx) => (
           <li key={idx} className="flex items-start">
-            <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#329db7]/10 flex items-center justify-center mr-3 mt-0.5">
-              <Check className="w-3 h-3 text-[#329db7]" />
+            <div className="flex-shrink-0 w-4 h-4 rounded-full bg-[#329db7]/10 flex items-center justify-center mr-2 mt-0.5">
+              <Check className="w-2.5 h-2.5 text-[#329db7]" />
             </div>
-            <span className="text-gray-700 text-sm leading-relaxed">{feature}</span>
+            <span className="text-gray-700 text-xs leading-relaxed">{feature}</span>
           </li>
         ))}
       </ul>
@@ -225,7 +225,7 @@ const MembershipSection = () => {
 
   return (
     <section id="membership-section" className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7] relative overflow-hidden">
-      <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
+      <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
         {/* Header */}
         <div className="text-left mb-3 sm:mb-4 md:mb-6 lg:mb-8">
           <div className="flex items-baseline gap-1">
@@ -243,8 +243,8 @@ const MembershipSection = () => {
         </div>
 
         {/* Membership Tiers */}
-        <div className="py-8 sm:py-12 lg:py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
+        <div className="py-6 sm:py-8 lg:py-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
             {membershipFeatures.map((plan, index) => (
               <div key={index}>
                 <PlanCard plan={plan} />
@@ -259,7 +259,7 @@ const MembershipSection = () => {
         {/* First Row - Moving Left */}
         <div className="relative overflow-hidden w-full">
           <motion.div
-            className="flex space-x-5 will-change-transform"
+            className="flex space-x-4 will-change-transform"
             animate={{ x: [`0px`, `-${firstRowSetWidth + GAP_WIDTH}px`] }}
             transition={{
               x: {
@@ -273,12 +273,12 @@ const MembershipSection = () => {
           >
             {duplicatedFirstRow.map((benefit, index) => (
               <div key={index}>
-                <div className="flex flex-col items-center p-6 bg-white rounded-xl min-w-[280px] max-w-[280px] h-[220px] border border-gray-100 shadow-md hover:shadow-lg transition-all duration-300">
-                  <div className="mb-4 text-[#329db7] bg-[#329db7]/10 p-3 rounded-full">
-                    {React.cloneElement(benefit.icon, { className: "w-8 h-8" })}
+                <div className="flex flex-col items-center p-4 bg-white rounded-xl min-w-[260px] max-w-[260px] h-[200px] border border-gray-100 shadow-md hover:shadow-lg transition-all duration-300">
+                  <div className="mb-3 text-[#329db7] bg-[#329db7]/10 p-2.5 rounded-full">
+                    {React.cloneElement(benefit.icon, { className: "w-6 h-6" })}
                   </div>
-                  <h4 className="text-base font-semibold text-center mb-3 text-gray-900 leading-tight">{benefit.title}</h4>
-                  <p className="text-gray-600 text-center text-sm leading-relaxed flex-grow overflow-hidden">{benefit.description}</p>
+                  <h4 className="text-sm font-semibold text-center mb-2 text-gray-900 leading-tight">{benefit.title}</h4>
+                  <p className="text-gray-600 text-center text-xs leading-relaxed flex-grow overflow-hidden">{benefit.description}</p>
                 </div>
               </div>
             ))}
@@ -286,9 +286,9 @@ const MembershipSection = () => {
         </div>
 
         {/* Second Row - Moving Right */}
-        <div className="relative overflow-hidden w-full mt-6">
+        <div className="relative overflow-hidden w-full mt-5">
           <motion.div
-            className="flex space-x-5 will-change-transform"
+            className="flex space-x-4 will-change-transform"
             animate={{ x: [`-${secondRowSetWidth + GAP_WIDTH}px`, `0px`] }}
             transition={{
               x: {
@@ -302,12 +302,12 @@ const MembershipSection = () => {
           >
             {duplicatedSecondRow.map((benefit, index) => (
               <div key={index}>
-                <div className="flex flex-col items-center p-6 bg-white rounded-xl min-w-[280px] max-w-[280px] h-[220px] border border-gray-100 shadow-md hover:shadow-lg transition-all duration-300">
-                  <div className="mb-4 text-[#329db7] bg-[#329db7]/10 p-3 rounded-full">
-                    {React.cloneElement(benefit.icon, { className: "w-8 h-8" })}
+                <div className="flex flex-col items-center p-4 bg-white rounded-xl min-w-[260px] max-w-[260px] h-[200px] border border-gray-100 shadow-md hover:shadow-lg transition-all duration-300">
+                  <div className="mb-3 text-[#329db7] bg-[#329db7]/10 p-2.5 rounded-full">
+                    {React.cloneElement(benefit.icon, { className: "w-6 h-6" })}
                   </div>
-                  <h4 className="text-base font-semibold text-center mb-3 text-gray-900 leading-tight">{benefit.title}</h4>
-                  <p className="text-gray-600 text-center text-sm leading-relaxed flex-grow overflow-hidden">{benefit.description}</p>
+                  <h4 className="text-sm font-semibold text-center mb-2 text-gray-900 leading-tight">{benefit.title}</h4>
+                  <p className="text-gray-600 text-center text-xs leading-relaxed flex-grow overflow-hidden">{benefit.description}</p>
                 </div>
               </div>
             ))}

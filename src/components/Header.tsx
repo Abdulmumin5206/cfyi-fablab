@@ -302,14 +302,14 @@ const Header = () => {
           isVisible ? "translate-y-0" : "-translate-y-full"
         } ${isScrolled ? "bg-white shadow-md" : "bg-transparent"}`}
       >
-        <div className="relative">
+        <div className="relative max-w-[1200px] mx-auto">
           <div
             style={headerStyle}
             className={`flex justify-between items-center h-12 sm:h-16 ${isLaptopScreen ? 'md:h-[60px]' : 'md:h-18 lg:h-20'} transition-colors duration-300`}
           >
             {/* Logo */}
             <div
-              className={`h-full flex items-center pl-3 sm:pl-4 ${isLaptopScreen ? 'md:pl-6' : 'md:pl-8 lg:pl-12 xl:pl-16'} transition-colors duration-300`}
+              className={`h-full flex items-center pl-3 sm:pl-4 ${isLaptopScreen ? 'md:pl-6' : 'md:pl-8 lg:pl-10'} transition-colors duration-300`}
             >
               <Link 
                 to="/" 
@@ -325,7 +325,7 @@ const Header = () => {
                   style={logoStyle}
                   src="/fablab/logo.png"
                   alt="FabLab Logo"
-                  className={`h-full w-auto max-h-14 sm:max-h-16 ${isLaptopScreen ? 'md:max-h-8' : 'md:max-h-10 lg:max-h-14'} object-contain`}
+                  className={`h-full w-auto max-h-14 sm:max-h-16 ${isLaptopScreen ? 'md:max-h-8' : 'md:max-h-10 lg:max-h-12'} object-contain`}
                 />
               </Link>
             </div>
@@ -333,19 +333,19 @@ const Header = () => {
             {/* Main right-side nav (measured) */}
             <div
               ref={rightNavRef}
-              className={`transition-colors duration-300 ${shouldUseBlackTheme && !isMobileScreen ? "bg-black" : "bg-transparent"} px-2 sm:px-3 ${isLaptopScreen ? 'md:px-4' : 'md:px-6 lg:px-8 xl:px-16'} h-full`}
+              className={`transition-colors duration-300 ${shouldUseBlackTheme && !isMobileScreen ? "bg-black" : "bg-transparent"} px-2 sm:px-3 ${isLaptopScreen ? 'md:px-4' : 'md:px-6 lg:px-8'} h-full`}
             >
-              <div className="hidden md:flex items-center space-x-1 lg:space-x-2 xl:space-x-4 h-full">
+              <div className="hidden md:flex items-center space-x-1 lg:space-x-2 h-full">
                 {/* Services link with dropdown */}
                 <div className="relative" onMouseEnter={handleServicesMouseEnter} onMouseLeave={handleServicesMouseLeave}>
                   <span
                     style={buttonStyle}
-                    className={`flex items-center space-x-1 border px-2 sm:px-3 py-1.5 sm:py-2 h-[38px] sm:h-[42px] ${isLaptopScreen ? 'md:h-[38px]' : 'lg:h-[42px] xl:h-[46px]'} text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} ${isScrolled ? "border-black bg-transparent text-black" : (shouldUseBlackTheme && !isMobileScreen ? "border-black bg-black text-white" : shouldUseWhiteText ? "border-white bg-transparent text-white" : shouldUseBlackText ? "border-black bg-transparent text-black" : "border-white bg-transparent text-white")}`}
+                    className={`flex items-center space-x-1 border px-2 sm:px-3 py-1.5 sm:py-2 h-[36px] sm:h-[40px] ${isLaptopScreen ? 'md:h-[36px]' : 'lg:h-[40px] xl:h-[44px]'} text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base'} ${isScrolled ? "border-black bg-transparent text-black" : (shouldUseBlackTheme && !isMobileScreen ? "border-black bg-black text-white" : shouldUseWhiteText ? "border-white bg-transparent text-white" : shouldUseBlackText ? "border-black bg-transparent text-black" : "border-white bg-transparent text-white")}`}
                   >
                     <button
                       ref={servicesButtonRef}
                       style={textStyle}
-                      className={`flex items-center h-full ${isScrolled ? "text-black" : shouldUseWhiteText ? "text-white" : shouldUseBlackText ? "text-black" : "text-white"} hover:text-[#329db7] transition-colors duration-300 text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} px-1 sm:px-2 bg-transparent`}
+                      className={`flex items-center h-full ${isScrolled ? "text-black" : shouldUseWhiteText ? "text-white" : shouldUseBlackText ? "text-black" : "text-white"} hover:text-[#329db7] transition-colors duration-300 text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base'} px-1 sm:px-2 bg-transparent`}
                       onClick={toggleServicesMenu}
                     >
                       {t('header.services')}
@@ -359,7 +359,7 @@ const Header = () => {
                       servicesMenuOpen ? "max-h-[380px] opacity-100 visible" : "max-h-0 opacity-0 invisible"
                     }`}
                     style={{ 
-                      width: '240px',
+                      width: '220px',
                       top: '100%',
                       left: 0
                     }}
@@ -372,35 +372,35 @@ const Header = () => {
                         <Link
                           to="/mould"
                           style={textStyle}
-                          className={`flex items-center ${isScrolled || shouldUseBlackText ? 'text-black' : 'text-white'} hover:text-white ${isScrolled || shouldUseBlackText ? 'bg-white hover:bg-[#329db7]' : 'bg-transparent hover:bg-[#329db7]'} transition-all duration-300 ${i18n.language === 'ru' || i18n.language === 'uz' ? 'text-xs lg:text-sm' : 'text-sm lg:text-base'} p-4 w-full border-b ${isScrolled || shouldUseBlackText ? 'border-black' : 'border-white'} last:border-b-0`}
+                          className={`flex items-center ${isScrolled || shouldUseBlackText ? 'text-black' : 'text-white'} hover:text-white ${isScrolled || shouldUseBlackText ? 'bg-white hover:bg-[#329db7]' : 'bg-transparent hover:bg-[#329db7]'} transition-all duration-300 ${i18n.language === 'ru' || i18n.language === 'uz' ? 'text-xs lg:text-sm' : 'text-sm lg:text-base'} p-3 w-full border-b ${isScrolled || shouldUseBlackText ? 'border-black' : 'border-white'} last:border-b-0`}
                         >
                           {t('serviceCategories.molding.title')}
                         </Link>
                         <Link
                           to="/3d-printing"
                           style={textStyle}
-                          className={`flex items-center ${isScrolled || shouldUseBlackText ? 'text-black' : 'text-white'} hover:text-white ${isScrolled || shouldUseBlackText ? 'bg-white hover:bg-[#329db7]' : 'bg-transparent hover:bg-[#329db7]'} transition-all duration-300 ${i18n.language === 'ru' || i18n.language === 'uz' ? 'text-xs lg:text-sm' : 'text-sm lg:text-base'} p-4 w-full border-b ${isScrolled || shouldUseBlackText ? 'border-black' : 'border-white'} last:border-b-0`}
+                          className={`flex items-center ${isScrolled || shouldUseBlackText ? 'text-black' : 'text-white'} hover:text-white ${isScrolled || shouldUseBlackText ? 'bg-white hover:bg-[#329db7]' : 'bg-transparent hover:bg-[#329db7]'} transition-all duration-300 ${i18n.language === 'ru' || i18n.language === 'uz' ? 'text-xs lg:text-sm' : 'text-sm lg:text-base'} p-3 w-full border-b ${isScrolled || shouldUseBlackText ? 'border-black' : 'border-white'} last:border-b-0`}
                         >
                           {t('serviceCategories.3dPrinting.title')}
                         </Link>
                         <Link
                           to="/digital-fabrication"
                           style={textStyle}
-                          className={`flex items-center ${isScrolled || shouldUseBlackText ? 'text-black' : 'text-white'} hover:text-white ${isScrolled || shouldUseBlackText ? 'bg-white hover:bg-[#329db7]' : 'bg-transparent hover:bg-[#329db7]'} transition-all duration-300 ${i18n.language === 'ru' || i18n.language === 'uz' ? 'text-xs lg:text-sm' : 'text-sm lg:text-base'} p-4 w-full border-b ${isScrolled || shouldUseBlackText ? 'border-black' : 'border-white'} last:border-b-0`}
+                          className={`flex items-center ${isScrolled || shouldUseBlackText ? 'text-black' : 'text-white'} hover:text-white ${isScrolled || shouldUseBlackText ? 'bg-white hover:bg-[#329db7]' : 'bg-transparent hover:bg-[#329db7]'} transition-all duration-300 ${i18n.language === 'ru' || i18n.language === 'uz' ? 'text-xs lg:text-sm' : 'text-sm lg:text-base'} p-3 w-full border-b ${isScrolled || shouldUseBlackText ? 'border-black' : 'border-white'} last:border-b-0`}
                         >
                           {t('serviceCategories.digitalFabrication.title')}
                         </Link>
                         <Link
                           to="/digital-fabrication#precision-manufacturing"
                           style={textStyle}
-                          className={`flex items-center ${isScrolled || shouldUseBlackText ? 'text-black' : 'text-white'} hover:text-white ${isScrolled || shouldUseBlackText ? 'bg-white hover:bg-[#329db7]' : 'bg-transparent hover:bg-[#329db7]'} transition-all duration-300 ${i18n.language === 'ru' || i18n.language === 'uz' ? 'text-xs lg:text-sm' : 'text-sm lg:text-base'} p-4 w-full border-b ${isScrolled || shouldUseBlackText ? 'border-black' : 'border-white'} last:border-b-0`}
+                          className={`flex items-center ${isScrolled || shouldUseBlackText ? 'text-black' : 'text-white'} hover:text-white ${isScrolled || shouldUseBlackText ? 'bg-white hover:bg-[#329db7]' : 'bg-transparent hover:bg-[#329db7]'} transition-all duration-300 ${i18n.language === 'ru' || i18n.language === 'uz' ? 'text-xs lg:text-sm' : 'text-sm lg:text-base'} p-3 w-full border-b ${isScrolled || shouldUseBlackText ? 'border-black' : 'border-white'} last:border-b-0`}
                         >
                           {t('serviceCategories.precisionManufacturing.title')}
                         </Link>
                         <Link
                           to="/3d-scanning"
                           style={textStyle}
-                          className={`flex items-center ${isScrolled || shouldUseBlackText ? 'text-black' : 'text-white'} hover:text-white ${isScrolled || shouldUseBlackText ? 'bg-white hover:bg-[#329db7]' : 'bg-transparent hover:bg-[#329db7]'} transition-all duration-300 ${i18n.language === 'ru' || i18n.language === 'uz' ? 'text-xs lg:text-sm' : 'text-sm lg:text-base'} p-4 w-full border-b ${isScrolled || shouldUseBlackText ? 'border-black' : 'border-white'} last:border-b-0`}
+                          className={`flex items-center ${isScrolled || shouldUseBlackText ? 'text-black' : 'text-white'} hover:text-white ${isScrolled || shouldUseBlackText ? 'bg-white hover:bg-[#329db7]' : 'bg-transparent hover:bg-[#329db7]'} transition-all duration-300 ${i18n.language === 'ru' || i18n.language === 'uz' ? 'text-xs lg:text-sm' : 'text-sm lg:text-base'} p-3 w-full border-b ${isScrolled || shouldUseBlackText ? 'border-black' : 'border-white'} last:border-b-0`}
                         >
                           {t('serviceCategories.3dScanning.title')}
                         </Link>
@@ -413,13 +413,13 @@ const Header = () => {
                 {/* Wrap About Us link in a styled span */}
                 <span
                   style={{...textStyle, ...buttonStyle}}
-                  className={`flex items-center space-x-1 border px-2 sm:px-3 py-1.5 sm:py-2 h-[38px] sm:h-[42px] ${isLaptopScreen ? 'md:h-[38px]' : 'lg:h-[42px] xl:h-[46px]'} text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} ${isScrolled ? "border-black bg-transparent text-black" : (shouldUseBlackTheme && !isMobileScreen ? "border-black bg-black text-white" : shouldUseWhiteText ? "border-white bg-transparent text-white" : shouldUseBlackText ? "border-black bg-transparent text-black" : "border-white bg-transparent text-white")}`}
+                  className={`flex items-center space-x-1 border px-2 sm:px-3 py-1.5 sm:py-2 h-[36px] sm:h-[40px] ${isLaptopScreen ? 'md:h-[36px]' : 'lg:h-[40px] xl:h-[44px]'} text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base'} ${isScrolled ? "border-black bg-transparent text-black" : (shouldUseBlackTheme && !isMobileScreen ? "border-black bg-black text-white" : shouldUseWhiteText ? "border-white bg-transparent text-white" : shouldUseBlackText ? "border-black bg-transparent text-black" : "border-white bg-transparent text-white")}`}
                 >
                   <Link
                     to="/#about-us"
                     onClick={handleAboutUsClick}
                     style={textStyle}
-                    className={`${isScrolled ? "text-black" : shouldUseWhiteText ? "text-white" : shouldUseBlackText ? "text-black" : "text-white"} hover:text-[#329db7] transition-colors duration-300 text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} px-1 sm:px-2 bg-transparent`}
+                    className={`${isScrolled ? "text-black" : shouldUseWhiteText ? "text-white" : shouldUseBlackText ? "text-black" : "text-white"} hover:text-[#329db7] transition-colors duration-300 text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base'} px-1 sm:px-2 bg-transparent`}
                   >
                     {t('header.aboutUs')}
                   </Link>
@@ -428,12 +428,12 @@ const Header = () => {
                 {/* Wrap Projects link in a styled span */}
                 <span
                   style={{...textStyle, ...buttonStyle}}
-                  className={`flex items-center space-x-1 border px-2 sm:px-3 py-1.5 sm:py-2 h-[38px] sm:h-[42px] ${isLaptopScreen ? 'md:h-[38px]' : 'lg:h-[42px] xl:h-[46px]'} text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} ${isScrolled ? "border-black bg-transparent text-black" : (shouldUseBlackTheme && !isMobileScreen ? "border-black bg-black text-white" : shouldUseWhiteText ? "border-white bg-transparent text-white" : shouldUseBlackText ? "border-black bg-transparent text-black" : "border-white bg-transparent text-white")}`}
+                  className={`flex items-center space-x-1 border px-2 sm:px-3 py-1.5 sm:py-2 h-[36px] sm:h-[40px] ${isLaptopScreen ? 'md:h-[36px]' : 'lg:h-[40px] xl:h-[44px]'} text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base'} ${isScrolled ? "border-black bg-transparent text-black" : (shouldUseBlackTheme && !isMobileScreen ? "border-black bg-black text-white" : shouldUseWhiteText ? "border-white bg-transparent text-white" : shouldUseBlackText ? "border-black bg-transparent text-black" : "border-white bg-transparent text-white")}`}
                 >
                   <Link
                     to="/projects"
                     style={textStyle}
-                    className={`${isScrolled ? "text-black" : shouldUseWhiteText ? "text-white" : shouldUseBlackText ? "text-black" : "text-white"} hover:text-[#329db7] transition-colors duration-300 text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} px-1 sm:px-2 bg-transparent`}
+                    className={`${isScrolled ? "text-black" : shouldUseWhiteText ? "text-white" : shouldUseBlackText ? "text-black" : "text-white"} hover:text-[#329db7] transition-colors duration-300 text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base'} px-1 sm:px-2 bg-transparent`}
                   >
                     {t('header.projects')}
                   </Link>
@@ -444,7 +444,7 @@ const Header = () => {
                   to="/#membership-section"
                   onClick={handleMembershipClick}
                   style={{...textStyle, ...buttonStyle}}
-                  className={`flex items-center space-x-1 px-2 sm:px-3 py-1.5 sm:py-2 h-[38px] sm:h-[42px] ${isLaptopScreen ? 'md:h-[38px]' : 'lg:h-[42px] xl:h-[46px]'} text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} hover:text-[#329db7] transition-opacity transition-colors duration-300 ${isScrolled ? "border border-black bg-transparent text-black" : (shouldUseBlackTheme && !isMobileScreen ? "border border-black bg-black text-white" : shouldUseWhiteText ? "border border-white bg-transparent text-white" : shouldUseBlackText ? "border border-black bg-transparent text-black" : "border border-white bg-transparent text-white")}`}
+                  className={`flex items-center space-x-1 px-2 sm:px-3 py-1.5 sm:py-2 h-[36px] sm:h-[40px] ${isLaptopScreen ? 'md:h-[36px]' : 'lg:h-[40px] xl:h-[44px]'} text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base'} hover:text-[#329db7] transition-opacity transition-colors duration-300 ${isScrolled ? "border border-black bg-transparent text-black" : (shouldUseBlackTheme && !isMobileScreen ? "border border-black bg-black text-white" : shouldUseWhiteText ? "border border-white bg-transparent text-white" : shouldUseBlackText ? "border border-black bg-transparent text-black" : "border border-white bg-transparent text-white")}`}
                 >
                   {t('navigation.membership')}
                 </Link>
@@ -453,30 +453,30 @@ const Header = () => {
                 <Link
                   to="/courses"
                   style={{...textStyle, ...buttonStyle}}
-                  className={`flex items-center space-x-1 px-2 sm:px-3 py-1.5 sm:py-2 h-[38px] sm:h-[42px] ${isLaptopScreen ? 'md:h-[38px]' : 'lg:h-[42px] xl:h-[46px]'} text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} hover:text-[#329db7] transition-opacity transition-colors duration-300 ${isScrolled ? "border border-black bg-transparent text-black" : (shouldUseBlackTheme && !isMobileScreen ? "border border-black bg-black text-white" : shouldUseWhiteText ? "border border-white bg-transparent text-white" : shouldUseBlackText ? "border border-black bg-transparent text-black" : "border border-white bg-transparent text-white")}`}
+                  className={`flex items-center space-x-1 px-2 sm:px-3 py-1.5 sm:py-2 h-[36px] sm:h-[40px] ${isLaptopScreen ? 'md:h-[36px]' : 'lg:h-[40px] xl:h-[44px]'} text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base'} hover:text-[#329db7] transition-opacity transition-colors duration-300 ${isScrolled ? "border border-black bg-transparent text-black" : (shouldUseBlackTheme && !isMobileScreen ? "border border-black bg-black text-white" : shouldUseWhiteText ? "border border-white bg-transparent text-white" : shouldUseBlackText ? "border border-black bg-transparent text-black" : "border border-white bg-transparent text-white")}`}
                 >
                   {t('navigation.courses')}
                 </Link>
 
                 {/* Language Switcher */}
-                <div className={`flex items-center ml-2 ${isLaptopScreen ? 'md:ml-1' : 'md:ml-3 lg:ml-4 xl:ml-6'}`}>
+                <div className={`flex items-center ml-2 ${isLaptopScreen ? 'md:ml-1' : 'md:ml-2 lg:ml-3'}`}>
                   <LanguageSwitcher useBlackTheme={shouldUseBlackTheme} isScrolled={isScrolled} isLaptopScreen={isLaptopScreen} shouldUseBlackText={shouldUseBlackText} />
                 </div>
 
                 {/* Hamburger / close */}
                 <button
-                  className={`flex items-center justify-center hover:text-[#329db7] transition-opacity ml-2 sm:ml-3 ${isLaptopScreen ? 'md:ml-2' : 'md:ml-4 lg:ml-5 xl:ml-6'}`}
+                  className={`flex items-center justify-center hover:text-[#329db7] transition-opacity ml-2 sm:ml-3 ${isLaptopScreen ? 'md:ml-2' : 'md:ml-3 lg:ml-4'}`}
                   onClick={toggleMenu}
                 >
                   <span
                     style={buttonStyle}
-                    className={`flex items-center space-x-1 border px-2 sm:px-3 py-1.5 sm:py-2 h-[38px] sm:h-[42px] ${isLaptopScreen ? 'md:h-[38px]' : 'lg:h-[42px] xl:h-[46px]'} text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'} ${isScrolled ? "border-black bg-transparent text-black" : (shouldUseBlackTheme ? "border-black bg-black text-white" : shouldUseWhiteText ? "border-white bg-transparent text-white" : shouldUseBlackText ? "border-black bg-transparent text-black" : "border-white bg-transparent text-white")}`}
+                    className={`flex items-center space-x-1 border px-2 sm:px-3 py-1.5 sm:py-2 h-[36px] sm:h-[40px] ${isLaptopScreen ? 'md:h-[36px]' : 'lg:h-[40px] xl:h-[44px]'} text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base'} ${isScrolled ? "border-black bg-transparent text-black" : (shouldUseBlackTheme ? "border-black bg-black text-white" : shouldUseWhiteText ? "border-white bg-transparent text-white" : shouldUseBlackText ? "border-black bg-transparent text-black" : "border-white bg-transparent text-white")}`}
                   >
                     {isMobileMenuOpen ? 
-                      <X size={isLaptopScreen ? 16 : 18} className={`${isLaptopScreen ? 'md:w-4 md:h-4' : 'lg:w-5 lg:h-5 xl:w-6 xl:h-6'}`} /> : 
-                      <Menu size={isLaptopScreen ? 16 : 18} className={`${isLaptopScreen ? 'md:w-4 md:h-4' : 'lg:w-5 lg:h-5 xl:w-6 xl:h-6'}`} />
+                      <X size={isLaptopScreen ? 16 : 18} className={`${isLaptopScreen ? 'md:w-4 md:h-4' : 'lg:w-5 lg:h-5'}`} /> : 
+                      <Menu size={isLaptopScreen ? 16 : 18} className={`${isLaptopScreen ? 'md:w-4 md:h-4' : 'lg:w-5 lg:h-5'}`} />
                     }
-                    <span style={textStyle} className={`text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base xl:text-lg'}`}>
+                    <span style={textStyle} className={`text-sm ${isLaptopScreen ? 'md:text-sm' : 'lg:text-base'}`}>
                       {t('header.menu')}
                     </span>
                   </span>
@@ -493,7 +493,7 @@ const Header = () => {
                 className="flex items-center justify-center"
                 onClick={toggleMenu}
               >
-                <span className={`flex items-center space-x-1 border px-1.5 sm:px-2 py-1 sm:py-1.5 h-[32px] sm:h-[38px] md:h-[42px] ${
+                <span className={`flex items-center space-x-1 border px-1.5 sm:px-2 py-1 sm:py-1.5 h-[32px] sm:h-[36px] md:h-[40px] ${
                   isScrolled ? 'border-black text-black bg-transparent' : (shouldUseBlackText ? 'border-black text-black bg-transparent' : 'border-white text-white bg-transparent')
                 }`}>
                   {isMobileMenuOpen ? <X size={14} className="sm:w-4 sm:h-4" /> : <Menu size={14} className="sm:w-4 sm:h-4" />}

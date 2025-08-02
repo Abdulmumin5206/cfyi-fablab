@@ -209,7 +209,7 @@ const BlogIndex = () => {
             <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
-                <div className="max-w-full text-left lg:max-w-xl flex flex-col items-start lg:items-start">
+                <div className="max-w-full text-left lg:max-w-[1200px]l flex flex-col items-start lg:items-start">
                   <GradientText
                     colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
                     animationSpeed={4}
@@ -275,7 +275,7 @@ const BlogIndex = () => {
             <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
-                <div className="max-w-full text-left lg:max-w-xl flex flex-col items-start lg:items-start">
+                <div className="max-w-full text-left lg:max-w-[1200px]l flex flex-col items-start lg:items-start">
                   <GradientText
                     colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
                     animationSpeed={4}
@@ -351,7 +351,7 @@ const BlogIndex = () => {
             <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
-                <div className="max-w-full text-left lg:max-w-xl flex flex-col items-start lg:items-start">
+                <div className="max-w-full text-left lg:max-w-[1200px]l flex flex-col items-start lg:items-start">
                   <GradientText
                     colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
                     animationSpeed={4}
@@ -437,7 +437,7 @@ const BlogIndex = () => {
             <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
-                <div className="max-w-full text-left lg:max-w-xl flex flex-col items-start lg:items-start">
+                <div className="max-w-full text-left lg:max-w-[1200px]l flex flex-col items-start lg:items-start">
                   <GradientText
                     colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
                     animationSpeed={4}
@@ -571,7 +571,7 @@ const BlogIndex = () => {
         </div>
         {/* Newsletter Subscription Section */}
         <div className="mt-16 py-12 px-4 sm:px-8 bg-[#f5f5f7]">
-          <div className="max-w-3xl mx-auto text-center">
+          <div className="max-w-[1200px]xl mx-auto text-center">
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-4">{t('blog.newsletter.title')}</h2>
             <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-600 mb-8">
               {t('blog.newsletter.description')}
@@ -584,7 +584,7 @@ const BlogIndex = () => {
                 <span>{t('blog.newsletter.thankYou')}</span>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
+              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-[1200px]l mx-auto">
                 <input
                   type="email"
                   value={email}

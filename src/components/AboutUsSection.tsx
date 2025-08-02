@@ -46,7 +46,7 @@ const AboutUsSection = () => {
     >
 
 
-      <div className="container relative z-10 mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
+      <div className="container relative z-10 mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
         <div className="text-left mb-3 sm:mb-4 md:mb-6 lg:mb-8">
           <div className="flex items-baseline gap-1">
             <GradientText
@@ -101,18 +101,18 @@ const AboutUsSection = () => {
           {cardData.map((card, index) => (
             <div 
               key={index}
-              className="group bg-white/90 backdrop-blur-sm p-3 md:p-4 lg:p-5 shadow-md relative flex flex-col justify-between min-h-[280px] md:min-h-[300px] lg:min-h-[320px]"
+              className="group bg-white/90 backdrop-blur-sm p-3 md:p-4 lg:p-5 shadow-md relative flex flex-col justify-between min-h-[260px] md:min-h-[280px] lg:min-h-[300px]"
             >
               <div className="absolute top-0 right-0 w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 bg-[#329db7]" style={{ marginTop: "-1px", marginRight: "-1px" }}></div>
               
               {/* Content */}
               <div className="relative z-20">
-                <h3 className="text-base md:text-lg lg:text-xl font-bold mb-2 md:mb-3 text-black">{card.title}</h3>
-                <p className="text-gray-700 text-sm md:text-base">{card.text}</p>
+                <h3 className="text-base md:text-lg lg:text-lg font-bold mb-2 md:mb-3 text-black">{card.title}</h3>
+                <p className="text-gray-700 text-sm md:text-sm">{card.text}</p>
               </div>
               
               {/* Logo Container */}
-              <div className="h-[80px] md:h-[90px] lg:h-[100px] flex items-center justify-center mt-2 md:mt-3">
+              <div className="h-[80px] md:h-[85px] lg:h-[90px] flex items-center justify-center mt-2 md:mt-3">
                 <a 
                   href={card.link} 
                   target="_blank" 

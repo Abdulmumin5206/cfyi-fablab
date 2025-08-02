@@ -574,7 +574,7 @@ const PrintingMaterials = () => {
 
   return (
     <section id="materials-section" className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
-      <div className="max-w-[1350px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <div className="flex flex-col items-center">
             <GradientText
@@ -584,7 +584,7 @@ const PrintingMaterials = () => {
             >
               {t('3dPrinting.materials.title')}
             </GradientText>
-            <p className="text-gray-700 text-sm sm:text-base md:text-lg font-['Magistral'] max-w-3xl">
+            <p className="text-gray-700 text-sm sm:text-base md:text-lg font-['Magistral'] max-w-2xl">
               {t('3dPrinting.materials.subtitle')}
             </p>
           </div>

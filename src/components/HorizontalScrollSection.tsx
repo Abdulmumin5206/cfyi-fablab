@@ -433,7 +433,7 @@ const HorizontalScrollSection = () => {
               {/* Image on top for mobile, left for desktop */}
               <div className="w-full md:w-2/5 h-[250px] md:h-[420px] lg:h-[480px] overflow-visible relative mt-4 md:mt-0">
                 <img 
-                  src="/main/3dprinting1.webp"
+                  src="/main/tour/3dprinting.webp"
                   alt={t('equipment.title')}
                   className="w-full h-full object-cover rounded-lg"
                   onError={(e) => {
@@ -466,7 +466,7 @@ const HorizontalScrollSection = () => {
               {/* Image on top for mobile, left for desktop */}
               <div className="w-full md:w-2/5 h-[250px] md:h-[420px] lg:h-[480px] overflow-visible relative mt-4 md:mt-0">
                 <img 
-                  src="/main/scrolling1.webp"
+                  src={isMobile ? "/main/tour/3.webp" : "/main/scrolling1.webp"}
                   alt={t('vision.title')}
                   className="w-full h-full object-cover rounded-lg"
                   onError={(e) => {

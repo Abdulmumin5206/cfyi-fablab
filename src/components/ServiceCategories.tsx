@@ -243,34 +243,34 @@ const ServiceCategories = () => {
                     </div>
 
                     <div
-                      className="bg-white transition-all duration-300 p-4 sm:p-5 lg:p-6 pt-4 sm:pt-5 lg:pt-6 pb-16 h-[220px] sm:h-[230px] lg:h-[240px] flex flex-col items-start justify-between relative overflow-hidden shadow-sm"
+                      className="bg-white transition-all duration-300 p-4 sm:p-5 lg:p-6 pt-4 sm:pt-5 lg:pt-6 pb-16 h-[260px] sm:h-[280px] lg:h-[300px] flex flex-col items-start justify-between relative overflow-hidden shadow-sm"
                       style={{
                         backgroundColor: hoveredIndex === index ? '#329db7' : '#fff',
                         willChange: 'background-color'
                       }}
                     >
                       <div>
-                        <h3 className={`font-bold mb-2 transition-colors duration-300 font-['Magistral'] text-gray-800 ${i18n.language === 'en'
-                            ? 'text-base sm:text-lg lg:text-xl'
-                            : 'text-sm sm:text-base lg:text-lg'
+                        <h3 className={`font-bold mb-3 transition-colors duration-300 font-['Magistral'] text-gray-800 ${i18n.language === 'en'
+                            ? 'text-lg sm:text-xl lg:text-2xl'
+                            : 'text-base sm:text-lg lg:text-xl'
                             }`}>
                           {t(category.titleKey)}
                         </h3>
                         <p className={`text-gray-700 leading-relaxed transition-colors duration-300 font-['Magistral'] ${i18n.language === 'en'
-                          ? 'text-xs sm:text-sm'
-                          : 'text-xs sm:text-xs'
+                          ? 'text-sm sm:text-base lg:text-lg'
+                          : 'text-sm sm:text-sm lg:text-base'
                           }`}>
                           {t(category.descriptionKey)}
                         </p>
                       </div>
                       <div className={`flex items-center absolute left-4 sm:left-5 lg:left-6 bottom-[-64px] group-hover:bottom-6 lg:group-hover:bottom-6 bg-black text-white py-2 sm:py-2 px-5 sm:px-6 transition-all duration-300 font-['Magistral'] ${i18n.language === 'en'
-                        ? 'text-sm lg:text-base'
-                        : 'text-xs lg:text-sm'
+                        ? 'text-base lg:text-lg'
+                        : 'text-sm lg:text-base'
                         }`}
                         style={{ willChange: 'transform' }}
                       >
                         <span>{t('common.learnMore')}</span>
-                        <ArrowRight size={i18n.language === 'en' ? 16 : 14} className="ml-2" />
+                        <ArrowRight size={i18n.language === 'en' ? 18 : 16} className="ml-2" />
                       </div>
                     </div>
                   </Link>

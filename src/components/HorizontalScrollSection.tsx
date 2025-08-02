@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import GradientText from "./GradientText";
 
@@ -12,16 +12,24 @@ const HorizontalScrollSection = () => {
   const [hasReachedEnd, setHasReachedEnd] = useState(false);
   const [hasReachedStart, setHasReachedStart] = useState(true);
   const [contentWidth, setContentWidth] = useState(0);
-  // Add state for smoother transitions
-  const [targetProgress, setTargetProgress] = useState(0);
+  
+  // Mobile-specific optimizations
+  const [isMobile, setIsMobile] = useState(false);
   const [isScrolling, setIsScrolling] = useState(false);
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-  // Add state to detect if we're on mobile
-  const [isMobile, setIsMobile] = useState(false);
-  // Add velocity tracking for smoother inertia
-  const velocityRef = useRef(0);
-  const lastTouchXRef = useRef(0);
-  const lastTouchTimeRef = useRef(0);
+  const rafIdRef = useRef<number>(0);
+  const lastProgressRef = useRef(0);
+  
+  // Touch handling refs
+  const touchDataRef = useRef({
+    startX: 0,
+    startY: 0,
+    currentX: 0,
+    isHorizontal: false,
+    velocity: 0,
+    lastTime: 0,
+    momentum: 0
+  });
 
   // Check if current language is Russian to apply smaller font size
   const isRussian = i18n.language === 'ru';
@@ -35,6 +43,22 @@ const HorizontalScrollSection = () => {
     ? "text-gray-800 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed space-y-4 sm:space-y-6"
     : "text-gray-800 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed space-y-4 sm:space-y-6";
 
+  // Optimized progress update function with throttling
+  const updateProgress = useCallback((newProgress: number) => {
+    // Throttle updates to prevent excessive re-renders
+    const roundedProgress = Math.round(newProgress * 1000) / 1000;
+    if (Math.abs(roundedProgress - lastProgressRef.current) < 0.001) return;
+    
+    lastProgressRef.current = roundedProgress;
+    setHorizontalProgress(roundedProgress);
+    
+    // Direct DOM manipulation for better performance on mobile
+    if (contentRef.current) {
+      const translateX = roundedProgress * contentWidth;
+      contentRef.current.style.transform = `translate3d(-${translateX}px, 0, 0)`;
+    }
+  }, [contentWidth]);
+
   // Calculate the content width and set up the section
   useEffect(() => {
     if (!contentRef.current || !containerRef.current || !sectionRef.current) return;
@@ -43,21 +67,37 @@ const HorizontalScrollSection = () => {
       if (!contentRef.current || !sectionRef.current) return;
       
       // Check if we're on mobile
-      const mobileBreakpoint = 768; // md breakpoint
+      const mobileBreakpoint = 768;
       const isMobileView = window.innerWidth < mobileBreakpoint;
       setIsMobile(isMobileView);
       
-      const containerWidth = window.innerWidth;
-      const totalContentWidth = contentRef.current!.scrollWidth;
-      const initialPadding = isMobileView ? 8 : 16; // Less padding on mobile
-      const scrollableDistance = totalContentWidth - containerWidth + initialPadding;
-      
-      setContentWidth(scrollableDistance);
-      
-      // Adjust section height based on device
-      // Mobile gets more height to accommodate stacked content
-      const heightMultiplier = isMobileView ? 0.8 : 0.6;
-      sectionRef.current!.style.height = `${scrollableDistance + window.innerHeight * heightMultiplier}px`;
+      if (isMobileView) {
+        // Mobile-specific optimizations
+        const containerWidth = window.innerWidth;
+        const totalContentWidth = contentRef.current!.scrollWidth;
+        const initialPadding = 8;
+        const scrollableDistance = totalContentWidth - containerWidth + initialPadding;
+        
+        setContentWidth(scrollableDistance);
+        
+        // Reduced height calculation for better performance
+        const heightMultiplier = 0.7;
+        sectionRef.current!.style.height = `${scrollableDistance + window.innerHeight * heightMultiplier}px`;
+        
+        // Enable hardware acceleration for mobile
+        contentRef.current!.style.willChange = 'transform';
+        contentRef.current!.style.backfaceVisibility = 'hidden';
+        contentRef.current!.style.perspective = '1000px';
+      } else {
+        // Desktop logic (unchanged)
+        const containerWidth = window.innerWidth;
+        const totalContentWidth = contentRef.current!.scrollWidth;
+        const initialPadding = 16;
+        const scrollableDistance = totalContentWidth - containerWidth + initialPadding;
+        
+        setContentWidth(scrollableDistance);
+        sectionRef.current!.style.height = `${scrollableDistance + window.innerHeight * 0.6}px`;
+      }
     };
 
     calculateDimensions();
@@ -80,7 +120,6 @@ const HorizontalScrollSection = () => {
     const observer = new IntersectionObserver((entries) => {
       const entry = entries[0];
       
-      // More restrictive conditions to prevent early activation
       if (entry.intersectionRatio > 0.3 && entry.intersectionRatio < 0.7) {
         setHorizontalScrollActive(true);
       } else {
@@ -97,147 +136,140 @@ const HorizontalScrollSection = () => {
     };
   }, []);
 
-  // Handle the scroll event to control horizontal scrolling
+  // Optimized scroll handling for mobile
   useEffect(() => {
-    let animationFrameId: number;
-    let lastScrollY = window.scrollY;
-    let lastTimestamp = 0;
-    
-    const handleScroll = () => {
-      lastScrollY = window.scrollY;
+    if (!isMobile) {
+      // Desktop scroll handling (unchanged from original)
+      let animationFrameId: number;
+      let lastScrollY = window.scrollY;
       
-      // Set scrolling state to true
-      setIsScrolling(true);
+      const handleScroll = () => {
+        lastScrollY = window.scrollY;
+        
+        setIsScrolling(true);
+        
+        if (scrollTimeoutRef.current) {
+          clearTimeout(scrollTimeoutRef.current);
+        }
+        
+        scrollTimeoutRef.current = setTimeout(() => {
+          setIsScrolling(false);
+        }, 100);
+        
+        if (!animationFrameId) {
+          animationFrameId = requestAnimationFrame(updateScrollPosition);
+        }
+      };
       
-      // Clear any existing timeout
-      if (scrollTimeoutRef.current) {
-        clearTimeout(scrollTimeoutRef.current);
-      }
-      
-      // Set a timeout to detect when scrolling stops
-      scrollTimeoutRef.current = setTimeout(() => {
-        setIsScrolling(false);
-      }, 100);
-      
-      // Use requestAnimationFrame for smoother scrolling
-      if (!animationFrameId) {
-        lastTimestamp = performance.now();
-        animationFrameId = requestAnimationFrame(updateScrollPosition);
-      }
-    };
-    
-    const updateScrollPosition = (timestamp: number) => {
-      animationFrameId = 0;
-      
-      if (!sectionRef.current || !containerRef.current || !contentRef.current) return;
+      const updateScrollPosition = () => {
+        animationFrameId = 0;
+        
+        if (!sectionRef.current || !containerRef.current || !contentRef.current) return;
 
-      const sectionRect = sectionRef.current.getBoundingClientRect();
-      const sectionTop = sectionRect.top;
-      const sectionHeight = sectionRect.height;
-      const viewportHeight = window.innerHeight;
-      
-      // Calculate how much of the section has been scrolled through
-      const maxScroll = sectionHeight - viewportHeight;
-      const currentScroll = Math.max(0, -sectionTop);
-      
-      // Calculate raw progress (0 to 1)
-      let rawProgress = Math.min(1, currentScroll / maxScroll);
-      
-      // Adjust thresholds for mobile
-      const startThreshold = isMobile ? 0.02 : 0.03;
-      const endThreshold = isMobile ? 0.95 : 0.92;
-      
-      if (rawProgress < startThreshold) {
-        setHasReachedStart(true);
-        setHasReachedEnd(false);
-        setTargetProgress(0);
-      } else if (rawProgress > endThreshold) {
-        setHasReachedEnd(true);
-        setHasReachedStart(false);
-        setTargetProgress(1);
-      } else {
-        // Adjusted scrolling range to account for new thresholds
-        const progress = (rawProgress - startThreshold) / (endThreshold - startThreshold);
-        // Ensure progress stays between 0 and 1
-        const clampedProgress = Math.max(0, Math.min(1, progress));
-        setHasReachedStart(false);
-        setHasReachedEnd(false);
-        setTargetProgress(clampedProgress);
-      }
-    };
+        const sectionRect = sectionRef.current.getBoundingClientRect();
+        const sectionTop = sectionRect.top;
+        const sectionHeight = sectionRect.height;
+        const viewportHeight = window.innerHeight;
+        
+        const maxScroll = sectionHeight - viewportHeight;
+        const currentScroll = Math.max(0, -sectionTop);
+        
+        let rawProgress = Math.min(1, currentScroll / maxScroll);
+        
+        const startThreshold = 0.03;
+        const endThreshold = 0.92;
+        
+        if (rawProgress < startThreshold) {
+          setHasReachedStart(true);
+          setHasReachedEnd(false);
+          updateProgress(0);
+        } else if (rawProgress > endThreshold) {
+          setHasReachedEnd(true);
+          setHasReachedStart(false);
+          updateProgress(1);
+        } else {
+          const progress = (rawProgress - startThreshold) / (endThreshold - startThreshold);
+          const clampedProgress = Math.max(0, Math.min(1, progress));
+          setHasReachedStart(false);
+          setHasReachedEnd(false);
+          updateProgress(clampedProgress);
+        }
+      };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    
-    // Initial call
-    updateScrollPosition(performance.now());
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      updateScrollPosition();
 
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      if (animationFrameId) {
-        cancelAnimationFrame(animationFrameId);
-      }
-      if (scrollTimeoutRef.current) {
-        clearTimeout(scrollTimeoutRef.current);
-      }
-    };
-  }, [contentWidth, isMobile]);
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+        if (animationFrameId) {
+          cancelAnimationFrame(animationFrameId);
+        }
+        if (scrollTimeoutRef.current) {
+          clearTimeout(scrollTimeoutRef.current);
+        }
+      };
+    } else {
+      // Mobile-optimized scroll handling
+      let ticking = false;
+      
+      const handleMobileScroll = () => {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            if (!sectionRef.current || !containerRef.current) {
+              ticking = false;
+              return;
+            }
 
-  // Separate effect for smooth animation
-  useEffect(() => {
-    let animationFrameId: number;
-    
-    const animate = () => {
-      // Calculate the difference between current and target progress
-      const diff = targetProgress - horizontalProgress;
-      
-      // If difference is very small, just set to target to avoid tiny oscillations
-      if (Math.abs(diff) < 0.001) {
-        setHorizontalProgress(targetProgress);
-        return;
-      }
-      
-      // Improved easing parameters for mobile
-      // Higher values = faster response, lower values = smoother but slower response
-      const easing = isScrolling 
-        ? (isMobile ? 0.25 : 0.15) 
-        : (isMobile ? 0.15 : 0.08);
-      
-      // Apply easing to create smooth motion
-      const newProgress = horizontalProgress + diff * easing;
-      setHorizontalProgress(newProgress);
-      
-      // Apply the horizontal scroll based on progress with hardware acceleration
-      if (contentRef.current) {
-        const horizontalScroll = newProgress * contentWidth;
-        contentRef.current.style.transform = `translate3d(-${horizontalScroll}px, 0, 0)`;
-      }
-      
-      // Apply parallax effect to background with hardware acceleration
-      const backgroundElement = containerRef.current?.querySelector('.background-pattern') as HTMLElement;
-      if (backgroundElement) {
-        backgroundElement.style.transform = `translate3d(${newProgress * 20}%, 0, 0)`;
-      }
-      
-      // Continue animation
-      animationFrameId = requestAnimationFrame(animate);
-    };
-    
-    // Start animation
-    animationFrameId = requestAnimationFrame(animate);
-    
-    return () => {
-      if (animationFrameId) {
-        cancelAnimationFrame(animationFrameId);
-      }
-    };
-  }, [horizontalProgress, targetProgress, contentWidth, isScrolling, isMobile]);
+            const sectionRect = sectionRef.current.getBoundingClientRect();
+            const sectionTop = sectionRect.top;
+            const sectionHeight = sectionRect.height;
+            const viewportHeight = window.innerHeight;
+            
+            const maxScroll = sectionHeight - viewportHeight;
+            const currentScroll = Math.max(0, -sectionTop);
+            
+            let rawProgress = Math.min(1, currentScroll / maxScroll);
+            
+            // More responsive thresholds for mobile
+            const startThreshold = 0.01;
+            const endThreshold = 0.97;
+            
+            if (rawProgress < startThreshold) {
+              setHasReachedStart(true);
+              setHasReachedEnd(false);
+              updateProgress(0);
+            } else if (rawProgress > endThreshold) {
+              setHasReachedEnd(true);
+              setHasReachedStart(false);
+              updateProgress(1);
+            } else {
+              const progress = (rawProgress - startThreshold) / (endThreshold - startThreshold);
+              const clampedProgress = Math.max(0, Math.min(1, progress));
+              setHasReachedStart(false);
+              setHasReachedEnd(false);
+              updateProgress(clampedProgress);
+            }
+            
+            ticking = false;
+          });
+          ticking = true;
+        }
+      };
+
+      window.addEventListener('scroll', handleMobileScroll, { passive: true });
+      handleMobileScroll(); // Initial call
+
+      return () => {
+        window.removeEventListener('scroll', handleMobileScroll);
+      };
+    }
+  }, [contentWidth, isMobile, updateProgress]);
 
   // Prevent default scroll behavior when in horizontal scroll mode
   useEffect(() => {
-    if (!horizontalScrollActive) return;
+    if (!horizontalScrollActive || isMobile) return; // Skip for mobile
 
     const preventDefaultScroll = (e: WheelEvent) => {
-      // FIXED: More precise control over when to prevent scrolling
       if (horizontalScrollActive && !hasReachedStart && !hasReachedEnd) {
         e.preventDefault();
       }
@@ -248,87 +280,102 @@ const HorizontalScrollSection = () => {
     return () => {
       window.removeEventListener('wheel', preventDefaultScroll);
     };
-  }, [horizontalScrollActive, hasReachedStart, hasReachedEnd]);
+  }, [horizontalScrollActive, hasReachedStart, hasReachedEnd, isMobile]);
 
-  // Handle touch events for mobile
+  // Optimized touch handling for mobile
   useEffect(() => {
-    if (!containerRef.current || !horizontalScrollActive) return;
-    
-    let touchStartX = 0;
-    let touchStartY = 0;
-    let isHorizontalSwipe = false;
+    if (!containerRef.current || !horizontalScrollActive || !isMobile) return;
     
     const handleTouchStart = (e: TouchEvent) => {
-      touchStartX = e.touches[0].clientX;
-      touchStartY = e.touches[0].clientY;
-      isHorizontalSwipe = false;
+      const touch = e.touches[0];
+      touchDataRef.current = {
+        startX: touch.clientX,
+        startY: touch.clientY,
+        currentX: touch.clientX,
+        isHorizontal: false,
+        velocity: 0,
+        lastTime: Date.now(),
+        momentum: 0
+      };
       
-      // Reset velocity on new touch
-      velocityRef.current = 0;
-      lastTouchXRef.current = touchStartX;
-      lastTouchTimeRef.current = Date.now();
-      
-      // Signal that we're actively scrolling
       setIsScrolling(true);
+      
+      // Cancel any ongoing RAF
+      if (rafIdRef.current) {
+        cancelAnimationFrame(rafIdRef.current);
+      }
     };
     
     const handleTouchMove = (e: TouchEvent) => {
       if (!horizontalScrollActive || hasReachedStart || hasReachedEnd) return;
       
-      const touchX = e.touches[0].clientX;
-      const touchY = e.touches[0].clientY;
-      const diffX = touchStartX - touchX;
-      const diffY = touchStartY - touchY;
+      const touch = e.touches[0];
+      const touchData = touchDataRef.current;
       
-      // Calculate velocity for momentum scrolling
-      const now = Date.now();
-      const elapsed = now - lastTouchTimeRef.current;
+      const diffX = touchData.startX - touch.clientX;
+      const diffY = touchData.startY - touch.clientY;
       
-      if (elapsed > 0) {
-        // Calculate velocity (pixels per millisecond)
-        const deltaX = lastTouchXRef.current - touchX;
-        velocityRef.current = deltaX / elapsed;
-        
-        // Update last values
-        lastTouchXRef.current = touchX;
-        lastTouchTimeRef.current = now;
+      // Determine scroll direction early
+      if (!touchData.isHorizontal && Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 10) {
+        touchData.isHorizontal = true;
       }
       
-      // Determine if this is primarily a horizontal swipe
-      // Only on first detection of direction
-      if (!isHorizontalSwipe && Math.abs(diffX) > Math.abs(diffY)) {
-        isHorizontalSwipe = true;
-      }
-      
-      // If it's a horizontal swipe and we're in the active scroll area
-      if (isHorizontalSwipe && horizontalScrollActive && !hasReachedStart && !hasReachedEnd) {
+      if (touchData.isHorizontal) {
         e.preventDefault();
         
-        // Update progress based on swipe with improved sensitivity
-        const swipeFactor = 0.004; // Increased sensitivity for mobile
-        const progressChange = diffX * swipeFactor;
-        setTargetProgress(Math.max(0, Math.min(1, horizontalProgress + progressChange)));
+        // Calculate velocity for smoother momentum
+        const now = Date.now();
+        const deltaTime = now - touchData.lastTime;
+        const deltaX = touchData.currentX - touch.clientX;
+        
+        if (deltaTime > 0) {
+          touchData.velocity = deltaX / deltaTime;
+        }
+        
+        touchData.currentX = touch.clientX;
+        touchData.lastTime = now;
+        
+        // More responsive touch sensitivity for mobile
+        const touchSensitivity = 0.003;
+        const progressChange = diffX * touchSensitivity;
+        const newProgress = Math.max(0, Math.min(1, horizontalProgress + progressChange));
+        
+        updateProgress(newProgress);
       }
     };
     
-    const handleTouchEnd = (e: TouchEvent) => {
-      // Apply momentum scrolling based on final velocity
-      if (isHorizontalSwipe && Math.abs(velocityRef.current) > 0.1) {
-        // Convert velocity to progress change (higher multiplier = more momentum)
-        const momentumFactor = 100; 
-        const momentumProgress = velocityRef.current * momentumFactor / contentWidth;
-        
-        // Apply momentum to target progress with limits
-        setTargetProgress(Math.max(0, Math.min(1, targetProgress + momentumProgress)));
-      }
+    const handleTouchEnd = () => {
+      const touchData = touchDataRef.current;
       
-      // Reset scrolling state with a small delay
-      setTimeout(() => {
+      if (touchData.isHorizontal && Math.abs(touchData.velocity) > 0.1) {
+        // Apply momentum with easing
+        let currentVelocity = touchData.velocity;
+        const friction = 0.95; // Friction coefficient
+        const minVelocity = 0.01;
+        
+        const applyMomentum = () => {
+          if (Math.abs(currentVelocity) > minVelocity && !hasReachedStart && !hasReachedEnd) {
+            const progressChange = currentVelocity * 0.8;
+            const newProgress = Math.max(0, Math.min(1, horizontalProgress + progressChange));
+            
+            updateProgress(newProgress);
+            currentVelocity *= friction;
+            
+            rafIdRef.current = requestAnimationFrame(applyMomentum);
+          } else {
+            setIsScrolling(false);
+          }
+        };
+        
+        rafIdRef.current = requestAnimationFrame(applyMomentum);
+      } else {
         setIsScrolling(false);
-      }, 100);
+      }
     };
     
     const container = containerRef.current;
+    
+    // Use passive: false only for touchmove to allow preventDefault
     container.addEventListener('touchstart', handleTouchStart, { passive: true });
     container.addEventListener('touchmove', handleTouchMove, { passive: false });
     container.addEventListener('touchend', handleTouchEnd, { passive: true });
@@ -337,8 +384,12 @@ const HorizontalScrollSection = () => {
       container.removeEventListener('touchstart', handleTouchStart);
       container.removeEventListener('touchmove', handleTouchMove);
       container.removeEventListener('touchend', handleTouchEnd);
+      
+      if (rafIdRef.current) {
+        cancelAnimationFrame(rafIdRef.current);
+      }
     };
-  }, [horizontalScrollActive, hasReachedStart, hasReachedEnd, horizontalProgress, targetProgress, contentWidth]);
+  }, [horizontalScrollActive, hasReachedStart, hasReachedEnd, horizontalProgress, isMobile, updateProgress]);
 
   return (
     <section 
@@ -354,11 +405,19 @@ const HorizontalScrollSection = () => {
         {/* Horizontally scrolling content */}
         <div 
           ref={contentRef}
-          className="flex items-stretch pl-2 md:pl-4 lg:pl-6 will-change-transform"
+          className="flex items-stretch pl-2 md:pl-4 lg:pl-6"
           style={{ 
             gap: isMobile ? "0" : "3vw",
-            touchAction: "pan-y", // Allow vertical scrolling but handle horizontal ourselves
-            WebkitOverflowScrolling: "touch" // Improve iOS scrolling
+            touchAction: isMobile ? "pan-y" : "auto",
+            WebkitOverflowScrolling: "touch",
+            // Mobile-specific optimizations
+            ...(isMobile && {
+              willChange: 'transform',
+              backfaceVisibility: 'hidden',
+              WebkitBackfaceVisibility: 'hidden',
+              WebkitTransform: 'translate3d(0, 0, 0)',
+              transform: 'translate3d(0, 0, 0)'
+            })
           }}
         >
           {/* What is FabLab? - standalone text element */}

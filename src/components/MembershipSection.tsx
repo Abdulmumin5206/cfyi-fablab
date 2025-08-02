@@ -228,14 +228,16 @@ const MembershipSection = () => {
       <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
         {/* Header */}
         <div className="section-title-wrapper">
-          <div className="flex items-baseline gap-1">
-            <GradientText
-              colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
-              animationSpeed={4}
-              className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral']"
-            >
-              {t('membership.title', 'Membership Plans')}
-            </GradientText>
+          <div className="flex flex-col sm:flex-row items-center sm:items-baseline sm:gap-1">
+            <div className="text-center sm:text-left mb-2 sm:mb-0">
+              <GradientText
+                colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+                animationSpeed={4}
+                className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral']"
+              >
+                {t('membership.title', 'Membership Plans')}
+              </GradientText>
+            </div>
             <span className="hidden sm:block text-black text-lg sm:text-xl lg:text-2xl font-['Magistral'] ml-2">
               {t('membership.subtitle', 'Choose the perfect plan for your creative journey')}
             </span>

@@ -137,7 +137,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
     {
       title: t('serviceCategories.molding.title'),
       description: t('serviceCategories.molding.description'),
-      path: "/mould",
+      path: "/injection-molding",
       image: "/mould/imhero.webp",
       color: "bg-[#0e9a48]"
     },
@@ -149,6 +149,24 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
       color: "bg-[#35469d]"
     }
   ];
+
+  // Helper function to get SEO-friendly URLs based on language
+  const getSEOUrl = (service: string) => {
+    const currentLang = i18n.language;
+    switch (service) {
+      case '3d-printing':
+        // Use SEO-friendly URLs but keep them simple without language prefixes
+        switch (currentLang) {
+          case 'ru':
+          case 'uz':
+            return '/3d-printing-tashkent'; // More descriptive for local SEO
+          default:
+            return '/3d-printing-services'; // Commercial intent for English
+        }
+      default:
+        return `/${service}`;
+    }
+  };
 
   return (
     <div
@@ -325,7 +343,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                     {/* Mobile and Tablet Single Column Layout */}
                     <div className="flex flex-col gap-6 w-full max-w-md mx-auto px-6 lg:hidden">
                       <Link
-                        to="/3d-printing"
+                        to={getSEOUrl('3d-printing')}
                         onClick={handleClose}
                         className="block text-left text-2xl md:text-3xl font-light text-white hover:text-[#329db7] py-3 leading-tight w-full"
                         style={{
@@ -338,7 +356,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                         {t('header.3dPrinting')}
                       </Link>
                       <Link
-                        to="/mould"
+                        to="/injection-molding"
                         onClick={handleClose}
                         className="block text-left text-2xl md:text-3xl font-light text-white hover:text-[#329db7] py-3 leading-tight w-full"
                         style={{
@@ -377,7 +395,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                         {t('serviceCategories.precisionManufacturing.title')}
                       </Link>
                       <Link
-                        to="/3d-scanning"
+                        to="/3d-scanning-services"
                         onClick={handleClose}
                         className="block text-left text-2xl md:text-3xl font-light text-white hover:text-[#329db7] py-3 leading-tight w-full"
                         style={{
@@ -459,7 +477,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       {/* Row 1: 3D Printing & Projects */}
                       <div className="flex flex-row w-full px-4 md:px-8 lg:px-16 gap-0">
                         <Link
-                          to="/3d-printing"
+                          to={getSEOUrl('3d-printing')}
                           onClick={handleClose}
                           className={`block w-1/2 text-left text-xl md:text-2xl ${isLargeScreen ? 'lg:text-3xl xl:text-4xl' : 'lg:text-3xl'} font-light text-white hover:text-[#329db7] py-0`}
                           style={{
@@ -489,7 +507,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       {/* Row 2: Molding & About Us */}
                       <div className="flex flex-row w-full px-4 md:px-8 lg:px-16 gap-0">
                         <Link
-                          to="/mould"
+                          to="/injection-molding"
                           onClick={handleClose}
                           className={`block w-1/2 text-left text-xl md:text-2xl ${isLargeScreen ? 'lg:text-3xl xl:text-4xl' : 'lg:text-3xl'} font-light text-white hover:text-[#329db7] py-0`}
                           style={{
@@ -578,7 +596,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       {/* Row 5: 3D Scanning & Membership */}
                       <div className="flex flex-row w-full px-4 md:px-8 lg:px-16 gap-0">
                         <Link
-                          to="/3d-scanning"
+                          to="/3d-scanning-services"
                           onClick={handleClose}
                           className={`block w-1/2 text-left text-xl md:text-2xl ${isLargeScreen ? 'lg:text-3xl xl:text-4xl' : 'lg:text-3xl'} font-light text-white hover:text-[#329db7] py-0`}
                           style={{

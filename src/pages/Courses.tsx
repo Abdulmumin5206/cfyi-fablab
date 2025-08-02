@@ -68,19 +68,77 @@ const CoursesPage = () => {
   const coursesSchema = {
     "@context": "https://schema.org",
     "@type": "Course",
-    "name": "3D Printing and Digital Fabrication Courses",
+    "name": "3D Printing and Digital Fabrication Courses in Uzbekistan",
     "provider": {
       "@type": "Organization",
       "name": "FabLab CFYI",
-      "url": "https://fablab-cfyi.uz"
+      "url": "https://fablab-cfyi.uz",
+      "logo": "https://fablab-cfyi.uz/fablab/logo.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "Uzbekistan",
+        "addressLocality": "Tashkent"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+998770884977",
+        "contactType": "customer service"
+      }
     },
     "description": "Comprehensive 3D printing and digital fabrication courses including FDM, SLA, and advanced manufacturing techniques with hands-on training and certification.",
     "courseMode": "onsite",
+    "hasCourseInstance": [
+      {
+        "@type": "CourseInstance",
+        "name": "Hobbyist Essentials",
+        "description": "Beginner course for 3D printing enthusiasts",
+        "courseMode": "onsite"
+      },
+      {
+        "@type": "CourseInstance",
+        "name": "Comprehensive Pro",
+        "description": "Intermediate level course for professionals",
+        "courseMode": "onsite"
+      },
+      {
+        "@type": "CourseInstance",
+        "name": "Master Class",
+        "description": "Advanced course for industry experts",
+        "courseMode": "onsite"
+      }
+    ],
     "offers": {
       "@type": "Offer",
-      "description": "Professional training courses in 3D printing and digital fabrication"
-    }
+      "description": "Professional training courses in 3D printing and digital fabrication",
+      "priceCurrency": "UZS",
+      "availability": "https://schema.org/InStock"
+    },
+    "image": "https://fablab-cfyi.uz/courses/hero.webp",
+    "url": "https://fablab-cfyi.uz/courses"
   };
+
+  // Define breadcrumb schema
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://fablab-cfyi.uz/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Courses",
+        "item": "https://fablab-cfyi.uz/courses"
+      }
+    ]
+  };
+
+  // Combine schemas for SEO
+  const combinedSchema = [coursesSchema, breadcrumbSchema];
   
   // Determine the language to use for displaying course details
   const displayLang = courseDetails.fdmCourses.labels && courseDetails.fdmCourses.labels[currentLang] 
@@ -388,7 +446,7 @@ const CoursesPage = () => {
         description="Professional 3D printing and digital fabrication courses in Uzbekistan. Learn FDM, SLA, and advanced manufacturing with hands-on training and certification at FabLab CFYI."
         keywords="курсы 3D печати Ташкент, 3D bosib chiqarish kurslari Toshkent, обучение 3D печати, 3D print ta'limi, курсы FDM, FDM kurslari, обучение SLA, SLA o'rganish, цифровое производство курсы, raqamli ishlab chiqarish kurslari, профессиональное обучение Узбекистан, professional ta'lim, сертификация 3D печати, 3D print sertifikatlashtirish, мастер-классы Ташкент, master klass Toshkent"
         image="/courses/hero.webp"
-        schema={coursesSchema}
+        schema={combinedSchema}
         canonicalPath="/courses"
       />
       <Header />

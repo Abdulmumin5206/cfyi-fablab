@@ -29,23 +29,196 @@ const MouldPage = () => {
   const [sliderPosition, setSliderPosition] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
 
+  const currentLang = i18n.language;
+
+  // Define multilingual SEO titles and descriptions
+  const seoData = {
+    en: {
+      title: "Molding & Production Services in Tashkent | Professional Injection Molding | FabLab CFYI",
+      description: "Professional molding and production services in Tashkent, Uzbekistan. Injection molding, silicone molding, spare parts production, and mass manufacturing capabilities.",
+      keywords: "injection molding Tashkent, molding services Uzbekistan, silicone molding, plastic production, spare parts manufacturing, mass production, industrial molding, mold making"
+    },
+    ru: {
+      title: "Литье и производство в Ташкенте | Профессиональное литье пластмасс | FabLab CFYI",
+      description: "Профессиональные услуги литья и производства в Ташкенте, Узбекистан. Литье пластмасс, силиконовое литье, производство запчастей и серийное производство.",
+      keywords: "литье пластмасс Ташкент, услуги литья Узбекистан, силиконовое литье, производство пластика, изготовление запчастей, массовое производство, промышленное литье, изготовление форм"
+    },
+    uz: {
+      title: "Toshkentda qoliplash va ishlab chiqarish xizmatlari | Professional plastmassa quyish | FabLab CFYI",
+      description: "Toshkent, O'zbekistonda professional qoliplash va ishlab chiqarish xizmatlari. Plastmassa quyish, silikon qoliplash, ehtiyot qismlar ishlab chiqarish va ommaviy ishlab chiqarish.",
+      keywords: "plastmassa quyish Toshkent, qoliplash xizmatlari O'zbekiston, silikon qoliplash, plastik ishlab chiqarish, ehtiyot qismlar tayyorlash, ommaviy ishlab chiqarish, sanoat qoliplashi, qolip yasash"
+    }
+  };
+
   // Define JSON-LD schema for Mould page
   const mouldSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Molding & Production Services",
+    "name": currentLang === "ru" ? "Услуги литья и производства в Ташкенте" : 
+            currentLang === "uz" ? "Toshkentda qoliplash va ishlab chiqarish xizmatlari" : 
+            "Molding & Production Services in Tashkent",
     "provider": {
       "@type": "Organization",
       "name": "FabLab CFYI",
-      "url": "https://fablab-cfyi.uz"
+      "url": "https://fablab-cfyi.uz",
+      "logo": "https://fablab-cfyi.uz/fablab/logo.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "Uzbekistan",
+        "addressLocality": "Tashkent"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+998770884977",
+        "contactType": "customer service"
+      }
     },
     "serviceType": "Manufacturing",
-    "description": "Professional molding and production services including injection molding, silicone molding, and mass production capabilities for industrial applications.",
+    "description": currentLang === "ru" ? "Профессиональные услуги литья и производства в Ташкенте, включая литье пластмасс, силиконовое литье и массовое производство для промышленных применений." : 
+                   currentLang === "uz" ? "Toshkentda professional qoliplash va ishlab chiqarish xizmatlari, jumladan plastmassa quyish, silikon qoliplash va sanoat uchun ommaviy ishlab chiqarish." : 
+                   "Professional molding and production services in Tashkent including injection molding, silicone molding, and mass production capabilities for industrial applications.",
+    "areaServed": {
+      "@type": "Country",
+      "name": "Uzbekistan"
+    },
     "offers": {
       "@type": "Offer",
-      "description": "Injection molding, silicone molding, production services"
+      "description": currentLang === "ru" ? "Профессиональные услуги литья и производства" : 
+                     currentLang === "uz" ? "Professional qoliplash va ishlab chiqarish xizmatlari" : 
+                     "Professional molding and production services",
+      "priceCurrency": "UZS",
+      "availability": "https://schema.org/InStock"
+    },
+    "image": "https://fablab-cfyi.uz/mould/imhero.webp",
+    "url": "https://fablab-cfyi.uz/injection-molding",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": currentLang === "ru" ? "Услуги литья и производства" : 
+              currentLang === "uz" ? "Qoliplash va ishlab chiqarish xizmatlari" : 
+              "Molding & Production Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "name": currentLang === "ru" ? "Литье пластмасс под давлением" : 
+                  currentLang === "uz" ? "Bosim ostida plastmassa quyish" : 
+                  "Injection Molding",
+          "description": currentLang === "ru" ? "Профессиональное литье пластиковых изделий под давлением" : 
+                         currentLang === "uz" ? "Professional plastik mahsulotlarni bosim ostida quyish" : 
+                         "Professional plastic injection molding services"
+        },
+        {
+          "@type": "Offer",
+          "name": currentLang === "ru" ? "Силиконовое литье" : 
+                  currentLang === "uz" ? "Silikon qoliplash" : 
+                  "Silicone Molding",
+          "description": currentLang === "ru" ? "Создание силиконовых форм и литье изделий" : 
+                         currentLang === "uz" ? "Silikon qoliplar yaratish va mahsulot quyish" : 
+                         "Silicone mold creation and casting services"
+        },
+        {
+          "@type": "Offer",
+          "name": currentLang === "ru" ? "Массовое производство" : 
+                  currentLang === "uz" ? "Ommaviy ishlab chiqarish" : 
+                  "Mass Production",
+          "description": currentLang === "ru" ? "Крупносерийное производство изделий" : 
+                         currentLang === "uz" ? "Mahsulotlarni katta miqdorda ishlab chiqarish" : 
+                         "High-volume manufacturing capabilities"
+        },
+        {
+          "@type": "Offer",
+          "name": currentLang === "ru" ? "Производство запчастей" : 
+                  currentLang === "uz" ? "Ehtiyot qismlar ishlab chiqarish" : 
+                  "Spare Parts Manufacturing",
+          "description": currentLang === "ru" ? "Изготовление запасных частей и компонентов" : 
+                         currentLang === "uz" ? "Ehtiyot qismlar va komponentlar tayyorlash" : 
+                         "Custom spare parts and component manufacturing"
+        }
+      ]
     }
   };
+
+  // Define breadcrumb schema
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": currentLang === "ru" ? "Главная" : 
+                currentLang === "uz" ? "Bosh sahifa" : 
+                "Home",
+        "item": "https://fablab-cfyi.uz/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": currentLang === "ru" ? "Литье и производство" : 
+                currentLang === "uz" ? "Qoliplash va ishlab chiqarish" : 
+                "Molding & Production",
+        "item": "https://fablab-cfyi.uz/injection-molding"
+      }
+    ]
+  };
+
+  // Add FAQ schema for common questions
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": currentLang === "ru" ? "Сколько стоит литье пластмасс в Ташкенте?" : 
+                currentLang === "uz" ? "Toshkentda plastmassa quyish qancha turadi?" : 
+                "How much does injection molding cost in Tashkent?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": currentLang === "ru" ? "Стоимость литья зависит от сложности детали, объема производства и выбранного материала. Свяжитесь с нами для получения индивидуального расчета." : 
+                  currentLang === "uz" ? "Quyish narxi qismning murakkabligi, ishlab chiqarish hajmi va tanlangan materialga bog'liq. Individual hisob-kitob olish uchun biz bilan bog'laning." : 
+                  "The cost of injection molding depends on part complexity, production volume, and selected material. Contact us for an individual calculation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": currentLang === "ru" ? "Какие материалы можно использовать для литья?" : 
+                currentLang === "uz" ? "Qoliplash uchun qanday materiallardan foydalanish mumkin?" : 
+                "What materials can be used for molding?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": currentLang === "ru" ? "Мы работаем с широким спектром материалов, включая различные пластики (ABS, PP, PE, PC), силиконы, и специальные композитные материалы для различных применений." : 
+                  currentLang === "uz" ? "Biz turli xil materiallar bilan ishlaymiz, jumladan turli plastiklar (ABS, PP, PE, PC), silikonlar va turli ilovalar uchun maxsus kompozit materiallar." : 
+                  "We work with a wide range of materials including various plastics (ABS, PP, PE, PC), silicones, and special composite materials for different applications."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": currentLang === "ru" ? "Сколько времени занимает производство запчастей?" : 
+                currentLang === "uz" ? "Ehtiyot qismlar ishlab chiqarish qancha vaqt oladi?" : 
+                "How long does spare parts production take?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": currentLang === "ru" ? "Время производства зависит от сложности детали и объема заказа. Простые запчасти могут быть изготовлены в течение 3-7 дней, сложные проекты могут занять 2-4 недели." : 
+                  currentLang === "uz" ? "Ishlab chiqarish vaqti qismning murakkabligi va buyurtma hajmiga bog'liq. Oddiy ehtiyot qismlar 3-7 kun ichida tayyorlanishi mumkin, murakkab loyihalar 2-4 hafta davom etishi mumkin." : 
+                  "Production time depends on part complexity and order volume. Simple spare parts can be manufactured within 3-7 days, complex projects may take 2-4 weeks."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": currentLang === "ru" ? "Каковы ограничения при литье пластмасс?" : 
+                currentLang === "uz" ? "Plastmassa quyishda qanday cheklovlar mavjud?" : 
+                "What are the limitations of injection molding?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": currentLang === "ru" ? "Основные ограничения включают толщину стенок детали, углы извлечения, и минимальные размеры элементов. Наша команда поможет оптимизировать дизайн для производства." : 
+                  currentLang === "uz" ? "Asosiy cheklovlar qismning devor qalinligi, chiqarish burchaklari va elementlarning minimal o'lchamlarini o'z ichiga oladi. Bizning jamoamiz ishlab chiqarish uchun dizaynni optimallashtirish yordam beradi." : 
+                  "Main limitations include part wall thickness, draft angles, and minimum feature sizes. Our team will help optimize your design for manufacturing."
+        }
+      }
+    ]
+  };
+
+  // Combine schemas for SEO
+  const combinedSchema = [mouldSchema, breadcrumbSchema, faqSchema];
 
   useEffect(() => {
     // Scroll to top when component mounts
@@ -159,12 +332,12 @@ const MouldPage = () => {
   return (
     <div className="flex min-h-screen flex-col bg-[#f5f5f7]">
       <SEOHelmet
-        title="Molding & Production Services"
-        description="Professional molding and production services in Uzbekistan. Injection molding, silicone molding, and mass production capabilities for industrial applications."
-        keywords="литье пластмасс Ташкент, plastmassa quyish Toshkent, силиконовое литье, silikon quyish, производство деталей Узбекистан, detal ishlab chiqarish, промышленное литье, sanoat quyish, массовое производство, ommaviy ishlab chiqarish, изготовление форм, qolip tayyorlash"
-        image="/mould/hero.webp"
-        schema={mouldSchema}
-        canonicalPath="/mould"
+        title={seoData[currentLang]?.title || seoData.en.title}
+        description={seoData[currentLang]?.description || seoData.en.description}
+        keywords={seoData[currentLang]?.keywords || seoData.en.keywords}
+        image="/mould/imhero.webp"
+        schema={combinedSchema}
+        canonicalPath="/injection-molding"
       />
       <Header />
       

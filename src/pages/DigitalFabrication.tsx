@@ -17,19 +17,87 @@ const DigitalFabricationPage = () => {
   const fabricationSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Digital Fabrication Services",
+    "name": "Digital Fabrication Services in Uzbekistan",
     "provider": {
       "@type": "Organization",
       "name": "FabLab CFYI",
-      "url": "https://fablab-cfyi.uz"
+      "url": "https://fablab-cfyi.uz",
+      "logo": "https://fablab-cfyi.uz/fablab/logo.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "Uzbekistan",
+        "addressLocality": "Tashkent"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+998770884977",
+        "contactType": "customer service"
+      }
     },
     "serviceType": "Digital Fabrication",
     "description": "Professional digital fabrication services including CNC machining, laser cutting, precision manufacturing, and rapid prototyping for industrial and commercial applications.",
+    "areaServed": {
+      "@type": "Country",
+      "name": "Uzbekistan"
+    },
     "offers": {
       "@type": "Offer",
-      "description": "CNC machining, laser cutting, digital manufacturing services"
+      "description": "CNC machining, laser cutting, digital manufacturing services",
+      "priceCurrency": "UZS",
+      "availability": "https://schema.org/InStock"
+    },
+    "image": "https://fablab-cfyi.uz/digital-fabrication/hero.webp",
+    "url": "https://fablab-cfyi.uz/digital-fabrication",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Digital Fabrication Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "name": "CNC Machining",
+          "description": "Precision CNC machining services for various materials"
+        },
+        {
+          "@type": "Offer",
+          "name": "Laser Cutting",
+          "description": "High-precision laser cutting services"
+        },
+        {
+          "@type": "Offer",
+          "name": "UV Printing",
+          "description": "UV printing on various materials and surfaces"
+        },
+        {
+          "@type": "Offer",
+          "name": "Precision Manufacturing",
+          "description": "High-precision manufacturing services for industrial applications"
+        }
+      ]
     }
   };
+
+  // Define breadcrumb schema
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://fablab-cfyi.uz/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Digital Fabrication Services",
+        "item": "https://fablab-cfyi.uz/digital-fabrication"
+      }
+    ]
+  };
+
+  // Combine schemas for SEO
+  const combinedSchema = [fabricationSchema, breadcrumbSchema];
 
   useEffect(() => {
     // Scroll to top when component mounts
@@ -53,7 +121,7 @@ const DigitalFabricationPage = () => {
         description="Professional digital fabrication services in Uzbekistan. CNC machining, laser cutting, precision manufacturing, and rapid prototyping for industrial applications. Advanced manufacturing solutions."
         keywords="изготовление деталей Ташкент, detal tayyorlash Toshkent, фрезерование ЧПУ, CNC ishlov berish, лазерная резка Узбекистан, lazer kesish, производство на заказ, buyurtma bo'yicha ishlab chiqarish, UV печать, стикеры Ташкент, stiker ishlab chiqarish, прецизионное производство"
         image="/digital-fabrication/hero.webp"
-        schema={fabricationSchema}
+        schema={combinedSchema}
         canonicalPath="/digital-fabrication"
       />
       <Header />

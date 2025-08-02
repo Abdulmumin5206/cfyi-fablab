@@ -133,7 +133,7 @@ const Footer = ({ bgClass = "bg-[#212121]", textClass = "text-white" }: FooterPr
                 {
                   id: "molding",
                   titleKey: "serviceCategories.molding.title",
-                  link: "/mould"
+                  link: "/injection-molding"
                 },
                 {
                   id: "digital-fabrication",
@@ -148,7 +148,7 @@ const Footer = ({ bgClass = "bg-[#212121]", textClass = "text-white" }: FooterPr
                 {
                   id: "3d-scanning",
                   titleKey: "serviceCategories.3dScanning.title",
-                  link: "/3d-scanning"
+                  link: "/3d-scanning-services"
                 }
               ].map((service) => (
                 <li key={service.id}>

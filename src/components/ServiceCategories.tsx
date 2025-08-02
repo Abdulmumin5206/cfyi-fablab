@@ -53,7 +53,7 @@ const ServiceCategories = () => {
       ],
       logoText: "Molding & Production",
       buttonTextKey: "serviceCategories.molding.title",
-      buttonLink: "/mould",
+      buttonLink: "/injection-molding",
       color: "bg-[#0e9a48]",
     },
     {
@@ -92,7 +92,7 @@ const ServiceCategories = () => {
       ],
       logoText: "3D Scanning",
       buttonTextKey: "serviceCategories.3dScanning.title",
-      buttonLink: "/3d-scanning",
+      buttonLink: "/3d-scanning-services",
       color: "bg-[#ff6b6b]",
     },
   ];

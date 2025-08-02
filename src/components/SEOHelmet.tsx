@@ -7,7 +7,7 @@ interface SEOHelmetProps {
   description?: string;
   keywords?: string;
   image?: string;
-  schema?: object;
+  schema?: any;
   canonicalPath?: string;
   noIndex?: boolean;
 }
@@ -92,6 +92,7 @@ const SEOHelmet = ({
     
     // Update Twitter tags
     const twitterTags = {
+      'twitter:card': 'summary_large_image',
       'twitter:title': title ? `${title} | FabLab CFYI` : 'FabLab CFYI - Innovation and Digital Fabrication in Uzbekistan',
       'twitter:description': description || 'Discover cutting-edge digital fabrication, 3D printing, and engineering solutions at FabLab CFYI.',
       'twitter:image': fullImageUrl
@@ -106,6 +107,31 @@ const SEOHelmet = ({
       }
       metaTag.setAttribute('content', content);
     });
+    
+    // Update hreflang tags for multilingual SEO
+    const hreflangUrls = {
+      en: `${baseUrl}/en${canonicalPath || location.pathname}`,
+      ru: `${baseUrl}/ru${canonicalPath || location.pathname}`,
+      uz: `${baseUrl}/uz${canonicalPath || location.pathname}`
+    };
+
+    // Remove existing hreflang tags
+    document.querySelectorAll('link[hreflang]').forEach(tag => tag.remove());
+
+    Object.entries(hreflangUrls).forEach(([lang, url]) => {
+      const hreflangTag = document.createElement('link');
+      hreflangTag.setAttribute('rel', 'alternate');
+      hreflangTag.setAttribute('hreflang', lang);
+      hreflangTag.setAttribute('href', url);
+      document.head.appendChild(hreflangTag);
+    });
+
+    // Add x-default hreflang
+    const xDefaultTag = document.createElement('link');
+    xDefaultTag.setAttribute('rel', 'alternate');
+    xDefaultTag.setAttribute('hreflang', 'x-default');
+    xDefaultTag.setAttribute('href', `${baseUrl}${canonicalPath || location.pathname}`);
+    document.head.appendChild(xDefaultTag);
     
     // Update structured data
     if (schema) {
@@ -123,7 +149,7 @@ const SEOHelmet = ({
     return () => {
       // Cleanup function not needed as we're updating existing tags
     };
-  }, [title, description, keywords, image, schema, fullUrl, fullImageUrl, noIndex, currentLang]);
+  }, [title, description, keywords, image, schema, fullUrl, fullImageUrl, currentLang, canonicalPath, location.pathname]);
   
   // This component doesn't render anything
   return null;

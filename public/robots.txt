@@ -2,18 +2,29 @@
 User-agent: *
 Allow: /
 
+# Explicitly allow access to problematic pages
+Allow: /mould
+Allow: /digital-fabrication
+Allow: /digital-fabrication/precision-manufacturing
+Allow: /courses
+Allow: /3d-scanning
+Allow: /projects
+
 # Sitemap location
 Sitemap: https://fablab-cfyi.uz/sitemap.xml
 
 # Specific rules for major search engines
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Yandexbot
 Allow: /
+Crawl-delay: 1
 
 # Social media crawlers
 User-agent: Twitterbot

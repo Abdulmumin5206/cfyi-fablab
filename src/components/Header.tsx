@@ -18,6 +18,24 @@ const Header = () => {
   const location = useLocation();
   const navigate = useNavigate();
   
+  // Helper function to get SEO-friendly URLs based on language
+  const getSEOUrl = (service: string) => {
+    const currentLang = i18n.language;
+    switch (service) {
+      case '3d-printing':
+        // Use SEO-friendly URLs but keep them simple without language prefixes
+        switch (currentLang) {
+          case 'ru':
+          case 'uz':
+            return '/3d-printing-tashkent'; // More descriptive for local SEO
+          default:
+            return '/3d-printing-services'; // Commercial intent for English
+        }
+      default:
+        return `/${service}`;
+    }
+  };
+  
   // Helper function to normalize paths (handles both with and without trailing slashes)
   const normalizePath = (path: string) => {
     // Special handling for root path
@@ -34,11 +52,14 @@ const Header = () => {
     return location.pathname.startsWith(prefix);
   };
   
-  const is3DPrintingPage = normalizePath("/3d-printing");
+  // Updated to check for all 3D printing URL variations
+  const is3DPrintingPage = normalizePath("/3d-printing") || 
+                           normalizePath("/3d-printing-services") || 
+                           normalizePath("/3d-printing-tashkent");
   const is3DPrintingBlogPost = normalizePath("/projects/3d-printing-innovations");
   const isBlogPage = normalizePath("/projects") || pathStartsWith("/projects/");
   const isCoursesPage = normalizePath("/courses");
-  const is3DScanningPage = normalizePath("/3d-scanning");
+  const is3DScanningPage = normalizePath("/3d-scanning-services");
   const isHomePage = normalizePath("/");
   
   // const shouldUseBlackTheme = is3DPrintingBlogPost || isBlogPage;
@@ -370,14 +391,14 @@ const Header = () => {
                          }}>
                       <div className="flex flex-col">
                         <Link
-                          to="/mould"
+                          to="/injection-molding"
                           style={textStyle}
                           className={`flex items-center ${isScrolled || shouldUseBlackText ? 'text-black' : 'text-white'} hover:text-white ${isScrolled || shouldUseBlackText ? 'bg-white hover:bg-[#329db7]' : 'bg-transparent hover:bg-[#329db7]'} transition-all duration-300 ${i18n.language === 'ru' || i18n.language === 'uz' ? 'text-xs lg:text-sm' : 'text-sm lg:text-base'} p-3 w-full border-b ${isScrolled || shouldUseBlackText ? 'border-black' : 'border-white'} last:border-b-0`}
                         >
                           {t('serviceCategories.molding.title')}
                         </Link>
                         <Link
-                          to="/3d-printing"
+                          to={getSEOUrl('3d-printing')}
                           style={textStyle}
                           className={`flex items-center ${isScrolled || shouldUseBlackText ? 'text-black' : 'text-white'} hover:text-white ${isScrolled || shouldUseBlackText ? 'bg-white hover:bg-[#329db7]' : 'bg-transparent hover:bg-[#329db7]'} transition-all duration-300 ${i18n.language === 'ru' || i18n.language === 'uz' ? 'text-xs lg:text-sm' : 'text-sm lg:text-base'} p-3 w-full border-b ${isScrolled || shouldUseBlackText ? 'border-black' : 'border-white'} last:border-b-0`}
                         >
@@ -398,7 +419,7 @@ const Header = () => {
                           {t('serviceCategories.precisionManufacturing.title')}
                         </Link>
                         <Link
-                          to="/3d-scanning"
+                          to="/3d-scanning-services"
                           style={textStyle}
                           className={`flex items-center ${isScrolled || shouldUseBlackText ? 'text-black' : 'text-white'} hover:text-white ${isScrolled || shouldUseBlackText ? 'bg-white hover:bg-[#329db7]' : 'bg-transparent hover:bg-[#329db7]'} transition-all duration-300 ${i18n.language === 'ru' || i18n.language === 'uz' ? 'text-xs lg:text-sm' : 'text-sm lg:text-base'} p-3 w-full border-b ${isScrolled || shouldUseBlackText ? 'border-black' : 'border-white'} last:border-b-0`}
                         >

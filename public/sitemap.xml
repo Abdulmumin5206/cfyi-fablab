@@ -1,64 +1,99 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://fablab-cfyi.uz/</loc>
-    <lastmod>2025-06-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <loc>https://fablab-cfyi.uz/3d-scanning</loc>
+    <lastmod>2025-01-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://fablab-cfyi.uz/3d-scanning</loc>
-    <lastmod>2025-06-25</lastmod>
+    <loc>https://fablab-cfyi.uz/3d-scanning-services</loc>
+    <lastmod>2025-01-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://fablab-cfyi.uz/reverse-engineering</loc>
+    <lastmod>2025-01-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://fablab-cfyi.uz/quality-control-scanning</loc>
+    <lastmod>2025-01-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://fablab-cfyi.uz/injection-molding</loc>
+    <lastmod>2025-01-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://fablab-cfyi.uz/molding-services</loc>
+    <lastmod>2025-01-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://fablab-cfyi.uz/plastic-molding</loc>
+    <lastmod>2025-01-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://fablab-cfyi.uz/mould</loc>
-    <lastmod>2025-06-25</lastmod>
+    <lastmod>2025-01-10</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://fablab-cfyi.uz/</loc>
+    <lastmod>2025-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
   </url>
 
   <url>
     <loc>https://fablab-cfyi.uz/digital-fabrication</loc>
-    <lastmod>2025-06-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://fablab-cfyi.uz/digital-fabrication/#precision-manufacturing</loc>
-    <lastmod>2025-06-25</lastmod>
+    <lastmod>2025-08-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://fablab-cfyi.uz/courses</loc>
-    <lastmod>2025-06-25</lastmod>
+    <lastmod>2025-08-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://fablab-cfyi.uz/3d-printing</loc>
-    <lastmod>2025-06-25</lastmod>
+    <lastmod>2025-08-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://fablab-cfyi.uz/blog</loc>
-    <lastmod>2025-06-25</lastmod>
+    <lastmod>2025-08-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
 
   <url>
-    <loc>https://fablab-cfyi.uz/blog/3d-printing-innovations</loc>
-    <lastmod>2025-06-25</lastmod>
+    <loc>https://fablab-cfyi.uz/blog/blogpost</loc>
+    <lastmod>2025-08-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

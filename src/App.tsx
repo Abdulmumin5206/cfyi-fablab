@@ -234,10 +234,34 @@ const App = () => {
             <RouteHandler>
               <Routes>
                 <Route path="/" element={<Index />} />
+                
+                {/* 3D Printing Routes - SEO Optimized but simplified */}
                 <Route path="/3d-printing" element={<ThreeDPrintingPage />} />
+                <Route path="/3d-printing-services" element={<ThreeDPrintingPage />} />
+                <Route path="/3d-printing-tashkent" element={<ThreeDPrintingPage />} />
+                
+                {/* Molding & Production Routes - SEO Optimized */}
                 <Route path="/mould" element={<MouldPage />} />
-                <Route path="/digital-fabrication" element={<DigitalFabricationPage />} />
+                <Route path="/molding" element={<MouldPage />} />
+                <Route path="/injection-molding" element={<MouldPage />} />
+                <Route path="/molding-services" element={<MouldPage />} />
+                <Route path="/injection-molding-tashkent" element={<MouldPage />} />
+                <Route path="/plastic-molding" element={<MouldPage />} />
+                <Route path="/production-services" element={<MouldPage />} />
+                <Route path="/manufacturing" element={<MouldPage />} />
+                
+                {/* 3D Scanning Routes - SEO Optimized */}
                 <Route path="/3d-scanning" element={<ThreeDScanningPage />} />
+                <Route path="/3d-scanning-services" element={<ThreeDScanningPage />} />
+                <Route path="/3d-scanning-tashkent" element={<ThreeDScanningPage />} />
+                <Route path="/reverse-engineering" element={<ThreeDScanningPage />} />
+                <Route path="/quality-control-scanning" element={<ThreeDScanningPage />} />
+                <Route path="/digital-archiving" element={<ThreeDScanningPage />} />
+                <Route path="/3d-metrology" element={<ThreeDScanningPage />} />
+                
+                {/* Other Services */}
+                <Route path="/digital-fabrication" element={<DigitalFabricationPage />} />
+                <Route path="/digital-fabrication/precision-manufacturing" element={<DigitalFabricationPage />} />
                 <Route path="/courses" element={<CoursesPage />} />
                 <Route path="/projects" element={<BlogIndex />} />
                 <Route path="/projects/:slug" element={<BlogPost />} />

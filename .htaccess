@@ -1,9 +1,14 @@
+# Prevent directory listing
 Options -Indexes
 
 # Enable rewrite engine
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteBase /
+    
+    # Allow Googlebot and other search engines access
+    RewriteCond %{HTTP_USER_AGENT} (Googlebot|bingbot|Yandexbot|DuckDuckBot|Slurp|Baiduspider) [NC]
+    RewriteRule .* - [E=ALLOW_BOT:1]
     
     # If the request is not for a valid file or directory
     RewriteCond %{REQUEST_FILENAME} !-f
@@ -64,21 +69,6 @@ Options -Indexes
     RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 </IfModule>
 
-# Gzip compression
-<IfModule mod_deflate.c>
-    AddOutputFilterByType DEFLATE text/plain
-    AddOutputFilterByType DEFLATE text/html
-    AddOutputFilterByType DEFLATE text/xml
-    AddOutputFilterByType DEFLATE text/css
-    AddOutputFilterByType DEFLATE text/javascript
-    AddOutputFilterByType DEFLATE application/xml
-    AddOutputFilterByType DEFLATE application/xhtml+xml
-    AddOutputFilterByType DEFLATE application/rss+xml
-    AddOutputFilterByType DEFLATE application/javascript
-    AddOutputFilterByType DEFLATE application/x-javascript
-    AddOutputFilterByType DEFLATE application/json
-</IfModule>
-
 # Security headers
 <IfModule mod_headers.c>
     Header set X-Content-Type-Options "nosniff"
@@ -86,6 +76,39 @@ Options -Indexes
     Header set X-Frame-Options "SAMEORIGIN"
     Header set Referrer-Policy "strict-origin-when-cross-origin"
     
-    # CORS Headers
+    # Allow search engines
+    <FilesMatch ".*">
+        SetEnvIf User-Agent "Googlebot|bingbot|Yandexbot|DuckDuckBot|Slurp|Baiduspider" search_bot
+        Header set Access-Control-Allow-Origin "*" env=search_bot
+        Header unset X-Frame-Options env=search_bot
+    </FilesMatch>
+    
+    # CORS Headers for all requests
     Header set Access-Control-Allow-Origin "*"
+    
+    # Fix for 403 errors on specific pages
+    <FilesMatch "^(mould|digital-fabrication|courses|3d-scanning)">
+        Header set X-Robots-Tag "all"
+        Header unset X-Frame-Options
+        Header set Access-Control-Allow-Origin "*"
+    </FilesMatch>
 </IfModule>
+
+# Set default file permissions (helps with 403 errors)
+<IfModule mod_php.c>
+    php_value upload_max_filesize 64M
+    php_value post_max_size 64M
+    php_value max_execution_time 300
+    php_value max_input_time 300
+</IfModule>
+
+# Fix for 403 errors - ensure files have correct permissions
+<FilesMatch "\.(html|htm|js|css|jpg|jpeg|png|gif|webp|svg|ico|mp4|webm|woff|woff2|ttf|eot)$">
+    <IfModule mod_authz_core.c>
+        Require all granted
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Allow from all
+    </IfModule>
+</FilesMatch>

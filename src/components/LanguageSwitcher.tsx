@@ -18,6 +18,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
   const { i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [showDebug, setShowDebug] = useState(false);
+  const [isChanging, setIsChanging] = useState(false);
   
   const languages = [
     { code: 'en', name: 'English' },
@@ -39,15 +40,47 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
     }
   }, [i18n.language, currentLanguageCode]);
 
-  const changeLanguage = (langCode: string) => {
-    if (langCode !== i18n.language) {
-      i18n.changeLanguage(langCode);
+  const changeLanguage = async (langCode: string) => {
+    if (langCode !== i18n.language && !isChanging) {
+      setIsChanging(true);
+      
+      try {
+        // Show loading state
+        console.log(`🔄 Switching language to: ${langCode}`);
+        
+        // Change the language
+        await i18n.changeLanguage(langCode);
 
-      // Trigger a window resize event after a small delay
-      // to ensure any responsive elements recalculate their dimensions
-      setTimeout(() => {
-        window.dispatchEvent(new Event('resize'));
-      }, 100);
+        // Trigger a window resize event after a small delay
+        // to ensure any responsive elements recalculate their dimensions
+        setTimeout(() => {
+          window.dispatchEvent(new Event('resize'));
+        }, 100);
+
+        // Optional: Add a subtle visual feedback
+        document.body.style.transition = 'opacity 0.1s ease-out';
+        document.body.style.opacity = '0.95';
+        
+        setTimeout(() => {
+          document.body.style.opacity = '1';
+          document.body.style.transition = '';
+        }, 150);
+
+        console.log(`✅ Language switched to: ${langCode}`);
+        
+        // Future enhancement: Update URL if URL-based routing is implemented
+        // if (process.env.REACT_APP_ENABLE_URL_LANGUAGE_ROUTING === 'true') {
+        //   // Update URL without page refresh
+        //   const currentPath = window.location.pathname;
+        //   const newPath = currentPath.replace(/^\/(en|ru|uz)/, `/${langCode}`);
+        //   window.history.replaceState(null, '', newPath);
+        // }
+        
+      } catch (error) {
+        console.error('❌ Error changing language:', error);
+      } finally {
+        setIsChanging(false);
+      }
     }
     
     setIsOpen(false);
@@ -100,11 +133,14 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
           setIsOpen(!isOpen);
         }}
         onContextMenu={toggleDebug}
-        className={`flex items-center border hover:text-[#329db7] transition-opacity px-2 sm:px-3 py-1.5 sm:py-2 h-[36px] sm:h-[40px] ${isLaptopScreen ? 'md:h-[36px]' : 'lg:h-[40px] xl:h-[44px]'} ${getBorderColor()} bg-transparent ${getTextColor()}`}
+        disabled={isChanging}
+        className={`flex items-center border hover:text-[#329db7] transition-opacity px-2 sm:px-3 py-1.5 sm:py-2 h-[36px] sm:h-[40px] ${isLaptopScreen ? 'md:h-[36px]' : 'lg:h-[40px] xl:h-[44px]'} ${getBorderColor()} bg-transparent ${getTextColor()} ${isChanging ? 'opacity-50 cursor-not-allowed' : ''}`}
         aria-label="Change language"
       >
-        <Globe className={`mr-1 h-4 w-4 ${getTextColor()}`} />
-        <span className="text-xs sm:text-sm font-medium uppercase">{currentLanguage.code}</span>
+        <Globe className={`mr-1 h-4 w-4 ${getTextColor()} ${isChanging ? 'animate-spin' : ''}`} />
+        <span className="text-xs sm:text-sm font-medium uppercase">
+          {isChanging ? '...' : currentLanguage.code}
+        </span>
       </button>
       
       {isOpen && (
@@ -116,13 +152,16 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
                 e.stopPropagation();
                 changeLanguage(language.code);
               }}
+              disabled={isChanging || language.code === currentLanguageCode}
               className={`w-full text-left px-3 py-2.5 flex items-center justify-between ${
                 isScrolled || shouldUseBlackText ? 'text-gray-800' : 'text-white'
               } ${
                 language.code === currentLanguageCode 
                   ? (isScrolled || shouldUseBlackText ? 'bg-gray-100' : 'bg-white/10') 
                   : (isScrolled || shouldUseBlackText ? 'hover:bg-gray-50' : 'hover:bg-white/5')
-              } transition-colors duration-150`}
+              } transition-colors duration-150 ${
+                isChanging || language.code === currentLanguageCode ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'
+              }`}
             >
               <span className="text-sm">{language.name}</span>
               <span className={`text-xs uppercase ${isScrolled || shouldUseBlackText ? 'text-gray-500' : 'text-white/70'}`}>{language.code}</span>
@@ -140,6 +179,8 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
           <p>navigator.language: {navigator.language}</p>
           <p>navigator.languages: {navigator.languages?.join(', ')}</p>
           <p>localStorage: {localStorage.getItem('i18nextLng')}</p>
+          <p>isChanging: {isChanging.toString()}</p>
+          <p>Current URL: {window.location.pathname}</p>
         </div>
       )}
     </div>

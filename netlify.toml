@@ -5,4 +5,37 @@
 [[redirects]]
   from = "/*"
   to = "/index.html"
-  status = 200 
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Access-Control-Allow-Origin = "*"
+
+# Special headers for search engines
+[[headers]]
+  for = "/mould"
+  [headers.values]
+    X-Robots-Tag = "all"
+    Access-Control-Allow-Origin = "*"
+
+[[headers]]
+  for = "/digital-fabrication"
+  [headers.values]
+    X-Robots-Tag = "all"
+    Access-Control-Allow-Origin = "*"
+
+[[headers]]
+  for = "/courses"
+  [headers.values]
+    X-Robots-Tag = "all"
+    Access-Control-Allow-Origin = "*"
+
+[[headers]]
+  for = "/3d-scanning"
+  [headers.values]
+    X-Robots-Tag = "all"
+    Access-Control-Allow-Origin = "*" 

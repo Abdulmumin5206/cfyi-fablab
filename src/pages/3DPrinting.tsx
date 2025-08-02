@@ -9,29 +9,172 @@ import SEOHelmet from "@/components/SEOHelmet";
 import GradientText from "@/components/GradientText";
 
 const ThreeDPrintingPage = () => {
-  const { t } = useTranslation('3dprinting');
+  const { t, i18n } = useTranslation('3dprinting');
   const videoRef = useRef<HTMLVideoElement>(null);
   const marketsRef = useRef<HTMLDivElement>(null);
   const [currentPrinterIndex, setCurrentPrinterIndex] = useState(0);
   const [isImageLoading, setIsImageLoading] = useState(true);
+  
+  const currentLang = i18n.language;
+
+  // Define multilingual SEO titles and descriptions
+  const seoData = {
+    en: {
+      title: "3D Printing Services in Tashkent | Professional 3D Printing | FabLab CFYI",
+      description: "Professional 3D printing services in Tashkent with FDM and SLA technologies. High-precision prototyping and functional parts manufacturing.",
+      keywords: "3D printing Tashkent, 3D printing services Uzbekistan, FDM printing, SLA printing, rapid prototyping"
+    },
+    ru: {
+      title: "3D печать в Ташкенте | Профессиональные услуги 3D печати | FabLab CFYI",
+      description: "Профессиональные услуги 3D печати в Ташкенте. Быстрое изготовление прототипов и деталей из различных материалов на FDM и SLA принтерах.",
+      keywords: "3D печать Ташкент, заказать 3D печать Узбекистан, печать на 3D принтере цена, услуги 3D печати пластиком, изготовление прототипов"
+    },
+    uz: {
+      title: "Toshkentda 3D bosib chiqarish | Professional 3D chop etish xizmatlari | FabLab CFYI",
+      description: "Toshkentda professional 3D bosib chiqarish xizmatlari. FDM va SLA texnologiyalari bilan prototiplar va funksional qismlarni tez tayyorlash.",
+      keywords: "3D bosib chiqarish Toshkent, 3D printer xizmati narxi, 3D modellarni chop etish, plastik 3D chop etish, 3D prototip yasash"
+    }
+  };
 
   // Define JSON-LD schema for 3D Printing page
   const printingSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "3D Printing Services",
+    "name": currentLang === "ru" ? "Услуги 3D печати в Ташкенте" : 
+            currentLang === "uz" ? "Toshkentda 3D bosib chiqarish xizmatlari" : 
+            "3D Printing Services in Tashkent",
     "provider": {
       "@type": "Organization",
       "name": "FabLab CFYI",
-      "url": "https://fablab-cfyi.uz"
+      "url": "https://fablab-cfyi.uz",
+      "logo": "https://fablab-cfyi.uz/fablab/logo.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "Uzbekistan",
+        "addressLocality": "Tashkent"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+998770884977",
+        "contactType": "customer service"
+      }
     },
     "serviceType": "3D Printing",
-    "description": "Professional 3D printing services including FDM and SLA technologies with a wide range of materials and applications.",
+    "description": currentLang === "ru" ? "Профессиональные услуги 3D печати в Ташкенте с использованием технологий FDM и SLA. Широкий выбор материалов для прототипирования и функциональных деталей." : 
+                   currentLang === "uz" ? "Toshkentda professional 3D bosib chiqarish xizmatlari, FDM va SLA texnologiyalari bilan. Prototiplar va funksional qismlar uchun materiallarning keng tanlovi." : 
+                   "Professional 3D printing services in Tashkent including FDM and SLA technologies with a wide range of materials and applications.",
+    "areaServed": {
+      "@type": "Country",
+      "name": "Uzbekistan"
+    },
     "offers": {
       "@type": "Offer",
-      "description": "Professional 3D printing services"
+      "description": currentLang === "ru" ? "Профессиональные услуги 3D печати" : 
+                     currentLang === "uz" ? "Professional 3D bosib chiqarish xizmatlari" : 
+                     "Professional 3D printing services",
+      "priceCurrency": "UZS",
+      "availability": "https://schema.org/InStock"
+    },
+    "image": "https://fablab-cfyi.uz/3dprinters/hero.webp",
+    "url": "https://fablab-cfyi.uz/3d-printing",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": currentLang === "ru" ? "Услуги 3D печати" : 
+              currentLang === "uz" ? "3D bosib chiqarish xizmatlari" : 
+              "3D Printing Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "name": currentLang === "ru" ? "FDM 3D печать" : 
+                  currentLang === "uz" ? "FDM 3D bosib chiqarish" : 
+                  "FDM 3D Printing",
+          "description": currentLang === "ru" ? "Печать методом послойного наплавления с различными материалами" : 
+                         currentLang === "uz" ? "Turli materiallar bilan qatlam qo'shish usuli orqali bosib chiqarish" : 
+                         "Fused Deposition Modeling printing with various materials"
+        },
+        {
+          "@type": "Offer",
+          "name": currentLang === "ru" ? "SLA 3D печать" : 
+                  currentLang === "uz" ? "SLA 3D bosib chiqarish" : 
+                  "SLA 3D Printing",
+          "description": currentLang === "ru" ? "Стереолитографическая печать с высокой точностью" : 
+                         currentLang === "uz" ? "Yuqori aniqlikdagi stereolitografiya bosib chiqarish" : 
+                         "Stereolithography printing with high precision resins"
+        },
+        {
+          "@type": "Offer",
+          "name": currentLang === "ru" ? "Быстрое прототипирование" : 
+                  currentLang === "uz" ? "Tezkor prototiplash" : 
+                  "Rapid Prototyping",
+          "description": currentLang === "ru" ? "Быстрое изготовление прототипов" : 
+                         currentLang === "uz" ? "Prototiplarni tez tayyorlash" : 
+                         "Quick turnaround prototype production"
+        }
+      ]
     }
   };
+
+  // Define breadcrumb schema
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": currentLang === "ru" ? "Главная" : 
+                currentLang === "uz" ? "Bosh sahifa" : 
+                "Home",
+        "item": "https://fablab-cfyi.uz/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": currentLang === "ru" ? "Услуги 3D печати" : 
+                currentLang === "uz" ? "3D bosib chiqarish xizmatlari" : 
+                "3D Printing Services",
+        "item": "https://fablab-cfyi.uz/3d-printing"
+      }
+    ]
+  };
+
+  // Combine schemas for SEO
+  const combinedSchema = [printingSchema, breadcrumbSchema];
+
+  // Add FAQ schema for common questions
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": currentLang === "ru" ? "Сколько стоит 3D печать в Ташкенте?" : 
+                currentLang === "uz" ? "Toshkentda 3D bosib chiqarish qancha turadi?" : 
+                "How much does 3D printing cost in Tashkent?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": currentLang === "ru" ? "Стоимость 3D печати зависит от размера модели, выбранного материала и сложности. Свяжитесь с нами для получения индивидуального расчета." : 
+                  currentLang === "uz" ? "3D bosib chiqarish narxi modelning hajmi, tanlangan material va murakkabligiga bog'liq. Individual hisob-kitob olish uchun biz bilan bog'laning." : 
+                  "The cost of 3D printing depends on the size of the model, selected material, and complexity. Contact us for an individual calculation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": currentLang === "ru" ? "Какие материалы для 3D печати вы используете?" : 
+                currentLang === "uz" ? "Qanday 3D bosib chiqarish materiallarini ishlatasiz?" : 
+                "What 3D printing materials do you use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": currentLang === "ru" ? "Мы используем широкий спектр материалов, включая PLA, PETG, ABS, нейлон, TPU, а также специальные композитные материалы и фотополимерные смолы для SLA печати." : 
+                  currentLang === "uz" ? "Biz PLA, PETG, ABS, nylon, TPU, shuningdek maxsus kompozit materiallar va SLA bosib chiqarish uchun fotopolimer smolalar kabi keng ko'lamli materiallardan foydalanamiz." : 
+                  "We use a wide range of materials including PLA, PETG, ABS, nylon, TPU, as well as special composite materials and photopolymer resins for SLA printing."
+        }
+      }
+    ]
+  };
+  
+  // Add faqSchema to combinedSchema
+  combinedSchema.push(faqSchema);
 
   const materialTypeKeys = [
     'generalPurpose',
@@ -49,9 +192,6 @@ const ThreeDPrintingPage = () => {
   useEffect(() => {
     // Scroll to top when component mounts
     window.scrollTo(0, 0);
-    
-    // Update document title
-    document.title = "3D Printing Services | Fablab Uzbekistan";
     
     console.log("3D Printing page mounted");
   }, []);
@@ -80,11 +220,11 @@ const ThreeDPrintingPage = () => {
   return (
     <div className="flex min-h-screen flex-col bg-[#f5f5f7]">
       <SEOHelmet
-        title="3D Printing Services"
-        description="Professional 3D printing services in Uzbekistan. From FDM to SLA, we offer high-quality 3D printing with various materials for prototyping, manufacturing and engineering solutions."
-        keywords="3D печать Ташкент, 3D bosib chiqarish Toshkent, 3D принтинг услуги, 3D print xizmatlari, печать пластиком Узбекистан, plastik bosib chiqarish, изготовление прототипов, prototip tayyorlash, 3D моделирование, 3D modellashtirish, FDM печать, SLA печать, промышленная 3D печать"
+        title={seoData[currentLang].title}
+        description={seoData[currentLang].description}
+        keywords={seoData[currentLang].keywords}
         image="/3dprinters/hero.webp"
-        schema={printingSchema}
+        schema={combinedSchema}
         canonicalPath="/3d-printing"
       />
       <Header />
@@ -99,7 +239,7 @@ const ThreeDPrintingPage = () => {
           )}
           <img 
             src="/3dprinters/hero.webp" 
-            alt="3D Printing Hero" 
+            alt={t("hero.altText")} 
             className="w-full h-full object-cover"
             onLoad={() => setIsImageLoading(false)}
           />
@@ -165,7 +305,7 @@ const ThreeDPrintingPage = () => {
                   <div className="aspect-[5/6] relative overflow-hidden shadow-2xl rounded-xl bg-white hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] transition-all duration-300">
                     <img 
                       src="/3dprinters/slaprinters.webp" 
-                      alt="Professional 3D Printing Equipment" 
+                      alt={t("slaPrinters.altText")} 
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -176,7 +316,7 @@ const ThreeDPrintingPage = () => {
                   <div className="aspect-[7/8] relative overflow-hidden shadow-xl rounded-xl bg-white hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] transition-all duration-300">
                     <img 
                       src="/3dprinters/hero22.webp" 
-                      alt="FDM 3D Printing Solutions" 
+                      alt={t("fdmPrinters.altText")} 
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -213,7 +353,7 @@ const ThreeDPrintingPage = () => {
                 <div className="relative rounded-xl overflow-hidden shadow-xl bg-white">
                   <img 
                     src="/3dprinters/FDM.webp" 
-                    alt="Complex 3D Printing" 
+                    alt={t("complexPrinting.altText")} 
                     className="w-full h-[500px] object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
@@ -493,7 +633,7 @@ const ThreeDPrintingPage = () => {
                 <div className="relative rounded-xl overflow-hidden shadow-xl bg-white w-[800px] max-w-full ml-auto">
                   <img 
                     src="/3dprinters/slahigh.webp" 
-                    alt="Full SLA Print" 
+                    alt={t("slaPrint.altText")} 
                     className="w-full h-[500px] object-cover"
                     width={800}
                     height={600}
@@ -507,7 +647,7 @@ const ThreeDPrintingPage = () => {
                   <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white shadow-[0_8px_32px_rgba(0,0,0,0.2)] group-hover:shadow-[0_16px_48px_rgba(0,0,0,0.3)] transition-all duration-300">
                     <img 
                       src="/3dprinters/slazoom.webp" 
-                      alt="SLA Print Detail Zoom" 
+                      alt={t("slaPrintDetail.altText")} 
                       className="w-full h-full object-cover transform scale-125 group-hover:scale-150 transition-transform duration-300"
                     />
                     {/* Subtle circular gradient overlay */}
@@ -767,14 +907,14 @@ const ThreeDPrintingPage = () => {
                     <div className="rounded-2xl overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
                       <img 
                         src="/3dprinters/course1.webp" 
-                        alt="3D Printing Basics" 
+                        alt={t("3dPrinting.course.images.basics.altText")} 
                         className="w-full h-48 object-cover"
                       />
                     </div>
                     <div className="rounded-2xl overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
                       <img 
                         src="/3dprinters/course2.webp" 
-                        alt="Advanced Techniques" 
+                        alt={t("3dPrinting.course.images.advanced.altText")} 
                         className="w-full h-64 object-cover"
                       />
                     </div>
@@ -783,14 +923,14 @@ const ThreeDPrintingPage = () => {
                     <div className="rounded-2xl overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
                       <img 
                         src="/3dprinters/course3.webp" 
-                        alt="Project Work" 
+                        alt={t("3dPrinting.course.images.projects.altText")} 
                         className="w-full h-64 object-cover"
                       />
                     </div>
                     <div className="rounded-2xl overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
                       <img 
                         src="/3dprinters/course4.webp" 
-                        alt="Professional Equipment" 
+                        alt={t("3dPrinting.course.images.equipment.altText")} 
                         className="w-full h-48 object-cover"
                       />
                     </div>

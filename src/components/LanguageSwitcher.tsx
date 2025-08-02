@@ -100,7 +100,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
           setIsOpen(!isOpen);
         }}
         onContextMenu={toggleDebug}
-        className={`flex items-center border hover:text-[#329db7] transition-opacity px-2 sm:px-3 py-1.5 sm:py-2 h-[32px] sm:h-[38px] md:h-[42px] ${isLaptopScreen ? 'md:h-[38px]' : 'lg:h-[42px] xl:h-[46px]'} ${getBorderColor()} bg-transparent ${getTextColor()}`}
+        className={`flex items-center border hover:text-[#329db7] transition-opacity px-2 sm:px-3 py-1.5 sm:py-2 h-[36px] sm:h-[40px] ${isLaptopScreen ? 'md:h-[36px]' : 'lg:h-[40px] xl:h-[44px]'} ${getBorderColor()} bg-transparent ${getTextColor()}`}
         aria-label="Change language"
       >
         <Globe className={`mr-1 h-4 w-4 ${getTextColor()}`} />

@@ -209,50 +209,38 @@ const HorizontalScrollSection = () => {
         }
       };
     } else {
-      // Mobile-optimized scroll handling
-      let ticking = false;
-      
+      // Mobile-optimized scroll handling - simplified and lightweight
       const handleMobileScroll = () => {
-        if (!ticking) {
-          requestAnimationFrame(() => {
-            if (!sectionRef.current || !containerRef.current) {
-              ticking = false;
-              return;
-            }
+        if (!sectionRef.current || !containerRef.current) return;
 
-            const sectionRect = sectionRef.current.getBoundingClientRect();
-            const sectionTop = sectionRect.top;
-            const sectionHeight = sectionRect.height;
-            const viewportHeight = window.innerHeight;
-            
-            const maxScroll = sectionHeight - viewportHeight;
-            const currentScroll = Math.max(0, -sectionTop);
-            
-            let rawProgress = Math.min(1, currentScroll / maxScroll);
-            
-            // More responsive thresholds for mobile
-            const startThreshold = 0.01;
-            const endThreshold = 0.97;
-            
-            if (rawProgress < startThreshold) {
-              setHasReachedStart(true);
-              setHasReachedEnd(false);
-              updateProgress(0);
-            } else if (rawProgress > endThreshold) {
-              setHasReachedEnd(true);
-              setHasReachedStart(false);
-              updateProgress(1);
-            } else {
-              const progress = (rawProgress - startThreshold) / (endThreshold - startThreshold);
-              const clampedProgress = Math.max(0, Math.min(1, progress));
-              setHasReachedStart(false);
-              setHasReachedEnd(false);
-              updateProgress(clampedProgress);
-            }
-            
-            ticking = false;
-          });
-          ticking = true;
+        const sectionRect = sectionRef.current.getBoundingClientRect();
+        const sectionTop = sectionRect.top;
+        const sectionHeight = sectionRect.height;
+        const viewportHeight = window.innerHeight;
+        
+        const maxScroll = sectionHeight - viewportHeight;
+        const currentScroll = Math.max(0, -sectionTop);
+        
+        let rawProgress = Math.min(1, currentScroll / maxScroll);
+        
+        // Simplified thresholds for mobile
+        const startThreshold = 0.01;
+        const endThreshold = 0.97;
+        
+        if (rawProgress < startThreshold) {
+          setHasReachedStart(true);
+          setHasReachedEnd(false);
+          updateProgress(0);
+        } else if (rawProgress > endThreshold) {
+          setHasReachedEnd(true);
+          setHasReachedStart(false);
+          updateProgress(1);
+        } else {
+          const progress = (rawProgress - startThreshold) / (endThreshold - startThreshold);
+          const clampedProgress = Math.max(0, Math.min(1, progress));
+          setHasReachedStart(false);
+          setHasReachedEnd(false);
+          updateProgress(clampedProgress);
         }
       };
 
@@ -282,7 +270,7 @@ const HorizontalScrollSection = () => {
     };
   }, [horizontalScrollActive, hasReachedStart, hasReachedEnd, isMobile]);
 
-  // Optimized touch handling for mobile
+  // Optimized touch handling for mobile - simplified and lightweight
   useEffect(() => {
     if (!containerRef.current || !horizontalScrollActive || !isMobile) return;
     
@@ -323,20 +311,8 @@ const HorizontalScrollSection = () => {
       if (touchData.isHorizontal) {
         e.preventDefault();
         
-        // Calculate velocity for smoother momentum
-        const now = Date.now();
-        const deltaTime = now - touchData.lastTime;
-        const deltaX = touchData.currentX - touch.clientX;
-        
-        if (deltaTime > 0) {
-          touchData.velocity = deltaX / deltaTime;
-        }
-        
-        touchData.currentX = touch.clientX;
-        touchData.lastTime = now;
-        
-        // More responsive touch sensitivity for mobile
-        const touchSensitivity = 0.003;
+        // Simplified touch sensitivity for mobile - much lighter
+        const touchSensitivity = 0.001; // Reduced from 0.003
         const progressChange = diffX * touchSensitivity;
         const newProgress = Math.max(0, Math.min(1, horizontalProgress + progressChange));
         
@@ -345,32 +321,8 @@ const HorizontalScrollSection = () => {
     };
     
     const handleTouchEnd = () => {
-      const touchData = touchDataRef.current;
-      
-      if (touchData.isHorizontal && Math.abs(touchData.velocity) > 0.1) {
-        // Apply momentum with easing
-        let currentVelocity = touchData.velocity;
-        const friction = 0.95; // Friction coefficient
-        const minVelocity = 0.01;
-        
-        const applyMomentum = () => {
-          if (Math.abs(currentVelocity) > minVelocity && !hasReachedStart && !hasReachedEnd) {
-            const progressChange = currentVelocity * 0.8;
-            const newProgress = Math.max(0, Math.min(1, horizontalProgress + progressChange));
-            
-            updateProgress(newProgress);
-            currentVelocity *= friction;
-            
-            rafIdRef.current = requestAnimationFrame(applyMomentum);
-          } else {
-            setIsScrolling(false);
-          }
-        };
-        
-        rafIdRef.current = requestAnimationFrame(applyMomentum);
-      } else {
-        setIsScrolling(false);
-      }
+      // Remove complex momentum - just end scrolling immediately
+      setIsScrolling(false);
     };
     
     const container = containerRef.current;

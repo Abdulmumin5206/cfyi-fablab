@@ -62,33 +62,33 @@ const ScrollImageSlider = () => {
     offset: ["start start", "end start"]
   });
   
-  // Use spring for smoother scrolling on mobile
+  // Simplified spring for mobile - much lighter
   const smoothProgress = useSpring(scrollYProgress, { 
-    damping: isMobile ? 20 : 30, 
-    stiffness: isMobile ? 90 : 100,
-    mass: isMobile ? 0.8 : 1
+    damping: isMobile ? 15 : 30, 
+    stiffness: isMobile ? 60 : 100,
+    mass: isMobile ? 0.5 : 1
   });
 
-  // Smoother transform mapping with more granular control
+  // Simplified transform mapping for mobile
   const activeIndex = useTransform(
-    isMobile ? smoothProgress : scrollYProgress,
+    isMobile ? scrollYProgress : scrollYProgress, // Remove spring for mobile
     [0, 0.33, 0.66, 1],
     [0, 1, 2, 2]
   );
 
-  // Pre-compute transforms for images with smoother transitions
+  // Simplified transforms for images on mobile
   const imageOpacities = [
-    useTransform(isMobile ? smoothProgress : scrollYProgress, [0, 0.25, 0.33], [1, 0.5, 0]),
-    useTransform(isMobile ? smoothProgress : scrollYProgress, [0.25, 0.33, 0.58, 0.66], [0, 1, 1, 0]),
-    useTransform(isMobile ? smoothProgress : scrollYProgress, [0.58, 0.66, 1], [0, 1, 1])
+    useTransform(isMobile ? scrollYProgress : scrollYProgress, [0, 0.25, 0.33], [1, 0.5, 0]),
+    useTransform(isMobile ? scrollYProgress : scrollYProgress, [0.25, 0.33, 0.58, 0.66], [0, 1, 1, 0]),
+    useTransform(isMobile ? scrollYProgress : scrollYProgress, [0.58, 0.66, 1], [0, 1, 1])
   ];
 
-  // Pre-compute transforms for quotes with ultra-smooth easing
+  // Simplified transforms for quotes on mobile
   const quoteTransforms = quotes.map((_, i) => ({
     yPosition: useTransform(
       activeIndex,
       [i - 0.6, i - 0.1, i, i + 0.1, i + 0.6],
-      [600, 100, 0, -100, -600]
+      isMobile ? [300, 50, 0, -50, -300] : [600, 100, 0, -100, -600] // Reduced range for mobile
     ),
     opacity: useTransform(
       activeIndex,
@@ -97,21 +97,14 @@ const ScrollImageSlider = () => {
     )
   }));
 
-  // Scroll indicator opacity - simplified
-  const scrollIndicatorOpacity = useTransform(isMobile ? smoothProgress : scrollYProgress, [0, 0.1], [1, 0]);
+  // Simplified scroll indicator opacity for mobile
+  const scrollIndicatorOpacity = useTransform(isMobile ? scrollYProgress : scrollYProgress, [0, 0.1], [1, 0]);
 
-  // Handle touch events for smoother mobile scrolling
+  // Simplified touch events for mobile - much lighter
   useEffect(() => {
     if (!containerRef.current || !isMobile) return;
     
-    let touchStartY = 0;
-    let lastTouchY = 0;
-    let lastScrollTop = 0;
-    
     const handleTouchStart = (e: TouchEvent) => {
-      touchStartY = e.touches[0].clientY;
-      lastTouchY = touchStartY;
-      lastScrollTop = window.scrollY;
       setIsTouching(true);
     };
     
@@ -184,7 +177,7 @@ const ScrollImageSlider = () => {
       className="relative h-[400vh] bg-[#f5f5f7] section-spacing-lg"
     >
       <div className="sticky top-0 h-screen">
-        {/* Background images with ultra-smooth transitions */}
+        {/* Background images with simplified transitions for mobile */}
         {images.map((src, i) => (
           <motion.div
             key={i}
@@ -192,8 +185,10 @@ const ScrollImageSlider = () => {
             style={{
               opacity: imageOpacities[i],
               zIndex: i + 1,
-              willChange: 'opacity, transform',
-              transform: 'translate3d(0, 0, 0)' // Force hardware acceleration
+              ...(isMobile ? {} : {
+                willChange: 'opacity, transform',
+                transform: 'translate3d(0, 0, 0)'
+              })
             }}
           >
             <img
@@ -207,9 +202,11 @@ const ScrollImageSlider = () => {
               decoding="async"
               sizes="100vw"
               style={{
-                willChange: 'transform',
-                transform: 'translate3d(0, 0, 0)',
-                backfaceVisibility: 'hidden'
+                ...(isMobile ? {} : {
+                  willChange: 'transform',
+                  transform: 'translate3d(0, 0, 0)',
+                  backfaceVisibility: 'hidden'
+                })
               }}
             />
             <div className="absolute inset-0 bg-black/25" />
@@ -225,7 +222,7 @@ const ScrollImageSlider = () => {
           </div>
         </div>
 
-        {/* Quotes with ultra-smooth animations - Only render when images are loaded to prioritize rendering */}
+        {/* Quotes with simplified animations for mobile - Only render when images are loaded to prioritize rendering */}
         {imagesLoaded && (
           <div className="absolute inset-0">
             {quotes.map((quote, i) => (
@@ -235,19 +232,23 @@ const ScrollImageSlider = () => {
                 style={{
                   opacity: quoteTransforms[i].opacity,
                   zIndex: 20 + i,
-                  willChange: 'opacity, transform',
-                  transform: 'translate3d(0, 0, 0)' // Hardware acceleration
+                  ...(isMobile ? {} : {
+                    willChange: 'opacity, transform',
+                    transform: 'translate3d(0, 0, 0)'
+                  })
                 }}
               >
                 <motion.div
                   className="bg-white p-8 sm:p-10 lg:p-12 xl:p-14 flex flex-col justify-center text-gray-800 border border-gray-200 shadow-lg w-full max-w-[340px] sm:max-w-[400px] lg:max-w-[480px] xl:max-w-[500px] h-[340px] sm:h-[400px] lg:h-[480px] xl:h-[480px] text-left relative"
                   style={{
                     y: quoteTransforms[i].yPosition,
-                    willChange: 'transform',
-                    transform: 'translate3d(0, 0, 0)', // Hardware acceleration
-                    backfaceVisibility: 'hidden', // Prevent flickering
-                    WebkitOverflowScrolling: 'touch', // Improve iOS scrolling
-                    touchAction: 'pan-x' // Better touch handling
+                    ...(isMobile ? {} : {
+                      willChange: 'transform',
+                      transform: 'translate3d(0, 0, 0)',
+                      backfaceVisibility: 'hidden',
+                      WebkitOverflowScrolling: 'touch',
+                      touchAction: 'pan-x'
+                    })
                   }}
                 >
                   <div className="absolute top-0 right-0 w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 bg-[#329db7] z-10" style={{ marginTop: "-1px", marginRight: "-1px" }}></div>
@@ -272,17 +273,19 @@ const ScrollImageSlider = () => {
           </div>
         )}
 
-        {/* Scroll indicator - simplified animation */}
+        {/* Scroll indicator - simplified for mobile */}
         <motion.div
           className="absolute bottom-3 sm:bottom-4 lg:bottom-6 left-1/2 transform -translate-x-1/2 z-50"
           style={{
             opacity: scrollIndicatorOpacity,
-            transform: 'translate3d(0, 0, 0)'
+            ...(isMobile ? {} : {
+              transform: 'translate3d(0, 0, 0)'
+            })
           }}
           animate={{ y: [0, 5, 0] }}
           transition={{
             repeat: Infinity,
-            duration: 1.5,
+            duration: isMobile ? 2 : 1.5, // Slower for mobile
             ease: "linear"
           }}
         >

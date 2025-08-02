@@ -573,21 +573,19 @@ const PrintingMaterials = () => {
   };
 
   return (
-    <section id="materials-section" className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
+    <section id="materials-section" className="section-spacing bg-[#f5f5f7]">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <div className="flex flex-col items-center">
-            <GradientText
-              colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
-              animationSpeed={4}
-              className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral'] mb-4"
-            >
-              {t('3dPrinting.materials.title')}
-            </GradientText>
-            <p className="text-gray-700 text-sm sm:text-base md:text-lg font-['Magistral'] max-w-2xl">
-              {t('3dPrinting.materials.subtitle')}
-            </p>
-          </div>
+        <div className="section-title-wrapper flex flex-col items-center">
+          <GradientText
+            colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+            animationSpeed={4}
+            className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral'] mb-4"
+          >
+            {t('3dPrinting.materials.title')}
+          </GradientText>
+          <p className="text-gray-700 text-sm sm:text-base md:text-lg font-['Magistral'] max-w-2xl">
+            {t('3dPrinting.materials.subtitle')}
+          </p>
         </div>
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-12">

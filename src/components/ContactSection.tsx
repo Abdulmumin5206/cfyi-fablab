@@ -67,10 +67,10 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact-section" className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
+    <section id="contact-section" className="section-spacing bg-[#f5f5f7]">
       <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
         {/* Section Header */}
-        <div className="text-left mb-3 sm:mb-4 md:mb-6 lg:mb-8">
+        <div className="section-title-wrapper">
           <div className="flex items-baseline gap-1">
             <GradientText
               colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}

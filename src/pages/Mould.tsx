@@ -247,9 +247,9 @@ const MouldPage = () => {
         </section>
         
         {/* Our Professions Section */}
-        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
+        <section className="section-spacing bg-[#f5f5f7]">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
-            <div className="text-left mb-16">
+            <div className="section-title-wrapper">
               <div className="flex items-baseline gap-2 mb-4 justify-center sm:justify-start">
                 <GradientText
                   colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
@@ -477,13 +477,13 @@ const MouldPage = () => {
         </section>
         
         {/* Premium Quality Section */}
-        <section id="premium-quality" className="bg-[#f5f5f7] py-8 sm:py-12 md:py-16 lg:py-20 overflow-visible">
+        <section id="premium-quality" className="section-spacing bg-[#f5f5f7] overflow-visible">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
             <div className="flex flex-col lg:flex-row items-start gap-8">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
                 <div className="mx-auto text-left lg:text-left flex flex-col items-start lg:items-start">
-                  <div className="mb-8">
+                  <div className="section-title-wrapper">
                     <GradientText
                       colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
                       animationSpeed={4}
@@ -537,9 +537,9 @@ const MouldPage = () => {
         </section>
         
         {/* Why Choose Plastic Moulding Section */}
-        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
+        <section className="section-spacing bg-[#f5f5f7]">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
-            <div className="text-center mb-8">
+            <div className="section-title-wrapper text-center">
               <div className="flex justify-center">
                 <GradientText
                   colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
@@ -687,12 +687,12 @@ const MouldPage = () => {
         </section>
         
         {/* Spare Parts Section */}
-        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7] text-gray-900">
+        <section className="section-spacing bg-[#f5f5f7] text-gray-900">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
             <div className="flex flex-col lg:flex-row items-center">
               {/* Left side content */}
               <div className="w-full lg:w-1/2 mb-12 lg:mb-0 pr-0 lg:pr-10">
-                <div className="mb-6">
+                <div className="section-title-wrapper">
                   <GradientText
                     colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
                     animationSpeed={4}
@@ -773,9 +773,9 @@ const MouldPage = () => {
         </section>
 
         {/* Blog Section */}
-        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7] text-gray-900">
+        <section className="section-spacing bg-[#f5f5f7] text-gray-900">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
-            <div className="text-left mb-8">
+            <div className="section-title-wrapper">
               <div className="flex items-baseline gap-2 justify-center sm:justify-start">
                 <GradientText
                   colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
@@ -817,9 +817,9 @@ const MouldPage = () => {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
+        <section className="section-spacing bg-[#f5f5f7]">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
+            <div className="section-title-wrapper text-center">
               <div className="flex justify-center">
                 <GradientText
                   colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}

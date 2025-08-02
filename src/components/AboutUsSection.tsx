@@ -42,12 +42,12 @@ const AboutUsSection = () => {
 
   return (
     <section 
-      className="relative py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7] overflow-hidden"
+      className="relative section-spacing bg-[#f5f5f7] overflow-hidden"
     >
 
 
       <div className="container relative z-10 mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
-        <div className="text-left mb-3 sm:mb-4 md:mb-6 lg:mb-8">
+        <div className="section-title-wrapper">
           <div className="flex items-baseline gap-1">
             <GradientText
               colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}

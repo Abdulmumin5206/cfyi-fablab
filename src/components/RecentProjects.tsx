@@ -16,9 +16,11 @@ const cardLinks = [
 
 const RecentProjects = () => {
   return (
-    <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gray-200">
+    <section className="section-spacing bg-gray-200">
       <div className="container mx-auto px-2 sm:px-4">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-8">Latest News</h2>
+        <div className="section-title-wrapper">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-8">Latest News</h2>
+        </div>
         {/* Top Feature Card */}
         <div className="w-full mb-4 sm:mb-6">
           <div className="bg-white overflow-hidden flex flex-col md:flex-row h-full border-none">

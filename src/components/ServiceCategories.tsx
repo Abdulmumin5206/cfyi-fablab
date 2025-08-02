@@ -117,11 +117,11 @@ const ServiceCategories = () => {
     <section
       ref={sectionRef}
       id="service-categories"
-      className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7] relative overflow-hidden"
+      className="section-spacing bg-[#f5f5f7] relative overflow-hidden"
       aria-label="Our Services"
     >
       <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px] relative z-10">
-        <div className="text-left mb-3 sm:mb-4 md:mb-6 lg:mb-8">
+        <div className="section-title-wrapper">
           <div className="flex items-baseline gap-1">
             <GradientText
               colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
@@ -137,7 +137,7 @@ const ServiceCategories = () => {
         </div>
 
         {/* Mobile Layout (< 640px) */}
-        <div className="sm:hidden space-y-6 md:space-y-8 lg:space-y-10">
+        <div className="sm:hidden space-y-6 section-content">
           {categories.map((category, index) => (
             <Link
               to={category.buttonLink}

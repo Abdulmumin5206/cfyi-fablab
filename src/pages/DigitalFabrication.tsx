@@ -92,19 +92,21 @@ const DigitalFabricationPage = () => {
         </section>
 
         {/* UV Printing Excellence Section */}
-        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
+        <section className="section-spacing bg-[#f5f5f7]">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
             <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
                 <div className="max-w-[1200px]l mx-auto text-left lg:text-left flex flex-col items-start lg:items-start">
-                  <GradientText
-                    colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
-                    animationSpeed={4}
-                    className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral'] mb-8"
-                  >
-                    {t("uvPrinting.title", { ns: 'digitalfabrication' })}
-                  </GradientText>
+                  <div className="section-title-wrapper">
+                    <GradientText
+                      colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+                      animationSpeed={4}
+                      className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral']"
+                    >
+                      {t("uvPrinting.title", { ns: 'digitalfabrication' })}
+                    </GradientText>
+                  </div>
                   
                   <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-8 font-['Magistral']">
                     {t("uvPrinting.description", { ns: 'digitalfabrication' })}
@@ -175,19 +177,21 @@ const DigitalFabricationPage = () => {
         </section>
 
         {/* Sticker Machine Section */}
-        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
+        <section className="section-spacing bg-[#f5f5f7]">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
             <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
                 <div className="max-w-[1200px]l mx-auto text-left lg:text-left flex flex-col items-start lg:items-start">
-                  <GradientText
-                    colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
-                    animationSpeed={4}
-                    className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral'] mb-8"
-                  >
-                    {t('stickerProduction.title', { ns: 'digitalfabrication' })}
-                  </GradientText>
+                  <div className="section-title-wrapper">
+                    <GradientText
+                      colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+                      animationSpeed={4}
+                      className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral']"
+                    >
+                      {t('stickerProduction.title', { ns: 'digitalfabrication' })}
+                    </GradientText>
+                  </div>
                   
                   <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-8 font-['Magistral']">
                     {t('stickerProduction.description', { ns: 'digitalfabrication' })}
@@ -256,14 +260,14 @@ const DigitalFabricationPage = () => {
         </section>
 
         {/* Equipment Showcase Section */}
-        <section id="equipment" className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
+        <section id="equipment" className="section-spacing bg-[#f5f5f7]">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
-            <div className="text-center mb-12">
+            <div className="section-title-wrapper text-center">
               <div className="flex justify-center">
                 <GradientText
                   colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
                   animationSpeed={4}
-                  className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral'] mb-4"
+                  className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral']"
                 >
                   {t('equipment.title', { ns: 'digitalfabrication' })}
                 </GradientText>
@@ -298,19 +302,21 @@ const DigitalFabricationPage = () => {
         </section>
 
         {/* Precision Laser Cutting Section */}
-        <section id="precision-manufacturing" className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
+        <section id="precision-manufacturing" className="section-spacing bg-[#f5f5f7]">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
             <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
                 <div className="max-w-[1200px]l mx-auto text-left lg:text-left flex flex-col items-start lg:items-start">
-                  <GradientText
-                    colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
-                    animationSpeed={4}
-                    className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral'] mb-8"
-                  >
-                    {t('laserCutting.title', { ns: 'digitalfabrication' })}
-                  </GradientText>
+                  <div className="section-title-wrapper">
+                    <GradientText
+                      colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+                      animationSpeed={4}
+                      className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral']"
+                    >
+                      {t('laserCutting.title', { ns: 'digitalfabrication' })}
+                    </GradientText>
+                  </div>
                   
                   <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-8 font-['Magistral']">
                     {t('laserCutting.description', { ns: 'digitalfabrication' })}
@@ -384,19 +390,21 @@ const DigitalFabricationPage = () => {
         </section>
 
         {/* CNC Wood Machining Section */}
-        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
+        <section className="section-spacing bg-[#f5f5f7]">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
             <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
                 <div className="max-w-[1200px]l mx-auto text-left lg:text-left flex flex-col items-start lg:items-start">
-                  <GradientText
-                    colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
-                    animationSpeed={4}
-                    className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral'] mb-8"
-                  >
-                    {t('cncMachining.title', { ns: 'digitalfabrication' })}
-                  </GradientText>
+                  <div className="section-title-wrapper">
+                    <GradientText
+                      colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+                      animationSpeed={4}
+                      className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral']"
+                    >
+                      {t('cncMachining.title', { ns: 'digitalfabrication' })}
+                    </GradientText>
+                  </div>
                   
                   <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-8 font-['Magistral']">
                     {t('cncMachining.description', { ns: 'digitalfabrication' })}
@@ -470,14 +478,14 @@ const DigitalFabricationPage = () => {
         </section>
 
         {/* Precision Manufacturing Equipment Showcase Section */}
-        <section id="precision-equipment" className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
+        <section id="precision-equipment" className="section-spacing bg-[#f5f5f7]">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
-            <div className="text-center mb-12">
+            <div className="section-title-wrapper text-center">
               <div className="flex justify-center">
                 <GradientText
                   colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
                   animationSpeed={4}
-                  className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral'] mb-4"
+                  className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral']"
                 >
                   {t('precisionManufacturingEquipment.title', { ns: 'digitalfabrication' })}
                 </GradientText>
@@ -553,16 +561,18 @@ const DigitalFabricationPage = () => {
         </section>
 
         {/* Behind the Scenes Section */}
-        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
+        <section className="section-spacing bg-[#f5f5f7]">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
             <div className="flex flex-col items-center justify-center gap-8 max-w-[1200px]xl mx-auto">
-              <GradientText
-                colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
-                animationSpeed={4}
-                className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral'] text-center"
-              >
-                {t('behindTheScenes.title', { ns: 'digitalfabrication' })}
-              </GradientText>
+              <div className="section-title-wrapper text-center">
+                <GradientText
+                  colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+                  animationSpeed={4}
+                  className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral']"
+                >
+                  {t('behindTheScenes.title', { ns: 'digitalfabrication' })}
+                </GradientText>
+              </div>
               <p className="text-sm sm:text-base md:text-lg text-gray-600 text-center font-['Magistral']">
                 {t('behindTheScenes.description', { ns: 'digitalfabrication' })}
               </p>
@@ -615,7 +625,7 @@ const DigitalFabricationPage = () => {
         </section>
 
         {/* Contact Section */}
-        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
+        <section className="section-spacing bg-[#f5f5f7]">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
             <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side content */}
@@ -626,13 +636,15 @@ const DigitalFabricationPage = () => {
                   </span>
                 </div>
                 
-                <GradientText
-                  colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
-                  animationSpeed={4}
-                  className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral'] leading-tight"
-                >
-                  {t('contactSection.title', { ns: 'digitalfabrication' })}
-                </GradientText>
+                <div className="section-title-wrapper">
+                  <GradientText
+                    colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+                    animationSpeed={4}
+                    className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral']"
+                  >
+                    {t('contactSection.title', { ns: 'digitalfabrication' })}
+                  </GradientText>
+                </div>
                 
                 <p className="text-sm sm:text-base md:text-lg text-gray-600 font-['Magistral']">
                   {t('contactSection.description', { ns: 'digitalfabrication' })}

@@ -123,7 +123,7 @@ const ThreeDPrintingPage = () => {
         </section>
 
         {/* Minimalist Content Section */}
-        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
+        <section className="section-spacing bg-[#f5f5f7]">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col lg:flex-row items-start gap-8">
               {/* Left side content */}
@@ -186,7 +186,7 @@ const ThreeDPrintingPage = () => {
         </section>
 
         {/* New Section: Transform Your Vision */}
-        <section id="fdm" className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
+        <section id="fdm" className="section-spacing bg-[#f5f5f7]">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col lg:flex-row items-start gap-8">
               {/* Left side with main image and floating elements */}
@@ -294,7 +294,7 @@ const ThreeDPrintingPage = () => {
 
         {/* Instagram Reels Section */}
         <section className="relative bg-[#f5f5f7] text-gray-900 border-t border-gray-100">
-          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16 lg:py-20">
+          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 section-spacing">
             <div className="flex flex-col md:flex-row items-center justify-between gap-8">
               {/* Left side content */}
               <div className="w-full md:w-1/2 lg:w-2/5">
@@ -368,7 +368,7 @@ const ThreeDPrintingPage = () => {
         </section>
 
         {/* SLA Detail Showcase Section */}
-        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
+        <section className="section-spacing bg-[#f5f5f7]">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col lg:flex-row items-start gap-8">
               {/* Left side content */}
@@ -468,7 +468,7 @@ const ThreeDPrintingPage = () => {
         </section>
 
         {/* SLA 3D Printing Equipment Section */}
-        <section id="sla-equipment" className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
+        <section id="sla-equipment" className="section-spacing bg-[#f5f5f7]">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-8 flex justify-center">
               <GradientText
@@ -548,7 +548,7 @@ const ThreeDPrintingPage = () => {
         </section>
 
         {/* FDM 3D Printing Equipment Section */}
-        <section id="fdm-equipment" className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
+        <section id="fdm-equipment" className="section-spacing bg-[#f5f5f7]">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-8 flex justify-center">
               <GradientText
@@ -631,7 +631,7 @@ const ThreeDPrintingPage = () => {
         <PrintingMaterials />
         
         {/* 3D Printing Course Section */}
-        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
+        <section className="section-spacing bg-[#f5f5f7]">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col lg:flex-row items-center gap-8">
               {/* Left side content */}

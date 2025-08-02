@@ -179,11 +179,11 @@ const ImageFabLabTour = () => {
   };
 
   return (
-    <section className="w-full py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7] overflow-hidden">
+    <section className="section-spacing bg-[#f5f5f7] overflow-hidden">
       <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
         <div className="relative">
           {/* Title at the top for all screen sizes */}
-          <div className="mb-4 sm:mb-6 md:mb-8">
+          <div className="section-title-wrapper">
             <GradientText
               colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
               animationSpeed={4}

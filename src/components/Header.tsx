@@ -206,7 +206,7 @@ const Header = () => {
   } : {};
 
   const logoStyle = isLaptopScreen ? {
-    maxHeight: windowWidth < 768 ? '45px' : windowWidth < 1024 ? '50px' : '55px'
+    maxHeight: windowWidth < 768 ? '55px' : windowWidth < 1024 ? '65px' : '75px'
   } : {};
 
   const textStyle = isLaptopScreen ? {
@@ -325,7 +325,7 @@ const Header = () => {
                   style={logoStyle}
                   src="/fablab/logo.png"
                   alt="FabLab Logo"
-                  className={`h-full w-auto max-h-14 sm:max-h-16 ${isLaptopScreen ? 'md:max-h-8' : 'md:max-h-10 lg:max-h-12'} object-contain`}
+                  className={`h-full w-auto max-h-16 sm:max-h-20 ${isLaptopScreen ? 'md:max-h-12' : 'md:max-h-14 lg:max-h-16'} object-contain`}
                 />
               </Link>
             </div>

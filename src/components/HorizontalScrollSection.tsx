@@ -18,6 +18,10 @@ const HorizontalScrollSection = () => {
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   // Add state to detect if we're on mobile
   const [isMobile, setIsMobile] = useState(false);
+  // Add velocity tracking for smoother inertia
+  const velocityRef = useRef(0);
+  const lastTouchXRef = useRef(0);
+  const lastTouchTimeRef = useRef(0);
 
   // Check if current language is Russian to apply smaller font size
   const isRussian = i18n.language === 'ru';
@@ -192,25 +196,26 @@ const HorizontalScrollSection = () => {
         return;
       }
       
-      // Adjust easing based on whether user is actively scrolling
-      // Faster easing during active scrolling, slower when scrolling stops
-      // Use faster easing on mobile for more responsive feel
-      const easing = isScrolling ? (isMobile ? 0.2 : 0.15) : (isMobile ? 0.12 : 0.08);
+      // Improved easing parameters for mobile
+      // Higher values = faster response, lower values = smoother but slower response
+      const easing = isScrolling 
+        ? (isMobile ? 0.25 : 0.15) 
+        : (isMobile ? 0.15 : 0.08);
       
       // Apply easing to create smooth motion
       const newProgress = horizontalProgress + diff * easing;
       setHorizontalProgress(newProgress);
       
-      // Apply the horizontal scroll based on progress
+      // Apply the horizontal scroll based on progress with hardware acceleration
       if (contentRef.current) {
         const horizontalScroll = newProgress * contentWidth;
-        contentRef.current.style.transform = `translateX(-${horizontalScroll}px)`;
+        contentRef.current.style.transform = `translate3d(-${horizontalScroll}px, 0, 0)`;
       }
       
-      // Apply parallax effect to background
+      // Apply parallax effect to background with hardware acceleration
       const backgroundElement = containerRef.current?.querySelector('.background-pattern') as HTMLElement;
       if (backgroundElement) {
-        backgroundElement.style.transform = `translateX(${newProgress * 20}%)`;
+        backgroundElement.style.transform = `translate3d(${newProgress * 20}%, 0, 0)`;
       }
       
       // Continue animation
@@ -257,6 +262,14 @@ const HorizontalScrollSection = () => {
       touchStartX = e.touches[0].clientX;
       touchStartY = e.touches[0].clientY;
       isHorizontalSwipe = false;
+      
+      // Reset velocity on new touch
+      velocityRef.current = 0;
+      lastTouchXRef.current = touchStartX;
+      lastTouchTimeRef.current = Date.now();
+      
+      // Signal that we're actively scrolling
+      setIsScrolling(true);
     };
     
     const handleTouchMove = (e: TouchEvent) => {
@@ -266,6 +279,20 @@ const HorizontalScrollSection = () => {
       const touchY = e.touches[0].clientY;
       const diffX = touchStartX - touchX;
       const diffY = touchStartY - touchY;
+      
+      // Calculate velocity for momentum scrolling
+      const now = Date.now();
+      const elapsed = now - lastTouchTimeRef.current;
+      
+      if (elapsed > 0) {
+        // Calculate velocity (pixels per millisecond)
+        const deltaX = lastTouchXRef.current - touchX;
+        velocityRef.current = deltaX / elapsed;
+        
+        // Update last values
+        lastTouchXRef.current = touchX;
+        lastTouchTimeRef.current = now;
+      }
       
       // Determine if this is primarily a horizontal swipe
       // Only on first detection of direction
@@ -277,28 +304,47 @@ const HorizontalScrollSection = () => {
       if (isHorizontalSwipe && horizontalScrollActive && !hasReachedStart && !hasReachedEnd) {
         e.preventDefault();
         
-        // Update progress based on swipe
-        const swipeFactor = 0.003; // Adjust sensitivity
+        // Update progress based on swipe with improved sensitivity
+        const swipeFactor = 0.004; // Increased sensitivity for mobile
         const progressChange = diffX * swipeFactor;
         setTargetProgress(Math.max(0, Math.min(1, horizontalProgress + progressChange)));
       }
     };
     
+    const handleTouchEnd = (e: TouchEvent) => {
+      // Apply momentum scrolling based on final velocity
+      if (isHorizontalSwipe && Math.abs(velocityRef.current) > 0.1) {
+        // Convert velocity to progress change (higher multiplier = more momentum)
+        const momentumFactor = 100; 
+        const momentumProgress = velocityRef.current * momentumFactor / contentWidth;
+        
+        // Apply momentum to target progress with limits
+        setTargetProgress(Math.max(0, Math.min(1, targetProgress + momentumProgress)));
+      }
+      
+      // Reset scrolling state with a small delay
+      setTimeout(() => {
+        setIsScrolling(false);
+      }, 100);
+    };
+    
     const container = containerRef.current;
     container.addEventListener('touchstart', handleTouchStart, { passive: true });
     container.addEventListener('touchmove', handleTouchMove, { passive: false });
+    container.addEventListener('touchend', handleTouchEnd, { passive: true });
     
     return () => {
       container.removeEventListener('touchstart', handleTouchStart);
       container.removeEventListener('touchmove', handleTouchMove);
+      container.removeEventListener('touchend', handleTouchEnd);
     };
-  }, [horizontalScrollActive, hasReachedStart, hasReachedEnd, horizontalProgress]);
+  }, [horizontalScrollActive, hasReachedStart, hasReachedEnd, horizontalProgress, targetProgress, contentWidth]);
 
   return (
     <section 
       ref={sectionRef} 
       id="horizontal-scroll-section"
-      className="relative w-full"
+      className="relative w-full section-spacing-lg"
       style={{ minHeight: "100vh" }}
     >
       <div 
@@ -309,7 +355,11 @@ const HorizontalScrollSection = () => {
         <div 
           ref={contentRef}
           className="flex items-stretch pl-2 md:pl-4 lg:pl-6 will-change-transform"
-          style={{ gap: isMobile ? "0" : "3vw" }}
+          style={{ 
+            gap: isMobile ? "0" : "3vw",
+            touchAction: "pan-y", // Allow vertical scrolling but handle horizontal ourselves
+            WebkitOverflowScrolling: "touch" // Improve iOS scrolling
+          }}
         >
           {/* What is FabLab? - standalone text element */}
           <div className="flex-shrink-0 w-[100vw]">
@@ -354,16 +404,9 @@ const HorizontalScrollSection = () => {
                   </div>
                   <div className="flex-shrink-0">
                     <img 
-                      src="/main/About US/Mit.jpg" 
-                      alt="MIT Logo" 
-                      className="w-10 h-10 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain"
-                    />
-                  </div>
-                  <div className="flex-shrink-0">
-                    <img 
-                      src="/main/About US/GlobalFablab.svg" 
-                      alt="Global FabLab Logo" 
-                      className="w-10 h-10 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain"
+                      src="/main/About US/both.png" 
+                      alt="Both Logo" 
+                      className="w-16 h-16 md:w-24 md:h-24 lg:w-32 lg:h-32 object-contain"
                     />
                   </div>
                 </div>
@@ -415,7 +458,7 @@ const HorizontalScrollSection = () => {
                   {t('mission.title')}
                 </GradientText>
                 
-                <div className={`${textClasses} max-w-lg`}>
+                <div className={`${textClasses} max-w-md`}>
                   <p>
                     {t('mission.description1')}
                   </p>
@@ -448,7 +491,7 @@ const HorizontalScrollSection = () => {
                   {t('equipment.title')}
                 </GradientText>
                 
-                <div className={`${textClasses} max-w-lg`}>
+                <div className={`${textClasses} max-w-md`}>
                   <p>
                     {t('equipment.description1')}
                   </p>
@@ -481,7 +524,7 @@ const HorizontalScrollSection = () => {
                   {t('vision.title')}
                 </GradientText>
                 
-                <div className={`${textClasses} max-w-lg`}>
+                <div className={`${textClasses} max-w-md`}>
                   <p>
                     {t('vision.description1')}
                   </p>

@@ -395,11 +395,11 @@ const CoursesPage = () => {
       
       <main className="flex-grow bg-[#f5f5f7]">
         {/* Hero Section with Topic Questions */}
-        <section className="pt-20 sm:pt-24 md:pt-32 lg:pt-40 pb-16 bg-[#f5f5f7]">
+        <section className="section-spacing bg-[#f5f5f7] pt-40 md:pt-48">
           <div className="max-w-[1350px] mx-auto px-4 sm:px-6 lg:px-8">
             {/* Topic Questions Section */}
             <div className="mb-8">
-              <div className="text-left mb-3 sm:mb-4 md:mb-6 lg:mb-8">
+              <div className="section-title-wrapper">
                 <div className="flex items-baseline gap-1">
                   <GradientText
                     colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
@@ -493,9 +493,9 @@ const CoursesPage = () => {
         </section>
 
         {/* FDM Courses Section */}
-        <section className="py-12 bg-[#f5f5f7]" id="courses-section">
+        <section className="section-spacing bg-[#f5f5f7]" id="courses-section">
           <div className="max-w-[1350px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-left mb-3 sm:mb-4 md:mb-6 lg:mb-8">
+            <div className="section-title-wrapper">
               <div className="flex items-baseline gap-1">
                 <GradientText
                   colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
@@ -539,9 +539,9 @@ const CoursesPage = () => {
         </section>
 
         {/* SLA Courses Section */}
-        <section className="py-12 bg-[#f5f5f7]">
+        <section className="section-spacing bg-[#f5f5f7]">
           <div className="max-w-[1350px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-left mb-3 sm:mb-4 md:mb-6 lg:mb-8">
+            <div className="section-title-wrapper">
               <div className="flex items-baseline gap-1">
                 <GradientText
                   colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
@@ -573,9 +573,9 @@ const CoursesPage = () => {
         </section>
 
         {/* CAD/CAM Courses Section */}
-        <section className="py-12 bg-[#f5f5f7]">
+        <section className="section-spacing bg-[#f5f5f7]">
           <div className="max-w-[1350px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-left mb-3 sm:mb-4 md:mb-6 lg:mb-8">
+            <div className="section-title-wrapper">
               <div className="flex items-baseline gap-1">
                 <GradientText
                   colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
@@ -607,9 +607,9 @@ const CoursesPage = () => {
         </section>
 
         {/* Workshops Section */}
-        <section className="py-12 bg-[#f5f5f7]">
+        <section className="section-spacing bg-[#f5f5f7]">
           <div className="max-w-[1350px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-left mb-3 sm:mb-4 md:mb-6 lg:mb-8">
+            <div className="section-title-wrapper">
               <div className="flex items-baseline gap-1">
                 <GradientText
                   colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}

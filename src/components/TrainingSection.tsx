@@ -26,12 +26,12 @@ const TrainingSection = () => {
   ];
 
   return (
-    <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
+    <section className="section-spacing bg-[#f5f5f7]">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-10">
           {/* Left side content */}
           <div className="w-full lg:w-1/2 space-y-6">
-            <div className="text-left mb-3 sm:mb-4 md:mb-6 lg:mb-6">
+            <div className="section-title-wrapper">
               <div className="flex items-baseline gap-1">
                 <GradientText
                   colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}

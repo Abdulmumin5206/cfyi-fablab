@@ -49,19 +49,21 @@ const ThreeDScanningPage = () => {
       
       <main className="flex-grow bg-[#f5f5f7]">
         {/* High-Resolution 3D Scanning Section */}
-        <section className="pt-40 md:pt-48 pb-16 md:pb-24 bg-[#f5f5f7]">
+        <section className="section-spacing bg-[#f5f5f7] pt-40 md:pt-48">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
             <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
                 <div className="max-w-[1200px]l mx-auto text-left lg:text-left flex flex-col items-start lg:items-start">
-                  <GradientText
-                    colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
-                    animationSpeed={4}
-                    className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral'] mb-8"
-                  >
-                    {t("highResolution.title")}
-                  </GradientText>
+                  <div className="section-title-wrapper">
+                    <GradientText
+                      colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+                      animationSpeed={4}
+                      className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral']"
+                    >
+                      {t("highResolution.title")}
+                    </GradientText>
+                  </div>
                   
                   <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-8 font-['Magistral']">
                     {t("highResolution.description")}
@@ -135,19 +137,21 @@ const ThreeDScanningPage = () => {
         </section>
 
         {/* Applications Section */}
-        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
+        <section className="section-spacing bg-[#f5f5f7]">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
             <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
                 <div className="max-w-[1200px]l mx-auto text-left lg:text-left flex flex-col items-start lg:items-start">
-                  <GradientText
-                    colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
-                    animationSpeed={4}
-                    className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral'] mb-8"
-                  >
-                    {t("applications.title")}
-                  </GradientText>
+                  <div className="section-title-wrapper">
+                    <GradientText
+                      colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+                      animationSpeed={4}
+                      className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral']"
+                    >
+                      {t("applications.title")}
+                    </GradientText>
+                  </div>
                   
                   <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-8 font-['Magistral']">
                     {t("applications.description")}
@@ -221,16 +225,18 @@ const ThreeDScanningPage = () => {
         </section>
 
         {/* Equipment Showcase Section */}
-        <section id="equipment" className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
+        <section id="equipment" className="section-spacing bg-[#f5f5f7]">
           <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-center mb-10 md:mb-16">
-              <GradientText
-                colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
-                animationSpeed={4}
-                className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral']"
-              >
-                {t('equipment.title')}
-              </GradientText>
+            <div className="section-title-wrapper text-center">
+              <div className="flex justify-center">
+                <GradientText
+                  colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+                  animationSpeed={4}
+                  className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral']"
+                >
+                  {t('equipment.title')}
+                </GradientText>
+              </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-[1000px] mx-auto">
               {/* EinScan SP V2 Scanner */}
@@ -285,7 +291,7 @@ const ThreeDScanningPage = () => {
         </section>
 
         {/* EinScan SP V2 Guide Section */}
-        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
+        <section className="section-spacing bg-[#f5f5f7]">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
             <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side with image */}
@@ -303,13 +309,15 @@ const ThreeDScanningPage = () => {
               {/* Right side content */}
               <div className="w-full lg:w-1/2">
                 <div className="max-w-[1200px]l mx-auto text-left lg:text-left flex flex-col items-start lg:items-start">
-                  <GradientText
-                    colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
-                    animationSpeed={4}
-                    className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral'] mb-8"
-                  >
-                    {t('guide.einScanSPV2.title')}
-                  </GradientText>
+                  <div className="section-title-wrapper">
+                    <GradientText
+                      colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+                      animationSpeed={4}
+                      className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral']"
+                    >
+                      {t('guide.einScanSPV2.title')}
+                    </GradientText>
+                  </div>
                   
                   <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-8 font-['Magistral']">
                     {t('guide.einScanSPV2.description')}
@@ -336,7 +344,7 @@ const ThreeDScanningPage = () => {
         </section>
 
         {/* Contact Section */}
-        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
+        <section className="section-spacing bg-[#f5f5f7]">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
             <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side content */}
@@ -347,13 +355,15 @@ const ThreeDScanningPage = () => {
                   </span>
                 </div>
                 
-                <GradientText
-                  colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
-                  animationSpeed={4}
-                  className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral'] leading-tight"
-                >
-                  {t('contactSection.title')}
-                </GradientText>
+                <div className="section-title-wrapper">
+                  <GradientText
+                    colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+                    animationSpeed={4}
+                    className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral']"
+                  >
+                    {t('contactSection.title')}
+                  </GradientText>
+                </div>
                 
                 <p className="text-sm sm:text-base md:text-lg text-gray-600 font-['Magistral']">
                   {t('contactSection.description')}

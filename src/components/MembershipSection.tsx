@@ -224,10 +224,10 @@ const MembershipSection = () => {
   ), []);
 
   return (
-    <section id="membership-section" className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7] relative overflow-hidden">
+    <section id="membership-section" className="section-spacing bg-[#f5f5f7] relative overflow-hidden">
       <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
         {/* Header */}
-        <div className="text-left mb-3 sm:mb-4 md:mb-6 lg:mb-8">
+        <div className="section-title-wrapper">
           <div className="flex items-baseline gap-1">
             <GradientText
               colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
@@ -243,7 +243,7 @@ const MembershipSection = () => {
         </div>
 
         {/* Membership Tiers */}
-        <div className="py-6 sm:py-8 lg:py-12">
+        <div className="section-inner-content">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
             {membershipFeatures.map((plan, index) => (
               <div key={index}>

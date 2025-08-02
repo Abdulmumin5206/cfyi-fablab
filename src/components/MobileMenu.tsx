@@ -442,7 +442,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                       </Link>
                       <button
                         onClick={scrollToMembership}
-                        className="block text-left text-2xl md:text-3xl font-light text-white hover:text-[#329db7] py-3 leading-tight w-full"
+                        className="block text-left text-2xl md:text-3xl font-light text-white hover:text-[#329db7] py-3 leading-tight w-full mb-8"
                         style={{
                           transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
                           opacity: isOpen && !isClosing ? 1 : 0,

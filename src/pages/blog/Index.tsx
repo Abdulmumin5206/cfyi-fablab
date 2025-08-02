@@ -194,7 +194,7 @@ const BlogIndex = () => {
       <main className="flex-grow bg-[#f5f5f7]">
         {/* Projects Headline */}
         <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px] pt-48 bg-[#f5f5f7]">
-          <div className="text-left mb-3 sm:mb-4 md:mb-6 lg:mb-8">
+          <div className="section-title-wrapper">
             <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-[#329db7] font-['Magistral']">
               {tBlog('blog.projectsHeadline')}
             </h1>
@@ -204,19 +204,21 @@ const BlogIndex = () => {
           </div>
         </div>
         {/* High-Resolution 3D Scanning Section */}
-        <section className="pt-12 md:pt-16 pb-8 md:pb-12 bg-[#f5f5f7]">
+        <section className="section-spacing bg-[#f5f5f7]">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
             <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
                 <div className="max-w-full text-left lg:max-w-[1200px]l flex flex-col items-start lg:items-start">
-                  <GradientText
-                    colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
-                    animationSpeed={4}
-                    className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral'] mb-8"
-                  >
-                    {tBlog("blog.biomimeticArm.title")}
-                  </GradientText>
+                  <div className="section-title-wrapper">
+                    <GradientText
+                      colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+                      animationSpeed={4}
+                      className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral']"
+                    >
+                      {tBlog("blog.biomimeticArm.title")}
+                    </GradientText>
+                  </div>
                   <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-8 font-['Magistral']">
                     {tBlog("blog.biomimeticArm.description")}
                   </p>
@@ -270,19 +272,21 @@ const BlogIndex = () => {
           </div>
         </section>
         {/* Versatile Applications Section */}
-        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
+        <section className="section-spacing bg-[#f5f5f7]">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
             <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
                 <div className="max-w-full text-left lg:max-w-[1200px]l flex flex-col items-start lg:items-start">
-                  <GradientText
-                    colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
-                    animationSpeed={4}
-                    className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral'] mb-8"
-                  >
-                    {tBlog("blog.droneProject.title")}
-                  </GradientText>
+                  <div className="section-title-wrapper">
+                    <GradientText
+                      colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+                      animationSpeed={4}
+                      className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral']"
+                    >
+                      {tBlog("blog.droneProject.title")}
+                    </GradientText>
+                  </div>
                   <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-8 font-['Magistral']">
                     {tBlog("blog.droneProject.description")}
                   </p>
@@ -346,19 +350,21 @@ const BlogIndex = () => {
           </div>
         </section>
         {/* High-Resolution 3D Scanning Section (Duplicate) */}
-        <section className="pt-8 md:pt-12 pb-8 md:pb-12 bg-[#f5f5f7]">
+        <section className="section-spacing bg-[#f5f5f7]">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
             <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
                 <div className="max-w-full text-left lg:max-w-[1200px]l flex flex-col items-start lg:items-start">
-                  <GradientText
-                    colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
-                    animationSpeed={4}
-                    className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral'] mb-8"
-                  >
-                    {tBlog("blog.rrrArm.title")}
-                  </GradientText>
+                  <div className="section-title-wrapper">
+                    <GradientText
+                      colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+                      animationSpeed={4}
+                      className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral']"
+                    >
+                      {tBlog("blog.rrrArm.title")}
+                    </GradientText>
+                  </div>
                   <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-8 font-['Magistral']">
                     {tBlog("blog.rrrArm.description")}
                   </p>
@@ -432,19 +438,21 @@ const BlogIndex = () => {
           </div>
         </section>
         {/* Versatile Applications Section (Duplicate) */}
-        <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f7]">
+        <section className="section-spacing bg-[#f5f5f7]">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
             <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
                 <div className="max-w-full text-left lg:max-w-[1200px]l flex flex-col items-start lg:items-start">
-                  <GradientText
-                    colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
-                    animationSpeed={4}
-                    className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral'] mb-8"
-                  >
-                    {tBlog("blog.surveillanceCar.title")}
-                  </GradientText>
+                  <div className="section-title-wrapper">
+                    <GradientText
+                      colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+                      animationSpeed={4}
+                      className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral']"
+                    >
+                      {tBlog("blog.surveillanceCar.title")}
+                    </GradientText>
+                  </div>
                   <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-8 font-['Magistral']">
                     {tBlog("blog.surveillanceCar.description")}
                   </p>
@@ -517,8 +525,8 @@ const BlogIndex = () => {
             </div>
           </div>
         </section>
-        <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px] pt-12 md:pt-16 bg-[#f5f5f7]">
-          <div className="text-left mb-3 sm:mb-4 md:mb-6 lg:mb-8">
+        <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px] pt-12 md:pt-16 pb-16 md:pb-24 bg-[#f5f5f7]">
+          <div className="section-title-wrapper">
             <h1 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-[#329db7] font-['Magistral']">{t('blog.title')}</h1>
             <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-700 mb-3 sm:mb-4 font-['Magistral']">{t('blog.subtitle')}</p>
           </div>
@@ -568,40 +576,6 @@ const BlogIndex = () => {
               <h3 className="text-xl font-medium text-gray-600">{t('blog.noPostsFound')}</h3>
             </div>
           )}
-        </div>
-        {/* Newsletter Subscription Section */}
-        <div className="mt-16 py-12 px-4 sm:px-8 bg-[#f5f5f7]">
-          <div className="max-w-[1200px]xl mx-auto text-center">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-4">{t('blog.newsletter.title')}</h2>
-            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-600 mb-8">
-              {t('blog.newsletter.description')}
-            </p>
-            {subscribed ? (
-              <div className="bg-green-50 text-green-800 rounded-lg p-4 mb-4 flex items-center justify-center">
-                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span>{t('blog.newsletter.thankYou')}</span>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-[1200px]l mx-auto">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder={t('blog.newsletter.emailPlaceholder')}
-                  required
-                  className="flex-grow px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#329db7] focus:border-transparent"
-                />
-                <button type="submit" className="bg-[#329db7] hover:bg-[#2b86a0] text-white font-medium py-3 px-6 rounded-lg transition-colors whitespace-nowrap">
-                  {t('blog.newsletter.subscribe')}
-                </button>
-              </form>
-            )}
-            <p className="text-xs sm:text-sm text-gray-500 mt-4">
-              {t('blog.newsletter.privacyNotice')}
-            </p>
-          </div>
         </div>
       </main>
       <Footer />

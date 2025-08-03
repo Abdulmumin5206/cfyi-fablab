@@ -264,11 +264,11 @@ const ThreeDPrintingPage = () => {
 
         {/* Minimalist Content Section */}
         <section className="section-spacing bg-[#f5f5f7]">
-          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col lg:flex-row items-start gap-8">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
-                <div className="max-w-[1200px]l mx-auto text-left lg:text-left flex flex-col items-start">
+                <div className="max-w-[1300px] mx-auto text-left lg:text-left flex flex-col items-start">
                   <GradientText
                     colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
                     animationSpeed={4}
@@ -345,7 +345,7 @@ const ThreeDPrintingPage = () => {
 
         {/* New Section: Transform Your Vision */}
         <section id="fdm" className="section-spacing bg-[#f5f5f7]">
-          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col lg:flex-row items-start gap-8">
               {/* Left side with main image and floating elements */}
               <div className="w-full lg:w-1/2 relative">
@@ -388,7 +388,7 @@ const ThreeDPrintingPage = () => {
 
               {/* Right side content */}
               <div className="w-full lg:w-1/2">
-                <div className="max-w-[1200px]l mx-auto text-left lg:text-left flex flex-col items-start">
+                <div className="max-w-[1300px] mx-auto text-left lg:text-left flex flex-col items-start">
                   <GradientText
                     colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
                     animationSpeed={4}
@@ -452,7 +452,7 @@ const ThreeDPrintingPage = () => {
 
         {/* Instagram Reels Section */}
         <section className="relative bg-[#f5f5f7] text-gray-900 border-t border-gray-100">
-          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 section-spacing">
+          <div className="max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8 section-spacing">
             <div className="flex flex-col md:flex-row items-center justify-between gap-8">
               {/* Left side content */}
               <div className="w-full md:w-1/2 lg:w-2/5">
@@ -564,11 +564,11 @@ const ThreeDPrintingPage = () => {
 
         {/* SLA Detail Showcase Section */}
         <section className="section-spacing bg-[#f5f5f7]">
-          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col lg:flex-row items-start gap-8">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
-                <div className="max-w-[1200px]l mx-auto text-left lg:text-left flex flex-col items-start">
+                <div className="max-w-[1300px] mx-auto text-left lg:text-left flex flex-col items-start">
                   <GradientText
                     colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
                     animationSpeed={4}
@@ -664,7 +664,7 @@ const ThreeDPrintingPage = () => {
 
         {/* SLA 3D Printing Equipment Section */}
         <section id="sla-equipment" className="section-spacing bg-[#f5f5f7]">
-          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-8 flex justify-center">
               <GradientText
                 colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
@@ -744,7 +744,7 @@ const ThreeDPrintingPage = () => {
 
         {/* FDM 3D Printing Equipment Section */}
         <section id="fdm-equipment" className="section-spacing bg-[#f5f5f7]">
-          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-8 flex justify-center">
               <GradientText
                 colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
@@ -827,7 +827,7 @@ const ThreeDPrintingPage = () => {
         
         {/* 3D Printing Course Section */}
         <section className="section-spacing bg-[#f5f5f7]">
-          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col lg:flex-row items-center gap-8">
               {/* Left side content */}
               <div className="w-full lg:w-1/2 space-y-8">

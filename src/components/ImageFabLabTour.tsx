@@ -180,7 +180,7 @@ const ImageFabLabTour = () => {
 
   return (
     <section className="section-spacing bg-[#f5f5f7] overflow-hidden">
-      <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
+              <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1300px]">
         <div className="relative">
           {/* Title at the top for all screen sizes */}
           <div className="section-title-wrapper">

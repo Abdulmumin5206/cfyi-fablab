@@ -323,7 +323,7 @@ const Header = () => {
           isVisible ? "translate-y-0" : "-translate-y-full"
         } ${isScrolled ? "bg-white shadow-md" : "bg-transparent"}`}
       >
-        <div className="relative max-w-[1200px] mx-auto">
+        <div className="relative max-w-[1300px] mx-auto">
           <div
             style={headerStyle}
             className={`flex justify-between items-center h-12 sm:h-16 ${isLaptopScreen ? 'md:h-[60px]' : 'md:h-18 lg:h-20'} transition-colors duration-300`}

@@ -46,7 +46,7 @@ const AboutUsSection = () => {
     >
 
 
-      <div className="container relative z-10 mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
+              <div className="container relative z-10 mx-auto px-3 sm:px-4 lg:px-6 max-w-[1300px]">
         <div className="section-title-wrapper">
           <div className="flex items-baseline gap-1">
             <GradientText

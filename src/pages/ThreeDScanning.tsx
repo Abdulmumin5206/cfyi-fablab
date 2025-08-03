@@ -222,7 +222,7 @@ const ThreeDScanningPage = () => {
       <main className="flex-grow bg-[#f5f5f7]">
         {/* High-Resolution 3D Scanning Section */}
         <section className="section-spacing bg-[#f5f5f7] pt-40 md:pt-48">
-          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1300px]">
             <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
@@ -310,7 +310,7 @@ const ThreeDScanningPage = () => {
 
         {/* Applications Section */}
         <section className="section-spacing bg-[#f5f5f7]">
-          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1300px]">
             <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
@@ -398,7 +398,7 @@ const ThreeDScanningPage = () => {
 
         {/* Equipment Showcase Section */}
         <section id="equipment" className="section-spacing bg-[#f5f5f7]">
-          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="section-title-wrapper text-center">
               <div className="flex justify-center">
                 <GradientText
@@ -464,7 +464,7 @@ const ThreeDScanningPage = () => {
 
         {/* EinScan SP V2 Guide Section */}
         <section className="section-spacing bg-[#f5f5f7]">
-          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1300px]">
             <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side with image */}
               <div className="w-full lg:w-1/2 relative">
@@ -480,7 +480,7 @@ const ThreeDScanningPage = () => {
 
               {/* Right side content */}
               <div className="w-full lg:w-1/2">
-                <div className="max-w-[1200px]l mx-auto text-left lg:text-left flex flex-col items-start lg:items-start">
+                <div className="max-w-[1300px] mx-auto text-left lg:text-left flex flex-col items-start lg:items-start">
                   <div className="section-title-wrapper">
                     <GradientText
                       colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
@@ -517,7 +517,7 @@ const ThreeDScanningPage = () => {
 
         {/* Contact Section */}
         <section className="section-spacing bg-[#f5f5f7]">
-          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1300px]">
             <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2 space-y-8">

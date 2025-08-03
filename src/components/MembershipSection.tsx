@@ -225,7 +225,7 @@ const MembershipSection = () => {
 
   return (
     <section id="membership-section" className="section-spacing bg-[#f5f5f7] relative overflow-hidden">
-      <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
+              <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1300px]">
         {/* Header */}
         <div className="section-title-wrapper">
           <div className="flex flex-col sm:flex-row items-center sm:items-baseline sm:gap-1">

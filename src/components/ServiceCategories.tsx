@@ -120,7 +120,7 @@ const ServiceCategories = () => {
       className="section-spacing bg-[#f5f5f7] relative overflow-hidden"
       aria-label="Our Services"
     >
-      <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px] relative z-10">
+      <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1300px] relative z-10">
         <div className="section-title-wrapper">
           <div className="flex items-baseline gap-1">
             <GradientText

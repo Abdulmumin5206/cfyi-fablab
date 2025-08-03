@@ -161,7 +161,7 @@ const DigitalFabricationPage = () => {
 
         {/* UV Printing Excellence Section */}
         <section className="section-spacing bg-[#f5f5f7]">
-          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1300px]">
             <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
@@ -246,7 +246,7 @@ const DigitalFabricationPage = () => {
 
         {/* Sticker Machine Section */}
         <section className="section-spacing bg-[#f5f5f7]">
-          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1300px]">
             <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
@@ -329,7 +329,7 @@ const DigitalFabricationPage = () => {
 
         {/* Equipment Showcase Section */}
         <section id="equipment" className="section-spacing bg-[#f5f5f7]">
-          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1300px]">
             <div className="section-title-wrapper text-center">
               <div className="flex justify-center">
                 <GradientText
@@ -371,7 +371,7 @@ const DigitalFabricationPage = () => {
 
         {/* Precision Laser Cutting Section */}
         <section id="precision-manufacturing" className="section-spacing bg-[#f5f5f7]">
-          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1300px]">
             <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
@@ -459,7 +459,7 @@ const DigitalFabricationPage = () => {
 
         {/* CNC Wood Machining Section */}
         <section className="section-spacing bg-[#f5f5f7]">
-          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1300px]">
             <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
@@ -547,7 +547,7 @@ const DigitalFabricationPage = () => {
 
         {/* Precision Manufacturing Equipment Showcase Section */}
         <section id="precision-equipment" className="section-spacing bg-[#f5f5f7]">
-          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1300px]">
             <div className="section-title-wrapper text-center">
               <div className="flex justify-center">
                 <GradientText
@@ -631,7 +631,7 @@ const DigitalFabricationPage = () => {
         {/* Behind the Scenes Section */}
         <section className="section-spacing bg-[#f5f5f7]">
           <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
-            <div className="flex flex-col items-center justify-center gap-8 max-w-[1200px]xl mx-auto">
+            <div className="flex flex-col items-center justify-center gap-8 max-w-[1300px] mx-auto">
               <div className="section-title-wrapper text-center">
                 <GradientText
                   colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
@@ -694,7 +694,7 @@ const DigitalFabricationPage = () => {
 
         {/* Contact Section */}
         <section className="section-spacing bg-[#f5f5f7]">
-          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1300px]">
             <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2 space-y-8">

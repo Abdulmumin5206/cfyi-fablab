@@ -193,7 +193,7 @@ const BlogIndex = () => {
       <Header />
       <main className="flex-grow bg-[#f5f5f7]">
         {/* Projects Headline */}
-        <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px] pt-48 bg-[#f5f5f7]">
+        <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1300px] pt-48 bg-[#f5f5f7]">
           <div className="section-title-wrapper">
             <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-[#329db7] font-['Magistral']">
               {tBlog('blog.projectsHeadline')}
@@ -205,7 +205,7 @@ const BlogIndex = () => {
         </div>
         {/* High-Resolution 3D Scanning Section */}
         <section className="section-spacing bg-[#f5f5f7]">
-          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1300px]">
             <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
@@ -273,7 +273,7 @@ const BlogIndex = () => {
         </section>
         {/* Versatile Applications Section */}
         <section className="section-spacing bg-[#f5f5f7]">
-          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1300px]">
             <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
@@ -351,7 +351,7 @@ const BlogIndex = () => {
         </section>
         {/* High-Resolution 3D Scanning Section (Duplicate) */}
         <section className="section-spacing bg-[#f5f5f7]">
-          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1300px]">
             <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
@@ -439,7 +439,7 @@ const BlogIndex = () => {
         </section>
         {/* Versatile Applications Section (Duplicate) */}
         <section className="section-spacing bg-[#f5f5f7]">
-          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1300px]">
             <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
@@ -525,7 +525,7 @@ const BlogIndex = () => {
             </div>
           </div>
         </section>
-        <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px] pt-12 md:pt-16 pb-16 md:pb-24 bg-[#f5f5f7]">
+        <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1300px] pt-12 md:pt-16 pb-16 md:pb-24 bg-[#f5f5f7]">
           <div className="section-title-wrapper">
             <h1 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-[#329db7] font-['Magistral']">{t('blog.title')}</h1>
             <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-700 mb-3 sm:mb-4 font-['Magistral']">{t('blog.subtitle')}</p>
@@ -533,7 +533,7 @@ const BlogIndex = () => {
           {/* Blog Posts Grid */}
           {filteredPosts.length > 0 ? (
             <>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-[1600px] mx-auto">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-[1300px] mx-auto">
                 {currentPosts.map((post) => (
                   <article key={post.id} className="bg-white overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300">
                     <div className="relative aspect-square mb-6 overflow-hidden">

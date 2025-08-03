@@ -367,7 +367,7 @@ const MouldPage = () => {
           
           {/* Content */}
           <div className="absolute inset-0 flex items-center">
-            <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1350px]">
+            <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1400px]">
               <div className="max-w-2xl">
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 font-['Magistral']">
                   {t('hero.title')}
@@ -421,7 +421,7 @@ const MouldPage = () => {
         
         {/* Our Professions Section */}
         <section className="section-spacing bg-[#f5f5f7]">
-          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1300px]">
             <div className="section-title-wrapper">
               <div className="flex items-baseline gap-2 mb-4 justify-center sm:justify-start">
                 <GradientText
@@ -651,7 +651,7 @@ const MouldPage = () => {
         
         {/* Premium Quality Section */}
         <section id="premium-quality" className="section-spacing bg-[#f5f5f7] overflow-visible">
-          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1300px]">
             <div className="flex flex-col lg:flex-row items-start gap-8">
               {/* Left side content */}
               <div className="w-full lg:w-1/2">
@@ -711,7 +711,7 @@ const MouldPage = () => {
         
         {/* Why Choose Plastic Moulding Section */}
         <section className="section-spacing bg-[#f5f5f7]">
-          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1300px]">
             <div className="section-title-wrapper text-center">
               <div className="flex justify-center">
                 <GradientText
@@ -861,7 +861,7 @@ const MouldPage = () => {
         
         {/* Spare Parts Section */}
         <section className="section-spacing bg-[#f5f5f7] text-gray-900">
-          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1300px]">
             <div className="flex flex-col lg:flex-row items-center">
               {/* Left side content */}
               <div className="w-full lg:w-1/2 mb-12 lg:mb-0 pr-0 lg:pr-10">
@@ -947,7 +947,7 @@ const MouldPage = () => {
 
         {/* Blog Section */}
         <section className="section-spacing bg-[#f5f5f7] text-gray-900">
-          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1200px]">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1300px]">
             <div className="section-title-wrapper">
               <div className="flex items-baseline gap-2 justify-center sm:justify-start">
                 <GradientText

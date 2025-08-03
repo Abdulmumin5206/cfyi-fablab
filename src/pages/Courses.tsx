@@ -454,7 +454,7 @@ const CoursesPage = () => {
       <main className="flex-grow bg-[#f5f5f7]">
         {/* Hero Section with Topic Questions */}
         <section className="section-spacing bg-[#f5f5f7] pt-40 md:pt-48">
-          <div className="max-w-[1350px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8">
             {/* Topic Questions Section */}
             <div className="mb-8">
               <div className="section-title-wrapper">
@@ -552,7 +552,7 @@ const CoursesPage = () => {
 
         {/* FDM Courses Section */}
         <section className="section-spacing bg-[#f5f5f7]" id="courses-section">
-          <div className="max-w-[1350px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="section-title-wrapper">
               <div className="flex items-baseline gap-1">
                 <GradientText
@@ -598,7 +598,7 @@ const CoursesPage = () => {
 
         {/* SLA Courses Section */}
         <section className="section-spacing bg-[#f5f5f7]">
-          <div className="max-w-[1350px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="section-title-wrapper">
               <div className="flex items-baseline gap-1">
                 <GradientText
@@ -632,7 +632,7 @@ const CoursesPage = () => {
 
         {/* CAD/CAM Courses Section */}
         <section className="section-spacing bg-[#f5f5f7]">
-          <div className="max-w-[1350px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="section-title-wrapper">
               <div className="flex items-baseline gap-1">
                 <GradientText
@@ -666,7 +666,7 @@ const CoursesPage = () => {
 
         {/* Workshops Section */}
         <section className="section-spacing bg-[#f5f5f7]">
-          <div className="max-w-[1350px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="section-title-wrapper">
               <div className="flex items-baseline gap-1">
                 <GradientText

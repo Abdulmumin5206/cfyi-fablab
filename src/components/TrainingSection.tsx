@@ -27,7 +27,7 @@ const TrainingSection = () => {
 
   return (
     <section className="section-spacing bg-[#f5f5f7]">
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-10">
           {/* Left side content */}
           <div className="w-full lg:w-1/2 space-y-6">

@@ -574,7 +574,7 @@ const PrintingMaterials = () => {
 
   return (
     <section id="materials-section" className="section-spacing bg-[#f5f5f7]">
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="max-w-[1300px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="section-title-wrapper flex flex-col items-center">
           <GradientText
             colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}

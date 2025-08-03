@@ -216,7 +216,7 @@ const ServiceCategories = () => {
                     className="group transition-all duration-300 flex-shrink-0 cursor-pointer opacity-100 translate-y-0"
                     style={{
                       flex: '0 0 28%',
-                      marginRight: '2.5%',
+                      marginRight: '1.5%',
                       transform: 'translateZ(0)'
                     }}
                     onMouseEnter={() => setHoveredIndex(index)}
@@ -243,23 +243,17 @@ const ServiceCategories = () => {
                     </div>
 
                     <div
-                      className="bg-white transition-all duration-300 p-4 sm:p-5 lg:p-6 pt-4 sm:pt-5 lg:pt-6 pb-16 h-[260px] sm:h-[280px] lg:h-[300px] flex flex-col items-start justify-between relative overflow-hidden shadow-sm"
+                      className="bg-white transition-all duration-300 p-4 sm:p-5 lg:p-6 pt-4 sm:pt-5 lg:pt-6 pb-16 h-[180px] sm:h-[200px] lg:h-[220px] flex flex-col items-start justify-between relative overflow-hidden shadow-sm"
                       style={{
                         backgroundColor: hoveredIndex === index ? '#329db7' : '#fff',
                         willChange: 'background-color'
                       }}
                     >
                       <div>
-                        <h3 className={`font-bold mb-3 transition-colors duration-300 font-['Magistral'] text-gray-800 ${i18n.language === 'en'
-                            ? 'text-lg sm:text-xl lg:text-2xl'
-                            : 'text-base sm:text-lg lg:text-xl'
-                            }`}>
+                        <h3 className="text-base md:text-lg lg:text-lg font-bold mb-2 md:mb-3 transition-colors duration-300 font-['Magistral'] text-gray-800">
                           {t(category.titleKey)}
                         </h3>
-                        <p className={`text-gray-700 leading-relaxed transition-colors duration-300 font-['Magistral'] ${i18n.language === 'en'
-                          ? 'text-sm sm:text-base lg:text-lg'
-                          : 'text-sm sm:text-sm lg:text-base'
-                          }`}>
+                        <p className="text-gray-700 text-sm md:text-sm leading-relaxed transition-colors duration-300 font-['Magistral']">
                           {t(category.descriptionKey)}
                         </p>
                       </div>

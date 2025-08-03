@@ -37,11 +37,11 @@ const HorizontalScrollSection = () => {
   // Dynamic classes for Russian language
   const titleClasses = isRussian 
     ? "text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-4 sm:mb-8"
-    : "text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4 sm:mb-8";
+    : "text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-4 sm:mb-8";
     
   const textClasses = isRussian
     ? "text-gray-800 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed space-y-4 sm:space-y-6"
-    : "text-gray-800 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed space-y-4 sm:space-y-6";
+    : "text-gray-800 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed space-y-4 sm:space-y-6";
 
   // Optimized progress update function with throttling
   const updateProgress = useCallback((newProgress: number) => {

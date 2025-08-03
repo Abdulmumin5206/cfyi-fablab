@@ -479,7 +479,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                         <Link
                           to={getSEOUrl('3d-printing')}
                           onClick={handleClose}
-                          className={`block w-1/2 text-left text-xl md:text-2xl ${isLargeScreen ? 'lg:text-3xl xl:text-4xl' : 'lg:text-3xl'} font-light text-white hover:text-[#329db7] py-0`}
+                          className={`block w-1/2 text-left text-lg md:text-xl ${isLargeScreen ? 'lg:text-2xl xl:text-3xl' : 'lg:text-2xl'} font-light text-white hover:text-[#329db7] py-0`}
                           style={{
                             transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
                             opacity: isOpen && !isClosing ? 1 : 0,
@@ -492,7 +492,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                         <Link
                           to="/projects"
                           onClick={handleClose}
-                          className={`block w-1/2 text-left ${isRussian ? 'pl-16 md:pl-20 lg:pl-28 xl:pl-32' : 'pl-12 md:pl-16 lg:pl-20 xl:pl-24'} text-xl md:text-2xl ${isLargeScreen ? 'lg:text-3xl xl:text-4xl' : 'lg:text-3xl'} font-light text-white hover:text-[#329db7] py-0`}
+                          className={`block w-1/2 text-left ${isRussian ? 'pl-16 md:pl-20 lg:pl-28 xl:pl-32' : 'pl-12 md:pl-16 lg:pl-20 xl:pl-24'} text-lg md:text-xl ${isLargeScreen ? 'lg:text-2xl xl:text-3xl' : 'lg:text-2xl'} font-light text-white hover:text-[#329db7] py-0`}
                           style={{
                             transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
                             opacity: isOpen && !isClosing ? 1 : 0,
@@ -509,7 +509,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                         <Link
                           to="/injection-molding"
                           onClick={handleClose}
-                          className={`block w-1/2 text-left text-xl md:text-2xl ${isLargeScreen ? 'lg:text-3xl xl:text-4xl' : 'lg:text-3xl'} font-light text-white hover:text-[#329db7] py-0`}
+                          className={`block w-1/2 text-left text-lg md:text-xl ${isLargeScreen ? 'lg:text-2xl xl:text-3xl' : 'lg:text-2xl'} font-light text-white hover:text-[#329db7] py-0`}
                           style={{
                             transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
                             opacity: isOpen && !isClosing ? 1 : 0,
@@ -521,7 +521,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                         </Link>
                         <button
                           onClick={scrollToHorizontalSection}
-                          className={`block text-left w-1/2 ${isRussian ? 'pl-16 md:pl-20 lg:pl-28 xl:pl-32' : 'pl-12 md:pl-16 lg:pl-20 xl:pl-24'} text-xl md:text-2xl ${isLargeScreen ? 'lg:text-3xl xl:text-4xl' : 'lg:text-3xl'} font-light text-white hover:text-[#329db7] py-0`}
+                          className={`block text-left w-1/2 ${isRussian ? 'pl-16 md:pl-20 lg:pl-28 xl:pl-32' : 'pl-12 md:pl-16 lg:pl-20 xl:pl-24'} text-lg md:text-xl ${isLargeScreen ? 'lg:text-2xl xl:text-3xl' : 'lg:text-2xl'} font-light text-white hover:text-[#329db7] py-0`}
                           style={{
                             transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
                             opacity: isOpen && !isClosing ? 1 : 0,
@@ -538,7 +538,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                         <Link
                           to="/digital-fabrication"
                           onClick={handleClose}
-                          className={`block w-1/2 text-left text-xl md:text-2xl ${isLargeScreen ? 'lg:text-3xl xl:text-4xl' : 'lg:text-3xl'} font-light text-white hover:text-[#329db7] py-0 leading-tight`}
+                          className={`block w-1/2 text-left text-lg md:text-xl ${isLargeScreen ? 'lg:text-2xl xl:text-3xl' : 'lg:text-2xl'} font-light text-white hover:text-[#329db7] py-0 leading-tight`}
                           style={{
                             transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
                             opacity: isOpen && !isClosing ? 1 : 0,
@@ -551,7 +551,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                         <Link
                           to="/projects"
                           onClick={handleClose}
-                          className={`block w-1/2 text-left ${isRussian ? 'pl-16 md:pl-20 lg:pl-28 xl:pl-32' : 'pl-12 md:pl-16 lg:pl-20 xl:pl-24'} text-xl md:text-2xl ${isLargeScreen ? 'lg:text-3xl xl:text-4xl' : 'lg:text-3xl'} font-light text-white hover:text-[#329db7] py-0`}
+                          className={`block w-1/2 text-left ${isRussian ? 'pl-16 md:pl-20 lg:pl-28 xl:pl-32' : 'pl-12 md:pl-16 lg:pl-20 xl:pl-24'} text-lg md:text-xl ${isLargeScreen ? 'lg:text-2xl xl:text-3xl' : 'lg:text-2xl'} font-light text-white hover:text-[#329db7] py-0`}
                           style={{
                             transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
                             opacity: isOpen && !isClosing ? 1 : 0,
@@ -568,7 +568,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                         <Link
                           to="/digital-fabrication#precision-manufacturing"
                           onClick={handleClose}
-                          className={`block w-1/2 text-left text-xl md:text-2xl ${isLargeScreen ? 'lg:text-3xl xl:text-4xl' : 'lg:text-3xl'} font-light text-white hover:text-[#329db7] py-0 leading-tight break-words`}
+                          className={`block w-1/2 text-left text-lg md:text-xl ${isLargeScreen ? 'lg:text-2xl xl:text-3xl' : 'lg:text-2xl'} font-light text-white hover:text-[#329db7] py-0 leading-tight break-words`}
                           style={{
                             transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
                             opacity: isOpen && !isClosing ? 1 : 0,
@@ -581,7 +581,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                         <Link
                           to="/courses"
                           onClick={handleClose}
-                          className={`block w-1/2 text-left ${isRussian ? 'pl-16 md:pl-20 lg:pl-28 xl:pl-32' : 'pl-12 md:pl-16 lg:pl-20 xl:pl-24'} text-xl md:text-2xl ${isLargeScreen ? 'lg:text-3xl xl:text-4xl' : 'lg:text-3xl'} font-light text-white hover:text-[#329db7] py-0`}
+                          className={`block w-1/2 text-left ${isRussian ? 'pl-16 md:pl-20 lg:pl-28 xl:pl-32' : 'pl-12 md:pl-16 lg:pl-20 xl:pl-24'} text-lg md:text-xl ${isLargeScreen ? 'lg:text-2xl xl:text-3xl' : 'lg:text-2xl'} font-light text-white hover:text-[#329db7] py-0`}
                           style={{
                             transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
                             opacity: isOpen && !isClosing ? 1 : 0,
@@ -598,7 +598,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                         <Link
                           to="/3d-scanning-services"
                           onClick={handleClose}
-                          className={`block w-1/2 text-left text-xl md:text-2xl ${isLargeScreen ? 'lg:text-3xl xl:text-4xl' : 'lg:text-3xl'} font-light text-white hover:text-[#329db7] py-0`}
+                          className={`block w-1/2 text-left text-lg md:text-xl ${isLargeScreen ? 'lg:text-2xl xl:text-3xl' : 'lg:text-2xl'} font-light text-white hover:text-[#329db7] py-0`}
                           style={{
                             transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
                             opacity: isOpen && !isClosing ? 1 : 0,
@@ -610,7 +610,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                         </Link>
                         <button
                           onClick={scrollToMembership}
-                          className={`block text-left w-1/2 ${isRussian ? 'pl-16 md:pl-20 lg:pl-28 xl:pl-32' : 'pl-12 md:pl-16 lg:pl-20 xl:pl-24'} text-xl md:text-2xl ${isLargeScreen ? 'lg:text-3xl xl:text-4xl' : 'lg:text-3xl'} font-light text-white hover:text-[#329db7] py-0`}
+                          className={`block text-left w-1/2 ${isRussian ? 'pl-16 md:pl-20 lg:pl-28 xl:pl-32' : 'pl-12 md:pl-16 lg:pl-20 xl:pl-24'} text-lg md:text-xl ${isLargeScreen ? 'lg:text-2xl xl:text-3xl' : 'lg:text-2xl'} font-light text-white hover:text-[#329db7] py-0`}
                           style={{
                             transform: isOpen && !isClosing ? 'translateY(0)' : 'translateY(30px)',
                             opacity: isOpen && !isClosing ? 1 : 0,

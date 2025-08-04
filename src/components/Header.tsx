@@ -508,7 +508,13 @@ const Header = () => {
             {/* Mobile toggle with proper background handling */}
             <div className="md:hidden flex items-center space-x-3 sm:space-x-4 pr-3 sm:pr-4 md:pr-6">
               {/* Mobile Language Switcher */}
-              <LanguageSwitcher useBlackTheme={false} isScrolled={isScrolled} isLaptopScreen={isLaptopScreen} shouldUseBlackText={shouldUseBlackText} />
+              <LanguageSwitcher 
+                useBlackTheme={false} 
+                isScrolled={isScrolled} 
+                isLaptopScreen={isLaptopScreen} 
+                shouldUseBlackText={shouldUseBlackText}
+                customHeight="h-[32px] sm:h-[36px] md:h-[40px]"
+              />
               
               <button
                 className="flex items-center justify-center"

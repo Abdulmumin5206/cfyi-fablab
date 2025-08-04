@@ -7,13 +7,15 @@ interface LanguageSwitcherProps {
   isScrolled?: boolean;
   isLaptopScreen?: boolean;
   shouldUseBlackText?: boolean;
+  customHeight?: string;
 }
 
 const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ 
   useBlackTheme = false, 
   isScrolled = false, 
   isLaptopScreen = false,
-  shouldUseBlackText = false 
+  shouldUseBlackText = false,
+  customHeight 
 }) => {
   const { i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
@@ -134,7 +136,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
         }}
         onContextMenu={toggleDebug}
         disabled={isChanging}
-        className={`flex items-center border hover:text-[#329db7] transition-opacity px-2 sm:px-3 py-1.5 sm:py-2 h-[36px] sm:h-[40px] ${isLaptopScreen ? 'md:h-[36px]' : 'lg:h-[40px] xl:h-[44px]'} ${getBorderColor()} bg-transparent ${getTextColor()} ${isChanging ? 'opacity-50 cursor-not-allowed' : ''}`}
+        className={`flex items-center border hover:text-[#329db7] transition-opacity px-2 sm:px-3 py-1.5 sm:py-2 ${customHeight || `h-[36px] sm:h-[40px] ${isLaptopScreen ? 'md:h-[36px]' : 'lg:h-[40px] xl:h-[44px]'}`} ${getBorderColor()} bg-transparent ${getTextColor()} ${isChanging ? 'opacity-50 cursor-not-allowed' : ''}`}
         aria-label="Change language"
       >
         <Globe className={`mr-1 h-4 w-4 ${getTextColor()} ${isChanging ? 'animate-spin' : ''}`} />

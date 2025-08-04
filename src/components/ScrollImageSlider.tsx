@@ -77,7 +77,7 @@ const ScrollImageSlider = () => {
   // Enhanced mobile scroll mapping for more responsive feel
   const activeIndex = useTransform(
     effectiveProgress,
-    isMobile ? [0, 0.25, 0.6, 1] : [0, 0.33, 0.66, 1], // More responsive mapping on mobile
+    isMobile ? [0, 0.3, 0.7, 1] : [0, 0.33, 0.66, 1], // Extended mobile mapping to remove dead space
     [0, 1, 2, 2]
   );
 
@@ -97,12 +97,12 @@ const ScrollImageSlider = () => {
   const quoteTransforms = quotes.map((_, i) => ({
     yPosition: useTransform(
       activeIndex,
-      isMobile ? [i - 0.4, i - 0.05, i, i + 0.05, i + 0.4] : [i - 0.6, i - 0.1, i, i + 0.1, i + 0.6], // Tighter, more responsive range on mobile
+      isMobile ? [i - 0.5, i - 0.05, i, i + 0.05, i + 0.5] : [i - 0.7, i - 0.1, i, i + 0.1, i + 0.7], // Extended range to reduce dead space
       isMobile ? [400, 50, 0, -50, -400] : [600, 100, 0, -100, -600] // Bigger movements on mobile for more control
     ),
     opacity: useTransform(
       activeIndex,
-      isMobile ? [i - 0.3, i - 0.1, i, i + 0.1, i + 0.3] : [i - 0.5, i - 0.2, i, i + 0.2, i + 0.5], // Faster opacity transitions on mobile
+      isMobile ? [i - 0.4, i - 0.15, i, i + 0.15, i + 0.4] : [i - 0.6, i - 0.25, i, i + 0.25, i + 0.6], // Extended visibility duration for both mobile and desktop
       isMobile ? [0, 0.5, 1, 0.5, 0] : [0, 0.3, 1, 0.3, 0] // Smoother opacity curve on mobile
     )
   }));

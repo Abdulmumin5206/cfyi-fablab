@@ -63,7 +63,7 @@ const ScrollImageSlider = () => {
     layoutEffect: false // Use useEffect instead of layoutEffect for better mobile performance
   });
   
-  // For mobile, we use scrollYProgress directly
+  // For mobile, we use scrollYProgress directly with enhanced responsiveness
   // For desktop, we use a very stiff spring with minimal smoothing (almost direct)
   const springProgress = useSpring(scrollYProgress, { 
     damping: 50,     // Higher damping = less oscillation
@@ -74,31 +74,36 @@ const ScrollImageSlider = () => {
   // Use the appropriate progress value based on isMobile
   const effectiveProgress = isMobile ? scrollYProgress : springProgress;
   
-  // Direct transform mapping for more responsive feel
+  // Enhanced mobile scroll mapping for more responsive feel
   const activeIndex = useTransform(
     effectiveProgress,
-    [0, 0.33, 0.66, 1],
+    isMobile ? [0, 0.25, 0.6, 1] : [0, 0.33, 0.66, 1], // More responsive mapping on mobile
     [0, 1, 2, 2]
   );
 
-  // Direct transforms for images - no smoothing
-  const imageOpacities = [
+  // Optimized transforms for images - simplified on mobile
+  const imageOpacities = isMobile ? [
+    // Simplified mobile opacity transitions for better performance
+    useTransform(effectiveProgress, [0, 0.2, 0.3], [1, 0.7, 0]),
+    useTransform(effectiveProgress, [0.2, 0.3, 0.5, 0.6], [0, 1, 1, 0]),
+    useTransform(effectiveProgress, [0.5, 0.6, 1], [0, 1, 1])
+  ] : [
     useTransform(effectiveProgress, [0, 0.25, 0.33], [1, 0.5, 0]),
     useTransform(effectiveProgress, [0.25, 0.33, 0.58, 0.66], [0, 1, 1, 0]),
     useTransform(effectiveProgress, [0.58, 0.66, 1], [0, 1, 1])
   ];
 
-  // Direct transforms for quotes - more responsive
+  // Enhanced mobile transforms with bigger, more responsive movements
   const quoteTransforms = quotes.map((_, i) => ({
     yPosition: useTransform(
       activeIndex,
-      [i - 0.6, i - 0.1, i, i + 0.1, i + 0.6],
-      isMobile ? [200, 30, 0, -30, -200] : [600, 100, 0, -100, -600]
+      isMobile ? [i - 0.4, i - 0.05, i, i + 0.05, i + 0.4] : [i - 0.6, i - 0.1, i, i + 0.1, i + 0.6], // Tighter, more responsive range on mobile
+      isMobile ? [400, 50, 0, -50, -400] : [600, 100, 0, -100, -600] // Bigger movements on mobile for more control
     ),
     opacity: useTransform(
       activeIndex,
-      [i - 0.5, i - 0.2, i, i + 0.2, i + 0.5],
-      [0, 0.3, 1, 0.3, 0]
+      isMobile ? [i - 0.3, i - 0.1, i, i + 0.1, i + 0.3] : [i - 0.5, i - 0.2, i, i + 0.2, i + 0.5], // Faster opacity transitions on mobile
+      isMobile ? [0, 0.5, 1, 0.5, 0] : [0, 0.3, 1, 0.3, 0] // Smoother opacity curve on mobile
     )
   }));
 
@@ -127,7 +132,7 @@ const ScrollImageSlider = () => {
     };
   }, [isMobile]);
 
-  // Simplified touch events for mobile - much lighter
+  // Optimized touch events for mobile - lighter and more responsive
   useEffect(() => {
     if (!containerRef.current || !isMobile) return;
     
@@ -202,9 +207,13 @@ const ScrollImageSlider = () => {
     <section 
       ref={containerRef} 
       className="relative h-[400vh] bg-[#f5f5f7] section-spacing-lg"
+      style={isMobile ? { 
+        transform: 'translateZ(0)', // Force hardware acceleration on mobile
+        willChange: 'transform' // Hint browser for optimization
+      } : {}}
     >
       <div className="sticky top-0 h-screen">
-        {/* Background images with direct transitions */}
+        {/* Background images with optimized transitions */}
         {images.map((src, i) => (
           <motion.div
             key={i}
@@ -212,6 +221,10 @@ const ScrollImageSlider = () => {
             style={{
               opacity: imageOpacities[i],
               zIndex: i + 1,
+              ...(isMobile && { 
+                transform: 'translateZ(0)', // Force hardware acceleration
+                backfaceVisibility: 'hidden' // Prevent flickering
+              })
             }}
           >
             <img
@@ -224,6 +237,7 @@ const ScrollImageSlider = () => {
               height={1080}
               decoding="async"
               sizes="100vw"
+              style={isMobile ? { transform: 'translateZ(0)' } : {}}
             />
             <div className="absolute inset-0 bg-black/25" />
           </motion.div>
@@ -238,7 +252,7 @@ const ScrollImageSlider = () => {
           </div>
         </div>
 
-        {/* Quotes with direct animations - Only render when images are loaded to prioritize rendering */}
+        {/* Quotes with optimized animations */}
         {imagesLoaded && (
           <div className="absolute inset-0">
             {quotes.map((quote, i) => (
@@ -248,12 +262,20 @@ const ScrollImageSlider = () => {
                 style={{
                   opacity: quoteTransforms[i].opacity,
                   zIndex: 20 + i,
+                  ...(isMobile && { 
+                    transform: 'translateZ(0)',
+                    willChange: 'transform, opacity'
+                  })
                 }}
               >
                 <motion.div
                   className="bg-white p-8 sm:p-10 lg:p-12 xl:p-14 flex flex-col justify-center text-gray-800 border border-gray-200 shadow-lg w-full max-w-[340px] sm:max-w-[400px] lg:max-w-[480px] xl:max-w-[500px] h-[340px] sm:h-[400px] lg:h-[480px] xl:h-[480px] text-left relative"
                   style={{
                     y: quoteTransforms[i].yPosition,
+                    ...(isMobile && { 
+                      transform: 'translateZ(0)',
+                      backfaceVisibility: 'hidden'
+                    })
                   }}
                 >
                   <div className="absolute top-0 right-0 w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 bg-[#329db7] z-10" style={{ marginTop: "-1px", marginRight: "-1px" }}></div>
@@ -278,11 +300,12 @@ const ScrollImageSlider = () => {
           </div>
         )}
 
-        {/* Scroll indicator - direct response */}
+        {/* Scroll indicator - optimized for mobile */}
         <motion.div
           className="absolute bottom-3 sm:bottom-4 lg:bottom-6 left-1/2 transform -translate-x-1/2 z-50"
           style={{
             opacity: scrollIndicatorOpacity,
+            ...(isMobile && { transform: 'translateZ(0)' })
           }}
           animate={{ y: [0, 5, 0] }}
           transition={{

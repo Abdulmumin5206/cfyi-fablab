@@ -1,0 +1,79 @@
+[
+  {
+    "id": "prusament-pla",
+    "name": "PRUSAMENT PLA",
+    "type": "FDM",
+    "description": "3dPrinting.materials.fdm.prusament.description",
+    "properties": [
+      "3dPrinting.materials.fdm.prusament.properties.biodegradable",
+      "3dPrinting.materials.fdm.prusament.properties.easyToPrint",
+      "3dPrinting.materials.fdm.prusament.properties.goodSurfaceFinish",
+      "3dPrinting.materials.fdm.prusament.properties.rigid"
+    ],
+    "applications": [
+      "3dPrinting.materials.fdm.prusament.applications.prototypes",
+      "3dPrinting.materials.fdm.prusament.applications.displayModels",
+      "3dPrinting.materials.fdm.prusament.applications.lowWearParts"
+    ],
+    "imageUrl": "/3dprinters/PrusaPLA/Prusament PLA Blend Ms. Pink.avif",
+    "colors": [
+      { 
+        "name": "3dPrinting.materials.fdm.prusament.colors.msPink", 
+        "imageUrl": "/3dprinters/PrusaPLA/Prusament PLA Blend Ms. Pink.avif",
+        "color": "linear-gradient(135deg, #FF8EC7, #FF69B4)"
+      },
+      { 
+        "name": "3dPrinting.materials.fdm.prusament.colors.vanillaWhite", 
+        "imageUrl": "/3dprinters/PrusaPLA/Prusament PLA Vanilla White.avif",
+        "color": "#F8F8F0",
+        "needsBorder": true
+      },
+      { 
+        "name": "3dPrinting.materials.fdm.prusament.colors.jetBlack", 
+        "imageUrl": "/3dprinters/PrusaPLA/Prusament PLA Jet Black.avif",
+        "color": "#1A1A1A"
+      },
+      { 
+        "name": "3dPrinting.materials.fdm.prusament.colors.pearlMouse", 
+        "imageUrl": "/3dprinters/PrusaPLA/Prusament PLA Pearl Mouse.avif",
+        "color": "linear-gradient(135deg, #B8B8B8, #D0D0D0)"
+      },
+      { 
+        "name": "3dPrinting.materials.fdm.prusament.colors.ohMyGold", 
+        "imageUrl": "/3dprinters/PrusaPLA/Prusament PLA Blend Oh My Gold.avif",
+        "color": "linear-gradient(135deg, #FFD700, #FDB931)"
+      },
+      { 
+        "name": "3dPrinting.materials.fdm.prusament.colors.galaxySilver", 
+        "imageUrl": "/3dprinters/PrusaPLA/Prusament PLA Galaxy Silver.avif",
+        "color": "linear-gradient(135deg, #C0C0C0, #E8E8E8)",
+        "needsBorder": true
+      },
+      {
+        "name": "3dPrinting.materials.fdm.prusament.colors.prusaOrange",
+        "imageUrl": "/3dprinters/PrusaPLA/Prusament PLA Prusa Orange.avif",
+        "color": "#FF6B18"
+      },
+      {
+        "name": "3dPrinting.materials.fdm.prusament.colors.mysticBrown",
+        "imageUrl": "/3dprinters/PrusaPLA/Premium Mystic Brown.png",
+        "color": "#8B4513"
+      },
+      {
+        "name": "3dPrinting.materials.fdm.prusament.colors.armyGreen",
+        "imageUrl": "/3dprinters/PrusaPLA/Prusament PLA Army Green.avif",
+        "color": "#4B5320"
+      },
+      {
+        "name": "3dPrinting.materials.fdm.prusament.colors.royalBlue",
+        "imageUrl": "/3dprinters/PrusaPLA/Prusament PLA Blend Royal Blue.avif",
+        "color": "linear-gradient(135deg, #4169E1, #1E90FF)"
+      },
+      {
+        "name": "3dPrinting.materials.fdm.prusament.colors.opalGreen",
+        "imageUrl": "/3dprinters/PrusaPLA/Prusament PLA Opal Green.avif",
+        "color": "linear-gradient(135deg, #50C878, #40E0D0)"
+      }
+    ]
+  }
+] 

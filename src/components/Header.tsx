@@ -20,11 +20,18 @@ const Header = () => {
   
   // Helper function to get SEO-friendly URLs based on language
   const getSEOUrl = (service: string) => {
-    const currentLang = i18n.language;
     switch (service) {
       case '3d-printing':
-        // Use the same URL for all languages since /3d-printing-tashkent works in Telegram browser
+        // Use the most compatible URL that works in all browsers including Telegram
         return '/3d-printing-tashkent';
+      case '3d-scanning':
+        return '/3d-scanning-services';
+      case 'mould':
+        return '/injection-molding';
+      case 'digital-fabrication':
+        return '/digital-fabrication';
+      case 'courses':
+        return '/courses';
       default:
         return `/${service}`;
     }

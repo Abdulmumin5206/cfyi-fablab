@@ -15,7 +15,7 @@ const ThreeDPrintingPage = () => {
   const [currentPrinterIndex, setCurrentPrinterIndex] = useState(0);
   const [isImageLoading, setIsImageLoading] = useState(true);
   
-  const currentLang = i18n.language;
+  const currentLang = i18n.language.split('-')[0]; // Normalize language code
 
   // Define multilingual SEO titles and descriptions
   const seoData = {
@@ -36,13 +36,76 @@ const ThreeDPrintingPage = () => {
     }
   };
 
-  // Define JSON-LD schema for 3D Printing page
+  // Define JSON-LD schema for 3D Printing page with safe fallbacks
+  const getServiceName = () => {
+    switch(currentLang) {
+      case "ru": return "Услуги 3D печати в Ташкенте";
+      case "uz": return "Toshkentda 3D bosib chiqarish xizmatlari";
+      default: return "3D Printing Services in Tashkent";
+    }
+  };
+
+  const getServiceDescription = () => {
+    switch(currentLang) {
+      case "ru": return "Профессиональные услуги 3D печати в Ташкенте с использованием технологий FDM и SLA. Широкий выбор материалов для прототипирования и функциональных деталей.";
+      case "uz": return "Toshkentda professional 3D bosib chiqarish xizmatlari, FDM va SLA texnologiyalari bilan. Prototiplar va funksional qismlar uchun materiallarning keng tanlovi.";
+      default: return "Professional 3D printing services in Tashkent including FDM and SLA technologies with a wide range of materials and applications.";
+    }
+  };
+
+  const getOfferDescription = () => {
+    switch(currentLang) {
+      case "ru": return "Профессиональные услуги 3D печати";
+      case "uz": return "Professional 3D bosib chiqarish xizmatlari";
+      default: return "Professional 3D printing services";
+    }
+  };
+
+  const getCatalogName = () => {
+    switch(currentLang) {
+      case "ru": return "Услуги 3D печати";
+      case "uz": return "3D bosib chiqarish xizmatlari";
+      default: return "3D Printing Services";
+    }
+  };
+
+  const getFDMName = () => {
+    switch(currentLang) {
+      case "ru": return "FDM 3D печать";
+      case "uz": return "FDM 3D bosib chiqarish";
+      default: return "FDM 3D Printing";
+    }
+  };
+
+  const getFDMDescription = () => {
+    switch(currentLang) {
+      case "ru": return "Печать методом послойного наплавления с различными материалами";
+      case "uz": return "Turli materiallar bilan qatlam qo'shish usuli orqali bosib chiqarish";
+      default: return "Fused Deposition Modeling printing with various materials";
+    }
+  };
+
+  const getSLAName = () => {
+    switch(currentLang) {
+      case "ru": return "SLA 3D печать";
+      case "uz": return "SLA 3D bosib chiqarish";
+      default: return "SLA 3D Printing";
+    }
+  };
+
+  const getSLADescription = () => {
+    switch(currentLang) {
+      case "ru": return "Стереолитографическая печать с высокой точностью";
+      case "uz": return "Yuqori aniqlikdagi stereolitografik bosib chiqarish";
+      default: return "Stereolithography printing with high precision";
+    }
+  };
+
+  // Create schema with safe function calls
   const printingSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": currentLang === "ru" ? "Услуги 3D печати в Ташкенте" : 
-            currentLang === "uz" ? "Toshkentda 3D bosib chiqarish xizmatlari" : 
-            "3D Printing Services in Tashkent",
+    "name": getServiceName(),
     "provider": {
       "@type": "Organization",
       "name": "FabLab CFYI",
@@ -60,18 +123,14 @@ const ThreeDPrintingPage = () => {
       }
     },
     "serviceType": "3D Printing",
-    "description": currentLang === "ru" ? "Профессиональные услуги 3D печати в Ташкенте с использованием технологий FDM и SLA. Широкий выбор материалов для прототипирования и функциональных деталей." : 
-                   currentLang === "uz" ? "Toshkentda professional 3D bosib chiqarish xizmatlari, FDM va SLA texnologiyalari bilan. Prototiplar va funksional qismlar uchun materiallarning keng tanlovi." : 
-                   "Professional 3D printing services in Tashkent including FDM and SLA technologies with a wide range of materials and applications.",
+    "description": getServiceDescription(),
     "areaServed": {
       "@type": "Country",
       "name": "Uzbekistan"
     },
     "offers": {
       "@type": "Offer",
-      "description": currentLang === "ru" ? "Профессиональные услуги 3D печати" : 
-                     currentLang === "uz" ? "Professional 3D bosib chiqarish xizmatlari" : 
-                     "Professional 3D printing services",
+      "description": getOfferDescription(),
       "priceCurrency": "UZS",
       "availability": "https://schema.org/InStock"
     },
@@ -79,39 +138,33 @@ const ThreeDPrintingPage = () => {
     "url": "https://fablab-cfyi.uz/3d-printing-tashkent",
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": currentLang === "ru" ? "Услуги 3D печати" : 
-              currentLang === "uz" ? "3D bosib chiqarish xizmatlari" : 
-              "3D Printing Services",
+      "name": getCatalogName(),
       "itemListElement": [
         {
           "@type": "Offer",
-          "name": currentLang === "ru" ? "FDM 3D печать" : 
-                  currentLang === "uz" ? "FDM 3D bosib chiqarish" : 
-                  "FDM 3D Printing",
-          "description": currentLang === "ru" ? "Печать методом послойного наплавления с различными материалами" : 
-                         currentLang === "uz" ? "Turli materiallar bilan qatlam qo'shish usuli orqali bosib chiqarish" : 
-                         "Fused Deposition Modeling printing with various materials"
+          "name": getFDMName(),
+          "description": getFDMDescription()
         },
         {
           "@type": "Offer",
-          "name": currentLang === "ru" ? "SLA 3D печать" : 
-                  currentLang === "uz" ? "SLA 3D bosib chiqarish" : 
-                  "SLA 3D Printing",
-          "description": currentLang === "ru" ? "Стереолитографическая печать с высокой точностью" : 
-                         currentLang === "uz" ? "Yuqori aniqlikdagi stereolitografiya bosib chiqarish" : 
-                         "Stereolithography printing with high precision resins"
-        },
-        {
-          "@type": "Offer",
-          "name": currentLang === "ru" ? "Быстрое прототипирование" : 
-                  currentLang === "uz" ? "Tezkor prototiplash" : 
-                  "Rapid Prototyping",
-          "description": currentLang === "ru" ? "Быстрое изготовление прототипов" : 
-                         currentLang === "uz" ? "Prototiplarni tez tayyorlash" : 
-                         "Quick turnaround prototype production"
+          "name": getSLAName(),
+          "description": getSLADescription()
         }
       ]
     }
+  };
+
+  // Video error handling
+  const handleVideoError = (e: React.SyntheticEvent<HTMLVideoElement, Event>) => {
+    console.error("Video loading error:", e);
+    if (videoRef.current) {
+      videoRef.current.style.display = 'none';
+    }
+  };
+
+  // Video load handling
+  const handleVideoLoad = () => {
+    console.log("Video loaded successfully");
   };
 
   // Define breadcrumb schema
@@ -123,87 +176,48 @@ const ThreeDPrintingPage = () => {
         "@type": "ListItem",
         "position": 1,
         "name": currentLang === "ru" ? "Главная" : 
-                currentLang === "uz" ? "Bosh sahifa" : 
-                "Home",
-        "item": "https://fablab-cfyi.uz/"
+                 currentLang === "uz" ? "Asosiy" : 
+                 "Home",
+        "item": "https://fablab-cfyi.uz"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": currentLang === "ru" ? "Услуги 3D печати" : 
-                currentLang === "uz" ? "3D bosib chiqarish xizmatlari" : 
-                "3D Printing Services",
+                 currentLang === "uz" ? "3D bosib chiqarish xizmatlari" : 
+                 "3D Printing Services",
         "item": "https://fablab-cfyi.uz/3d-printing-tashkent"
       }
     ]
   };
 
-  // Combine schemas for SEO
-  const combinedSchema = [printingSchema, breadcrumbSchema];
-
-  // Add FAQ schema for common questions
+  // Define FAQ schema
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
       {
         "@type": "Question",
-        "name": currentLang === "ru" ? "Сколько стоит 3D печать в Ташкенте?" : 
-                currentLang === "uz" ? "Toshkentda 3D bosib chiqarish qancha turadi?" : 
-                "How much does 3D printing cost in Tashkent?",
+        "name": currentLang === "ru" ? "Какие технологии 3D печати вы используете?" : 
+                currentLang === "uz" ? "Siz qanday 3D bosib chiqarish texnologiyalaridan foydalanasiz?" : 
+                "What 3D printing technologies do you use?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": currentLang === "ru" ? "Стоимость 3D печати зависит от размера модели, выбранного материала и сложности. Свяжитесь с нами для получения индивидуального расчета." : 
-                  currentLang === "uz" ? "3D bosib chiqarish narxi modelning hajmi, tanlangan material va murakkabligiga bog'liq. Individual hisob-kitob olish uchun biz bilan bog'laning." : 
-                  "The cost of 3D printing depends on the size of the model, selected material, and complexity. Contact us for an individual calculation."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": currentLang === "ru" ? "Какие материалы для 3D печати вы используете?" : 
-                currentLang === "uz" ? "Qanday 3D bosib chiqarish materiallarini ishlatasiz?" : 
-                "What 3D printing materials do you use?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": currentLang === "ru" ? "Мы используем широкий спектр материалов, включая PLA, PETG, ABS, нейлон, TPU, а также специальные композитные материалы и фотополимерные смолы для SLA печати." : 
-                  currentLang === "uz" ? "Biz PLA, PETG, ABS, nylon, TPU, shuningdek maxsus kompozit materiallar va SLA bosib chiqarish uchun fotopolimer smolalar kabi keng ko'lamli materiallardan foydalanamiz." : 
-                  "We use a wide range of materials including PLA, PETG, ABS, nylon, TPU, as well as special composite materials and photopolymer resins for SLA printing."
+          "text": currentLang === "ru" ? "Мы используем технологии FDM (моделирование методом наплавления) и SLA (стереолитография) для различных задач 3D печати." : 
+                  currentLang === "uz" ? "Biz turli 3D bosib chiqarish vazifalar uchun FDM (eritilgan filament modellashtirish) va SLA (stereolitografiya) texnologiyalaridan foydalanamiz." : 
+                  "We use both FDM (Fused Deposition Modeling) and SLA (Stereolithography) technologies for various 3D printing tasks."
         }
       }
     ]
   };
-  
-  // Add faqSchema to combinedSchema
-  combinedSchema.push(faqSchema);
 
-  const materialTypeKeys = [
-    'generalPurpose',
-    'tough',
-    'rigid',
-    'flameRetardant',
-    'silicone',
-    'elastic',
-    'biocompatible',
-    'polyurethane',
-    'ceramic',
-    'openMaterialMode',
-  ];
+  // Combined schema array for SEOHelmet
+  const combinedSchema = [printingSchema, breadcrumbSchema, faqSchema];
 
   useEffect(() => {
-    // Scroll to top when component mounts
-    window.scrollTo(0, 0);
-    
+    // Component mount logic
     console.log("3D Printing page mounted");
   }, []);
-
-  const handleVideoError = (e: React.SyntheticEvent<HTMLVideoElement, Event>) => {
-    console.error("Video failed to load", e);
-    console.log("Video source path:", videoRef.current?.querySelector('source')?.getAttribute('src'));
-  };
-
-  const handleVideoLoad = () => {
-    console.log("Video loaded successfully");
-  };
 
   const scrollMarketLeft = () => {
     if (marketsRef.current) {

@@ -72,6 +72,39 @@ const resources = {
   }
 };
 
+// Detect if running in Telegram WebApp
+const isTelegramWebApp = () => {
+  try {
+    return window.navigator.userAgent.includes('TelegramWebApp') || 
+           window.navigator.userAgent.includes('Telegram') ||
+           'Telegram' in window;
+  } catch (e) {
+    return false;
+  }
+};
+
+// Get preferred language from URL or localStorage
+const getPreferredLanguage = () => {
+  // Check URL first
+  const urlParams = new URLSearchParams(window.location.search);
+  const langParam = urlParams.get('lng');
+  if (langParam && ['en', 'ru', 'uz'].includes(langParam)) {
+    return langParam;
+  }
+  
+  // Then check localStorage
+  const storedLang = localStorage.getItem('i18nextLng');
+  if (storedLang) {
+    const normalizedLang = storedLang.split('-')[0];
+    if (['en', 'ru', 'uz'].includes(normalizedLang)) {
+      return normalizedLang;
+    }
+  }
+  
+  // Default to browser language or 'en'
+  return 'en';
+};
+
 i18n
   .use(LanguageDetector)
   .use(initReactI18next)
@@ -85,14 +118,16 @@ i18n
       escapeValue: false
     },
     detection: {
-      order: ['navigator', 'querystring', 'cookie', 'localStorage', 'sessionStorage', 'htmlTag'],
+      order: ['querystring', 'navigator', 'cookie', 'localStorage', 'sessionStorage', 'htmlTag'],
       lookupQuerystring: 'lng',
       lookupCookie: 'i18next',
       lookupLocalStorage: 'i18nextLng',
       caches: ['localStorage'],
       // Convert language codes like 'ru-RU' to 'ru'
       convertDetectedLanguage: (lng) => lng.split('-')[0]
-    }
+    },
+    // Special handling for Telegram WebApp
+    lng: isTelegramWebApp() ? getPreferredLanguage() : undefined
   });
 
 export default i18n; 

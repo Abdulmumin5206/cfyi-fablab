@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { Facebook, Instagram, Linkedin, Youtube, Send, ArrowRight } from "lucide-react";
+import { Facebook, Instagram, Send, Linkedin, Youtube, ArrowRight } from "lucide-react";
 
 interface FooterProps {
   bgClass?: string;
@@ -8,8 +8,26 @@ interface FooterProps {
 }
 
 const Footer = ({ bgClass = "bg-[#212121]", textClass = "text-white" }: FooterProps) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   
+  // Helper function to get SEO-friendly URLs based on language (same as Header)
+  const getSEOUrl = (service: string) => {
+    const currentLang = i18n.language;
+    switch (service) {
+      case '3d-printing':
+        // Use SEO-friendly URLs but keep them simple without language prefixes
+        switch (currentLang) {
+          case 'ru':
+          case 'uz':
+            return '/3d-printing-tashkent'; // More descriptive for local SEO
+          default:
+            return '/3d-printing-services'; // Commercial intent for English
+        }
+      default:
+        return `/${service}`;
+    }
+  };
+
   // Determine border colors based on background
   const borderColor = bgClass.includes("white") ? "border-gray-200" : "border-gray-800";
   const linkHoverColor = bgClass.includes("white") ? "hover:text-blue-600" : "hover:text-[#329db7]";
@@ -128,7 +146,7 @@ const Footer = ({ bgClass = "bg-[#212121]", textClass = "text-white" }: FooterPr
                 {
                   id: "3d-printing",
                   titleKey: "serviceCategories.3dPrinting.title",
-                  link: "/3d-printing"
+                  link: getSEOUrl('3d-printing')
                 },
                 {
                   id: "molding",

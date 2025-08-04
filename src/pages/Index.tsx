@@ -76,7 +76,9 @@ const Index = () => {
           "description": currentLang === "ru" ? "Профессиональные услуги 3D печати" : 
                          currentLang === "uz" ? "Professional 3D bosib chiqarish xizmatlari" : 
                          "Professional 3D printing services",
-          "url": "https://fablab-cfyi.uz/3d-printing"
+          "url": currentLang === "ru" || currentLang === "uz" ? 
+                  "https://fablab-cfyi.uz/3d-printing-tashkent" : 
+                  "https://fablab-cfyi.uz/3d-printing-services"
         },
         {
           "@type": "Offer",

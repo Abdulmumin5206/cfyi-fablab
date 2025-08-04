@@ -60,6 +60,7 @@ const HeroSection = () => {
             setIsVideoLoading(false);
           }}
         >
+          <source src="/video/Fablab video horizontal.webm" type="video/webm" />
           <source src="/video/FabLab video horizontal.mp4" type="video/mp4" />
           {t('video.fallbackText')}
         </video>

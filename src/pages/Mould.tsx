@@ -319,7 +319,14 @@ const MouldPage = () => {
   };
 
   const handleMaterialsClick = () => {
-    navigate('/3d-printing');
+    // Use SEO-friendly URL based on language
+    const currentLang = i18n.language;
+    let targetUrl = '/3d-printing-services'; // Default for English
+    if (currentLang === 'ru' || currentLang === 'uz') {
+      targetUrl = '/3d-printing-tashkent';
+    }
+    
+    navigate(targetUrl);
     // Wait for the page to load before scrolling
     setTimeout(() => {
       const materialsSection = document.getElementById('materials-section');
@@ -359,6 +366,7 @@ const MouldPage = () => {
             onError={handleVideoError}
             onLoadedData={handleVideoLoad}
           >
+            <source src="/video/clearest.webm" type="video/webm" />
             <source src="/mould/clearcast_loop_240903_720p_1mbps_h264.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>

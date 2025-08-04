@@ -30,6 +30,24 @@ const ServiceCategories = () => {
   });
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
+  // Helper function to get SEO-friendly URLs based on language (same as Header and Footer)
+  const getSEOUrl = (service: string) => {
+    const currentLang = i18n.language;
+    switch (service) {
+      case '3d-printing':
+        // Use SEO-friendly URLs but keep them simple without language prefixes
+        switch (currentLang) {
+          case 'ru':
+          case 'uz':
+            return '/3d-printing-tashkent'; // More descriptive for local SEO
+          default:
+            return '/3d-printing-services'; // Commercial intent for English
+        }
+      default:
+        return `/${service}`;
+    }
+  };
+
   const categories: ServiceCategory[] = [
     {
       id: "3d-printing",
@@ -40,7 +58,7 @@ const ServiceCategories = () => {
       ],
       logoText: "3D Printing",
       buttonTextKey: "serviceCategories.3dPrinting.title",
-      buttonLink: "/3d-printing",
+      buttonLink: getSEOUrl('3d-printing'),
       color: "bg-[#cb2026]",
     },
     {

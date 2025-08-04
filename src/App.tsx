@@ -48,8 +48,12 @@ const App = () => {
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/3d-printing" element={<ThreeDPrintingPage />} />
+              <Route path="/3d-printing-services" element={<ThreeDPrintingPage />} />
+              <Route path="/3d-printing-tashkent" element={<ThreeDPrintingPage />} />
+              <Route path="/injection-molding" element={<MouldPage />} />
               <Route path="/mould" element={<MouldPage />} />
               <Route path="/digital-fabrication" element={<DigitalFabricationPage />} />
+              <Route path="/3d-scanning-services" element={<ThreeDScanningPage />} />
               <Route path="/3d-scanning" element={<ThreeDScanningPage />} />
               <Route path="/courses" element={<CoursesPage />} />
               <Route path="/blog" element={<BlogIndex />} />

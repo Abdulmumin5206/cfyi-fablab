@@ -23,6 +23,24 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
   // State to track closing animation phases
   const [isClosing, setIsClosing] = useState(false);
 
+  // Helper function to get SEO-friendly URLs based on language
+  const getSEOUrl = (service: string) => {
+    const currentLang = i18n.language;
+    switch (service) {
+      case '3d-printing':
+        // Use SEO-friendly URLs but keep them simple without language prefixes
+        switch (currentLang) {
+          case 'ru':
+          case 'uz':
+            return '/3d-printing-tashkent'; // More descriptive for local SEO
+          default:
+            return '/3d-printing-services'; // Commercial intent for English
+        }
+      default:
+        return `/${service}`;
+    }
+  };
+
   // Custom close handler with staggered animations
   const handleClose = () => {
     setIsClosing(true);
@@ -130,7 +148,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
     {
       title: t('serviceCategories.3dPrinting.title'),
       description: t('serviceCategories.3dPrinting.description'),
-      path: "/3d-printing",
+      path: getSEOUrl('3d-printing'),
       image: "/menu/3Dprinting.webp",
       color: "bg-[#cb2026]"
     },
@@ -149,24 +167,6 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
       color: "bg-[#35469d]"
     }
   ];
-
-  // Helper function to get SEO-friendly URLs based on language
-  const getSEOUrl = (service: string) => {
-    const currentLang = i18n.language;
-    switch (service) {
-      case '3d-printing':
-        // Use SEO-friendly URLs but keep them simple without language prefixes
-        switch (currentLang) {
-          case 'ru':
-          case 'uz':
-            return '/3d-printing-tashkent'; // More descriptive for local SEO
-          default:
-            return '/3d-printing-services'; // Commercial intent for English
-        }
-      default:
-        return `/${service}`;
-    }
-  };
 
   return (
     <div

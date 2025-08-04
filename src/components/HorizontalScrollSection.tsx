@@ -7,23 +7,10 @@ const HorizontalScrollSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
-  const [horizontalScrollActive, setHorizontalScrollActive] = useState(false);
-  const [horizontalProgress, setHorizontalProgress] = useState(0);
-  const [hasReachedEnd, setHasReachedEnd] = useState(false);
-  const [hasReachedStart, setHasReachedStart] = useState(true);
   const [contentWidth, setContentWidth] = useState(0);
   
-  // Simplified mobile state
+  // Only essential mobile detection
   const [isMobile, setIsMobile] = useState(false);
-  const [isScrolling, setIsScrolling] = useState(false);
-  const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-  
-  // Simple touch handling
-  const touchDataRef = useRef({
-    startX: 0,
-    startY: 0,
-    isHorizontal: false
-  });
 
   // Check if current language is Russian to apply smaller font size
   const isRussian = i18n.language === 'ru';
@@ -37,45 +24,35 @@ const HorizontalScrollSection = () => {
     ? "text-gray-800 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed space-y-4 sm:space-y-6"
     : "text-gray-800 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed space-y-4 sm:space-y-6";
 
-  // Simple and direct progress update
+  // Ultra-simple progress update - no states, no checks
   const updateProgress = useCallback((newProgress: number) => {
+    if (!contentRef.current) return;
+    
     const clampedProgress = Math.max(0, Math.min(1, newProgress));
-    
-    if (contentRef.current) {
-      const translateX = clampedProgress * contentWidth;
-      contentRef.current.style.transform = `translate3d(-${translateX}px, 0, 0)`;
-    }
-    
-    setHorizontalProgress(clampedProgress);
+    const translateX = clampedProgress * contentWidth;
+    contentRef.current.style.transform = `translate3d(-${translateX}px, 0, 0)`;
   }, [contentWidth]);
 
-  // Calculate the content width and set up the section
+  // Calculate dimensions only
   useEffect(() => {
     if (!contentRef.current || !containerRef.current || !sectionRef.current) return;
 
     const calculateDimensions = () => {
       if (!contentRef.current || !sectionRef.current) return;
       
-      // Check if we're on mobile
       const mobileBreakpoint = 768;
       const isMobileView = window.innerWidth < mobileBreakpoint;
       setIsMobile(isMobileView);
       
       if (isMobileView) {
-        // Mobile setup
         const containerWidth = window.innerWidth;
         const totalContentWidth = contentRef.current!.scrollWidth;
-        const initialPadding = 8;
-        const scrollableDistance = totalContentWidth - containerWidth + initialPadding;
+        const scrollableDistance = totalContentWidth - containerWidth;
         
         setContentWidth(scrollableDistance);
-        
-        const heightMultiplier = 0.7;
-        sectionRef.current!.style.height = `${scrollableDistance + window.innerHeight * heightMultiplier}px`;
-        
-        contentRef.current!.style.transform = 'translate3d(0, 0, 0)';
+        sectionRef.current!.style.height = `${scrollableDistance + window.innerHeight}px`;
       } else {
-        // Desktop setup
+        // Desktop logic (unchanged)
         const containerWidth = window.innerWidth;
         const totalContentWidth = contentRef.current!.scrollWidth;
         const initialPadding = 16;
@@ -94,52 +71,26 @@ const HorizontalScrollSection = () => {
     };
   }, []);
 
-  // Handle the intersection observer to detect when section is in view
-  useEffect(() => {
-    if (!containerRef.current) return;
-
-    const options = {
-      threshold: [0.1, 0.3, 0.7, 0.9],
-      rootMargin: "-5% 0px"
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      const entry = entries[0];
-      
-      if (entry.intersectionRatio > 0.3 && entry.intersectionRatio < 0.7) {
-        setHorizontalScrollActive(true);
-      } else {
-        setHorizontalScrollActive(false);
-      }
-    }, options);
-
-    observer.observe(containerRef.current);
-
-    return () => {
-      if (containerRef.current) {
-        observer.unobserve(containerRef.current);
-      }
-    };
-  }, []);
-
-  // Simple scroll handling - direct mapping
+  // Ultra-simple scroll handling
   useEffect(() => {
     if (!isMobile) {
-      // Desktop scroll handling (unchanged from original)
+      // Desktop handling - keep original logic
       let animationFrameId: number;
-      let lastScrollY = window.scrollY;
+      let horizontalScrollActive = false;
+      let hasReachedEnd = false;
+      let hasReachedStart = true;
+      let isScrolling = false;
+      let scrollTimeout: NodeJS.Timeout | null = null;
       
       const handleScroll = () => {
-        lastScrollY = window.scrollY;
+        isScrolling = true;
         
-        setIsScrolling(true);
-        
-        if (scrollTimeoutRef.current) {
-          clearTimeout(scrollTimeoutRef.current);
+        if (scrollTimeout) {
+          clearTimeout(scrollTimeout);
         }
         
-        scrollTimeoutRef.current = setTimeout(() => {
-          setIsScrolling(false);
+        scrollTimeout = setTimeout(() => {
+          isScrolling = false;
         }, 100);
         
         if (!animationFrameId) {
@@ -166,18 +117,18 @@ const HorizontalScrollSection = () => {
         const endThreshold = 0.92;
         
         if (rawProgress < startThreshold) {
-          setHasReachedStart(true);
-          setHasReachedEnd(false);
+          hasReachedStart = true;
+          hasReachedEnd = false;
           updateProgress(0);
         } else if (rawProgress > endThreshold) {
-          setHasReachedEnd(true);
-          setHasReachedStart(false);
+          hasReachedEnd = true;
+          hasReachedStart = false;
           updateProgress(1);
         } else {
           const progress = (rawProgress - startThreshold) / (endThreshold - startThreshold);
           const clampedProgress = Math.max(0, Math.min(1, progress));
-          setHasReachedStart(false);
-          setHasReachedEnd(false);
+          hasReachedStart = false;
+          hasReachedEnd = false;
           updateProgress(clampedProgress);
         }
       };
@@ -190,14 +141,14 @@ const HorizontalScrollSection = () => {
         if (animationFrameId) {
           cancelAnimationFrame(animationFrameId);
         }
-        if (scrollTimeoutRef.current) {
-          clearTimeout(scrollTimeoutRef.current);
+        if (scrollTimeout) {
+          clearTimeout(scrollTimeout);
         }
       };
     } else {
-      // Simple mobile scroll - direct 1:1 mapping
+      // ULTRA-SIMPLE mobile scroll - just direct mapping
       const handleMobileScroll = () => {
-        if (!sectionRef.current || !containerRef.current) return;
+        if (!sectionRef.current) return;
         
         const sectionRect = sectionRef.current.getBoundingClientRect();
         const sectionTop = sectionRect.top;
@@ -207,110 +158,18 @@ const HorizontalScrollSection = () => {
         const maxScroll = sectionHeight - viewportHeight;
         const currentScroll = Math.max(0, -sectionTop);
         
-        let rawProgress = Math.min(1, currentScroll / maxScroll);
-        
-        // Simple thresholds
-        const startThreshold = 0.05;
-        const endThreshold = 0.95;
-        
-        if (rawProgress < startThreshold) {
-          setHasReachedStart(true);
-          setHasReachedEnd(false);
-          updateProgress(0);
-        } else if (rawProgress > endThreshold) {
-          setHasReachedEnd(true);
-          setHasReachedStart(false);
-          updateProgress(1);
-        } else {
-          const progress = (rawProgress - startThreshold) / (endThreshold - startThreshold);
-          const clampedProgress = Math.max(0, Math.min(1, progress));
-          setHasReachedStart(false);
-          setHasReachedEnd(false);
-          updateProgress(clampedProgress);
-        }
+        // Direct 1:1 mapping - no thresholds, no states, no checks
+        const progress = Math.max(0, Math.min(1, currentScroll / maxScroll));
+        updateProgress(progress);
       };
 
       window.addEventListener('scroll', handleMobileScroll, { passive: true });
-      handleMobileScroll(); // Initial call
 
       return () => {
         window.removeEventListener('scroll', handleMobileScroll);
       };
     }
   }, [contentWidth, isMobile, updateProgress]);
-
-  // Prevent default scroll behavior when in horizontal scroll mode
-  useEffect(() => {
-    if (!horizontalScrollActive || isMobile) return; // Skip for mobile
-
-    const preventDefaultScroll = (e: WheelEvent) => {
-      if (horizontalScrollActive && !hasReachedStart && !hasReachedEnd) {
-        e.preventDefault();
-      }
-    };
-
-    window.addEventListener('wheel', preventDefaultScroll, { passive: false });
-
-    return () => {
-      window.removeEventListener('wheel', preventDefaultScroll);
-    };
-  }, [horizontalScrollActive, hasReachedStart, hasReachedEnd, isMobile]);
-
-  // Simple touch handling for mobile
-  useEffect(() => {
-    if (!containerRef.current || !horizontalScrollActive || !isMobile) return;
-    
-    const handleTouchStart = (e: TouchEvent) => {
-      const touch = e.touches[0];
-      touchDataRef.current = {
-        startX: touch.clientX,
-        startY: touch.clientY,
-        isHorizontal: false
-      };
-    };
-    
-    const handleTouchMove = (e: TouchEvent) => {
-      const touch = e.touches[0];
-      const touchData = touchDataRef.current;
-      
-      const diffX = touchData.startX - touch.clientX;
-      const diffY = touchData.startY - touch.clientY;
-      
-      // Determine if horizontal scroll
-      if (!touchData.isHorizontal && Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 20) {
-        touchData.isHorizontal = true;
-      }
-      
-      // Handle horizontal scrolling
-      if (touchData.isHorizontal && !hasReachedStart && !hasReachedEnd) {
-        e.preventDefault();
-        
-        // Simple touch sensitivity
-        const touchSensitivity = 0.001;
-        const progressChange = diffX * touchSensitivity;
-        const newProgress = Math.max(0, Math.min(1, horizontalProgress + progressChange));
-        
-        updateProgress(newProgress);
-      }
-    };
-    
-    const handleTouchEnd = () => {
-      // Simple cleanup
-      touchDataRef.current.isHorizontal = false;
-    };
-    
-    const container = containerRef.current;
-    
-    container.addEventListener('touchstart', handleTouchStart, { passive: true });
-    container.addEventListener('touchmove', handleTouchMove, { passive: false });
-    container.addEventListener('touchend', handleTouchEnd, { passive: true });
-    
-    return () => {
-      container.removeEventListener('touchstart', handleTouchStart);
-      container.removeEventListener('touchmove', handleTouchMove);
-      container.removeEventListener('touchend', handleTouchEnd);
-    };
-  }, [horizontalScrollActive, hasReachedStart, hasReachedEnd, horizontalProgress, isMobile, updateProgress]);
 
   return (
     <section 

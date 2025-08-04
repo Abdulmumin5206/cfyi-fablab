@@ -50,7 +50,8 @@ const HorizontalScrollSection = () => {
         const scrollableDistance = totalContentWidth - containerWidth;
         
         setContentWidth(scrollableDistance);
-        sectionRef.current!.style.height = `${scrollableDistance + window.innerHeight}px`;
+        // Increase height to ensure full horizontal scroll completes
+        sectionRef.current!.style.height = `${scrollableDistance + window.innerHeight * 1.5}px`;
       } else {
         // Desktop logic (unchanged)
         const containerWidth = window.innerWidth;
@@ -63,11 +64,44 @@ const HorizontalScrollSection = () => {
       }
     };
 
+    // Initial calculation
     calculateDimensions();
+    
+    // Recalculate after a short delay to ensure content is rendered
+    const timeoutId = setTimeout(calculateDimensions, 100);
+    
+    // Recalculate after images load
+    const images = contentRef.current!.querySelectorAll('img');
+    let loadedImages = 0;
+    const totalImages = images.length;
+    
+    const handleImageLoad = () => {
+      loadedImages++;
+      if (loadedImages === totalImages) {
+        // All images loaded, recalculate dimensions
+        setTimeout(calculateDimensions, 50);
+      }
+    };
+    
+    images.forEach(img => {
+      if (img.complete) {
+        handleImageLoad();
+      } else {
+        img.addEventListener('load', handleImageLoad);
+        img.addEventListener('error', handleImageLoad); // Count errors as loaded too
+      }
+    });
+    
+    // Also recalculate on resize
     window.addEventListener('resize', calculateDimensions);
 
     return () => {
+      clearTimeout(timeoutId);
       window.removeEventListener('resize', calculateDimensions);
+      images.forEach(img => {
+        img.removeEventListener('load', handleImageLoad);
+        img.removeEventListener('error', handleImageLoad);
+      });
     };
   }, []);
 

@@ -3,13 +3,8 @@ import { NavigateFunction } from 'react-router-dom';
 export const getSEOUrl = (service: string, language: string): string => {
   switch (service) {
     case '3d-printing':
-      switch (language) {
-        case 'ru':
-        case 'uz':
-          return '/3d-printing-tashkent';
-        default:
-          return '/3d-printing-services';
-      }
+      // Use the same URL for all languages since /3d-printing-tashkent works in Telegram browser
+      return '/3d-printing-tashkent';
     default:
       return `/${service}`;
   }

@@ -59,10 +59,8 @@ export const servicesConfig: ServiceItem[] = [
     nameKey: 'header.services.3dPrinting',
     path: '/3d-printing',
     seoUrl: (lang: string) => {
-      if (lang === 'ru' || lang === 'uz') {
-        return '/3d-printing-tashkent';
-      }
-      return '/3d-printing-services';
+      // Use the same URL for all languages since /3d-printing-tashkent works in Telegram browser
+      return '/3d-printing-tashkent';
     }
   },
   {

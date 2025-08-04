@@ -319,12 +319,8 @@ const MouldPage = () => {
   };
 
   const handleMaterialsClick = () => {
-    // Use SEO-friendly URL based on language
-    const currentLang = i18n.language;
-    let targetUrl = '/3d-printing-services'; // Default for English
-    if (currentLang === 'ru' || currentLang === 'uz') {
-      targetUrl = '/3d-printing-tashkent';
-    }
+    // Use the same URL for all languages since /3d-printing-tashkent works in Telegram browser
+    const targetUrl = '/3d-printing-tashkent';
     
     navigate(targetUrl);
     // Wait for the page to load before scrolling

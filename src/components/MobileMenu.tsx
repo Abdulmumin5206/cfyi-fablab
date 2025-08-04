@@ -28,14 +28,8 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
     const currentLang = i18n.language;
     switch (service) {
       case '3d-printing':
-        // Use SEO-friendly URLs but keep them simple without language prefixes
-        switch (currentLang) {
-          case 'ru':
-          case 'uz':
-            return '/3d-printing-tashkent'; // More descriptive for local SEO
-          default:
-            return '/3d-printing-services'; // Commercial intent for English
-        }
+        // Use the same URL for all languages since /3d-printing-tashkent works in Telegram browser
+        return '/3d-printing-tashkent';
       default:
         return `/${service}`;
     }

@@ -76,9 +76,7 @@ const ThreeDPrintingPage = () => {
       "availability": "https://schema.org/InStock"
     },
     "image": "https://fablab-cfyi.uz/3dprinters/hero.webp",
-    "url": currentLang === "ru" || currentLang === "uz" ? 
-           "https://fablab-cfyi.uz/3d-printing-tashkent" : 
-           "https://fablab-cfyi.uz/3d-printing-services",
+    "url": "https://fablab-cfyi.uz/3d-printing-tashkent",
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": currentLang === "ru" ? "Услуги 3D печати" : 
@@ -135,9 +133,7 @@ const ThreeDPrintingPage = () => {
         "name": currentLang === "ru" ? "Услуги 3D печати" : 
                 currentLang === "uz" ? "3D bosib chiqarish xizmatlari" : 
                 "3D Printing Services",
-        "item": currentLang === "ru" || currentLang === "uz" ? 
-                "https://fablab-cfyi.uz/3d-printing-tashkent" : 
-                "https://fablab-cfyi.uz/3d-printing-services"
+        "item": "https://fablab-cfyi.uz/3d-printing-tashkent"
       }
     ]
   };
@@ -229,9 +225,7 @@ const ThreeDPrintingPage = () => {
         keywords={seoData[currentLang].keywords}
         image="/3dprinters/hero.webp"
         schema={combinedSchema}
-        canonicalPath={currentLang === "ru" || currentLang === "uz" ? 
-                      "/3d-printing-tashkent" : 
-                      "/3d-printing-services"}
+        canonicalPath="/3d-printing-tashkent"
       />
       <Header />
       

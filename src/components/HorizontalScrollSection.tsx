@@ -13,13 +13,19 @@ const HorizontalScrollSection = () => {
   const [hasReachedStart, setHasReachedStart] = useState(true);
   const [contentWidth, setContentWidth] = useState(0);
   
-  // Mobile-specific optimizations - simplified
+  // Mobile-specific optimizations - smooth animation focused
   const [isMobile, setIsMobile] = useState(false);
   const [isScrolling, setIsScrolling] = useState(false);
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const rafIdRef = useRef<number>(0);
   const lastProgressRef = useRef(0);
   const lastUpdateTimeRef = useRef(0);
+  
+  // Smooth animation refs for mobile
+  const targetProgressRef = useRef(0);
+  const currentProgressRef = useRef(0);
+  const velocityRef = useRef(0);
+  const isAnimatingRef = useRef(false);
   
   // Touch handling refs - simplified
   const touchDataRef = useRef({
@@ -41,31 +47,16 @@ const HorizontalScrollSection = () => {
     ? "text-gray-800 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed space-y-4 sm:space-y-6"
     : "text-gray-800 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed space-y-4 sm:space-y-6";
 
-  // Highly optimized progress update function for mobile
-  const updateProgress = useCallback((newProgress: number) => {
-    const now = performance.now();
-    
-    // More aggressive throttling for mobile performance
-    if (isMobile) {
-      // Limit updates to 60fps max (16.67ms)
-      if (now - lastUpdateTimeRef.current < 16) return;
+  // Ultra-smooth progress update with interpolation for mobile
+  const updateProgress = useCallback((newProgress: number, forceImmediate = false) => {
+    if (isMobile && !forceImmediate) {
+      // Set target and let smooth animation handle it
+      targetProgressRef.current = Math.max(0, Math.min(1, newProgress));
       
-      // Reduce precision to prevent micro-updates
-      const roundedProgress = Math.round(newProgress * 100) / 100;
-      if (Math.abs(roundedProgress - lastProgressRef.current) < 0.01) return;
-      
-      lastProgressRef.current = roundedProgress;
-      lastUpdateTimeRef.current = now;
-      
-      // Direct DOM manipulation only - avoid React state updates during scroll
-      if (contentRef.current) {
-        const translateX = roundedProgress * contentWidth;
-        contentRef.current.style.transform = `translate3d(-${translateX}px, 0, 0)`;
-      }
-      
-      // Update React state only when scroll ends
-      if (!isScrolling) {
-        setHorizontalProgress(roundedProgress);
+      // Start smooth animation if not already running
+      if (!isAnimatingRef.current) {
+        isAnimatingRef.current = true;
+        smoothAnimate();
       }
     } else {
       // Desktop logic (unchanged)
@@ -83,6 +74,46 @@ const HorizontalScrollSection = () => {
         }
       }
     }
+  }, [contentWidth, isMobile, isScrolling]);
+
+  // Smooth animation function for mobile - creates buttery smooth movement
+  const smoothAnimate = useCallback(() => {
+    if (!isMobile || !contentRef.current) {
+      isAnimatingRef.current = false;
+      return;
+    }
+
+    const current = currentProgressRef.current;
+    const target = targetProgressRef.current;
+    const diff = target - current;
+    
+    // If we're close enough, snap to target
+    if (Math.abs(diff) < 0.001) {
+      currentProgressRef.current = target;
+      const translateX = target * contentWidth;
+      contentRef.current.style.transform = `translate3d(-${translateX}px, 0, 0)`;
+      
+      if (!isScrolling) {
+        setHorizontalProgress(target);
+      }
+      
+      isAnimatingRef.current = false;
+      return;
+    }
+    
+    // Smooth easing with velocity-based interpolation
+    const easeStrength = touchDataRef.current.isDragging ? 0.25 : 0.15;
+    velocityRef.current += diff * easeStrength;
+    velocityRef.current *= 0.85; // Damping for natural feel
+    
+    currentProgressRef.current += velocityRef.current;
+    
+    // Apply the smooth transform
+    const translateX = currentProgressRef.current * contentWidth;
+    contentRef.current.style.transform = `translate3d(-${translateX}px, 0, 0)`;
+    
+    // Continue animation
+    requestAnimationFrame(smoothAnimate);
   }, [contentWidth, isMobile, isScrolling]);
 
   // Calculate the content width and set up the section
@@ -233,64 +264,68 @@ const HorizontalScrollSection = () => {
         }
       };
     } else {
-      // Mobile-optimized scroll handling - ultra lightweight
-      let isThrottled = false;
+      // Ultra-smooth mobile scroll handling with interpolation
+      let lastTime = 0;
+      let smoothScrollTarget = 0;
       
-      const handleMobileScroll = () => {
-        // Skip if already processing or in touch mode
-        if (isThrottled || touchDataRef.current.isDragging) return;
+      const handleMobileScroll = (timestamp: number) => {
+        if (!sectionRef.current || !containerRef.current) return;
         
-        isThrottled = true;
+        // Skip if in touch drag mode
+        if (touchDataRef.current.isDragging) {
+          requestAnimationFrame(handleMobileScroll);
+          return;
+        }
         
-        // Use requestAnimationFrame for smooth 60fps updates
-        requestAnimationFrame(() => {
-          if (!sectionRef.current || !containerRef.current) {
-            isThrottled = false;
-            return;
-          }
-          
-          const sectionRect = sectionRef.current.getBoundingClientRect();
-          const sectionTop = sectionRect.top;
-          const sectionHeight = sectionRect.height;
-          const viewportHeight = window.innerHeight;
-          
-          const maxScroll = sectionHeight - viewportHeight;
-          const currentScroll = Math.max(0, -sectionTop);
-          
-          let rawProgress = Math.min(1, currentScroll / maxScroll);
-          
-          // Simplified thresholds for mobile - more responsive
-          const startThreshold = 0.02;
-          const endThreshold = 0.95;
-          
-          if (rawProgress < startThreshold) {
-            setHasReachedStart(true);
-            setHasReachedEnd(false);
-            updateProgress(0);
-          } else if (rawProgress > endThreshold) {
-            setHasReachedEnd(true);
-            setHasReachedStart(false);
-            updateProgress(1);
-          } else {
-            const progress = (rawProgress - startThreshold) / (endThreshold - startThreshold);
-            const clampedProgress = Math.max(0, Math.min(1, progress));
-            setHasReachedStart(false);
-            setHasReachedEnd(false);
-            updateProgress(clampedProgress);
-          }
-          
-          // Reset throttle after animation frame
-          setTimeout(() => {
-            isThrottled = false;
-          }, 8); // ~120fps max
-        });
+        const deltaTime = timestamp - lastTime;
+        lastTime = timestamp;
+        
+        // Calculate scroll progress
+        const sectionRect = sectionRef.current.getBoundingClientRect();
+        const sectionTop = sectionRect.top;
+        const sectionHeight = sectionRect.height;
+        const viewportHeight = window.innerHeight;
+        
+        const maxScroll = sectionHeight - viewportHeight;
+        const currentScroll = Math.max(0, -sectionTop);
+        
+        let rawProgress = Math.min(1, currentScroll / maxScroll);
+        
+        // Responsive thresholds
+        const startThreshold = 0.02;
+        const endThreshold = 0.95;
+        
+        let targetProgress = 0;
+        
+        if (rawProgress < startThreshold) {
+          setHasReachedStart(true);
+          setHasReachedEnd(false);
+          targetProgress = 0;
+        } else if (rawProgress > endThreshold) {
+          setHasReachedEnd(true);
+          setHasReachedStart(false);
+          targetProgress = 1;
+        } else {
+          const progress = (rawProgress - startThreshold) / (endThreshold - startThreshold);
+          targetProgress = Math.max(0, Math.min(1, progress));
+          setHasReachedStart(false);
+          setHasReachedEnd(false);
+        }
+        
+        // Smooth interpolation to target
+        const diff = targetProgress - smoothScrollTarget;
+        if (Math.abs(diff) > 0.001) {
+          smoothScrollTarget += diff * 0.1; // Smooth following
+          updateProgress(smoothScrollTarget);
+        }
+        
+        requestAnimationFrame(handleMobileScroll);
       };
 
-      window.addEventListener('scroll', handleMobileScroll, { passive: true });
-      handleMobileScroll(); // Initial call
+      requestAnimationFrame(handleMobileScroll);
 
       return () => {
-        window.removeEventListener('scroll', handleMobileScroll);
+        // Cleanup handled by requestAnimationFrame cycle
       };
     }
   }, [contentWidth, isMobile, updateProgress]);
@@ -312,12 +347,20 @@ const HorizontalScrollSection = () => {
     };
   }, [horizontalScrollActive, hasReachedStart, hasReachedEnd, isMobile]);
 
-  // Simplified and optimized touch handling for mobile
+  // Ultra-smooth touch handling for mobile with momentum
   useEffect(() => {
     if (!containerRef.current || !horizontalScrollActive || !isMobile) return;
     
+    let touchStartTime = 0;
+    let lastTouchTime = 0;
+    let touchVelocity = 0;
+    
     const handleTouchStart = (e: TouchEvent) => {
       const touch = e.touches[0];
+      touchStartTime = Date.now();
+      lastTouchTime = touchStartTime;
+      touchVelocity = 0;
+      
       touchDataRef.current = {
         startX: touch.clientX,
         startY: touch.clientY,
@@ -325,12 +368,15 @@ const HorizontalScrollSection = () => {
         isDragging: false
       };
       
-      // Don't set scrolling state immediately - wait for movement
+      // Stop any ongoing smooth animation
+      isAnimatingRef.current = false;
+      currentProgressRef.current = targetProgressRef.current;
     };
     
     const handleTouchMove = (e: TouchEvent) => {
       const touch = e.touches[0];
       const touchData = touchDataRef.current;
+      const now = Date.now();
       
       const diffX = touchData.startX - touch.clientX;
       const diffY = touchData.startY - touch.clientY;
@@ -346,40 +392,52 @@ const HorizontalScrollSection = () => {
       if (touchData.isHorizontal && !hasReachedStart && !hasReachedEnd) {
         e.preventDefault();
         
-        // Cancel any ongoing animation
-        if (rafIdRef.current) {
-          cancelAnimationFrame(rafIdRef.current);
+        // Calculate velocity for smooth momentum
+        const timeDiff = now - lastTouchTime;
+        if (timeDiff > 0) {
+          const moveDiff = diffX - (touchVelocity * timeDiff);
+          touchVelocity = moveDiff / timeDiff;
         }
+        lastTouchTime = now;
         
-        // Simplified touch sensitivity - much more responsive
-        const touchSensitivity = 0.0012; // Increased for better responsiveness
+        // Ultra-responsive touch sensitivity with smooth scaling
+        const touchSensitivity = 0.002;
         const progressChange = diffX * touchSensitivity;
         const newProgress = Math.max(0, Math.min(1, horizontalProgress + progressChange));
         
-        // Direct update without requestAnimationFrame for immediate response
+        // Set target for smooth animation
+        targetProgressRef.current = newProgress;
         updateProgress(newProgress);
       }
     };
     
     const handleTouchEnd = () => {
-      touchDataRef.current.isDragging = false;
+      const touchData = touchDataRef.current;
+      touchData.isDragging = false;
       setIsScrolling(false);
       
-      // Update React state with final position
-      if (contentRef.current && touchDataRef.current.isHorizontal) {
-        const currentTransform = contentRef.current.style.transform;
-        const translateXMatch = currentTransform.match(/translate3d\((-?\d+(?:\.\d+)?)px/);
-        if (translateXMatch) {
-          const currentTranslateX = parseFloat(translateXMatch[1]);
-          const currentProgress = Math.abs(currentTranslateX) / contentWidth;
-          setHorizontalProgress(Math.max(0, Math.min(1, currentProgress)));
+      // Add smooth momentum after touch ends
+      if (touchData.isHorizontal && Math.abs(touchVelocity) > 0.1) {
+        const momentumProgress = targetProgressRef.current + (touchVelocity * 0.3);
+        const clampedMomentum = Math.max(0, Math.min(1, momentumProgress));
+        targetProgressRef.current = clampedMomentum;
+        
+        // Start smooth animation for momentum
+        if (!isAnimatingRef.current) {
+          isAnimatingRef.current = true;
+          smoothAnimate();
         }
       }
+      
+      // Sync React state with final position
+      setTimeout(() => {
+        setHorizontalProgress(targetProgressRef.current);
+      }, 50);
     };
     
     const container = containerRef.current;
     
-    // More efficient event listeners
+    // Optimized event listeners
     container.addEventListener('touchstart', handleTouchStart, { passive: true });
     container.addEventListener('touchmove', handleTouchMove, { passive: false });
     container.addEventListener('touchend', handleTouchEnd, { passive: true });
@@ -389,11 +447,17 @@ const HorizontalScrollSection = () => {
       container.removeEventListener('touchmove', handleTouchMove);
       container.removeEventListener('touchend', handleTouchEnd);
       
-      if (rafIdRef.current) {
-        cancelAnimationFrame(rafIdRef.current);
-      }
+      isAnimatingRef.current = false;
     };
-  }, [horizontalScrollActive, hasReachedStart, hasReachedEnd, horizontalProgress, isMobile, updateProgress, contentWidth]);
+  }, [horizontalScrollActive, hasReachedStart, hasReachedEnd, horizontalProgress, isMobile, updateProgress, contentWidth, smoothAnimate]);
+
+  // Initialize smooth animation values on mobile
+  useEffect(() => {
+    if (isMobile) {
+      currentProgressRef.current = horizontalProgress;
+      targetProgressRef.current = horizontalProgress;
+    }
+  }, [isMobile, horizontalProgress]);
 
   return (
     <section 

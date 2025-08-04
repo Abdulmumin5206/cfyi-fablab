@@ -61,7 +61,7 @@ const MouldPage = () => {
       "@type": "Organization",
       "name": "FabLab CFYI",
       "url": "https://fablab-cfyi.uz",
-      "logo": "https://fablab-cfyi.uz/fablab/logo.png",
+      "logo": "https://fablab-cfyi.uz/fablab/logo.webp",
       "address": {
         "@type": "PostalAddress",
         "addressCountry": "Uzbekistan",

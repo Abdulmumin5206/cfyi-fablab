@@ -401,7 +401,7 @@ const HorizontalScrollSection = () => {
                   </div>
                   <div className="flex-shrink-0">
                     <img 
-                      src="/fablab/logo.png" 
+                      src="/fablab/logo.webp" 
                       alt="FabLab Logo" 
                       className="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 object-contain"
                     />
@@ -435,7 +435,7 @@ const HorizontalScrollSection = () => {
                       objectFit: "cover"
                     }}
                     onError={(e) => {
-                      (e.target as HTMLImageElement).src = "/fablab/logo.png";
+                      (e.target as HTMLImageElement).src = "/fablab/logo.webp";
                     }}
                   />
                 </div>
@@ -491,7 +491,7 @@ const HorizontalScrollSection = () => {
                   alt={t('equipment.title')}
                   className="w-full h-full object-cover rounded-lg"
                   onError={(e) => {
-                    (e.target as HTMLImageElement).src = "/fablab/logo.png";
+                    (e.target as HTMLImageElement).src = "/fablab/logo.webp";
                   }}
                 />
               </div>

@@ -41,7 +41,7 @@ const Index = () => {
     "@type": "Organization",
     "name": "FabLab CFYI",
     "url": "https://fablab-cfyi.uz",
-    "logo": "https://fablab-cfyi.uz/fablab/logo.png",
+    "logo": "https://fablab-cfyi.uz/fablab/logo.webp",
     "description": currentLang === "ru" ? "Ведущая лаборатория цифрового производства в Ташкенте, Узбекистан. Профессиональные услуги 3D печати, 3D сканирования, литья, прототипирования и инженерные решения." : 
                    currentLang === "uz" ? "Toshkent, O'zbekistondagi yetakchi raqamli ishlab chiqarish laboratoriyasi. Professional 3D bosib chiqarish, 3D skanerlash, quyma, prototiplash va muhandislik xizmatlari." : 
                    "Leading digital fabrication laboratory in Tashkent, Uzbekistan. Professional 3D printing, 3D scanning, molding, prototyping and engineering solutions.",

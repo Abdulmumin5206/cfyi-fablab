@@ -54,7 +54,7 @@ const Footer = ({ bgClass = "bg-[#212121]", textClass = "text-white" }: FooterPr
               <div className="w-28 h-16 flex items-center justify-center">
                 <a href="https://fablab-cfyi.uz/" target="_blank" rel="noopener noreferrer">
                   <img 
-                    src={bgClass.includes("white") ? "/fablab/logo.png" : "/fablab/logowhite.png"} 
+                    src={bgClass.includes("white") ? "/fablab/logo.webp" : "/fablab/logowhite.webp"} 
                     alt="FabLab Logo" 
                     className="w-[70%] h-[70%] object-contain"
                     onError={(e) => {

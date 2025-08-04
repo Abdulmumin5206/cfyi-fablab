@@ -312,7 +312,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                     onClick={handleClose}
                   >
                     <img
-                      src="/fablab/logo.png"
+                      src="/fablab/logo.webp"
                       alt="FabLab Logo"
                       className="h-full w-auto max-h-12 sm:max-h-14 object-contain"
                     />

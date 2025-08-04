@@ -344,7 +344,7 @@ const Header = () => {
               >
                 <img
                   style={logoStyle}
-                  src="/fablab/logo.png"
+                  src="/fablab/logo.webp"
                   alt="FabLab Logo"
                   className={`h-full w-auto max-h-16 sm:max-h-20 ${isLaptopScreen ? 'md:max-h-12' : 'md:max-h-14 lg:max-h-16'} object-contain`}
                 />

@@ -35,7 +35,7 @@ const AboutUsSection = () => {
       text: t('aboutUs.cards.cuttingEdgeTools.text'),
       buttonText: t('aboutUs.cards.cuttingEdgeTools.buttonText'),
       link: 'https://cfyi.uz/fablab',
-      image: '/fablab/logo.png',
+      image: '/fablab/logo.webp',
       imageAlt: 'FabLab Logo'
     }
   ];

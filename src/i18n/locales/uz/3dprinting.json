@@ -1,4 +1,22 @@
 {
+  "hero": {
+    "altText": "Professional 3D bosib chiqarish xizmatlari - asosiy rasm"
+  },
+  "slaPrinters": {
+    "altText": "Yuqori aniqlikdagi bosib chiqarish uchun professional SLA 3D printerlar"
+  },
+  "fdmPrinters": {
+    "altText": "Tezkor prototiplash uchun professional FDM 3D printerlar"
+  },
+  "complexPrinting": {
+    "altText": "Murakkab 3D bosib chiqarish loyihasi misoli"
+  },
+  "slaPrint": {
+    "altText": "SLA printerda bosib chiqarilgan yuqori aniqlikdagi detal"
+  },
+  "slaPrintDetail": {
+    "altText": "SLA printerda bosib chiqarilgan komponentning batafsil ko'rinishi"
+  },
   "manufacturing": {
     "title": "Biznesingizni bilganingiz kabi, ishlab chiqarish ehtiyojlaringizni biling.",
     "description": "Tezkor prototiplayashdan yakuniy qismlargacha, bizning zamonaviy 3D bosib chiqarish yechimlarimiz sizning o'ziga xos talablaringizga moslashtirilgan aniq natijalarni ta'minlaydi. Biz sizning g'oyalaringizni haqiqatga aylantirish uchun chuqur tajriba bilan zamonaviy texnologiyalarni birlashtiramiz, har bir loyiha eng yuqori sifat va aniqlik standartlariga javob berishini ta'minlaymiz.",
@@ -71,6 +89,8 @@
     "materials": {
       "title": "3D bosib chiqarish materiallari",
       "subtitle": "FDM va SLA bosib chiqarish texnologiyalari uchun yuqori sifatli materiallarimizning keng assortimentini kashf eting.",
+      "all": "Barcha materiallar",
+      "formlabsPremium": "Formlabs Premium",
       "filters": {
         "all": "Barcha materiallar",
         "fdm": "FDM materiallari",

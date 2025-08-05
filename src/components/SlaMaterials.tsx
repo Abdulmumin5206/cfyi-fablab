@@ -10,7 +10,7 @@ interface Material {
 }
 
 export default function SlaMaterials() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('3dprinting');
   
   // Material data
   const materials: Material[] = [
@@ -89,9 +89,9 @@ export default function SlaMaterials() {
         {/* Header Section */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
-            {t("3dPrinting.materials.sla.title")}
+            {t("materials.sla.title")}
           </h2>
-          <p className="text-gray-600">{t("3dPrinting.materials.sla.subtitle")}</p>
+          <p className="text-gray-600">{t("materials.sla.subtitle")}</p>
         </div>
 
         {/* Company Filters */}
@@ -105,7 +105,7 @@ export default function SlaMaterials() {
                   : 'text-gray-600 hover:text-gray-900'
               }`}
             >
-              {t("3dPrinting.materials.all")}
+              {t("materials.all")}
             </button>
             <button
               onClick={() => handleCompanyFilter('Prusament')}
@@ -135,7 +135,7 @@ export default function SlaMaterials() {
                   : 'text-gray-600 hover:text-gray-900'
               }`}
             >
-              {t("3dPrinting.materials.formlabsPremium")}
+              {t("materials.formlabsPremium")}
             </button>
           </div>
         </div>
@@ -164,7 +164,7 @@ export default function SlaMaterials() {
                       {material.isPremium && (
                         <div className="absolute top-1 right-1">
                           <span className="inline-flex items-center px-1.5 py-0.5 rounded-full text-xs font-medium bg-[#329db7]/10 text-[#329db7] border border-[#329db7]/20">
-                            {t("3dPrinting.materials.premium")}
+                            {t("materials.premium")}
                           </span>
                         </div>
                       )}

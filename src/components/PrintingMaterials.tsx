@@ -530,7 +530,7 @@ const initialMaterials: Material[] = [
 ];
 
 const PrintingMaterials = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('3dprinting');
   const [selectedType, setSelectedType] = useState<'ALL' | 'SLA' | 'FDM'>('ALL');
   const [searchQuery, setSearchQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1);

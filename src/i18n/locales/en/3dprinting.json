@@ -1,4 +1,22 @@
 {
+  "hero": {
+    "altText": "Professional 3D printing services hero image"
+  },
+  "slaPrinters": {
+    "altText": "Professional SLA 3D printers for high-precision printing"
+  },
+  "fdmPrinters": {
+    "altText": "Professional FDM 3D printers for rapid prototyping"
+  },
+  "complexPrinting": {
+    "altText": "Complex 3D printing project example"
+  },
+  "slaPrint": {
+    "altText": "High-precision SLA 3D printed part"
+  },
+  "slaPrintDetail": {
+    "altText": "Detailed view of SLA 3D printed component"
+  },
   "manufacturing": {
     "title": "Know your manufacturing needs, like you know your business.",
     "description": "From rapid prototyping to end-use parts, our advanced 3D printing solutions deliver precision-engineered results that adapt to your specific requirements. We combine cutting-edge technology with deep expertise to transform your ideas into reality, ensuring each project meets the highest standards of quality and accuracy.",
@@ -71,8 +89,9 @@
     "materials": {
       "title": "3D Printing Materials",
       "subtitle": "Explore our wide range of high-quality materials for both FDM and SLA printing technologies.",
+      "all": "All Materials",
+      "formlabsPremium": "Formlabs Premium",
       "filters": {
-        "all": "All Materials",
         "fdm": "FDM Materials",
         "sla": "SLA Materials"
       },

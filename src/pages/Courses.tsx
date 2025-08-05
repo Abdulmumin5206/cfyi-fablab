@@ -64,11 +64,32 @@ const CoursesPage = () => {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const sliderRef = useRef<HTMLDivElement>(null);
   
-  // Define JSON-LD schema for Courses page
+  // SEO data with language-specific content focused on common local search terms
+  const seoData = {
+    titlesByLang: {
+      en: "3D Printing Courses in Tashkent | Learn 3D Modeling | FabLab CFYI",
+      ru: "Курсы 3D печати и моделирования в Ташкенте | Обучение 3D | FabLab",
+      uz: "Toshkentda 3D bosib chiqarish va modellashtirish kurslari | FabLab"
+    },
+    descriptionsByLang: {
+      en: "Professional 3D printing and modeling courses in Tashkent. Learn practical skills with hands-on training on professional equipment. Get certified and start your career.",
+      ru: "Профессиональные курсы 3D печати и моделирования в Ташкенте. Обучение на современном оборудовании с практическими занятиями. Сертификация и трудоустройство.",
+      uz: "Toshkentda professional 3D bosib chiqarish va modellashtirish kurslari. Zamonaviy uskunalarda amaliy mashg'ulotlar bilan o'rganing. Sertifikatsiya va ishga joylashish."
+    },
+    keywordsByLang: {
+      en: "3D printing courses Tashkent, 3D modeling classes, learn 3D printing, 3D design training, 3D printer certification",
+      ru: "Курсы 3D печати Ташкент, обучение 3D моделированию, курсы 3D моделирования, научиться 3D печати, цена курса 3D печати",
+      uz: "Toshkentda 3D bosib chiqarish kurslari, 3D modellashtirish o'rganish, 3D bosib chiqarishni o'rganish, 3D kurslar narxi"
+    }
+  };
+  
+  // Define JSON-LD schema for Courses page with common search terms
   const coursesSchema = {
     "@context": "https://schema.org",
     "@type": "Course",
-    "name": "3D Printing and Digital Fabrication Courses in Uzbekistan",
+    "name": currentLang === "ru" ? "Курсы 3D печати и моделирования в Ташкенте" :
+            currentLang === "uz" ? "Toshkentda 3D bosib chiqarish va modellashtirish kurslari" :
+            "3D Printing and Modeling Courses in Tashkent",
     "provider": {
       "@type": "Organization",
       "name": "FabLab CFYI",
@@ -76,8 +97,12 @@ const CoursesPage = () => {
       "logo": "https://fablab-cfyi.uz/fablab/logo.webp",
       "address": {
         "@type": "PostalAddress",
-        "addressCountry": "Uzbekistan",
-        "addressLocality": "Tashkent"
+        "addressCountry": currentLang === "ru" ? "Узбекистан" : 
+                          currentLang === "uz" ? "O'zbekiston" : 
+                          "Uzbekistan",
+        "addressLocality": currentLang === "ru" ? "Ташкент" : 
+                           currentLang === "uz" ? "Toshkent" : 
+                           "Tashkent"
       },
       "contactPoint": {
         "@type": "ContactPoint",
@@ -85,36 +110,47 @@ const CoursesPage = () => {
         "contactType": "customer service"
       }
     },
-    "description": "Comprehensive 3D printing and digital fabrication courses including FDM, SLA, and advanced manufacturing techniques with hands-on training and certification.",
+    "description": currentLang === "ru" ? "Профессиональные курсы 3D печати и моделирования с практическими занятиями на современном оборудовании. Обучение для начинающих и профессионалов." :
+                   currentLang === "uz" ? "Zamonaviy uskunalarda amaliy mashg'ulotlar bilan professional 3D bosib chiqarish va modellashtirish kurslari. Boshlang'ichlar va professionallar uchun ta'lim." :
+                   "Professional 3D printing and modeling courses with hands-on training on modern equipment. Training for beginners and professionals.",
     "courseMode": "onsite",
+    "offers": {
+      "@type": "Offer",
+      "price": "от 500000",
+      "priceCurrency": "UZS"
+    },
     "hasCourseInstance": [
       {
         "@type": "CourseInstance",
-        "name": "Hobbyist Essentials",
-        "description": "Beginner course for 3D printing enthusiasts",
+        "name": currentLang === "ru" ? "Основы 3D печати" :
+                currentLang === "uz" ? "3D bosib chiqarish asoslari" :
+                "3D Printing Basics",
+        "description": currentLang === "ru" ? "Начальный курс для любителей 3D печати" :
+                       currentLang === "uz" ? "3D bosib chiqarish ishqibozlari uchun boshlang'ich kurs" :
+                       "Beginner course for 3D printing enthusiasts",
         "courseMode": "onsite"
       },
       {
         "@type": "CourseInstance",
-        "name": "Comprehensive Pro",
-        "description": "Intermediate level course for professionals",
+        "name": currentLang === "ru" ? "Профессиональный курс" :
+                currentLang === "uz" ? "Professional kurs" :
+                "Professional Course",
+        "description": currentLang === "ru" ? "Курс среднего уровня для профессионалов" :
+                       currentLang === "uz" ? "Professionallar uchun o'rta darajadagi kurs" :
+                       "Intermediate level course for professionals",
         "courseMode": "onsite"
       },
       {
         "@type": "CourseInstance",
-        "name": "Master Class",
-        "description": "Advanced course for industry experts",
+        "name": currentLang === "ru" ? "Мастер-класс" :
+                currentLang === "uz" ? "Master klass" :
+                "Master Class",
+        "description": currentLang === "ru" ? "Продвинутый курс для экспертов" :
+                       currentLang === "uz" ? "Ekspertlar uchun ilg'or kurs" :
+                       "Advanced course for experts",
         "courseMode": "onsite"
       }
-    ],
-    "offers": {
-      "@type": "Offer",
-      "description": "Professional training courses in 3D printing and digital fabrication",
-      "priceCurrency": "UZS",
-      "availability": "https://schema.org/InStock"
-    },
-    "image": "https://fablab-cfyi.uz/courses/hero.webp",
-    "url": "https://fablab-cfyi.uz/courses"
+    ]
   };
 
   // Define breadcrumb schema
@@ -441,13 +477,12 @@ const CoursesPage = () => {
 
   return (
     <div className="flex min-h-screen flex-col bg-[#f5f5f7]">
-      <SEOHelmet
-        title="3D Printing Courses & Training"
-        description="Professional 3D printing and digital fabrication courses in Uzbekistan. Learn FDM, SLA, and advanced manufacturing with hands-on training and certification at FabLab CFYI."
-        keywords="курсы 3D печати Ташкент, 3D bosib chiqarish kurslari Toshkent, обучение 3D печати, 3D print ta'limi, курсы FDM, FDM kurslari, обучение SLA, SLA o'rganish, цифровое производство курсы, raqamli ishlab chiqarish kurslari, профессиональное обучение Узбекистан, professional ta'lim, сертификация 3D печати, 3D print sertifikatlashtirish, мастер-классы Ташкент, master klass Toshkent"
-        image="/courses/hero.webp"
-        schema={combinedSchema}
-        canonicalPath="/courses"
+      <SEOHelmet 
+        titlesByLang={seoData.titlesByLang}
+        descriptionsByLang={seoData.descriptionsByLang}
+        keywordsByLang={seoData.keywordsByLang}
+        schema={coursesSchema}
+        image="/courses/workshop1.webp"
       />
       <Header />
       

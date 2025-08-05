@@ -16,40 +16,40 @@ const Index = () => {
   const { t, i18n } = useTranslation();
   const currentLang = i18n.language;
   
-  // Define multilingual SEO titles and descriptions
+  // Define multilingual SEO titles and descriptions with balanced branding and services
   const seoData = {
-    en: {
-      title: "FabLab CFYI - 3D Printing & Digital Fabrication Services in Tashkent",
-      description: "Professional 3D printing, scanning, molding and digital fabrication services in Tashkent, Uzbekistan. Innovation hub for prototyping and manufacturing.",
-      keywords: "FabLab CFYI, 3D printing Tashkent, digital fabrication Uzbekistan, prototyping services, 3D scanning"
+    titlesByLang: {
+      en: "FabLab CFYI Tashkent | 3D Printing & Digital Fabrication Center",
+      ru: "FabLab CFYI Ташкент | Центр 3D печати и цифрового производства",
+      uz: "FabLab CFYI Toshkent | 3D bosib chiqarish va raqamli ishlab chiqarish markazi"
     },
-    ru: {
-      title: "FabLab CFYI - 3D печать и цифровое производство в Ташкенте",
-      description: "Профессиональные услуги 3D печати, сканирования, литья и цифрового производства в Ташкенте. Центр инноваций для прототипирования.",
-      keywords: "FabLab CFYI, 3D печать Ташкент, цифровое производство Узбекистан, прототипирование, 3D сканирование"
+    descriptionsByLang: {
+      en: "Official FabLab CFYI in Tashkent - innovation center for 3D printing, prototyping and digital fabrication. Professional services, courses and equipment.",
+      ru: "Официальный FabLab CFYI в Ташкенте - инновационный центр 3D печати, прототипирования и цифрового производства. Профессиональные услуги, курсы и оборудование.",
+      uz: "Toshkentdagi rasmiy FabLab CFYI - 3D bosib chiqarish, prototiplash va raqamli ishlab chiqarish innovatsion markazi. Professional xizmatlar, kurslar va uskunalar."
     },
-    uz: {
-      title: "FabLab CFYI - Toshkentda 3D bosib chiqarish va raqamli ishlab chiqarish",
-      description: "Toshkentda professional 3D bosib chiqarish, skanerlash, quyma va raqamli ishlab chiqarish xizmatlari. Prototiplash uchun innovatsiya markazi.",
-      keywords: "FabLab CFYI, 3D bosib chiqarish Toshkent, raqamli ishlab chiqarish O'zbekiston, prototiplash, 3D skanerlash"
+    keywordsByLang: {
+      en: "FabLab CFYI Tashkent, fablab Uzbekistan, 3D printing center, digital fabrication lab, 3D printing courses, prototyping services",
+      ru: "FabLab CFYI Ташкент, фаблаб Узбекистан, центр 3D печати, лаборатория цифрового производства, курсы 3D печати, услуги прототипирования",
+      uz: "FabLab CFYI Toshkent, fablab O'zbekiston, 3D bosib chiqarish markazi, raqamli ishlab chiqarish laboratoriyasi, 3D bosib chiqarish kurslari"
     }
   };
 
-  // Define enhanced Organization schema
+  // Define enhanced Organization schema with balanced branding and services
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "FabLab CFYI",
     "url": "https://fablab-cfyi.uz",
     "logo": "https://fablab-cfyi.uz/fablab/logo.webp",
-    "description": currentLang === "ru" ? "Ведущая лаборатория цифрового производства в Ташкенте, Узбекистан. Профессиональные услуги 3D печати, 3D сканирования, литья, прототипирования и инженерные решения." : 
-                   currentLang === "uz" ? "Toshkent, O'zbekistondagi yetakchi raqamli ishlab chiqarish laboratoriyasi. Professional 3D bosib chiqarish, 3D skanerlash, quyma, prototiplash va muhandislik xizmatlari." : 
-                   "Leading digital fabrication laboratory in Tashkent, Uzbekistan. Professional 3D printing, 3D scanning, molding, prototyping and engineering solutions.",
+    "description": currentLang === "ru" ? "Официальный FabLab CFYI в Ташкенте - инновационный центр 3D печати, прототипирования и цифрового производства. Современное оборудование, профессиональные услуги и курсы." : 
+                   currentLang === "uz" ? "Toshkentdagi rasmiy FabLab CFYI - 3D bosib chiqarish, prototiplash va raqamli ishlab chiqarish innovatsion markazi. Zamonaviy uskunalar, professional xizmatlar va kurslar." : 
+                   "Official FabLab CFYI in Tashkent - innovation center for 3D printing, prototyping and digital fabrication. Modern equipment, professional services and courses.",
     "address": {
       "@type": "PostalAddress",
-      "addressCountry": "Uzbekistan",
-      "addressLocality": "Tashkent",
-      "addressRegion": "Tashkent"
+      "addressCountry": currentLang === "ru" ? "Узбекистан" : currentLang === "uz" ? "O'zbekiston" : "Uzbekistan",
+      "addressLocality": currentLang === "ru" ? "Ташкент" : currentLang === "uz" ? "Toshkent" : "Tashkent",
+      "addressRegion": currentLang === "ru" ? "Ташкент" : currentLang === "uz" ? "Toshkent" : "Tashkent"
     },
     "contactPoint": {
       "@type": "ContactPoint",
@@ -73,59 +73,32 @@ const Index = () => {
           "name": currentLang === "ru" ? "3D печать" : 
                   currentLang === "uz" ? "3D bosib chiqarish" : 
                   "3D Printing",
-          "description": currentLang === "ru" ? "Профессиональные услуги 3D печати" : 
-                         currentLang === "uz" ? "Professional 3D bosib chiqarish xizmatlari" : 
-                         "Professional 3D printing services",
+          "description": currentLang === "ru" ? "Профессиональная 3D печать на современном оборудовании" : 
+                         currentLang === "uz" ? "Zamonaviy uskunalarda professional 3D bosib chiqarish" : 
+                         "Professional 3D printing on modern equipment",
           "url": "https://fablab-cfyi.uz/3d-printing-tashkent"
         },
         {
           "@type": "Offer",
-          "name": currentLang === "ru" ? "Литье и производство" : 
-                  currentLang === "uz" ? "Quyma va ishlab chiqarish" : 
-                  "Molding & Production",
-          "description": currentLang === "ru" ? "Услуги литья под давлением и производства" : 
-                         currentLang === "uz" ? "Bosim ostida quyma va ishlab chiqarish xizmatlari" : 
-                         "Injection molding and production services",
-          "url": "https://fablab-cfyi.uz/mould"
+          "name": currentLang === "ru" ? "Курсы 3D моделирования" : 
+                  currentLang === "uz" ? "3D modellashtirish kurslari" : 
+                  "3D Modeling Courses",
+          "description": currentLang === "ru" ? "Обучение 3D моделированию и печати" : 
+                         currentLang === "uz" ? "3D modellashtirish va bosib chiqarishni o'rgatish" : 
+                         "3D modeling and printing training",
+          "url": "https://fablab-cfyi.uz/courses"
         },
         {
           "@type": "Offer",
           "name": currentLang === "ru" ? "Цифровое производство" : 
                   currentLang === "uz" ? "Raqamli ishlab chiqarish" : 
                   "Digital Fabrication",
-          "description": currentLang === "ru" ? "Продвинутые услуги цифрового производства" : 
-                         currentLang === "uz" ? "Raqamli ishlab chiqarishning ilg'or xizmatlari" : 
-                         "Advanced digital fabrication services",
+          "description": currentLang === "ru" ? "Услуги цифрового производства и прототипирования" : 
+                         currentLang === "uz" ? "Raqamli ishlab chiqarish va prototiplash xizmatlari" : 
+                         "Digital fabrication and prototyping services",
           "url": "https://fablab-cfyi.uz/digital-fabrication"
-        },
-        {
-          "@type": "Offer",
-          "name": currentLang === "ru" ? "3D сканирование" : 
-                  currentLang === "uz" ? "3D skanerlash" : 
-                  "3D Scanning",
-          "description": currentLang === "ru" ? "Высокоточные услуги 3D сканирования" : 
-                         currentLang === "uz" ? "Yuqori aniqlikdagi 3D skanerlash xizmatlari" : 
-                         "High-precision 3D scanning services",
-          "url": "https://fablab-cfyi.uz/3d-scanning-services"
-        },
-        {
-          "@type": "Offer",
-          "name": currentLang === "ru" ? "Образовательные курсы" : 
-                  currentLang === "uz" ? "Ta'lim kurslari" : 
-                  "Educational Courses",
-          "description": currentLang === "ru" ? "Курсы обучения цифровому производству" : 
-                         currentLang === "uz" ? "Raqamli ishlab chiqarish bo'yicha o'quv kurslari" : 
-                         "Digital fabrication training courses",
-          "url": "https://fablab-cfyi.uz/courses"
         }
       ]
-    },
-    "offers": {
-      "@type": "Offer",
-      "description": currentLang === "ru" ? "3D печать, 3D сканирование, услуги цифрового производства" : 
-                     currentLang === "uz" ? "3D bosib chiqarish, 3D skanerlash, raqamli ishlab chiqarish xizmatlari" : 
-                     "3D Printing, 3D Scanning, Digital Fabrication services",
-      "availability": "https://schema.org/InStock"
     }
   };
 
@@ -254,27 +227,24 @@ const Index = () => {
   const homeSchema = [organizationSchema, localBusinessSchema, faqSchema, websiteSchema];
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <SEOHelmet
-        title={seoData[currentLang as keyof typeof seoData]?.title || seoData.en.title}
-        description={seoData[currentLang as keyof typeof seoData]?.description || seoData.en.description}
-        keywords={seoData[currentLang as keyof typeof seoData]?.keywords || seoData.en.keywords}
-        image="/main/scrolling2.webp"
-        schema={homeSchema}
-        canonicalPath="/"
+    <div className="flex min-h-screen flex-col bg-[#f5f5f7]">
+      <SEOHelmet 
+        titlesByLang={seoData.titlesByLang}
+        descriptionsByLang={seoData.descriptionsByLang}
+        keywordsByLang={seoData.keywordsByLang}
+        schema={organizationSchema}
+        image="/main/fablabroom.webp"
       />
       <Header />
-      <main className="bg-[#f5f5f7]">
-        <HeroSection />
-        <ServiceCategories />
-        <HorizontalScrollSection />
-        <AboutUsSection />
-        <ScrollImageSlider />
-        <ImageFabLabTour />
-        <MembershipSection />
-        <TrainingSection />
-        <ContactSection />
-      </main>
+      <HeroSection />
+      <ServiceCategories />
+      <HorizontalScrollSection />
+      <AboutUsSection />
+      <ScrollImageSlider />
+      <ImageFabLabTour />
+      <MembershipSection />
+      <TrainingSection />
+      <ContactSection />
       <Footer />
     </div>
   );

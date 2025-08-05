@@ -1,13 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-    <title>FabLab CFYI - Innovation and Digital Fabrication in Uzbekistan</title>
-    <meta name="description" content="Discover cutting-edge digital fabrication, 3D printing, and engineering solutions at FabLab CFYI in Uzbekistan. Transform your ideas into reality with our state-of-the-art technology and expertise." />
+    
+    <!-- Default Russian title and description -->
+    <title>FabLab CFYI Ташкент | 3D печать и цифровое производство</title>
+    <meta name="description" content="Официальный FabLab CFYI в Ташкенте. Профессиональные услуги 3D печати, курсы моделирования, цифровое производство и прототипирование. Инновационная лаборатория." />
+    
+    <!-- English title and description (for search engines) -->
+    <meta property="og:title:en" content="FabLab CFYI Tashkent | 3D Printing & Digital Fabrication Center" />
+    <meta property="og:description:en" content="Official FabLab CFYI in Tashkent - innovation center for 3D printing, prototyping and digital fabrication. Professional services, courses and equipment." />
+    
+    <!-- Uzbek title and description (for search engines) -->
+    <meta property="og:title:uz" content="FabLab CFYI Toshkent | 3D bosib chiqarish va raqamli ishlab chiqarish markazi" />
+    <meta property="og:description:uz" content="Toshkentdagi rasmiy FabLab CFYI - 3D bosib chiqarish, prototiplash va raqamli ishlab chiqarish innovatsion markazi. Professional xizmatlar, kurslar va uskunalar." />
+    
     <meta name="author" content="FabLab CFYI" />
     
-    <!-- Google Search Console Verification - Replace with your actual verification code -->
+    <!-- Google Search Console Verification -->
     <meta name="google-site-verification" content="REPLACE_WITH_YOUR_VERIFICATION_CODE" />
     
     <!-- Favicon -->
@@ -16,10 +27,10 @@
     <!-- Canonical link -->
     <link rel="canonical" href="https://fablab-cfyi.uz/" />
     
-    <!-- Language alternates -->
-    <link rel="alternate" hreflang="en" href="https://fablab-cfyi.uz/" />
-    <link rel="alternate" hreflang="ru" href="https://fablab-cfyi.uz/ru/" />
-    <link rel="alternate" hreflang="uz" href="https://fablab-cfyi.uz/uz/" />
+    <!-- Language alternates with query parameters -->
+    <link rel="alternate" hreflang="ru" href="https://fablab-cfyi.uz/?lng=ru" />
+    <link rel="alternate" hreflang="uz" href="https://fablab-cfyi.uz/?lng=uz" />
+    <link rel="alternate" hreflang="en" href="https://fablab-cfyi.uz/?lng=en" />
     <link rel="alternate" hreflang="x-default" href="https://fablab-cfyi.uz/" />
 
     <!-- Preload the font -->
@@ -32,24 +43,24 @@
     />
 
     <!-- Primary Meta Tags -->
-    <meta name="keywords" content="FabLab, CFYI, digital fabrication, 3D printing, Uzbekistan, 3D scanning, prototyping, engineering, innovation, manufacturing, makerspace" />
+    <meta name="keywords" content="FabLab CFYI Ташкент, фаблаб Ташкент, 3D печать Ташкент, цифровое производство, курсы 3D печати, инновационная лаборатория, прототипирование, 3D принтер купить" />
     <meta name="robots" content="index, follow" />
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:title" content="FabLab CFYI - Innovation and Digital Fabrication in Uzbekistan" />
-    <meta property="og:description" content="Discover cutting-edge digital fabrication, 3D printing, and engineering solutions at FabLab CFYI. Transform your ideas into reality with our state-of-the-art technology and expertise." />
+    <meta property="og:title" content="FabLab CFYI Ташкент | 3D печать и цифровое производство" />
+    <meta property="og:description" content="Официальный FabLab CFYI в Ташкенте. Профессиональные услуги 3D печати, курсы моделирования, цифровое производство и прототипирование. Инновационная лаборатория." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://fablab-cfyi.uz/" />
     <meta property="og:image" content="https://fablab-cfyi.uz/main/fablabroom.webp" />
     <meta property="og:site_name" content="FabLab CFYI" />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:locale:alternate" content="ru_RU" />
+    <meta property="og:locale" content="ru_RU" />
     <meta property="og:locale:alternate" content="uz_UZ" />
+    <meta property="og:locale:alternate" content="en_US" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="FabLab CFYI - Innovation and Digital Fabrication in Uzbekistan" />
-    <meta name="twitter:description" content="Discover cutting-edge digital fabrication, 3D printing, and engineering solutions at FabLab CFYI. Transform your ideas into reality with our state-of-the-art technology and expertise." />
+    <meta name="twitter:title" content="FabLab CFYI Ташкент | 3D печать и цифровое производство" />
+    <meta name="twitter:description" content="Официальный FabLab CFYI в Ташкенте. Профессиональные услуги 3D печати, курсы моделирования, цифровое производство и прототипирование. Инновационная лаборатория." />
     <meta name="twitter:image" content="https://fablab-cfyi.uz/main/fablabroom.webp" />
 
     <!-- Structured Data / JSON-LD -->
@@ -60,7 +71,29 @@
         "name": "FabLab CFYI",
         "url": "https://fablab-cfyi.uz",
         "logo": "https://fablab-cfyi.uz/fablab/logo.webp",
-        "description": "Digital fabrication laboratory providing 3D printing, prototyping, engineering solutions and manufacturing services in Uzbekistan.",
+        "description": "Официальный FabLab CFYI в Ташкенте - инновационная лаборатория цифрового производства, предоставляющая услуги 3D печати, прототипирования, инженерных решений и производства в Узбекистане.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "Узбекистан",
+          "addressLocality": "Ташкент"
+        },
+        "sameAs": [
+          "https://facebook.com/fablabcfyi",
+          "https://instagram.com/fablabcfyi",
+          "https://twitter.com/fablabcfyi"
+        ]
+      }
+    </script>
+
+    <!-- English version of structured data for English searches -->
+    <script type="application/ld+json" id="schema-en">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "FabLab CFYI",
+        "url": "https://fablab-cfyi.uz/?lng=en",
+        "logo": "https://fablab-cfyi.uz/fablab/logo.webp",
+        "description": "Official FabLab CFYI in Tashkent - innovation center for 3D printing, prototyping and digital fabrication. Modern equipment, professional services and courses.",
         "address": {
           "@type": "PostalAddress",
           "addressCountry": "Uzbekistan",
@@ -72,6 +105,98 @@
           "https://twitter.com/fablabcfyi"
         ]
       }
+    </script>
+
+    <!-- Uzbek version of structured data for Uzbek searches -->
+    <script type="application/ld+json" id="schema-uz">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "FabLab CFYI",
+        "url": "https://fablab-cfyi.uz/?lng=uz",
+        "logo": "https://fablab-cfyi.uz/fablab/logo.webp",
+        "description": "Toshkentdagi rasmiy FabLab CFYI - 3D bosib chiqarish, prototiplash va raqamli ishlab chiqarish innovatsion markazi. Zamonaviy uskunalar, professional xizmatlar va kurslar.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "O'zbekiston",
+          "addressLocality": "Toshkent"
+        },
+        "sameAs": [
+          "https://facebook.com/fablabcfyi",
+          "https://instagram.com/fablabcfyi",
+          "https://twitter.com/fablabcfyi"
+        ]
+      }
+    </script>
+
+    <!-- Language detection for search engines -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "url": "https://fablab-cfyi.uz/",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://fablab-cfyi.uz/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        },
+        "inLanguage": ["ru", "uz", "en"]
+      }
+    </script>
+
+    <!-- Service schema with popular search terms -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "FabLab CFYI Ташкент",
+        "description": "Официальный FabLab CFYI в Ташкенте - инновационная лаборатория цифрового производства с современным оборудованием.",
+        "url": "https://fablab-cfyi.uz",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Услуги FabLab CFYI",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "name": "3D печать",
+              "description": "Профессиональная 3D печать на современном оборудовании",
+              "url": "https://fablab-cfyi.uz/3d-printing-tashkent?lng=ru"
+            },
+            {
+              "@type": "Offer",
+              "name": "Курсы 3D моделирования",
+              "description": "Обучение 3D моделированию и печати",
+              "url": "https://fablab-cfyi.uz/courses?lng=ru"
+            },
+            {
+              "@type": "Offer",
+              "name": "Цифровое производство",
+              "description": "Услуги цифрового производства и прототипирования",
+              "url": "https://fablab-cfyi.uz/digital-fabrication?lng=ru"
+            }
+          ]
+        }
+      }
+    </script>
+
+    <!-- JavaScript to show the appropriate schema based on browser language -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var userLang = navigator.language || navigator.userLanguage;
+        userLang = userLang.split('-')[0]; // Get the language code
+        
+        // Hide all schemas first
+        document.getElementById('schema-en').setAttribute('type', 'application/ld+json-disabled');
+        document.getElementById('schema-uz').setAttribute('type', 'application/ld+json-disabled');
+        
+        // Enable the appropriate schema based on user language
+        if (userLang === 'en') {
+          document.getElementById('schema-en').setAttribute('type', 'application/ld+json');
+        } else if (userLang === 'uz') {
+          document.getElementById('schema-uz').setAttribute('type', 'application/ld+json');
+        }
+        // Default is Russian, which is already enabled
+      });
     </script>
 
     <style>

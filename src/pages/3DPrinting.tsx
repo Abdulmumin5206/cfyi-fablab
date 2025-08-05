@@ -21,20 +21,20 @@ const ThreeDPrintingPage = () => {
 
   // Define multilingual SEO titles and descriptions
   const seoData = {
-    en: {
-      title: "3D Printing Services in Tashkent | Professional 3D Printing | FabLab CFYI",
-      description: "Professional 3D printing services in Tashkent with FDM and SLA technologies. High-precision prototyping and functional parts manufacturing.",
-      keywords: "3D printing Tashkent, 3D printing services Uzbekistan, FDM printing, SLA printing, rapid prototyping"
+    titlesByLang: {
+      en: "Professional 3D Printing Services in Tashkent | FabLab CFYI",
+      ru: "3D печать в Ташкенте - цены, заказ, услуги | FabLab CFYI",
+      uz: "Toshkentda 3D bosib chiqarish xizmatlari - narxlar | FabLab CFYI"
     },
-    ru: {
-      title: "3D печать в Ташкенте | Профессиональные услуги 3D печати | FabLab CFYI",
-      description: "Профессиональные услуги 3D печати в Ташкенте. Быстрое изготовление прототипов и деталей из различных материалов на FDM и SLA принтерах.",
-      keywords: "3D печать Ташкент, заказать 3D печать Узбекистан, печать на 3D принтере цена, услуги 3D печати пластиком, изготовление прототипов"
+    descriptionsByLang: {
+      en: "High-quality 3D printing services in Tashkent with FDM and SLA technologies. Professional prototyping and manufacturing solutions for businesses and individuals.",
+      ru: "Профессиональная 3D печать в Ташкенте по доступным ценам. FDM и SLA технологии, быстрое изготовление моделей и прототипов. Заказать 3D печать с доставкой.",
+      uz: "Toshkentda arzon narxlarda professional 3D bosib chiqarish. FDM va SLA texnologiyalari, modellar va prototiplarni tez tayyorlash. Yetkazib berish bilan 3D bosib chiqarishga buyurtma bering."
     },
-    uz: {
-      title: "Toshkentda 3D bosib chiqarish | Professional 3D chop etish xizmatlari | FabLab CFYI",
-      description: "Toshkentda professional 3D bosib chiqarish xizmatlari. FDM va SLA texnologiyalari bilan prototiplar va funksional qismlarni tez tayyorlash.",
-      keywords: "3D bosib chiqarish Toshkent, 3D printer xizmati narxi, 3D modellarni chop etish, plastik 3D chop etish, 3D prototip yasash"
+    keywordsByLang: {
+      en: "3D printing Tashkent, FDM printing, SLA printing, professional 3D printing, prototyping Uzbekistan, 3D printing service",
+      ru: "3D печать Ташкент цена, заказать 3D печать, услуги 3D печати, 3D принтер Ташкент, стоимость 3D печати, 3D моделирование, печать на 3D принтере",
+      uz: "3D bosib chiqarish Toshkent narxi, 3D bosib chiqarishga buyurtma berish, 3D bosib chiqarish xizmatlari, 3D printer Toshkent, 3D bosib chiqarish narxi, 3D modellashtirish"
     }
   };
 
@@ -233,6 +233,7 @@ const ThreeDPrintingPage = () => {
       console.error("Translation loading error:", error);
     }
   }, [currentLang, t]);
+  
 
   // Add useEffect for mobile detection
   useEffect(() => {
@@ -284,13 +285,12 @@ const ThreeDPrintingPage = () => {
 
   return (
     <div className="flex min-h-screen flex-col bg-[#f5f5f7]">
-      <SEOHelmet
-        title={seoData[currentLang].title}
-        description={seoData[currentLang].description}
-        keywords={seoData[currentLang].keywords}
-        image="/3dprinters/hero.webp"
+      <SEOHelmet 
+        titlesByLang={seoData.titlesByLang}
+        descriptionsByLang={seoData.descriptionsByLang}
+        keywordsByLang={seoData.keywordsByLang}
         schema={combinedSchema}
-        canonicalPath="/3d-printing-tashkent"
+        image="/3dprinters/hero.webp"
       />
       <Header />
       

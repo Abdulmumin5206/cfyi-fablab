@@ -10,6 +10,22 @@ interface SEOHelmetProps {
   schema?: any;
   canonicalPath?: string;
   noIndex?: boolean;
+  // Add multilingual SEO props
+  titlesByLang?: {
+    en: string;
+    ru: string;
+    uz: string;
+  };
+  descriptionsByLang?: {
+    en: string;
+    ru: string;
+    uz: string;
+  };
+  keywordsByLang?: {
+    en: string;
+    ru: string;
+    uz: string;
+  };
 }
 
 const SEOHelmet = ({
@@ -19,7 +35,11 @@ const SEOHelmet = ({
   image = '/main/scrolling2.webp',
   schema,
   canonicalPath,
-  noIndex = false
+  noIndex = false,
+  // Add multilingual SEO props with defaults
+  titlesByLang,
+  descriptionsByLang,
+  keywordsByLang
 }: SEOHelmetProps) => {
   const location = useLocation();
   const { i18n } = useTranslation();
@@ -29,33 +49,60 @@ const SEOHelmet = ({
   const fullUrl = canonicalPath ? `${baseUrl}${canonicalPath}` : `${baseUrl}${location.pathname}`;
   const fullImageUrl = image.startsWith('http') ? image : `${baseUrl}${image}`;
   
+  // Get language-specific content or fall back to default
+  const getLocalizedTitle = () => {
+    if (titlesByLang && titlesByLang[currentLang as keyof typeof titlesByLang]) {
+      return titlesByLang[currentLang as keyof typeof titlesByLang];
+    }
+    return title || '';
+  };
+  
+  const getLocalizedDescription = () => {
+    if (descriptionsByLang && descriptionsByLang[currentLang as keyof typeof descriptionsByLang]) {
+      return descriptionsByLang[currentLang as keyof typeof descriptionsByLang];
+    }
+    return description || '';
+  };
+  
+  const getLocalizedKeywords = () => {
+    if (keywordsByLang && keywordsByLang[currentLang as keyof typeof keywordsByLang]) {
+      return keywordsByLang[currentLang as keyof typeof keywordsByLang];
+    }
+    return keywords || '';
+  };
+  
   useEffect(() => {
     try {
+      // Get localized content
+      const localizedTitle = getLocalizedTitle();
+      const localizedDescription = getLocalizedDescription();
+      const localizedKeywords = getLocalizedKeywords();
+      
       // Update page title
-      if (title) {
-        document.title = `${title} | FabLab CFYI`;
+      if (localizedTitle) {
+        document.title = `${localizedTitle} | FabLab CFYI`;
       }
       
       // Update meta description
       const metaDescription = document.querySelector('meta[name="description"]');
-      if (metaDescription && description) {
-        metaDescription.setAttribute('content', description);
-      } else if (description) {
+      if (metaDescription && localizedDescription) {
+        metaDescription.setAttribute('content', localizedDescription);
+      } else if (localizedDescription) {
         const newMetaDescription = document.createElement('meta');
         newMetaDescription.setAttribute('name', 'description');
-        newMetaDescription.setAttribute('content', description);
+        newMetaDescription.setAttribute('content', localizedDescription);
         document.head.appendChild(newMetaDescription);
       }
       
       // Update meta keywords
       let metaKeywords = document.querySelector('meta[name="keywords"]');
-      if (!metaKeywords && keywords) {
+      if (!metaKeywords && localizedKeywords) {
         metaKeywords = document.createElement('meta');
         metaKeywords.setAttribute('name', 'keywords');
         document.head.appendChild(metaKeywords);
       }
-      if (metaKeywords && keywords) {
-        metaKeywords.setAttribute('content', keywords);
+      if (metaKeywords && localizedKeywords) {
+        metaKeywords.setAttribute('content', localizedKeywords);
       }
       
       // Update robots tag
@@ -78,8 +125,8 @@ const SEOHelmet = ({
       
       // Update Open Graph tags
       const ogTags = {
-        'og:title': title ? `${title} | FabLab CFYI` : 'FabLab CFYI - Innovation and Digital Fabrication in Uzbekistan',
-        'og:description': description || 'Discover cutting-edge digital fabrication, 3D printing, and engineering solutions at FabLab CFYI.',
+        'og:title': localizedTitle ? `${localizedTitle} | FabLab CFYI` : 'FabLab CFYI - Innovation and Digital Fabrication in Uzbekistan',
+        'og:description': localizedDescription || 'Discover cutting-edge digital fabrication, 3D printing, and engineering solutions at FabLab CFYI.',
         'og:url': fullUrl,
         'og:image': fullImageUrl,
         'og:type': 'website',
@@ -99,8 +146,8 @@ const SEOHelmet = ({
       // Update Twitter tags
       const twitterTags = {
         'twitter:card': 'summary_large_image',
-        'twitter:title': title ? `${title} | FabLab CFYI` : 'FabLab CFYI - Innovation and Digital Fabrication in Uzbekistan',
-        'twitter:description': description || 'Discover cutting-edge digital fabrication, 3D printing, and engineering solutions at FabLab CFYI.',
+        'twitter:title': localizedTitle ? `${localizedTitle} | FabLab CFYI` : 'FabLab CFYI - Innovation and Digital Fabrication in Uzbekistan',
+        'twitter:description': localizedDescription || 'Discover cutting-edge digital fabrication, 3D printing, and engineering solutions at FabLab CFYI.',
         'twitter:image': fullImageUrl
       };
       
@@ -116,9 +163,9 @@ const SEOHelmet = ({
       
       // Update hreflang tags for multilingual SEO
       const hreflangUrls = {
-        en: `${baseUrl}/en${canonicalPath || location.pathname}`,
-        ru: `${baseUrl}/ru${canonicalPath || location.pathname}`,
-        uz: `${baseUrl}/uz${canonicalPath || location.pathname}`
+        en: `${baseUrl}${location.pathname}?lng=en`,
+        ru: `${baseUrl}${location.pathname}?lng=ru`,
+        uz: `${baseUrl}${location.pathname}?lng=uz`
       };
 
       // Remove existing hreflang tags
@@ -136,7 +183,7 @@ const SEOHelmet = ({
       const xDefaultTag = document.createElement('link');
       xDefaultTag.setAttribute('rel', 'alternate');
       xDefaultTag.setAttribute('hreflang', 'x-default');
-      xDefaultTag.setAttribute('href', `${baseUrl}${canonicalPath || location.pathname}`);
+      xDefaultTag.setAttribute('href', `${baseUrl}${location.pathname}`);
       document.head.appendChild(xDefaultTag);
       
       // Update structured data with error handling
@@ -168,8 +215,8 @@ const SEOHelmet = ({
             const fallbackSchema = {
               "@context": "https://schema.org",
               "@type": "WebPage",
-              "name": title || "FabLab CFYI",
-              "description": description || "Digital fabrication services in Tashkent"
+              "name": localizedTitle || "FabLab CFYI",
+              "description": localizedDescription || "Digital fabrication services in Tashkent"
             };
             
             const scriptTag = document.createElement('script');
@@ -188,7 +235,7 @@ const SEOHelmet = ({
     return () => {
       // Cleanup function not needed as we're updating existing tags
     };
-  }, [title, description, keywords, image, schema, fullUrl, fullImageUrl, currentLang, canonicalPath, location.pathname, noIndex]);
+  }, [title, description, keywords, image, schema, fullUrl, fullImageUrl, currentLang, canonicalPath, location.pathname, noIndex, titlesByLang, descriptionsByLang, keywordsByLang]);
   
   // This component doesn't render anything
   return null;

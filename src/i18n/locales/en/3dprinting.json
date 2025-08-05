@@ -366,6 +366,20 @@
       "buttons": {
         "enroll": "Enroll Now",
         "syllabus": "Download Syllabus"
+      },
+      "images": {
+        "basics": {
+          "altText": "3D printing basics course - Learning fundamentals"
+        },
+        "advanced": {
+          "altText": "Advanced 3D printing techniques course"
+        },
+        "projects": {
+          "altText": "Hands-on 3D printing projects in course"
+        },
+        "equipment": {
+          "altText": "Professional 3D printing equipment used in course"
+        }
       }
     }
   }

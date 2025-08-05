@@ -366,6 +366,20 @@
       "buttons": {
         "enroll": "Hoziroq Ro'yxatdan O'ting",
         "syllabus": "O'quv dasturini yuklab olish"
+      },
+      "images": {
+        "basics": {
+          "altText": "3D bosib chiqarish asoslari kursi - Asoslarni o'rganish"
+        },
+        "advanced": {
+          "altText": "Rivojlangan 3D bosib chiqarish texnikalari kursi"
+        },
+        "projects": {
+          "altText": "Kursdagi amaliy 3D bosib chiqarish loyihalari"
+        },
+        "equipment": {
+          "altText": "Kursda ishlatilgan professional 3D bosib chiqarish jihozlari"
+        }
       }
     }
   }

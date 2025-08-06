@@ -68,26 +68,26 @@
       href="https://fablab-cfyi.uz/digital-fabrication" />
     </url>
   <url>
-    <loc>https://fablab-cfyi.uz/mould</loc>
+    <loc>https://fablab-cfyi.uz/injection-molding</loc>
     <lastmod>2025-08-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link 
       rel="alternate" 
       hreflang="en" 
-      href="https://fablab-cfyi.uz/mould?lng=en" />
+      href="https://fablab-cfyi.uz/injection-molding?lng=en" />
     <xhtml:link 
       rel="alternate" 
       hreflang="ru" 
-      href="https://fablab-cfyi.uz/mould?lng=ru" />
+      href="https://fablab-cfyi.uz/injection-molding?lng=ru" />
     <xhtml:link 
       rel="alternate" 
       hreflang="uz" 
-      href="https://fablab-cfyi.uz/mould?lng=uz" />
+      href="https://fablab-cfyi.uz/injection-molding?lng=uz" />
     <xhtml:link 
       rel="alternate" 
       hreflang="x-default" 
-      href="https://fablab-cfyi.uz/mould" />
+      href="https://fablab-cfyi.uz/injection-molding" />
     </url>
   <url>
     <loc>https://fablab-cfyi.uz/3d-scanning</loc>

@@ -94,52 +94,56 @@ export const detectBestLanguage = (): string => {
  * Test language detection and switching
  */
 export const testLanguageDetection = (): void => {
-  console.group('🌐 Language Detection Test');
-  
-  console.log('Current i18n language:', i18n.language);
-  console.log('Normalized language code:', i18n.language.split('-')[0]);
-  console.log('Browser language:', navigator.language);
-  console.log('Browser languages:', navigator.languages);
-  console.log('Detected best language:', detectBestLanguage());
-  console.log('localStorage i18nextLng:', localStorage.getItem('i18nextLng'));
-  console.log('Supported languages:', SUPPORTED_LANGUAGES.map(l => l.code));
-  
-  // Test each supported language
-  SUPPORTED_LANGUAGES.forEach(lang => {
-    console.log(`Testing ${lang.code}:`, {
-      isSupported: isLanguageSupported(lang.code),
-      name: lang.name,
-      nativeName: lang.nativeName
+  if (process.env.NODE_ENV === 'development') {
+    console.group('🌐 Language Detection Test');
+    
+    console.log('Current i18n language:', i18n.language);
+    console.log('Normalized language code:', i18n.language.split('-')[0]);
+    console.log('Browser language:', navigator.language);
+    console.log('Browser languages:', navigator.languages);
+    console.log('Detected best language:', detectBestLanguage());
+    console.log('localStorage i18nextLng:', localStorage.getItem('i18nextLng'));
+    console.log('Supported languages:', SUPPORTED_LANGUAGES.map(l => l.code));
+    
+    // Test each supported language
+    SUPPORTED_LANGUAGES.forEach(lang => {
+      console.log(`Testing ${lang.code}:`, {
+        isSupported: isLanguageSupported(lang.code),
+        name: lang.name,
+        nativeName: lang.nativeName
+      });
     });
-  });
-  
-  console.groupEnd();
+    
+    console.groupEnd();
+  }
 };
 
 /**
  * Validate translation completeness
  */
 export const validateTranslations = (): void => {
-  console.group('📝 Translation Validation');
-  
-  const namespaces = Array.isArray(i18n.options.ns) ? i18n.options.ns : ['translation'];
-  const languages = Object.keys(i18n.options.resources || {});
-  
-  languages.forEach(lang => {
-    console.log(`\n${lang.toUpperCase()} translations:`);
+  if (process.env.NODE_ENV === 'development') {
+    console.group('📝 Translation Validation');
     
-    namespaces.forEach(ns => {
-      const resources = i18n.options.resources?.[lang]?.[ns];
-      if (resources) {
-        const keyCount = Object.keys(resources).length;
-        console.log(`  ${ns}: ${keyCount} keys`);
-      } else {
-        console.warn(`  ${ns}: Missing namespace`);
-      }
+    const namespaces = Array.isArray(i18n.options.ns) ? i18n.options.ns : ['translation'];
+    const languages = Object.keys(i18n.options.resources || {});
+    
+    languages.forEach(lang => {
+      console.log(`\n${lang.toUpperCase()} translations:`);
+      
+      namespaces.forEach(ns => {
+        const resources = i18n.options.resources?.[lang]?.[ns];
+        if (resources) {
+          const keyCount = Object.keys(resources).length;
+          console.log(`  ${ns}: ${keyCount} keys`);
+        } else {
+          console.warn(`  ${ns}: Missing namespace`);
+        }
+      });
     });
-  });
-  
-  console.groupEnd();
+    
+    console.groupEnd();
+  }
 };
 
 /**
@@ -152,9 +156,13 @@ export const switchLanguage = async (langCode: string): Promise<boolean> => {
   }
   
   try {
-    console.log(`🔄 Switching to ${langCode}...`);
+    if (process.env.NODE_ENV === 'development') {
+      console.log(`🔄 Switching to ${langCode}...`);
+    }
     await i18n.changeLanguage(langCode);
-    console.log(`✅ Successfully switched to ${langCode}`);
+    if (process.env.NODE_ENV === 'development') {
+      console.log(`✅ Successfully switched to ${langCode}`);
+    }
     return true;
   } catch (error) {
     console.error(`❌ Failed to switch to ${langCode}:`, error);

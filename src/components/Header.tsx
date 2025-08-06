@@ -25,7 +25,7 @@ const Header = () => {
         // Use the most compatible URL that works in all browsers including Telegram
         return '/3d-printing-tashkent';
       case '3d-scanning':
-        return '/3d-scanning-services';
+        return '/3d-scanning';
       case 'mould':
         return '/injection-molding';
       case 'digital-fabrication':
@@ -58,9 +58,9 @@ const Header = () => {
                            normalizePath("/3d-printing-services") || 
                            normalizePath("/3d-printing-tashkent");
   const is3DPrintingBlogPost = normalizePath("/projects/3d-printing-innovations");
-  const isBlogPage = normalizePath("/projects") || pathStartsWith("/projects/");
+  const isBlogPage = normalizePath("/projects") || pathStartsWith("/projects/") || normalizePath("/blog") || pathStartsWith("/blog/");
   const isCoursesPage = normalizePath("/courses");
-  const is3DScanningPage = normalizePath("/3d-scanning-services");
+  const is3DScanningPage = normalizePath("/3d-scanning") || normalizePath("/3d-scanning-services");
   const isHomePage = normalizePath("/");
   
   // const shouldUseBlackTheme = is3DPrintingBlogPost || isBlogPage;

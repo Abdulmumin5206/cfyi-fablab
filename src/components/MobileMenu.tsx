@@ -150,7 +150,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
       title: t('serviceCategories.molding.title'),
       description: t('serviceCategories.molding.description'),
       path: "/injection-molding",
-      image: "/mould/imhero.webp",
+      image: "/injection-molding/imhero.webp",
       color: "bg-[#0e9a48]"
     },
     {

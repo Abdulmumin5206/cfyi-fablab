@@ -10,6 +10,12 @@ Options -Indexes
     RewriteCond %{HTTP_USER_AGENT} (Googlebot|bingbot|Yandexbot|DuckDuckBot|Slurp|Baiduspider) [NC]
     RewriteRule .* - [E=ALLOW_BOT:1]
     
+    # Redirect old URLs to new URLs
+    RewriteRule ^mould/?$ /injection-molding [R=301,L]
+    RewriteRule ^3d-printing/?$ /3d-printing-tashkent [R=301,L]
+    RewriteRule ^3d-printing-services/?$ /3d-printing-tashkent [R=301,L]
+    RewriteRule ^3d-scanning-services/?$ /3d-scanning [R=301,L]
+    
     # If the request is not for a valid file or directory
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
@@ -87,7 +93,7 @@ Options -Indexes
     Header set Access-Control-Allow-Origin "*"
     
     # Fix for 403 errors on specific pages
-    <FilesMatch "^(mould|digital-fabrication|courses|3d-scanning)">
+    <FilesMatch "^(injection-molding|digital-fabrication|courses|3d-scanning|3d-printing-tashkent)">
         Header set X-Robots-Tag "all"
         Header unset X-Frame-Options
         Header set Access-Control-Allow-Origin "*"

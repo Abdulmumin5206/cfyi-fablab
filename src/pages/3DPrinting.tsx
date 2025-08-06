@@ -166,7 +166,9 @@ const ThreeDPrintingPage = () => {
 
   // Video load handling
   const handleVideoLoad = () => {
-    console.log("Video loaded successfully");
+    if (process.env.NODE_ENV === 'development') {
+      console.log("Video loaded successfully");
+    }
   };
 
   // Define breadcrumb schema
@@ -217,18 +219,20 @@ const ThreeDPrintingPage = () => {
   const combinedSchema = [printingSchema, breadcrumbSchema, faqSchema];
 
   useEffect(() => {
-    // Component mount logic
-    console.log("3D Printing page mounted", {
-      language: currentLang,
-      userAgent: navigator.userAgent,
-      isMobile: /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent.toLowerCase()),
-      isTelegram: navigator.userAgent.toLowerCase().includes('telegram')
-    });
+    if (process.env.NODE_ENV === 'development') {
+      console.log("3D Printing page mounted", {
+        currentLang,
+        pathname: location.pathname,
+        search: location.search
+      });
+    }
 
     // Test translation loading
     try {
-      const testTranslation = t("manufacturing.title");
-      console.log("Translation test successful:", testTranslation);
+      const testTranslation = t('3dprinting.hero.title');
+      if (process.env.NODE_ENV === 'development') {
+        console.log("Translation test successful:", testTranslation);
+      }
     } catch (error) {
       console.error("Translation loading error:", error);
     }
@@ -246,7 +250,9 @@ const ThreeDPrintingPage = () => {
       // Disable iframes on mobile or Telegram with English language to prevent blank screen issue
       if ((isMobileDevice || isTelegramBrowser) && currentLang === 'en') {
         setShowIframes(false);
-        console.log('Disabled Instagram iframes on mobile/Telegram English version');
+        if (process.env.NODE_ENV === 'development') {
+          console.log('Disabled Instagram iframes on mobile/Telegram English version');
+        }
       } else {
         setShowIframes(true);
       }
@@ -304,7 +310,7 @@ const ThreeDPrintingPage = () => {
           )}
           <img 
             src="/3dprinters/hero.webp" 
-            alt={t("hero.altText")} 
+            alt={t("3dPrinting.hero.altText")} 
             className="w-full h-full object-cover"
             onLoad={() => setIsImageLoading(false)}
           />
@@ -339,11 +345,11 @@ const ThreeDPrintingPage = () => {
                     animationSpeed={4}
                     className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral'] mb-2"
                   >
-                    {t("manufacturing.title")}
+                    {t("3dPrinting.manufacturing.title")}
                   </GradientText>
                   
                   <p className="text-gray-700 text-sm sm:text-base md:text-lg mb-3 sm:mb-4 font-['Magistral']">
-                    {t("manufacturing.description")}
+                    {t("3dPrinting.manufacturing.description")}
                   </p>
 
                   {/* Button hidden on mobile - will be shown at bottom of image */}
@@ -358,7 +364,7 @@ const ThreeDPrintingPage = () => {
                     }}
                     className="hidden lg:inline-flex items-center px-6 py-3 bg-[#329db7] text-white rounded-lg hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
                   >
-                    {t("manufacturing.cta")}
+                    {t("3dPrinting.manufacturing.cta")}
                   </a>
                 </div>
               </div>
@@ -370,7 +376,7 @@ const ThreeDPrintingPage = () => {
                   <div className="aspect-[5/6] relative overflow-hidden shadow-2xl rounded-xl bg-white hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] transition-all duration-300">
                     <img 
                       src="/3dprinters/slaprinters.webp" 
-                      alt={t("slaPrinters.altText")} 
+                      alt={t("3dPrinting.slaPrinters.altText")} 
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -381,7 +387,7 @@ const ThreeDPrintingPage = () => {
                   <div className="aspect-[7/8] relative overflow-hidden shadow-xl rounded-xl bg-white hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] transition-all duration-300">
                     <img 
                       src="/3dprinters/hero22.webp" 
-                      alt={t("fdmPrinters.altText")} 
+                      alt={t("3dPrinting.fdmPrinters.altText")} 
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -400,7 +406,7 @@ const ThreeDPrintingPage = () => {
                     }}
                     className="inline-flex items-center px-6 py-3 bg-[#329db7] text-white rounded-lg hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
                   >
-                    {t("manufacturing.cta")}
+                    {t("3dPrinting.manufacturing.cta")}
                   </a>
                 </div>
               </div>
@@ -433,8 +439,8 @@ const ThreeDPrintingPage = () => {
                       </svg>
                     </div>
                     <div>
-                      <p className="text-xs text-gray-600">{t("fdm.highlights.colors")}</p>
-                      <p className="text-base font-bold text-gray-900">{t("fdm.highlights.multiMaterial")}</p>
+                      <p className="text-xs text-gray-600">{t("3dPrinting.fdm.highlights.colors")}</p>
+                      <p className="text-base font-bold text-gray-900">{t("3dPrinting.fdm.highlights.multiMaterial")}</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
@@ -444,8 +450,8 @@ const ThreeDPrintingPage = () => {
                       </svg>
                     </div>
                     <div>
-                      <p className="text-xs text-gray-600">{t("fdm.highlights.buildArea")}</p>
-                      <p className="text-base font-bold text-gray-900">{t("fdm.highlights.extraLarge")}</p>
+                      <p className="text-xs text-gray-600">{t("3dPrinting.fdm.highlights.buildArea")}</p>
+                      <p className="text-base font-bold text-gray-900">{t("3dPrinting.fdm.highlights.extraLarge")}</p>
                     </div>
                   </div>
                 </div>
@@ -459,11 +465,11 @@ const ThreeDPrintingPage = () => {
                     animationSpeed={4}
                     className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral'] mb-2"
                   >
-                    {t("fdm.title")}
+                    {t("3dPrinting.fdm.title")}
                   </GradientText>
                   
                   <p className="text-gray-700 text-sm sm:text-base md:text-lg mb-3 sm:mb-4 font-['Magistral']">
-                    {t("fdm.description")}
+                    {t("3dPrinting.fdm.description")}
                   </p>
 
                   <div className="space-y-4 mb-8">
@@ -475,7 +481,7 @@ const ThreeDPrintingPage = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-gray-700 text-sm sm:text-base md:text-lg font-['Magistral']">{t("fdm.features.multiMaterial")}</p>
+                      <p className="text-gray-700 text-sm sm:text-base md:text-lg font-['Magistral']">{t("3dPrinting.fdm.features.multiMaterial")}</p>
                     </div>
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
@@ -485,7 +491,7 @@ const ThreeDPrintingPage = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-gray-700 text-sm sm:text-base md:text-lg font-['Magistral']">{t("fdm.features.engineeringGrade")}</p>
+                      <p className="text-gray-700 text-sm sm:text-base md:text-lg font-['Magistral']">{t("3dPrinting.fdm.features.engineeringGrade")}</p>
                     </div>
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
@@ -495,7 +501,7 @@ const ThreeDPrintingPage = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-gray-700 text-sm sm:text-base md:text-lg font-['Magistral']">{t("fdm.features.advancedFeatures")}</p>
+                      <p className="text-gray-700 text-sm sm:text-base md:text-lg font-['Magistral']">{t("3dPrinting.fdm.features.advancedFeatures")}</p>
                     </div>
                   </div>
 
@@ -507,7 +513,7 @@ const ThreeDPrintingPage = () => {
                     }}
                     className="inline-flex items-center px-6 py-3 bg-[#329db7] text-white rounded-lg hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
                   >
-                    {t("fdm.cta")}
+                    {t("3dPrinting.fdm.cta")}
                   </a>
                 </div>
               </div>
@@ -526,10 +532,10 @@ const ThreeDPrintingPage = () => {
                   animationSpeed={4}
                   className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral'] mb-4"
                 >
-                  {t("digitalFabrication.behindTheScenes.title")}
+                  {t("3dPrinting.digitalFabrication.behindTheScenes.title")}
                 </GradientText>
                 <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-6">
-                  {t("digitalFabrication.behindTheScenes.description")}
+                  {t("3dPrinting.digitalFabrication.behindTheScenes.description")}
                 </p>
                 {/* Desktop buttons - hidden on mobile */}
                 <div className="hidden md:flex flex-col gap-4">
@@ -547,7 +553,7 @@ const ThreeDPrintingPage = () => {
                     >
                       <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                     </svg>
-                    {t("digitalFabrication.behindTheScenes.instagramCta")}
+                    {t("3dPrinting.digitalFabrication.behindTheScenes.instagramCta")}
                   </a>
                   <a 
                     href="https://t.me/CenterForYouthInitiatives"
@@ -563,7 +569,7 @@ const ThreeDPrintingPage = () => {
                     >
                       <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
                     </svg>
-                    {t("digitalFabrication.behindTheScenes.telegramCta")}
+                    {t("3dPrinting.digitalFabrication.behindTheScenes.telegramCta")}
                   </a>
                 </div>
               </div>
@@ -592,8 +598,8 @@ const ThreeDPrintingPage = () => {
                 ) : (
                   <div className="w-full flex flex-col gap-4 items-center justify-center">
                     <div className="bg-gray-100 rounded-xl p-6 text-center">
-                      <h3 className="text-lg font-bold mb-3">{t("digitalFabrication.behindTheScenes.title")}</h3>
-                      <p className="mb-4">{t("digitalFabrication.behindTheScenes.description")}</p>
+                      <h3 className="text-lg font-bold mb-3">{t("3dPrinting.digitalFabrication.behindTheScenes.title")}</h3>
+                      <p className="mb-4">{t("3dPrinting.digitalFabrication.behindTheScenes.description")}</p>
                       <div className="flex flex-col gap-3">
                         <a 
                           href="https://www.instagram.com/reel/DGPupgNsXk_/"
@@ -609,7 +615,7 @@ const ThreeDPrintingPage = () => {
                           >
                             <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                           </svg>
-                          {t("digitalFabrication.behindTheScenes.instagramCta")} 1
+                          {t("3dPrinting.digitalFabrication.behindTheScenes.instagramCta")} 1
                         </a>
                         <a 
                           href="https://www.instagram.com/reel/DJD-FBzMS-N/"
@@ -625,7 +631,7 @@ const ThreeDPrintingPage = () => {
                           >
                             <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                           </svg>
-                          {t("digitalFabrication.behindTheScenes.instagramCta")} 2
+                          {t("3dPrinting.digitalFabrication.behindTheScenes.instagramCta")} 2
                         </a>
                       </div>
                     </div>
@@ -649,7 +655,7 @@ const ThreeDPrintingPage = () => {
                   >
                     <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                   </svg>
-                  {t("digitalFabrication.behindTheScenes.instagramCta")}
+                  {t("3dPrinting.digitalFabrication.behindTheScenes.instagramCta")}
                 </a>
                 <a 
                   href="https://t.me/CenterForYouthInitiatives"
@@ -665,7 +671,7 @@ const ThreeDPrintingPage = () => {
                   >
                     <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
                   </svg>
-                  {t("digitalFabrication.behindTheScenes.telegramCta")}
+                  {t("3dPrinting.digitalFabrication.behindTheScenes.telegramCta")}
                 </a>
               </div>
             </div>
@@ -684,11 +690,11 @@ const ThreeDPrintingPage = () => {
                     animationSpeed={4}
                     className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral'] mb-2"
                   >
-                    {t("sla.title")}
+                    {t("3dPrinting.sla.title")}
                   </GradientText>
                   
                   <p className="text-gray-700 text-sm sm:text-base md:text-lg mb-3 sm:mb-4 font-['Magistral']">
-                    {t("sla.description")}
+                    {t("3dPrinting.sla.description")}
                   </p>
 
                   <div className="space-y-4 mb-8">
@@ -700,7 +706,7 @@ const ThreeDPrintingPage = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-gray-700 text-sm sm:text-base md:text-lg font-['Magistral']">{t("sla.features.layerHeight")}</p>
+                      <p className="text-gray-700 text-sm sm:text-base md:text-lg font-['Magistral']">{t("3dPrinting.sla.features.layerHeight")}</p>
                     </div>
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
@@ -710,7 +716,7 @@ const ThreeDPrintingPage = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-gray-700 text-sm sm:text-base md:text-lg font-['Magistral']">{t("sla.features.surfaceFinish")}</p>
+                      <p className="text-gray-700 text-sm sm:text-base md:text-lg font-['Magistral']">{t("3dPrinting.sla.features.surfaceFinish")}</p>
                     </div>
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
@@ -720,7 +726,7 @@ const ThreeDPrintingPage = () => {
                           </svg>
                         </div>
                       </div>
-                      <p className="text-gray-700 text-sm sm:text-base md:text-lg font-['Magistral']">{t("sla.features.applications")}</p>
+                      <p className="text-gray-700 text-sm sm:text-base md:text-lg font-['Magistral']">{t("3dPrinting.sla.features.applications")}</p>
                     </div>
                   </div>
 
@@ -732,7 +738,7 @@ const ThreeDPrintingPage = () => {
                     }}
                     className="inline-flex items-center px-6 py-3 bg-[#329db7] text-white rounded-lg hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
                   >
-                    {t("sla.cta")}
+                    {t("3dPrinting.sla.cta")}
                   </a>
                 </div>
               </div>
@@ -743,7 +749,7 @@ const ThreeDPrintingPage = () => {
                 <div className="relative rounded-xl overflow-hidden shadow-xl bg-white w-[800px] max-w-full ml-auto">
                   <img 
                     src="/3dprinters/slahigh.webp" 
-                    alt={t("slaPrint.altText")} 
+                    alt={t("3dPrinting.slaPrint.altText")} 
                     className="w-full h-[500px] object-cover"
                     width={800}
                     height={600}
@@ -757,7 +763,7 @@ const ThreeDPrintingPage = () => {
                   <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white shadow-[0_8px_32px_rgba(0,0,0,0.2)] group-hover:shadow-[0_16px_48px_rgba(0,0,0,0.3)] transition-all duration-300">
                     <img 
                       src="/3dprinters/slazoom.webp" 
-                      alt={t("slaPrintDetail.altText")} 
+                      alt={t("3dPrinting.slaPrintDetail.altText")} 
                       className="w-full h-full object-cover transform scale-125 group-hover:scale-150 transition-transform duration-300"
                     />
                     {/* Subtle circular gradient overlay */}
@@ -781,22 +787,22 @@ const ThreeDPrintingPage = () => {
                 animationSpeed={4}
                 className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral']"
               >
-                {t("equipment.sla.title")}
+                {t("3dPrinting.equipment.sla.title")}
               </GradientText>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {/* Formlabs Form 3+ */}
               <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
                 <div className="w-full h-32 md:h-36 bg-gray-100 relative">
-                  <img src="/3dprinters/1.formlabs-form3-01_2_1.webp" alt={t("equipment.sla.form3.title")} className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
+                  <img src="/3dprinters/1.formlabs-form3-01_2_1.webp" alt={t("3dPrinting.equipment.sla.form3.title")} className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
                 </div>
                 <div className="-mt-16 z-10 flex justify-center w-full">
-                  <img src="/3dprinters/formlabs-form3-01_2_1.webp" alt={t("equipment.sla.form3.title")} className="w-40 h-48 object-contain" />
+                  <img src="/3dprinters/formlabs-form3-01_2_1.webp" alt={t("3dPrinting.equipment.sla.form3.title")} className="w-40 h-48 object-contain" />
                 </div>
                 <div className="flex flex-col items-center justify-center px-8 pt-6 pb-8 w-full text-center">
-                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center mt-2 font-['Magistral']">{t("equipment.sla.form3.subtitle")}</div>
-                  <h3 className="text-xl sm:text-2xl font-bold mb-3 text-center font-['Magistral']">{t("equipment.sla.form3.title")}</h3>
-                  <p className="text-gray-700 mb-4 text-center text-sm sm:text-base font-['Magistral']">{t("equipment.sla.form3.description")}</p>
+                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center mt-2 font-['Magistral']">{t("3dPrinting.equipment.sla.form3.subtitle")}</div>
+                  <h3 className="text-xl sm:text-2xl font-bold mb-3 text-center font-['Magistral']">{t("3dPrinting.equipment.sla.form3.title")}</h3>
+                  <p className="text-gray-700 mb-4 text-center text-sm sm:text-base font-['Magistral']">{t("3dPrinting.equipment.sla.form3.description")}</p>
                   <hr className="w-12 border-t border-gray-200 my-3" />
                 </div>
               </div>
@@ -804,15 +810,15 @@ const ThreeDPrintingPage = () => {
               {/* Phrozen Sonic Mini 8K */}
               <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
                 <div className="w-full h-32 md:h-36 bg-gray-100 relative">
-                  <img src="/3dprinters/1.Phrozen mini.webp" alt={t("equipment.sla.phrozenMini.title")} className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
+                  <img src="/3dprinters/1.Phrozen mini.webp" alt={t("3dPrinting.equipment.sla.phrozenMini.title")} className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
                 </div>
                 <div className="-mt-16 z-10 flex justify-center w-full">
-                  <img src="/3dprinters/Phrozen mini.webp" alt={t("equipment.sla.phrozenMini.title")} className="w-40 h-48 object-contain" />
+                  <img src="/3dprinters/Phrozen mini.webp" alt={t("3dPrinting.equipment.sla.phrozenMini.title")} className="w-40 h-48 object-contain" />
                 </div>
                 <div className="flex flex-col items-center justify-center px-8 pt-6 pb-8 w-full text-center">
-                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center mt-2 font-['Magistral']">{t("equipment.sla.phrozenMini.subtitle")}</div>
-                  <h3 className="text-xl sm:text-2xl font-bold mb-3 text-center font-['Magistral']">{t("equipment.sla.phrozenMini.title")}</h3>
-                  <p className="text-gray-700 mb-4 text-center text-sm sm:text-base font-['Magistral']">{t("equipment.sla.phrozenMini.description")}</p>
+                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center mt-2 font-['Magistral']">{t("3dPrinting.equipment.sla.phrozenMini.subtitle")}</div>
+                  <h3 className="text-xl sm:text-2xl font-bold mb-3 text-center font-['Magistral']">{t("3dPrinting.equipment.sla.phrozenMini.title")}</h3>
+                  <p className="text-gray-700 mb-4 text-center text-sm sm:text-base font-['Magistral']">{t("3dPrinting.equipment.sla.phrozenMini.description")}</p>
                   <hr className="w-12 border-t border-gray-200 my-3" />
                 </div>
               </div>
@@ -820,15 +826,15 @@ const ThreeDPrintingPage = () => {
               {/* Phrozen Sonic MEGA */}
               <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
                 <div className="w-full h-32 md:h-36 bg-gray-100 relative">
-                  <img src="/3dprinters/1.Phrozen.webp" alt={t("equipment.sla.phrozenMega.title")} className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
+                  <img src="/3dprinters/1.Phrozen.webp" alt={t("3dPrinting.equipment.sla.phrozenMega.title")} className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
                 </div>
                 <div className="-mt-16 z-10 flex justify-center w-full">
-                  <img src="/3dprinters/Phrozen.webp" alt={t("equipment.sla.phrozenMega.title")} className="w-40 h-48 object-contain" />
+                  <img src="/3dprinters/Phrozen.webp" alt={t("3dPrinting.equipment.sla.phrozenMega.title")} className="w-40 h-48 object-contain" />
                 </div>
                 <div className="flex flex-col items-center justify-center px-8 pt-6 pb-8 w-full text-center">
-                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center mt-2 font-['Magistral']">{t("equipment.sla.phrozenMega.subtitle")}</div>
-                  <h3 className="text-xl sm:text-2xl font-bold mb-3 text-center font-['Magistral']">{t("equipment.sla.phrozenMega.title")}</h3>
-                  <p className="text-gray-700 mb-4 text-center text-sm sm:text-base font-['Magistral']">{t("equipment.sla.phrozenMega.description")}</p>
+                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center mt-2 font-['Magistral']">{t("3dPrinting.equipment.sla.phrozenMega.subtitle")}</div>
+                  <h3 className="text-xl sm:text-2xl font-bold mb-3 text-center font-['Magistral']">{t("3dPrinting.equipment.sla.phrozenMega.title")}</h3>
+                  <p className="text-gray-700 mb-4 text-center text-sm sm:text-base font-['Magistral']">{t("3dPrinting.equipment.sla.phrozenMega.description")}</p>
                   <hr className="w-12 border-t border-gray-200 my-3" />
                 </div>
               </div>
@@ -836,15 +842,15 @@ const ThreeDPrintingPage = () => {
               {/* Prusa SL1S */}
               <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
                 <div className="w-full h-32 md:h-36 bg-gray-100 relative">
-                  <img src="/3dprinters/1.prusa.webp" alt={t("equipment.sla.prusa.title")} className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
+                  <img src="/3dprinters/1.prusa.webp" alt={t("3dPrinting.equipment.sla.prusa.title")} className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
                 </div>
                 <div className="-mt-16 z-10 flex justify-center w-full">
-                  <img src="/3dprinters/Prusa.webp" alt={t("equipment.sla.prusa.title")} className="w-40 h-48 object-contain" />
+                  <img src="/3dprinters/Prusa.webp" alt={t("3dPrinting.equipment.sla.prusa.title")} className="w-40 h-48 object-contain" />
                 </div>
                 <div className="flex flex-col items-center justify-center px-8 pt-6 pb-8 w-full text-center">
-                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center mt-2 font-['Magistral']">{t("equipment.sla.prusa.subtitle")}</div>
-                  <h3 className="text-xl sm:text-2xl font-bold mb-3 text-center font-['Magistral']">{t("equipment.sla.prusa.title")}</h3>
-                  <p className="text-gray-700 mb-4 text-center text-sm sm:text-base font-['Magistral']">{t("equipment.sla.prusa.description")}</p>
+                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center mt-2 font-['Magistral']">{t("3dPrinting.equipment.sla.prusa.subtitle")}</div>
+                  <h3 className="text-xl sm:text-2xl font-bold mb-3 text-center font-['Magistral']">{t("3dPrinting.equipment.sla.prusa.title")}</h3>
+                  <p className="text-gray-700 mb-4 text-center text-sm sm:text-base font-['Magistral']">{t("3dPrinting.equipment.sla.prusa.description")}</p>
                   <hr className="w-12 border-t border-gray-200 my-3" />
                 </div>
               </div>
@@ -861,22 +867,22 @@ const ThreeDPrintingPage = () => {
                 animationSpeed={4}
                 className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral']"
               >
-                {t("equipment.fdm.title")}
+                {t("3dPrinting.equipment.fdm.title")}
               </GradientText>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {/* Prusa i3 MK3S+ */}
               <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
                 <div className="w-full h-32 md:h-36 bg-gray-100 relative">
-                  <img src="/3dprinters/1.prusa-i3-mk3s-3d-printer-tashkent.webp" alt={t("equipment.fdm.prusa.title")} className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
+                  <img src="/3dprinters/1.prusa-i3-mk3s-3d-printer-tashkent.webp" alt={t("3dPrinting.equipment.fdm.prusa.title")} className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
                 </div>
                 <div className="-mt-16 z-10 flex justify-center w-full">
-                  <img src="/3dprinters/prusa-i3-mk3s-3d-printer-tashkent.webp" alt={t("equipment.fdm.prusa.title")} className="w-40 h-48 object-contain" />
+                  <img src="/3dprinters/prusa-i3-mk3s-3d-printer-tashkent.webp" alt={t("3dPrinting.equipment.fdm.prusa.title")} className="w-40 h-48 object-contain" />
                 </div>
                 <div className="flex flex-col items-center justify-center px-8 pt-6 pb-8 w-full text-center">
-                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center mt-2 font-['Magistral']">{t("equipment.fdm.prusa.subtitle")}</div>
-                  <h3 className="text-xl sm:text-2xl font-bold mb-3 text-center font-['Magistral']">{t("equipment.fdm.prusa.title")}</h3>
-                  <p className="text-gray-700 mb-4 text-center text-sm sm:text-base font-['Magistral']">{t("equipment.fdm.prusa.description")}</p>
+                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center mt-2 font-['Magistral']">{t("3dPrinting.equipment.fdm.prusa.subtitle")}</div>
+                  <h3 className="text-xl sm:text-2xl font-bold mb-3 text-center font-['Magistral']">{t("3dPrinting.equipment.fdm.prusa.title")}</h3>
+                  <p className="text-gray-700 mb-4 text-center text-sm sm:text-base font-['Magistral']">{t("3dPrinting.equipment.fdm.prusa.description")}</p>
                   <hr className="w-12 border-t border-gray-200 my-3" />
                 </div>
               </div>
@@ -884,15 +890,15 @@ const ThreeDPrintingPage = () => {
               {/* Prusa i3 MK3S+ MMU2S */}
               <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
                 <div className="w-full h-32 md:h-36 bg-gray-100 relative">
-                  <img src="/3dprinters/1.prusa-i3-mk3s-mmu2s-multicolor-3d-printer-tashkent.webp" alt={t("equipment.fdm.prusaMMU.title")} className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
+                  <img src="/3dprinters/1.prusa-i3-mk3s-mmu2s-multicolor-3d-printer-tashkent.webp" alt={t("3dPrinting.equipment.fdm.prusaMMU.title")} className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
                 </div>
                 <div className="-mt-16 z-10 flex justify-center w-full">
-                  <img src="/3dprinters/prusa-i3-mk3s-mmu2s-multicolor-3d-printer-tashkent.webp" alt={t("equipment.fdm.prusaMMU.title")} className="w-40 h-48 object-contain" />
+                  <img src="/3dprinters/prusa-i3-mk3s-mmu2s-multicolor-3d-printer-tashkent.webp" alt={t("3dPrinting.equipment.fdm.prusaMMU.title")} className="w-40 h-48 object-contain" />
                 </div>
                 <div className="flex flex-col items-center justify-center px-8 pt-6 pb-8 w-full text-center">
-                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center mt-2 font-['Magistral']">{t("equipment.fdm.prusaMMU.subtitle")}</div>
-                  <h3 className="text-xl sm:text-2xl font-bold mb-3 text-center font-['Magistral']">{t("equipment.fdm.prusaMMU.title")}</h3>
-                  <p className="text-gray-700 mb-4 text-center text-sm sm:text-base font-['Magistral']">{t("equipment.fdm.prusaMMU.description")}</p>
+                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center mt-2 font-['Magistral']">{t("3dPrinting.equipment.fdm.prusaMMU.subtitle")}</div>
+                  <h3 className="text-xl sm:text-2xl font-bold mb-3 text-center font-['Magistral']">{t("3dPrinting.equipment.fdm.prusaMMU.title")}</h3>
+                  <p className="text-gray-700 mb-4 text-center text-sm sm:text-base font-['Magistral']">{t("3dPrinting.equipment.fdm.prusaMMU.description")}</p>
                   <hr className="w-12 border-t border-gray-200 my-3" />
                 </div>
               </div>
@@ -900,15 +906,15 @@ const ThreeDPrintingPage = () => {
               {/* Skrinter */}
               <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
                 <div className="w-full h-32 md:h-36 bg-gray-100 relative">
-                  <img src="/3dprinters/1.skrinter-3d-printer-uzbekistan.webp" alt={t("equipment.fdm.skrinter.title")} className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
+                  <img src="/3dprinters/1.skrinter-3d-printer-uzbekistan.webp" alt={t("3dPrinting.equipment.fdm.skrinter.title")} className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
                 </div>
                 <div className="-mt-16 z-10 flex justify-center w-full">
-                  <img src="/3dprinters/skrinter-3d-printer-uzbekistan.webp" alt={t("equipment.fdm.skrinter.title")} className="w-40 h-48 object-contain" />
+                  <img src="/3dprinters/skrinter-3d-printer-uzbekistan.webp" alt={t("3dPrinting.equipment.fdm.skrinter.title")} className="w-40 h-48 object-contain" />
                 </div>
                 <div className="flex flex-col items-center justify-center px-8 pt-6 pb-8 w-full text-center">
-                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center mt-2 font-['Magistral']">{t("equipment.fdm.skrinter.subtitle")}</div>
-                  <h3 className="text-xl sm:text-2xl font-bold mb-3 text-center font-['Magistral']">{t("equipment.fdm.skrinter.title")}</h3>
-                  <p className="text-gray-700 mb-4 text-center text-sm sm:text-base font-['Magistral']">{t("equipment.fdm.skrinter.description")}</p>
+                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center mt-2 font-['Magistral']">{t("3dPrinting.equipment.fdm.skrinter.subtitle")}</div>
+                  <h3 className="text-xl sm:text-2xl font-bold mb-3 text-center font-['Magistral']">{t("3dPrinting.equipment.fdm.skrinter.title")}</h3>
+                  <p className="text-gray-700 mb-4 text-center text-sm sm:text-base font-['Magistral']">{t("3dPrinting.equipment.fdm.skrinter.description")}</p>
                   <hr className="w-12 border-t border-gray-200 my-3" />
                 </div>
               </div>
@@ -916,15 +922,15 @@ const ThreeDPrintingPage = () => {
               {/* Raise3D Pro3 */}
               <div className="bg-white rounded-xl shadow-lg flex flex-col items-center p-0 border border-gray-200 overflow-hidden">
                 <div className="w-full h-32 md:h-36 bg-gray-100 relative">
-                  <img src="/3dprinters/1.raise3d-pro3-industrial-3d-printer-tashkent.webp" alt={t("equipment.fdm.raise3d.title")} className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
+                  <img src="/3dprinters/1.raise3d-pro3-industrial-3d-printer-tashkent.webp" alt={t("3dPrinting.equipment.fdm.raise3d.title")} className="absolute inset-0 w-full h-full object-cover object-center opacity-60" />
                 </div>
                 <div className="-mt-16 z-10 flex justify-center w-full">
-                  <img src="/3dprinters/raise3d-pro3-industrial-3d-printer-tashkent.webp" alt={t("equipment.fdm.raise3d.title")} className="w-40 h-48 object-contain" />
+                  <img src="/3dprinters/raise3d-pro3-industrial-3d-printer-tashkent.webp" alt={t("3dPrinting.equipment.fdm.raise3d.title")} className="w-40 h-48 object-contain" />
                 </div>
                 <div className="flex flex-col items-center justify-center px-8 pt-6 pb-8 w-full text-center">
-                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center mt-2 font-['Magistral']">{t("equipment.fdm.raise3d.subtitle")}</div>
-                  <h3 className="text-xl sm:text-2xl font-bold mb-3 text-center font-['Magistral']">{t("equipment.fdm.raise3d.title")}</h3>
-                  <p className="text-gray-700 mb-4 text-center text-sm sm:text-base font-['Magistral']">{t("equipment.fdm.raise3d.description")}</p>
+                  <div className="text-[11px] font-semibold text-[#329db7] mb-1 tracking-widest uppercase text-center mt-2 font-['Magistral']">{t("3dPrinting.equipment.fdm.raise3d.subtitle")}</div>
+                  <h3 className="text-xl sm:text-2xl font-bold mb-3 text-center font-['Magistral']">{t("3dPrinting.equipment.fdm.raise3d.title")}</h3>
+                  <p className="text-gray-700 mb-4 text-center text-sm sm:text-base font-['Magistral']">{t("3dPrinting.equipment.fdm.raise3d.description")}</p>
                   <hr className="w-12 border-t border-gray-200 my-3" />
                 </div>
               </div>
@@ -943,7 +949,7 @@ const ThreeDPrintingPage = () => {
               <div className="w-full lg:w-1/2 space-y-8">
                 <div className="inline-block">
                   <span className="bg-[#329db7]/10 text-[#329db7] text-sm font-semibold px-4 py-2 rounded-full font-['Magistral']">
-                    {t("course.badge")}
+                    {t("3dPrinting.course.badge")}
                   </span>
                 </div>
                 
@@ -952,11 +958,11 @@ const ThreeDPrintingPage = () => {
                   animationSpeed={4}
                   className="text-xl sm:text-2xl lg:text-3xl font-bold font-['Magistral']"
                 >
-                  {t("course.title")}
+                  {t("3dPrinting.course.title")}
                 </GradientText>
                 
                 <p className="text-gray-700 text-sm sm:text-base md:text-lg mb-3 sm:mb-4 font-['Magistral']">
-                  {t("course.description")}
+                  {t("3dPrinting.course.description")}
                 </p>
 
                 {/* Course Features */}
@@ -968,8 +974,8 @@ const ThreeDPrintingPage = () => {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 font-['Magistral']">{t("course.features.handsOn.title")}</h3>
-                      <p className="text-gray-600 text-sm sm:text-base font-['Magistral']">{t("course.features.handsOn.description")}</p>
+                      <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 font-['Magistral']">{t("3dPrinting.course.features.handsOn.title")}</h3>
+                      <p className="text-gray-600 text-sm sm:text-base font-['Magistral']">{t("3dPrinting.course.features.handsOn.description")}</p>
                     </div>
                   </div>
 
@@ -980,8 +986,8 @@ const ThreeDPrintingPage = () => {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 font-['Magistral']">{t("course.features.expert.title")}</h3>
-                      <p className="text-gray-600 text-sm sm:text-base font-['Magistral']">{t("course.features.expert.description")}</p>
+                      <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 font-['Magistral']">{t("3dPrinting.course.features.expert.title")}</h3>
+                      <p className="text-gray-600 text-sm sm:text-base font-['Magistral']">{t("3dPrinting.course.features.expert.description")}</p>
                     </div>
                   </div>
 
@@ -992,8 +998,8 @@ const ThreeDPrintingPage = () => {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 font-['Magistral']">{t("course.features.certification.title")}</h3>
-                      <p className="text-gray-600 text-sm sm:text-base font-['Magistral']">{t("course.features.certification.description")}</p>
+                      <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 font-['Magistral']">{t("3dPrinting.course.features.certification.title")}</h3>
+                      <p className="text-gray-600 text-sm sm:text-base font-['Magistral']">{t("3dPrinting.course.features.certification.description")}</p>
                     </div>
                   </div>
                 </div>
@@ -1005,7 +1011,7 @@ const ThreeDPrintingPage = () => {
                     rel="noopener noreferrer"
                     className="px-8 py-4 bg-[#329db7] text-white rounded-xl font-semibold hover:bg-[#2b86a0] transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 font-['Magistral']"
                   >
-                    {t("course.buttons.enroll")}
+                    {t("3dPrinting.course.buttons.enroll")}
                   </a>
                 </div>
               </div>
@@ -1017,14 +1023,14 @@ const ThreeDPrintingPage = () => {
                     <div className="rounded-2xl overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
                       <img 
                         src="/3dprinters/course1.webp" 
-                        alt={t("course.images.basics.altText")} 
+                        alt={t("3dPrinting.course.images.basics.altText")} 
                         className="w-full h-48 object-cover"
                       />
                     </div>
                     <div className="rounded-2xl overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
                       <img 
                         src="/3dprinters/course2.webp" 
-                        alt={t("course.images.advanced.altText")} 
+                        alt={t("3dPrinting.course.images.advanced.altText")} 
                         className="w-full h-64 object-cover"
                       />
                     </div>
@@ -1033,14 +1039,14 @@ const ThreeDPrintingPage = () => {
                     <div className="rounded-2xl overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
                       <img 
                         src="/3dprinters/course3.webp" 
-                        alt={t("course.images.projects.altText")} 
+                        alt={t("3dPrinting.course.images.projects.altText")} 
                         className="w-full h-64 object-cover"
                       />
                     </div>
                     <div className="rounded-2xl overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
                       <img 
                         src="/3dprinters/course4.webp" 
-                        alt={t("course.images.equipment.altText")} 
+                        alt={t("3dPrinting.course.images.equipment.altText")} 
                         className="w-full h-48 object-cover"
                       />
                     </div>

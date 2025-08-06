@@ -1,7 +1,11 @@
 /* Custom Fonts */
 @font-face {
   font-family: 'Magistral';
-  src: url('/fonts/Magistral-Medium.ttf') format('truetype');
+  src: url('/fonts/Magistral-Medium.eot');
+  src: url('/fonts/Magistral-Medium.eot?#iefix') format('embedded-opentype'),
+       url('/fonts/Magistral-Medium.woff2') format('woff2'),
+       url('/fonts/Magistral-Medium.woff') format('woff'),
+       url('/fonts/Magistral-Medium.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;

@@ -146,7 +146,7 @@ const BlogPost = () => {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Header />
-      <main className="flex-grow pt-20 md:pt-24">
+      <main className="flex-grow pt-24 sm:pt-28 md:pt-32 lg:pt-36">
         <article>
           {/* White header bar for 3D printing post */}
           {is3DPrintingPost && (

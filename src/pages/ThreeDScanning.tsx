@@ -201,10 +201,9 @@ const ThreeDScanningPage = () => {
   const combinedSchema = [scanningSchema, breadcrumbSchema, faqSchema];
 
   useEffect(() => {
-    // Scroll to top when component mounts
-    window.scrollTo(0, 0);
-    
-    console.log("3D Scanning page mounted");
+    if (process.env.NODE_ENV === 'development') {
+      console.log("3D Scanning page mounted");
+    }
   }, []);
 
   return (

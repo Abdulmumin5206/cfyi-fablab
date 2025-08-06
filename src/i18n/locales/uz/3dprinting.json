@@ -48,14 +48,6 @@
     },
     "cta": "SLA imkoniyatlarini o'rganish"
   },
-  "digitalFabrication": {
-    "behindTheScenes": {
-      "title": "Sahna ortida",
-      "description": "Bizning sayohatimizni kuzatib boring va zamonaviy 3D chop etish texnologiyasi yordamida g'oyalaringizni qanday hayotga tatbiq etishimizni bilib oling.",
-      "instagramCta": "Instagram'da kuzatish",
-      "telegramCta": "Telegram'da kuzatish"
-    }
-  },
   "3dPrinting": {
     "hero": {
       "subtitle": "PROFESSIONAL 3D CHOP ETISH YECHIMLARI",
@@ -68,7 +60,8 @@
       "buttons": {
         "quote": "Narxni olish",
         "samples": "Namunalarni so'rash"
-      }
+      },
+      "altText": "Professional 3D bosib chiqarish xizmatlari - asosiy rasm"
     },
     "fdm": {
       "title": "O'z Vizyoningizni Haqiqatga Aylantiring",
@@ -338,6 +331,14 @@
       "title": "Biznesingizni bilganingiz kabi, ishlab chiqarish ehtiyojlaringizni biling.",
       "description": "Tezkor prototiplayashdan yakuniy qismlargacha, bizning zamonaviy 3D bosib chiqarish yechimlarimiz sizning o'ziga xos talablaringizga moslashtirilgan aniq natijalarni ta'minlaydi. Biz sizning g'oyalaringizni haqiqatga aylantirish uchun chuqur tajriba bilan zamonaviy texnologiyalarni birlashtiramiz, har bir loyiha eng yuqori sifat va aniqlik standartlariga javob berishini ta'minlaymiz.",
       "cta": "Bugundan Boshlang"
+    },
+    "digitalFabrication": {
+      "behindTheScenes": {
+        "title": "Sahna ortida",
+        "description": "Bizning sayohatimizni kuzatib boring va zamonaviy 3D chop etish texnologiyasi yordamida g'oyalaringizni qanday hayotga tatbiq etishimizni bilib oling.",
+        "instagramCta": "Instagram'da kuzatish",
+        "telegramCta": "Telegram'da kuzatish"
+      }
     },
     "behindScenes": {
       "title": "Sahna ortida",

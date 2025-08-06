@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { useEffect } from "react";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
@@ -47,17 +47,28 @@ const App = () => {
           <RouteHandler>
             <Routes>
               <Route path="/" element={<Index />} />
-              <Route path="/3d-printing" element={<ThreeDPrintingPage />} />
-              <Route path="/3d-printing-services" element={<ThreeDPrintingPage />} />
+              {/* 3D Printing routes - keeping 3d-printing-tashkent as primary */}
               <Route path="/3d-printing-tashkent" element={<ThreeDPrintingPage />} />
+              <Route path="/3d-printing" element={<Navigate to="/3d-printing-tashkent" replace />} />
+              <Route path="/3d-printing-services" element={<Navigate to="/3d-printing-tashkent" replace />} />
+              
+              {/* Molding routes - keeping injection-molding as primary */}
               <Route path="/injection-molding" element={<MouldPage />} />
-              <Route path="/mould" element={<MouldPage />} />
+              <Route path="/mould" element={<Navigate to="/injection-molding" replace />} />
+              
               <Route path="/digital-fabrication" element={<DigitalFabricationPage />} />
-              <Route path="/3d-scanning-services" element={<ThreeDScanningPage />} />
+              <Route path="/3d-scanning-services" element={<Navigate to="/3d-scanning" replace />} />
               <Route path="/3d-scanning" element={<ThreeDScanningPage />} />
               <Route path="/courses" element={<CoursesPage />} />
+              
+              {/* Blog routes */}
               <Route path="/blog" element={<BlogIndex />} />
               <Route path="/blog/:slug" element={<BlogPost />} />
+              
+              {/* Projects routes - redirect to blog */}
+              <Route path="/projects" element={<Navigate to="/blog" replace />} />
+              <Route path="/projects/:slug" element={<BlogPost />} />
+              
               <Route path="*" element={<NotFound />} />
             </Routes>
           </RouteHandler>

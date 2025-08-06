@@ -169,14 +169,14 @@ const BlogIndex = () => {
     window.scrollTo({ top: 400, behavior: 'smooth' });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real application, this would send the email to your newsletter service
-    console.log("Subscribing email:", email);
-    setSubscribed(true);
+    if (process.env.NODE_ENV === 'development') {
+      console.log("Subscribing email:", email);
+    }
+    // Here you would typically send the email to your backend
     setEmail("");
-    // Reset after 5 seconds
-    setTimeout(() => setSubscribed(false), 5000);
+    // Show success message or handle the subscription
   };
 
   const handleSearch = (e: React.FormEvent) => {
@@ -193,7 +193,7 @@ const BlogIndex = () => {
       <Header />
       <main className="flex-grow bg-[#f5f5f7]">
         {/* Projects Headline */}
-        <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1300px] pt-48 bg-[#f5f5f7]">
+        <div className="container mx-auto px-3 sm:px-4 lg:px-6 max-w-[1300px] pt-24 sm:pt-28 md:pt-32 lg:pt-36 bg-[#f5f5f7]">
           <div className="section-title-wrapper">
             <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-[#329db7] font-['Magistral']">
               {tBlog('blog.projectsHeadline')}

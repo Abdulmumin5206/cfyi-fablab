@@ -48,14 +48,6 @@
     },
     "cta": "Explore SLA Capabilities"
   },
-  "digitalFabrication": {
-    "behindTheScenes": {
-      "title": "Behind the Scenes",
-      "description": "Follow our journey and discover how we bring your ideas to life through cutting-edge 3D printing technology.",
-      "instagramCta": "Follow Us on Instagram",
-      "telegramCta": "Follow Us on Telegram"
-    }
-  },
   "3dPrinting": {
     "hero": {
       "subtitle": "ADVANCED 3D PRINTING SOLUTIONS",
@@ -68,7 +60,8 @@
       "buttons": {
         "quote": "Get a Quote",
         "samples": "Request Samples"
-      }
+      },
+      "altText": "Professional 3D printing services hero image"
     },
     "fdm": {
       "title": "Transform Your Vision Into Reality",
@@ -337,6 +330,14 @@
       "title": "Know your manufacturing needs, like you know your business.",
       "description": "From rapid prototyping to end-use parts, our advanced 3D printing solutions deliver precision-engineered results that adapt to your specific requirements. We combine cutting-edge technology with deep expertise to transform your ideas into reality, ensuring each project meets the highest standards of quality and accuracy.",
       "cta": "Get Started Today"
+    },
+    "digitalFabrication": {
+      "behindTheScenes": {
+        "title": "Behind the Scenes",
+        "description": "Follow our journey and discover how we bring your ideas to life through cutting-edge 3D printing technology.",
+        "instagramCta": "Follow Us on Instagram",
+        "telegramCta": "Follow Us on Telegram"
+      }
     },
     "behindScenes": {
       "title": "Behind the Scenes",

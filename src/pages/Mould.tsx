@@ -89,7 +89,7 @@ const MouldPage = () => {
       "priceCurrency": "UZS",
       "availability": "https://schema.org/InStock"
     },
-    "image": "https://fablab-cfyi.uz/mould/imhero.webp",
+    "image": "https://fablab-cfyi.uz/injection-molding/imhero.webp",
     "url": "https://fablab-cfyi.uz/injection-molding",
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
@@ -224,7 +224,9 @@ const MouldPage = () => {
     // Scroll to top when component mounts
     window.scrollTo(0, 0);
     
-    console.log("Mould page mounted");
+    if (process.env.NODE_ENV === 'development') {
+      console.log("Mould page mounted");
+    }
   }, []);
 
   useEffect(() => {
@@ -297,12 +299,16 @@ const MouldPage = () => {
 
   const handleVideoError = (e: React.SyntheticEvent<HTMLVideoElement, Event>) => {
     console.error("Video failed to load", e);
-    console.log("Video source path:", videoRef.current?.querySelector('source')?.getAttribute('src'));
+    if (process.env.NODE_ENV === 'development') {
+      console.log("Video source path:", videoRef.current?.querySelector('source')?.getAttribute('src'));
+    }
     setIsVideoLoading(false);
   };
 
   const handleVideoLoad = () => {
-    console.log("Video loaded successfully");
+    if (process.env.NODE_ENV === 'development') {
+      console.log("Video loaded successfully");
+    }
     setIsVideoLoading(false);
   };
 
@@ -338,7 +344,7 @@ const MouldPage = () => {
         title={seoData[currentLang]?.title || seoData.en.title}
         description={seoData[currentLang]?.description || seoData.en.description}
         keywords={seoData[currentLang]?.keywords || seoData.en.keywords}
-        image="/mould/imhero.webp"
+        image="/injection-molding/imhero.webp"
         schema={combinedSchema}
         canonicalPath="/injection-molding"
       />
@@ -363,7 +369,7 @@ const MouldPage = () => {
             onLoadedData={handleVideoLoad}
           >
             <source src="/video/clearest.webm" type="video/webm" />
-            <source src="/mould/clearcast_loop_240903_720p_1mbps_h264.mp4" type="video/mp4" />
+            <source src="/injection-molding/clearcast_loop_240903_720p_1mbps_h264.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
           {/* Overlay */}
@@ -446,7 +452,7 @@ const MouldPage = () => {
               <div className="group bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
                 <div className="relative h-64 overflow-hidden">
                   <img 
-                    src="/mould/popups/engineering.webp" 
+                    src="/injection-molding/popups/engineering.webp" 
                     alt={t('professions.categories.engineering.title')} 
                     className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
                   />
@@ -472,7 +478,7 @@ const MouldPage = () => {
               <div className="group bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
                 <div className="relative h-64 overflow-hidden">
                   <img 
-                    src="/mould/popups/textile.webp" 
+                    src="/injection-molding/popups/textile.webp" 
                     alt={t('professions.categories.textile.title')} 
                     className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
                   />
@@ -498,7 +504,7 @@ const MouldPage = () => {
               <div className="group bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
                 <div className="relative h-64 overflow-hidden">
                   <img 
-                    src="/mould/popups/medical.webp" 
+                    src="/injection-molding/popups/medical.webp" 
                     alt={t('professions.categories.medical.title')} 
                     className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
                   />
@@ -524,7 +530,7 @@ const MouldPage = () => {
               <div className="group bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
                 <div className="relative h-64 overflow-hidden">
                   <img 
-                    src="/mould/popups/furniture.webp" 
+                    src="/injection-molding/popups/furniture.webp" 
                     alt={t('professions.categories.furniture.title')} 
                     className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
                   />
@@ -550,7 +556,7 @@ const MouldPage = () => {
               <div className="group bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
                 <div className="relative h-64 overflow-hidden">
                   <img 
-                    src="/mould/popups/automotive.jpg" 
+                    src="/injection-molding/popups/automotive.jpg" 
                     alt={t('professions.categories.automotive.title')} 
                     className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
                   />
@@ -576,7 +582,7 @@ const MouldPage = () => {
               <div className="group bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
                 <div className="relative h-64 overflow-hidden">
                   <img 
-                    src="/mould/popups/education.webp" 
+                    src="/injection-molding/popups/education.webp" 
                     alt={t('professions.categories.education.title')} 
                     className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
                   />
@@ -602,7 +608,7 @@ const MouldPage = () => {
               <div className="group bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
                 <div className="relative h-64 overflow-hidden">
                   <img 
-                    src="/mould/popups/manufacturing.png" 
+                    src="/injection-molding/popups/manufacturing.png" 
                     alt={t('professions.categories.manufacturing.title')} 
                     className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
                   />
@@ -628,7 +634,7 @@ const MouldPage = () => {
               <div className="group bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
                 <div className="relative h-64 overflow-hidden">
                   <img 
-                    src="/mould/popups/jewelry.jpg" 
+                    src="/injection-molding/popups/jewelry.jpg" 
                     alt={t('professions.categories.jewelry.title')} 
                     className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
                   />
@@ -691,7 +697,7 @@ const MouldPage = () => {
                 <div className="relative z-30 w-[55%] ml-auto transform translate-y-2 transition-transform hover:-translate-y-1">
                   <div className="aspect-[5/6] relative overflow-hidden shadow-2xl rounded-xl bg-white hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] transition-all duration-300">
                     <img 
-                      src="/mould/imhero.webp" 
+                      src="/injection-molding/imhero.webp" 
                       alt="Professional Moulding Equipment" 
                       className="w-full h-full object-cover"
                     />
@@ -702,7 +708,7 @@ const MouldPage = () => {
                 <div className="absolute top-4 left-0 w-[50%] z-10 transition-transform hover:-translate-y-1">
                   <div className="aspect-[7/8] relative overflow-hidden shadow-xl rounded-xl bg-white hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] transition-all duration-300">
                     <img 
-                      src="/mould/imhero2.webp" 
+                      src="/injection-molding/imhero2.webp" 
                       alt="Moulding Solutions" 
                       className="w-full h-full object-cover"
                     />
@@ -732,7 +738,7 @@ const MouldPage = () => {
               {/* Benefit 1 */}
               <div className="flex flex-col items-center text-center">
                 <div className="mb-3 w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center">
-                  <img src="/mould/lower_costs.webp" alt={t('whyChoosePlasticMoulding.benefits.lowerCosts.title')} className="w-full h-full object-contain" />
+                  <img src="/injection-molding/lower_costs.webp" alt={t('whyChoosePlasticMoulding.benefits.lowerCosts.title')} className="w-full h-full object-contain" />
                 </div>
                 <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-2 font-['Magistral']">
                   {t('whyChoosePlasticMoulding.benefits.lowerCosts.title')}
@@ -745,7 +751,7 @@ const MouldPage = () => {
               {/* Benefit 2 */}
               <div className="flex flex-col items-center text-center">
                 <div className="mb-3 w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center">
-                  <img src="/mould/faster_time.webp" alt={t('whyChoosePlasticMoulding.benefits.fasterTime.title')} className="w-full h-full object-contain" />
+                  <img src="/injection-molding/faster_time.webp" alt={t('whyChoosePlasticMoulding.benefits.fasterTime.title')} className="w-full h-full object-contain" />
                 </div>
                 <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-2 font-['Magistral']">
                   {t('whyChoosePlasticMoulding.benefits.fasterTime.title')}
@@ -758,7 +764,7 @@ const MouldPage = () => {
               {/* Benefit 3 */}
               <div className="flex flex-col items-center text-center">
                 <div className="mb-3 w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center">
-                  <img src="/mould/clean_workflow.webp" alt={t('whyChoosePlasticMoulding.benefits.designFreedom.title')} className="w-full h-full object-contain" />
+                  <img src="/injection-molding/clean_workflow.webp" alt={t('whyChoosePlasticMoulding.benefits.designFreedom.title')} className="w-full h-full object-contain" />
                 </div>
                 <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-2 font-['Magistral']">
                   {t('whyChoosePlasticMoulding.benefits.designFreedom.title')}
@@ -779,7 +785,7 @@ const MouldPage = () => {
                   playsInline
                 >
                   <source 
-                    src="/mould/im21_multiplus_webheader-compressed.mp4" 
+                    src="/injection-molding/im21_multiplus_webheader-compressed.mp4" 
                     type="video/mp4" 
                   />
                   Your browser does not support the video tag.
@@ -807,7 +813,7 @@ const MouldPage = () => {
                 <div className="bg-white rounded-lg overflow-hidden shadow-md flex flex-col md:flex-row">
                   <div className="md:w-2/5 h-40 sm:h-48 md:h-auto overflow-hidden">
                     <img 
-                      src="/mould/Screenshot_7.jpg" 
+                      src="/injection-molding/Screenshot_7.jpg" 
                       alt={t('whyChoosePlasticMoulding.formlabsSolutions.caseStudy1.title')}
                       className="w-full h-full object-cover"
                     />
@@ -835,7 +841,7 @@ const MouldPage = () => {
                 <div className="bg-white rounded-lg overflow-hidden shadow-md flex flex-col md:flex-row">
                   <div className="md:w-2/5 h-40 sm:h-48 md:h-auto overflow-hidden">
                     <img 
-                      src="/mould/optimized_for_web_jpeg-07202023_rigid_10k_sample_card_2_189d-sh-standard-square.webp" 
+                      src="/injection-molding/optimized_for_web_jpeg-07202023_rigid_10k_sample_card_2_189d-sh-standard-square.webp" 
                       alt={t('whyChoosePlasticMoulding.formlabsSolutions.caseStudy2.title')}
                       className="w-full h-full object-cover"
                     />
@@ -939,7 +945,7 @@ const MouldPage = () => {
               <div className="w-full lg:w-1/2">
                 <div className="relative w-full">
                   <img
-                    src="/mould/spare1.webp"
+                    src="/injection-molding/spare1.webp"
                     alt="Spare Parts and Custom Components"
                     className="w-full aspect-[4/3] object-cover h-auto max-h-[650px] rounded-md shadow-lg"
                   />

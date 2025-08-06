@@ -223,11 +223,13 @@ const CoursesPage = () => {
 
   useEffect(() => {
     // Add error handling and debugging
-    console.log('Current language:', currentLang);
-    console.log('Display language:', displayLang);
-    console.log('Course details:', courseDetails);
-    console.log('FDM Courses:', courseDetails.fdmCourses);
-    console.log('FDM Course Labels for displayLang:', courseDetails.fdmCourses.labels ? courseDetails.fdmCourses.labels[displayLang] : 'No labels available');
+    if (process.env.NODE_ENV === 'development') {
+      console.log('Current language:', currentLang);
+      console.log('Display language:', displayLang);
+      console.log('Course details:', courseDetails);
+      console.log('FDM Courses:', courseDetails.fdmCourses);
+      console.log('FDM Course Labels for displayLang:', courseDetails.fdmCourses.labels ? courseDetails.fdmCourses.labels[displayLang] : 'No labels available');
+    }
     
     // Ensure course details are loaded
     if (!courseDetails || !courseDetails.fdmCourses) {
@@ -238,7 +240,9 @@ const CoursesPage = () => {
     // Check if labels exist for current language
     if (!courseDetails.fdmCourses.labels || !courseDetails.fdmCourses.labels[currentLang]) {
       console.error('Labels not found for language:', currentLang);
-      console.log('Available languages in labels:', courseDetails.fdmCourses.labels ? Object.keys(courseDetails.fdmCourses.labels) : 'No labels found');
+      if (process.env.NODE_ENV === 'development') {
+        console.log('Available languages in labels:', courseDetails.fdmCourses.labels ? Object.keys(courseDetails.fdmCourses.labels) : 'No labels found');
+      }
     }
   }, [currentLang, displayLang]);
 
@@ -254,7 +258,9 @@ const CoursesPage = () => {
     if (!fallbackLang) {
       return <div>{t("courses.ui.error")}</div>;
     }
-    console.log('Using fallback language:', fallbackLang);
+    if (process.env.NODE_ENV === 'development') {
+      console.log('Using fallback language:', fallbackLang);
+    }
   }
 
   const handleOpenModal = (courseId: string) => {

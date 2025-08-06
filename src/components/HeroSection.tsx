@@ -46,16 +46,14 @@ const HeroSection = () => {
           playsInline
           preload="metadata"
           poster="/fablab/1.jpg"
-          onLoadedData={() => {
-            setIsVideoLoading(false);
-            if (videoRef.current) {
-              videoRef.current.play().catch(error => {
-                console.error('Video playback error:', error);
-                setIsVideoLoading(false);
-              });
-            }
-          }}
+          onCanPlay={() => setIsVideoLoading(false)}
           onError={(e) => {
+            console.error('Video playback error:', e);
+            setIsVideoLoading(false);
+          }}
+          onLoadStart={() => setIsVideoLoading(true)}
+          onLoadedData={() => setIsVideoLoading(false)}
+          onAbort={(e) => {
             console.error('Video loading error:', e);
             setIsVideoLoading(false);
           }}

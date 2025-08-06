@@ -33,14 +33,13 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
   const currentLanguage = languages.find(lang => lang.code === currentLanguageCode) || languages[0];
 
   useEffect(() => {
-    // Log language information in development mode
     if (process.env.NODE_ENV === 'development') {
       console.log('Current i18n language:', i18n.language);
       console.log('Normalized language code:', currentLanguageCode);
       console.log('Navigator language:', navigator.language);
       console.log('Navigator languages:', navigator.languages);
     }
-  }, [i18n.language, currentLanguageCode]);
+  }, [currentLanguageCode]);
 
   const changeLanguage = async (langCode: string) => {
     if (langCode !== i18n.language && !isChanging) {
@@ -48,7 +47,9 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
       
       try {
         // Show loading state
-        console.log(`🔄 Switching language to: ${langCode}`);
+        if (process.env.NODE_ENV === 'development') {
+          console.log(`🔄 Switching language to: ${langCode}`);
+        }
         
         // Change the language
         await i18n.changeLanguage(langCode);
@@ -68,7 +69,9 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
           document.body.style.transition = '';
         }, 150);
 
-        console.log(`✅ Language switched to: ${langCode}`);
+        if (process.env.NODE_ENV === 'development') {
+          console.log(`✅ Language switched to: ${langCode}`);
+        }
         
         // Future enhancement: Update URL if URL-based routing is implemented
         // if (process.env.REACT_APP_ENABLE_URL_LANGUAGE_ROUTING === 'true') {

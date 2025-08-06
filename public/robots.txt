@@ -2,13 +2,14 @@
 User-agent: *
 Allow: /
 
-# Explicitly allow access to problematic pages
-Allow: /mould
+# Explicitly allow access to primary pages
+Allow: /injection-molding
 Allow: /digital-fabrication
 Allow: /digital-fabrication/precision-manufacturing
 Allow: /courses
 Allow: /3d-scanning
-Allow: /projects
+Allow: /3d-printing-tashkent
+Allow: /blog
 
 # Sitemap location
 Sitemap: https://fablab-cfyi.uz/sitemap.xml

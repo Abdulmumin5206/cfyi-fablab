@@ -1,120 +1,26 @@
-# Prevent directory listing
-Options -Indexes
-
-# Enable rewrite engine
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-    RewriteBase /
-    
-    # Allow Googlebot and other search engines access
-    RewriteCond %{HTTP_USER_AGENT} (Googlebot|bingbot|Yandexbot|DuckDuckBot|Slurp|Baiduspider) [NC]
-    RewriteRule .* - [E=ALLOW_BOT:1]
-    
-    # Redirect old URLs to new URLs
-    RewriteRule ^mould/?$ /injection-molding [R=301,L]
-    RewriteRule ^3d-printing/?$ /3d-printing-tashkent [R=301,L]
-    RewriteRule ^3d-printing-services/?$ /3d-printing-tashkent [R=301,L]
-    RewriteRule ^3d-scanning-services/?$ /3d-scanning [R=301,L]
-    
-    # If the request is not for a valid file or directory
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    
-    # Rewrite all requests to the index.html
-    RewriteRule ^ index.html [QSA,L]
-</IfModule>
-
-# Set correct MIME types
-<IfModule mod_mime.c>
-    AddType text/css .css
-    AddType application/javascript .js
-    AddType image/webp .webp
-    AddType image/svg+xml .svg
-    AddType application/json .json
-</IfModule>
-
-# Enable compression
-<IfModule mod_deflate.c>
-    AddOutputFilterByType DEFLATE text/plain
-    AddOutputFilterByType DEFLATE text/html
-    AddOutputFilterByType DEFLATE text/css
-    AddOutputFilterByType DEFLATE application/javascript
-    AddOutputFilterByType DEFLATE application/json
-    AddOutputFilterByType DEFLATE image/svg+xml
-</IfModule>
-
-# Set caching headers
-<IfModule mod_expires.c>
-    ExpiresActive On
-    
-    # Images
-    ExpiresByType image/jpeg "access plus 1 year"
-    ExpiresByType image/gif "access plus 1 year"
-    ExpiresByType image/png "access plus 1 year"
-    ExpiresByType image/webp "access plus 1 year"
-    ExpiresByType image/svg+xml "access plus 1 year"
-    ExpiresByType image/x-icon "access plus 1 year"
-    
-    # Video
-    ExpiresByType video/mp4 "access plus 1 year"
-    ExpiresByType video/mpeg "access plus 1 year"
-    
-    # CSS, JavaScript
-    ExpiresByType text/css "access plus 1 month"
-    ExpiresByType text/javascript "access plus 1 month"
-    ExpiresByType application/javascript "access plus 1 month"
-    
-    # Others
-    ExpiresByType application/pdf "access plus 1 month"
-    ExpiresByType application/x-shockwave-flash "access plus 1 month"
-</IfModule>
+Options -Indexes -MultiViews
+RewriteEngine On
+RewriteBase /
 
 # Force HTTPS
-<IfModule mod_rewrite.c>
-    RewriteCond %{HTTPS} off
-    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-</IfModule>
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-# Security headers
-<IfModule mod_headers.c>
-    Header set X-Content-Type-Options "nosniff"
-    Header set X-XSS-Protection "1; mode=block"
-    Header set X-Frame-Options "SAMEORIGIN"
-    Header set Referrer-Policy "strict-origin-when-cross-origin"
-    
-    # Allow search engines
-    <FilesMatch ".*">
-        SetEnvIf User-Agent "Googlebot|bingbot|Yandexbot|DuckDuckBot|Slurp|Baiduspider" search_bot
-        Header set Access-Control-Allow-Origin "*" env=search_bot
-        Header unset X-Frame-Options env=search_bot
-    </FilesMatch>
-    
-    # CORS Headers for all requests
-    Header set Access-Control-Allow-Origin "*"
-    
-    # Fix for 403 errors on specific pages
-    <FilesMatch "^(injection-molding|digital-fabrication|courses|3d-scanning|3d-printing-tashkent)">
-        Header set X-Robots-Tag "all"
-        Header unset X-Frame-Options
-        Header set Access-Control-Allow-Origin "*"
-    </FilesMatch>
-</IfModule>
+# SEO Redirects
+RewriteRule ^3d-printing/?$ /3d-printing-tashkent [R=301,L,QSA]
+RewriteRule ^3d-printing-services/?$ /3d-printing-tashkent [R=301,L,QSA]
+RewriteRule ^mould/?$ /injection-molding [R=301,L,QSA]
+RewriteRule ^3d-scanning-services/?$ /3d-scanning [R=301,L,QSA]
+RewriteRule ^projects/?$ /blog [R=301,L,QSA]
+RewriteRule ^projects/(.+)$ /blog/$1 [R=301,L,QSA]
 
-# Set default file permissions (helps with 403 errors)
-<IfModule mod_php.c>
-    php_value upload_max_filesize 64M
-    php_value post_max_size 64M
-    php_value max_execution_time 300
-    php_value max_input_time 300
-</IfModule>
+# Don't rewrite assets folder
+RewriteRule ^assets/ - [L]
+RewriteRule ^fonts/ - [L]
 
-# Fix for 403 errors - ensure files have correct permissions
-<FilesMatch "\.(html|htm|js|css|jpg|jpeg|png|gif|webp|svg|ico|mp4|webm|woff|woff2|ttf|eot)$">
-    <IfModule mod_authz_core.c>
-        Require all granted
-    </IfModule>
-    <IfModule !mod_authz_core.c>
-        Order allow,deny
-        Allow from all
-    </IfModule>
-</FilesMatch>
+# Don't rewrite if it's an actual file
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+# Force React to handle all other requests (even if a folder exists)
+RewriteRule ^ index.html [QSA,L]

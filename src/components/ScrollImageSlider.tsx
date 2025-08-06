@@ -232,7 +232,7 @@ const ScrollImageSlider = () => {
               alt={t(`slider.image${i}`)}
               className="w-full h-full object-cover object-center"
               loading={i === 0 ? "eager" : "lazy"}
-              fetchPriority={i === 0 ? "high" : "auto"}
+              fetchpriority={i === 0 ? "high" : "auto"}
               width={1920}
               height={1080}
               decoding="async"
